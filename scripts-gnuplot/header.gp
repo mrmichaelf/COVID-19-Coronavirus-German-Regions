@@ -27,10 +27,11 @@ set style line 4 linetype 7 dt 5 lw 2 linecolor rgb 'blue'
 # change factor
 set style line 21 linetype 7 dt 5 lw 2 linecolor rgb 'green' 
 # boxplot
-set style line 11 linetype 8 dt 1 lw 2 linecolor rgb "red"
+set style line 11 linetype 8 dt 1 lw 1 linecolor rgb "red"
 
 set grid xtics ytics
 set xtics mirror
 set ytics mirror 
 
-    
+
+set fit quiet

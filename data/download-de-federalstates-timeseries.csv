@@ -1,305 +1,385 @@
-federalstate,infections,deaths,date,newinfections,newdeaths
-Baden-Württemberg,50,0,2020-03-04,,
-Bavaria,48,0,2020-03-04,,
-Berlin,7,0,2020-03-04,,
-Brandenburg,1,0,2020-03-04,,
-Bremen,3,0,2020-03-04,,
-Hamburg,3,0,2020-03-04,,
-Hesse,12,0,2020-03-04,,
-Lower Saxony,7,0,2020-03-04,,
-Mecklenburg-Western Pomerania,4,0,2020-03-04,,
-North Rhine-Westphalia,115,0,2020-03-04,,
-Rhineland-Palatinate,7,0,2020-03-04,,
-Saarland,1,0,2020-03-04,,
-Saxony,1,0,2020-03-04,,
-Saxony-Anhalt,0,0,2020-03-04,,
-Schleswig-Holstein,2,0,2020-03-04,,
-Thuringia,1,0,2020-03-04,,
-Baden-Württemberg,73,0,2020-03-05,23,0
-Bavaria,70,0,2020-03-05,22,0
-Berlin,13,0,2020-03-05,6,0
-Brandenburg,1,0,2020-03-05,0,0
-Bremen,3,0,2020-03-05,0,0
-Hamburg,5,0,2020-03-05,2,0
-Hesse,14,0,2020-03-05,2,0
-Lower Saxony,18,0,2020-03-05,11,0
-Mecklenburg-Western Pomerania,4,0,2020-03-05,0,0
-North Rhine-Westphalia,181,0,2020-03-05,66,0
-Rhineland-Palatinate,8,0,2020-03-05,1,0
-Saarland,1,0,2020-03-05,0,0
-Saxony,1,0,2020-03-05,0,0
-Saxony-Anhalt,0,0,2020-03-05,0,0
-Schleswig-Holstein,7,0,2020-03-05,5,0
-Thuringia,1,0,2020-03-05,0,0
-Baden-Württemberg,96,0,2020-03-06,23,0
-Bavaria,117,0,2020-03-06,47,0
-Berlin,19,0,2020-03-06,6,0
-Brandenburg,2,0,2020-03-06,1,0
-Bremen,4,0,2020-03-06,1,0
-Hamburg,11,0,2020-03-06,6,0
-Hesse,16,0,2020-03-06,2,0
-Lower Saxony,18,0,2020-03-06,0,0
-Mecklenburg-Western Pomerania,5,0,2020-03-06,1,0
-North Rhine-Westphalia,329,0,2020-03-06,148,0
-Rhineland-Palatinate,10,0,2020-03-06,2,0
-Saarland,2,0,2020-03-06,1,0
-Saxony,2,0,2020-03-06,1,0
-Saxony-Anhalt,0,0,2020-03-06,0,0
-Schleswig-Holstein,7,0,2020-03-06,0,0
-Thuringia,1,0,2020-03-06,0,0
-Baden-Württemberg,170,0,2020-03-07,74,0
-Bavaria,134,0,2020-03-07,17,0
-Berlin,28,0,2020-03-07,9,0
-Brandenburg,2,0,2020-03-07,0,0
-Bremen,4,0,2020-03-07,0,0
-Hamburg,13,0,2020-03-07,2,0
-Hesse,17,0,2020-03-07,1,0
-Lower Saxony,19,0,2020-03-07,1,0
-Mecklenburg-Western Pomerania,5,0,2020-03-07,0,0
-North Rhine-Westphalia,373,0,2020-03-07,44,0
-Rhineland-Palatinate,13,0,2020-03-07,3,0
-Saarland,3,0,2020-03-07,1,0
-Saxony,4,0,2020-03-07,2,0
-Saxony-Anhalt,0,0,2020-03-07,0,0
-Schleswig-Holstein,8,0,2020-03-07,1,0
-Thuringia,2,0,2020-03-07,1,0
-Baden-Württemberg,182,0,2020-03-08,12,0
-Bavaria,172,0,2020-03-08,38,0
-Berlin,40,0,2020-03-08,12,0
-Brandenburg,4,0,2020-03-08,2,0
-Bremen,4,0,2020-03-08,0,0
-Hamburg,13,0,2020-03-08,0,0
-Hesse,19,0,2020-03-08,2,0
-Lower Saxony,21,0,2020-03-08,2,0
-Mecklenburg-Western Pomerania,8,0,2020-03-08,3,0
-North Rhine-Westphalia,398,0,2020-03-08,25,0
-Rhineland-Palatinate,19,0,2020-03-08,6,0
-Saarland,9,0,2020-03-08,6,0
-Saxony,4,0,2020-03-08,0,0
-Saxony-Anhalt,0,0,2020-03-08,0,0
-Schleswig-Holstein,7,0,2020-03-08,-1,0
-Thuringia,2,0,2020-03-08,0,0
-Baden-Württemberg,204,0,2020-03-09,22,0
-Bavaria,256,0,2020-03-09,84,0
-Berlin,48,0,2020-03-09,8,0
-Brandenburg,6,0,2020-03-09,2,0
-Bremen,4,0,2020-03-09,0,0
-Hamburg,17,0,2020-03-09,4,0
-Hesse,26,0,2020-03-09,7,0
-Lower Saxony,38,0,2020-03-09,17,0
-Mecklenburg-Western Pomerania,10,0,2020-03-09,2,0
-North Rhine-Westphalia,484,0,2020-03-09,86,0
-Rhineland-Palatinate,17,0,2020-03-09,-2,0
-Saarland,6,0,2020-03-09,-3,0
-Saxony,12,0,2020-03-09,8,0
-Saxony-Anhalt,0,0,2020-03-09,0,0
-Schleswig-Holstein,9,0,2020-03-09,2,0
-Thuringia,2,0,2020-03-09,0,0
-Baden-Württemberg,237,0,2020-03-10,33,0
-Bavaria,314,0,2020-03-10,58,0
-Berlin,48,0,2020-03-10,0,0
-Brandenburg,9,0,2020-03-10,3,0
-Bremen,4,0,2020-03-10,0,0
-Hamburg,29,0,2020-03-10,12,0
-Hesse,35,0,2020-03-10,9,0
-Lower Saxony,49,0,2020-03-10,11,0
-Mecklenburg-Western Pomerania,13,0,2020-03-10,3,0
-North Rhine-Westphalia,484,0,2020-03-10,0,0
-Rhineland-Palatinate,25,0,2020-03-10,8,0
-Saarland,7,0,2020-03-10,1,0
-Saxony,22,0,2020-03-10,10,0
-Saxony-Anhalt,7,0,2020-03-10,7,0
-Schleswig-Holstein,9,0,2020-03-10,0,0
-Thuringia,4,0,2020-03-10,2,0
-Baden-Württemberg,277,0,2020-03-11,40,0
-Bavaria,366,0,2020-03-11,52,0
-Berlin,90,0,2020-03-11,42,0
-Brandenburg,24,0,2020-03-11,15,0
-Bremen,21,0,2020-03-11,17,0
-Hamburg,48,0,2020-03-11,19,0
-Hesse,48,0,2020-03-11,13,0
-Lower Saxony,75,0,2020-03-11,26,0
-Mecklenburg-Western Pomerania,17,0,2020-03-11,4,0
-North Rhine-Westphalia,484,0,2020-03-11,0,0
-Rhineland-Palatinate,25,0,2020-03-11,0,0
-Saarland,14,0,2020-03-11,7,0
-Saxony,26,0,2020-03-11,4,0
-Saxony-Anhalt,15,0,2020-03-11,8,0
-Schleswig-Holstein,27,0,2020-03-11,18,0
-Thuringia,10,0,2020-03-11,6,0
-Baden-Württemberg,454,0,2020-03-12,177,0
-Bavaria,500,0,2020-03-12,134,0
-Berlin,137,0,2020-03-12,47,0
-Brandenburg,30,0,2020-03-12,6,0
-Bremen,38,0,2020-03-12,17,0
-Hamburg,88,0,2020-03-12,40,0
-Hesse,99,0,2020-03-12,51,0
-Lower Saxony,129,0,2020-03-12,54,0
-Mecklenburg-Western Pomerania,23,0,2020-03-12,6,0
-North Rhine-Westphalia,688,0,2020-03-12,204,0
-Rhineland-Palatinate,52,0,2020-03-12,27,0
-Saarland,14,0,2020-03-12,0,0
-Saxony,45,0,2020-03-12,19,0
-Saxony-Anhalt,27,0,2020-03-12,12,0
-Schleswig-Holstein,31,0,2020-03-12,4,0
-Thuringia,14,0,2020-03-12,4,0
-Baden-Württemberg,454,0,2020-03-13,0,0
-Bavaria,558,0,2020-03-13,58,0
-Berlin,174,0,2020-03-13,37,0
-Brandenburg,44,0,2020-03-13,14,0
-Bremen,42,0,2020-03-13,4,0
-Hamburg,99,0,2020-03-13,11,0
-Hesse,148,0,2020-03-13,49,0
-Lower Saxony,230,0,2020-03-13,101,0
-Mecklenburg-Western Pomerania,33,0,2020-03-13,10,0
-North Rhine-Westphalia,936,0,2020-03-13,248,0
-Rhineland-Palatinate,102,0,2020-03-13,50,0
-Saarland,40,0,2020-03-13,26,0
-Saxony,83,0,2020-03-13,38,0
-Saxony-Anhalt,42,0,2020-03-13,15,0
-Schleswig-Holstein,48,0,2020-03-13,17,0
-Thuringia,29,0,2020-03-13,15,0
-Baden-Württemberg,569,0,2020-03-14,115,0
-Bavaria,681,0,2020-03-14,123,0
-Berlin,216,0,2020-03-14,42,0
-Brandenburg,61,0,2020-03-14,17,0
-Bremen,50,0,2020-03-14,8,0
-Hamburg,158,0,2020-03-14,59,0
-Hesse,203,0,2020-03-14,55,0
-Lower Saxony,253,0,2020-03-14,23,0
-Mecklenburg-Western Pomerania,45,0,2020-03-14,12,0
-North Rhine-Westphalia,1154,0,2020-03-14,218,0
-Rhineland-Palatinate,121,0,2020-03-14,19,0
-Saarland,40,0,2020-03-14,0,0
-Saxony,93,0,2020-03-14,10,0
-Saxony-Anhalt,45,0,2020-03-14,3,0
-Schleswig-Holstein,60,0,2020-03-14,12,0
-Thuringia,46,0,2020-03-14,17,0
-Baden-Württemberg,827,0,2020-03-15,258,0
-Bavaria,886,0,2020-03-15,205,0
-Berlin,265,0,2020-03-15,49,0
-Brandenburg,84,0,2020-03-15,23,0
-Bremen,53,0,2020-03-15,3,0
-Hamburg,162,0,2020-03-15,4,0
-Hesse,286,0,2020-03-15,83,0
-Lower Saxony,287,0,2020-03-15,34,0
-Mecklenburg-Western Pomerania,50,0,2020-03-15,5,0
-North Rhine-Westphalia,1407,0,2020-03-15,253,0
-Rhineland-Palatinate,168,0,2020-03-15,47,0
-Saarland,32,0,2020-03-15,-8,0
-Saxony,130,0,2020-03-15,37,0
-Saxony-Anhalt,47,0,2020-03-15,2,0
-Schleswig-Holstein,103,0,2020-03-15,43,0
-Thuringia,51,0,2020-03-15,5,0
-Baden-Württemberg,1105,0,2020-03-16,278,0
-Bavaria,1067,0,2020-03-16,181,0
-Berlin,300,0,2020-03-16,35,0
-Brandenburg,94,0,2020-03-16,10,0
-Bremen,56,0,2020-03-16,3,0
-Hamburg,260,0,2020-03-16,98,0
-Hesse,342,0,2020-03-16,56,0
-Lower Saxony,391,0,2020-03-16,104,0
-Mecklenburg-Western Pomerania,51,0,2020-03-16,1,0
-North Rhine-Westphalia,1541,0,2020-03-16,134,0
-Rhineland-Palatinate,325,0,2020-03-16,157,0
-Saarland,85,0,2020-03-16,53,0
-Saxony,140,0,2020-03-16,10,0
-Saxony-Anhalt,77,0,2020-03-16,30,0
-Schleswig-Holstein,123,0,2020-03-16,20,0
-Thuringia,55,0,2020-03-16,4,0
-Baden-Württemberg,1479,2,2020-03-17,374,2
-Bavaria,1109,4,2020-03-17,42,4
-Berlin,345,0,2020-03-17,45,0
-Brandenburg,73,0,2020-03-17,-21,0
-Bremen,57,0,2020-03-17,1,0
-Hamburg,310,0,2020-03-17,50,0
-Hesse,373,0,2020-03-17,31,0
-Lower Saxony,325,0,2020-03-17,-66,0
-Mecklenburg-Western Pomerania,45,0,2020-03-17,-6,0
-North Rhine-Westphalia,2105,6,2020-03-17,564,6
-Rhineland-Palatinate,442,0,2020-03-17,117,0
-Saarland,75,0,2020-03-17,-10,0
-Saxony,182,0,2020-03-17,42,0
-Saxony-Anhalt,58,0,2020-03-17,-19,0
-Schleswig-Holstein,127,0,2020-03-17,4,0
-Thuringia,51,0,2020-03-17,-4,0
-Baden-Württemberg,1609,2,2020-03-18,130,0
-Bavaria,1243,4,2020-03-18,134,0
-Berlin,391,0,2020-03-18,46,0
-Brandenburg,92,0,2020-03-18,19,0
-Bremen,69,0,2020-03-18,12,0
-Hamburg,358,0,2020-03-18,48,0
-Hesse,432,0,2020-03-18,59,0
-Lower Saxony,478,0,2020-03-18,153,0
-Mecklenburg-Western Pomerania,56,0,2020-03-18,11,0
-North Rhine-Westphalia,2372,6,2020-03-18,267,0
-Rhineland-Palatinate,474,0,2020-03-18,32,0
-Saarland,88,0,2020-03-18,13,0
-Saxony,198,0,2020-03-18,16,0
-Saxony-Anhalt,105,0,2020-03-18,47,0
-Schleswig-Holstein,159,0,2020-03-18,32,0
-Thuringia,74,0,2020-03-18,23,0
-Baden-Württemberg,2155,6,2020-03-19,546,4
-Bavaria,1692,8,2020-03-19,449,4
-Berlin,573,0,2020-03-19,182,0
-Brandenburg,134,0,2020-03-19,42,0
-Bremen,80,0,2020-03-19,11,0
-Hamburg,432,0,2020-03-19,74,0
-Hesse,682,0,2020-03-19,250,0
-Lower Saxony,669,0,2020-03-19,191,0
-Mecklenburg-Western Pomerania,98,0,2020-03-19,42,0
-North Rhine-Westphalia,3033,6,2020-03-19,661,0
-Rhineland-Palatinate,637,0,2020-03-19,163,0
-Saarland,99,0,2020-03-19,11,0
-Saxony,275,0,2020-03-19,77,0
-Saxony-Anhalt,140,0,2020-03-19,35,0
-Schleswig-Holstein,202,0,2020-03-19,43,0
-Thuringia,98,0,2020-03-19,24,0
-Baden-Württemberg,2746,10,2020-03-20,591,4
-Bavaria,2401,12,2020-03-20,709,4
-Berlin,731,0,2020-03-20,158,0
-Brandenburg,192,0,2020-03-20,58,0
-Bremen,121,0,2020-03-20,41,0
-Hamburg,586,0,2020-03-20,154,0
-Hesse,813,1,2020-03-20,131,1
-Lower Saxony,803,0,2020-03-20,134,0
-Mecklenburg-Western Pomerania,131,0,2020-03-20,33,0
-North Rhine-Westphalia,3497,6,2020-03-20,464,0
-Rhineland-Palatinate,801,1,2020-03-20,164,1
-Saarland,146,0,2020-03-20,47,0
-Saxony,394,0,2020-03-20,119,0
-Saxony-Anhalt,180,0,2020-03-20,40,0
-Schleswig-Holstein,266,1,2020-03-20,64,1
-Thuringia,149,0,2020-03-20,51,0
-Schleswig-Holstein,347,1,2020-03-22,39,0
-Hamburg,872,0,2020-03-22,285,0
-Lower Saxony,1306,1,2020-03-22,283,1
-Bremen,165,0,2020-03-22,23,0
-North Rhine-Westphalia,3545,6,2020-03-22,3,0
-Hesse,1175,2,2020-03-22,95,0
-Rhineland-Palatinate,1053,2,2020-03-22,115,1
-Baden-Württemberg,3807,21,2020-03-22,139,5
-Bavaria,3650,21,2020-03-22,690,2
-Saarland,187,0,2020-03-22,0,0
-Berlin,1024,1,2020-03-22,158,0
-Brandenburg,274,0,2020-03-22,20,0
-Mecklenburg-Western Pomerania,172,0,2020-03-22,7,0
-Saxony,606,0,2020-03-22,39,0
-Saxony-Anhalt,211,0,2020-03-22,23,-1
-Thuringia,216,0,2020-03-22,29,0
-Baden-Württemberg,3668,16,2020-03-21,922,6
-Bavaria,2960,19,2020-03-21,559,7
-Berlin,866,1,2020-03-21,135,1
-Brandenburg,254,0,2020-03-21,62,0
-Bremen,142,0,2020-03-21,21,0
-Hamburg,587,0,2020-03-21,1,0
-Hesse,1080,2,2020-03-21,267,1
-Lower Saxony,1023,0,2020-03-21,220,0
-Mecklenburg-Western Pomerania,165,0,2020-03-21,34,0
-North Rhine-Westphalia,3542,6,2020-03-21,45,0
-Rhineland-Palatinate,938,1,2020-03-21,137,0
-Saarland,187,0,2020-03-21,41,0
-Saxony,567,0,2020-03-21,173,0
-Saxony-Anhalt,188,1,2020-03-21,8,1
-Schleswig-Holstein,308,1,2020-03-21,42,0
-Thuringia,187,0,2020-03-21,38,0
+id,federalstate,infections,deaths,date,newinfections,newdeaths
+1,Baden-Württemberg,10,0,2020-02-28,10,0
+2,Bavaria,15,0,2020-02-28,15,0
+3,Berlin,0,0,2020-02-28,0,0
+4,Brandenburg,0,0,2020-02-28,0,0
+5,Bremen,0,0,2020-02-28,0,0
+6,Hamburg,0,0,2020-02-28,0,0
+7,Hesse,0,0,2020-02-28,0,0
+8,Lower Saxony,0,0,2020-02-28,0,0
+9,Mecklenburg-Western Pomerania,0,0,2020-02-28,0,0
+10,North Rhine-Westphalia,25,0,2020-02-28,25,0
+11,Rhineland-Palatinate,2,0,2020-02-28,2,0
+12,Saarland,0,0,2020-02-28,0,0
+13,Saxony,0,0,2020-02-28,0,0
+14,Saxony-Anhalt,0,0,2020-02-28,0,0
+15,Schleswig-Holstein,1,0,2020-02-28,1,0
+16,Thuringia,0,0,2020-02-28,0,0
+17,Baden-Württemberg,14,0,2020-02-29,4,0
+18,Bavaria,15,0,2020-02-29,0,0
+19,Berlin,0,0,2020-02-29,0,0
+20,Brandenburg,0,0,2020-02-29,0,0
+21,Bremen,0,0,2020-02-29,0,0
+22,Hamburg,0,0,2020-02-29,0,0
+23,Hesse,3,0,2020-02-29,3,0
+24,Lower Saxony,0,0,2020-02-29,0,0
+25,Mecklenburg-Western Pomerania,0,0,2020-02-29,0,0
+26,North Rhine-Westphalia,30,0,2020-02-29,5,0
+27,Rhineland-Palatinate,1,0,2020-02-29,-1,0
+28,Saarland,0,0,2020-02-29,0,0
+29,Saxony,0,0,2020-02-29,0,0
+30,Saxony-Anhalt,0,0,2020-02-29,0,0
+31,Schleswig-Holstein,1,0,2020-02-29,0,0
+32,Thuringia,0,0,2020-02-29,0,0
+33,Baden-Württemberg,15,0,2020-03-01,1,0
+34,Bavaria,23,0,2020-03-01,8,0
+35,Berlin,0,0,2020-03-01,0,0
+36,Brandenburg,0,0,2020-03-01,0,0
+37,Bremen,1,0,2020-03-01,1,0
+38,Hamburg,1,0,2020-03-01,1,0
+39,Hesse,8,0,2020-03-01,5,0
+40,Lower Saxony,1,0,2020-03-01,1,0
+41,Mecklenburg-Western Pomerania,0,0,2020-03-01,0,0
+42,North Rhine-Westphalia,74,0,2020-03-01,44,0
+43,Rhineland-Palatinate,2,0,2020-03-01,1,0
+44,Saarland,0,0,2020-03-01,0,0
+45,Saxony,0,0,2020-03-01,0,0
+46,Saxony-Anhalt,0,0,2020-03-01,0,0
+47,Schleswig-Holstein,2,0,2020-03-01,1,0
+48,Thuringia,0,0,2020-03-01,0,0
+49,Baden-Württemberg,20,0,2020-03-02,5,0
+50,Bavaria,26,0,2020-03-02,3,0
+51,Berlin,1,0,2020-03-02,1,0
+52,Brandenburg,0,0,2020-03-02,0,0
+53,Bremen,1,0,2020-03-02,0,0
+54,Hamburg,2,0,2020-03-02,1,0
+55,Hesse,10,0,2020-03-02,2,0
+56,Lower Saxony,1,0,2020-03-02,0,0
+57,Mecklenburg-Western Pomerania,0,0,2020-03-02,0,0
+58,North Rhine-Westphalia,90,0,2020-03-02,16,0
+59,Rhineland-Palatinate,2,0,2020-03-02,0,0
+60,Saarland,0,0,2020-03-02,0,0
+61,Saxony,0,0,2020-03-02,0,0
+62,Saxony-Anhalt,0,0,2020-03-02,0,0
+63,Schleswig-Holstein,2,0,2020-03-02,0,0
+64,Thuringia,0,0,2020-03-02,0,0
+65,Baden-Württemberg,28,0,2020-03-03,8,0
+66,Bavaria,37,0,2020-03-03,11,0
+67,Berlin,3,0,2020-03-03,2,0
+68,Brandenburg,1,0,2020-03-03,1,0
+69,Bremen,2,0,2020-03-03,1,0
+70,Hamburg,2,0,2020-03-03,0,0
+71,Hesse,12,0,2020-03-03,2,0
+72,Lower Saxony,2,0,2020-03-03,1,0
+73,Mecklenburg-Western Pomerania,0,0,2020-03-03,0,0
+74,North Rhine-Westphalia,103,0,2020-03-03,13,0
+75,Rhineland-Palatinate,2,0,2020-03-03,0,0
+76,Saarland,0,0,2020-03-03,0,0
+77,Saxony,1,0,2020-03-03,1,0
+78,Saxony-Anhalt,0,0,2020-03-03,0,0
+79,Schleswig-Holstein,2,0,2020-03-03,0,0
+80,Thuringia,1,0,2020-03-03,1,0
+81,Baden-Württemberg,50,0,2020-03-04,22,0
+82,Bavaria,48,0,2020-03-04,11,0
+83,Berlin,7,0,2020-03-04,4,0
+84,Brandenburg,1,0,2020-03-04,0,0
+85,Bremen,3,0,2020-03-04,1,0
+86,Hamburg,3,0,2020-03-04,1,0
+87,Hesse,12,0,2020-03-04,0,0
+88,Lower Saxony,7,0,2020-03-04,5,0
+89,Mecklenburg-Western Pomerania,4,0,2020-03-04,4,0
+90,North Rhine-Westphalia,115,0,2020-03-04,12,0
+91,Rhineland-Palatinate,7,0,2020-03-04,5,0
+92,Saarland,1,0,2020-03-04,1,0
+93,Saxony,1,0,2020-03-04,0,0
+94,Saxony-Anhalt,0,0,2020-03-04,0,0
+95,Schleswig-Holstein,2,0,2020-03-04,0,0
+96,Thuringia,1,0,2020-03-04,0,0
+97,Baden-Württemberg,73,0,2020-03-05,23,0
+98,Bavaria,70,0,2020-03-05,22,0
+99,Berlin,13,0,2020-03-05,6,0
+100,Brandenburg,1,0,2020-03-05,0,0
+101,Bremen,3,0,2020-03-05,0,0
+102,Hamburg,5,0,2020-03-05,2,0
+103,Hesse,14,0,2020-03-05,2,0
+104,Lower Saxony,18,0,2020-03-05,11,0
+105,Mecklenburg-Western Pomerania,4,0,2020-03-05,0,0
+106,North Rhine-Westphalia,181,0,2020-03-05,66,0
+107,Rhineland-Palatinate,8,0,2020-03-05,1,0
+108,Saarland,1,0,2020-03-05,0,0
+109,Saxony,1,0,2020-03-05,0,0
+110,Saxony-Anhalt,0,0,2020-03-05,0,0
+111,Schleswig-Holstein,7,0,2020-03-05,5,0
+112,Thuringia,1,0,2020-03-05,0,0
+113,Baden-Württemberg,96,0,2020-03-06,23,0
+114,Bavaria,117,0,2020-03-06,47,0
+115,Berlin,19,0,2020-03-06,6,0
+116,Brandenburg,2,0,2020-03-06,1,0
+117,Bremen,4,0,2020-03-06,1,0
+118,Hamburg,11,0,2020-03-06,6,0
+119,Hesse,16,0,2020-03-06,2,0
+120,Lower Saxony,18,0,2020-03-06,0,0
+121,Mecklenburg-Western Pomerania,5,0,2020-03-06,1,0
+122,North Rhine-Westphalia,329,0,2020-03-06,148,0
+123,Rhineland-Palatinate,10,0,2020-03-06,2,0
+124,Saarland,2,0,2020-03-06,1,0
+125,Saxony,2,0,2020-03-06,1,0
+126,Saxony-Anhalt,0,0,2020-03-06,0,0
+127,Schleswig-Holstein,7,0,2020-03-06,0,0
+128,Thuringia,1,0,2020-03-06,0,0
+129,Baden-Württemberg,170,0,2020-03-07,74,0
+130,Bavaria,134,0,2020-03-07,17,0
+131,Berlin,28,0,2020-03-07,9,0
+132,Brandenburg,2,0,2020-03-07,0,0
+133,Bremen,4,0,2020-03-07,0,0
+134,Hamburg,13,0,2020-03-07,2,0
+135,Hesse,17,0,2020-03-07,1,0
+136,Lower Saxony,19,0,2020-03-07,1,0
+137,Mecklenburg-Western Pomerania,5,0,2020-03-07,0,0
+138,North Rhine-Westphalia,373,0,2020-03-07,44,0
+139,Rhineland-Palatinate,13,0,2020-03-07,3,0
+140,Saarland,3,0,2020-03-07,1,0
+141,Saxony,4,0,2020-03-07,2,0
+142,Saxony-Anhalt,0,0,2020-03-07,0,0
+143,Schleswig-Holstein,8,0,2020-03-07,1,0
+144,Thuringia,2,0,2020-03-07,1,0
+145,Baden-Württemberg,182,0,2020-03-08,12,0
+146,Bavaria,172,0,2020-03-08,38,0
+147,Berlin,40,0,2020-03-08,12,0
+148,Brandenburg,4,0,2020-03-08,2,0
+149,Bremen,4,0,2020-03-08,0,0
+150,Hamburg,13,0,2020-03-08,0,0
+151,Hesse,19,0,2020-03-08,2,0
+152,Lower Saxony,21,0,2020-03-08,2,0
+153,Mecklenburg-Western Pomerania,8,0,2020-03-08,3,0
+154,North Rhine-Westphalia,398,0,2020-03-08,25,0
+155,Rhineland-Palatinate,19,0,2020-03-08,6,0
+156,Saarland,9,0,2020-03-08,6,0
+157,Saxony,4,0,2020-03-08,0,0
+158,Saxony-Anhalt,0,0,2020-03-08,0,0
+159,Schleswig-Holstein,7,0,2020-03-08,-1,0
+160,Thuringia,2,0,2020-03-08,0,0
+161,Baden-Württemberg,204,0,2020-03-09,22,0
+162,Bavaria,256,0,2020-03-09,84,0
+163,Berlin,48,0,2020-03-09,8,0
+164,Brandenburg,6,0,2020-03-09,2,0
+165,Bremen,4,0,2020-03-09,0,0
+166,Hamburg,17,0,2020-03-09,4,0
+167,Hesse,26,0,2020-03-09,7,0
+168,Lower Saxony,38,0,2020-03-09,17,0
+169,Mecklenburg-Western Pomerania,10,0,2020-03-09,2,0
+170,North Rhine-Westphalia,484,0,2020-03-09,86,0
+171,Rhineland-Palatinate,17,0,2020-03-09,-2,0
+172,Saarland,6,0,2020-03-09,-3,0
+173,Saxony,12,0,2020-03-09,8,0
+174,Saxony-Anhalt,0,0,2020-03-09,0,0
+175,Schleswig-Holstein,9,0,2020-03-09,2,0
+176,Thuringia,2,0,2020-03-09,0,0
+177,Baden-Württemberg,237,0,2020-03-10,33,0
+178,Bavaria,314,0,2020-03-10,58,0
+179,Berlin,48,0,2020-03-10,0,0
+180,Brandenburg,9,0,2020-03-10,3,0
+181,Bremen,4,0,2020-03-10,0,0
+182,Hamburg,29,0,2020-03-10,12,0
+183,Hesse,35,0,2020-03-10,9,0
+184,Lower Saxony,49,0,2020-03-10,11,0
+185,Mecklenburg-Western Pomerania,13,0,2020-03-10,3,0
+186,North Rhine-Westphalia,484,0,2020-03-10,0,0
+187,Rhineland-Palatinate,25,0,2020-03-10,8,0
+188,Saarland,7,0,2020-03-10,1,0
+189,Saxony,22,0,2020-03-10,10,0
+190,Saxony-Anhalt,7,0,2020-03-10,7,0
+191,Schleswig-Holstein,9,0,2020-03-10,0,0
+192,Thuringia,4,0,2020-03-10,2,0
+193,Baden-Württemberg,277,0,2020-03-11,40,0
+194,Bavaria,366,0,2020-03-11,52,0
+195,Berlin,90,0,2020-03-11,42,0
+196,Brandenburg,24,0,2020-03-11,15,0
+197,Bremen,21,0,2020-03-11,17,0
+198,Hamburg,48,0,2020-03-11,19,0
+199,Hesse,48,0,2020-03-11,13,0
+200,Lower Saxony,75,0,2020-03-11,26,0
+201,Mecklenburg-Western Pomerania,17,0,2020-03-11,4,0
+202,North Rhine-Westphalia,484,0,2020-03-11,0,0
+203,Rhineland-Palatinate,25,0,2020-03-11,0,0
+204,Saarland,14,0,2020-03-11,7,0
+205,Saxony,26,0,2020-03-11,4,0
+206,Saxony-Anhalt,15,0,2020-03-11,8,0
+207,Schleswig-Holstein,27,0,2020-03-11,18,0
+208,Thuringia,10,0,2020-03-11,6,0
+209,Baden-Württemberg,454,0,2020-03-12,177,0
+210,Bavaria,500,0,2020-03-12,134,0
+211,Berlin,137,0,2020-03-12,47,0
+212,Brandenburg,30,0,2020-03-12,6,0
+213,Bremen,38,0,2020-03-12,17,0
+214,Hamburg,88,0,2020-03-12,40,0
+215,Hesse,99,0,2020-03-12,51,0
+216,Lower Saxony,129,0,2020-03-12,54,0
+217,Mecklenburg-Western Pomerania,23,0,2020-03-12,6,0
+218,North Rhine-Westphalia,688,0,2020-03-12,204,0
+219,Rhineland-Palatinate,52,0,2020-03-12,27,0
+220,Saarland,14,0,2020-03-12,0,0
+221,Saxony,45,0,2020-03-12,19,0
+222,Saxony-Anhalt,27,0,2020-03-12,12,0
+223,Schleswig-Holstein,31,0,2020-03-12,4,0
+224,Thuringia,14,0,2020-03-12,4,0
+225,Baden-Württemberg,454,0,2020-03-13,0,0
+226,Bavaria,558,0,2020-03-13,58,0
+227,Berlin,174,0,2020-03-13,37,0
+228,Brandenburg,44,0,2020-03-13,14,0
+229,Bremen,42,0,2020-03-13,4,0
+230,Hamburg,99,0,2020-03-13,11,0
+231,Hesse,148,0,2020-03-13,49,0
+232,Lower Saxony,230,0,2020-03-13,101,0
+233,Mecklenburg-Western Pomerania,33,0,2020-03-13,10,0
+234,North Rhine-Westphalia,936,0,2020-03-13,248,0
+235,Rhineland-Palatinate,102,0,2020-03-13,50,0
+236,Saarland,40,0,2020-03-13,26,0
+237,Saxony,83,0,2020-03-13,38,0
+238,Saxony-Anhalt,42,0,2020-03-13,15,0
+239,Schleswig-Holstein,48,0,2020-03-13,17,0
+240,Thuringia,29,0,2020-03-13,15,0
+241,Baden-Württemberg,569,0,2020-03-14,115,0
+242,Bavaria,681,0,2020-03-14,123,0
+243,Berlin,216,0,2020-03-14,42,0
+244,Brandenburg,61,0,2020-03-14,17,0
+245,Bremen,50,0,2020-03-14,8,0
+246,Hamburg,158,0,2020-03-14,59,0
+247,Hesse,203,0,2020-03-14,55,0
+248,Lower Saxony,253,0,2020-03-14,23,0
+249,Mecklenburg-Western Pomerania,45,0,2020-03-14,12,0
+250,North Rhine-Westphalia,1154,0,2020-03-14,218,0
+251,Rhineland-Palatinate,121,0,2020-03-14,19,0
+252,Saarland,40,0,2020-03-14,0,0
+253,Saxony,93,0,2020-03-14,10,0
+254,Saxony-Anhalt,45,0,2020-03-14,3,0
+255,Schleswig-Holstein,60,0,2020-03-14,12,0
+256,Thuringia,46,0,2020-03-14,17,0
+257,Baden-Württemberg,827,0,2020-03-15,258,0
+258,Bavaria,886,0,2020-03-15,205,0
+259,Berlin,265,0,2020-03-15,49,0
+260,Brandenburg,84,0,2020-03-15,23,0
+261,Bremen,53,0,2020-03-15,3,0
+262,Hamburg,162,0,2020-03-15,4,0
+263,Hesse,286,0,2020-03-15,83,0
+264,Lower Saxony,287,0,2020-03-15,34,0
+265,Mecklenburg-Western Pomerania,50,0,2020-03-15,5,0
+266,North Rhine-Westphalia,1407,0,2020-03-15,253,0
+267,Rhineland-Palatinate,168,0,2020-03-15,47,0
+268,Saarland,32,0,2020-03-15,-8,0
+269,Saxony,130,0,2020-03-15,37,0
+270,Saxony-Anhalt,47,0,2020-03-15,2,0
+271,Schleswig-Holstein,103,0,2020-03-15,43,0
+272,Thuringia,51,0,2020-03-15,5,0
+273,Baden-Württemberg,1105,0,2020-03-16,278,0
+274,Bavaria,1067,0,2020-03-16,181,0
+275,Berlin,300,0,2020-03-16,35,0
+276,Brandenburg,94,0,2020-03-16,10,0
+277,Bremen,56,0,2020-03-16,3,0
+278,Hamburg,260,0,2020-03-16,98,0
+279,Hesse,342,0,2020-03-16,56,0
+280,Lower Saxony,391,0,2020-03-16,104,0
+281,Mecklenburg-Western Pomerania,51,0,2020-03-16,1,0
+282,North Rhine-Westphalia,1541,0,2020-03-16,134,0
+283,Rhineland-Palatinate,325,0,2020-03-16,157,0
+284,Saarland,85,0,2020-03-16,53,0
+285,Saxony,140,0,2020-03-16,10,0
+286,Saxony-Anhalt,77,0,2020-03-16,30,0
+287,Schleswig-Holstein,123,0,2020-03-16,20,0
+288,Thuringia,55,0,2020-03-16,4,0
+289,Baden-Württemberg,1479,2,2020-03-17,374,2
+290,Bavaria,1109,4,2020-03-17,42,4
+291,Berlin,345,0,2020-03-17,45,0
+292,Brandenburg,73,0,2020-03-17,-21,0
+293,Bremen,57,0,2020-03-17,1,0
+294,Hamburg,310,0,2020-03-17,50,0
+295,Hesse,373,0,2020-03-17,31,0
+296,Lower Saxony,325,0,2020-03-17,-66,0
+297,Mecklenburg-Western Pomerania,45,0,2020-03-17,-6,0
+298,North Rhine-Westphalia,2105,6,2020-03-17,564,6
+299,Rhineland-Palatinate,442,0,2020-03-17,117,0
+300,Saarland,75,0,2020-03-17,-10,0
+301,Saxony,182,0,2020-03-17,42,0
+302,Saxony-Anhalt,58,0,2020-03-17,-19,0
+303,Schleswig-Holstein,127,0,2020-03-17,4,0
+304,Thuringia,51,0,2020-03-17,-4,0
+305,Baden-Württemberg,1609,2,2020-03-18,130,0
+306,Bavaria,1243,4,2020-03-18,134,0
+307,Berlin,391,0,2020-03-18,46,0
+308,Brandenburg,92,0,2020-03-18,19,0
+309,Bremen,69,0,2020-03-18,12,0
+310,Hamburg,358,0,2020-03-18,48,0
+311,Hesse,432,0,2020-03-18,59,0
+312,Lower Saxony,478,0,2020-03-18,153,0
+313,Mecklenburg-Western Pomerania,56,0,2020-03-18,11,0
+314,North Rhine-Westphalia,2372,6,2020-03-18,267,0
+315,Rhineland-Palatinate,474,0,2020-03-18,32,0
+316,Saarland,88,0,2020-03-18,13,0
+317,Saxony,198,0,2020-03-18,16,0
+318,Saxony-Anhalt,105,0,2020-03-18,47,0
+319,Schleswig-Holstein,159,0,2020-03-18,32,0
+320,Thuringia,74,0,2020-03-18,23,0
+321,Baden-Württemberg,2155,6,2020-03-19,546,4
+322,Bavaria,1692,8,2020-03-19,449,4
+323,Berlin,573,0,2020-03-19,182,0
+324,Brandenburg,134,0,2020-03-19,42,0
+325,Bremen,80,0,2020-03-19,11,0
+326,Hamburg,432,0,2020-03-19,74,0
+327,Hesse,682,0,2020-03-19,250,0
+328,Lower Saxony,669,0,2020-03-19,191,0
+329,Mecklenburg-Western Pomerania,98,0,2020-03-19,42,0
+330,North Rhine-Westphalia,3033,6,2020-03-19,661,0
+331,Rhineland-Palatinate,637,0,2020-03-19,163,0
+332,Saarland,99,0,2020-03-19,11,0
+333,Saxony,275,0,2020-03-19,77,0
+334,Saxony-Anhalt,140,0,2020-03-19,35,0
+335,Schleswig-Holstein,202,0,2020-03-19,43,0
+336,Thuringia,98,0,2020-03-19,24,0
+337,Baden-Württemberg,2746,10,2020-03-20,591,4
+338,Bavaria,2401,12,2020-03-20,709,4
+339,Berlin,731,0,2020-03-20,158,0
+340,Brandenburg,192,0,2020-03-20,58,0
+341,Bremen,121,0,2020-03-20,41,0
+342,Hamburg,586,0,2020-03-20,154,0
+343,Hesse,813,1,2020-03-20,131,1
+344,Lower Saxony,803,0,2020-03-20,134,0
+345,Mecklenburg-Western Pomerania,131,0,2020-03-20,33,0
+346,North Rhine-Westphalia,3497,6,2020-03-20,464,0
+347,Rhineland-Palatinate,801,1,2020-03-20,164,1
+348,Saarland,146,0,2020-03-20,47,0
+349,Saxony,394,0,2020-03-20,119,0
+350,Saxony-Anhalt,180,0,2020-03-20,40,0
+351,Schleswig-Holstein,266,1,2020-03-20,64,1
+352,Thuringia,149,0,2020-03-20,51,0
+353,Baden-Württemberg,3668,16,2020-03-21,922,6
+354,Bavaria,2960,19,2020-03-21,559,7
+355,Berlin,866,1,2020-03-21,135,1
+356,Brandenburg,254,0,2020-03-21,62,0
+357,Bremen,142,0,2020-03-21,21,0
+358,Hamburg,587,0,2020-03-21,1,0
+359,Hesse,1080,2,2020-03-21,267,1
+360,Lower Saxony,1023,0,2020-03-21,220,0
+361,Mecklenburg-Western Pomerania,165,0,2020-03-21,34,0
+362,North Rhine-Westphalia,3542,6,2020-03-21,45,0
+363,Rhineland-Palatinate,938,1,2020-03-21,137,0
+364,Saarland,187,0,2020-03-21,41,0
+365,Saxony,567,0,2020-03-21,173,0
+366,Saxony-Anhalt,188,1,2020-03-21,8,1
+367,Schleswig-Holstein,308,1,2020-03-21,42,0
+368,Thuringia,187,0,2020-03-21,38,0
+369,Baden-Württemberg,3807,21,2020-03-22,139,5
+370,Bavaria,3650,21,2020-03-22,690,2
+371,Berlin,1024,1,2020-03-22,158,0
+372,Brandenburg,274,0,2020-03-22,20,0
+373,Bremen,165,0,2020-03-22,23,0
+374,Hamburg,872,0,2020-03-22,285,0
+375,Hesse,1175,2,2020-03-22,95,0
+376,Lower Saxony,1306,1,2020-03-22,283,1
+377,Mecklenburg-Western Pomerania,172,0,2020-03-22,7,0
+378,North Rhine-Westphalia,3545,6,2020-03-22,3,0
+379,Rhineland-Palatinate,1053,2,2020-03-22,115,1
+380,Saarland,187,0,2020-03-22,0,0
+381,Saxony,606,0,2020-03-22,39,0
+382,Saxony-Anhalt,211,0,2020-03-22,23,-1
+383,Schleswig-Holstein,347,1,2020-03-22,39,0
+384,Thuringia,216,0,2020-03-22,29,0

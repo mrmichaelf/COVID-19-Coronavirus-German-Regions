@@ -20,9 +20,9 @@ set boxwidth 0.75 relative
 set key off
 set yrange [0:]
 
-title = "Casualties"
+title = "Deaths"
 set title title
-set ylabel "Casualties"
+set ylabel "Deaths"
 set output '../plots-gnuplot/countries-latest-selected-deaths.png'
 plot data u 4:xticlabels(1) with boxes ls 11
 unset output
@@ -37,9 +37,9 @@ unset output
 unset logscale y
 unset yrange
 
-title = "Casualties per Million Population"
+title = "Deaths per Million Population"
 set title title
-set ylabel "Casualties per Million Population"
+set ylabel "Deaths per Million Population"
 set output '../plots-gnuplot/countries-latest-selected-deaths-per-mill.png'
 plot data u 7:xticlabels(1) with boxes ls 11
 unset output
@@ -52,26 +52,26 @@ replot
 unset output
 unset logscale y
 
-title = "Duplications until hitting Italy's casualties per capita\n(larger means more time to prepare)"
+title = "Duplications until hitting Italy's deaths per capita\n(larger means more time to prepare)"
 set yrange [0:]
 deaths_per_million_of_IT = system ("grep Italy ../data/countries-latest-selected.tsv| tail -1 | cut -f7") + 0
 print deaths_per_million_of_IT
 set title title
 set ylabel "Duplications"
-set output '../plots-gnuplot/countries-duplications-until-IT-level-of-casulties.png'
+set output '../plots-gnuplot/countries-duplications-until-IT-level-of-deaths.png'
 plot data u (log(deaths_per_million_of_IT/$7)/log(2)):xticlabels(1) with boxes ls 11
 unset output
 
 # combining the duplications until reaching IT level from countries-latest-selected.tsv and the duplication time from countries-gnuplot-fit.tsv
 # this needs the python script join-country-latest-and-fit-data.py to run first after plotting
-set title "Days until hitting Italy's casualties per capita\nbased on current casualties and fitted duplication time"
+set title "Days until hitting Italy's deaths per capita\nbased on current deaths and fitted duplication time"
 set ylabel "Days (estimated)"
 set yrange [0:28]
 set ytics 0,7
 out = system ("cd .. ; python join-country-latest-and-fit-data.py ; cd scripts-gnuplot")
 print out
 data = '../data/countries-joined_selected_and_gnuplot_fit.tsv'
-set output '../plots-gnuplot/countries-days-until-IT-level-of-casulties.png'
+set output '../plots-gnuplot/countries-days-until-IT-level-of-deaths.png'
 plot data u 18:xticlabels(1) with boxes ls 11
 unset output
 unset yrange
@@ -81,7 +81,7 @@ set ytics autofreq
 
 # text will be inserted later on
 set label 2 "" right front at graph 0.3, graph 0.6
-set ylabel "Casualties"
+set ylabel "Deaths"
 set xlabel "Days"
 # set lmargin 9
 
@@ -122,8 +122,8 @@ unset xlabel
 unset ylabel
 
 # let's plot the fit data as boxes
-set title "Fit Result: Casualties Doubling Time (days)"
-set ylabel "Casualties Doubling Time (days)"
+set title "Fit Result: Deaths Doubling Time (days)"
+set ylabel "Deaths Doubling Time (days)"
 set xtics rotate by 60 offset 1,0 right
 set ytics format "%g" 
 unset bmargin
@@ -137,8 +137,8 @@ plot fit_data_file u 6:xticlabels(1) with boxes ls 11
 #, y_value_de
 unset output
 set ytics format "%g%%" 
-set title "Fit Result: Increase of Casualties per Day"
-set ylabel "Increase Casualties per Day"
+set title "Fit Result: Increase of Deaths per Day"
+set ylabel "Increase Deaths per Day"
 # y_value_de = ( system("tail -1 " . fit_data_file . " | cut -f7") + 0)
 # y_value_de = (y_value_de-1)*100
 set output '../plots-gnuplot/countries-fit-deaths-increase-1-day.png'

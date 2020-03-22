@@ -5,6 +5,7 @@
 # cd dir_of_this_script
 
 python fetch-country-data.py
+python fetch-de-states-data.py
 rm plots-gnuplot/*.png
 cd scripts-gnuplot
 gnuplot plot-de.gp

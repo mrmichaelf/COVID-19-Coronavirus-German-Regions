@@ -22,13 +22,14 @@ __license__ = "GPL"
 __status__ = "Dev"
 __version__ = "0.1"
 
+download_file = 'data/download-countries-timeseries.json'
+
 
 def download_new_data():
     url = "https://pomber.github.io/covid19/timeseries.json"
     filedata = urllib.request.urlopen(url)
     datatowrite = filedata.read()
-    json_file = 'data/download-countries-timeseries.json'
-    with open(json_file, 'wb') as f:
+    with open(download_file, 'wb') as f:
         f.write(datatowrite)
 
 
@@ -40,8 +41,7 @@ def date_format(y: int, m: int, d: int) -> str:
 
 def read_json_data() -> dict:
     "reads json file contents and returns it as a dict"
-    json_file = 'data/download-countries-timeseries.json'
-    with open(json_file, encoding='utf-8') as f:
+    with open(download_file, encoding='utf-8') as f:
         d = json.load(f)
     # re-format date using my date_format(y,m,d) function
     for country in d.keys():
@@ -146,7 +146,7 @@ def export_time_series_selected_countries(days_past: int):
         country_data = d_json_data[country]
         pop_in_Mill = d_selected_countries[country]['Population'] / 1000000
 
-        with open(f'data/countries-timeseries-{country_code}.tsv', 'w') as f:
+        with open(f'data/country-{country_code}.tsv', 'w') as f:
             csvwriter = csv.writer(f, delimiter="\t")
             csvwriter.writerow(  # header row
                 ('#', 'Date', 'Confirmed', 'Deaths', 'Deaths',
