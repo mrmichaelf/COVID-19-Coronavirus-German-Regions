@@ -27,18 +27,20 @@ def download_new_data():
     url = "https://pomber.github.io/covid19/timeseries.json"
     filedata = urllib.request.urlopen(url)
     datatowrite = filedata.read()
-    json_file = 'data/international-timeseries.json'
+    json_file = 'data/download-countries-timeseries.json'
     with open(json_file, 'wb') as f:
         f.write(datatowrite)
 
 
 def date_format(y: int, m: int, d: int) -> str:
     return "%02d.%02d.%04d" % (d, m, y)
+    # TODO
+    # return "%04d-%02d-%02d" % (y, m, d)
 
 
 def read_json_data() -> dict:
     "reads json file contents and returns it as a dict"
-    json_file = 'data/international-timeseries.json'
+    json_file = 'data/download-countries-timeseries.json'
     with open(json_file, encoding='utf-8') as f:
         d = json.load(f)
     # re-format date using my date_format(y,m,d) function
@@ -134,7 +136,11 @@ def check_for_further_interesting_countries():
             print(f"{country}\t{entry['confirmed']}\t{entry['deaths']}")
 
 
-def export_time_series_selected_countries():
+def export_time_series_selected_countries(days_past: int):
+    """
+    days_past: number of past days to export 
+    """
+    assert days_past > 1
     for country in d_selected_countries.keys():
         country_code = d_selected_countries[country]['Code']
         country_data = d_json_data[country]
@@ -143,16 +149,42 @@ def export_time_series_selected_countries():
         with open(f'data/countries-timeseries-{country_code}.tsv', 'w') as f:
             csvwriter = csv.writer(f, delimiter="\t")
             csvwriter.writerow(  # header row
-                ('#', 'Date', 'Confirmed', 'Deaths', 'Recovered',
-                 'Confirmed per Million', 'Deaths per Million', 'Recovered per Million')
+                ('#', 'Date', 'Confirmed', 'Deaths', 'Deaths',
+                 'Confirmed per Million', 'Deaths per Million', 'Recovered per Million',
+                 'Confirmed Change', 'Deaths Change', 'Recovered Change',
+                 'Confirmed Change Factor', 'Deaths Change Factor', 'Recovered Change Factor'
+                 )
             )
             i = 1-len(country_data)  # last date gets number 0
+            (last_confirmed, last_deaths, last_recovered) = (0, 0, 0)
+            (change_confirmed, change_deaths, change_recovered) = (
+                "", "", "")  # empty string by default
+            (change_confirmed_factor, change_deaths_factor,
+             change_recovered_factor) = ("", "", "")
             for entry in country_data:
-                if i > -30:
+                if i > -days_past:
+                    if last_deaths >= 1:  # TODO: later increase to 10
+                        change_confirmed = entry['confirmed'] - last_confirmed
+                        change_deaths = entry['deaths'] - last_deaths
+                        change_recovered = entry['recovered'] - last_recovered
+                        #  factor for confirmend is not making sense, as this number can decrease
+                        change_deaths_factor = "%.3f" % (
+                            entry['deaths']/last_deaths)
+                        if last_recovered > 0:
+                            change_recovered_factor = "%.3f" % (
+                                entry['recovered']/last_recovered)
                     csvwriter.writerow(
-                        (i, entry['date'], entry['confirmed'], entry['deaths'], entry['recovered'], "%.3f" % (
-                            entry['confirmed']/pop_in_Mill), "%.3f" % (entry['deaths']/pop_in_Mill), "%.3f" % (entry['recovered']/pop_in_Mill))
+                        (
+                            i, entry['date'],
+                            entry['confirmed'], entry['deaths'], entry['recovered'],
+                            "%.3f" % (entry['confirmed']/pop_in_Mill), "%.3f" % (
+                                entry['deaths']/pop_in_Mill), "%.3f" % (entry['recovered']/pop_in_Mill),
+                            change_confirmed, change_deaths, change_recovered,
+                            change_confirmed_factor, change_deaths_factor, change_recovered_factor
+                        )
                     )
+                    (last_confirmed, last_deaths, last_recovered) = (
+                        entry['confirmed'], entry['deaths'], entry['recovered'])
                 i += 1
 
 
@@ -169,7 +201,7 @@ extract_latest_date_data()
 
 extract_latest_date_data_selected()
 
-export_time_series_selected_countries()
+export_time_series_selected_countries(30)
 
 print("latest date in DE set: " + d_json_data['Germany'][-1]['date'])
 

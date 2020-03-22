@@ -75,7 +75,7 @@ set output '../plots-gnuplot/countries-days-until-IT-level-of-casulties.png'
 plot data u 18:xticlabels(1) with boxes ls 11
 unset output
 unset yrange
-unset ytics
+set ytics autofreq
 # plot and fit time series
 
 
@@ -91,9 +91,10 @@ fit_data_file = "../data/countries-gnuplot-fit.tsv"
 set print fit_data_file
 print "# Country\tCode\ta\tb\tDeaths\tDoubling time\tFactor at t+1\tDeaths at t+1\tFactor at t+7\tDeaths at t+7"
 unset print
-
+set xtics rotate by 0
 country_code = "AT" ; country_name = "Austria" ; load "plot-countries-sub1.gp"
 country_code = "BE" ; country_name = "Belgium" ; load "plot-countries-sub1.gp"
+country_code = "CA" ; country_name = "Canada" ; load "plot-countries-sub1.gp"
 # country_code = "FI" ; country_name = "Finland" ; load "plot-countries-sub1.gp"
 country_code = "FR" ; country_name = "France" ; load "plot-countries-sub1.gp"
 country_code = "DE" ; country_name = "Germany" ; load "plot-countries-sub1.gp"
@@ -103,6 +104,7 @@ country_code = "IT" ; country_name = "Italy" ; load "plot-countries-sub1.gp"
 country_code = "JP" ; country_name = "Japan" ; load "plot-countries-sub1.gp"
 country_code = "KR" ; country_name = "Korea, South" ; load "plot-countries-sub1.gp"
 country_code = "NL" ; country_name = "Netherlands" ; load "plot-countries-sub1.gp"
+country_code = "PT" ; country_name = "Portugal" ; load "plot-countries-sub1.gp"
 country_code = "ES" ; country_name = "Spain" ; load "plot-countries-sub1.gp"
 country_code = "SE" ; country_name = "Sweden" ; load "plot-countries-sub1.gp"
 country_code = "CH" ; country_name = "Switzerland" ; load "plot-countries-sub1.gp"
