@@ -30,7 +30,9 @@ f(x)=a * exp(b * x)
 a = y_last # initial value
 b = 0.24
 
-set xrange [x_min:x_max+1]
+# use only last 14 days for fit at require the number to be at least 2
+set xrange [-14:0]
+set yrange [2:]
 
 fit f(x) data using 1:col via a, b
 # 17.03.2020: Comparing fits with 1 and 2 parameters
@@ -58,6 +60,8 @@ print sprintf (short_name."\t%.1f days", t_doubling)
 set print fit_data_file append
 print sprintf (  long_name."\t".short_name."\t%d\t%.3f\t%.3f\t%.3f\t%.3f\t%d\t%.3f\t%d", y_last, a, b, t_doubling, exp(b * 1), y_last * exp(b * 1), exp(b * 7), y_last * exp(b * 7)   )
 unset print 
+
+set xrange [x_min:x_max+1]
 
 # plot 1: lin scale
 set label 2 sprintf("Fit Ergebnisse\nVerdopplungszeit: %.1f Tage\nZunahme 1 Tag: %.0f%%\n  -> %d ".col_name."\nZunahme 7 Tage: %.0f%%\n  -> %d ".col_name."", t_doubling, (exp(b * 1)-1)*100, y_last * exp(b * 1), (exp(b * 7)-1)*100, y_last * exp(b * 7) )

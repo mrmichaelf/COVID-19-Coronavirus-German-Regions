@@ -203,7 +203,8 @@ extract_latest_date_data_selected()
 
 export_time_series_selected_countries(30)
 
-print("latest date in DE set: " + d_json_data['Germany'][-1]['date'])
+print("countries: latest date in DE set: " +
+      d_json_data['Germany'][-1]['date'])
 
 
 # IDEAS
