@@ -1,172 +1,184 @@
 # Country	Date	Confirmed	Deaths	Recovered
-Afghanistan	22.03.2020	40	1	1
-Albania	22.03.2020	89	2	2
-Algeria	22.03.2020	201	17	65
-Andorra	22.03.2020	113	1	1
-Angola	22.03.2020	2	0	0
-Antigua and Barbuda	22.03.2020	1	0	0
-Argentina	22.03.2020	225	4	3
-Armenia	22.03.2020	194	0	2
-Australia	22.03.2020	1314	7	88
-Austria	22.03.2020	3244	16	9
-Azerbaijan	22.03.2020	65	1	10
-Bahamas, The	22.03.2020	4	0	0
-Bahrain	22.03.2020	332	2	149
-Bangladesh	22.03.2020	27	2	3
-Barbados	22.03.2020	14	0	0
-Belarus	22.03.2020	76	0	15
-Belgium	22.03.2020	3401	75	263
-Benin	22.03.2020	2	0	0
-Bhutan	22.03.2020	2	0	0
-Bolivia	22.03.2020	24	0	0
-Bosnia and Herzegovina	22.03.2020	126	1	2
-Brazil	22.03.2020	1593	25	2
-Brunei	22.03.2020	88	0	2
-Bulgaria	22.03.2020	187	3	3
-Burkina Faso	22.03.2020	75	4	5
-Cabo Verde	22.03.2020	3	0	0
-Cambodia	22.03.2020	84	0	1
-Cameroon	22.03.2020	40	0	0
-Canada	22.03.2020	1465	21	10
-Cape Verde	22.03.2020	1	0	0
-Central African Republic	22.03.2020	3	0	0
-Chad	22.03.2020	1	0	0
-Chile	22.03.2020	632	1	8
-China	22.03.2020	81397	3265	72362
-Colombia	22.03.2020	231	2	3
-Congo (Brazzaville)	22.03.2020	3	0	0
-Congo (Kinshasa)	22.03.2020	30	1	0
-Costa Rica	22.03.2020	134	2	2
-Cote d'Ivoire	22.03.2020	14	0	1
-Croatia	22.03.2020	254	1	5
-Cruise Ship	22.03.2020	712	8	325
-Cuba	22.03.2020	35	1	0
-Cyprus	22.03.2020	95	1	3
-Czechia	22.03.2020	1120	1	6
-Denmark	22.03.2020	1514	13	1
-Djibouti	22.03.2020	1	0	0
-Dominica	22.03.2020	1	0	0
-Dominican Republic	22.03.2020	202	3	0
-East Timor	22.03.2020	1	0	0
-Ecuador	22.03.2020	789	14	3
-Egypt	22.03.2020	327	14	56
-El Salvador	22.03.2020	3	0	0
-Equatorial Guinea	22.03.2020	6	0	0
-Eritrea	22.03.2020	1	0	0
-Estonia	22.03.2020	326	0	2
-Eswatini	22.03.2020	4	0	0
-Ethiopia	22.03.2020	11	0	4
-Fiji	22.03.2020	2	0	0
-Finland	22.03.2020	626	1	10
-France	22.03.2020	16176	674	2206
-Gabon	22.03.2020	5	1	0
-Gambia, The	22.03.2020	1	0	0
-Georgia	22.03.2020	54	0	3
-Germany	22.03.2020	24873	94	266
-Ghana	22.03.2020	24	1	0
-Greece	22.03.2020	624	15	19
-Grenada	22.03.2020	1	0	0
-Guatemala	22.03.2020	19	1	0
-Guinea	22.03.2020	2	0	0
-Guyana	22.03.2020	7	1	0
-Haiti	22.03.2020	2	0	0
-Holy See	22.03.2020	1	0	0
-Honduras	22.03.2020	26	0	0
-Hungary	22.03.2020	131	6	16
-Iceland	22.03.2020	568	1	36
-India	22.03.2020	396	7	27
-Indonesia	22.03.2020	514	48	29
-Iran	22.03.2020	21638	1685	7931
-Iraq	22.03.2020	233	20	57
-Ireland	22.03.2020	906	4	5
-Israel	22.03.2020	1071	1	37
-Italy	22.03.2020	59138	5476	7024
-Jamaica	22.03.2020	16	1	2
-Japan	22.03.2020	1086	40	235
-Jordan	22.03.2020	112	0	1
-Kazakhstan	22.03.2020	60	0	0
-Kenya	22.03.2020	15	0	0
-Korea, South	22.03.2020	8897	104	2909
-Kosovo	22.03.2020	2	0	0
-Kuwait	22.03.2020	188	0	27
-Kyrgyzstan	22.03.2020	14	0	0
-Latvia	22.03.2020	139	0	1
-Lebanon	22.03.2020	248	4	8
-Liberia	22.03.2020	3	0	0
-Liechtenstein	22.03.2020	37	0	0
-Lithuania	22.03.2020	131	1	1
-Luxembourg	22.03.2020	798	8	6
-Madagascar	22.03.2020	3	0	0
-Malaysia	22.03.2020	1306	10	139
-Maldives	22.03.2020	13	0	0
-Malta	22.03.2020	90	0	2
-Martinique	22.03.2020	37	1	0
-Mauritania	22.03.2020	2	0	0
-Mauritius	22.03.2020	18	1	0
-Mexico	22.03.2020	251	2	4
-Moldova	22.03.2020	94	1	1
-Monaco	22.03.2020	23	0	1
-Mongolia	22.03.2020	10	0	0
-Montenegro	22.03.2020	21	0	0
-Morocco	22.03.2020	115	4	3
-Mozambique	22.03.2020	1	0	0
-Namibia	22.03.2020	3	0	0
-Nepal	22.03.2020	2	0	1
-Netherlands	22.03.2020	4216	180	2
-New Zealand	22.03.2020	66	0	0
-Nicaragua	22.03.2020	2	0	0
-Niger	22.03.2020	2	0	0
-Nigeria	22.03.2020	30	0	2
-North Macedonia	22.03.2020	114	1	1
-Norway	22.03.2020	2383	7	1
-Oman	22.03.2020	55	0	17
-Pakistan	22.03.2020	776	5	5
-Panama	22.03.2020	245	3	0
-Papua New Guinea	22.03.2020	1	0	0
-Paraguay	22.03.2020	22	1	0
-Peru	22.03.2020	363	5	1
-Philippines	22.03.2020	380	25	17
-Poland	22.03.2020	634	7	1
-Portugal	22.03.2020	1600	14	5
-Qatar	22.03.2020	494	0	33
-Romania	22.03.2020	433	3	64
-Russia	22.03.2020	367	0	16
-Rwanda	22.03.2020	19	0	0
-Saint Lucia	22.03.2020	2	0	0
-Saint Vincent and the Grenadines	22.03.2020	1	0	0
-San Marino	22.03.2020	160	20	4
-Saudi Arabia	22.03.2020	511	0	16
-Senegal	22.03.2020	67	0	5
-Serbia	22.03.2020	222	2	1
-Seychelles	22.03.2020	7	0	0
-Singapore	22.03.2020	455	2	144
-Slovakia	22.03.2020	185	1	7
-Slovenia	22.03.2020	414	2	0
-Somalia	22.03.2020	1	0	0
-South Africa	22.03.2020	274	0	0
-Spain	22.03.2020	28768	1772	2575
-Sri Lanka	22.03.2020	82	0	3
-Sudan	22.03.2020	2	1	0
-Suriname	22.03.2020	5	0	0
-Sweden	22.03.2020	1934	21	16
-Switzerland	22.03.2020	7245	98	131
-Syria	22.03.2020	1	0	0
-Taiwan*	22.03.2020	169	2	28
-Tanzania	22.03.2020	12	0	0
-Thailand	22.03.2020	599	1	44
-Timor-Leste	22.03.2020	1	0	0
-Togo	22.03.2020	16	0	1
-Trinidad and Tobago	22.03.2020	50	0	1
-Tunisia	22.03.2020	75	3	1
-Turkey	22.03.2020	1236	30	0
-Uganda	22.03.2020	1	0	0
-Ukraine	22.03.2020	73	3	1
-United Arab Emirates	22.03.2020	153	2	38
-United Kingdom	22.03.2020	5741	282	67
-Uruguay	22.03.2020	135	0	0
-US	22.03.2020	33272	417	0
-Uzbekistan	22.03.2020	43	0	0
-Venezuela	22.03.2020	70	0	15
-Vietnam	22.03.2020	113	0	17
-Zambia	22.03.2020	3	0	0
-Zimbabwe	22.03.2020	3	0	0
+Afghanistan	23.03.2020	40	1	1
+Albania	23.03.2020	89	2	2
+Algeria	23.03.2020	201	17	65
+Andorra	23.03.2020	113	1	1
+Angola	23.03.2020	2	0	0
+Antigua and Barbuda	23.03.2020	1	0	0
+Argentina	23.03.2020	225	4	3
+Armenia	23.03.2020	194	0	2
+Australia	23.03.2020	1314	7	88
+Austria	23.03.2020	3244	16	9
+Azerbaijan	23.03.2020	65	1	10
+Bahamas, The	23.03.2020	4	0	0
+Bahrain	23.03.2020	332	2	149
+Bangladesh	23.03.2020	27	2	3
+Barbados	23.03.2020	14	0	0
+Belarus	23.03.2020	76	0	15
+Belgium	23.03.2020	3401	75	263
+Benin	23.03.2020	2	0	0
+Bhutan	23.03.2020	2	0	0
+Bolivia	23.03.2020	24	0	0
+Bosnia and Herzegovina	23.03.2020	126	1	2
+Brazil	23.03.2020	1593	25	2
+Brunei	23.03.2020	88	0	2
+Bulgaria	23.03.2020	187	3	3
+Burkina Faso	23.03.2020	75	4	5
+Cabo Verde	23.03.2020	3	0	0
+Cambodia	23.03.2020	84	0	1
+Cameroon	23.03.2020	40	0	0
+Canada	23.03.2020	1470	21	10
+Cape Verde	23.03.2020	0	0	0
+Central African Republic	23.03.2020	3	0	0
+Chad	23.03.2020	1	0	0
+Chile	23.03.2020	632	1	8
+China	23.03.2020	81439	3274	72814
+Colombia	23.03.2020	231	2	3
+Congo (Brazzaville)	23.03.2020	3	0	0
+Congo (Kinshasa)	23.03.2020	30	1	0
+Costa Rica	23.03.2020	134	2	2
+Cote d'Ivoire	23.03.2020	14	0	1
+Croatia	23.03.2020	254	1	5
+Cruise Ship	23.03.2020	712	8	325
+Cuba	23.03.2020	35	1	0
+Cyprus	23.03.2020	95	1	3
+Czechia	23.03.2020	1120	1	6
+Denmark	23.03.2020	1514	13	1
+Djibouti	23.03.2020	1	0	0
+Dominica	23.03.2020	1	0	0
+Dominican Republic	23.03.2020	202	3	0
+East Timor	23.03.2020	0	0	0
+Ecuador	23.03.2020	789	14	3
+Egypt	23.03.2020	327	14	56
+El Salvador	23.03.2020	3	0	0
+Equatorial Guinea	23.03.2020	6	0	0
+Eritrea	23.03.2020	1	0	0
+Estonia	23.03.2020	326	0	2
+Eswatini	23.03.2020	4	0	0
+Ethiopia	23.03.2020	11	0	4
+Fiji	23.03.2020	2	0	0
+Finland	23.03.2020	626	1	10
+France	23.03.2020	16044	674	2200
+French Guiana	23.03.2020	18	0	6
+Gabon	23.03.2020	5	1	0
+Gambia, The	23.03.2020	1	0	0
+Georgia	23.03.2020	54	0	3
+Germany	23.03.2020	24873	94	266
+Ghana	23.03.2020	24	1	0
+Greece	23.03.2020	624	15	19
+Greenland	23.03.2020	0	0	0
+Grenada	23.03.2020	1	0	0
+Guadeloupe	23.03.2020	56	0	0
+Guam	23.03.2020	0	1	0
+Guatemala	23.03.2020	19	1	0
+Guernsey	23.03.2020	0	0	0
+Guinea	23.03.2020	2	0	0
+Guyana	23.03.2020	7	1	0
+Haiti	23.03.2020	2	0	0
+Holy See	23.03.2020	1	0	0
+Honduras	23.03.2020	26	0	0
+Hungary	23.03.2020	131	6	16
+Iceland	23.03.2020	568	1	36
+India	23.03.2020	396	7	27
+Indonesia	23.03.2020	514	48	29
+Iran	23.03.2020	21638	1685	7931
+Iraq	23.03.2020	233	20	57
+Ireland	23.03.2020	906	4	5
+Israel	23.03.2020	1071	1	37
+Italy	23.03.2020	59138	5476	7024
+Jamaica	23.03.2020	16	1	2
+Japan	23.03.2020	1086	40	235
+Jersey	23.03.2020	0	0	0
+Jordan	23.03.2020	112	0	1
+Kazakhstan	23.03.2020	60	0	0
+Kenya	23.03.2020	15	0	0
+Korea, South	23.03.2020	8897	104	2909
+Kosovo	23.03.2020	2	0	0
+Kuwait	23.03.2020	188	0	27
+Kyrgyzstan	23.03.2020	14	0	0
+Latvia	23.03.2020	139	0	1
+Lebanon	23.03.2020	248	4	8
+Liberia	23.03.2020	3	0	0
+Liechtenstein	23.03.2020	37	0	0
+Lithuania	23.03.2020	131	1	1
+Luxembourg	23.03.2020	798	8	6
+Madagascar	23.03.2020	3	0	0
+Malaysia	23.03.2020	1306	10	139
+Maldives	23.03.2020	13	0	0
+Malta	23.03.2020	90	0	2
+Martinique	23.03.2020	37	1	0
+Mauritania	23.03.2020	2	0	0
+Mauritius	23.03.2020	18	1	0
+Mayotte	23.03.2020	11	0	0
+Mexico	23.03.2020	251	2	4
+Moldova	23.03.2020	94	1	1
+Monaco	23.03.2020	23	0	1
+Mongolia	23.03.2020	10	0	0
+Montenegro	23.03.2020	21	0	0
+Morocco	23.03.2020	115	4	3
+Mozambique	23.03.2020	1	0	0
+Namibia	23.03.2020	3	0	0
+Nepal	23.03.2020	2	0	1
+Netherlands	23.03.2020	4216	180	2
+New Zealand	23.03.2020	66	0	0
+Nicaragua	23.03.2020	2	0	0
+Niger	23.03.2020	2	0	0
+Nigeria	23.03.2020	30	0	2
+North Macedonia	23.03.2020	114	1	1
+Norway	23.03.2020	2383	7	1
+Oman	23.03.2020	55	0	17
+Pakistan	23.03.2020	776	5	5
+Panama	23.03.2020	245	3	0
+Papua New Guinea	23.03.2020	1	0	0
+Paraguay	23.03.2020	22	1	0
+Peru	23.03.2020	363	5	1
+Philippines	23.03.2020	380	25	17
+Poland	23.03.2020	634	7	1
+Portugal	23.03.2020	1600	14	5
+Puerto Rico	23.03.2020	0	1	0
+Qatar	23.03.2020	494	0	33
+Republic of the Congo	23.03.2020	0	0	0
+Reunion	23.03.2020	47	0	0
+Romania	23.03.2020	433	3	64
+Russia	23.03.2020	367	0	16
+Rwanda	23.03.2020	19	0	0
+Saint Lucia	23.03.2020	2	0	0
+Saint Vincent and the Grenadines	23.03.2020	1	0	0
+San Marino	23.03.2020	160	20	4
+Saudi Arabia	23.03.2020	511	0	16
+Senegal	23.03.2020	67	0	5
+Serbia	23.03.2020	222	2	1
+Seychelles	23.03.2020	7	0	0
+Singapore	23.03.2020	455	2	144
+Slovakia	23.03.2020	185	1	7
+Slovenia	23.03.2020	414	2	0
+Somalia	23.03.2020	1	0	0
+South Africa	23.03.2020	274	0	0
+Spain	23.03.2020	28768	1772	2575
+Sri Lanka	23.03.2020	82	0	3
+Sudan	23.03.2020	2	1	0
+Suriname	23.03.2020	5	0	0
+Sweden	23.03.2020	1934	21	16
+Switzerland	23.03.2020	7245	98	131
+Syria	23.03.2020	1	0	0
+Taiwan*	23.03.2020	169	2	28
+Tanzania	23.03.2020	12	0	0
+Thailand	23.03.2020	599	1	44
+The Bahamas	23.03.2020	0	0	0
+The Gambia	23.03.2020	0	0	0
+Timor-Leste	23.03.2020	1	0	0
+Togo	23.03.2020	16	0	1
+Trinidad and Tobago	23.03.2020	50	0	1
+Tunisia	23.03.2020	75	3	1
+Turkey	23.03.2020	1236	30	0
+Uganda	23.03.2020	1	0	0
+Ukraine	23.03.2020	73	3	1
+United Arab Emirates	23.03.2020	153	2	38
+United Kingdom	23.03.2020	5741	282	67
+Uruguay	23.03.2020	135	0	0
+US	23.03.2020	33276	417	178
+Uzbekistan	23.03.2020	43	0	0
+Venezuela	23.03.2020	70	0	15
+Vietnam	23.03.2020	113	0	17
+Zambia	23.03.2020	3	0	0
+Zimbabwe	23.03.2020	3	0	0
