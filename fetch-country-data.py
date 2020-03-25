@@ -145,10 +145,11 @@ def export_time_series_selected_countries():
         with open(f'data/country-{country_code}.tsv', 'w') as f:
             csvwriter = csv.writer(f, delimiter="\t")
             csvwriter.writerow(  # header row
-                ('#', 'Date', 'Confirmed', 'Deaths', 'Deaths',
+                ('# Day', 'Date', 'Confirmed', 'Deaths', 'Deaths',
                  'Confirmed per Million', 'Deaths per Million', 'Recovered per Million',
                  'Confirmed Change', 'Deaths Change', 'Recovered Change',
-                 'Confirmed Change Factor', 'Deaths Change Factor', 'Recovered Change Factor'
+                 'Confirmed Change Factor', 'Deaths Change Factor', 'Recovered Change Factor',
+                 'Days since 2 Deaths'
                  )
             )
             i = 1-len(country_data)  # last date gets number 0
@@ -157,7 +158,13 @@ def export_time_series_selected_countries():
                 "", "", "")  # empty string by default
             (change_confirmed_factor, change_deaths_factor,
              change_recovered_factor) = ("", "", "")
+            days_since_2_deaths = ""
             for entry in country_data:
+                if entry['deaths'] >= 2:
+                    if days_since_2_deaths == "":
+                        days_since_2_deaths = 0
+                    else:
+                        days_since_2_deaths += 1
                 if last_deaths >= 1:  # TODO: later increase to 10
                     change_confirmed = entry['confirmed'] - last_confirmed
                     change_deaths = entry['deaths'] - last_deaths
@@ -175,12 +182,13 @@ def export_time_series_selected_countries():
                         "%.3f" % (entry['confirmed']/pop_in_Mill), "%.3f" % (
                             entry['deaths']/pop_in_Mill), "%.3f" % (entry['recovered']/pop_in_Mill),
                         change_confirmed, change_deaths, change_recovered,
-                        change_confirmed_factor, change_deaths_factor, change_recovered_factor
+                        change_confirmed_factor, change_deaths_factor, change_recovered_factor,
+                        days_since_2_deaths
                     )
                 )
                 (last_confirmed, last_deaths, last_recovered) = (
                     entry['confirmed'], entry['deaths'], entry['recovered'])
-            i += 1
+                i += 1
 
 
 # TODO: uncomment once a day
