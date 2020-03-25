@@ -24,7 +24,7 @@ set xdata time
 set key top left at graph 0, graph 1
 
 set colorsequence default
-unset style
+unset style # reset line styles/types to default
 
 
 date_last = system("tail -1 '../data/de-state-BW.tsv' | cut -f2")

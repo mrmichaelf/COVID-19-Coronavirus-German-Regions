@@ -149,19 +149,19 @@ def export_time_series_selected_countries():
         with open(f'data/country-{country_code}.tsv', 'w', newline="\n") as f:
             csvwriter = csv.writer(f, delimiter="\t")
             csvwriter.writerow(  # header row
-                ('# Day', 'Date', 'Confirmed', 'Deaths', 'Deaths',
-                 'Confirmed per Million', 'Deaths per Million', 'Recovered per Million',
-                 'Confirmed Change', 'Deaths Change', 'Recovered Change',
-                 'Confirmed Change Factor', 'Deaths Change Factor', 'Recovered Change Factor',
+                ('# Day', 'Date', 'Confirmed', 'Deaths',
+                 'Confirmed per Million', 'Deaths per Million',
+                 'Confirmed Change', 'Deaths Change',
+                 'Deaths Change Factor',
                  'Days since 2 Deaths'
                  )
             )
             i = 1-len(country_data)  # last date gets number 0
-            (last_confirmed, last_deaths, last_recovered) = (0, 0, 0)
-            (change_confirmed, change_deaths, change_recovered) = (
-                "", "", "")  # empty string by default
-            (change_confirmed_factor, change_deaths_factor,
-             change_recovered_factor) = ("", "", "")
+            last_confirmed = 0
+            last_deaths = 0
+            change_confirmed = ""
+            change_deaths = ""
+            change_deaths_factor = ""
             days_since_2_deaths = ""
             for entry in country_data:
                 if entry['deaths'] >= 2:  # TODO: is 2 a good value?
@@ -172,36 +172,26 @@ def export_time_series_selected_countries():
                 if last_deaths >= 1:  # TODO: later increase to 10
                     change_confirmed = entry['confirmed'] - last_confirmed
                     change_deaths = entry['deaths'] - last_deaths
-                    # change_recovered = entry['recovered'] - last_recovered
-                    #  factor for confirmend is not making sense, as this number can decrease
                     change_deaths_factor = "%.3f" % (
                         entry['deaths']/last_deaths)
-                    # if last_recovered > 0:
-                    #     change_recovered_factor = "%.3f" % (
-                    #         entry['recovered']/last_recovered)
                 csvwriter.writerow(
                     (
                         i, entry['date'],
                         entry['confirmed'], entry['deaths'],
                         "%.3f" % (entry['confirmed']/pop_in_Mill), "%.3f" % (
                             entry['deaths']/pop_in_Mill),
-                        change_confirmed, change_deaths, change_recovered,
-                        change_confirmed_factor, change_deaths_factor,
+                        change_confirmed, change_deaths,
+                        change_deaths_factor,
                         days_since_2_deaths
                     )
-                    # , entry['recovered']
-                    # "%.3f" % (entry['recovered']/pop_in_Mill),
-                    # , change_recovered_factor
                 )
-                (last_confirmed, last_deaths) = (
-                    entry['confirmed'], entry['deaths'])
-                # , entry['recovered']
-                # , last_recovered
+                last_confirmed = entry['confirmed']
+                last_deaths = entry['deaths']
                 i += 1
 
 
 # TODO: uncomment once a day
-download_new_data()
+# download_new_data()
 
 d_selected_countries = read_ref_selected_countries()
 
