@@ -32,6 +32,22 @@ def download_new_data():
         f.write(datatowrite)
 
 
+def read_ref_data() -> dict:
+    """
+    read pop etc from ref table and returns it as dict of dict
+    """
+    d_states_ref = {}
+    with open('data/ref_de-states.tsv', mode='r', encoding='utf-8') as f:
+        csv_reader = csv.DictReader(f, delimiter="\t")
+        for row in csv_reader:
+            d = {}
+            d['State'] = row['State']
+            d['Population'] = int(row['Population'])
+            d['Pop Density'] = float(row['Pop Density'])
+            d_states_ref[row["Code"]] = d
+    return d_states_ref
+
+
 def date_format(y: int, m: int, d: int) -> str:
     # return "%02d.%02d.%04d" % (d, m, y)
     # besser, weil sortierbar
@@ -52,6 +68,7 @@ def convert_csv():
     out: one file per state: 'date', 'infections', 'deaths', 'new infections', 'new deaths'
     """
 
+    global d_states_ref
     # Preparations
     d_states_data = {'BW': [], 'BY': [], 'BE': [], 'BB': [], 'HB': [], 'HH': [], 'HE': [], 'MV': [
     ], 'NI': [], 'NW': [], 'RP': [], 'SL': [], 'SN': [], 'ST': [], 'SH': [], 'TH': []}
@@ -143,6 +160,7 @@ def convert_csv():
                 l2[2] += this_newinfections
                 l2[3] += this_newdeaths
                 d_german_sums[row["date"]] = list(l2)
+                del l2
 
     # for German sum: add per Million rows
     for datum in d_german_sums.keys():
@@ -169,11 +187,13 @@ def convert_csv():
         with open(outfile, 'w', newline="\n") as f:
             csvwriter = csv.writer(f, delimiter="\t")
             csvwriter.writerows(d_states_data[code])
+        del l_state, day_num, code
 
     # latest data into another file
     assert len(d_states_data.keys()) == len(d_states_ref.keys())
-    for code in d_states_ref:
+    for code in d_states_ref.keys():
         assert code in d_states_data.keys()
+    del code
 
     d_states_latest = dict(d_states_ref)
 
@@ -204,26 +224,15 @@ def convert_csv():
             csvwriter.writerow(
                 l
             )
+        del d, l, code
+        # add # to uncomment the DE total sum last line
         l_de[0] = '# Deutschland'
-        csvwriter.writerow(
-            l_de
-        )
+        csvwriter.writerow(l_de)
 
+
+d_states_ref = read_ref_data()
 
 download_new_data()
-
-
-# read pop etc from ref table
-d_states_ref = {}
-with open('data/ref_de-states.tsv', mode='r', encoding='utf-8') as f:
-    csv_reader = csv.DictReader(f, delimiter="\t")
-    for row in csv_reader:
-        d = {}
-        d['State'] = row['State']
-        d['Population'] = int(row['Population'])
-        d['Pop Density'] = float(row['Pop Density'])
-        d_states_ref[row["Code"]] = d
-
 
 convert_csv()
 
