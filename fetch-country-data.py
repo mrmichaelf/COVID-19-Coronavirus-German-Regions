@@ -29,7 +29,7 @@ def download_new_data():
     url = "https://pomber.github.io/covid19/timeseries.json"
     filedata = urllib.request.urlopen(url)
     datatowrite = filedata.read()
-    with open(download_file, 'wb') as f:
+    with open(download_file, 'wb', newline="\n") as f:
         f.write(datatowrite)
 
 
@@ -81,7 +81,7 @@ def extract_latest_date_data():
     for all countries in json: extract latest entry
     writes to data/countries-latest-all.tsv
     """
-    with open('data/countries-latest-all.tsv', 'w') as f:
+    with open('data/countries-latest-all.tsv', 'w', newline="\n") as f:
         csvwriter = csv.writer(f, delimiter="\t")
         csvwriter.writerow(  # header row
             ('# Country', 'Date', 'Confirmed', 'Deaths', 'Recovered')
@@ -100,7 +100,7 @@ def extract_latest_date_data_selected():
     for my selected countries: extract latest of json and calculate per capita values
     writes to data/countries-latest-selected.tsv
     """
-    with open('data/countries-latest-selected.tsv', 'w') as f:
+    with open('data/countries-latest-selected.tsv', 'w', newline="\n") as f:
         csvwriter = csv.writer(f, delimiter="\t")
         csvwriter.writerow(
             ('# Country', 'Date', 'Confirmed', 'Deaths', 'Recovered',
@@ -142,7 +142,7 @@ def export_time_series_selected_countries():
         country_data = d_json_data[country]
         pop_in_Mill = d_selected_countries[country]['Population'] / 1000000
 
-        with open(f'data/country-{country_code}.tsv', 'w') as f:
+        with open(f'data/country-{country_code}.tsv', 'w', newline="\n") as f:
             csvwriter = csv.writer(f, delimiter="\t")
             csvwriter.writerow(  # header row
                 ('# Day', 'Date', 'Confirmed', 'Deaths', 'Deaths',
