@@ -136,11 +136,7 @@ def check_for_further_interesting_countries():
             print(f"{country}\t{entry['confirmed']}\t{entry['deaths']}")
 
 
-def export_time_series_selected_countries(days_past: int):
-    """
-    days_past: number of past days to export 
-    """
-    assert days_past > 1
+def export_time_series_selected_countries():
     for country in d_selected_countries.keys():
         country_code = d_selected_countries[country]['Code']
         country_data = d_json_data[country]
@@ -162,34 +158,33 @@ def export_time_series_selected_countries(days_past: int):
             (change_confirmed_factor, change_deaths_factor,
              change_recovered_factor) = ("", "", "")
             for entry in country_data:
-                if i > -days_past:
-                    if last_deaths >= 1:  # TODO: later increase to 10
-                        change_confirmed = entry['confirmed'] - last_confirmed
-                        change_deaths = entry['deaths'] - last_deaths
-                        change_recovered = entry['recovered'] - last_recovered
-                        #  factor for confirmend is not making sense, as this number can decrease
-                        change_deaths_factor = "%.3f" % (
-                            entry['deaths']/last_deaths)
-                        if last_recovered > 0:
-                            change_recovered_factor = "%.3f" % (
-                                entry['recovered']/last_recovered)
-                    csvwriter.writerow(
-                        (
-                            i, entry['date'],
-                            entry['confirmed'], entry['deaths'], entry['recovered'],
-                            "%.3f" % (entry['confirmed']/pop_in_Mill), "%.3f" % (
-                                entry['deaths']/pop_in_Mill), "%.3f" % (entry['recovered']/pop_in_Mill),
-                            change_confirmed, change_deaths, change_recovered,
-                            change_confirmed_factor, change_deaths_factor, change_recovered_factor
-                        )
+                if last_deaths >= 1:  # TODO: later increase to 10
+                    change_confirmed = entry['confirmed'] - last_confirmed
+                    change_deaths = entry['deaths'] - last_deaths
+                    change_recovered = entry['recovered'] - last_recovered
+                    #  factor for confirmend is not making sense, as this number can decrease
+                    change_deaths_factor = "%.3f" % (
+                        entry['deaths']/last_deaths)
+                    if last_recovered > 0:
+                        change_recovered_factor = "%.3f" % (
+                            entry['recovered']/last_recovered)
+                csvwriter.writerow(
+                    (
+                        i, entry['date'],
+                        entry['confirmed'], entry['deaths'], entry['recovered'],
+                        "%.3f" % (entry['confirmed']/pop_in_Mill), "%.3f" % (
+                            entry['deaths']/pop_in_Mill), "%.3f" % (entry['recovered']/pop_in_Mill),
+                        change_confirmed, change_deaths, change_recovered,
+                        change_confirmed_factor, change_deaths_factor, change_recovered_factor
                     )
-                    (last_confirmed, last_deaths, last_recovered) = (
-                        entry['confirmed'], entry['deaths'], entry['recovered'])
-                i += 1
+                )
+                (last_confirmed, last_deaths, last_recovered) = (
+                    entry['confirmed'], entry['deaths'], entry['recovered'])
+            i += 1
 
 
 # TODO: uncomment once a day
-download_new_data()
+# download_new_data()
 
 d_selected_countries = read_ref_selected_countries()
 
@@ -201,7 +196,7 @@ extract_latest_date_data()
 
 extract_latest_date_data_selected()
 
-export_time_series_selected_countries(30)
+export_time_series_selected_countries()
 
 print("countries: latest date in DE set: " +
       d_json_data['Germany'][-1]['date'])
