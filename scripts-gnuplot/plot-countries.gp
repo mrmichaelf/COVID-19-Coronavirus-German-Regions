@@ -41,7 +41,7 @@ title = "Deaths per Million Population"
 set title title
 set ylabel "Deaths per Million Population"
 set output '../plots-gnuplot/countries-latest-selected-deaths-per-mill.png'
-plot data u 7:xticlabels(1) with boxes ls 11
+plot data u 6:xticlabels(1) with boxes ls 11
 unset output
 #
 title = title." - Log Scale"
@@ -54,12 +54,12 @@ unset logscale y
 
 title = "Duplications until hitting Italy's deaths per capita\n(larger means more time to prepare)"
 set yrange [0:]
-deaths_per_million_of_IT = system ("grep Italy ../data/countries-latest-selected.tsv| tail -1 | cut -f7") + 0
+deaths_per_million_of_IT = system ("grep Italy ../data/countries-latest-selected.tsv| tail -1 | cut -f6") + 0
 print deaths_per_million_of_IT
 set title title
 set ylabel "Duplications"
 set output '../plots-gnuplot/countries-duplications-until-IT-level-of-deaths.png'
-plot data u (log(deaths_per_million_of_IT/$7)/log(2)):xticlabels(1) with boxes ls 11
+plot data u (log(deaths_per_million_of_IT/$6)/log(2)):xticlabels(1) with boxes ls 11
 unset output
 
 # combining the duplications until reaching IT level from countries-latest-selected.tsv and the duplication time from countries-gnuplot-fit.tsv
@@ -72,7 +72,7 @@ out = system ("cd .. ; python join-country-latest-and-fit-data.py ; cd scripts-g
 print out
 data = '../data/countries-joined_selected_and_gnuplot_fit.tsv'
 set output '../plots-gnuplot/countries-days-until-IT-level-of-deaths.png'
-plot data u 18:xticlabels(1) with boxes ls 11
+plot data u 16:xticlabels(1) with boxes ls 11
 unset output
 unset yrange
 set ytics autofreq

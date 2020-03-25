@@ -37,7 +37,7 @@ for i in range(len(l1)):
 deaths_per_million_of_IT = 0
 for line in l1:
     if line[0] == 'Italy':
-        deaths_per_million_of_IT = float(line[6])
+        deaths_per_million_of_IT = float(line[5])
         break
 
 assert deaths_per_million_of_IT != 0
@@ -52,7 +52,7 @@ for i in range(len(l1)):
     if i == 0:  # header row
         l.append("Days till deaths/pop of Italy")
     else:  # data rows
-        this_deaths_per_million = float(l1[i][6])
+        this_deaths_per_million = float(l1[i][5])
         duplications_till_level_of_IT = math.log(deaths_per_million_of_IT /
                                                  this_deaths_per_million)/math.log(2)
         doubling_time = float(l2[i][5])

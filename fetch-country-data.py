@@ -29,7 +29,7 @@ def download_new_data():
     url = "https://pomber.github.io/covid19/timeseries.json"
     filedata = urllib.request.urlopen(url)
     datatowrite = filedata.read()
-    with open(download_file, 'wb', newline="\n") as f:
+    with open(download_file, 'wb') as f:
         f.write(datatowrite)
 
 
@@ -84,14 +84,14 @@ def extract_latest_date_data():
     with open('data/countries-latest-all.tsv', 'w', newline="\n") as f:
         csvwriter = csv.writer(f, delimiter="\t")
         csvwriter.writerow(  # header row
-            ('# Country', 'Date', 'Confirmed', 'Deaths', 'Recovered')
+            ('# Country', 'Date', 'Confirmed', 'Deaths')  # , 'Recovered'
         )
         for country in sorted(d_json_data.keys(), key=str.casefold):
             country_data = d_json_data[country]
             entry = country_data[-1]  # last entry (=>latest date)
             csvwriter.writerow(
                 (country, entry['date'], entry['confirmed'],
-                 entry['deaths'], entry['recovered'])
+                 entry['deaths'])  # , entry['recovered']
             )
 
 
@@ -103,8 +103,10 @@ def extract_latest_date_data_selected():
     with open('data/countries-latest-selected.tsv', 'w', newline="\n") as f:
         csvwriter = csv.writer(f, delimiter="\t")
         csvwriter.writerow(
-            ('# Country', 'Date', 'Confirmed', 'Deaths', 'Recovered',
-             'Confirmed per Million', 'Deaths per Million', 'Recovered per Million')
+            ('# Country', 'Date', 'Confirmed', 'Deaths',
+             'Confirmed per Million', 'Deaths per Million')
+            # , 'Recovered'
+            # , 'Recovered per Million'
         )
         for country in sorted(d_selected_countries.keys(), key=str.casefold):
             country_data = d_json_data[country]
@@ -112,7 +114,9 @@ def extract_latest_date_data_selected():
             pop_in_Mill = d_selected_countries[country]['Population'] / 1000000
             csvwriter.writerow(
                 (country, entry['date'], entry['confirmed'],
-                 entry['deaths'], entry['recovered'], "%.3f" % (entry['confirmed']/pop_in_Mill), "%.3f" % (entry['deaths']/pop_in_Mill), "%.3f" % (entry['recovered']/pop_in_Mill))
+                 entry['deaths'], "%.3f" % (entry['confirmed']/pop_in_Mill), "%.3f" % (entry['deaths']/pop_in_Mill))
+                # entry['recovered'],
+                # , "%.3f" % (entry['recovered']/pop_in_Mill)
             )
 
 
@@ -168,31 +172,36 @@ def export_time_series_selected_countries():
                 if last_deaths >= 1:  # TODO: later increase to 10
                     change_confirmed = entry['confirmed'] - last_confirmed
                     change_deaths = entry['deaths'] - last_deaths
-                    change_recovered = entry['recovered'] - last_recovered
+                    # change_recovered = entry['recovered'] - last_recovered
                     #  factor for confirmend is not making sense, as this number can decrease
                     change_deaths_factor = "%.3f" % (
                         entry['deaths']/last_deaths)
-                    if last_recovered > 0:
-                        change_recovered_factor = "%.3f" % (
-                            entry['recovered']/last_recovered)
+                    # if last_recovered > 0:
+                    #     change_recovered_factor = "%.3f" % (
+                    #         entry['recovered']/last_recovered)
                 csvwriter.writerow(
                     (
                         i, entry['date'],
-                        entry['confirmed'], entry['deaths'], entry['recovered'],
+                        entry['confirmed'], entry['deaths'],
                         "%.3f" % (entry['confirmed']/pop_in_Mill), "%.3f" % (
-                            entry['deaths']/pop_in_Mill), "%.3f" % (entry['recovered']/pop_in_Mill),
+                            entry['deaths']/pop_in_Mill),
                         change_confirmed, change_deaths, change_recovered,
-                        change_confirmed_factor, change_deaths_factor, change_recovered_factor,
+                        change_confirmed_factor, change_deaths_factor,
                         days_since_2_deaths
                     )
+                    # , entry['recovered']
+                    # "%.3f" % (entry['recovered']/pop_in_Mill),
+                    # , change_recovered_factor
                 )
-                (last_confirmed, last_deaths, last_recovered) = (
-                    entry['confirmed'], entry['deaths'], entry['recovered'])
+                (last_confirmed, last_deaths) = (
+                    entry['confirmed'], entry['deaths'])
+                # , entry['recovered']
+                # , last_recovered
                 i += 1
 
 
 # TODO: uncomment once a day
-# download_new_data()
+download_new_data()
 
 d_selected_countries = read_ref_selected_countries()
 
