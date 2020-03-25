@@ -415,3 +415,19 @@ id,Country/Region,federalstate,infections,deaths,date,newinfections,newdeaths
 415,Germany,Saxony-Anhalt,321,0,2020-03-24,109,0
 401,Germany,Schleswig-Holstein,478,2,2020-03-24,95,1
 416,Germany,Thuringia,327,1,2020-03-24,78,1
+424,Germany,Baden-Württemberg,6069,37,2020-03-25,721,7
+425,Germany,Bavaria,6558,37,2020-03-25,804,7
+427,Germany,Berlin,1428,2,2020-03-25,208,1
+428,Germany,Brandenburg,429,1,2020-03-25,86,1
+420,Germany,Bremen,200,0,2020-03-25,17,0
+418,Germany,Hamburg,1262,0,2020-03-25,219,0
+422,Germany,Hesse,1754,4,2020-03-25,134,0
+419,Germany,Lower Saxony,2140,7,2020-03-25,376,1
+429,Germany,Mecklenburg-Western Pomerania,218,0,2020-03-25,19,0
+421,Germany,North Rhine-Westphalia,7197,43,2020-03-25,879,10
+423,Germany,Rhineland-Palatinate,1591,5,2020-03-25,221,0
+426,Germany,Saarland,403,2,2020-03-25,66,1
+430,Germany,Saxony,959,6,2020-03-25,148,5
+431,Germany,Saxony-Anhalt,375,1,2020-03-25,54,1
+417,Germany,Schleswig-Holstein,577,3,2020-03-25,99,1
+432,Germany,Thuringia,394,1,2020-03-25,67,0

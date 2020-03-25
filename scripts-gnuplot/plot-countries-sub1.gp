@@ -15,8 +15,8 @@ set label 1 label1_text_right." based on JHU data of ".date_last
 
 # fitting
 # fit only the last 14 days and death > 2
-set xrange [-14:0]
-set yrange [2:]
+set xrange [-13.1:0.1]
+set yrange [1.9:]
 f(x)=a * exp(b * x)
 a = y_last # initial value
 b = 0.24

@@ -31,8 +31,8 @@ a = y_last # initial value
 b = 0.24
 
 # use only last 14 days for fit at require the number to be at least 2
-set xrange [-14:0]
-set yrange [2:]
+set xrange [-13.1:0.1]
+set yrange [1.9:]
 
 fit f(x) data using 1:col via a, b
 # 17.03.2020: Comparing fits with 1 and 2 parameters

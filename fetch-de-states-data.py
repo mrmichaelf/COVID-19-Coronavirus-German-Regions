@@ -233,7 +233,7 @@ def convert_csv():
 d_states_ref = read_ref_data()
 
 # TODO
-# download_new_data()
+download_new_data()
 
 convert_csv()
 
