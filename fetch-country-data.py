@@ -191,7 +191,7 @@ def export_time_series_selected_countries():
 
 
 # TODO: uncomment once a day
-# download_new_data()
+download_new_data()
 
 d_selected_countries = read_ref_selected_countries()
 
