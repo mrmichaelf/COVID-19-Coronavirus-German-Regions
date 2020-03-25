@@ -30,7 +30,7 @@ unset style
 date_last = system("tail -1 '../data/de-state-BW.tsv' | cut -f2")
 set label 1 label1_text_right." based on RKI data of ".date_last
 
-title = "Zeitverlauf der Infektionen in den Bundesländer"
+title = "Zeitverlauf der Infektionen in den Bundesländern"
 set title title
 set yrange [0:]
 set output '../plots-gnuplot/cases-de-absolute.png'
@@ -92,7 +92,7 @@ unset output
 
 set yrange [1:]
 set logscale y
-set title title ." - Logarithmische Skalierung"
+set title title ." - log. Skalierung"
 set output '../plots-gnuplot/cases-de-per-million-log.png'
 replot
 unset output
