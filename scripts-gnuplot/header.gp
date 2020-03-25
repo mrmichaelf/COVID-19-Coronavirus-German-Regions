@@ -33,5 +33,6 @@ set grid xtics ytics
 set xtics mirror
 set ytics mirror 
 
-
 set fit quiet
+
+set key top left box

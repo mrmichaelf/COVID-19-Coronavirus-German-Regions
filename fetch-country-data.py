@@ -160,7 +160,7 @@ def export_time_series_selected_countries():
              change_recovered_factor) = ("", "", "")
             days_since_2_deaths = ""
             for entry in country_data:
-                if entry['deaths'] >= 2:
+                if entry['deaths'] >= 2:  # TODO: is 2 a good value?
                     if days_since_2_deaths == "":
                         days_since_2_deaths = 0
                     else:
