@@ -34,9 +34,9 @@ def download_new_data():
 
 
 def date_format(y: int, m: int, d: int) -> str:
-    return "%02d.%02d.%04d" % (d, m, y)
+    # return "%02d.%02d.%04d" % (d, m, y)
     # TODO
-    # return "%04d-%02d-%02d" % (y, m, d)
+    return "%04d-%02d-%02d" % (y, m, d)
 
 
 def read_json_data() -> dict:
