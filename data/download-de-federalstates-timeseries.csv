@@ -431,3 +431,19 @@ id,Country/Region,federalstate,infections,deaths,date,newinfections,newdeaths
 431,Germany,Saxony-Anhalt,375,1,2020-03-25,54,1
 417,Germany,Schleswig-Holstein,577,3,2020-03-25,99,1
 432,Germany,Thuringia,394,1,2020-03-25,67,0
+440,Germany,Baden-Württemberg,7283,56,2020-03-26,1214,19
+441,Germany,Bavaria,7993,47,2020-03-26,1435,10
+443,Germany,Berlin,1656,4,2020-03-26,228,2
+444,Germany,Brandenburg,477,1,2020-03-26,48,0
+436,Germany,Bremen,211,1,2020-03-26,11,1
+434,Germany,Hamburg,1265,0,2020-03-26,3,0
+438,Germany,Hesse,2157,6,2020-03-26,403,2
+435,Germany,Lower Saxony,2347,8,2020-03-26,207,1
+445,Germany,Mecklenburg-Western Pomerania,244,0,2020-03-26,26,0
+437,Germany,North Rhine-Westphalia,7924,53,2020-03-26,727,10
+439,Germany,Rhineland-Palatinate,1816,6,2020-03-26,225,1
+442,Germany,Saarland,433,2,2020-03-26,30,0
+446,Germany,Saxony,1141,7,2020-03-26,182,1
+447,Germany,Saxony-Anhalt,418,1,2020-03-26,43,0
+433,Germany,Schleswig-Holstein,675,3,2020-03-26,98,0
+448,Germany,Thuringia,468,3,2020-03-26,74,2

@@ -95,7 +95,7 @@ set xtics rotate by 0
 country_code = "AT" ; country_name = "Austria" ; load "plot-countries-sub1.gp"
 country_code = "BE" ; country_name = "Belgium" ; load "plot-countries-sub1.gp"
 country_code = "CA" ; country_name = "Canada" ; load "plot-countries-sub1.gp"
-# country_code = "CZ" ; country_name = "Czechia" ; load "plot-countries-sub1.gp"
+country_code = "CZ" ; country_name = "Czechia" ; load "plot-countries-sub1.gp"
 # country_code = "FI" ; country_name = "Finland" ; load "plot-countries-sub1.gp"
 country_code = "FR" ; country_name = "France" ; load "plot-countries-sub1.gp"
 country_code = "DE" ; country_name = "Germany" ; load "plot-countries-sub1.gp"
@@ -147,3 +147,6 @@ plot fit_data_file u (($7-1)*100):xticlabels(1) with boxes ls 11
 # , y_value_de
 unset output
 
+
+
+reset ; load "plot-countries-timeshifted.gp"
