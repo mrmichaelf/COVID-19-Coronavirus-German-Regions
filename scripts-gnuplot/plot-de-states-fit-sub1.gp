@@ -1,4 +1,4 @@
-title = "Fitting Infektionen in ".long_name
+title = "Infektionen in ".long_name
 set title title
 # fitting
 
