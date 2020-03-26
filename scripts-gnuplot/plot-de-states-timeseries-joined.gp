@@ -9,7 +9,6 @@ set terminal pngcairo size 640,800
 
 
 set title ""
-set ylabel "Infektionen"
 # set xlabel "Datum"
 
 # now lets compare several stats
@@ -32,6 +31,8 @@ set label 1 label1_text_right." based on RKI data of ".date_last
 
 title = "Zeitverlauf der Infektionen in den Bundesländern"
 set title title
+set ylabel "Infektionen"
+
 set yrange [0:]
 set output '../plots-gnuplot/cases-de-absolute.png'
 plot \
@@ -67,6 +68,7 @@ unset logscale y
 
 title = "Zeitverlauf der Infektionen in den Bundesländer pro 1 Mill Einwohner"
 set title title
+set ylabel "Infizierte pro 1 Millionen Einwohner"
 set yrange [0:]
 set output '../plots-gnuplot/cases-de-per-million.png'
 plot \
