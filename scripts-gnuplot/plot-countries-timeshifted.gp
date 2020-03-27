@@ -134,8 +134,6 @@ set logscale y
 
 title = "Death toll development - scaled per million population and log"
 set title title
-set ylabel "Deaths"
-
 set output '../plots-gnuplot/countries-timeshifted-per-million-log.png'
 replot
 unset output
@@ -218,6 +216,7 @@ set label 26 "US" left at first last_x_US, first last_y_US
 
 title = "Death toll development after 2nd death"
 set title title
+set ylabel "Deaths"
 
 set xrange [0:]
 set yrange [:]
