@@ -10,7 +10,7 @@ set title ""
 # set xlabel "Days since first data"
 set ylabel "Infektionen"
 set xlabel "Tage"
-
+set xtics 7
 
 # prepare data file for fit results
 # write header line into fit output file
@@ -48,7 +48,7 @@ unset label 3
 unset xrange
 unset yrange
 unset xlabel
-
+set xtics autofreq
 
 # let's plot the fit data as boxes
 set title "Fitergebnis Verdopplungszeit (Tage)"
@@ -62,7 +62,7 @@ set key off
 set yrange [0:]
 y_value_de = ( system("tail -1 " . fit_data_file . " | cut -f6") + 0)
 set output '../plots-gnuplot/cases-de-fit-doubling-time.png'
-plot fit_data_file u 6:xticlabels(1) with boxes ls 11, y_value_de
+plot fit_data_file u 6:xticlabels(1) with boxes ls 11, y_value_de with lines ls 12
 unset output
 set ytics format "%g%%" 
 set title "Fitergebnis Zunahme Infektionen pro Tag"
@@ -70,7 +70,7 @@ set ylabel "Zunahme Infektionen pro Tag"
 y_value_de = ( system("tail -1 " . fit_data_file . " | cut -f7") + 0)
 y_value_de = (y_value_de-1)*100
 set output '../plots-gnuplot/cases-de-fit-increase-1-day.png'
-plot fit_data_file u (($7-1)*100):xticlabels(1) with boxes ls 11, y_value_de
+plot fit_data_file u (($7-1)*100):xticlabels(1) with boxes ls 11, y_value_de with lines ls 12
 unset output
 set ytics format "%g" 
 
@@ -81,7 +81,7 @@ data = '../data/de-states-latest.tsv'
 y_value_de = ( system("tail -1 " . data . " | cut -f10") + 0)
 
 set output '../plots-gnuplot/cases-de-states-latest-per-million.png'
-plot data u 10:xticlabels(1) with boxes ls 11, y_value_de
+plot data u 10:xticlabels(1) with boxes ls 11, y_value_de with lines ls 12
 unset output
 
 unset yrange

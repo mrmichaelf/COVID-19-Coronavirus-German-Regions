@@ -30,26 +30,11 @@ f(x)=a * exp(b * x)
 a = y_last # initial value
 b = 0.24
 
-# use only last 14 days for fit at require the number to be at least 2
-set xrange [-13.1:0.1]
+# use only last 7 days for fit at require the number to be at least 2
+set xrange [-6.1:0.1]
 set yrange [1.9:]
 
 fit f(x) data using 1:col via a, b
-# 17.03.2020: Comparing fits with 1 and 2 parameters
-# fit f(x) data using 1:col via b
-# b               = 0.240188         +/- 0.003794     (1.58%)
-# Extrapolation 1 day: 7644 Cases
-#
-# fit f(x) data using 1:col via a, b
-# a               = 6096.47          +/- 75.56        (1.239%)
-# b               = 0.243477         +/- 0.004822     (1.98%)
-# Extrapolation 1 day: 7669 Cases
-#
-# fit f(x) data using 1:col via b,a
-# b               = 0.243477         +/- 0.004822     (1.98%)
-# a               = 6096.47          +/- 75.56        (1.239%)
-# Extrapolation 1 day: 7669 Cases
-
 
 # stats data using 1:col nooutput
 # x_max = STATS_max_x
