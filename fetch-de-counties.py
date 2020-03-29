@@ -5,8 +5,6 @@
 This script downloads COVID-19 / coronavirus data of German region provided by https://services7.arcgis.com/mOBPykOjAyBO2ZKk/ArcGIS/rest/services/Covid19_RKI_Sums
 """
 
-import urllib.request
-import csv
 
 # Built-in/Generic Imports
 
@@ -22,6 +20,8 @@ __version__ = "0.1"
 
 
 # core modules
+import urllib.request
+import csv
 import json
 import urllib.request
 # import csv
@@ -34,7 +34,6 @@ import numpy as np
 # curve-fit() function imported from scipy
 from scipy.optimize import curve_fit
 from matplotlib import pyplot as plt
-
 
 # API Info: resultRecordCount: max 2000 -> multiple calls needed
 # Covid19_RKI_Sums
@@ -201,7 +200,7 @@ def fetch_fit_and_plot_lk(lk_name: str) -> dict:
     TODO: format and re-structrue this dirty code
     returns a dict of the fit parameters
     """
-
+    lk_id = get_lk_id_from_lk_name(lk_name)
     l_lk_time_series = fetch_lk_sums_time_series(lk_name)
     # 03353   LK Harburg      252776
     # 09562   SK Erlangen     111962
@@ -251,6 +250,9 @@ def fetch_fit_and_plot_lk(lk_name: str) -> dict:
 
     assert len(data_x) == len(data_y)
 
+    # list of tuples
+    data_cases_x_y = list(map(lambda x, y: (x, y), data_x, data_y))
+
     # fit only the x range
     fit_range_x = (-6, 0)
     fit_range_y = (-np.inf, np.inf)
@@ -276,14 +278,15 @@ def fetch_fit_and_plot_lk(lk_name: str) -> dict:
     # print("Tomorrow it could be: %d , that is a factor of %.3f" %
     #   (y_next_day, factor_increase_next_day))
 
+    data_x_for_fit.extend(range(7))  # add 1 day forcast
     data_y_fitted = []
     for x in data_x_for_fit:
         y = fit_function(x, param[0], param[1])
         data_y_fitted.append(y)
 
-    plt.title(f"Landkreis: {lk_name}\n%d new cases expected\nfactor:%.2f" %
-              (y_next_day_delta, factor_increase_next_day))
-    range_x = (-28, 1)
+    plt.title(f"Landkreis {lk_name}\nerwartete Neuinfektionen: %d (+%d%%)" %
+              (y_next_day_delta, (factor_increase_next_day-1)*100))
+    range_x = (-28, 7)
     plt.plot(data_x, data_y, 'o', color='red', label="data")
     plt.plot(data_x_for_fit, data_y_fitted,
              '--', color='blue', label="fit")
@@ -291,16 +294,25 @@ def fetch_fit_and_plot_lk(lk_name: str) -> dict:
     plt.grid()
     # plt.xticks(np.arange(min(data_x), 0, 7.0))
     axes = plt.gca()
+    plt.yscale('log')
+    #formatter = plt.FuncFormatter(plt.log_10_product)
+    # axes.xaxis.set_major_formatter(formatter)
+    x_ticks = np.arange(range_x[0], range_x[1], 7)
+    plt.xticks(x_ticks)
+    # plt.get_yaxis().set_major_formatter(matplotlib.ticker.ScalarFormatter())
+    axes.set_xlim([range_x[0], range_x[1]])
+    axes.set_ylim([1, 10**(1+int(np.log10(max(data_y_fitted))))])
     axes.tick_params(direction='in', bottom=True,
                      top=True, left=True, right=True)
-    plt.yscale('log')
-    x_ticks = np.arange(range_x[0], range_x[1], 7)
-    axes.set_xlim([range_x[0], range_x[1]])
-    plt.xticks(x_ticks)
+
+
+# -{lk_name}
 
     # axes.set_ylim([ymin,ymax])
-    fileout = f'plots-python/de-cases-fit-region-{lk_name}.png'.replace(
+    fileout = f'plots-python/de-cases-fit-region-{lk_id}.png'.replace(
         " ", "_")
+    plt.xlabel('Tage')
+    plt.ylabel('Fälle')
     plt.savefig(fileout)
     # plt.show()
     plt.clf()  # clear plot
@@ -312,7 +324,7 @@ def fetch_fit_and_plot_lk(lk_name: str) -> dict:
 with open('data/de-cases-regions-fit-data.tsv', 'w', newline="\n") as f:
     csvwriter = csv.writer(f, delimiter="\t")
     csvwriter.writerow(  # header row
-        ('Bundesland', 'Landkreis', 'Population', 'cases_today', 'fit_a', 'fit_b',
+        ('ID', 'Bundesland', 'Landkreis', 'Population', 'cases_today', 'fit_a', 'fit_b',
          'cases_tomorrow', 'cases_factor_tomorrow')  # , 'Recovered'
     )
 
@@ -335,6 +347,7 @@ with open('data/de-cases-regions-fit-data.tsv', 'w', newline="\n") as f:
 
         csvwriter.writerow(
             (
+                lk_id,
                 d_ref_landkreise[lk_id]['BL'],  # Bundesland
                 s_lk_name,
                 d_ref_landkreise[lk_id]['EWZ'],  # Einwohner
@@ -345,5 +358,6 @@ with open('data/de-cases-regions-fit-data.tsv', 'w', newline="\n") as f:
                 "%.3f" % (d_fit_results['cases_factor_tomorrow']),
             )
         )
+        # break
 
 print(1)
