@@ -1,3 +1,26 @@
+#!/usr/bin/python
+# -*- coding: utf-8 -*-
+
+"""
+This script downloads COVID-19 / coronavirus data of German region provided by https://services7.arcgis.com/mOBPykOjAyBO2ZKk/ArcGIS/rest/services/Covid19_RKI_Sums
+"""
+
+import urllib.request
+import csv
+
+# Built-in/Generic Imports
+
+# Author and version info
+__author__ = "Dr. Torben Menke"
+__email__ = "https://entorb.net"
+__maintainer__ = __author__
+# __copyright__ = "Copyright 2020, My Project"
+# __credits__ = ["John", "Jim", "Jack"]
+__license__ = "GPL"
+__status__ = "Dev"
+__version__ = "0.1"
+
+
 # core modules
 import json
 import urllib.request
