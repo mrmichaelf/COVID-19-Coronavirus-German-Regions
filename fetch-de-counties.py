@@ -192,13 +192,14 @@ def fit_function(x, a, b):
     return a * np.exp(b * x)
 
 
-def fetch_fit_and_plot_lk(lk_name: str):
+def fetch_fit_and_plot_lk(lk_name: str) -> dict:
     """
     fetches data for a german region
     fits the cases data
     plots a 4 week history as log plot
     1-day forcase
     TODO: format and re-structrue this dirty code
+    returns a dict of the fit parameters
     """
 
     l_lk_time_series = fetch_lk_sums_time_series(lk_name)
@@ -214,8 +215,8 @@ def fetch_fit_and_plot_lk(lk_name: str):
     dt_latest_date = datetime.datetime.fromtimestamp(
         l_lk_time_series[-1]['Meldedatum'] / 1000)
 
-    print(
-        f"=== Zeitverlauf für {l_lk_time_series[-1]['Bundesland']}: {l_lk_time_series[-1]['Landkreis']}, vom {l_lk_time_series[-1]['Datenstand']} ===")
+    # print(
+    #     f"=== Zeitverlauf für {l_lk_time_series[-1]['Bundesland']}: {l_lk_time_series[-1]['Landkreis']}, vom {l_lk_time_series[-1]['Datenstand']} ===")
 
     # to ensure that each date is unique
     l_dates_processed = []
@@ -245,8 +246,8 @@ def fetch_fit_and_plot_lk(lk_name: str):
 
         assert s_this_date not in l_dates_processed
         l_dates_processed.append(s_this_date)
-        print(
-            f"{s_this_date}\t{i_days_past}\t{entry['SummeFall']}\t{entry['SummeTodesfall']}\t{entry['AnzahlFall']}\t{entry['AnzahlTodesfall']}")
+        # print(
+        #     f"{s_this_date}\t{i_days_past}\t{entry['SummeFall']}\t{entry['SummeTodesfall']}\t{entry['AnzahlFall']}\t{entry['AnzahlTodesfall']}")
 
     assert len(data_x) == len(data_y)
 
@@ -266,14 +267,14 @@ def fetch_fit_and_plot_lk(lk_name: str):
     param, param_cov = curve_fit(fit_function, data_x_for_fit, data_y_for_fit, p0, bounds=(
         (0, -np.inf), (np.inf, np.inf)))
 
-    print(f"Coefficients:\n{param}")
-    print(f"Covariance of coefficients:\n{param_cov}")
+    # print(f"Coefficients:\n{param}")
+    # print(f"Covariance of coefficients:\n{param_cov}")
 
     y_next_day = fit_function(1, param[0], param[1])
     y_next_day_delta = y_next_day - data_y[-1]
     factor_increase_next_day = y_next_day / data_y[-1]
-    print("Tomorrow it could be: %d , that is a factor of %.3f" %
-          (y_next_day, factor_increase_next_day))
+    # print("Tomorrow it could be: %d , that is a factor of %.3f" %
+    #   (y_next_day, factor_increase_next_day))
 
     data_y_fitted = []
     for x in data_x_for_fit:
@@ -284,7 +285,8 @@ def fetch_fit_and_plot_lk(lk_name: str):
               (y_next_day_delta, factor_increase_next_day))
     range_x = (-28, 1)
     plt.plot(data_x, data_y, 'o', color='red', label="data")
-    plt.plot(data_x_for_fit, data_y_fitted, '--', color='blue', label="fit")
+    plt.plot(data_x_for_fit, data_y_fitted,
+             '--', color='blue', label="fit")
     plt.legend()
     plt.grid()
     # plt.xticks(np.arange(min(data_x), 0, 7.0))
@@ -302,13 +304,46 @@ def fetch_fit_and_plot_lk(lk_name: str):
     plt.savefig(fileout)
     # plt.show()
     plt.clf()  # clear plot
+    d = {'cases_today': data_y[-1], 'fit_a': param[0], 'fit_b': param[1],
+         'cases_tomorrow': y_next_day_delta, 'cases_factor_tomorrow': factor_increase_next_day}
+    return d
 
 
-fetch_fit_and_plot_lk('Region Hannover')
-fetch_fit_and_plot_lk('SK Fürth')
-fetch_fit_and_plot_lk('SK Erlangen')
-fetch_fit_and_plot_lk('SK Hamburg')
-fetch_fit_and_plot_lk('LK Harburg')
+with open('data/de-cases-regions-fit-data.tsv', 'w', newline="\n") as f:
+    csvwriter = csv.writer(f, delimiter="\t")
+    csvwriter.writerow(  # header row
+        ('Bundesland', 'Landkreis', 'Population', 'cases_today', 'fit_a', 'fit_b',
+         'cases_tomorrow', 'cases_factor_tomorrow')  # , 'Recovered'
+    )
 
+    # fetch_fit_and_plot_lk('SK Fürth')
+    # fetch_fit_and_plot_lk('SK Erlangen')
+    # fetch_fit_and_plot_lk('SK Hamburg')
+    # fetch_fit_and_plot_lk('LK Harburg')
+
+# TODO: sort by Bundesland, Landkreis
+    for lk_id in d_ref_landkreise.keys():
+        # s_lk_name = 'SK Hamburg'
+        # lk_id = get_lk_id_from_lk_name(s_lk_name)
+        #     print(
+        #         f"{lk_id}\t{d_ref_landkreise[lk_id]['county']}\t{d_ref_landkreise[lk_id]['EWZ']}")
+
+        s_lk_name = d_ref_landkreise[lk_id]['county']
+        print(s_lk_name)
+
+        d_fit_results = fetch_fit_and_plot_lk(s_lk_name)
+
+        csvwriter.writerow(
+            (
+                d_ref_landkreise[lk_id]['BL'],  # Bundesland
+                s_lk_name,
+                d_ref_landkreise[lk_id]['EWZ'],  # Einwohner
+                d_fit_results['cases_today'],
+                "%.3f" % (d_fit_results['fit_a']),
+                "%.3f" % (d_fit_results['fit_b']),
+                "%d" % (d_fit_results['cases_tomorrow']),
+                "%.3f" % (d_fit_results['cases_factor_tomorrow']),
+            )
+        )
 
 print(1)
