@@ -463,3 +463,35 @@ id,Country/Region,federalstate,infections,deaths,date,newinfections,newdeaths
 463,Germany,Saxony-Anhalt,458,2,2020-03-27,40,1
 449,Germany,Schleswig-Holstein,812,4,2020-03-27,137,1
 464,Germany,Thuringia,542,4,2020-03-27,74,1
+472,Germany,Baden-Württemberg,9781,101,2020-03-28,1620,31
+473,Germany,Bavaria,11150,77,2020-03-28,1669,22
+475,Germany,Berlin,2161,8,2020-03-28,206,0
+476,Germany,Brandenburg,645,1,2020-03-28,108,0
+468,Germany,Bremen,260,2,2020-03-28,19,1
+466,Germany,Hamburg,1765,2,2020-03-28,72,0
+470,Germany,Hesse,2604,9,2020-03-28,281,2
+467,Germany,Lower Saxony,3150,12,2020-03-28,340,2
+477,Germany,Mecklenburg-Western Pomerania,308,0,2020-03-28,49,0
+469,Germany,North Rhine-Westphalia,10607,80,2020-03-28,1372,8
+471,Germany,Rhineland-Palatinate,2212,11,2020-03-28,241,3
+474,Germany,Saarland,550,2,2020-03-28,45,0
+478,Germany,Saxony,1432,9,2020-03-28,127,2
+479,Germany,Saxony-Anhalt,458,2,2020-03-28,0,0
+465,Germany,Schleswig-Holstein,915,4,2020-03-28,103,0
+480,Germany,Thuringia,584,5,2020-03-28,42,1
+488,Germany,Baden-Württemberg,9794,101,2020-03-29,13,0
+489,Germany,Bavaria,12881,107,2020-03-29,1731,30
+491,Germany,Berlin,2360,9,2020-03-29,199,1
+492,Germany,Brandenburg,721,1,2020-03-29,76,0
+484,Germany,Bremen,275,2,2020-03-29,15,0
+482,Germany,Hamburg,1846,4,2020-03-29,81,2
+486,Germany,Hesse,2605,9,2020-03-29,1,0
+483,Germany,Lower Saxony,3450,21,2020-03-29,300,9
+493,Germany,Mecklenburg-Western Pomerania,348,1,2020-03-29,40,1
+485,Germany,North Rhine-Westphalia,11400,98,2020-03-29,793,18
+487,Germany,Rhineland-Palatinate,2396,12,2020-03-29,184,1
+490,Germany,Saarland,560,2,2020-03-29,10,0
+494,Germany,Saxony,1617,9,2020-03-29,185,0
+495,Germany,Saxony-Anhalt,592,2,2020-03-29,134,0
+481,Germany,Schleswig-Holstein,1005,6,2020-03-29,90,2
+496,Germany,Thuringia,697,5,2020-03-29,113,0

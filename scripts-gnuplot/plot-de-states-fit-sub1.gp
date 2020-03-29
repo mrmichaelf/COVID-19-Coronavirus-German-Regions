@@ -50,7 +50,7 @@ set xrange [x_min:x_max+1]
 
 # plot 1: lin scale
 set label 2 sprintf("Fit Ergebnisse\nVerdopplungszeit: %.1f Tage\nZunahme 1 Tag: %.0f%%\n  -> %d ".col_name."\nZunahme 7 Tage: %.0f%%\n  -> %d ".col_name."", t_doubling, (exp(b * 1)-1)*100, y_last * exp(b * 1), (exp(b * 7)-1)*100, y_last * exp(b * 7) )
-set label 3 "" .y_last right at first x_max - 0.25, first y_last * 1.05
+set label 3 "" .y_last right at first x_max - 0.25, first y_last * 1.20
 set yrange [0:]
 set output '../plots-gnuplot/cases-de-fit-'.short_name.'.png'
 plot data using 1:col title "data" with points \
