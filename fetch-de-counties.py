@@ -297,7 +297,7 @@ def fetch_fit_and_plot_lk(lk_name: str):
     plt.xticks(x_ticks)
 
     # axes.set_ylim([ymin,ymax])
-    fileout = f'plots-python/de-cases-region-fit-{lk_name}.png'.replace(
+    fileout = f'plots-python/de-cases-fit-region-{lk_name}.png'.replace(
         " ", "_")
     plt.savefig(fileout)
     # plt.show()
