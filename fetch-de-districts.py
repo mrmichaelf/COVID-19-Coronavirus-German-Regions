@@ -83,6 +83,46 @@ from matplotlib import pyplot as plt
 d_ref_landkreise = {}
 
 
+# small helpers
+
+def get_lk_name_from_lk_id(lk_id: str) -> str:
+    global d_ref_landkreise
+    # name = d_ref_landkreise[lk_id]['county']
+    name = f"{d_ref_landkreise[lk_id]['GEN']} ({d_ref_landkreise[lk_id]['BEZ']})"
+    return name
+
+
+# def get_lk_id_from_lk_name(lk_name: str) -> str:
+#     global d_ref_landkreise
+#     this_lk_id = None
+#     for lk_id in d_ref_landkreise.keys():
+#         if d_ref_landkreise[lk_id]['county'] == lk_name:
+#             this_lk_id = lk_id
+#     assert this_lk_id != None, "LK {lk_name} unknown"
+#     return this_lk_id
+
+def helper_check_cache_file_available_and_recent(fname: str, max_age: int) -> bool:
+    b_cache_good = True
+    if not os.path.exists(fname):
+        print("No Cache available")
+        b_cache_good = False
+    if (b_cache_good == True and time.time() - os.path.getmtime(fname) > max_age):
+        print("Cache too old available")
+        b_cache_good = False
+    return b_cache_good
+
+
+def convert_timestamp_in_ms_to_date_str(ts: int) -> str:
+    """
+    converts a ms timestand to date
+    """
+    d = datetime.datetime.fromtimestamp(ts/1000)
+    # s = f"{d}"
+    # 2020-03-29 01:00:00
+    s = d.strftime("%Y-%m-%d")
+    return s
+
+
 def fetch_json_as_dict_from_url(url: str) -> dict:
     filedata = urllib.request.urlopen(url)
     contents = filedata.read()
@@ -154,36 +194,6 @@ def fetch_ref_landkreise(readFromCache: bool = True) -> dict:
     return d_landkreise
 
 
-def get_lk_name_from_lk_id(lk_id: str) -> str:
-    global d_ref_landkreise
-    name = d_ref_landkreise[lk_id]['county']
-    name = f"{d_ref_landkreise[lk_id]['GEN']} ({d_ref_landkreise[lk_id]['BEZ']})"
-    return name
-
-
-# def get_lk_id_from_lk_name(lk_name: str) -> str:
-#     global d_ref_landkreise
-#     this_lk_id = None
-#     for lk_id in d_ref_landkreise.keys():
-#         if d_ref_landkreise[lk_id]['county'] == lk_name:
-#             this_lk_id = lk_id
-#     assert this_lk_id != None, "LK {lk_name} unknown"
-#     return this_lk_id
-
-
-def helper_check_cache_file_available_and_recent(fname: str, max_age: int) -> bool:
-    b_cache_good = True
-    if not os.path.exists(fname):
-        print("No Cache available")
-        b_cache_good = False
-    if (b_cache_good == True and time.time() - os.path.getmtime(fname) > max_age):
-        print("Cache too old available")
-        b_cache_good = False
-    return b_cache_good
-
-# def fetch_lk_sums_time_series(lk_name: str):
-
-
 def fetch_lk_sums_time_series(lk_id: str, readFromCache: bool = True) -> list:
     """
     Fetches all data from arcgis Covid19_RKI_Sums endpoint: Bundesland, Landkreis, etc.
@@ -226,42 +236,39 @@ def fetch_lk_sums_time_series(lk_id: str, readFromCache: bool = True) -> list:
         l3 = fetch_json_as_dict_from_url_and_reduce_to_list(url)
         assert len(l3) < max_allowed_rows_to_fetch
 
+        # add days past counter for plotting
+        # to ensure that each date is unique
+        l_dates_processed = []
+        dt_latest_date = datetime.datetime.fromtimestamp(
+            l3[-1]['Meldedatum'] / 1000)
+
+        for i in range(len(l3)):
+            entry = l3[i]
+            # entry['IdBundesland']
+            # entry['Bundesland']
+            # entry['IdLandkreis']
+            # entry['Landkreis']
+            # covert to int
+            entry['SummeFall'] = int(entry['SummeFall'])
+            entry['SummeTodesfall'] = int(entry['SummeTodesfall'])
+            entry['AnzahlFall'] = int(entry['AnzahlFall'])
+            entry['AnzahlTodesfall'] = int(entry['AnzahlTodesfall'])
+            s_this_date = convert_timestamp_in_ms_to_date_str(
+                entry['Meldedatum'])
+            # to ensure that each date is unique
+            assert s_this_date not in l_dates_processed
+            l_dates_processed.append(s_this_date)
+            this_dt = datetime.datetime.fromtimestamp(
+                entry['Meldedatum'] / 1000)
+            # this_last_date
+            i_days_past = (this_dt-dt_latest_date).days
+            entry['DaysPast'] = i_days_past
+            l3[i] = entry
+
         with open(file_cache, 'w', encoding='utf-8') as outfile:
             json.dump(l3, outfile, ensure_ascii=False)
 
     return l3
-
-# helper - general
-
-
-def convert_timestamp_in_ms_to_date_str(ts: int) -> str:
-    """
-    converts a ms timestand to date
-    """
-    d = datetime.datetime.fromtimestamp(ts/1000)
-    # s = f"{d}"
-    # 2020-03-29 01:00:00
-    s = d.strftime("%Y-%m-%d")
-    return s
-
-# helper - specifiv
-
-
-# def
-# s = fetch_landkreise()
-d_ref_landkreise = fetch_ref_landkreise(readFromCache=True)
-# d_ref_landkreise[lk_id]['EWZ']    # = Einwohnerzahl: int
-# d_ref_landkreise[lk_id]['county'] # zB 'SK Flensburg'
-# d_ref_landkreise[lk_id]['BL']     # zB 'Schleswig-Holstein'
-# d_ref_landkreise[lk_id]['BL_ID']  # zB '1'
-# d_ref_landkreise[lk_id]['BEZ']    # zB 'Kreisfreie Stadt'
-# d_ref_landkreise[lk_id]['last_update'] # zB '29.03.2020 00:00'
-
-
-# for lk_id in d_ref_landkreise.keys():
-#     print(
-#         f"{lk_id}\t{d_ref_landkreise[lk_id]['county']}\t{d_ref_landkreise[lk_id]['EWZ']}")
-# TODO: Bundeslandsummen
 
 
 # Test function with coefficients as parameters
@@ -281,7 +288,7 @@ def fetch_fit_and_plot_lk(lk_id: str) -> dict:
 
     lk_name = get_lk_name_from_lk_id(lk_id)
     l_lk_time_series = fetch_lk_sums_time_series(
-        lk_id)  # TODO: readFromCache = True wann?
+        lk_id, readFromCache=True)
     # 03353   LK Harburg      252776
     # 09562   SK Erlangen     111962
     # 09563   SK Fürth        127748
@@ -305,26 +312,10 @@ def fetch_fit_and_plot_lk(lk_id: str) -> dict:
     data_y = []
 
     for entry in l_lk_time_series:
-        # entry['IdBundesland']
-        # entry['Bundesland']
-        # entry['IdLandkreis']
-        # entry['Landkreis']
-        entry['SummeFall'] = int(entry['SummeFall'])
-        entry['SummeTodesfall'] = int(entry['SummeTodesfall'])
-        entry['AnzahlFall'] = int(entry['AnzahlFall'])
-        entry['AnzahlTodesfall'] = int(entry['AnzahlTodesfall'])
-        s_this_date = convert_timestamp_in_ms_to_date_str(entry['Meldedatum'])
-        # dt_latest_date
-        this_dt = datetime.datetime.fromtimestamp(entry['Meldedatum'] / 1000)
-        # this_last_date
-        i_days_past = (this_dt-dt_latest_date).days
-
         # data to fit
-        data_x.append(i_days_past)
+        data_x.append(entry['DaysPast'])
         data_y.append(entry['SummeFall'])
 
-        assert s_this_date not in l_dates_processed
-        l_dates_processed.append(s_this_date)
         # print(
         #     f"{s_this_date}\t{i_days_past}\t{entry['SummeFall']}\t{entry['SummeTodesfall']}\t{entry['AnzahlFall']}\t{entry['AnzahlTodesfall']}")
 
@@ -424,5 +415,28 @@ with open('data/de-cases-regions-fit-data.tsv', 'w', newline="\n") as f:
                 "%.3f" % (d_fit_results['cases_factor_tomorrow']),
             )
         )
+
+
+# def
+# s = fetch_landkreise()
+d_ref_landkreise = fetch_ref_landkreise(readFromCache=True)
+# d_ref_landkreise[lk_id]['EWZ']    # = Einwohnerzahl: int
+# d_ref_landkreise[lk_id]['county'] # zB 'SK Flensburg'
+# d_ref_landkreise[lk_id]['BL']     # zB 'Schleswig-Holstein'
+# d_ref_landkreise[lk_id]['BL_ID']  # zB '1'
+# d_ref_landkreise[lk_id]['BEZ']    # zB 'Kreisfreie Stadt'
+# d_ref_landkreise[lk_id]['last_update'] # zB '29.03.2020 00:00'
+
+
+for lk_id in d_ref_landkreise.keys():
+    lk_name = get_lk_name_from_lk_id(lk_id)
+    print(lk_name)
+    fetch_fit_and_plot_lk(lk_id)
+#     print(
+#         f"{lk_id}\t{d_ref_landkreise[lk_id]['county']}\t{d_ref_landkreise[lk_id]['EWZ']}")
+
+
+# TODO: Bundeslandsummen
+
 
 print(1)
