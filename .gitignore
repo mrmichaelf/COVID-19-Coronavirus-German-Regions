@@ -6,3 +6,4 @@ index*.html
 **/plots-python/*
 **/backup/*
 **/data/de-districts/cache/*
+**/test/*

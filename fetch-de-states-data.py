@@ -183,7 +183,7 @@ def convert_csv():
             day_num += 1
 
         d_states_data[code] = l_state
-        outfile = f'data/de-state-{code}.tsv'
+        outfile = f'data/de-states/de-states-cases-{code}.tsv'
         with open(outfile, 'w', newline="\n") as f:
             csvwriter = csv.writer(f, delimiter="\t")
             csvwriter.writerows(d_states_data[code])
@@ -208,7 +208,7 @@ def convert_csv():
         d_states_latest[code]['New Deaths'] = l_latest[5]
         d_states_latest[code]['Infections per Million'] = l_latest[6]
         d_states_latest[code]['Deaths per Million'] = l_latest[7]
-    with open('data/de-states-latest.tsv', 'w') as f:
+    with open('data/de-states/de-states-latest.tsv', 'w') as f:
         csvwriter = csv.writer(f, delimiter="\t")
         csvwriter.writerow(
             ('# State', 'Code', 'Population', 'Pop Density', 'Date', 'Infections', 'Deaths', 'New Infections', 'New Deaths',

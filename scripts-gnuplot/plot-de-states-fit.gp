@@ -14,7 +14,7 @@ set xtics 7
 
 # prepare data file for fit results
 # write header line into fit output file
-fit_data_file = "../data/cases-de-gnuplot-fit.tsv"
+fit_data_file = "../data/de-states/de-states-cases-gnuplot-fit.tsv"
 set print fit_data_file
 print "# Region\tShort\ta\tb\tCases\tDoubling time\tfactor t+1\tcases t+1\tfactor t+7\tcases t+7"
 unset print
@@ -77,7 +77,7 @@ set ytics format "%g"
 # Plotting the latest number of infections per 1 Mill pop
 set title "Infektionen pro 1 Millionen Einwohner"
 set ylabel "Infektionen pro 1 Mill Einwohner"
-data = '../data/de-states-latest.tsv'
+data = '../data/de-states/de-states-latest.tsv'
 y_value_de = ( system("tail -1 " . data . " | cut -f10") + 0)
 
 set output '../plots-gnuplot/cases-de-states-latest-per-million.png'
