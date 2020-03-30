@@ -5,10 +5,6 @@
 This script downloads COVID-19 / coronavirus data provided by https://github.com/swildermann/COVID-19
 """
 
-import urllib.request
-import csv
-
-# Built-in/Generic Imports
 
 # Author and version info
 __author__ = "Dr. Torben Menke"
@@ -20,6 +16,20 @@ __license__ = "GPL"
 __status__ = "Dev"
 __version__ = "0.1"
 
+
+# Built-in/Generic Imports
+
+import urllib.request
+import csv
+
+import numpy as np
+# curve-fit() function imported from scipy
+from scipy.optimize import curve_fit
+from matplotlib import pyplot as plt
+import math
+
+# my helper modules
+import helper
 
 download_file = 'data/download-de-federalstates-timeseries.csv'
 
@@ -60,6 +70,42 @@ def helper_add_per_millions(state_code: str, l: list) -> list:
     for i in range(1, 5):
         l.append(round(l[i]/pop_in_million, 3))
     return l
+
+
+# Fit function with coefficients as parameters
+def fit_function(t, N0, T):
+    # previously b = ln(2)/T used, but this is better as T = doubling time is directy returned
+    return N0 * np.exp(t * math.log(2)/T)
+
+
+def fit_routine(data: list, fit_range_x: list = (-np.inf, np.inf), fit_range_y: list = (-np.inf, np.inf)) -> list:
+    """
+    data list of x,y pairs
+    """
+    assert len(data) >= 2
+    (data_x_for_fit, data_y_for_fit) = helper.extract_data_according_to_fit_ranges(
+        data, fit_range_x, fit_range_y)
+
+    # Do the fit
+    p0 = [data_y_for_fit[-1], 0.14]  # initial guess of parameters
+    param, param_cov = curve_fit(fit_function, data_x_for_fit, data_y_for_fit, p0, bounds=(
+        (0, -np.inf), (np.inf, np.inf)))
+
+    y_next_day = fit_function(1, param[0], param[1])
+    y_next_day_delta = y_next_day - data_y_for_fit[-1]
+    factor_increase_next_day = y_next_day / data_y_for_fit[-1]
+
+    d = {
+        'fit_x_range': fit_range_x,
+        'fit_y_range': fit_range_y,
+        'fit_res_a': param[0],
+        'fit_res_b': param[1],
+        'value_at_last_day': data_y_for_fit[-1],
+        'forcast_for_next_day': y_next_day_delta,
+        'factor_increase_next_day': factor_increase_next_day
+    }
+
+    return d
 
 
 def convert_csv():

@@ -77,6 +77,10 @@ from scipy.optimize import curve_fit
 from matplotlib import pyplot as plt
 
 
+# my helper modules
+import helper
+
+
 # urlbase = ''
 
 # here I store the fetched ref_data_from
@@ -143,7 +147,7 @@ def fetch_json_as_dict_from_url_and_reduce_to_list(url: str) -> list:
 
 def fetch_ref_landkreise(readFromCache: bool = True) -> dict:
     """
-    fetches ref-data for the German counties (Landkreise) via rest API from arcgis
+    fetches ref-data for the German districts (Landkreise) via rest API from arcgis
     GUI
     1: https://experience.arcgis.com/experience/478220a4c454480e823b17327b2bf1d4/page/page_1/
     # /bca904a683844e7784141559b540dbc2
@@ -151,7 +155,7 @@ def fetch_ref_landkreise(readFromCache: bool = True) -> dict:
     Api Explorer
     https://services7.arcgis.com/mOBPykOjAyBO2ZKk/arcgis/rest/services/RKI_Landkreisdaten/FeatureServer/0
 
-    converts/flattens the retrieved json a bit and use the county name as key for the returred dict
+    converts/flattens the retrieved json a bit and use the district ID lk_id as key for the returred dict
     write the json to the file system, using utf-8 encoding
     returns the data as dict, using lk_id as key
     """
@@ -274,38 +278,16 @@ def fetch_lk_sums_time_series(lk_id: str, readFromCache: bool = True) -> list:
 
 # Test function with coefficients as parameters
 def fit_function(x, a, b):
+    # TODO: replace b by b = ln(2)/T ; with T = doubling time
     return a * np.exp(b * x)
 
 
-def helper_extract_x_and_y_data(data: list) -> list:
-    """
-    data of (x,y) -> data_x, data_y
-    """
-    data_x = []
-    data_y = []
-    for pair in data:
-        data_x.append(pair[0])
-        data_y.append(pair[1])
-    return data_x, data_y
-
-
-def helper_extract_data_according_to_fit_ranges(data: list, fit_range_x: list, fit_range_y: list):
-    # reduce the data on which we fit
-    data_x_for_fit = []
-    data_y_for_fit = []
-    for i in range(len(data)):
-        if data[i][0] >= fit_range_x[0] and data[i][0] <= fit_range_x[1] and data[i][1] >= fit_range_y[0] and data[i][1] <= fit_range_y[1]:
-            data_x_for_fit.append(data[i][0])
-            data_y_for_fit.append(data[i][1])
-    return (data_x_for_fit, data_y_for_fit)
-
-
-def fit_exp_cases(data: list, fit_range_x: list = (-np.inf, np.inf), fit_range_y: list = (-np.inf, np.inf)) -> list:
+def fit_routine(data: list, fit_range_x: list = (-np.inf, np.inf), fit_range_y: list = (-np.inf, np.inf)) -> list:
     """
     data list of x,y pairs
     """
     assert len(data) >= 2
-    (data_x_for_fit, data_y_for_fit) = helper_extract_data_according_to_fit_ranges(
+    (data_x_for_fit, data_y_for_fit) = helper.extract_data_according_to_fit_ranges(
         data, fit_range_x, fit_range_y)
 
     # Do the fit
@@ -322,9 +304,9 @@ def fit_exp_cases(data: list, fit_range_x: list = (-np.inf, np.inf), fit_range_y
         'fit_y_range': fit_range_y,
         'fit_res_a': param[0],
         'fit_res_b': param[1],
-        'value_last': data_y_for_fit[-1],
-        'value_last+1': y_next_day_delta,
-        'factor_last+1': factor_increase_next_day
+        'value_at_last_day': data_y_for_fit[-1],
+        'forcast_for_next_day': y_next_day_delta,
+        'factor_increase_next_day': factor_increase_next_day
     }
 
     return d
@@ -357,12 +339,12 @@ def plot_lk_fit(lk_id: str, data: list, d_fit_results: dict):
     #   (y_next_day, factor_increase_next_day))
 
     #
-    (data_x, data_y) = helper_extract_x_and_y_data(data)
+    (data_x, data_y) = helper.extract_x_and_y_data(data)
 
     fit_range_x = d_fit_results['fit_x_range']
     fit_range_y = d_fit_results['fit_y_range']
 
-    (data_x_for_fit, data_y_for_fit) = helper_extract_data_according_to_fit_ranges(
+    (data_x_for_fit, data_y_for_fit) = helper.extract_data_according_to_fit_ranges(
         data, fit_range_x, fit_range_y)
 
     fit_res_a = d_fit_results['fit_res_a']
@@ -373,7 +355,7 @@ def plot_lk_fit(lk_id: str, data: list, d_fit_results: dict):
         data_y_fitted.append(y)
 
     plt.title(f"{lk_name}\n%d new cases expected\nfactor:%.2f" %
-              (d_fit_results['value_last+1'], d_fit_results['factor_last+1']))
+              (d_fit_results['forcast_for_next_day'], d_fit_results['factor_increase_next_day']))
     range_x = (-28, 1)
     plt.plot(data_x, data_y, 'o', color='red', label="data")
     plt.plot(data_x_for_fit, data_y_fitted,
@@ -430,7 +412,7 @@ for lk_id in d_ref_landkreise.keys():
         # choose columns to fit
         data.append((entry['DaysPast'], entry['SummeFall']))
 
-    d_fit_results = fit_exp_cases(data, fit_range_x=(-6, 0))
+    d_fit_results = fit_routine(data, fit_range_x=(-6, 0))
 
     # TODO: add fit range, as needed for plot
     d = {
@@ -439,15 +421,15 @@ for lk_id in d_ref_landkreise.keys():
         'LK_Einwohner': d_ref_landkreise[lk_id]['EWZ'],  # Einwohner
         'fit_res_a': "%.3f" % (d_fit_results['fit_res_a']),
         'fit_res_b': "%.3f" % (d_fit_results['fit_res_b']),
-        'Faelle_heute': d_fit_results['value_last'],
-        'Faelle_morgen': "%d" % (d_fit_results['value_last+1']),
-        'Faelle_Faktor_f_morgen': "%.3f" % (d_fit_results['factor_last+1'])
+        'Faelle_heute': d_fit_results['value_at_last_day'],
+        'Faelle_morgen': "%d" % (d_fit_results['forcast_for_next_day']),
+        'Faelle_Faktor_f_morgen': "%.3f" % (d_fit_results['factor_increase_next_day'])
     }
 
     d_fit_results_for_json_export[lk_id] = d
 
-    # plot_lk_fit(lk_id, data, d_fit_results)
-    # break
+    plot_lk_fit(lk_id, data, d_fit_results)
+    break
 
 # Export fit data as CSV
 with open('data/de-districs-cases-fit-data.tsv', 'w', encoding='utf-8', newline="\n") as f:
