@@ -56,7 +56,7 @@ set label 3 "" .y_last right at first x_max - 0.25, first y_last * 1.20
 set yrange [0:]
 set output '../plots-gnuplot/cases-de-fit-'.short_name.'.png'
 plot data using 1:col title "Daten" with points \
-, f(x) title sprintf ("Fit/Trend") with lines \
+, f(x) title sprintf ("7-Tages Fit/Trend") with lines \
 , data using 1:11 title "Verdopplungszeit" axis x1y2 with lines ls 4
 unset output
 # plot 2: log scale
