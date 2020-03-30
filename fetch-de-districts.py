@@ -107,7 +107,7 @@ def helper_check_cache_file_available_and_recent(fname: str, max_age: int) -> bo
         print("No Cache available")
         b_cache_good = False
     if (b_cache_good == True and time.time() - os.path.getmtime(fname) > max_age):
-        print("Cache too old available")
+        print("Cache too old")
         b_cache_good = False
     return b_cache_good
 
@@ -276,21 +276,36 @@ def fit_function(x, a, b):
     return a * np.exp(b * x)
 
 
-def fit_exp_cases(data: list, fit_range_x: list = (-np.inf, np.inf), fit_range_y: list = (-np.inf, np.inf)) -> list:
+def helper_extract_x_and_y_data(data: list) -> list:
+    """
+    data of (x,y) -> data_x, data_y
+    """
     data_x = []
     data_y = []
-
     for pair in data:
         data_x.append(pair[0])
         data_y.append(pair[1])
+    return data_x, data_y
 
+
+def helper_extract_data_according_to_fit_ranges(data: list, fit_range_x: list, fit_range_y: list):
     # reduce the data on which we fit
     data_x_for_fit = []
     data_y_for_fit = []
     for i in range(len(data)):
-        if data_x[i] >= fit_range_x[0] and data_x[i] <= fit_range_x[1] and data_y[i] >= fit_range_y[0] and data_y[i] <= fit_range_y[1]:
-            data_x_for_fit.append(data_x[i])
-            data_y_for_fit.append(data_y[i])
+        if data[i][0] >= fit_range_x[0] and data[i][0] <= fit_range_x[1] and data[i][1] >= fit_range_y[0] and data[i][1] <= fit_range_y[1]:
+            data_x_for_fit.append(data[i][0])
+            data_y_for_fit.append(data[i][1])
+    return (data_x_for_fit, data_y_for_fit)
+
+
+def fit_exp_cases(data: list, fit_range_x: list = (-np.inf, np.inf), fit_range_y: list = (-np.inf, np.inf)) -> list:
+    """
+    data list of x,y pairs
+    """
+    assert len(data) >= 2
+    (data_x_for_fit, data_y_for_fit) = helper_extract_data_according_to_fit_ranges(
+        data, fit_range_x, fit_range_y)
 
     # Do the fit
     p0 = [data_y_for_fit[-1], 0.14]  # initial guess of parameters
@@ -298,8 +313,8 @@ def fit_exp_cases(data: list, fit_range_x: list = (-np.inf, np.inf), fit_range_y
         (0, -np.inf), (np.inf, np.inf)))
 
     y_next_day = fit_function(1, param[0], param[1])
-    y_next_day_delta = y_next_day - data_y[-1]
-    factor_increase_next_day = y_next_day / data_y[-1]
+    y_next_day_delta = y_next_day - data_y_for_fit[-1]
+    factor_increase_next_day = y_next_day / data_y_for_fit[-1]
 
     d = {
         'fit_x_range': fit_range_x,
@@ -314,23 +329,15 @@ def fit_exp_cases(data: list, fit_range_x: list = (-np.inf, np.inf), fit_range_y
     return d
 
 
-def plot_lk_fit(lk_id: str, l_lk_time_series: list) -> dict:
+def plot_lk_fit(lk_id: str, data: list, d_fit_results: dict):
     """
-    fetches data for a german region
-    fits the cases data
     plots a 4 week history as log plot
     1-day forcase
     TODO: format and re-structrue this dirty code
-    returns a dict of the fit parameters
     """
 
     lk_name = get_lk_name_from_lk_id(lk_id)
-    # last_date = l_lk_time_series[-1]['Datenstand']
-    # dt_last_date = datetime.datetime.fromisoformat(
-    #     l_lk_time_series[-1]['Datenstand']  # 2020-03-29
-    # )
 
-    # ts_latest_date = l_lk_time_series[-1]['Meldedatum'] / 1000
     dt_latest_date = datetime.datetime.fromtimestamp(
         l_lk_time_series[-1]['Meldedatum'] / 1000)
 
@@ -348,13 +355,24 @@ def plot_lk_fit(lk_id: str, l_lk_time_series: list) -> dict:
     # print("Tomorrow it could be: %d , that is a factor of %.3f" %
     #   (y_next_day, factor_increase_next_day))
 
+    #
+    (data_x, data_y) = helper_extract_x_and_y_data(data)
+
+    fit_range_x = d_fit_results['fit_x_range']
+    fit_range_y = d_fit_results['fit_y_range']
+
+    (data_x_for_fit, data_y_for_fit) = helper_extract_data_according_to_fit_ranges(
+        data, fit_range_x, fit_range_y)
+
+    fit_res_a = d_fit_results['fit_res_a']
+    fit_res_b = d_fit_results['fit_res_b']
     data_y_fitted = []
     for x in data_x_for_fit:
-        y = fit_function(x, param[0], param[1])
+        y = fit_function(x, fit_res_a, fit_res_b)
         data_y_fitted.append(y)
 
     plt.title(f"{lk_name}\n%d new cases expected\nfactor:%.2f" %
-              (y_next_day_delta, factor_increase_next_day))
+              (d_fit_results['value_last+1'], d_fit_results['factor_last+1']))
     range_x = (-28, 1)
     plt.plot(data_x, data_y, 'o', color='red', label="data")
     plt.plot(data_x_for_fit, data_y_fitted,
@@ -371,14 +389,11 @@ def plot_lk_fit(lk_id: str, l_lk_time_series: list) -> dict:
     plt.xticks(x_ticks)
 
     # axes.set_ylim([ymin,ymax])
-    fileout = f'plots-python/de-cases-fit-region-{lk_name}.png'.replace(
-        " ", "_")
+    fileout = f'plots-python/de-cases-fit-region-{lk_id}.png'
+    # .replace(" ", "_")
     plt.savefig(fileout)
     # plt.show()
     plt.clf()  # clear plot
-    d = {'cases_today': data_y[-1], 'fit_a': param[0], 'fit_b': param[1],
-         'cases_tomorrow': y_next_day_delta, 'cases_factor_tomorrow': factor_increase_next_day}
-    return d
 
     # fetch_fit_and_plot_lk('SK Fürth')
     # fetch_fit_and_plot_lk('SK Erlangen')
@@ -416,6 +431,7 @@ for lk_id in d_ref_landkreise.keys():
 
     d_fit_results = fit_exp_cases(data, fit_range_x=(-6, 0))
 
+    # TODO: add fit range, as needed for plot
     d = {
         'Bundesland': d_ref_landkreise[lk_id]['BL'],  # Bundesland
         'Landkreis': lk_name,
@@ -429,8 +445,11 @@ for lk_id in d_ref_landkreise.keys():
 
     d_fit_results_for_json_export[lk_id] = d
 
+    plot_lk_fit(lk_id, data, d_fit_results)
+    # break
+
 # Export fit data as CSV
-with open('data/de-cases-regions-fit-data.tsv', 'w', encoding='utf-8', newline="\n") as f:
+with open('data/de-districs-cases-fit-data.tsv', 'w', encoding='utf-8', newline="\n") as f:
     csvwriter = csv.writer(f, delimiter="\t")
     csvwriter.writerow(  # header row
         ('Bundesland', 'Landkreis', 'Population', 'cases_today', 'fit_a', 'fit_b',
@@ -450,7 +469,7 @@ with open('data/de-cases-regions-fit-data.tsv', 'w', encoding='utf-8', newline="
         )
 
 # Export fit data as JSON
-with open('data/de-cases-regions-fit-data.json', 'w', encoding='utf-8') as outfile:
+with open('data/de-districs-cases-fit-data.json', 'w', encoding='utf-8') as outfile:
     json.dump(d_fit_results_for_json_export, outfile, ensure_ascii=False)
 
 
