@@ -445,15 +445,21 @@ for lk_id in d_ref_landkreise.keys():
 
     d_fit_results_for_json_export[lk_id] = d
 
-    plot_lk_fit(lk_id, data, d_fit_results)
+    # plot_lk_fit(lk_id, data, d_fit_results)
     # break
 
 # Export fit data as CSV
 with open('data/de-districs-cases-fit-data.tsv', 'w', encoding='utf-8', newline="\n") as f:
     csvwriter = csv.writer(f, delimiter="\t")
     csvwriter.writerow(  # header row
-        ('Bundesland', 'Landkreis', 'Population', 'cases_today', 'fit_a', 'fit_b',
-         'cases_tomorrow', 'cases_factor_tomorrow')  # , 'Recovered'
+        (
+            'Bundesland',
+            'Landkreis',
+            'Population',
+            'cases_today',
+            'cases_tomorrow',
+            'cases_factor_tomorrow'
+        )
     )
 
     for lk_id in d_fit_results_for_json_export.keys():
@@ -462,6 +468,7 @@ with open('data/de-districs-cases-fit-data.tsv', 'w', encoding='utf-8', newline=
             (
                 d_fit_results_for_json_export[lk_id]['Bundesland'],
                 d_fit_results_for_json_export[lk_id]['Landkreis'],
+                d_fit_results_for_json_export[lk_id]['LK_Einwohner'],
                 d_fit_results_for_json_export[lk_id]['Faelle_heute'],
                 d_fit_results_for_json_export[lk_id]['Faelle_morgen'],
                 d_fit_results_for_json_export[lk_id]['Faelle_Faktor_f_morgen'],
