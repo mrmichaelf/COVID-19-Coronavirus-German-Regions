@@ -3,6 +3,9 @@
 # date 2020-03-12
 
 
+# TODO: add 7 day fit of doublication time
+
+
 load "header.gp"
 
 data = '../data/countries-latest-selected.tsv'

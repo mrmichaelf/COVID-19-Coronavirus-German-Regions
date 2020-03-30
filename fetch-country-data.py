@@ -4,7 +4,10 @@
 """
 This script downloads COVID-19 / coronavirus data provided by https://github.com/pomber/covid19
 
+
 """
+# TODO: add 7 day fit of doublication time
+
 
 import json
 import urllib.request
