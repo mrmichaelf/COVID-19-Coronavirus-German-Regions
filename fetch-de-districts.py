@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 
 """
-This script downloads COVID-19 / coronavirus data of German region provided by 
+This script downloads COVID-19 / coronavirus data of German region provided by
 
 GUI: https://experience.arcgis.com/experience/478220a4c454480e823b17327b2bf1d4/page/page_0/
 
@@ -24,7 +24,7 @@ Examples
 https://services7.arcgis.com/mOBPykOjAyBO2ZKk/arcgis/rest/services/Covid19_RKI_Sums/FeatureServer/0/query?f=json&where=(Bundesland%3D%27Baden-W%C3%BCrttemberg%27)&returnGeometry=false&spatialRel=esriSpatialRelIntersects&outFields=ObjectId%2CSummeFall%2CMeldedatum&orderByFields=Meldedatum%20asc&resultOffset=0&resultRecordCount=2000&cacheHint=true
 https://services7.arcgis.com/mOBPykOjAyBO2ZKk/ArcGIS/rest/services/Covid19_RKI_Sums/FeatureServer/0/query?f=json&where=1%3D1&objectIds=&time=&resultType=none&outFields=*&returnIdsOnly=false&returnUniqueIdsOnly=false&returnCountOnly=false&returnDistinctValues=false&cacheHint=false&orderByFields=Meldedatum%2C+IdBundesland%2C+IdLandkreis&groupByFieldsForStatistics=&outStatistics=&having=&resultOffset=&resultRecordCount=&sqlFormat=none&token=
 
-# Report of cases and deaths per Bundesland using sum 
+# Report of cases and deaths per Bundesland using sum
 https://services7.arcgis.com/mOBPykOjAyBO2ZKk/ArcGIS/rest/services/Covid19_RKI_Sums/FeatureServer/0/query?f=html&where=IdBundesland%3D%2702%27&objectIds=&time=&resultType=none&outFields=*&returnIdsOnly=false&returnUniqueIdsOnly=false&returnCountOnly=false&returnDistinctValues=false&cacheHint=true&orderByFields=Bundesland%2C+Meldedatum+asc&groupByFieldsForStatistics=Bundesland%2C+Meldedatum&outStatistics=%5B%7B%22statisticType%22%3A%22sum%22%2C%22onStatisticField%22%3A%22SummeFall%22%2C%22outStatisticFieldName%22%3A%22SumSummeFall%22%7D%2C%0D%0A%7B%22statisticType%22%3A%22sum%22%2C%22onStatisticField%22%3A%22SummeTodesfall%22%2C%22outStatisticFieldName%22%3A%22SumSummeTodesfall%22%7D%5D&having=&resultOffset=&resultRecordCount=&sqlFormat=none&token=
 
 List of Bundesländer and lastest number of cases/deaths, not time series
@@ -40,7 +40,7 @@ Man / Woman & Age Distribution
 https://services7.arcgis.com/mOBPykOjAyBO2ZKk/arcgis/rest/services/RKI_COVID19/FeatureServer/0/query?f=html&where=(Geschlecht%3C%3E%27unbekannt%27%20AND%20Altersgruppe%3C%3E%27unbekannt%27%20AND%20NeuerFall%20IN(0%2C%201))%20AND%20(Bundesland%3D%27Nordrhein-Westfalen%27)&returnGeometry=false&spatialRel=esriSpatialRelIntersects&outFields=*&groupByFieldsForStatistics=Altersgruppe%2CGeschlecht&orderByFields=Altersgruppe%20asc&outStatistics=%5B%7B%22statisticType%22%3A%22sum%22%2C%22onStatisticField%22%3A%22AnzahlFall%22%2C%22outStatisticFieldName%22%3A%22value%22%7D%5D&cacheHint=true
 
 
-Endpoint: RKI_COVID19 
+Endpoint: RKI_COVID19
 API-Doc
 https://services7.arcgis.com/mOBPykOjAyBO2ZKk/arcgis/rest/services/RKI_COVID19/FeatureServer/0
 API-Test
@@ -276,7 +276,45 @@ def fit_function(x, a, b):
     return a * np.exp(b * x)
 
 
-def fetch_fit_and_plot_lk(lk_id: str) -> dict:
+def fit_exp_cases(data: list, fit_range_x: list = (-np.inf, np.inf), fit_range_y: list = (-np.inf, np.inf)) -> list:
+    data_x = []
+    data_y = []
+
+    for pair in data:
+        data_x.append(pair[0])
+        data_y.append(pair[1])
+
+    # reduce the data on which we fit
+    data_x_for_fit = []
+    data_y_for_fit = []
+    for i in range(len(data)):
+        if data_x[i] >= fit_range_x[0] and data_x[i] <= fit_range_x[1] and data_y[i] >= fit_range_y[0] and data_y[i] <= fit_range_y[1]:
+            data_x_for_fit.append(data_x[i])
+            data_y_for_fit.append(data_y[i])
+
+    # Do the fit
+    p0 = [data_y_for_fit[-1], 0.14]  # initial guess of parameters
+    param, param_cov = curve_fit(fit_function, data_x_for_fit, data_y_for_fit, p0, bounds=(
+        (0, -np.inf), (np.inf, np.inf)))
+
+    y_next_day = fit_function(1, param[0], param[1])
+    y_next_day_delta = y_next_day - data_y[-1]
+    factor_increase_next_day = y_next_day / data_y[-1]
+
+    d = {
+        'fit_x_range': fit_range_x,
+        'fit_y_range': fit_range_y,
+        'fit_res_a': param[0],
+        'fit_res_b': param[1],
+        'value_last': data_y_for_fit[-1],
+        'value_last+1': y_next_day_delta,
+        'factor_last+1': factor_increase_next_day
+    }
+
+    return d
+
+
+def plot_lk_fit(lk_id: str, l_lk_time_series: list) -> dict:
     """
     fetches data for a german region
     fits the cases data
@@ -287,11 +325,6 @@ def fetch_fit_and_plot_lk(lk_id: str) -> dict:
     """
 
     lk_name = get_lk_name_from_lk_id(lk_id)
-    l_lk_time_series = fetch_lk_sums_time_series(
-        lk_id, readFromCache=True)
-    # 03353   LK Harburg      252776
-    # 09562   SK Erlangen     111962
-    # 09563   SK Fürth        127748
     # last_date = l_lk_time_series[-1]['Datenstand']
     # dt_last_date = datetime.datetime.fromisoformat(
     #     l_lk_time_series[-1]['Datenstand']  # 2020-03-29
@@ -304,45 +337,14 @@ def fetch_fit_and_plot_lk(lk_id: str) -> dict:
     # print(
     #     f"=== Zeitverlauf für {l_lk_time_series[-1]['Bundesland']}: {l_lk_time_series[-1]['Landkreis']}, vom {l_lk_time_series[-1]['Datenstand']} ===")
 
-    # to ensure that each date is unique
-    l_dates_processed = []
-
     # these will be used for plotting, and partly for fitting
-    data_x = []
-    data_y = []
 
-    for entry in l_lk_time_series:
-        # data to fit
-        data_x.append(entry['DaysPast'])
-        data_y.append(entry['SummeFall'])
-
-        # print(
-        #     f"{s_this_date}\t{i_days_past}\t{entry['SummeFall']}\t{entry['SummeTodesfall']}\t{entry['AnzahlFall']}\t{entry['AnzahlTodesfall']}")
-
-    assert len(data_x) == len(data_y)
-
-    # fit only the x range
-    fit_range_x = (-6, 0)
-    fit_range_y = (-np.inf, np.inf)
-    # reduce the data on which we fit
-    data_x_for_fit = []
-    data_y_for_fit = []
-    for i in range(len(data_x)):
-        if data_x[i] >= fit_range_x[0] and data_x[i] <= fit_range_x[1] and data_y[i] >= fit_range_y[0] and data_y[i] <= fit_range_y[1]:
-            data_x_for_fit.append(data_x[i])
-            data_y_for_fit.append(data_y[i])
-
-    # Do the fit
-    p0 = [data_y[-1], 0.14]  # initial guess of parameters
-    param, param_cov = curve_fit(fit_function, data_x_for_fit, data_y_for_fit, p0, bounds=(
-        (0, -np.inf), (np.inf, np.inf)))
+    # print(
+    #     f"{s_this_date}\t{i_days_past}\t{entry['SummeFall']}\t{entry['SummeTodesfall']}\t{entry['AnzahlFall']}\t{entry['AnzahlTodesfall']}")
 
     # print(f"Coefficients:\n{param}")
     # print(f"Covariance of coefficients:\n{param_cov}")
 
-    y_next_day = fit_function(1, param[0], param[1])
-    y_next_day_delta = y_next_day - data_y[-1]
-    factor_increase_next_day = y_next_day / data_y[-1]
     # print("Tomorrow it could be: %d , that is a factor of %.3f" %
     #   (y_next_day, factor_increase_next_day))
 
@@ -378,47 +380,12 @@ def fetch_fit_and_plot_lk(lk_id: str) -> dict:
          'cases_tomorrow': y_next_day_delta, 'cases_factor_tomorrow': factor_increase_next_day}
     return d
 
-
-with open('data/de-cases-regions-fit-data.tsv', 'w', newline="\n") as f:
-    csvwriter = csv.writer(f, delimiter="\t")
-    csvwriter.writerow(  # header row
-        ('Bundesland', 'Landkreis', 'Population', 'cases_today', 'fit_a', 'fit_b',
-         'cases_tomorrow', 'cases_factor_tomorrow')  # , 'Recovered'
-    )
-
     # fetch_fit_and_plot_lk('SK Fürth')
     # fetch_fit_and_plot_lk('SK Erlangen')
     # fetch_fit_and_plot_lk('SK Hamburg')
     # fetch_fit_and_plot_lk('LK Harburg')
 
-# TODO: sort by Bundesland, Landkreis
-    for lk_id in d_ref_landkreise.keys():
-        # s_lk_name = 'SK Hamburg'
-        # lk_id = get_lk_id_from_lk_name(s_lk_name)
-        #     print(
-        #         f"{lk_id}\t{d_ref_landkreise[lk_id]['county']}\t{d_ref_landkreise[lk_id]['EWZ']}")
 
-        s_lk_name = get_lk_name_from_lk_id(lk_id)
-        print(s_lk_name)
-
-        d_fit_results = fetch_fit_and_plot_lk(lk_id)
-
-        csvwriter.writerow(
-            (
-                d_ref_landkreise[lk_id]['BL'],  # Bundesland
-                s_lk_name,
-                d_ref_landkreise[lk_id]['EWZ'],  # Einwohner
-                d_fit_results['cases_today'],
-                "%.3f" % (d_fit_results['fit_a']),
-                "%.3f" % (d_fit_results['fit_b']),
-                "%d" % (d_fit_results['cases_tomorrow']),
-                "%.3f" % (d_fit_results['cases_factor_tomorrow']),
-            )
-        )
-
-
-# def
-# s = fetch_landkreise()
 d_ref_landkreise = fetch_ref_landkreise(readFromCache=True)
 # d_ref_landkreise[lk_id]['EWZ']    # = Einwohnerzahl: int
 # d_ref_landkreise[lk_id]['county'] # zB 'SK Flensburg'
@@ -427,13 +394,64 @@ d_ref_landkreise = fetch_ref_landkreise(readFromCache=True)
 # d_ref_landkreise[lk_id]['BEZ']    # zB 'Kreisfreie Stadt'
 # d_ref_landkreise[lk_id]['last_update'] # zB '29.03.2020 00:00'
 
+# TODO: sort by Bundesland, Landkreis
 
+
+d_fit_results_for_json_export = {}
+
+# Fit Cases für alle LK
 for lk_id in d_ref_landkreise.keys():
     lk_name = get_lk_name_from_lk_id(lk_id)
     print(lk_name)
-    fetch_fit_and_plot_lk(lk_id)
-#     print(
-#         f"{lk_id}\t{d_ref_landkreise[lk_id]['county']}\t{d_ref_landkreise[lk_id]['EWZ']}")
+
+    # 03353   LK Harburg      252776
+    # 09562   SK Erlangen     111962
+    # 09563   SK Fürth        127748
+
+    data = []
+    l_lk_time_series = fetch_lk_sums_time_series(lk_id, readFromCache=True)
+    for entry in l_lk_time_series:
+        # choose columns to fit
+        data.append((entry['DaysPast'], entry['SummeFall']))
+
+    d_fit_results = fit_exp_cases(data, fit_range_x=(-6, 0))
+
+    d = {
+        'Bundesland': d_ref_landkreise[lk_id]['BL'],  # Bundesland
+        'Landkreis': lk_name,
+        'LK_Einwohner': d_ref_landkreise[lk_id]['EWZ'],  # Einwohner
+        'fit_res_a': "%.3f" % (d_fit_results['fit_res_a']),
+        'fit_res_b': "%.3f" % (d_fit_results['fit_res_b']),
+        'Faelle_heute': d_fit_results['value_last'],
+        'Faelle_morgen': "%d" % (d_fit_results['value_last+1']),
+        'Faelle_Faktor_f_morgen': "%.3f" % (d_fit_results['factor_last+1'])
+    }
+
+    d_fit_results_for_json_export[lk_id] = d
+
+# Export fit data as CSV
+with open('data/de-cases-regions-fit-data.tsv', 'w', encoding='utf-8', newline="\n") as f:
+    csvwriter = csv.writer(f, delimiter="\t")
+    csvwriter.writerow(  # header row
+        ('Bundesland', 'Landkreis', 'Population', 'cases_today', 'fit_a', 'fit_b',
+         'cases_tomorrow', 'cases_factor_tomorrow')  # , 'Recovered'
+    )
+
+    for lk_id in d_fit_results_for_json_export.keys():
+        lk_name = get_lk_name_from_lk_id(lk_id)
+        csvwriter.writerow(
+            (
+                d_fit_results_for_json_export[lk_id]['Bundesland'],
+                d_fit_results_for_json_export[lk_id]['Landkreis'],
+                d_fit_results_for_json_export[lk_id]['Faelle_heute'],
+                d_fit_results_for_json_export[lk_id]['Faelle_morgen'],
+                d_fit_results_for_json_export[lk_id]['Faelle_Faktor_f_morgen'],
+            )
+        )
+
+# Export fit data as JSON
+with open('data/de-cases-regions-fit-data.json', 'w', encoding='utf-8') as outfile:
+    json.dump(d_fit_results_for_json_export, outfile, ensure_ascii=False)
 
 
 # TODO: Bundeslandsummen
