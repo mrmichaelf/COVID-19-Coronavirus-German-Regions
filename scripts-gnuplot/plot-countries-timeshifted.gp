@@ -125,8 +125,8 @@ plot \
   '../data/country-NL.tsv' using ($10/7):6 title "Netherlands" with lines lw 2 dt "-", \
   '../data/country-PT.tsv' using ($10/7):6 title "Portugal" with lines lw 2 dt "-", \
   '../data/country-CH.tsv' using ($10/7):6 title "Switzerland" with lines lw 2 dt "-", \
-  '../data/country-JP.tsv' using ($10/7):6 title "Japan" with lines lw 2 dt "-", \
   '../data/country-KR.tsv' using ($10/7):6 title "Korea, South" with lines lw 2 dt "-",\
+  '../data/country-JP.tsv' using ($10/7):6 title "Japan" with lines lw 2 dt "-", \
 
 unset output
 # '../data/country-CZ.tsv' using ($10/7):6 title "Czechia" with lines lw 2 dt "-", \
