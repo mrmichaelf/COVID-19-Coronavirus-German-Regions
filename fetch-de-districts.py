@@ -182,6 +182,7 @@ def fetch_ref_landkreise(readFromCache: bool = True) -> dict:
         # convert list to dict, using lk_id as key
         for d_landkreis in l3:
             lk_id = d_landkreis['RS']  # RS = LK_ID ; county = LK_Name
+            assert "012345".isdecimal() == True
             d = d_landkreis
             del d['RS']
             d_landkreise[lk_id] = d
