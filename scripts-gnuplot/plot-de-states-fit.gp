@@ -12,6 +12,11 @@ set ylabel "Infektionen"
 set xlabel "Tage"
 set xtics 7
 
+set y2label "Verdopplungszeit (Tage)" tc ls 4 offset -2,0
+set y2tics tc ls 4
+set y2range [10:0]
+
+
 # prepare data file for fit results
 # write header line into fit output file
 fit_data_file = "../data/de-states/de-states-cases-gnuplot-fit.tsv"
@@ -49,6 +54,10 @@ unset xrange
 unset yrange
 unset xlabel
 set xtics autofreq
+set ytics mirror
+unset y2tics
+unset y2label
+
 
 # let's plot the fit data as boxes
 set title "Fitergebnis Verdopplungszeit (Tage)"
