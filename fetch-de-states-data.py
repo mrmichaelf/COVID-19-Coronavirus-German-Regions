@@ -253,11 +253,12 @@ def convert_csv():
             fit_series_res[last_day_for_fit] = douplication_time
         # add to export data
         for i in range(1, len(l_state)):
-            this_douplication_time = ""
+            this_doublication_time = ""
             this_days_past = l_state[i][0]
             if this_days_past in fit_series_res:
-                this_douplication_time = fit_series_res[this_days_past]
-            l_state[i].append(this_douplication_time)
+                this_doublication_time = "%.3f" % (
+                    fit_series_res[this_days_past])
+            l_state[i].append(this_doublication_time)
 
         # d = fit_routine(data, (-6, 0))
         # douplication_time = d['fit_res'[1]]
