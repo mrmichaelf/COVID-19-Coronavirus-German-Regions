@@ -80,29 +80,39 @@ def fit_function(t, N0, T):
 
 def fit_routine(data: list, fit_range_x: list = (-np.inf, np.inf), fit_range_y: list = (-np.inf, np.inf)) -> list:
     """
-    data list of x,y pairs
+    data: list of x,y pairs
     """
     assert len(data) >= 2
     (data_x_for_fit, data_y_for_fit) = helper.extract_data_according_to_fit_ranges(
         data, fit_range_x, fit_range_y)
 
     # Do the fit
-    p0 = [data_y_for_fit[-1], 0.14]  # initial guess of parameters
-    param, param_cov = curve_fit(fit_function, data_x_for_fit, data_y_for_fit, p0, bounds=(
-        (0, -np.inf), (np.inf, np.inf)))
+    p0 = [data_y_for_fit[-1], 5.0]  # initial guess of parameters
+    fit_res, fit_res_cov = curve_fit(
+        fit_function,
+        data_x_for_fit,
+        data_y_for_fit,
+        p0,
+        bounds=(
+            (0, -np.inf), (np.inf, np.inf)
+        )
+    )
+    # bounds: ( min of all parameters) , (max of all parameters) )
 
-    y_next_day = fit_function(1, param[0], param[1])
+    y_next_day = fit_function(1, fit_res[0], fit_res[1])
     y_next_day_delta = y_next_day - data_y_for_fit[-1]
     factor_increase_next_day = y_next_day / data_y_for_fit[-1]
 
     d = {
-        'fit_x_range': fit_range_x,
-        'fit_y_range': fit_range_y,
-        'fit_res_a': param[0],
-        'fit_res_b': param[1],
-        'value_at_last_day': data_y_for_fit[-1],
-        'forcast_for_next_day': y_next_day_delta,
-        'factor_increase_next_day': factor_increase_next_day
+        'fit_set_x_range': fit_range_x,
+        'fit_set_y_range': fit_range_y,
+        'fit_used_x_range': (data_x_for_fit[0], data_x_for_fit[-1]),
+        'fit_res': fit_res,
+        'fit_res_cov': fit_res_cov,
+        'y_at_x_max': data_y_for_fit[-1],
+        'forcast_y_at_x+1': y_next_day,
+        'forcast_y_delta_at_x+1': y_next_day_delta,
+        'factor_increase_x+1': factor_increase_next_day
     }
 
     return d
@@ -128,6 +138,7 @@ def convert_csv():
         d_states_data[code] = [['# day', 'date',
                                 'infections', 'deaths', 'new infections', 'new deaths',
                                 'infections per million', 'deaths per million', 'new infections per million', 'new deaths per million',
+                                'fitted_infection_doublication_time_last_7_days'
                                 ]]
 
     # data body
@@ -228,8 +239,33 @@ def convert_csv():
             l_state[i].insert(0, day_num)
             day_num += 1
 
+        # fit cases data
+        data = []
+        for i in range(1, len(l_state)):
+            data.append((l_state[i][0], l_state[i][2]))  # x= day , y = cases
+
+        # perform a series of fits: per day on data of 7 days back
+        # pairs of (day, doublication_time) (fitted in range [x-6, x])
+        fit_series_res = {}
+        for last_day_for_fit in range(0, -14, -1):
+            d = fit_routine(data, (last_day_for_fit-6, last_day_for_fit))
+            douplication_time = d['fit_res'][1]
+            fit_series_res[last_day_for_fit] = douplication_time
+        # add to export data
+        for i in range(1, len(l_state)):
+            this_douplication_time = ""
+            this_days_past = l_state[i][0]
+            if this_days_past in fit_series_res:
+                this_douplication_time = fit_series_res[this_days_past]
+            l_state[i].append(this_douplication_time)
+
+        # d = fit_routine(data, (-6, 0))
+        # douplication_time = d['fit_res'[1]]
+        # print(douplication_time)
+
         d_states_data[code] = l_state
-        outfile = f'data/de-states/de-states-cases-{code}.tsv'
+        outfile = f'data/de-states/de-state-{code}.tsv'
+        print(outfile)
         with open(outfile, 'w', newline="\n") as f:
             csvwriter = csv.writer(f, delimiter="\t")
             csvwriter.writerows(d_states_data[code])
@@ -254,7 +290,7 @@ def convert_csv():
         d_states_latest[code]['New Deaths'] = l_latest[5]
         d_states_latest[code]['Infections per Million'] = l_latest[6]
         d_states_latest[code]['Deaths per Million'] = l_latest[7]
-    with open('data/de-states/de-states-latest.tsv', 'w') as f:
+    with open('data/de-states/de-states-latest.tsv', 'w', newline="\n") as f:
         csvwriter = csv.writer(f, delimiter="\t")
         csvwriter.writerow(
             ('# State', 'Code', 'Population', 'Pop Density', 'Date', 'Infections', 'Deaths', 'New Infections', 'New Deaths',

@@ -26,7 +26,7 @@ set colorsequence default
 unset style # reset line styles/types to default
 
 
-date_last = system("tail -1 '../data/de-states/de-states-cases-BW.tsv' | cut -f2")
+date_last = system("tail -1 '../data/de-states/de-states-BW.tsv' | cut -f2")
 set label 1 label1_text_right." based on RKI data of ".date_last
 
 title = "Zeitverlauf der Infektionen in den Bundesländern"
@@ -36,25 +36,25 @@ set ylabel "Infektionen"
 set yrange [0:]
 set output '../plots-gnuplot/cases-de-absolute.png'
 plot \
-  '../data/de-states/de-states-cases-NW.tsv' using 2:3 title "Nordrhein-Westfalen" with lines lw 2, \
-  '../data/de-states/de-states-cases-BY.tsv' using 2:3 title "Bayern" with lines lw 2, \
-  '../data/de-states/de-states-cases-BW.tsv' using 2:3 title "Baden-Württemberg" with lines lw 2, \
-  '../data/de-states/de-states-cases-NI.tsv' using 2:3 title "Niedersachsen" with lines lw 2, \
-  '../data/de-states/de-states-cases-HE.tsv' using 2:3 title "Hessen" with lines lw 2, \
-  '../data/de-states/de-states-cases-RP.tsv' using 2:3 title "Rheinland-Pfalz" with lines lw 2, \
-  '../data/de-states/de-states-cases-BE.tsv' using 2:3 title "Berlin" with lines lw 2, \
-  '../data/de-states/de-states-cases-HH.tsv' using 2:3 title "Hamburg" with lines lw 2, \
-  '../data/de-states/de-states-cases-SN.tsv' using 2:3 title "Sachsen" with lines lw 2 dt "-", \
-  '../data/de-states/de-states-cases-SH.tsv' using 2:3 title "Schleswig-Holstein" with lines lw 2 dt "-", \
-  '../data/de-states/de-states-cases-BB.tsv' using 2:3 title "Brandenburg" with lines lw 2 dt "-", \
-  '../data/de-states/de-states-cases-TH.tsv' using 2:3 title "Thüringen" with lines lw 2 dt "-", \
-  '../data/de-states/de-states-cases-ST.tsv' using 2:3 title "Sachsen-Anhalt" with lines lw 2 dt "-", \
-  '../data/de-states/de-states-cases-SL.tsv' using 2:3 title "Saarland" with lines lw 2 dt "-", \
-  '../data/de-states/de-states-cases-MV.tsv' using 2:3 title "Mecklenburg-Vorpommern" with lines lw 2 dt "-", \
-  '../data/de-states/de-states-cases-HB.tsv' using 2:3 title "Bremen" with lines lw 2 dt "-", \
+  '../data/de-states/de-states-NW.tsv' using 2:3 title "Nordrhein-Westfalen" with lines lw 2, \
+  '../data/de-states/de-states-BY.tsv' using 2:3 title "Bayern" with lines lw 2, \
+  '../data/de-states/de-states-BW.tsv' using 2:3 title "Baden-Württemberg" with lines lw 2, \
+  '../data/de-states/de-states-NI.tsv' using 2:3 title "Niedersachsen" with lines lw 2, \
+  '../data/de-states/de-states-HE.tsv' using 2:3 title "Hessen" with lines lw 2, \
+  '../data/de-states/de-states-RP.tsv' using 2:3 title "Rheinland-Pfalz" with lines lw 2, \
+  '../data/de-states/de-states-BE.tsv' using 2:3 title "Berlin" with lines lw 2, \
+  '../data/de-states/de-states-HH.tsv' using 2:3 title "Hamburg" with lines lw 2, \
+  '../data/de-states/de-states-SN.tsv' using 2:3 title "Sachsen" with lines lw 2 dt "-", \
+  '../data/de-states/de-states-SH.tsv' using 2:3 title "Schleswig-Holstein" with lines lw 2 dt "-", \
+  '../data/de-states/de-states-BB.tsv' using 2:3 title "Brandenburg" with lines lw 2 dt "-", \
+  '../data/de-states/de-states-TH.tsv' using 2:3 title "Thüringen" with lines lw 2 dt "-", \
+  '../data/de-states/de-states-ST.tsv' using 2:3 title "Sachsen-Anhalt" with lines lw 2 dt "-", \
+  '../data/de-states/de-states-SL.tsv' using 2:3 title "Saarland" with lines lw 2 dt "-", \
+  '../data/de-states/de-states-MV.tsv' using 2:3 title "Mecklenburg-Vorpommern" with lines lw 2 dt "-", \
+  '../data/de-states/de-states-HB.tsv' using 2:3 title "Bremen" with lines lw 2 dt "-", \
 
 unset output
-#  '../data/de-states/de-states-cases-DE-total.tsv' using 2:3 title "Deutschland" with lines , \
+#  '../data/de-states/de-states-DE-total.tsv' using 2:3 title "Deutschland" with lines , \
 
 set yrange [1:]
 set logscale y
@@ -72,25 +72,25 @@ set ylabel "Infizierte pro 1 Millionen Einwohner"
 set yrange [0:]
 set output '../plots-gnuplot/cases-de-per-million.png'
 plot \
-  '../data/de-states/de-states-cases-NW.tsv' using 2:7 title "Nordrhein-Westfalen" with lines lw 2, \
-  '../data/de-states/de-states-cases-BY.tsv' using 2:7 title "Bayern" with lines lw 2, \
-  '../data/de-states/de-states-cases-BW.tsv' using 2:7 title "Baden-Württemberg" with lines lw 2, \
-  '../data/de-states/de-states-cases-NI.tsv' using 2:7 title "Niedersachsen" with lines lw 2, \
-  '../data/de-states/de-states-cases-HE.tsv' using 2:7 title "Hessen" with lines lw 2, \
-  '../data/de-states/de-states-cases-RP.tsv' using 2:7 title "Rheinland-Pfalz" with lines lw 2, \
-  '../data/de-states/de-states-cases-BE.tsv' using 2:7 title "Berlin" with lines lw 2, \
-  '../data/de-states/de-states-cases-HH.tsv' using 2:7 title "Hamburg" with lines lw 2, \
-  '../data/de-states/de-states-cases-SN.tsv' using 2:7 title "Sachsen" with lines lw 2 dt "-", \
-  '../data/de-states/de-states-cases-SH.tsv' using 2:7 title "Schleswig-Holstein" with lines lw 2 dt "-", \
-  '../data/de-states/de-states-cases-BB.tsv' using 2:7 title "Brandenburg" with lines lw 2 dt "-", \
-  '../data/de-states/de-states-cases-TH.tsv' using 2:7 title "Thüringen" with lines lw 2 dt "-", \
-  '../data/de-states/de-states-cases-ST.tsv' using 2:7 title "Sachsen-Anhalt" with lines lw 2 dt "-", \
-  '../data/de-states/de-states-cases-SL.tsv' using 2:7 title "Saarland" with lines lw 2 dt "-", \
-  '../data/de-states/de-states-cases-MV.tsv' using 2:7 title "Mecklenburg-Vorpommern" with lines lw 2 dt "-", \
-  '../data/de-states/de-states-cases-HB.tsv' using 2:7 title "Bremen" with lines lw 2 dt "-", \
+  '../data/de-states/de-states-NW.tsv' using 2:7 title "Nordrhein-Westfalen" with lines lw 2, \
+  '../data/de-states/de-states-BY.tsv' using 2:7 title "Bayern" with lines lw 2, \
+  '../data/de-states/de-states-BW.tsv' using 2:7 title "Baden-Württemberg" with lines lw 2, \
+  '../data/de-states/de-states-NI.tsv' using 2:7 title "Niedersachsen" with lines lw 2, \
+  '../data/de-states/de-states-HE.tsv' using 2:7 title "Hessen" with lines lw 2, \
+  '../data/de-states/de-states-RP.tsv' using 2:7 title "Rheinland-Pfalz" with lines lw 2, \
+  '../data/de-states/de-states-BE.tsv' using 2:7 title "Berlin" with lines lw 2, \
+  '../data/de-states/de-states-HH.tsv' using 2:7 title "Hamburg" with lines lw 2, \
+  '../data/de-states/de-states-SN.tsv' using 2:7 title "Sachsen" with lines lw 2 dt "-", \
+  '../data/de-states/de-states-SH.tsv' using 2:7 title "Schleswig-Holstein" with lines lw 2 dt "-", \
+  '../data/de-states/de-states-BB.tsv' using 2:7 title "Brandenburg" with lines lw 2 dt "-", \
+  '../data/de-states/de-states-TH.tsv' using 2:7 title "Thüringen" with lines lw 2 dt "-", \
+  '../data/de-states/de-states-ST.tsv' using 2:7 title "Sachsen-Anhalt" with lines lw 2 dt "-", \
+  '../data/de-states/de-states-SL.tsv' using 2:7 title "Saarland" with lines lw 2 dt "-", \
+  '../data/de-states/de-states-MV.tsv' using 2:7 title "Mecklenburg-Vorpommern" with lines lw 2 dt "-", \
+  '../data/de-states/de-states-HB.tsv' using 2:7 title "Bremen" with lines lw 2 dt "-", \
 
 unset output
-#  '../data/de-states/de-states-cases-DE-total.tsv' using 2:3 title "Deutschland" with lines , \
+#  '../data/de-states/de-states-DE-total.tsv' using 2:3 title "Deutschland" with lines , \
 
 set yrange [1:]
 set logscale y

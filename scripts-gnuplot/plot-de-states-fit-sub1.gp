@@ -2,7 +2,7 @@ title = "Infektionen in ".long_name
 set title title
 # fitting
 
-data = '../data/de-states/de-states-cases-'.short_name.'.tsv'
+data = '../data/de-states/de-state-'.short_name.'.tsv'
 
 # fetch data from last row of data
 x_min = ( system("head -n 2 " . data . " | tail -1 | cut -f1") + 0 )
