@@ -495,3 +495,19 @@ id,Country/Region,federalstate,infections,deaths,date,newinfections,newdeaths
 495,Germany,Saxony-Anhalt,592,2,2020-03-29,134,0
 481,Germany,Schleswig-Holstein,1005,6,2020-03-29,90,2
 496,Germany,Thuringia,697,5,2020-03-29,113,0
+504,Germany,Baden-Württemberg,10943,119,2020-03-30,1149,18
+505,Germany,Bavaria,13989,127,2020-03-30,1108,20
+507,Germany,Berlin,2464,11,2020-03-30,104,2
+508,Germany,Brandenburg,761,2,2020-03-30,40,1
+500,Germany,Bremen,286,2,2020-03-30,11,0
+498,Germany,Hamburg,2053,5,2020-03-30,207,1
+502,Germany,Hesse,3091,13,2020-03-30,486,4
+499,Germany,Lower Saxony,3732,26,2020-03-30,282,5
+509,Germany,Mecklenburg-Western Pomerania,356,1,2020-03-30,8,0
+501,Germany,North Rhine-Westphalia,12178,101,2020-03-30,778,3
+503,Germany,Rhineland-Palatinate,2584,18,2020-03-30,188,6
+506,Germany,Saarland,706,7,2020-03-30,146,5
+510,Germany,Saxony,1795,9,2020-03-30,178,0
+511,Germany,Saxony-Anhalt,592,2,2020-03-30,0,0
+497,Germany,Schleswig-Holstein,1049,7,2020-03-30,44,1
+512,Germany,Thuringia,719,5,2020-03-30,22,0
