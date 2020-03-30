@@ -57,7 +57,7 @@ def date_format(y: int, m: int, d: int) -> str:
 def helper_add_per_millions(state_code: str, l: list) -> list:
     global d_states_ref
     pop_in_million = d_states_ref[state_code]['Population'] / 1000000
-    for i in range(1, 4):
+    for i in range(1, 5):
         l.append(round(l[i]/pop_in_million, 3))
     return l
 

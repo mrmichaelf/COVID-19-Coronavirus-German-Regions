@@ -16,7 +16,7 @@ set xtics 7
 # write header line into fit output file
 fit_data_file = "../data/de-states/de-states-cases-gnuplot-fit.tsv"
 set print fit_data_file
-print "# Region\tShort\ta\tb\tCases\tDoubling time\tfactor t+1\tcases t+1\tfactor t+7\tcases t+7"
+print "# State\tShort\ta\tb\tCases\tDoubling time\tfactor t+1\tcases t+1\tfactor t+7\tcases t+7"
 unset print
 
 # text will be inserted later on
