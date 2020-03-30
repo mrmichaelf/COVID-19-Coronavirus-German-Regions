@@ -11,3 +11,7 @@ espcially:
 https://github.com/swildermann/COVID-19
 for RKI Daten COVID19 für Bundesländer historisch
 as https://covid19publicdata.blob.core.windows.net/rki/covid19-germany-federalstates.csv
+
+
+Vergleichszahlen:
+see draft/Ref-Todesfälle-in-DE.ods
