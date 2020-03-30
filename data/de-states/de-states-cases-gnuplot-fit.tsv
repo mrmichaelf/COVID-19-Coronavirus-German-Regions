@@ -1,4 +1,4 @@
-# Region	Short	a	b	Cases	Doubling time	factor t+1	cases t+1	factor t+7	cases t+7
+# State	Short	a	b	Cases	Doubling time	factor t+1	cases t+1	factor t+7	cases t+7
 Baden-Württemberg	BW	10943	11257.004	0.114	6.075	1.121	12265	2.223	24323
 Bayern	BY	13989	14493.126	0.149	4.666	1.160	16229	2.829	39572
 Berlin	BE	2464	2585.841	0.112	6.179	1.119	2756	2.193	5403
