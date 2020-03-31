@@ -194,21 +194,15 @@ def convert_csv():
         for i in range(1, len(l_state)):
             data.append((l_state[i][0], l_state[i][2]))  # x= day , y = cases
 
-        # perform a series of fits: per day on data of 7 days back
-        # pairs of (day, doublication_time) (fitted in range [x-6, x])
-        fit_series_res = {}
-        for last_day_for_fit in range(0, -14, -1):
-            d = helper.fit_routine(
-                data, (last_day_for_fit-6, last_day_for_fit))
-            douplication_time = d['fit_res'][1]
-            fit_series_res[last_day_for_fit] = douplication_time
+        fit_series_res = helper.series_of_fits(
+            data, fit_range=7, max_days_past=14)
+
         # add to export data
         for i in range(1, len(l_state)):
             this_doublication_time = ""
             this_days_past = l_state[i][0]
             if this_days_past in fit_series_res:
-                this_doublication_time = "%.3f" % (
-                    fit_series_res[this_days_past])
+                this_doublication_time = fit_series_res[this_days_past]
             l_state[i].append(this_doublication_time)
 
         # d = fit_routine(data, (-6, 0))

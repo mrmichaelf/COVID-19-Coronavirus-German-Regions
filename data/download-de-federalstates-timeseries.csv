@@ -511,3 +511,19 @@ id,Country/Region,federalstate,infections,deaths,date,newinfections,newdeaths
 511,Germany,Saxony-Anhalt,592,2,2020-03-30,0,0
 497,Germany,Schleswig-Holstein,1049,7,2020-03-30,44,1
 512,Germany,Thuringia,719,5,2020-03-30,22,0
+520,Germany,Baden-Württemberg,12334,165,2020-03-31,1391,46
+521,Germany,Bavaria,14810,162,2020-03-31,821,35
+523,Germany,Berlin,2575,13,2020-03-31,111,2
+524,Germany,Brandenburg,798,2,2020-03-31,37,0
+516,Germany,Bremen,294,4,2020-03-31,8,2
+514,Germany,Hamburg,2191,9,2020-03-31,138,4
+518,Germany,Hesse,3283,17,2020-03-31,192,4
+515,Germany,Lower Saxony,4063,34,2020-03-31,331,8
+525,Germany,Mecklenburg-Western Pomerania,366,1,2020-03-31,10,0
+517,Germany,North Rhine-Westphalia,13225,117,2020-03-31,1047,16
+519,Germany,Rhineland-Palatinate,2726,19,2020-03-31,142,1
+522,Germany,Saarland,782,7,2020-03-31,76,0
+526,Germany,Saxony,1882,12,2020-03-31,87,3
+527,Germany,Saxony-Anhalt,680,6,2020-03-31,88,4
+513,Germany,Schleswig-Holstein,1120,9,2020-03-31,71,2
+528,Germany,Thuringia,784,6,2020-03-31,65,1

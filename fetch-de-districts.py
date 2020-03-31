@@ -216,6 +216,11 @@ def fetch_lk_sums_time_series(lk_id: str, readFromCache: bool = True) -> list:
             l3[-1]['Meldedatum'] / 1000)
 
         # add and convert some data fields
+        data_t = []
+        data_cases = []
+        data_deaths = []
+
+        # entry = one data point
         for i in range(len(l3)):
             entry = l3[i]
 
@@ -244,6 +249,24 @@ def fetch_lk_sums_time_series(lk_id: str, readFromCache: bool = True) -> list:
                 entry['Timestamp'])
             i_days_past = (this_dt-dt_latest_date).days
             entry['DaysPast'] = i_days_past
+            l3[i] = entry
+
+            data_t.append(i_days_past)
+            data_cases.append(entry['SummeFall'])
+            data_deaths.append(entry['SummeTodesfall'])
+
+        # perform fit for last 7 days to obtain doublication time
+        data = list(zip(data_t, data_cases))
+        fit_series_res = helper.series_of_fits(
+            data, fit_range=7, max_days_past=14)
+
+        for i in range(len(l3)):
+            entry = l3[i]
+            this_doublication_time = ""
+            this_days_past = entry['DaysPast']
+            if this_days_past in fit_series_res:
+                this_doublication_time = fit_series_res[this_days_past]
+            entry['DoublicationTime'] = this_doublication_time
             l3[i] = entry
 
         with open(file_cache, mode='w', encoding='utf-8', newline='\n') as outfile:
@@ -372,9 +395,10 @@ d_ref_landkreise = fetch_ref_landkreise(readFromCache=True)
 d_fit_results_for_json_export = {}
 
 # Fit Cases für alle LK
+# 16068 machte Probleme
 for lk_id in d_ref_landkreise.keys():
     lk_name = get_lk_name_from_lk_id(lk_id)
-    print(lk_name)
+    print(f"{lk_id} {lk_name}")
 
     # 03353   LK Harburg      252776
     # 09562   SK Erlangen     111962
@@ -395,6 +419,7 @@ for lk_id in d_ref_landkreise.keys():
         'LK_Einwohner': d_ref_landkreise[lk_id]['EWZ'],  # Einwohner
         'fit_res_N0': round(d_fit_results['fit_res'][0], 3),
         'fit_res_T': round(d_fit_results['fit_res'][1], 3),
+        'fit_used_x_range': d_fit_results['fit_used_x_range'],
         'Faelle_heute': d_fit_results['y_at_x_max'],
         'Faelle_morgen': round(d_fit_results['forcast_y_at_x+1'], 3),
         'Faelle_Faktor_f_morgen': round(d_fit_results['factor_increase_x+1'], 3)
@@ -403,7 +428,7 @@ for lk_id in d_ref_landkreise.keys():
     d_fit_results_for_json_export[lk_id] = d
 
     plot_lk_fit(lk_id, data, d_fit_results)
-    break
+    # break
 
 # Export fit data as CSV
 with open('data/de-districs-cases-fit-data.tsv', mode='w', encoding='utf-8', newline='\n') as f:
