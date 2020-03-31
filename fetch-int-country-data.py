@@ -15,6 +15,8 @@ import csv
 
 # Built-in/Generic Imports
 
+import helper
+
 # Author and version info
 __author__ = "Dr. Torben Menke"
 __email__ = "https://entorb.net"
@@ -28,18 +30,17 @@ __version__ = "0.1"
 download_file = 'data/download-countries-timeseries.json'
 
 
+# helper
+def date_format(y: int, m: int, d: int) -> str:
+    return "%04d-%02d-%02d" % (y, m, d)
+
+
 def download_new_data():
     url = "https://pomber.github.io/covid19/timeseries.json"
     filedata = urllib.request.urlopen(url)
     datatowrite = filedata.read()
     with open(download_file, mode='wb') as f:
         f.write(datatowrite)
-
-
-def date_format(y: int, m: int, d: int) -> str:
-    # return "%02d.%02d.%04d" % (d, m, y)
-    # TODO
-    return "%04d-%02d-%02d" % (y, m, d)
 
 
 def read_json_data() -> dict:
@@ -62,10 +63,11 @@ def read_json_data() -> dict:
 
 def read_ref_selected_countries() -> dict:
     "reads data for selected countries from tsv file and returns it as dict"
-    d_countries = {}
+    d_selected_countries = {}
     with open('data/ref_selected_countries.tsv', mode='r', encoding='utf-8') as f:
         csv_reader = csv.DictReader(f, dialect='excel', delimiter="\t")
         for row in csv_reader:
+            # skip commented lines
             if row["Country"][0] == '#':
                 continue
             d = {}
@@ -75,14 +77,14 @@ def read_ref_selected_countries() -> dict:
                 d[key] = int(row[key])
             for key in ('Pop_Density', 'GDP_mon_capita'):
                 d[key] = float(row[key])
-            d_countries[row["Country"]] = d
-    return d_countries
+            d_selected_countries[row["Country"]] = d
+    return d_selected_countries
 
 
 def extract_latest_date_data():
     """
     for all countries in json: extract latest entry
-    writes to data/countries-latest-all.tsv
+    write to data/countries-latest-all.tsv
     """
     with open('data/countries-latest-all.tsv', mode='w', encoding='utf-8', newline='\n') as f:
         csvwriter = csv.writer(f, delimiter="\t")
@@ -103,23 +105,19 @@ def extract_latest_date_data_selected():
     for my selected countries: extract latest of json and calculate per capita values
     writes to data/countries-latest-selected.tsv
     """
-    with open('data/countries-latest-selected.tsv', mode='w', encoding='utf-8', newline="\n") as f:
+    with open('data/countries-latest-selected.tsv', mode='w', encoding='utf-8', newline='\n') as f:
         csvwriter = csv.writer(f, delimiter="\t")
         csvwriter.writerow(
             ('# Country', 'Date', 'Confirmed', 'Deaths',
              'Confirmed per Million', 'Deaths per Million')
-            # , 'Recovered'
-            # , 'Recovered per Million'
         )
         for country in sorted(d_selected_countries.keys(), key=str.casefold):
             country_data = d_json_data[country]
-            entry = country_data[-1]  # last entry per
+            entry = country_data[-1]  # last entry of this country
             pop_in_Mill = d_selected_countries[country]['Population'] / 1000000
             csvwriter.writerow(
                 (country, entry['date'], entry['confirmed'],
                  entry['deaths'], "%.3f" % (entry['confirmed']/pop_in_Mill), "%.3f" % (entry['deaths']/pop_in_Mill))
-                # entry['recovered'],
-                # , "%.3f" % (entry['recovered']/pop_in_Mill)
             )
 
 
@@ -137,60 +135,112 @@ def check_for_further_interesting_countries():
     for country in sorted(d_json_data.keys(), key=str.casefold):
         if country in d_selected_countries.keys():
             continue
-        country_data = d_json_data[country]
-        entry = country_data[-1]  # latest entry
+        l_country_data = d_json_data[country]
+        entry = l_country_data[-1]  # latest entry
         if entry['confirmed'] >= min_confirmed or entry['deaths'] >= min_death:
             print(f"{country}\t{entry['confirmed']}\t{entry['deaths']}")
+
+
+def enrich_data_by_calculated_fields():
+    global d_json_data
+    global d_selected_countries
+    for country in d_selected_countries.keys():
+        # print(country)
+        country_code = d_selected_countries[country]['Code']
+        l_country_data = d_json_data[country]
+        pop_in_Mill = d_selected_countries[country]['Population'] / 1000000
+
+        # initial values
+        last_confirmed = 0
+        last_deaths = 0
+        days_since_2_deaths = 0
+        # for fits of doublication time
+        data_t = []
+        data_cases = []
+        data_deaths = []
+
+        days_past = 1-len(l_country_data)  # last date gets number 0
+
+        for i in range(len(l_country_data)):
+            entry = l_country_data[i]
+
+            entry['days_past'] = days_past
+            # for fits of doublication time
+            data_t.append(entry['days_past'])
+            data_cases.append(entry['confirmed'])
+            data_deaths.append(entry['deaths'])
+
+            entry['confirmed_per_million'] = round(
+                entry['confirmed']/pop_in_Mill, 3)
+            entry['deaths_per_million'] = round(entry['deaths']/pop_in_Mill, 3)
+
+            # days_since_2_deaths
+            entry['days_since_2_deaths'] = ""
+            if entry['deaths'] >= 2:  # TODO: is 2 a good value?
+                entry['days_since_2_deaths'] = days_since_2_deaths
+                days_since_2_deaths += 1
+
+            entry['change_confirmed'] = ""
+            if last_confirmed >= 10:
+                entry['change_confirmed'] = entry['confirmed'] - last_confirmed
+
+            entry['change_deaths'] = ""
+            entry['change_deaths_factor'] = ""
+            if last_deaths >= 1:
+                entry['change_deaths'] = entry['deaths'] - last_deaths
+                entry['change_deaths_factor'] = round(
+                    entry['deaths']/last_deaths, 3)
+
+            last_confirmed = entry['confirmed']
+            last_deaths = entry['deaths']
+            days_past += 1
+            l_country_data[i] = entry
+
+        # fit the doublication time each day
+        data = list(zip(data_t, data_deaths))
+        fit_series_res = helper.series_of_fits(
+            data, fit_range=7, max_days_past=14)
+
+        for i in range(len(l_country_data)):
+            entry = l_country_data[i]
+            this_doublication_time = ""
+            this_days_past = entry['days_past']
+            if this_days_past in fit_series_res:
+                this_doublication_time = fit_series_res[this_days_past]
+            entry['doublication_time'] = this_doublication_time
+            l_country_data[i] = entry
 
 
 def export_time_series_selected_countries():
     for country in d_selected_countries.keys():
         country_code = d_selected_countries[country]['Code']
-        country_data = d_json_data[country]
-        pop_in_Mill = d_selected_countries[country]['Population'] / 1000000
+        l_country_data = d_json_data[country]
+        #     pop_in_Mill = d_selected_countries[country]['Population'] / 1000000
 
         with open(f'data/country-{country_code}.tsv', mode='w', encoding='utf-8', newline='\n') as f:
             csvwriter = csv.writer(f, delimiter="\t")
             csvwriter.writerow(  # header row
-                ('# Day', 'Date', 'Confirmed', 'Deaths',
+                ('# Day', 'Date',
+                 'Confirmed', 'Deaths',
                  'Confirmed per Million', 'Deaths per Million',
                  'Confirmed Change', 'Deaths Change',
                  'Deaths Change Factor',
-                 'Days since 2 Deaths'
+                 'Days since 2 Deaths',
+                 'Deaths Doublication Time'
                  )
             )
-            i = 1-len(country_data)  # last date gets number 0
-            last_confirmed = 0
-            last_deaths = 0
-            change_confirmed = ""
-            change_deaths = ""
-            change_deaths_factor = ""
-            days_since_2_deaths = ""
-            for entry in country_data:
-                if entry['deaths'] >= 2:  # TODO: is 2 a good value?
-                    if days_since_2_deaths == "":
-                        days_since_2_deaths = 0
-                    else:
-                        days_since_2_deaths += 1
-                if last_deaths >= 1:  # TODO: later increase to 10
-                    change_confirmed = entry['confirmed'] - last_confirmed
-                    change_deaths = entry['deaths'] - last_deaths
-                    change_deaths_factor = "%.3f" % (
-                        entry['deaths']/last_deaths)
+            for entry in l_country_data:
                 csvwriter.writerow(
                     (
-                        i, entry['date'],
+                        entry['days_past'], entry['date'],
                         entry['confirmed'], entry['deaths'],
-                        "%.3f" % (entry['confirmed']/pop_in_Mill), "%.3f" % (
-                            entry['deaths']/pop_in_Mill),
-                        change_confirmed, change_deaths,
-                        change_deaths_factor,
-                        days_since_2_deaths
+                        entry['confirmed_per_million'], entry['deaths_per_million'],
+                        entry['change_confirmed'], entry['change_deaths'],
+                        entry['change_deaths_factor'],
+                        entry['days_since_2_deaths'],
+                        entry['doublication_time']
                     )
                 )
-                last_confirmed = entry['confirmed']
-                last_deaths = entry['deaths']
-                i += 1
 
 
 # TODO: uncomment once a day
@@ -206,10 +256,12 @@ extract_latest_date_data()
 
 extract_latest_date_data_selected()
 
+enrich_data_by_calculated_fields()
+
 export_time_series_selected_countries()
 
-print("countries: latest date in DE set: " +
-      d_json_data['Germany'][-1]['date'])
+print(
+    f"int: countries: latest date in DE set: {d_json_data['Germany'][-1]['date']}")
 
 
 # IDEAS
