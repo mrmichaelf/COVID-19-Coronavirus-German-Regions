@@ -105,16 +105,6 @@ def get_lk_name_from_lk_id(lk_id: str) -> str:
 #     assert this_lk_id != None, "LK {lk_name} unknown"
 #     return this_lk_id
 
-def helper_check_cache_file_available_and_recent(fname: str, max_age: int) -> bool:
-    b_cache_good = True
-    if not os.path.exists(fname):
-        print("No Cache available")
-        b_cache_good = False
-    if (b_cache_good == True and time.time() - os.path.getmtime(fname) > max_age):
-        print("Cache too old")
-        b_cache_good = False
-    return b_cache_good
-
 
 def convert_timestamp_in_ms_to_date_str(ts: int) -> str:
     """
@@ -162,8 +152,8 @@ def fetch_ref_landkreise(readFromCache: bool = True) -> dict:
     file_cache = "data/download-ref-de-districts.json"
 
     if readFromCache == True:
-        readFromCache = helper_check_cache_file_available_and_recent(
-            file_cache, 3600)
+        readFromCache = helper.check_cache_file_available_and_recent(
+            fname=file_cache, max_age=3600, verbose=True)
 
     d_landkreise = {}
     if readFromCache == True:  # read from cache
@@ -214,7 +204,7 @@ def fetch_lk_sums_time_series(lk_id: str, readFromCache: bool = True) -> list:
     file_cache = f"{dir_cache}/distict_timeseries-{lk_id}.json"
 
     if readFromCache == True:
-        readFromCache = helper_check_cache_file_available_and_recent(
+        readFromCache = helper.check_cache_file_available_and_recent(
             file_cache, 3600)
 
     l3 = []

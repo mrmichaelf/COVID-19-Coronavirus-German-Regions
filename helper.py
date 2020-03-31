@@ -1,8 +1,27 @@
+"""
+Helper functions collections
+"""
+
+import os.path
+import time
 
 import math
 import numpy as np
 # curve-fit() function imported from scipy
 from scipy.optimize import curve_fit
+
+
+def check_cache_file_available_and_recent(fname: str, max_age: int = 3600, verbose: bool = False) -> bool:
+    b_cache_good = True
+    if not os.path.exists(fname):
+        if verbose:
+            print(f"No Cache available: {fname}")
+        b_cache_good = False
+    if (b_cache_good and time.time() - os.path.getmtime(fname) > max_age):
+        if verbose:
+            print(f"Cache too old: {fname}")
+        b_cache_good = False
+    return b_cache_good
 
 
 def extract_x_and_y_data(data: list) -> list:
