@@ -65,7 +65,6 @@ set output '../plots-gnuplot/deaths-'.country_code.'-fit-log.png'
 replot
 unset output
 unset logscale y
-unset y2label
-unset y2tics
+
 
 
