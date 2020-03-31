@@ -8,3 +8,4 @@ index*.html
 **/data/de-districts/cache/*
 **/test/*
 **/old/*
+__pycache__/helper.cpython-38.pyc

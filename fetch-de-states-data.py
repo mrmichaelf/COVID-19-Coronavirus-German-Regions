@@ -22,7 +22,7 @@ __version__ = "0.1"
 import urllib.request
 import csv
 
-from matplotlib import pyplot as plt
+# from matplotlib import pyplot as plt
 
 # my helper modules
 import helper
@@ -34,7 +34,7 @@ def download_new_data():
     url = "https://covid19publicdata.blob.core.windows.net/rki/covid19-germany-federalstates.csv"
     filedata = urllib.request.urlopen(url)
     datatowrite = filedata.read()
-    with open(download_file, 'wb') as f:
+    with open(download_file, mode='wb') as f:
         f.write(datatowrite)
 
 
@@ -217,7 +217,7 @@ def convert_csv():
 
         d_states_data[code] = l_state
         outfile = f'data/de-states/de-state-{code}.tsv'
-        with open(outfile, 'w', newline="\n", encoding='utf-8') as f:
+        with open(outfile, mode='w', encoding='utf-8', newline="\n") as f:
             csvwriter = csv.writer(f, delimiter="\t")
             csvwriter.writerows(d_states_data[code])
         del l_state, day_num, code
@@ -241,7 +241,7 @@ def convert_csv():
         d_states_latest[code]['New Deaths'] = l_latest[5]
         d_states_latest[code]['Infections per Million'] = l_latest[6]
         d_states_latest[code]['Deaths per Million'] = l_latest[7]
-    with open('data/de-states/de-states-latest.tsv', 'w', newline="\n", encoding='utf-8') as f:
+    with open('data/de-states/de-states-latest.tsv', mode='w', encoding='utf-8', newline='\n') as f:
         csvwriter = csv.writer(f, delimiter="\t")
         csvwriter.writerow(
             ('# State', 'Code', 'Population', 'Pop Density', 'Date', 'Infections', 'Deaths', 'New Infections', 'New Deaths',

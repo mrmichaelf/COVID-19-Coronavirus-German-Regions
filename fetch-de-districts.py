@@ -167,7 +167,7 @@ def fetch_ref_landkreise(readFromCache: bool = True) -> dict:
 
     d_landkreise = {}
     if readFromCache == True:  # read from cache
-        with open(file_cache, encoding='utf-8') as json_file:
+        with open(file_cache, mode='r', encoding='utf-8') as json_file:
             d_landkreise = json.load(json_file)
     elif readFromCache == False:  # fetch and write to cache
         max_allowed_rows_to_fetch = 2000
@@ -193,7 +193,7 @@ def fetch_ref_landkreise(readFromCache: bool = True) -> dict:
 
         assert len(l3) == len(d_landkreise)
 
-        with open('data/download-ref-de-districts.json', 'w', encoding='utf-8') as outfile:
+        with open('data/download-ref-de-districts.json', mode='w', encoding='utf-8', newline='\n') as outfile:
             json.dump(d_landkreise, outfile, ensure_ascii=False)
 
     return d_landkreise
@@ -219,7 +219,7 @@ def fetch_lk_sums_time_series(lk_id: str, readFromCache: bool = True) -> list:
 
     l3 = []
     if readFromCache == True:  # read from cache
-        with open(file_cache, encoding='utf-8') as json_file:
+        with open(file_cache, mode='r', encoding='utf-8') as json_file:
             l3 = json.load(json_file)
 
     elif readFromCache == False:  # fetch and write to cache
@@ -270,7 +270,7 @@ def fetch_lk_sums_time_series(lk_id: str, readFromCache: bool = True) -> list:
             entry['DaysPast'] = i_days_past
             l3[i] = entry
 
-        with open(file_cache, 'w', encoding='utf-8') as outfile:
+        with open(file_cache, mode='w', encoding='utf-8', newline="\n") as outfile:
             json.dump(l3, outfile, ensure_ascii=False)
 
     return l3
@@ -432,7 +432,7 @@ for lk_id in d_ref_landkreise.keys():
     break
 
 # Export fit data as CSV
-with open('data/de-districs-cases-fit-data.tsv', 'w', encoding='utf-8', newline="\n") as f:
+with open('data/de-districs-cases-fit-data.tsv', mode='w', encoding='utf-8', newline='\n') as f:
     csvwriter = csv.writer(f, delimiter="\t")
     csvwriter.writerow(  # header row
         (
@@ -459,7 +459,7 @@ with open('data/de-districs-cases-fit-data.tsv', 'w', encoding='utf-8', newline=
         )
 
 # Export fit data as JSON
-with open('data/de-districs-cases-fit-data.json', 'w', encoding='utf-8') as outfile:
+with open('data/de-districs-cases-fit-data.json', mode='w', encoding='utf-8', newline="\n") as outfile:
     json.dump(d_fit_results_for_json_export, outfile, ensure_ascii=False)
 
 

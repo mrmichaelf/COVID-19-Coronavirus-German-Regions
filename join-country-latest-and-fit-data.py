@@ -1,3 +1,7 @@
+"""
+Joins to files
+"""
+
 import math
 
 import csv
@@ -62,7 +66,7 @@ for i in range(len(l1)):
     l_out.append(list(l))
 
 
-with open(f_out, 'w') as f:
+with open(f_out, mode='w', encoding='utf-8', newline='\n') as f:
     csvwriter = csv.writer(f, delimiter="\t")
     for line in l_out:
         csvwriter.writerow(line)
