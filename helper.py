@@ -4,11 +4,28 @@ Helper functions collections
 
 import os.path
 import time
+import datetime
+
+import json
+
+import urllib.request
 
 import math
 import numpy as np
 # curve-fit() function imported from scipy
 from scipy.optimize import curve_fit
+
+
+def convert_timestamp_to_date_str(ts: int) -> str:
+    """
+    converts a ms timestand to date string (without time)
+    format: 2020-03-29
+    """
+    d = datetime.datetime.fromtimestamp(ts)
+    # s = f"{d}"
+    # 2020-03-29 01:00:00
+    s = d.strftime("%Y-%m-%d")
+    return s
 
 
 def check_cache_file_available_and_recent(fname: str, max_age: int = 3600, verbose: bool = False) -> bool:
@@ -22,6 +39,14 @@ def check_cache_file_available_and_recent(fname: str, max_age: int = 3600, verbo
             print(f"Cache too old: {fname}")
         b_cache_good = False
     return b_cache_good
+
+
+def fetch_json_as_dict_from_url(url: str) -> dict:
+    filedata = urllib.request.urlopen(url)
+    contents = filedata.read()
+    d_json = json.loads(contents.decode('utf-8'))
+    assert 'error' not in d_json, d_json['error']['details'][0] + "\n" + url
+    return d_json
 
 
 def extract_x_and_y_data(data: list) -> list:

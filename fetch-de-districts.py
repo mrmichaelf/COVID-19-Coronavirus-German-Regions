@@ -61,11 +61,8 @@ __version__ = "0.1"
 
 
 # Built-in/Generic Imports
-import os.path
-import time
 import datetime
 import json
-import urllib.request
 import csv
 # import re
 
@@ -106,30 +103,11 @@ def get_lk_name_from_lk_id(lk_id: str) -> str:
 #     return this_lk_id
 
 
-def convert_timestamp_in_ms_to_date_str(ts: int) -> str:
-    """
-    converts a ms timestand to date
-    """
-    d = datetime.datetime.fromtimestamp(ts/1000)
-    # s = f"{d}"
-    # 2020-03-29 01:00:00
-    s = d.strftime("%Y-%m-%d")
-    return s
-
-
-def fetch_json_as_dict_from_url(url: str) -> dict:
-    filedata = urllib.request.urlopen(url)
-    contents = filedata.read()
-    d_json = json.loads(contents.decode('utf-8'))
-    assert 'error' not in d_json, d_json['error']['details'][0] + "\n" + url
-    return d_json
-
-
 def fetch_json_as_dict_from_url_and_reduce_to_list(url: str) -> list:
     """
     This removed some of the returned structur
     """
-    d_json = fetch_json_as_dict_from_url(url)
+    d_json = helper.fetch_json_as_dict_from_url(url)
     l2 = d_json['features']
     l3 = [v['attributes'] for v in l2]
     return l3
@@ -203,16 +181,16 @@ def fetch_lk_sums_time_series(lk_id: str, readFromCache: bool = True) -> list:
     dir_cache = 'data/de-districts/cache'
     file_cache = f"{dir_cache}/distict_timeseries-{lk_id}.json"
 
-    if readFromCache == True:
+    if readFromCache:
         readFromCache = helper.check_cache_file_available_and_recent(
             file_cache, 3600)
 
     l3 = []
-    if readFromCache == True:  # read from cache
+    if readFromCache:  # read from cache
         with open(file_cache, mode='r', encoding='utf-8') as json_file:
             l3 = json.load(json_file)
 
-    elif readFromCache == False:  # fetch and write to cache
+    elif not readFromCache:  # fetch and write to cache
         # lk_id = get_lk_id_from_lk_name(lk_name)
         # lk_name = get_lk_name_from_lk_id(lk_id)
         max_allowed_rows_to_fetch = 2000
@@ -237,30 +215,38 @@ def fetch_lk_sums_time_series(lk_id: str, readFromCache: bool = True) -> list:
         dt_latest_date = datetime.datetime.fromtimestamp(
             l3[-1]['Meldedatum'] / 1000)
 
+        # add and convert some data fields
         for i in range(len(l3)):
             entry = l3[i]
-            # entry['IdBundesland']
-            # entry['Bundesland']
-            # entry['IdLandkreis']
-            # entry['Landkreis']
+
+            # remove unused fields
+            del entry['ObjectId']
+
             # covert to int
             entry['SummeFall'] = int(entry['SummeFall'])
             entry['SummeTodesfall'] = int(entry['SummeTodesfall'])
             entry['AnzahlFall'] = int(entry['AnzahlFall'])
             entry['AnzahlTodesfall'] = int(entry['AnzahlTodesfall'])
-            s_this_date = convert_timestamp_in_ms_to_date_str(
-                entry['Meldedatum'])
-            # to ensure that each date is unique
-            assert s_this_date not in l_dates_processed
-            l_dates_processed.append(s_this_date)
+
+            # Rename 'Meldedatum' (ms) -> Timestamp (s)
+            entry['Timestamp'] = int(entry['Meldedatum'] / 1000)
+            del entry['Meldedatum']
+
+            # add Date
+            entry['Date'] = helper.convert_timestamp_to_date_str(
+                entry['Timestamp'])
+            # ensure that each date is unique
+            assert entry['Date'] not in l_dates_processed
+            l_dates_processed.append(entry['Date'])
+
+            # add DaysPast
             this_dt = datetime.datetime.fromtimestamp(
-                entry['Meldedatum'] / 1000)
-            # this_last_date
+                entry['Timestamp'])
             i_days_past = (this_dt-dt_latest_date).days
             entry['DaysPast'] = i_days_past
             l3[i] = entry
 
-        with open(file_cache, mode='w', encoding='utf-8', newline="\n") as outfile:
+        with open(file_cache, mode='w', encoding='utf-8', newline='\n') as outfile:
             json.dump(l3, outfile, ensure_ascii=False)
 
     return l3
@@ -312,7 +298,7 @@ def plot_lk_fit(lk_id: str, data: list, d_fit_results: dict):
     lk_name = get_lk_name_from_lk_id(lk_id)
 
     dt_latest_date = datetime.datetime.fromtimestamp(
-        l_lk_time_series[-1]['Meldedatum'] / 1000)
+        l_lk_time_series[-1]['Timestamp'])
 
     # print(
     #     f"=== Zeitverlauf für {l_lk_time_series[-1]['Bundesland']}: {l_lk_time_series[-1]['Landkreis']}, vom {l_lk_time_series[-1]['Datenstand']} ===")
@@ -409,11 +395,11 @@ for lk_id in d_ref_landkreise.keys():
         'Bundesland': d_ref_landkreise[lk_id]['BL'],  # Bundesland
         'Landkreis': lk_name,
         'LK_Einwohner': d_ref_landkreise[lk_id]['EWZ'],  # Einwohner
-        'fit_res_a': "%.3f" % (d_fit_results['fit_res_a']),
-        'fit_res_b': "%.3f" % (d_fit_results['fit_res_b']),
+        'fit_res_a': round(d_fit_results['fit_res_a'], 3),
+        'fit_res_b': round(d_fit_results['fit_res_b'], 3),
         'Faelle_heute': d_fit_results['value_at_last_day'],
-        'Faelle_morgen': "%d" % (d_fit_results['forcast_for_next_day']),
-        'Faelle_Faktor_f_morgen': "%.3f" % (d_fit_results['factor_increase_next_day'])
+        'Faelle_morgen': round(d_fit_results['forcast_for_next_day'], 3),
+        'Faelle_Faktor_f_morgen': round(d_fit_results['factor_increase_next_day'], 3)
     }
 
     d_fit_results_for_json_export[lk_id] = d
