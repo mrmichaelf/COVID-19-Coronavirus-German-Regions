@@ -2,18 +2,18 @@
 # -*- coding: utf-8 -*-
 
 """
-This script downloads COVID-19 / coronavirus data of German region provided by
+This script downloads COVID-19 / coronavirus data of German discticts (Landkreise) provided by
 
 GUI: https://experience.arcgis.com/experience/478220a4c454480e823b17327b2bf1d4/page/page_0/
 
-f=json or f=html
-
-resultRecordCount: max=2000 -> multiple calls needed
 
 
 Endpoint: RKI_Landkreisdaten
 https://services7.arcgis.com/mOBPykOjAyBO2ZKk/arcgis/rest/services/RKI_Landkreisdaten/FeatureServer/0
 
+f=json or f=html
+
+resultRecordCount: max=2000 -> multiple calls needed
 
 
 

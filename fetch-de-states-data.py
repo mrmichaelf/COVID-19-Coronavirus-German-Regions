@@ -22,11 +22,7 @@ __version__ = "0.1"
 import urllib.request
 import csv
 
-import numpy as np
-# curve-fit() function imported from scipy
-from scipy.optimize import curve_fit
 from matplotlib import pyplot as plt
-import math
 
 # my helper modules
 import helper
@@ -70,52 +66,6 @@ def helper_add_per_millions(state_code: str, l: list) -> list:
     for i in range(1, 5):
         l.append(round(l[i]/pop_in_million, 3))
     return l
-
-
-# Fit function with coefficients as parameters
-def fit_function(t, N0, T):
-    # previously b = ln(2)/T used, but this is better as T = doubling time is directy returned
-    return N0 * np.exp(t * math.log(2)/T)
-
-
-def fit_routine(data: list, fit_range_x: list = (-np.inf, np.inf), fit_range_y: list = (-np.inf, np.inf)) -> list:
-    """
-    data: list of x,y pairs
-    """
-    assert len(data) >= 2
-    (data_x_for_fit, data_y_for_fit) = helper.extract_data_according_to_fit_ranges(
-        data, fit_range_x, fit_range_y)
-
-    # Do the fit
-    p0 = [data_y_for_fit[-1], 5.0]  # initial guess of parameters
-    fit_res, fit_res_cov = curve_fit(
-        fit_function,
-        data_x_for_fit,
-        data_y_for_fit,
-        p0,
-        bounds=(
-            (0, -np.inf), (np.inf, np.inf)
-        )
-    )
-    # bounds: ( min of all parameters) , (max of all parameters) )
-
-    y_next_day = fit_function(1, fit_res[0], fit_res[1])
-    y_next_day_delta = y_next_day - data_y_for_fit[-1]
-    factor_increase_next_day = y_next_day / data_y_for_fit[-1]
-
-    d = {
-        'fit_set_x_range': fit_range_x,
-        'fit_set_y_range': fit_range_y,
-        'fit_used_x_range': (data_x_for_fit[0], data_x_for_fit[-1]),
-        'fit_res': fit_res,
-        'fit_res_cov': fit_res_cov,
-        'y_at_x_max': data_y_for_fit[-1],
-        'forcast_y_at_x+1': y_next_day,
-        'forcast_y_delta_at_x+1': y_next_day_delta,
-        'factor_increase_x+1': factor_increase_next_day
-    }
-
-    return d
 
 
 def convert_csv():
@@ -248,7 +198,8 @@ def convert_csv():
         # pairs of (day, doublication_time) (fitted in range [x-6, x])
         fit_series_res = {}
         for last_day_for_fit in range(0, -14, -1):
-            d = fit_routine(data, (last_day_for_fit-6, last_day_for_fit))
+            d = helper.fit_routine(
+                data, (last_day_for_fit-6, last_day_for_fit))
             douplication_time = d['fit_res'][1]
             fit_series_res[last_day_for_fit] = douplication_time
         # add to export data
@@ -266,7 +217,6 @@ def convert_csv():
 
         d_states_data[code] = l_state
         outfile = f'data/de-states/de-state-{code}.tsv'
-        print(outfile)
         with open(outfile, 'w', newline="\n", encoding='utf-8') as f:
             csvwriter = csv.writer(f, delimiter="\t")
             csvwriter.writerows(d_states_data[code])
