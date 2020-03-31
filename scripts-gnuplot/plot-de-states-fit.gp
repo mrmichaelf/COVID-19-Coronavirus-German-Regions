@@ -12,9 +12,10 @@ set ylabel "Infektionen"
 set xlabel "Tage"
 set xtics 7
 
-set y2label "Verdopplungszeit (Tage)" tc ls 4 offset -2,0
-set y2tics tc ls 4
-set y2range [10:0]
+set ytics nomirror
+set y2label "Verdopplungszeit (Tage)" tc ls 5 offset -2,0
+set y2tics tc ls 5
+set y2range [14:0]
 
 
 # prepare data file for fit results
@@ -53,6 +54,8 @@ unset label 3
 unset xrange
 unset yrange
 unset xlabel
+unset ytics
+set ytics
 set xtics autofreq
 set ytics mirror
 unset y2tics

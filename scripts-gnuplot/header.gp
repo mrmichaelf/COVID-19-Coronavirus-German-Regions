@@ -25,7 +25,8 @@ set style line 3 linetype 7 dt 4 lw 2 linecolor rgb 'red'
 # model 2
 set style line 4 linetype 7 dt 5 lw 2 linecolor rgb 'blue' 
 
-
+# dublication time
+set style line 5 linetype 7 dt "." lw 2 linecolor rgb 'blue' 
 
 # change factor
 # set style line 21 linetype 7 dt 5 lw 2 linecolor rgb 'green' 

@@ -15,7 +15,7 @@ set label 1 label1_text_right." based on JHU data of ".date_last
 
 # fitting
 # fit only the last 14 days and death > 2
-set xrange [-13.1:0.1]
+set xrange [-6.1:0.1]
 set yrange [1.9:]
 f(x)=a * exp(b * x)
 a = y_last # initial value
@@ -29,10 +29,12 @@ set print fit_data_file append
 print sprintf (  country_name."\t".country_code."\t%d\t%.3f\t%.3f\t%.3f\t%.3f\t%d\t%.3f\t%d", y_last, a, b, t_doubling, exp(b * 1), y_last * exp(b * 1), exp(b * 7), y_last * exp(b * 7)   )
 unset print 
 # guide lines
-f2(x)=a2 * exp(log(2)/2 * x)
-f3(x)=a3 * exp(log(2)/3 * x)
-fit f2(x) data using 1:col via a2
-fit f3(x) data using 1:col via a3
+# f2(x)=a2 * exp(log(2)/2 * x)
+# f3(x)=a3 * exp(log(2)/3 * x)
+# fit f2(x) data using 1:col via a2
+# fit f3(x) data using 1:col via a3
+
+set xtic add (date_last 0) 
 
 print country_name
 
@@ -49,9 +51,9 @@ set key top left box
 set label 2 sprintf("Fit Results\nDoubling Time: %.1f Days\nIncrease 1 Day: %.0f%%\n  -> %d Deaths\nIncrease 7 Days: %.0f%%\n  -> %d Deaths", t_doubling, (exp(b * 1)-1)*100, y_last * exp(b * 1), (exp(b * 7)-1)*100, y_last * exp(b * 7) )
 set label 3 "" .y_last right at first x_max - 2, first y_last 
 set output '../plots-gnuplot/deaths-'.country_code.'-fit.png'
-plot data using 1:col title "Deaths" with points \
-, f(x) title sprintf ("7 Day Fit/Trend") with lines \
-, data using 1:11 title "Doublication Time" axis x1y2 with lines ls 4
+plot data using 1:col title "Deaths" with points ls 1 \
+, f(x) title sprintf ("7 Day Fit/Trend") with lines ls 2 \
+, data using 1:11 title "Doublication Time" axis x1y2 with lines ls 5
 
 unset output
 # , f2(x) title sprintf ("model 2 days doubling") with lines \

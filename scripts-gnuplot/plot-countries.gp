@@ -87,9 +87,10 @@ set label 2 "" right front at graph 0.3, graph 0.6
 set ylabel "Deaths"
 set xlabel "Days"
 
-set y2label "Doublication Time (Days)" tc ls 4 offset -2,0
-set y2tics tc ls 4
-set y2range [10:0]
+set ytics nomirror
+set y2label "Doublication Time (Days)" tc ls 5 offset -2,0
+set y2tics tc ls 5
+set y2range [14:0]
 
 
 # set lmargin 9
@@ -134,8 +135,11 @@ unset label 3
 unset xlabel
 unset ylabel
 set xtics autofreq
+set ytics mirror
 unset y2tics
 unset y2label
+unset ytics
+set ytics
 
 # let's plot the fit data as boxes
 set title "Fit Result: Deaths Doubling Time (days)"

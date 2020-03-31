@@ -199,7 +199,7 @@ def enrich_data_by_calculated_fields():
         # fit the doublication time each day
         data = list(zip(data_t, data_deaths))
         fit_series_res = helper.series_of_fits(
-            data, fit_range=7, max_days_past=14)
+            data, fit_range=7, max_days_past=28)
 
         for i in range(len(l_country_data)):
             entry = l_country_data[i]
