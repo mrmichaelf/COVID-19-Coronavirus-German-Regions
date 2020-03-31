@@ -252,40 +252,40 @@ def fetch_lk_sums_time_series(lk_id: str, readFromCache: bool = True) -> list:
     return l3
 
 
-# Test function with coefficients as parameters
-def fit_function(x, a, b):
-    # TODO: replace b by b = ln(2)/T ; with T = doubling time
-    return a * np.exp(b * x)
+# # Test function with coefficients as parameters
+# def fit_function(x, a, b):
+#     # TODO: replace b by b = ln(2)/T ; with T = doubling time
+#     return a * np.exp(b * x)
 
 
-def fit_routine(data: list, fit_range_x: list = (-np.inf, np.inf), fit_range_y: list = (-np.inf, np.inf)) -> list:
-    """
-    data list of x,y pairs
-    """
-    assert len(data) >= 2
-    (data_x_for_fit, data_y_for_fit) = helper.extract_data_according_to_fit_ranges(
-        data, fit_range_x, fit_range_y)
+# def fit_routine(data: list, fit_range_x: list = (-np.inf, np.inf), fit_range_y: list = (-np.inf, np.inf)) -> list:
+#     """
+#     data list of x,y pairs
+#     """
+#     assert len(data) >= 2
+#     (data_x_for_fit, data_y_for_fit) = helper.extract_data_according_to_fit_ranges(
+#         data, fit_range_x, fit_range_y)
 
-    # Do the fit
-    p0 = [data_y_for_fit[-1], 0.14]  # initial guess of parameters
-    param, param_cov = curve_fit(fit_function, data_x_for_fit, data_y_for_fit, p0, bounds=(
-        (0, -np.inf), (np.inf, np.inf)))
+#     # Do the fit
+#     p0 = [data_y_for_fit[-1], 0.14]  # initial guess of parameters
+#     param, param_cov = curve_fit(fit_function, data_x_for_fit, data_y_for_fit, p0, bounds=(
+#         (0, -np.inf), (np.inf, np.inf)))
 
-    y_next_day = fit_function(1, param[0], param[1])
-    y_next_day_delta = y_next_day - data_y_for_fit[-1]
-    factor_increase_next_day = y_next_day / data_y_for_fit[-1]
+#     y_next_day = fit_function(1, param[0], param[1])
+#     y_next_day_delta = y_next_day - data_y_for_fit[-1]
+#     factor_increase_next_day = y_next_day / data_y_for_fit[-1]
 
-    d = {
-        'fit_x_range': fit_range_x,
-        'fit_y_range': fit_range_y,
-        'fit_res_a': param[0],
-        'fit_res_b': param[1],
-        'value_at_last_day': data_y_for_fit[-1],
-        'forcast_for_next_day': y_next_day_delta,
-        'factor_increase_next_day': factor_increase_next_day
-    }
+#     d = {
+#         'fit_x_range': fit_range_x,
+#         'fit_y_range': fit_range_y,
+#         'fit_res_a': param[0],
+#         'fit_res_b': param[1],
+#         'value_at_last_day': data_y_for_fit[-1],
+#         'forcast_for_next_day': y_next_day_delta,
+#         'factor_increase_next_day': factor_increase_next_day
+#     }
 
-    return d
+#     return d
 
 
 def plot_lk_fit(lk_id: str, data: list, d_fit_results: dict):
@@ -317,21 +317,19 @@ def plot_lk_fit(lk_id: str, data: list, d_fit_results: dict):
     #
     (data_x, data_y) = helper.extract_x_and_y_data(data)
 
-    fit_range_x = d_fit_results['fit_x_range']
-    fit_range_y = d_fit_results['fit_y_range']
+    fit_range_x = d_fit_results['fit_set_x_range']
+    fit_range_y = d_fit_results['fit_set_y_range']
 
     (data_x_for_fit, data_y_for_fit) = helper.extract_data_according_to_fit_ranges(
         data, fit_range_x, fit_range_y)
 
-    fit_res_a = d_fit_results['fit_res_a']
-    fit_res_b = d_fit_results['fit_res_b']
     data_y_fitted = []
     for x in data_x_for_fit:
-        y = fit_function(x, fit_res_a, fit_res_b)
+        y = helper.fit_function_exp_growth(x, *d_fit_results['fit_res'])
         data_y_fitted.append(y)
 
     plt.title(f"{lk_name}\n%d new cases expected\nfactor:%.2f" %
-              (d_fit_results['forcast_for_next_day'], d_fit_results['factor_increase_next_day']))
+              (d_fit_results['forcast_y_at_x+1'], d_fit_results['factor_increase_x+1']))
     range_x = (-28, 1)
     plt.plot(data_x, data_y, 'o', color='red', label="data")
     plt.plot(data_x_for_fit, data_y_fitted,
@@ -388,18 +386,18 @@ for lk_id in d_ref_landkreise.keys():
         # choose columns to fit
         data.append((entry['DaysPast'], entry['SummeFall']))
 
-    d_fit_results = fit_routine(data, fit_range_x=(-6, 0))
+    d_fit_results = helper.fit_routine(data, fit_range_x=(-6, 0))
 
     # TODO: add fit range, as needed for plot
     d = {
         'Bundesland': d_ref_landkreise[lk_id]['BL'],  # Bundesland
         'Landkreis': lk_name,
         'LK_Einwohner': d_ref_landkreise[lk_id]['EWZ'],  # Einwohner
-        'fit_res_a': round(d_fit_results['fit_res_a'], 3),
-        'fit_res_b': round(d_fit_results['fit_res_b'], 3),
-        'Faelle_heute': d_fit_results['value_at_last_day'],
-        'Faelle_morgen': round(d_fit_results['forcast_for_next_day'], 3),
-        'Faelle_Faktor_f_morgen': round(d_fit_results['factor_increase_next_day'], 3)
+        'fit_res_N0': round(d_fit_results['fit_res'][0], 3),
+        'fit_res_T': round(d_fit_results['fit_res'][1], 3),
+        'Faelle_heute': d_fit_results['y_at_x_max'],
+        'Faelle_morgen': round(d_fit_results['forcast_y_at_x+1'], 3),
+        'Faelle_Faktor_f_morgen': round(d_fit_results['factor_increase_x+1'], 3)
     }
 
     d_fit_results_for_json_export[lk_id] = d
