@@ -101,23 +101,23 @@ last_y_absolute_US = (system("tail -1 '../data/country-US.tsv' | cut -f4") + 0)
 # last_y_SE = (system("tail -1 '../data/country-SE.tsv' | cut -f6") + 0)
 # last_y_absolute_SE = (system("tail -1 '../data/country-SE.tsv' | cut -f4") + 0)
 
-set label 11 "AT" left at first last_x_AT /7 , first last_y_AT
-set label 12 "BE" left at first last_x_BE/7 , first last_y_BE
-set label 13 "CA" left at first last_x_CA/7 , first last_y_CA
-set label 14 "FR" left at first last_x_FR/7 , first last_y_FR
-set label 15 "DE" left at first last_x_DE/7 , first last_y_DE
-set label 16 "HU" left at first last_x_HU/7 , first last_y_HU
-set label 17 "IR" left at first last_x_IR/7 , first last_y_IR
-set label 18 "IT" left at first last_x_IT/7 , first last_y_IT
-set label 19 "JP" left at first last_x_JP/7 , first last_y_JP
-set label 20 "KR" left at first last_x_KR/7 , first last_y_KR
-set label 21 "NL" left at first last_x_NL/7 , first last_y_NL
-set label 22 "PT" left at first last_x_PT/7 , first last_y_PT
-set label 23 "ES" left at first last_x_ES/7 , first last_y_ES
-set label 24 "CH" left at first last_x_CH/7 , first last_y_CH
-set label 25 "UK" left at first last_x_UK/7 , first last_y_UK
-set label 26 "US" left at first last_x_US/7 , first last_y_US
-# set label "SE" left at first last_x_SE/7 , first last_y_SE
+set label 11 "AT" left at first last_x_AT/7.0 , first last_y_AT
+set label 12 "BE" left at first last_x_BE/7.0 , first last_y_BE
+set label 13 "CA" left at first last_x_CA/7.0 , first last_y_CA
+set label 14 "FR" left at first last_x_FR/7.0 , first last_y_FR
+set label 15 "DE" left at first last_x_DE/7.0 , first last_y_DE
+set label 16 "HU" left at first last_x_HU/7.0 , first last_y_HU
+set label 17 "IR" left at first last_x_IR/7.0 , first last_y_IR
+set label 18 "IT" left at first last_x_IT/7.0 , first last_y_IT
+set label 19 "JP" left at first last_x_JP/7.0 , first last_y_JP
+set label 20 "KR" left at first last_x_KR/7.0 , first last_y_KR
+set label 21 "NL" left at first last_x_NL/7.0 , first last_y_NL
+set label 22 "PT" left at first last_x_PT/7.0 , first last_y_PT
+set label 23 "ES" left at first last_x_ES/7.0 , first last_y_ES
+set label 24 "CH" left at first last_x_CH/7.0 , first last_y_CH
+set label 25 "UK" left at first last_x_UK/7.0 , first last_y_UK
+set label 26 "US" left at first last_x_US/7.0 , first last_y_US
+# set label "SE" left at first last_x_SE/7.0 , first last_y_SE
 
 
 
@@ -167,23 +167,23 @@ unset logscale y
 
 
 
-set label 11 "AT" left at first last_x_AT /7 , first last_y_absolute_AT
-set label 12 "BE" left at first last_x_BE/7 , first last_y_absolute_BE
-set label 13 "CA" left at first last_x_CA/7 , first last_y_absolute_CA
-set label 14 "FR" left at first last_x_FR/7 , first last_y_absolute_FR
-set label 15 "DE" left at first last_x_DE/7 , first last_y_absolute_DE
-set label 16 "HU" left at first last_x_HU/7 , first last_y_absolute_HU
-set label 17 "IR" left at first last_x_IR/7 , first last_y_absolute_IR
-set label 18 "IT" left at first last_x_IT/7 , first last_y_absolute_IT
-set label 19 "JP" left at first last_x_JP/7 , first last_y_absolute_JP
-set label 20 "KR" left at first last_x_KR/7 , first last_y_absolute_KR
-set label 21 "NL" left at first last_x_NL/7 , first last_y_absolute_NL
-set label 22 "PT" left at first last_x_PT/7 , first last_y_absolute_PT
-set label 23 "ES" left at first last_x_ES/7 , first last_y_absolute_ES
-set label 24 "CH" left at first last_x_CH/7 , first last_y_absolute_CH
-set label 25 "UK" left at first last_x_UK/7 , first last_y_absolute_UK
-set label 26 "US" left at first last_x_US/7 , first last_y_absolute_US
-# set label "SE" left at first last_x_SE/7 , first last_y_absolute_SE
+set label 11 "AT" left at first last_x_AT /7.0 , first last_y_absolute_AT
+set label 12 "BE" left at first last_x_BE/7.0 , first last_y_absolute_BE
+set label 13 "CA" left at first last_x_CA/7.0 , first last_y_absolute_CA
+set label 14 "FR" left at first last_x_FR/7.0 , first last_y_absolute_FR
+set label 15 "DE" left at first last_x_DE/7.0 , first last_y_absolute_DE
+set label 16 "HU" left at first last_x_HU/7.0 , first last_y_absolute_HU
+set label 17 "IR" left at first last_x_IR/7.0 , first last_y_absolute_IR
+set label 18 "IT" left at first last_x_IT/7.0 , first last_y_absolute_IT
+set label 19 "JP" left at first last_x_JP/7.0 , first last_y_absolute_JP
+set label 20 "KR" left at first last_x_KR/7.0 , first last_y_absolute_KR
+set label 21 "NL" left at first last_x_NL/7.0 , first last_y_absolute_NL
+set label 22 "PT" left at first last_x_PT/7.0 , first last_y_absolute_PT
+set label 23 "ES" left at first last_x_ES/7.0 , first last_y_absolute_ES
+set label 24 "CH" left at first last_x_CH/7.0 , first last_y_absolute_CH
+set label 25 "UK" left at first last_x_UK/7.0 , first last_y_absolute_UK
+set label 26 "US" left at first last_x_US/7.0 , first last_y_absolute_US
+# set label "SE" left at first last_x_SE/7.0 , first last_y_absolute_SE
 
 
 
