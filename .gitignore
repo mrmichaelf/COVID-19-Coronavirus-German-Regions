@@ -1,11 +1,14 @@
+**/__pycache__/*
+**/.~lock.*.xlsx#
 .vscode
 .DS_Store
+
 ~$*.xlsx
 index*.html
+
 **/plots-gnuplot/*
 **/plots-python/*
 **/backup/*
 **/data/de-districts/cache/*
 **/test/*
 **/old/*
-**/__pycache__/*
