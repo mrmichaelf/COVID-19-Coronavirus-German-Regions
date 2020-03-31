@@ -49,11 +49,13 @@ set key top left box
 set label 2 sprintf("Fit Results\nDoubling Time: %.1f Days\nIncrease 1 Day: %.0f%%\n  -> %d Deaths\nIncrease 7 Days: %.0f%%\n  -> %d Deaths", t_doubling, (exp(b * 1)-1)*100, y_last * exp(b * 1), (exp(b * 7)-1)*100, y_last * exp(b * 7) )
 set label 3 "" .y_last right at first x_max - 2, first y_last 
 set output '../plots-gnuplot/deaths-'.country_code.'-fit.png'
-plot data using 1:col title "data" with points \
-, f(x) title sprintf ("fit") with lines \
-, f2(x) title sprintf ("model 2 days doubling") with lines \
-, f3(x) title sprintf ("model 3 days doubling") with lines
+plot data using 1:col title "Deaths" with points \
+, f(x) title sprintf ("7 Day Fit/Trend") with lines \
+, data using 1:11 title "Doublication Time" axis x1y2 with lines ls 4
+
 unset output
+# , f2(x) title sprintf ("model 2 days doubling") with lines \
+# , f3(x) title sprintf ("model 3 days doubling") with lines
 # , data using 1:13 title "change factor" axes x1y2 with linespoints ls 21
 # plot 2: log scale
 set logscale y
