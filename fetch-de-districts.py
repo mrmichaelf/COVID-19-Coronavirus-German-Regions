@@ -70,7 +70,7 @@ import csv
 # fitting
 import numpy as np
 # curve-fit() function imported from scipy
-from scipy.optimize import curve_fit
+# from scipy.optimize import curve_fit
 from matplotlib import pyplot as plt
 
 
@@ -105,12 +105,33 @@ def get_lk_name_from_lk_id(lk_id: str) -> str:
 
 def fetch_json_as_dict_from_url_and_reduce_to_list(url: str) -> list:
     """
-    This removed some of the returned structur
+    removes some of the returned structur
     """
     d_json = helper.fetch_json_as_dict_from_url(url)
     l2 = d_json['features']
     l3 = [v['attributes'] for v in l2]
     return l3
+
+
+def helper_read_from_cache_or_fetch_from_url(url: str, file_cache: str, readFromCache: bool = True):
+    """
+    readFromCache=True -> not calling the API, but returning cached data
+    readFromCache=False -> calling the API, and writing cache to filesystem
+    """
+    if readFromCache:
+        readFromCache = helper.check_cache_file_available_and_recent(
+            fname=file_cache, max_age=3600, verbose=True)
+
+    json_cont = []
+    if readFromCache == True:  # read from cache
+        with open(file_cache, mode='r', encoding='utf-8') as json_file:
+            json_cont = json.load(json_file)
+    elif readFromCache == False:  # fetch and write to cache
+        json_cont = fetch_json_as_dict_from_url_and_reduce_to_list(url)
+        with open(file_cache, mode='w', encoding='utf-8', newline='\n') as fh:
+            json.dump(json_cont, fh, ensure_ascii=False)
+
+    return json_cont
 
 
 def fetch_ref_landkreise(readFromCache: bool = True) -> dict:
@@ -124,50 +145,47 @@ def fetch_ref_landkreise(readFromCache: bool = True) -> dict:
     https://services7.arcgis.com/mOBPykOjAyBO2ZKk/arcgis/rest/services/RKI_Landkreisdaten/FeatureServer/0
 
     converts/flattens the retrieved json a bit and use the district ID lk_id as key for the returred dict
-    write the json to the file system, using utf-8 encoding
-    returns the data as dict, using lk_id as key
+    write the json to cache folder in file system, using utf-8 encoding
+
+    returns the data as list of dicts
     """
-    file_cache = "data/download-ref-de-districts.json"
+    file_cache = "cache/de-districts/de-districts.json"
 
-    if readFromCache == True:
-        readFromCache = helper.check_cache_file_available_and_recent(
-            fname=file_cache, max_age=3600, verbose=True)
+    max_allowed_rows_to_fetch = 2000
+    url = 'https://services7.arcgis.com/mOBPykOjAyBO2ZKk/arcgis/rest/services/RKI_Landkreisdaten/FeatureServer/0/query?f=json' +\
+        '&where=1%3D1' +\
+        '&outFields=*' +\
+        '&orderByFields=BL_ID%2C+AGS' +\
+        "&resultRecordCount=" + str(max_allowed_rows_to_fetch) + \
+        '&objectIds=&time=&geometry=&geometryType=esriGeometryEnvelope&inSR=&spatialRel=esriSpatialRelIntersects&resultType=none&distance=0.0&units=esriSRUnit_Meter&returnGeodetic=false' +\
+        '&returnGeometry=false&returnCentroid=false&featureEncoding=esriDefault&multipatchOption=xyFootprint&maxAllowableOffset=&geometryPrecision=&outSR=&datumTransformation=&applyVCSProjection=false&returnIdsOnly=false&returnUniqueIdsOnly=false&returnCountOnly=false&returnExtentOnly=false&returnQueryGeometry=false&returnDistinctValues=false&cacheHint=false' +\
+        '&groupByFieldsForStatistics=&outStatistics=&having=&resultOffset=' +\
+        '&returnZ=false&returnM=false&returnExceededLimitFeatures=true&quantizationParameters=&sqlFormat=none&token='
 
-    d_landkreise = {}
-    if readFromCache == True:  # read from cache
-        with open(file_cache, mode='r', encoding='utf-8') as json_file:
-            d_landkreise = json.load(json_file)
-    elif readFromCache == False:  # fetch and write to cache
-        max_allowed_rows_to_fetch = 2000
-        url = 'https://services7.arcgis.com/mOBPykOjAyBO2ZKk/arcgis/rest/services/RKI_Landkreisdaten/FeatureServer/0/query?f=json' +\
-            '&where=1%3D1' +\
-            '&outFields=*' +\
-            '&orderByFields=BL_ID%2C+AGS' +\
-            "&resultRecordCount=" + str(max_allowed_rows_to_fetch) + \
-            '&objectIds=&time=&geometry=&geometryType=esriGeometryEnvelope&inSR=&spatialRel=esriSpatialRelIntersects&resultType=none&distance=0.0&units=esriSRUnit_Meter&returnGeodetic=false' +\
-            '&returnGeometry=false&returnCentroid=false&featureEncoding=esriDefault&multipatchOption=xyFootprint&maxAllowableOffset=&geometryPrecision=&outSR=&datumTransformation=&applyVCSProjection=false&returnIdsOnly=false&returnUniqueIdsOnly=false&returnCountOnly=false&returnExtentOnly=false&returnQueryGeometry=false&returnDistinctValues=false&cacheHint=false' +\
-            '&groupByFieldsForStatistics=&outStatistics=&having=&resultOffset=' +\
-            '&returnZ=false&returnM=false&returnExceededLimitFeatures=true&quantizationParameters=&sqlFormat=none&token='
+    l_landkreise = helper_read_from_cache_or_fetch_from_url(
+        url=url, file_cache=file_cache, readFromCache=True)
 
-        l3 = fetch_json_as_dict_from_url_and_reduce_to_list(url)
+    return l_landkreise
 
-        # convert list to dict, using lk_id as key
-        for d_landkreis in l3:
-            lk_id = d_landkreis['RS']  # RS = LK_ID ; county = LK_Name
-            assert "012345".isdecimal() == True
-            d = d_landkreis
-            del d['RS']
-            d_landkreise[lk_id] = d
 
-        assert len(l3) == len(d_landkreise)
+def prepare_ref_landkreise() -> dict:
+    d_landkreise = fetch_ref_landkreise(readFromCache=True)
 
-        with open('data/download-ref-de-districts.json', mode='w', encoding='utf-8', newline='\n') as outfile:
-            json.dump(d_landkreise, outfile, ensure_ascii=False)
+    # convert list to dict, using lk_id as key
+    for d_this_landkreis in l_landkreise:
+        lk_id = d_this_landkreis['RS']  # RS = LK_ID ; county = LK_Name
+        assert type(lk_id) == str
+        assert lk_id.isdecimal() == True
+        del d_this_landkreis['RS']
+        d_landkreise[lk_id] = d_this_landkreis
+    del d_this_landkreis
+
+    assert len(l_landkreise) == len(d_landkreise)
 
     return d_landkreise
 
 
-def fetch_lk_sums_time_series(lk_id: str, readFromCache: bool = True) -> list:
+def fetch_landkreis_time_series(lk_id: str, readFromCache: bool = True) -> list:
     """
     Fetches all data from arcgis Covid19_RKI_Sums endpoint: Bundesland, Landkreis, etc.
     # API Explorer
@@ -178,17 +196,16 @@ def fetch_lk_sums_time_series(lk_id: str, readFromCache: bool = True) -> list:
 
     returns data as list, ordered by date
     """
-    dir_cache = 'data/de-districts/cache'
-    file_cache = f"{dir_cache}/distict_timeseries-{lk_id}.json"
+    file_cache = f"cache/de-districts/distict_timeseries-{lk_id}.json"
 
     if readFromCache:
         readFromCache = helper.check_cache_file_available_and_recent(
             file_cache, 3600)
 
-    l3 = []
+    l_time_series = []
     if readFromCache:  # read from cache
         with open(file_cache, mode='r', encoding='utf-8') as json_file:
-            l3 = json.load(json_file)
+            l_time_series = json.load(json_file)
 
     elif not readFromCache:  # fetch and write to cache
         # lk_id = get_lk_id_from_lk_name(lk_name)
@@ -206,14 +223,14 @@ def fetch_lk_sums_time_series(lk_id: str, readFromCache: bool = True) -> list:
         # get more stuff
         # "&outFields=*" + \
 
-        l3 = fetch_json_as_dict_from_url_and_reduce_to_list(url)
-        assert len(l3) < max_allowed_rows_to_fetch
+        l_time_series = fetch_json_as_dict_from_url_and_reduce_to_list(url)
+        assert len(l_time_series) < max_allowed_rows_to_fetch
 
         # add days past counter for plotting
         # to ensure that each date is unique
         l_dates_processed = []
         dt_latest_date = datetime.datetime.fromtimestamp(
-            l3[-1]['Meldedatum'] / 1000)
+            l_time_series[-1]['Meldedatum'] / 1000)
 
         # add and convert some data fields
         data_t = []
@@ -221,8 +238,8 @@ def fetch_lk_sums_time_series(lk_id: str, readFromCache: bool = True) -> list:
         data_deaths = []
 
         # entry = one data point
-        for i in range(len(l3)):
-            entry = l3[i]
+        for i in range(len(l_time_series)):
+            entry = l_time_series[i]
 
             # remove unused fields
             del entry['ObjectId']
@@ -249,7 +266,7 @@ def fetch_lk_sums_time_series(lk_id: str, readFromCache: bool = True) -> list:
                 entry['Timestamp'])
             i_days_past = (this_dt-dt_latest_date).days
             entry['DaysPast'] = i_days_past
-            l3[i] = entry
+            l_time_series[i] = entry
 
             data_t.append(i_days_past)
             data_cases.append(entry['SummeFall'])
@@ -260,55 +277,19 @@ def fetch_lk_sums_time_series(lk_id: str, readFromCache: bool = True) -> list:
         fit_series_res = helper.series_of_fits(
             data, fit_range=7, max_days_past=14)
 
-        for i in range(len(l3)):
-            entry = l3[i]
+        for i in range(len(l_time_series)):
+            entry = l_time_series[i]
             this_doublication_time = ""
             this_days_past = entry['DaysPast']
             if this_days_past in fit_series_res:
                 this_doublication_time = fit_series_res[this_days_past]
             entry['DoublicationTime'] = this_doublication_time
-            l3[i] = entry
+            l_time_series[i] = entry
 
         with open(file_cache, mode='w', encoding='utf-8', newline='\n') as outfile:
-            json.dump(l3, outfile, ensure_ascii=False)
+            json.dump(l_time_series, outfile, ensure_ascii=False)
 
-    return l3
-
-
-# # Test function with coefficients as parameters
-# def fit_function(x, a, b):
-#     # TODO: replace b by b = ln(2)/T ; with T = doubling time
-#     return a * np.exp(b * x)
-
-
-# def fit_routine(data: list, fit_range_x: list = (-np.inf, np.inf), fit_range_y: list = (-np.inf, np.inf)) -> list:
-#     """
-#     data list of x,y pairs
-#     """
-#     assert len(data) >= 2
-#     (data_x_for_fit, data_y_for_fit) = helper.extract_data_according_to_fit_ranges(
-#         data, fit_range_x, fit_range_y)
-
-#     # Do the fit
-#     p0 = [data_y_for_fit[-1], 0.14]  # initial guess of parameters
-#     param, param_cov = curve_fit(fit_function, data_x_for_fit, data_y_for_fit, p0, bounds=(
-#         (0, -np.inf), (np.inf, np.inf)))
-
-#     y_next_day = fit_function(1, param[0], param[1])
-#     y_next_day_delta = y_next_day - data_y_for_fit[-1]
-#     factor_increase_next_day = y_next_day / data_y_for_fit[-1]
-
-#     d = {
-#         'fit_x_range': fit_range_x,
-#         'fit_y_range': fit_range_y,
-#         'fit_res_a': param[0],
-#         'fit_res_b': param[1],
-#         'value_at_last_day': data_y_for_fit[-1],
-#         'forcast_for_next_day': y_next_day_delta,
-#         'factor_increase_next_day': factor_increase_next_day
-#     }
-
-#     return d
+    return l_time_series
 
 
 def plot_lk_fit(lk_id: str, data: list, d_fit_results: dict):
@@ -405,7 +386,7 @@ for lk_id in d_ref_landkreise.keys():
     # 09563   SK Fürth        127748
 
     data = []
-    l_lk_time_series = fetch_lk_sums_time_series(lk_id, readFromCache=True)
+    l_lk_time_series = fetch_landkreis_time_series(lk_id, readFromCache=True)
     for entry in l_lk_time_series:
         # choose columns to fit
         data.append((entry['DaysPast'], entry['SummeFall']))
@@ -427,8 +408,8 @@ for lk_id in d_ref_landkreise.keys():
 
     d_fit_results_for_json_export[lk_id] = d
 
-    plot_lk_fit(lk_id, data, d_fit_results)
-    # break
+    # plot_lk_fit(lk_id, data, d_fit_results)
+    break
 
 # Export fit data as CSV
 with open('data/de-districs-cases-fit-data.tsv', mode='w', encoding='utf-8', newline='\n') as f:
