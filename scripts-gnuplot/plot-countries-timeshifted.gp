@@ -140,7 +140,7 @@ set title title
 set ylabel "Deaths per Million Population"
 
 set xrange [0:]
-set yrange [:]
+set yrange [0:]
 set output '../plots-gnuplot/countries-timeshifted-per-million.png'
 plot \
   '../data/country-IT.tsv' using ($10/7):6 title "Italy" with lines lw 2, \
@@ -165,7 +165,7 @@ unset output
 # '../data/country-FI.tsv' using ($10/7):6 title "# Finland" with lines lw 2 dt "-", \
   '../data/country-SE.tsv' using ($10/7):6 title "Sweden" with lines lw 2 dt "-", \
 
-set yrange [:]
+set yrange [1:]
 set logscale y
 
 title = "Death toll development - scaled per million population and log"
@@ -206,7 +206,7 @@ set title title
 set ylabel "Deaths"
 
 set xrange [0:]
-set yrange [:]
+set yrange [0:]
 set output '../plots-gnuplot/countries-timeshifted-absolute.png'
 plot \
   '../data/country-IT.tsv' using ($10/7):4 title "Italy" with lines lw 2, \
@@ -231,9 +231,8 @@ unset output
 # '../data/country-FI.tsv' using ($10/7):4 title "# Finland" with lines lw 2 dt "-", \
   '../data/country-SE.tsv' using ($10/7):4 title "Sweden" with lines lw 2 dt "-", \
 
-set yrange [:]
+set yrange [1:]
 set logscale y
-
 set title title ." - log. scaled"
 set output '../plots-gnuplot/countries-timeshifted-absolute-log.png'
 replot
@@ -246,7 +245,7 @@ unset logscale y
 
 title = "Daily new deaths per million after 2nd death"
 set title title
-set ylabel "New deaths per million"
+set ylabel "Daily new deaths per million"
 
 
 set label 11 "AT" left at first last_x_AT/7.0 , first last_y_new_per_million_AT
@@ -269,27 +268,35 @@ set label 26 "US" left at first last_x_US/7.0 , first last_y_new_per_million_US
 
 
 set xrange [0:]
-set yrange [:]
+set yrange [0:]
 set output '../plots-gnuplot/countries-timeshifted-new_deaths-per-million.png'
 plot \
-  '../data/country-IT.tsv' using ($10/7):13 title "Italy" with lines lw 2, \
-  '../data/country-IR.tsv' using ($10/7):13 title "Iran" with lines lw 2, \
-  '../data/country-DE.tsv' using ($10/7):13 title "Germany" with lines lw 2, \
-  '../data/country-FR.tsv' using ($10/7):13 title "France" with lines lw 2, \
-  '../data/country-ES.tsv' using ($10/7):13 title "Spain" with lines lw 2, \
-  '../data/country-AT.tsv' using ($10/7):13 title "Austria" with lines lw 2, \
-  '../data/country-UK.tsv' using ($10/7):13 title "United Kingdom" with lines lw 2, \
-  '../data/country-US.tsv' using ($10/7):13 title "US" with lines lw 2, \
-  '../data/country-BE.tsv' using ($10/7):13 title "Belgium" with lines lw 2 dt "-", \
-  '../data/country-CA.tsv' using ($10/7):13 title "Canada" with lines lw 2 dt "-", \
-  '../data/country-HU.tsv' using ($10/7):13 title "Hungary" with lines lw 2 dt "-", \
-  '../data/country-NL.tsv' using ($10/7):13 title "Netherlands" with lines lw 2 dt "-", \
-  '../data/country-PT.tsv' using ($10/7):13 title "Portugal" with lines lw 2 dt "-", \
-  '../data/country-CH.tsv' using ($10/7):13 title "Switzerland" with lines lw 2 dt "-", \
-  '../data/country-JP.tsv' using ($10/7):13 title "Japan" with lines lw 2 dt "-", \
-  '../data/country-KR.tsv' using ($10/7):13 title "Korea, South" with lines lw 2 dt "-",\
+  '../data/country-IT.tsv' using ($10/7):13 smooth bezier title "Italy" with lines lw 2, \
+  '../data/country-IR.tsv' using ($10/7):13 smooth bezier title "Iran" with lines lw 2, \
+  '../data/country-DE.tsv' using ($10/7):13 smooth bezier title "Germany" with lines lw 2, \
+  '../data/country-FR.tsv' using ($10/7):13 smooth bezier title "France" with lines lw 2, \
+  '../data/country-ES.tsv' using ($10/7):13 smooth bezier title "Spain" with lines lw 2, \
+  '../data/country-AT.tsv' using ($10/7):13 smooth bezier title "Austria" with lines lw 2, \
+  '../data/country-UK.tsv' using ($10/7):13 smooth bezier title "United Kingdom" with lines lw 2, \
+  '../data/country-US.tsv' using ($10/7):13 smooth bezier title "US" with lines lw 2, \
+  '../data/country-BE.tsv' using ($10/7):13 smooth bezier title "Belgium" with lines lw 2 dt "-", \
+  '../data/country-CA.tsv' using ($10/7):13 smooth bezier title "Canada" with lines lw 2 dt "-", \
+  '../data/country-HU.tsv' using ($10/7):13 smooth bezier title "Hungary" with lines lw 2 dt "-", \
+  '../data/country-NL.tsv' using ($10/7):13 smooth bezier title "Netherlands" with lines lw 2 dt "-", \
+  '../data/country-PT.tsv' using ($10/7):13 smooth bezier title "Portugal" with lines lw 2 dt "-", \
+  '../data/country-CH.tsv' using ($10/7):13 smooth bezier title "Switzerland" with lines lw 2 dt "-", \
+  '../data/country-JP.tsv' using ($10/7):13 smooth bezier title "Japan" with lines lw 2 dt "-", \
+  '../data/country-KR.tsv' using ($10/7):13 smooth bezier title "Korea, South" with lines lw 2 dt "-",\
 
 unset output
+
+set yrange [0.01:]
+set logscale y
+set title title ." - log. scaled"
+set output '../plots-gnuplot/countries-timeshifted-new_deaths-per-million-log.png'
+replot
+unset output
+unset logscale y
 
 
 set xtics autofreq
