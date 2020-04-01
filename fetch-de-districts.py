@@ -163,13 +163,14 @@ def fetch_ref_landkreise(readFromCache: bool = True) -> dict:
         '&returnZ=false&returnM=false&returnExceededLimitFeatures=true&quantizationParameters=&sqlFormat=none&token='
 
     l_landkreise = helper_read_from_cache_or_fetch_from_url(
-        url=url, file_cache=file_cache, readFromCache=True)
+        url=url, file_cache=file_cache, readFromCache=readFromCache)
 
     return l_landkreise
 
 
 def prepare_ref_landkreise() -> dict:
-    l_landkreise = fetch_ref_landkreise(readFromCache=True)
+    file_out = 'data/de-districts/ref-de-districts.json'
+    l_landkreise = fetch_ref_landkreise(readFromCache=False)
     d_landkreise = {}
 
     # convert list to dict, using lk_id as key
@@ -180,14 +181,13 @@ def prepare_ref_landkreise() -> dict:
         assert lk_id.isdecimal() == True
 
         d = {}
-        d['Population'] = d_this_landkreis['EWZ']
-        assert type(d['Population']) == int
+        d['Pop'] = d_this_landkreis['EWZ']
+        assert type(d['Pop']) == int
         d['BL_Name'] = d_this_landkreis['BL']
         d['BL_ID'] = d_this_landkreis['BL_ID']
         d['LK_Name'] = d_this_landkreis['GEN']
         d['LK_Typ'] = d_this_landkreis['BEZ']
         d_landkreise[lk_id] = d
-    file_out = 'data/de-districts/ref-de-districts.json'
     with open(file_out, mode='w', encoding='utf-8', newline='\n') as fh:
         json.dump(d_landkreise, fh, ensure_ascii=False)
 
@@ -212,96 +212,96 @@ def fetch_landkreis_time_series(lk_id: str, readFromCache: bool = True) -> list:
     """
     file_cache = f"cache/de-districts/distict_timeseries-{lk_id}.json"
 
-    if readFromCache:
-        readFromCache = helper.check_cache_file_available_and_recent(
-            file_cache, 3600)
+    max_allowed_rows_to_fetch = 2000
+
+    url = "https://services7.arcgis.com/mOBPykOjAyBO2ZKk/ArcGIS/rest/services/Covid19_RKI_Sums/FeatureServer/0/query" + \
+        "?f=json" + \
+        "&where=(IdLandkreis='" + lk_id + "')" + \
+        "&outFields=Meldedatum%2CSummeFall%2C+SummeTodesfall%2C+AnzahlFall%2C+AnzahlTodesfall" \
+        "&orderByFields=Meldedatum" + \
+        "&resultRecordCount=" + str(max_allowed_rows_to_fetch) + \
+        "&objectIds=&time=&resultType=none&returnIdsOnly=false&returnUniqueIdsOnly=false&returnCountOnly=false&returnDistinctValues=false&cacheHint=false" + \
+        "&groupByFieldsForStatistics=&outStatistics=&having=&resultOffset=&sqlFormat=none&token="
+    # get more stuff
+    # "&outFields=*" + \
+
+    l_time_series = helper_read_from_cache_or_fetch_from_url(
+        url=url, file_cache=file_cache, readFromCache=readFromCache)
+
+    assert len(l_time_series) < max_allowed_rows_to_fetch
+    return l_time_series
+
+
+def prepare_lk_time_series(lk_id: str) -> list:
+    """
+    convert and add fields of time series list
+    returns list
+    writes to filesystem
+    """
+    file_out = f'data/de-districts/distict_timeseries-{lk_id}.json'
+    l_time_series_fetched = fetch_landkreis_time_series(
+        lk_id=lk_id, readFromCache=True)
 
     l_time_series = []
-    if readFromCache:  # read from cache
-        with open(file_cache, mode='r', encoding='utf-8') as json_file:
-            l_time_series = json.load(json_file)
 
-    elif not readFromCache:  # fetch and write to cache
-        # lk_id = get_lk_id_from_lk_name(lk_name)
-        # lk_name = get_lk_name_from_lk_id(lk_id)
-        max_allowed_rows_to_fetch = 2000
+    # add days past counter for plotting
+    # to ensure that each date is unique
+    l_dates_processed = []
+    dt_latest_date = datetime.datetime.fromtimestamp(
+        l_time_series[-1]['Meldedatum'] / 1000)
 
-        url = "https://services7.arcgis.com/mOBPykOjAyBO2ZKk/ArcGIS/rest/services/Covid19_RKI_Sums/FeatureServer/0/query" + \
-            "?f=json" + \
-            "&where=(IdLandkreis='" + lk_id + "')" + \
-            "&outFields=Meldedatum%2CSummeFall%2C+SummeTodesfall%2C+AnzahlFall%2C+AnzahlTodesfall" \
-            "&orderByFields=Meldedatum" + \
-            "&resultRecordCount=" + str(max_allowed_rows_to_fetch) + \
-            "&objectIds=&time=&resultType=none&returnIdsOnly=false&returnUniqueIdsOnly=false&returnCountOnly=false&returnDistinctValues=false&cacheHint=false" + \
-            "&groupByFieldsForStatistics=&outStatistics=&having=&resultOffset=&sqlFormat=none&token="
-        # get more stuff
-        # "&outFields=*" + \
+    # add and convert some data fields
+    data_t = []
+    data_cases = []
+    data_deaths = []
 
-        l_time_series = fetch_json_as_dict_from_url_and_reduce_to_list(url)
-        assert len(l_time_series) < max_allowed_rows_to_fetch
+    # entry = one data point
+    for entry in l_time_series_fetched:
+        d = {}
 
-        # add days past counter for plotting
-        # to ensure that each date is unique
-        l_dates_processed = []
-        dt_latest_date = datetime.datetime.fromtimestamp(
-            l_time_series[-1]['Meldedatum'] / 1000)
+        # covert to int
+        d['Cases'] = int(entry['SummeFall'])
+        d['Deaths'] = int(entry['SummeTodesfall'])
+        d['Cases_New'] = int(entry['AnzahlFall'])
+        d['Deaths_New'] = int(entry['AnzahlTodesfall'])
 
-        # add and convert some data fields
-        data_t = []
-        data_cases = []
-        data_deaths = []
+        # Rename 'Meldedatum' (ms) -> Timestamp (s)
+        d['Timestamp'] = int(entry['Meldedatum'] / 1000)
 
-        # entry = one data point
-        for i in range(len(l_time_series)):
-            entry = l_time_series[i]
+        # add Date
+        d['Date'] = helper.convert_timestamp_to_date_str(
+            entry['Timestamp'])
+        # ensure that each date is unique
+        assert d['Date'] not in l_dates_processed
+        l_dates_processed.append(d['Date'])
 
-            # remove unused fields
-            del entry['ObjectId']
+        # add DaysPast
+        this_dt = datetime.datetime.fromtimestamp(
+            d['Timestamp'])
+        i_days_past = (this_dt-dt_latest_date).days
+        d['Days_Past'] = i_days_past
+        l_time_series.append(d)
 
-            # covert to int
-            entry['SummeFall'] = int(entry['SummeFall'])
-            entry['SummeTodesfall'] = int(entry['SummeTodesfall'])
-            entry['AnzahlFall'] = int(entry['AnzahlFall'])
-            entry['AnzahlTodesfall'] = int(entry['AnzahlTodesfall'])
+        data_t.append(d['DaysPast'])
+        data_cases.append(d['Cases'])
+        data_deaths.append(d['Deaths'])
 
-            # Rename 'Meldedatum' (ms) -> Timestamp (s)
-            entry['Timestamp'] = int(entry['Meldedatum'] / 1000)
-            del entry['Meldedatum']
+    # perform fit for last 7 days to obtain doublication time
+    data = list(zip(data_t, data_cases))
+    fit_series_res = helper.series_of_fits(
+        data, fit_range=7, max_days_past=14)
 
-            # add Date
-            entry['Date'] = helper.convert_timestamp_to_date_str(
-                entry['Timestamp'])
-            # ensure that each date is unique
-            assert entry['Date'] not in l_dates_processed
-            l_dates_processed.append(entry['Date'])
+    for i in range(len(l_time_series)):
+        entry = l_time_series[i]
+        this_doublication_time = ""
+        this_days_past = entry['DaysPast']
+        if this_days_past in fit_series_res:
+            this_doublication_time = fit_series_res[this_days_past]
+        entry['DoublicationTime'] = this_doublication_time
+        l_time_series[i] = entry
 
-            # add DaysPast
-            this_dt = datetime.datetime.fromtimestamp(
-                entry['Timestamp'])
-            i_days_past = (this_dt-dt_latest_date).days
-            entry['DaysPast'] = i_days_past
-            l_time_series[i] = entry
-
-            data_t.append(i_days_past)
-            data_cases.append(entry['SummeFall'])
-            data_deaths.append(entry['SummeTodesfall'])
-
-        # perform fit for last 7 days to obtain doublication time
-        data = list(zip(data_t, data_cases))
-        fit_series_res = helper.series_of_fits(
-            data, fit_range=7, max_days_past=14)
-
-        for i in range(len(l_time_series)):
-            entry = l_time_series[i]
-            this_doublication_time = ""
-            this_days_past = entry['DaysPast']
-            if this_days_past in fit_series_res:
-                this_doublication_time = fit_series_res[this_days_past]
-            entry['DoublicationTime'] = this_doublication_time
-            l_time_series[i] = entry
-
-        with open(file_cache, mode='w', encoding='utf-8', newline='\n') as outfile:
-            json.dump(l_time_series, outfile, ensure_ascii=False)
+    with open(file_out, mode='w', encoding='utf-8', newline='\n') as fh:
+        json.dump(l_time_series, fh, ensure_ascii=False)
 
     return l_time_series
 
@@ -414,7 +414,7 @@ for lk_id in d_ref_landkreise.keys():
     d = {
         'Bundesland': d_ref_landkreise[lk_id]['BL_Name'],  # Bundesland
         'Landkreis': lk_name,
-        'LK_Einwohner': d_ref_landkreise[lk_id]['Population'],  # Einwohner
+        'LK_Einwohner': d_ref_landkreise[lk_id]['Pop'],  # Einwohner
         'fit_res_N0': round(d_fit_results['fit_res'][0], 3),
         'fit_res_T': round(d_fit_results['fit_res'][1], 3),
         'fit_used_x_range': d_fit_results['fit_used_x_range'],

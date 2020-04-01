@@ -13,3 +13,6 @@ index*.html
 **/test/*
 **/old/*
 **/cache/**
+
+
+data/de-districts/ref-de-districts.json

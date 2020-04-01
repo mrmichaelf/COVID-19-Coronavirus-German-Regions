@@ -36,6 +36,7 @@ def date_format(y: int, m: int, d: int) -> str:
 
 
 def download_new_data():
+    # TODO: caching
     url = "https://pomber.github.io/covid19/timeseries.json"
     filedata = urllib.request.urlopen(url)
     datatowrite = filedata.read()
@@ -46,19 +47,24 @@ def download_new_data():
 def read_json_data() -> dict:
     "reads json file contents and returns it as a dict"
     with open(download_file, mode='r', encoding='utf-8') as f:
-        d = json.load(f)
+        d_json_downloaded = json.load(f)
+    d_countries = {}
     # re-format date using my date_format(y,m,d) function
-    for country in d.keys():
-        country_data = d[country]
-        for i in range(len(country_data)):
-            entry = country_data[i]
+    for country in d_json_downloaded.keys():
+        country_data = d_json_downloaded[country]
+        l_time_series = []
+        for entry in country_data:
+            d = {}
             # entry in country_data:
-            date = entry['date']
-            l = date.split("-")
-            entry['date'] = date_format(int(l[0]), int(l[1]), int(l[2]))
-            country_data[i] = entry
-        d[country] = country_data
-    return d
+            s = entry['date']
+            l = s.split("-")
+            d['Date'] = date_format(int(l[0]), int(l[1]), int(l[2]))
+            d['Cases'] = int(entry['confirmed'])
+            d['Deaths'] = int(entry['deaths'])
+            l_time_series.append(d)
+
+        d_countries[country] = l_time_series
+    return d_countries
 
 
 def read_ref_selected_countries() -> dict:
@@ -95,8 +101,8 @@ def extract_latest_date_data():
             country_data = d_json_data[country]
             entry = country_data[-1]  # last entry (=>latest date)
             csvwriter.writerow(
-                (country, entry['date'], entry['confirmed'],
-                 entry['deaths'])  # , entry['recovered']
+                (country, entry['Date'], entry['Cases'],
+                 entry['Deaths'])  # , entry['recovered']
             )
 
 
@@ -116,8 +122,8 @@ def extract_latest_date_data_selected():
             entry = country_data[-1]  # last entry of this country
             pop_in_Mill = d_selected_countries[country]['Population'] / 1000000
             csvwriter.writerow(
-                (country, entry['date'], entry['confirmed'],
-                 entry['deaths'], "%.3f" % (entry['confirmed']/pop_in_Mill), "%.3f" % (entry['deaths']/pop_in_Mill))
+                (country, entry['Date'], entry['Cases'],
+                 entry['Deaths'], "%.3f" % (entry['Cases']/pop_in_Mill), "%.3f" % (entry['Deaths']/pop_in_Mill))
             )
 
 
@@ -137,8 +143,8 @@ def check_for_further_interesting_countries():
             continue
         l_country_data = d_json_data[country]
         entry = l_country_data[-1]  # latest entry
-        if entry['confirmed'] >= min_confirmed or entry['deaths'] >= min_death:
-            print(f"{country}\t{entry['confirmed']}\t{entry['deaths']}")
+        if entry['Cases'] >= min_confirmed or entry['Deaths'] >= min_death:
+            print(f"{country}\t{entry['Cases']}\t{entry['Deaths']}")
 
 
 def enrich_data_by_calculated_fields():
@@ -159,47 +165,47 @@ def enrich_data_by_calculated_fields():
         data_cases = []
         data_deaths = []
 
-        days_past = 1-len(l_country_data)  # last date gets number 0
+        DaysPast = 1-len(l_country_data)  # last date gets number 0
 
         for i in range(len(l_country_data)):
             entry = l_country_data[i]
 
-            entry['days_past'] = days_past
+            entry['Days_Past'] = DaysPast
             # for fits of doublication time
-            data_t.append(entry['days_past'])
-            data_cases.append(entry['confirmed'])
-            data_deaths.append(entry['deaths'])
+            data_t.append(entry['Days_Past'])
+            data_cases.append(entry['Cases'])
+            data_deaths.append(entry['Deaths'])
 
-            entry['confirmed_per_million'] = round(
-                entry['confirmed']/pop_in_Mill, 3)
-            entry['deaths_per_million'] = round(entry['deaths']/pop_in_Mill, 3)
+            entry['Cases_Per_Million'] = round(
+                entry['Cases']/pop_in_Mill, 3)
+            entry['Deaths_Per_Million'] = round(entry['Deaths']/pop_in_Mill, 3)
 
             # days_since_2_deaths
-            entry['days_since_2_deaths'] = ""
-            if entry['deaths'] >= 2:  # TODO: is 2 a good value?
-                entry['days_since_2_deaths'] = days_since_2_deaths
+            entry['Days_Since_2_Deaths'] = ""
+            if entry['Deaths'] >= 2:  # TODO: is 2 a good value?
+                entry['Days_Since_2_Deaths'] = days_since_2_deaths
                 days_since_2_deaths += 1
 
-            entry['change_confirmed'] = ""
-            entry['new_confirmed_per_million'] = ""
+            entry['Cases_New'] = ""
+            entry['Cases_New_Per_Million'] = ""
             if last_confirmed >= 10:
-                entry['change_confirmed'] = entry['confirmed'] - last_confirmed
-                entry['new_confirmed_per_million'] = round(
-                    entry['change_confirmed']/pop_in_Mill, 3)
+                entry['Cases_New'] = entry['Cases'] - last_confirmed
+                entry['Cases_New_Per_Million'] = round(
+                    entry['Cases_New']/pop_in_Mill, 3)
 
-            entry['change_deaths'] = ""
+            entry['Deaths_New'] = ""
             entry['change_deaths_factor'] = ""
-            entry['new_deaths_per_million'] = ""
+            entry['Deaths_New_Per_Million'] = ""
             if last_deaths >= 1:
-                entry['change_deaths'] = entry['deaths'] - last_deaths
+                entry['Deaths_New'] = entry['Deaths'] - last_deaths
                 entry['change_deaths_factor'] = round(
-                    entry['deaths']/last_deaths, 3)
-                entry['new_deaths_per_million'] = round(
-                    entry['change_deaths']/pop_in_Mill, 3)
+                    entry['Deaths']/last_deaths, 3)
+                entry['Deaths_New_Per_Million'] = round(
+                    entry['Deaths_New']/pop_in_Mill, 3)
 
-            last_confirmed = entry['confirmed']
-            last_deaths = entry['deaths']
-            days_past += 1
+            last_confirmed = entry['Cases']
+            last_deaths = entry['Deaths']
+            DaysPast += 1
             l_country_data[i] = entry
 
         # fit the doublication time each day
@@ -210,10 +216,10 @@ def enrich_data_by_calculated_fields():
         for i in range(len(l_country_data)):
             entry = l_country_data[i]
             this_doublication_time = ""
-            this_days_past = entry['days_past']
-            if this_days_past in fit_series_res:
-                this_doublication_time = fit_series_res[this_days_past]
-            entry['doublication_time'] = this_doublication_time
+            this_DaysPast = entry['Days_Past']
+            if this_DaysPast in fit_series_res:
+                this_doublication_time = fit_series_res[this_DaysPast]
+            entry['Doublication_Time'] = this_doublication_time
             l_country_data[i] = entry
 
 
@@ -222,6 +228,9 @@ def export_time_series_selected_countries():
         country_code = d_selected_countries[country]['Code']
         l_country_data = d_json_data[country]
         #     pop_in_Mill = d_selected_countries[country]['Population'] / 1000000
+
+        with open(f'data/country-{country_code}.json', mode='w', encoding='utf-8', newline='\n') as fh:
+            json.dump(l_country_data, fh, ensure_ascii=False)
 
         with open(f'data/country-{country_code}.tsv', mode='w', encoding='utf-8', newline='\n') as f:
             csvwriter = csv.writer(f, delimiter="\t")
@@ -239,14 +248,14 @@ def export_time_series_selected_countries():
             for entry in l_country_data:
                 csvwriter.writerow(
                     (
-                        entry['days_past'], entry['date'],
-                        entry['confirmed'], entry['deaths'],
-                        entry['confirmed_per_million'], entry['deaths_per_million'],
-                        entry['change_confirmed'], entry['change_deaths'],
+                        entry['Days_Past'], entry['Date'],
+                        entry['Cases'], entry['Deaths'],
+                        entry['Cases_Per_Million'], entry['Deaths_Per_Million'],
+                        entry['Cases_New'], entry['Deaths_New'],
                         entry['change_deaths_factor'],
-                        entry['days_since_2_deaths'],
-                        entry['doublication_time'],
-                        entry['new_confirmed_per_million'], entry['new_deaths_per_million']
+                        entry['Days_Since_2_Deaths'],
+                        entry['Doublication_Time'],
+                        entry['Cases_New_Per_Million'], entry['Deaths_New_Per_Million']
                     )
                 )
 
@@ -269,7 +278,7 @@ enrich_data_by_calculated_fields()
 export_time_series_selected_countries()
 
 print(
-    f"int: countries: latest date in DE set: {d_json_data['Germany'][-1]['date']}")
+    f"int: countries: latest date in DE set: {d_json_data['Germany'][-1]['Date']}")
 
 
 # IDEAS
