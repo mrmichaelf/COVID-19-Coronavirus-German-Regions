@@ -1,4 +1,5 @@
-**/__pycache__/*
+/__pycache__/
+
 **/.~lock.*.xlsx#
 .vscode
 .DS_Store
@@ -6,13 +7,16 @@
 ~$*.xlsx
 index*.html
 
-**/plots-gnuplot/*
-**/plots-python/*
-**/backup/*
-**/data/de-districts/cache/*
-**/test/*
-**/old/*
-**/cache/**
+/backup/
+/cache/
+/cache/de-districts/
+/data/de-districts/cache/
+/data/old/
+/old/
+/plots-gnuplot/
+/plots-python/
+/test/
 
 
 data/de-districts/ref-de-districts.json
+data/de-districts/distict_timeseries*.json

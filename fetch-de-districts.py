@@ -170,7 +170,7 @@ def fetch_ref_landkreise(readFromCache: bool = True) -> dict:
 
 def prepare_ref_landkreise() -> dict:
     file_out = 'data/de-districts/ref-de-districts.json'
-    l_landkreise = fetch_ref_landkreise(readFromCache=False)
+    l_landkreise = fetch_ref_landkreise(readFromCache=True)
     d_landkreise = {}
 
     # convert list to dict, using lk_id as key
@@ -248,7 +248,7 @@ def prepare_lk_time_series(lk_id: str) -> list:
     # to ensure that each date is unique
     l_dates_processed = []
     dt_latest_date = datetime.datetime.fromtimestamp(
-        l_time_series[-1]['Meldedatum'] / 1000)
+        l_time_series_fetched[-1]['Meldedatum'] / 1000)
 
     # add and convert some data fields
     data_t = []
@@ -270,7 +270,7 @@ def prepare_lk_time_series(lk_id: str) -> list:
 
         # add Date
         d['Date'] = helper.convert_timestamp_to_date_str(
-            entry['Timestamp'])
+            d['Timestamp'])
         # ensure that each date is unique
         assert d['Date'] not in l_dates_processed
         l_dates_processed.append(d['Date'])
@@ -282,7 +282,7 @@ def prepare_lk_time_series(lk_id: str) -> list:
         d['Days_Past'] = i_days_past
         l_time_series.append(d)
 
-        data_t.append(d['DaysPast'])
+        data_t.append(d['Days_Past'])
         data_cases.append(d['Cases'])
         data_deaths.append(d['Deaths'])
 
@@ -294,10 +294,10 @@ def prepare_lk_time_series(lk_id: str) -> list:
     for i in range(len(l_time_series)):
         entry = l_time_series[i]
         this_doublication_time = ""
-        this_days_past = entry['DaysPast']
+        this_days_past = entry['Days_Past']
         if this_days_past in fit_series_res:
             this_doublication_time = fit_series_res[this_days_past]
-        entry['DoublicationTime'] = this_doublication_time
+        entry['Doublication_Time'] = this_doublication_time
         l_time_series[i] = entry
 
     with open(file_out, mode='w', encoding='utf-8', newline='\n') as fh:
@@ -403,10 +403,11 @@ for lk_id in d_ref_landkreise.keys():
     # 09563   SK Fürth        127748
 
     data = []
-    l_lk_time_series = fetch_landkreis_time_series(lk_id, readFromCache=True)
+    l_lk_time_series = prepare_lk_time_series(lk_id)
+    #l_lk_time_series = fetch_landkreis_time_series(lk_id, readFromCache=True)
     for entry in l_lk_time_series:
         # choose columns to fit
-        data.append((entry['DaysPast'], entry['SummeFall']))
+        data.append((entry['Days_Past'], entry['Cases']))
 
     d_fit_results = helper.fit_routine(data, fit_range_x=(-6, 0))
 
@@ -426,19 +427,19 @@ for lk_id in d_ref_landkreise.keys():
     d_fit_results_for_json_export[lk_id] = d
 
     # plot_lk_fit(lk_id, data, d_fit_results)
-    break
+    # break
 
 # Export fit data as CSV
-with open('data/de-districs-cases-fit-data.tsv', mode='w', encoding='utf-8', newline='\n') as f:
+with open('data/de-districs/fit-results.tsv', mode='w', encoding='utf-8', newline='\n') as f:
     csvwriter = csv.writer(f, delimiter="\t")
     csvwriter.writerow(  # header row
         (
             'Bundesland',
             'Landkreis',
             'Population',
-            'cases_today',
-            'cases_tomorrow',
-            'cases_factor_tomorrow'
+            'Cases_Today',
+            'Cases_Tomorrow',
+            'Cases_Factor_Tomorrow'
         )
     )
 
@@ -456,7 +457,7 @@ with open('data/de-districs-cases-fit-data.tsv', mode='w', encoding='utf-8', new
         )
 
 # Export fit data as JSON
-with open('data/de-districs-cases-fit-data.json', mode='w', encoding='utf-8', newline="\n") as outfile:
+with open('data/de-districs/fit-results.json', mode='w', encoding='utf-8', newline="\n") as outfile:
     json.dump(d_fit_results_for_json_export, outfile, ensure_ascii=False)
 
 
