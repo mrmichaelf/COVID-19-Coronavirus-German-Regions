@@ -229,6 +229,32 @@ replot
 unset output
 unset logscale y
 
+title = "New Death  development after 2nd death"
+set title title
+set ylabel "New Deaths"
+
+set xrange [0:]
+set yrange [:]
+set output '../plots-gnuplot/countries-timeshifted-new_deaths-per-million.png'
+plot \
+  '../data/country-IT.tsv' using ($10/7):13 title "Italy" with lines lw 2, \
+  '../data/country-IR.tsv' using ($10/7):13 title "Iran" with lines lw 2, \
+  '../data/country-DE.tsv' using ($10/7):13 title "Germany" with lines lw 2, \
+  '../data/country-FR.tsv' using ($10/7):13 title "France" with lines lw 2, \
+  '../data/country-ES.tsv' using ($10/7):13 title "Spain" with lines lw 2, \
+  '../data/country-AT.tsv' using ($10/7):13 title "Austria" with lines lw 2, \
+  '../data/country-UK.tsv' using ($10/7):13 title "United Kingdom" with lines lw 2, \
+  '../data/country-US.tsv' using ($10/7):13 title "US" with lines lw 2, \
+  '../data/country-BE.tsv' using ($10/7):13 title "Belgium" with lines lw 2 dt "-", \
+  '../data/country-CA.tsv' using ($10/7):13 title "Canada" with lines lw 2 dt "-", \
+  '../data/country-HU.tsv' using ($10/7):13 title "Hungary" with lines lw 2 dt "-", \
+  '../data/country-NL.tsv' using ($10/7):13 title "Netherlands" with lines lw 2 dt "-", \
+  '../data/country-PT.tsv' using ($10/7):13 title "Portugal" with lines lw 2 dt "-", \
+  '../data/country-CH.tsv' using ($10/7):13 title "Switzerland" with lines lw 2 dt "-", \
+  '../data/country-JP.tsv' using ($10/7):13 title "Japan" with lines lw 2 dt "-", \
+  '../data/country-KR.tsv' using ($10/7):13 title "Korea, South" with lines lw 2 dt "-",\
+
+unset output
 
 
 set xtics autofreq

@@ -181,15 +181,21 @@ def enrich_data_by_calculated_fields():
                 days_since_2_deaths += 1
 
             entry['change_confirmed'] = ""
+            entry['new_confirmed_per_million'] = ""
             if last_confirmed >= 10:
                 entry['change_confirmed'] = entry['confirmed'] - last_confirmed
+                entry['new_confirmed_per_million'] = round(
+                    entry['change_confirmed']/pop_in_Mill, 3)
 
             entry['change_deaths'] = ""
             entry['change_deaths_factor'] = ""
+            entry['new_deaths_per_million'] = ""
             if last_deaths >= 1:
                 entry['change_deaths'] = entry['deaths'] - last_deaths
                 entry['change_deaths_factor'] = round(
                     entry['deaths']/last_deaths, 3)
+                entry['new_deaths_per_million'] = round(
+                    entry['change_deaths']/pop_in_Mill, 3)
 
             last_confirmed = entry['confirmed']
             last_deaths = entry['deaths']
@@ -226,7 +232,8 @@ def export_time_series_selected_countries():
                  'Confirmed Change', 'Deaths Change',
                  'Deaths Change Factor',
                  'Days since 2 Deaths',
-                 'Deaths Doublication Time'
+                 'Deaths Doublication Time',
+                 'New Confirmed per Million', 'New Deaths per Million'
                  )
             )
             for entry in l_country_data:
@@ -238,7 +245,8 @@ def export_time_series_selected_countries():
                         entry['change_confirmed'], entry['change_deaths'],
                         entry['change_deaths_factor'],
                         entry['days_since_2_deaths'],
-                        entry['doublication_time']
+                        entry['doublication_time'],
+                        entry['new_confirmed_per_million'], entry['new_deaths_per_million']
                     )
                 )
 
