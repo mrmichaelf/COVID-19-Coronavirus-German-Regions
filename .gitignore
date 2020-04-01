@@ -12,3 +12,4 @@ index*.html
 **/data/de-districts/cache/*
 **/test/*
 **/old/*
+cache/**
