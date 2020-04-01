@@ -89,7 +89,7 @@ d_ref_landkreise = {}
 def get_lk_name_from_lk_id(lk_id: str) -> str:
     global d_ref_landkreise
     # name = d_ref_landkreise[lk_id]['county']
-    name = f"{d_ref_landkreise[lk_id]['GEN']} ({d_ref_landkreise[lk_id]['BEZ']})"
+    name = f"{d_ref_landkreise[lk_id]['LK_Name']} ({d_ref_landkreise[lk_id]['LK_Typ']})"
     return name
 
 
@@ -169,17 +169,31 @@ def fetch_ref_landkreise(readFromCache: bool = True) -> dict:
 
 
 def prepare_ref_landkreise() -> dict:
-    d_landkreise = fetch_ref_landkreise(readFromCache=True)
+    l_landkreise = fetch_ref_landkreise(readFromCache=True)
+    d_landkreise = {}
 
     # convert list to dict, using lk_id as key
     for d_this_landkreis in l_landkreise:
         lk_id = d_this_landkreis['RS']  # RS = LK_ID ; county = LK_Name
+
         assert type(lk_id) == str
         assert lk_id.isdecimal() == True
-        del d_this_landkreis['RS']
-        d_landkreise[lk_id] = d_this_landkreis
+
+        d = {}
+        d['Population'] = d_this_landkreis['EWZ']
+        assert type(d['Population']) == int
+        d['BL_Name'] = d_this_landkreis['BL']
+        d['BL_ID'] = d_this_landkreis['BL_ID']
+        d['LK_Name'] = d_this_landkreis['GEN']
+        d['LK_Typ'] = d_this_landkreis['BEZ']
+        d_landkreise[lk_id] = d
+    file_out = 'data/de-districts/ref-de-districts.json'
+    with open(file_out, mode='w', encoding='utf-8', newline='\n') as fh:
+        json.dump(d_landkreise, fh, ensure_ascii=False)
+
     del d_this_landkreis
 
+    # assure we did not loose any
     assert len(l_landkreise) == len(d_landkreise)
 
     return d_landkreise
@@ -362,7 +376,10 @@ def plot_lk_fit(lk_id: str, data: list, d_fit_results: dict):
     # fetch_fit_and_plot_lk('LK Harburg')
 
 
-d_ref_landkreise = fetch_ref_landkreise(readFromCache=True)
+d_ref_landkreise = prepare_ref_landkreise()
+
+# fetch_ref_landkreise(readFromCache=True)
+
 # d_ref_landkreise[lk_id]['EWZ']    # = Einwohnerzahl: int
 # d_ref_landkreise[lk_id]['county'] # zB 'SK Flensburg'
 # d_ref_landkreise[lk_id]['BL']     # zB 'Schleswig-Holstein'
@@ -395,9 +412,9 @@ for lk_id in d_ref_landkreise.keys():
 
     # TODO: add fit range, as needed for plot
     d = {
-        'Bundesland': d_ref_landkreise[lk_id]['BL'],  # Bundesland
+        'Bundesland': d_ref_landkreise[lk_id]['BL_Name'],  # Bundesland
         'Landkreis': lk_name,
-        'LK_Einwohner': d_ref_landkreise[lk_id]['EWZ'],  # Einwohner
+        'LK_Einwohner': d_ref_landkreise[lk_id]['Population'],  # Einwohner
         'fit_res_N0': round(d_fit_results['fit_res'][0], 3),
         'fit_res_T': round(d_fit_results['fit_res'][1], 3),
         'fit_used_x_range': d_fit_results['fit_used_x_range'],
