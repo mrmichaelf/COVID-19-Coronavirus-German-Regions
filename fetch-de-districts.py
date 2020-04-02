@@ -196,7 +196,31 @@ def prepare_ref_landkreise() -> dict:
     # assure we did not loose any
     assert len(l_landkreise) == len(d_landkreise)
 
+    gen_mapping_BL2LK_json(d_landkreise)
+
     return d_landkreise
+
+
+def gen_mapping_BL2LK_json(d_landkreise: dict):
+    d_bundeslaender = {}
+    for lk_id in d_landkreise.keys():
+        lk = d_landkreise[lk_id]
+        if lk['BL_ID'] not in d_bundeslaender.keys():
+            d = {}
+            l_lk_ids = []
+            l_lk_ids.append((lk_id, lk['LK_Name']))
+            d['BL_Name'] = lk['BL_Name']
+            d['LK_IDs'] = l_lk_ids
+
+            d_bundeslaender[lk['BL_ID']] = d
+        else:
+            d_bundeslaender[lk['BL_ID']]['LK_IDs'].append(
+                (lk_id, lk['LK_Name']))
+
+    with open('data/de-districts/mapping_bundesland_landkreis.json', mode='w', encoding='utf-8', newline='\n') as fh:
+        json.dump(d_bundeslaender, fh, ensure_ascii=False)
+
+    1
 
 
 def fetch_landkreis_time_series(lk_id: str, readFromCache: bool = True) -> list:
@@ -378,6 +402,7 @@ def plot_lk_fit(lk_id: str, data: list, d_fit_results: dict):
 
 d_ref_landkreise = prepare_ref_landkreise()
 
+
 # fetch_ref_landkreise(readFromCache=True)
 
 # d_ref_landkreise[lk_id]['EWZ']    # = Einwohnerzahl: int
@@ -394,6 +419,7 @@ d_fit_results_for_json_export = {}
 
 # Fit Cases für alle LK
 # 16068 machte Probleme
+# l2 = ('16068',)
 for lk_id in d_ref_landkreise.keys():
     lk_name = get_lk_name_from_lk_id(lk_id)
     print(f"{lk_id} {lk_name}")
@@ -429,9 +455,14 @@ for lk_id in d_ref_landkreise.keys():
     # plot_lk_fit(lk_id, data, d_fit_results)
     # break
 
+
+# Export fit data as JSON
+with open('data/de-districts/fit-results.json', mode='w', encoding='utf-8', newline="\n") as fh:
+    json.dump(d_fit_results_for_json_export, fh, ensure_ascii=False)
+
 # Export fit data as CSV
-with open('data/de-districs/fit-results.tsv', mode='w', encoding='utf-8', newline='\n') as f:
-    csvwriter = csv.writer(f, delimiter="\t")
+with open('data/de-districts/fit-results.tsv', mode='w', encoding='utf-8', newline='\n') as fh:
+    csvwriter = csv.writer(fh, delimiter="\t")
     csvwriter.writerow(  # header row
         (
             'Bundesland',
@@ -455,10 +486,6 @@ with open('data/de-districs/fit-results.tsv', mode='w', encoding='utf-8', newlin
                 d_fit_results_for_json_export[lk_id]['Faelle_Faktor_f_morgen'],
             )
         )
-
-# Export fit data as JSON
-with open('data/de-districs/fit-results.json', mode='w', encoding='utf-8', newline="\n") as outfile:
-    json.dump(d_fit_results_for_json_export, outfile, ensure_ascii=False)
 
 
 # TODO: Bundeslandsummen
