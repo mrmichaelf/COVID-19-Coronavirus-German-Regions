@@ -27,7 +27,7 @@ unset style # reset line styles/types to default
 set xtics 1
 set xlabel "Weeks since 2nd death reported"
 
-
+# set lmargin 10
 
 date_last = system("tail -1 '../data/country-DE.tsv' | cut -f2")
 set label 1 label1_text_right." based on JHU data of ".date_last
@@ -176,6 +176,15 @@ unset logscale y
 
 
 
+# for per million plots I now try adding y2 tics
+set ytics nomirror
+
+# same scale on y and y2 axis (not working for log axis :-()
+# set link y2
+
+set y2tics ("US 9/11" 9, "US guns" 44, "US US traffic\nflu 2018/19" 104, "US drugs" 205 , "US cancer 2018" 1857)
+
+set rmargin 14
 
 title = "Death toll development - scaled per million population"
 set title title
@@ -226,19 +235,31 @@ plot \
   '../data/country-JP.tsv' using ($10/7):6 title "Japan" with lines lw 2 dt "-", \
 
 unset output
-# '../data/country-CZ.tsv' using ($10/7):6 title "Czechia" with lines lw 2 dt "-", \
-# '../data/country-FI.tsv' using ($10/7):6 title "# Finland" with lines lw 2 dt "-", \
-  '../data/country-SE.tsv' using ($10/7):6 title "Sweden" with lines lw 2 dt "-", \
+# replot to set y2range accordingly to yrange
+set y2range[GPVAL_Y_MIN:GPVAL_Y_MAX]
+set output '../plots-gnuplot/countries-timeshifted-per-million.png'
+replot
+unset output
+
 
 set yrange [1:]
 set logscale y
-
+set logscale y2
 title = "Death toll development - scaled per million population and log"
 set title title
 set output '../plots-gnuplot/countries-timeshifted-per-million-log.png'
 replot
 unset output
+# replot to set y2range accordingly to yrange
+print(GPVAL_Y_MAX)
+set y2range[GPVAL_Y_MIN:GPVAL_Y_MAX]
+set output '../plots-gnuplot/countries-timeshifted-per-million-log.png'
+replot
+unset output
+
+
 unset logscale y
+unset logscale y2
 
 
 
@@ -292,13 +313,25 @@ plot \
   '../data/country-KR.tsv' using ($10/7):13 smooth bezier title "Korea, South" with lines lw 2 dt "-",\
 
 unset output
+# replot to set y2range accordingly to yrange
+set y2range[GPVAL_Y_MIN:GPVAL_Y_MAX]
+set output '../plots-gnuplot/countries-timeshifted-new_deaths-per-million.png'
+replot
+unset output
 
 set yrange [0.01:]
 set logscale y
+set logscale y2
 set title title ." - log. scaled"
 set output '../plots-gnuplot/countries-timeshifted-new_deaths-per-million-log.png'
 replot
 unset output
+# replot to set y2range accordingly to yrange
+set y2range[GPVAL_Y_MIN:GPVAL_Y_MAX]
+set output '../plots-gnuplot/countries-timeshifted-new_deaths-per-million-log.png'
+replot
+unset output
+
 unset logscale y
 
 
