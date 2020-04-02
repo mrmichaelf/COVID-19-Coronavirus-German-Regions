@@ -1,6 +1,8 @@
 """
 https://www.divi.de/register/kartenansicht
 
+https://diviexchange.z6.web.core.windows.net/report.html
+
 https://docs.python-guide.org/scenarios/scrape/
 
 https://towardsdatascience.com/web-scraping-html-tables-with-python-c9baba21059
@@ -11,12 +13,10 @@ from lxml import html
 import requests
 
 # pip install cssselect
-page = requests.get('https://www.divi.de/register/kartenansicht')
+page = requests.get('https://diviexchange.z6.web.core.windows.net/report.html')
 tree = html.fromstring(page.content)
-
-
 t1 = tree.xpath(
-    'table/tbody/tr'
+    '//*[@id="table"]'
 )
 # t2 = tree.cssselect('table_wrapper > div > div.dataTables_scrollBody')
 
