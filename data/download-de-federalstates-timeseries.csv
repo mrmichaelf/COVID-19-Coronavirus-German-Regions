@@ -543,3 +543,19 @@ id,Country/Region,federalstate,infections,deaths,date,newinfections,newdeaths
 543,Germany,Saxony-Anhalt,750,7,2020-04-01,70,1
 529,Germany,Schleswig-Holstein,1246,10,2020-04-01,126,1
 544,Germany,Thuringia,860,6,2020-04-01,76,0
+552,Germany,Baden-Württemberg,14662,241,2020-04-02,1252,44
+553,Germany,Bavaria,18496,268,2020-04-02,1999,43
+555,Germany,Berlin,2970,19,2020-04-02,216,3
+556,Germany,Brandenburg,995,7,2020-04-02,114,3
+548,Germany,Bremen,327,6,2020-04-02,16,1
+546,Germany,Hamburg,2406,14,2020-04-02,95,0
+550,Germany,Hesse,3707,27,2020-04-02,262,6
+547,Germany,Lower Saxony,4695,45,2020-04-02,313,3
+557,Germany,Mecklenburg-Western Pomerania,438,3,2020-04-02,32,0
+549,Germany,North Rhine-Westphalia,15427,161,2020-04-02,1076,27
+551,Germany,Rhineland-Palatinate,3132,26,2020-04-02,233,3
+554,Germany,Saarland,1020,11,2020-04-02,191,3
+558,Germany,Saxony,2183,18,2020-04-02,149,1
+559,Germany,Saxony-Anhalt,804,8,2020-04-02,54,1
+545,Germany,Schleswig-Holstein,1335,11,2020-04-02,89,1
+560,Germany,Thuringia,925,7,2020-04-02,65,1
