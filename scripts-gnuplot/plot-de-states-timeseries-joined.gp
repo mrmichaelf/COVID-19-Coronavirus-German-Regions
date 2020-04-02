@@ -89,6 +89,7 @@ plot \
   '../data/de-states/de-state-SL.tsv' using 2:7 title "Saarland" with lines lw 2 dt "-", \
   '../data/de-states/de-state-MV.tsv' using 2:7 title "Mecklenburg-Vorpommern" with lines lw 2 dt "-", \
   '../data/de-states/de-state-HB.tsv' using 2:7 title "Bremen" with lines lw 2 dt "-", \
+  '../data/de-states/de-state-DE-total.tsv' using 2:7 title "Deutschland" with lines lw 4 dt 1, \
 
 unset output
 #  '../data/de-states/de-state-DE-total.tsv' using 2:3 title "Deutschland" with lines , \
@@ -101,6 +102,42 @@ replot
 unset output
 unset logscale y
 
+
+
+title = "Zeitverlauf der täglichen Neu-Infektionen in den Bundesländer pro 1 Mill Einwohner"
+set title title
+set ylabel "Täglich neu Infizierte pro 1 Millionen Einwohner"
+set yrange [0:]
+set output '../plots-gnuplot/cases-de-new-per-million.png'
+plot \
+  '../data/de-states/de-state-NW.tsv' using 2:9 smooth bezier title "Nordrhein-Westfalen" with lines lw 2, \
+  '../data/de-states/de-state-BY.tsv' using 2:9 smooth bezier title "Bayern" with lines lw 2, \
+  '../data/de-states/de-state-BW.tsv' using 2:9 smooth bezier title "Baden-Württemberg" with lines lw 2, \
+  '../data/de-states/de-state-NI.tsv' using 2:9 smooth bezier title "Niedersachsen" with lines lw 2, \
+  '../data/de-states/de-state-HE.tsv' using 2:9 smooth bezier title "Hessen" with lines lw 2, \
+  '../data/de-states/de-state-RP.tsv' using 2:9 smooth bezier title "Rheinland-Pfalz" with lines lw 2, \
+  '../data/de-states/de-state-BE.tsv' using 2:9 smooth bezier title "Berlin" with lines lw 2, \
+  '../data/de-states/de-state-HH.tsv' using 2:9 smooth bezier title "Hamburg" with lines lw 2, \
+  '../data/de-states/de-state-SN.tsv' using 2:9 smooth bezier title "Sachsen" with lines lw 2 dt "-", \
+  '../data/de-states/de-state-SH.tsv' using 2:9 smooth bezier title "Schleswig-Holstein" with lines lw 2 dt "-", \
+  '../data/de-states/de-state-BB.tsv' using 2:9 smooth bezier title "Brandenburg" with lines lw 2 dt "-", \
+  '../data/de-states/de-state-TH.tsv' using 2:9 smooth bezier title "Thüringen" with lines lw 2 dt "-", \
+  '../data/de-states/de-state-ST.tsv' using 2:9 smooth bezier title "Sachsen-Anhalt" with lines lw 2 dt "-", \
+  '../data/de-states/de-state-SL.tsv' using 2:9 smooth bezier title "Saarland" with lines lw 2 dt "-", \
+  '../data/de-states/de-state-MV.tsv' using 2:9 smooth bezier title "Mecklenburg-Vorpommern" with lines lw 2 dt "-", \
+  '../data/de-states/de-state-HB.tsv' using 2:9 smooth bezier title "Bremen" with lines lw 2 dt "-", \
+  '../data/de-states/de-state-DE-total.tsv' using 2:9 smooth bezier title "Deutschland" with lines lw 4 dt 1, \
+
+unset output
+#  '../data/de-states/de-state-DE-total.tsv' using 2:3 title "Deutschland" with lines , \
+
+set yrange [1:]
+set logscale y
+set title title ." - log. Skalierung"
+set output '../plots-gnuplot/cases-de-new-per-million-log.png'
+replot
+unset output
+unset logscale y
 
 
 
