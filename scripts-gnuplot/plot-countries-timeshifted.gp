@@ -114,6 +114,74 @@ last_y_absolute_US = (system("tail -1 '../data/country-US.tsv' | cut -f4") + 0)
 last_y_new_per_million_US = (system("tail -1 '../data/country-US.tsv' | cut -f13") + 0)
 
 
+
+
+
+title = "Death toll development after 2nd death"
+set title title
+set ylabel "Deaths"
+
+
+set label 11 "AT" left at first last_x_AT/7.0 , first last_y_absolute_AT
+set label 12 "BE" left at first last_x_BE/7.0 , first last_y_absolute_BE
+set label 13 "CA" left at first last_x_CA/7.0 , first last_y_absolute_CA
+set label 14 "FR" left at first last_x_FR/7.0 , first last_y_absolute_FR
+set label 15 "DE" left at first last_x_DE/7.0 , first last_y_absolute_DE
+set label 16 "HU" left at first last_x_HU/7.0 , first last_y_absolute_HU
+set label 17 "IR" left at first last_x_IR/7.0 , first last_y_absolute_IR
+set label 18 "IT" left at first last_x_IT/7.0 , first last_y_absolute_IT
+set label 19 "JP" left at first last_x_JP/7.0 , first last_y_absolute_JP
+set label 20 "KR" left at first last_x_KR/7.0 , first last_y_absolute_KR
+set label 21 "NL" left at first last_x_NL/7.0 , first last_y_absolute_NL
+set label 22 "PT" left at first last_x_PT/7.0 , first last_y_absolute_PT
+set label 23 "ES" left at first last_x_ES/7.0 , first last_y_absolute_ES
+set label 24 "CH" left at first last_x_CH/7.0 , first last_y_absolute_CH
+set label 25 "UK" left at first last_x_UK/7.0 , first last_y_absolute_UK
+set label 26 "US" left at first last_x_US/7.0 , first last_y_absolute_US
+
+
+set xrange [0:]
+set yrange [0:]
+set output '../plots-gnuplot/countries-timeshifted-absolute.png'
+plot \
+  '../data/country-IT.tsv' using ($10/7):4 title "Italy" with lines lw 2, \
+  '../data/country-IR.tsv' using ($10/7):4 title "Iran" with lines lw 2, \
+  '../data/country-DE.tsv' using ($10/7):4 title "Germany" with lines lw 2, \
+  '../data/country-FR.tsv' using ($10/7):4 title "France" with lines lw 2, \
+  '../data/country-ES.tsv' using ($10/7):4 title "Spain" with lines lw 2, \
+  '../data/country-AT.tsv' using ($10/7):4 title "Austria" with lines lw 2, \
+  '../data/country-UK.tsv' using ($10/7):4 title "United Kingdom" with lines lw 2, \
+  '../data/country-US.tsv' using ($10/7):4 title "US" with lines lw 2, \
+  '../data/country-BE.tsv' using ($10/7):4 title "Belgium" with lines lw 2 dt "-", \
+  '../data/country-CA.tsv' using ($10/7):4 title "Canada" with lines lw 2 dt "-", \
+  '../data/country-HU.tsv' using ($10/7):4 title "Hungary" with lines lw 2 dt "-", \
+  '../data/country-NL.tsv' using ($10/7):4 title "Netherlands" with lines lw 2 dt "-", \
+  '../data/country-PT.tsv' using ($10/7):4 title "Portugal" with lines lw 2 dt "-", \
+  '../data/country-CH.tsv' using ($10/7):4 title "Switzerland" with lines lw 2 dt "-", \
+  '../data/country-JP.tsv' using ($10/7):4 title "Japan" with lines lw 2 dt "-", \
+  '../data/country-KR.tsv' using ($10/7):4 title "Korea, South" with lines lw 2 dt "-",\
+
+unset output
+# '../data/country-CZ.tsv' using ($10/7):4 title "Czechia" with lines lw 2 dt "-", \
+# '../data/country-FI.tsv' using ($10/7):4 title "# Finland" with lines lw 2 dt "-", \
+  '../data/country-SE.tsv' using ($10/7):4 title "Sweden" with lines lw 2 dt "-", \
+
+set yrange [1:]
+set logscale y
+set title title ." - log. scaled"
+set output '../plots-gnuplot/countries-timeshifted-absolute-log.png'
+replot
+unset output
+unset logscale y
+
+
+
+
+title = "Death toll development - scaled per million population"
+set title title
+set ylabel "Deaths per Million Population"
+
+
 set label 11 "AT" left at first last_x_AT/7.0 , first last_y_AT
 set label 12 "BE" left at first last_x_BE/7.0 , first last_y_BE
 set label 13 "CA" left at first last_x_CA/7.0 , first last_y_CA
@@ -135,9 +203,6 @@ set label 26 "US" left at first last_x_US/7.0 , first last_y_US
 
 
 
-title = "Death toll development - scaled per million population"
-set title title
-set ylabel "Deaths per Million Population"
 
 set xrange [0:]
 set yrange [0:]
@@ -176,68 +241,6 @@ unset output
 unset logscale y
 
 
-
-
-
-set label 11 "AT" left at first last_x_AT/7.0 , first last_y_absolute_AT
-set label 12 "BE" left at first last_x_BE/7.0 , first last_y_absolute_BE
-set label 13 "CA" left at first last_x_CA/7.0 , first last_y_absolute_CA
-set label 14 "FR" left at first last_x_FR/7.0 , first last_y_absolute_FR
-set label 15 "DE" left at first last_x_DE/7.0 , first last_y_absolute_DE
-set label 16 "HU" left at first last_x_HU/7.0 , first last_y_absolute_HU
-set label 17 "IR" left at first last_x_IR/7.0 , first last_y_absolute_IR
-set label 18 "IT" left at first last_x_IT/7.0 , first last_y_absolute_IT
-set label 19 "JP" left at first last_x_JP/7.0 , first last_y_absolute_JP
-set label 20 "KR" left at first last_x_KR/7.0 , first last_y_absolute_KR
-set label 21 "NL" left at first last_x_NL/7.0 , first last_y_absolute_NL
-set label 22 "PT" left at first last_x_PT/7.0 , first last_y_absolute_PT
-set label 23 "ES" left at first last_x_ES/7.0 , first last_y_absolute_ES
-set label 24 "CH" left at first last_x_CH/7.0 , first last_y_absolute_CH
-set label 25 "UK" left at first last_x_UK/7.0 , first last_y_absolute_UK
-set label 26 "US" left at first last_x_US/7.0 , first last_y_absolute_US
-
-
-
-
-
-
-title = "Death toll development after 2nd death"
-set title title
-set ylabel "Deaths"
-
-set xrange [0:]
-set yrange [0:]
-set output '../plots-gnuplot/countries-timeshifted-absolute.png'
-plot \
-  '../data/country-IT.tsv' using ($10/7):4 title "Italy" with lines lw 2, \
-  '../data/country-IR.tsv' using ($10/7):4 title "Iran" with lines lw 2, \
-  '../data/country-DE.tsv' using ($10/7):4 title "Germany" with lines lw 2, \
-  '../data/country-FR.tsv' using ($10/7):4 title "France" with lines lw 2, \
-  '../data/country-ES.tsv' using ($10/7):4 title "Spain" with lines lw 2, \
-  '../data/country-AT.tsv' using ($10/7):4 title "Austria" with lines lw 2, \
-  '../data/country-UK.tsv' using ($10/7):4 title "United Kingdom" with lines lw 2, \
-  '../data/country-US.tsv' using ($10/7):4 title "US" with lines lw 2, \
-  '../data/country-BE.tsv' using ($10/7):4 title "Belgium" with lines lw 2 dt "-", \
-  '../data/country-CA.tsv' using ($10/7):4 title "Canada" with lines lw 2 dt "-", \
-  '../data/country-HU.tsv' using ($10/7):4 title "Hungary" with lines lw 2 dt "-", \
-  '../data/country-NL.tsv' using ($10/7):4 title "Netherlands" with lines lw 2 dt "-", \
-  '../data/country-PT.tsv' using ($10/7):4 title "Portugal" with lines lw 2 dt "-", \
-  '../data/country-CH.tsv' using ($10/7):4 title "Switzerland" with lines lw 2 dt "-", \
-  '../data/country-JP.tsv' using ($10/7):4 title "Japan" with lines lw 2 dt "-", \
-  '../data/country-KR.tsv' using ($10/7):4 title "Korea, South" with lines lw 2 dt "-",\
-
-unset output
-# '../data/country-CZ.tsv' using ($10/7):4 title "Czechia" with lines lw 2 dt "-", \
-# '../data/country-FI.tsv' using ($10/7):4 title "# Finland" with lines lw 2 dt "-", \
-  '../data/country-SE.tsv' using ($10/7):4 title "Sweden" with lines lw 2 dt "-", \
-
-set yrange [1:]
-set logscale y
-set title title ." - log. scaled"
-set output '../plots-gnuplot/countries-timeshifted-absolute-log.png'
-replot
-unset output
-unset logscale y
 
 
 
