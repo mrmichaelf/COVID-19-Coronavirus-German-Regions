@@ -262,7 +262,7 @@ def prepare_lk_time_series(lk_id: str) -> list:
     returns list
     writes to filesystem
     """
-    file_out = f'data/de-districts/distict_timeseries-{lk_id}.json'
+    file_out = f'data/de-districts/de-distict_timeseries-{lk_id}.json'
     l_time_series_fetched = fetch_landkreis_time_series(
         lk_id=lk_id, readFromCache=True)
     pop_in_million = (d_ref_landkreise[lk_id]['Pop']/1000000)
