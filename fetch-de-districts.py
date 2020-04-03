@@ -265,6 +265,7 @@ def prepare_lk_time_series(lk_id: str) -> list:
     file_out = f'data/de-districts/distict_timeseries-{lk_id}.json'
     l_time_series_fetched = fetch_landkreis_time_series(
         lk_id=lk_id, readFromCache=True)
+    pop_in_million = (d_ref_landkreise[lk_id]['Pop']/1000000)
 
     l_time_series = []
 
@@ -285,9 +286,14 @@ def prepare_lk_time_series(lk_id: str) -> list:
 
         # covert to int
         d['Cases'] = int(entry['SummeFall'])
-        d['Deaths'] = int(entry['SummeTodesfall'])
         d['Cases_New'] = int(entry['AnzahlFall'])
+        d['Deaths'] = int(entry['SummeTodesfall'])
         d['Deaths_New'] = int(entry['AnzahlTodesfall'])
+        d['Cases_Per_Million'] = round(d['Cases'] / pop_in_million, 3)
+        d['Cases_New_Per_Million'] = round(d['Cases_New'] / pop_in_million, 3)
+        d['Deaths_Per_Million'] = round(d['Deaths'] / pop_in_million, 3)
+        d['Deaths_New_Per_Million'] = round(
+            d['Deaths_New'] / pop_in_million, 3)
 
         # Rename 'Meldedatum' (ms) -> Timestamp (s)
         d['Timestamp'] = int(entry['Meldedatum'] / 1000)
@@ -415,7 +421,7 @@ d_ref_landkreise = prepare_ref_landkreise()
 # TODO: sort by Bundesland, Landkreis
 
 
-d_fit_results_for_json_export = {}
+d_results_for_json_export = {}
 
 # Fit Cases für alle LK
 # 16068 machte Probleme
@@ -430,10 +436,13 @@ for lk_id in d_ref_landkreise.keys():
 
     data = []
     l_lk_time_series = prepare_lk_time_series(lk_id)
-    #l_lk_time_series = fetch_landkreis_time_series(lk_id, readFromCache=True)
+    # l_lk_time_series = fetch_landkreis_time_series(lk_id, readFromCache=True)
     for entry in l_lk_time_series:
-        # choose columns to fit
+        # choose columns for fitting
         data.append((entry['Days_Past'], entry['Cases']))
+
+    last_entry = l_lk_time_series[-1]
+    last_deaths = last_entry['Deaths']
 
     d_fit_results = helper.fit_routine(data, fit_range_x=(-6, 0))
 
@@ -445,45 +454,56 @@ for lk_id in d_ref_landkreise.keys():
         'fit_res_N0': round(d_fit_results['fit_res'][0], 3),
         'fit_res_T': round(d_fit_results['fit_res'][1], 3),
         'fit_used_x_range': d_fit_results['fit_used_x_range'],
-        'Faelle_heute': d_fit_results['y_at_x_max'],
-        'Faelle_morgen': round(d_fit_results['forcast_y_at_x+1'], 3),
-        'Faelle_Faktor_f_morgen': round(d_fit_results['factor_increase_x+1'], 3)
+        'Cases': last_entry['Cases'],
+        'Cases_Per_Million': last_entry['Cases_Per_Million'],
+        'Deaths': last_entry['Deaths'],
+        'Deaths_Per_Million': last_entry['Deaths_Per_Million'],
+        'Cases_Forecast_Tomorrow': round(d_fit_results['forcast_y_at_x+1'], 3),
+        'Cases_Forecast_Tomorrow_Factor': round(d_fit_results['factor_increase_x+1'], 3)
     }
 
-    d_fit_results_for_json_export[lk_id] = d
+    d_results_for_json_export[lk_id] = d
 
+    # TODO:
     # plot_lk_fit(lk_id, data, d_fit_results)
     # break
 
 
 # Export fit data as JSON
-with open('data/de-districts/fit-results.json', mode='w', encoding='utf-8', newline="\n") as fh:
-    json.dump(d_fit_results_for_json_export, fh, ensure_ascii=False)
+with open('data/de-districts/de-districts-results.json', mode='w', encoding='utf-8', newline='\n') as fh:
+    json.dump(d_results_for_json_export, fh, ensure_ascii=False)
 
 # Export fit data as CSV
-with open('data/de-districts/fit-results.tsv', mode='w', encoding='utf-8', newline='\n') as fh:
+with open('data/de-districts/de-districts-results.tsv', mode='w', encoding='utf-8', newline='\n') as fh:
     csvwriter = csv.writer(fh, delimiter="\t")
     csvwriter.writerow(  # header row
         (
             'Bundesland',
             'Landkreis',
-            'Population',
-            'Cases_Today',
-            'Cases_Tomorrow',
-            'Cases_Factor_Tomorrow'
+            'Einwohner',
+            'Fälle',
+            'Fälle pro 1 Millionen Einwohner',
+            'Tode',
+            'Tote pro 1 Millionen Einwohner',
+            'Fälle Prognose Morgen',
+            'Fälle Prognose Morgen %'
         )
     )
 
-    for lk_id in d_fit_results_for_json_export.keys():
+    for lk_id in d_results_for_json_export.keys():
         lk_name = get_lk_name_from_lk_id(lk_id)
         csvwriter.writerow(
             (
-                d_fit_results_for_json_export[lk_id]['Bundesland'],
-                d_fit_results_for_json_export[lk_id]['Landkreis'],
-                d_fit_results_for_json_export[lk_id]['LK_Einwohner'],
-                d_fit_results_for_json_export[lk_id]['Faelle_heute'],
-                d_fit_results_for_json_export[lk_id]['Faelle_morgen'],
-                d_fit_results_for_json_export[lk_id]['Faelle_Faktor_f_morgen'],
+                d_results_for_json_export[lk_id]['Bundesland'],
+                d_results_for_json_export[lk_id]['Landkreis'],
+                d_results_for_json_export[lk_id]['LK_Einwohner'],
+                d_results_for_json_export[lk_id]['Cases'],
+                d_results_for_json_export[lk_id]['Cases_Per_Million'],
+                d_results_for_json_export[lk_id]['Deaths'],
+                d_results_for_json_export[lk_id]['Deaths_Per_Million'],
+                d_results_for_json_export[lk_id]['Cases_Forecast_Tomorrow'],
+                round(
+                    100 * (d_results_for_json_export[lk_id]['Cases_Forecast_Tomorrow_Factor'] - 1), 1)
             )
         )
 
