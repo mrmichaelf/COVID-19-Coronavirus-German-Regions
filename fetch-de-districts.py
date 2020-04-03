@@ -120,7 +120,7 @@ def helper_read_from_cache_or_fetch_from_url(url: str, file_cache: str, readFrom
     """
     if readFromCache:
         readFromCache = helper.check_cache_file_available_and_recent(
-            fname=file_cache, max_age=3600, verbose=True)
+            fname=file_cache, max_age=7200, verbose=True)
 
     json_cont = []
     if readFromCache == True:  # read from cache
@@ -425,6 +425,7 @@ d_results_for_json_export = {}
 
 # Fit Cases für alle LK
 # 16068 machte Probleme
+
 # l2 = ('16068',)
 for lk_id in d_ref_landkreise.keys():
     lk_name = get_lk_name_from_lk_id(lk_id)
@@ -473,40 +474,98 @@ for lk_id in d_ref_landkreise.keys():
 with open('data/de-districts/de-districts-results.json', mode='w', encoding='utf-8', newline='\n') as fh:
     json.dump(d_results_for_json_export, fh, ensure_ascii=False)
 
-# Export fit data as CSV
-with open('data/de-districts/de-districts-results.tsv', mode='w', encoding='utf-8', newline='\n') as fh:
-    csvwriter = csv.writer(fh, delimiter="\t")
-    csvwriter.writerow(  # header row
-        (
-            'Bundesland',
+# Export fit data as CSV + HTML
+with open('data/de-districts/de-districts-results.tsv', mode='w', encoding='utf-8', newline='\n') as fh_csv:
+    csvwriter = csv.writer(fh_csv, delimiter="\t")
+    with open('data/de-districts/de-districts-results.html', mode='w', encoding='utf-8', newline='\n') as fh_html:
+
+        l = (
             'Landkreis',
+            'Bundesland',
             'Einwohner',
             'Fälle',
             'Tode',
             'Fälle pro 1 Millionen Einwohner',
             'Tote pro 1 Millionen Einwohner',
-            'Fälle Prognose Morgen',
-            'Fälle Prognose Morgen %'
+            'Prognose Fälle Morgen (%)'
         )
-    )
 
-    for lk_id in d_results_for_json_export.keys():
-        lk_name = get_lk_name_from_lk_id(lk_id)
-        csvwriter.writerow(
-            (
-                d_results_for_json_export[lk_id]['Bundesland'],
+        csvwriter.writerow(l)
+
+        fh_html.write("""<html>
+<head>
+    <link rel="stylesheet" href="de-districts-results.css" />
+    <script>
+        function mySortFunction() {
+            // Declare variables
+            var input, filter, table, tr, td, i, txtValue;
+            input = document.getElementById("myInput");
+            filter = input.value.toUpperCase();
+            table = document.getElementById("myTable");
+            tr = table.getElementsByTagName("tr");
+
+            // Loop through all table rows, and hide those who don't match the search query
+            for (i = 0; i < tr.length; i++) {
+                td = tr[i].getElementsByTagName("td")[0];
+                if (td) {
+                    txtValue = td.textContent || td.innerText;
+                    if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                        tr[i].style.display = "";
+                    } else {
+                        tr[i].style.display = "none";
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+
+<body>
+<h1>Landkreisprognose</h1>
+<p>Basierend auf Daten des
+<a href="https://experience.arcgis.com/experience/478220a4c454480e823b17327b2bf1d4/page/page_0/" target="_blank">Robert Koch-Institut COVID-19-Dashboards</a>
+</p>
+    <input type="text" id="myInput" onkeyup="mySortFunction()" placeholder="Landkreissuche">
+    <table id="myTable">        
+        """)
+        fh_html.write('<tr><th>')
+        fh_html.write('</th><th>'.join(l))
+        # fh_html.write(f'<th>{l[0]}</th>')
+        # fh_html.write(f'<th>{l[1]}</th>')
+        # fh_html.write(f'<th>{l[2]}</th>')
+        # fh_html.write(f'<th>{l[3]}</th>')
+        # fh_html.write(f'<th>{l[4]}</th>')
+        # fh_html.write(f'<th>{l[5]}</th>')
+        # fh_html.write(f'<th>{l[6]}</th>')
+        # fh_html.write(f'<th>{l[7]}</th>')
+        # fh_html.write(f'<th>{l[8]}</th>')
+        fh_html.write('</th></tr>\n')
+
+        for lk_id in d_results_for_json_export.keys():
+            l = (
                 d_results_for_json_export[lk_id]['Landkreis'],
+                d_results_for_json_export[lk_id]['Bundesland'],
                 d_results_for_json_export[lk_id]['LK_Einwohner'],
                 d_results_for_json_export[lk_id]['Cases'],
                 d_results_for_json_export[lk_id]['Deaths'],
-                d_results_for_json_export[lk_id]['Cases_Per_Million'],
+                round(d_results_for_json_export[lk_id]
+                      ['Cases_Per_Million'], 0),
                 d_results_for_json_export[lk_id]['Deaths_Per_Million'],
-                d_results_for_json_export[lk_id]['Cases_Forecast_Tomorrow'],
                 round(
                     100 * (d_results_for_json_export[lk_id]['Cases_Forecast_Tomorrow_Factor'] - 1), 1)
             )
-        )
+            l = [str(v) for v in l]
 
+            csvwriter.writerow(l)
+            fh_html.write('<tr><td>')
+            fh_html.write('</td><td>'.join(l))
+            fh_html.write('</td></tr>\n')
+
+        fh_html.write('</table>\n')
+        fh_html.write('</body>\n')
+        fh_html.write('</html>\n')
+
+# Export fit data as HTML
 
 # TODO: Bundeslandsummen
 
