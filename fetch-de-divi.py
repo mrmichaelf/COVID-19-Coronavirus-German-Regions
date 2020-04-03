@@ -27,7 +27,7 @@ def read_from_url(url: str) -> str:
 
 
 def read_from_file(filename: str) -> str:
-    with open('draft/divi-200331.html', mode='r', encoding='utf-8') as fh:
+    with open(filename, mode='r', encoding='utf-8') as fh:
         cont = fh.read()
     return cont
 
@@ -89,7 +89,9 @@ def extract_table(content: str) -> dict:
     l_rows = []
     for tr in tbody_trs:
         l_columns = []
-        assert len(tr) == 15
+        if len(tr) != 15:
+            continue
+        assert len(tr) == 15, f"length = {len(tr)}"
         i += 1
         for td in tr:
             l_columns.append(td.text_content())
@@ -120,11 +122,10 @@ def extract_table(content: str) -> dict:
 
 d_all_dates = {}
 
-for fileIn in glob.glob('data-divi/*.html'):
+for fileIn in glob.glob('cache/divi/*.html'):
     print(fileIn)
     #fileIn = 'data-divi/divi-2020-03-31.html'
     # (fileBaseName, fileExtension) = os.path.splitext(fileIn)
-    fileOut = os.path.splitext(fileIn)[0] + '.json'
     #content = read_from_url('https://diviexchange.z6.web.core.windows.net/report.html')
 
     import re
@@ -133,6 +134,8 @@ for fileIn in glob.glob('data-divi/*.html'):
     myMatch = myRegExp.search(fileIn)
     assert myMatch != None, f"date not found in: \n{fileIn}"
     datum = myMatch.group(1)
+
+    fileOut = f'data/divi/divi-{datum}.json'
 
     content = read_from_file(fileIn)
     d_divi_table = extract_table(content)
@@ -145,5 +148,5 @@ for fileIn in glob.glob('data-divi/*.html'):
 
 
 # file_out = f'data-divi'
-with open('data-divi/all.json', mode='w', encoding='utf-8', newline='\n') as fh:
+with open('data/divi/divi-all.json', mode='w', encoding='utf-8', newline='\n') as fh:
     json.dump(d_all_dates, fh, ensure_ascii=False)
