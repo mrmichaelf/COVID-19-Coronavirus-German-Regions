@@ -15,7 +15,7 @@ import json
 # from lxml.cssselect import CSSSelector
 from lxml import html
 import requests
-
+import csv
 # pip install cssselect
 # page = requests.get(
 #     'https://web.archive.org/web/20200331201117/https://diviexchange.z6.web.core.windows.net/report.html')
@@ -103,30 +103,33 @@ def extract_table(content: str) -> dict:
 
     for row in l_rows:
         bundesland = row.pop(0)
+        if bundesland == 'NRW':
+            bundesland = 'NW'
         # convert numbers to int
         row = [int(v) for v in row]
         d2 = {}
         for i in range(len(row)):
             d2[l_column_names[i]] = row[i]
-        d2['ICU low free percent'] = round(
-            100 * d2['ICU low free'] / (d2['ICU low free'] + d2['ICU low occupied']), 1)
-        d2['ICU high free percent'] = round(
-            100 * d2['ICU high free'] / (d2['ICU high free'] + d2['ICU high occupied']), 1)
+        d2['ICU low occupied percent'] = round(
+            100 * d2['ICU low occupied'] / (d2['ICU low free'] + d2['ICU low occupied']), 1)
+        d2['ICU high occupied percent'] = round(
+            100 * d2['ICU high occupied'] / (d2['ICU high free'] + d2['ICU high occupied']), 1)
 
-        d2['ICU ECMO free percent'] = round(
-            100 * d2['ICU ECMO free'] / (d2['ICU ECMO free'] + d2['ICU ECMO occupied']), 1)
+        d2['ICU ECMO occupied percent'] = round(
+            100 * d2['ICU ECMO occupied'] / (d2['ICU ECMO free'] + d2['ICU ECMO occupied']), 1)
         d[bundesland] = d2
     del row, bundesland, d2, i
     return d
 
 
-d_all_dates = {}
+# d_all_dates = {}
+l_all_dates = []
 
-for fileIn in glob.glob('cache/divi/*.html'):
+for fileIn in sorted(glob.glob('cache/divi/*.html')):
     print(fileIn)
-    #fileIn = 'data-divi/divi-2020-03-31.html'
+    # fileIn = 'data-divi/divi-2020-03-31.html'
     # (fileBaseName, fileExtension) = os.path.splitext(fileIn)
-    #content = read_from_url('https://diviexchange.z6.web.core.windows.net/report.html')
+    # content = read_from_url('https://diviexchange.z6.web.core.windows.net/report.html')
 
     import re
     myPattern = 'divi-(.*)\.html$'
@@ -135,7 +138,7 @@ for fileIn in glob.glob('cache/divi/*.html'):
     assert myMatch != None, f"date not found in: \n{fileIn}"
     datum = myMatch.group(1)
 
-    fileOut = f'data/divi/divi-{datum}.json'
+    fileOut = f'data/de-divi/de-divi-{datum}.json'
 
     content = read_from_file(fileIn)
     d_divi_table = extract_table(content)
@@ -143,10 +146,32 @@ for fileIn in glob.glob('cache/divi/*.html'):
     # file_out = f'data-divi'
     with open(fileOut, mode='w', encoding='utf-8', newline='\n') as fh:
         json.dump(d_divi_table, fh, ensure_ascii=False)
-
-    d_all_dates[datum] = d_divi_table
+    d = {'Date': datum, 'Data': d_divi_table}
+    l_all_dates.append(d)
 
 
 # file_out = f'data-divi'
-with open('data/divi/divi-all.json', mode='w', encoding='utf-8', newline='\n') as fh:
-    json.dump(d_all_dates, fh, ensure_ascii=False)
+with open('data/de-divi/de-divi-all.json', mode='w', encoding='utf-8', newline='\n') as fh:
+    json.dump(l_all_dates, fh, ensure_ascii=False)
+
+for BL_ID in sorted(l_all_dates[-1]['Data'].keys()):
+    with open(f'data/de-divi/de-divi-{BL_ID}.tsv', mode='w', encoding='utf-8', newline='\n') as fh:
+        csvwriter = csv.writer(fh, delimiter="\t")
+        l = (
+            '# Date',
+            'ICU low occupied percent',
+            'ICU high occupied percent',
+            'ICU ECMO occupied percent'
+        )
+        csvwriter.writerow(l)
+
+        # # TODO:
+        for entry in l_all_dates:
+            l = (
+                entry['Date'],
+                entry['Data'][BL_ID]['ICU low occupied percent'],
+                entry['Data'][BL_ID]['ICU high occupied percent'],
+                entry['Data'][BL_ID]['ICU ECMO occupied percent']
+            )
+
+            csvwriter.writerow(l)

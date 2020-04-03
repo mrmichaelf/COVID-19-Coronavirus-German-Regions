@@ -15,7 +15,6 @@ set encoding utf8
 label1_text_right = "by Torben https://entorb.net"
 set label 1 label1_text_right rotate by 90 center at screen 0.985, screen 0.5
 
-set style increment user 
 # data
 set style line 1 linetype 7 dt 3 lw 2 linecolor rgb 'black' 
 # fit
