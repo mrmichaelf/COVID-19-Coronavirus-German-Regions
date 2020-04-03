@@ -482,8 +482,8 @@ with open('data/de-districts/de-districts-results.tsv', mode='w', encoding='utf-
             'Landkreis',
             'Einwohner',
             'Fälle',
-            'Fälle pro 1 Millionen Einwohner',
             'Tode',
+            'Fälle pro 1 Millionen Einwohner',
             'Tote pro 1 Millionen Einwohner',
             'Fälle Prognose Morgen',
             'Fälle Prognose Morgen %'
@@ -498,8 +498,8 @@ with open('data/de-districts/de-districts-results.tsv', mode='w', encoding='utf-
                 d_results_for_json_export[lk_id]['Landkreis'],
                 d_results_for_json_export[lk_id]['LK_Einwohner'],
                 d_results_for_json_export[lk_id]['Cases'],
-                d_results_for_json_export[lk_id]['Cases_Per_Million'],
                 d_results_for_json_export[lk_id]['Deaths'],
+                d_results_for_json_export[lk_id]['Cases_Per_Million'],
                 d_results_for_json_export[lk_id]['Deaths_Per_Million'],
                 d_results_for_json_export[lk_id]['Cases_Forecast_Tomorrow'],
                 round(
