@@ -14,29 +14,32 @@ set style line 2 linetype 7 dt 1 lw 2 linecolor rgb 'red'
 set style line 3 linetype 7 dt 1 lw 2 linecolor rgb 'black' 
 
 
-data_BW = '../data/de-divi/de-divi-BW.tsv'
-data_BY = '../data/de-divi/de-divi-BY.tsv'
-data_BE = '../data/de-divi/de-divi-BE.tsv'
-data_BB = '../data/de-divi/de-divi-BB.tsv'
-data_HB = '../data/de-divi/de-divi-HB.tsv'
-data_HH = '../data/de-divi/de-divi-HH.tsv'
-data_HE = '../data/de-divi/de-divi-HE.tsv'
-data_MV = '../data/de-divi/de-divi-MV.tsv'
-data_NI = '../data/de-divi/de-divi-NI.tsv'
-data_NW = '../data/de-divi/de-divi-NW.tsv'
-data_RP = '../data/de-divi/de-divi-RP.tsv'
-data_SL = '../data/de-divi/de-divi-SL.tsv'
-data_SN = '../data/de-divi/de-divi-SN.tsv'
-data_ST = '../data/de-divi/de-divi-ST.tsv'
-data_SH = '../data/de-divi/de-divi-SH.tsv'
-data_TH = '../data/de-divi/de-divi-TH.tsv'
+data_BW = '../data/de-divi/de-divi-BW.tsv'; title_BW = 'Krankenhausauslastung in Baden-Württemberg'
+data_BY = '../data/de-divi/de-divi-BY.tsv'; title_BY = 'Krankenhausauslastung in Bayern'
+data_BE = '../data/de-divi/de-divi-BE.tsv'; title_BE = 'Krankenhausauslastung in Berlin'
+data_BB = '../data/de-divi/de-divi-BB.tsv'; title_BB = 'Krankenhausauslastung in Brandenburg'
+data_HB = '../data/de-divi/de-divi-HB.tsv'; title_HB = 'Krankenhausauslastung in Bremen'
+data_HH = '../data/de-divi/de-divi-HH.tsv'; title_HH = 'Krankenhausauslastung in Hamburg'
+data_HE = '../data/de-divi/de-divi-HE.tsv'; title_HE = 'Krankenhausauslastung in Hessen'
+data_MV = '../data/de-divi/de-divi-MV.tsv'; title_MV = 'Krankenhausauslastung in Mecklenburg-Vorpommern'
+data_NI = '../data/de-divi/de-divi-NI.tsv'; title_NI = 'Krankenhausauslastung in Niedersachsen'
+data_NW = '../data/de-divi/de-divi-NW.tsv'; title_NW = 'Krankenhausauslastung in Nordrhein-Westfalen'
+data_RP = '../data/de-divi/de-divi-RP.tsv'; title_RP = 'Krankenhausauslastung in Rheinland-Pfalz'
+data_SL = '../data/de-divi/de-divi-SL.tsv'; title_SL = 'Krankenhausauslastung in Saarland'
+data_SN = '../data/de-divi/de-divi-SN.tsv'; title_SN = 'Krankenhausauslastung in Sachsen'
+data_ST = '../data/de-divi/de-divi-ST.tsv'; title_ST = 'Krankenhausauslastung in Sachsen-Anhalt'
+data_SH = '../data/de-divi/de-divi-SH.tsv'; title_SH = 'Krankenhausauslastung in Schleswig-Holstein'
+data_TH = '../data/de-divi/de-divi-TH.tsv'; title_TH = 'Krankenhausauslastung in Thüringen'
 
 set yrange [0:100]
+
+set ylabel "Belegung"
 
 set timefmt '%Y-%m-%d'
 set xdata time
 set format x "%d.%m"
 
+set xtics 1*24*3600
 
 # set title "%A%"
 # set output "../plots-gnuplot/de-divi/de-divi-%A%.png"
@@ -44,82 +47,82 @@ set format x "%d.%m"
 # unset output
 
 
-set title "BW"
+set title title_BW
 set output "../plots-gnuplot/de-divi/de-divi-BW.png"
 plot data_BW using 1:2 t "ICU low", '' using 1:3 t "ICU high", '' using 1:4 t "ICU ECMO" 
 unset output
 
-set title "BY"
+set title title_BY
 set output "../plots-gnuplot/de-divi/de-divi-BY.png"
 plot data_BY using 1:2 t "ICU low", '' using 1:3 t "ICU high", '' using 1:4 t "ICU ECMO" 
 unset output
 
-set title "BE"
+set title title_BE
 set output "../plots-gnuplot/de-divi/de-divi-BE.png"
 plot data_BE using 1:2 t "ICU low", '' using 1:3 t "ICU high", '' using 1:4 t "ICU ECMO" 
 unset output
 
-set title "BB"
+set title title_BB
 set output "../plots-gnuplot/de-divi/de-divi-BB.png"
 plot data_BB using 1:2 t "ICU low", '' using 1:3 t "ICU high", '' using 1:4 t "ICU ECMO" 
 unset output
 
-set title "HB"
+set title title_HB
 set output "../plots-gnuplot/de-divi/de-divi-HB.png"
 plot data_HB using 1:2 t "ICU low", '' using 1:3 t "ICU high", '' using 1:4 t "ICU ECMO" 
 unset output
 
-set title "HH"
+set title title_HH
 set output "../plots-gnuplot/de-divi/de-divi-HH.png"
 plot data_HH using 1:2 t "ICU low", '' using 1:3 t "ICU high", '' using 1:4 t "ICU ECMO" 
 unset output
 
-set title "HE"
+set title title_HE
 set output "../plots-gnuplot/de-divi/de-divi-HE.png"
 plot data_HE using 1:2 t "ICU low", '' using 1:3 t "ICU high", '' using 1:4 t "ICU ECMO" 
 unset output
 
-set title "MV"
+set title title_MV
 set output "../plots-gnuplot/de-divi/de-divi-MV.png"
 plot data_MV using 1:2 t "ICU low", '' using 1:3 t "ICU high", '' using 1:4 t "ICU ECMO" 
 unset output
 
-set title "NI"
+set title title_NI
 set output "../plots-gnuplot/de-divi/de-divi-NI.png"
 plot data_NI using 1:2 t "ICU low", '' using 1:3 t "ICU high", '' using 1:4 t "ICU ECMO" 
 unset output
 
-set title "NW"
+set title title_NW
 set output "../plots-gnuplot/de-divi/de-divi-NW.png"
 plot data_NW using 1:2 t "ICU low", '' using 1:3 t "ICU high", '' using 1:4 t "ICU ECMO" 
 unset output
 
-set title "RP"
+set title title_RP
 set output "../plots-gnuplot/de-divi/de-divi-RP.png"
 plot data_RP using 1:2 t "ICU low", '' using 1:3 t "ICU high", '' using 1:4 t "ICU ECMO" 
 unset output
 
-set title "SL"
+set title title_SL
 set output "../plots-gnuplot/de-divi/de-divi-SL.png"
 plot data_SL using 1:2 t "ICU low", '' using 1:3 t "ICU high", '' using 1:4 t "ICU ECMO" 
 unset output
 
-set title "SN"
+set title title_SN
 set output "../plots-gnuplot/de-divi/de-divi-SN.png"
 plot data_SN using 1:2 t "ICU low", '' using 1:3 t "ICU high", '' using 1:4 t "ICU ECMO" 
 unset output
 
-set title "ST"
+set title title_ST
 set output "../plots-gnuplot/de-divi/de-divi-ST.png"
 plot data_ST using 1:2 t "ICU low", '' using 1:3 t "ICU high", '' using 1:4 t "ICU ECMO" 
 unset output
 
-set title "SH"
+set title title_SH
 set output "../plots-gnuplot/de-divi/de-divi-SH.png"
 plot data_SH using 1:2 t "ICU low", '' using 1:3 t "ICU high", '' using 1:4 t "ICU ECMO" 
 unset output
 
-set title "TH"
+set title title_TH
 set output "../plots-gnuplot/de-divi/de-divi-TH.png"
 plot data_TH using 1:2 t "ICU low", '' using 1:3 t "ICU high", '' using 1:4 t "ICU ECMO" 
 unset output
