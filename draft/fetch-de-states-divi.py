@@ -13,7 +13,9 @@ from lxml import html
 import requests
 
 # pip install cssselect
-page = requests.get('https://diviexchange.z6.web.core.windows.net/report.html')
+# page = requests.get('https://diviexchange.z6.web.core.windows.net/report.html')
+page = requests.get(
+    'https://web.archive.org/web/20200331201117/https://diviexchange.z6.web.core.windows.net/report.html')
 tree = html.fromstring(page.content)
 t1 = tree.xpath(
     '//*[@id="table"]'
