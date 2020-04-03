@@ -182,9 +182,9 @@ set ytics nomirror
 # same scale on y and y2 axis (not working for log axis :-()
 # set link y2
 
-set y2tics ("US 9/11" 9, "US guns" 44, "US US traffic\nflu 2018/19" 104, "US drugs" 205 , "US cancer 2018" 1857)
+set y2tics ("US 9/11" 9, "US guns\n2017" 44, "US traffic 2018\nand\nflu 2018/19" 104, "US drugs\n2018" 205 , "US cancer\n2018" 1857)
 
-set rmargin 14
+set rmargin 15
 
 title = "Death toll development - scaled per million population"
 set title title
@@ -214,6 +214,8 @@ set label 26 "US" left at first last_x_US/7.0 , first last_y_US
 
 
 set xrange [0:]
+# TODO:
+# set yrange [0:2000]
 set yrange [0:]
 set output '../plots-gnuplot/countries-timeshifted-per-million.png'
 plot \
@@ -241,7 +243,8 @@ set output '../plots-gnuplot/countries-timeshifted-per-million.png'
 replot
 unset output
 
-
+# TODO
+# set yrange [1:2000]
 set yrange [1:]
 set logscale y
 set logscale y2
