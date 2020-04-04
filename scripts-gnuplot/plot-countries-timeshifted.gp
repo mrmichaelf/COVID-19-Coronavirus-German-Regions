@@ -292,6 +292,8 @@ set label 25 "UK" left at first last_x_UK/7.0 , first last_y_new_per_million_UK
 set label 26 "US" left at first last_x_US/7.0 , first last_y_new_per_million_US
 
 
+set y2tics add ("1,5% pop\nper year" 1000000.0*0.015/365)
+
 
 set xrange [0:]
 set yrange [0:]
