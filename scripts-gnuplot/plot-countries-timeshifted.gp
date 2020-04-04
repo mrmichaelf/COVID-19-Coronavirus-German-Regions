@@ -143,8 +143,7 @@ set label 23 "ES" left at first last_x_ES/7.0 , first last_y_absolute_ES
 set label 24 "CH" left at first last_x_CH/7.0 , first last_y_absolute_CH
 set label 25 "UK" left at first last_x_UK/7.0 , first last_y_absolute_UK
 set label 26 "US" left at first last_x_US/7.0 , first last_y_absolute_US
-
-set label 26 "SE" left at first last_x_SE/7.0 , first last_y_absolute_SE
+set label 27 "SE" left at first last_x_SE/7.0 , first last_y_absolute_SE
 
 
 set xrange [0:]
@@ -212,7 +211,7 @@ set label 23 "ES" left at first last_x_ES/7.0 , first last_y_ES
 set label 24 "CH" left at first last_x_CH/7.0 , first last_y_CH
 set label 25 "UK" left at first last_x_UK/7.0 , first last_y_UK
 set label 26 "US" left at first last_x_US/7.0 , first last_y_US
-set label 26 "SE" left at first last_x_SE/7.0 , first last_y_SE
+set label 27 "SE" left at first last_x_SE/7.0 , first last_y_SE
 
 
 
@@ -297,7 +296,7 @@ set label 23 "ES" left at first last_x_ES/7.0 , first last_y_new_per_million_ES
 set label 24 "CH" left at first last_x_CH/7.0 , first last_y_new_per_million_CH
 set label 25 "UK" left at first last_x_UK/7.0 , first last_y_new_per_million_UK
 set label 26 "US" left at first last_x_US/7.0 , first last_y_new_per_million_US
-set label 26 "SE" left at first last_x_SE/7.0 , first last_y_new_per_million_SE
+set label 27 "SE" left at first last_x_SE/7.0 , first last_y_new_per_million_SE
 
 
 unset y2tics
