@@ -5,7 +5,7 @@
 
 load "header.gp"
 
-set terminal pngcairo size 640,800
+set terminal pngcairo size 800,800
 
 
 # # now lets compare several stats
@@ -113,6 +113,11 @@ last_y_US = (system("tail -1 '../data/int/country-US.tsv' | cut -f6") + 0)
 last_y_absolute_US = (system("tail -1 '../data/int/country-US.tsv' | cut -f4") + 0)
 last_y_new_per_million_US = (system("tail -1 '../data/int/country-US.tsv' | cut -f13") + 0)
 
+last_x_SE = (system("tail -1 '../data/int/country-SE.tsv' | cut -f10") + 0)
+last_y_SE = (system("tail -1 '../data/int/country-SE.tsv' | cut -f6") + 0)
+last_y_absolute_SE = (system("tail -1 '../data/int/country-SE.tsv' | cut -f4") + 0)
+last_y_new_per_million_SE = (system("tail -1 '../data/int/country-SE.tsv' | cut -f13") + 0)
+
 
 
 
@@ -139,6 +144,8 @@ set label 24 "CH" left at first last_x_CH/7.0 , first last_y_absolute_CH
 set label 25 "UK" left at first last_x_UK/7.0 , first last_y_absolute_UK
 set label 26 "US" left at first last_x_US/7.0 , first last_y_absolute_US
 
+set label 26 "SE" left at first last_x_SE/7.0 , first last_y_absolute_SE
+
 
 set xrange [0:]
 set yrange [0:]
@@ -160,11 +167,9 @@ plot \
   '../data/int/country-CH.tsv' using ($10/7):4 title "Switzerland" with lines lw 2 dt "-", \
   '../data/int/country-JP.tsv' using ($10/7):4 title "Japan" with lines lw 2 dt "-", \
   '../data/int/country-KR.tsv' using ($10/7):4 title "Korea, South" with lines lw 2 dt "-",\
+  '../data/int/country-SE.tsv' using ($10/7):4 title "Sweden" with lines lw 2 dt ".",\
 
 unset output
-# '../data/int/country-CZ.tsv' using ($10/7):4 title "Czechia" with lines lw 2 dt "-", \
-# '../data/int/country-FI.tsv' using ($10/7):4 title "# Finland" with lines lw 2 dt "-", \
-  '../data/int/country-SE.tsv' using ($10/7):4 title "Sweden" with lines lw 2 dt "-", \
 
 set yrange [1:]
 set logscale y
@@ -207,6 +212,7 @@ set label 23 "ES" left at first last_x_ES/7.0 , first last_y_ES
 set label 24 "CH" left at first last_x_CH/7.0 , first last_y_CH
 set label 25 "UK" left at first last_x_UK/7.0 , first last_y_UK
 set label 26 "US" left at first last_x_US/7.0 , first last_y_US
+set label 26 "SE" left at first last_x_SE/7.0 , first last_y_SE
 
 
 
@@ -235,6 +241,7 @@ plot \
   '../data/int/country-CH.tsv' using ($10/7):6 title "Switzerland" with lines lw 2 dt "-", \
   '../data/int/country-KR.tsv' using ($10/7):6 title "Korea, South" with lines lw 2 dt "-",\
   '../data/int/country-JP.tsv' using ($10/7):6 title "Japan" with lines lw 2 dt "-", \
+  '../data/int/country-SE.tsv' using ($10/7):6 title "Sweden" with lines lw 2 dt ".", \
 
 unset output
 # replot to set y2range accordingly to yrange
@@ -290,9 +297,11 @@ set label 23 "ES" left at first last_x_ES/7.0 , first last_y_new_per_million_ES
 set label 24 "CH" left at first last_x_CH/7.0 , first last_y_new_per_million_CH
 set label 25 "UK" left at first last_x_UK/7.0 , first last_y_new_per_million_UK
 set label 26 "US" left at first last_x_US/7.0 , first last_y_new_per_million_US
+set label 26 "SE" left at first last_x_SE/7.0 , first last_y_new_per_million_SE
 
 
-set y2tics add ("1,5% pop\nper year" 1000000.0*0.015/365)
+unset y2tics
+set y2tics add ("US 9/11" 9,"1,5%% pop die\nper year" 1000000.0*0.015/365)
 
 
 set xrange [0:]
@@ -315,6 +324,7 @@ plot \
   '../data/int/country-CH.tsv' using ($10/7):13 smooth bezier title "Switzerland" with lines lw 2 dt "-", \
   '../data/int/country-JP.tsv' using ($10/7):13 smooth bezier title "Japan" with lines lw 2 dt "-", \
   '../data/int/country-KR.tsv' using ($10/7):13 smooth bezier title "Korea, South" with lines lw 2 dt "-",\
+  '../data/int/country-SE.tsv' using ($10/7):13 smooth bezier title "Sweden" with lines lw 2 dt ".",\
 
 unset output
 # replot to set y2range accordingly to yrange
