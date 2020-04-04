@@ -6,10 +6,10 @@ import math
 
 import csv
 
-f1 = "data/countries-latest-selected.tsv"
-f2 = "data/countries-gnuplot-fit.tsv"
+f1 = "data/int/countries-latest-selected.tsv"
+f2 = "data/int/countries-gnuplot-fit.tsv"
 
-f_out = 'data/countries-joined_selected_and_gnuplot_fit.tsv'
+f_out = 'data/int/countries-joined_selected_and_gnuplot_fit.tsv'
 l1 = []
 l2 = []
 

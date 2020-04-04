@@ -195,7 +195,7 @@ def convert_csv():
             data.append((l_state[i][0], l_state[i][2]))  # x= day , y = cases
 
         fit_series_res = helper.series_of_fits(
-            data, fit_range=7, max_days_past=14)
+            data, fit_range=7, max_days_past=28)
 
         # add to export data
         for i in range(1, len(l_state)):

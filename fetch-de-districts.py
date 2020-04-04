@@ -477,7 +477,7 @@ with open('data/de-districts/de-districts-results.json', mode='w', encoding='utf
 # Export fit data as CSV + HTML
 with open('data/de-districts/de-districts-results.tsv', mode='w', encoding='utf-8', newline='\n') as fh_csv:
     csvwriter = csv.writer(fh_csv, delimiter="\t")
-    with open('data/de-districts/de-districts-results.html', mode='w', encoding='utf-8', newline='\n') as fh_html:
+    with open('results-de-districts.html', mode='w', encoding='utf-8', newline='\n') as fh_html:
 
         l = (
             'Landkreis',
@@ -492,35 +492,75 @@ with open('data/de-districts/de-districts-results.tsv', mode='w', encoding='utf-
 
         csvwriter.writerow(l)
 
-        fh_html.write("""<html>
+        fh_html.write("""<!doctype html>
+<html lang="de">
 <head>
-    <link rel="stylesheet" href="de-districts-results.css" />
-    <script>
-        function mySortFunction() {
-            // Declare variables
-            var input, filter, table, tr, td, i, txtValue;
-            input = document.getElementById("myInput");
-            filter = input.value.toUpperCase();
-            table = document.getElementById("myTable");
-            tr = table.getElementsByTagName("tr");
+    <meta charset="utf-8">
+    
+<style>
+    #myInput {
+      background-image: url('/css/searchicon.png');      /* Add a search icon to input */
+      background-position: 10px 12px;      /* Position the search icon */
+      background-repeat: no-repeat;      /* Do not repeat the icon image */
+      width: 400px;
+      font-size: 16px;      /* Increase font-size */
+      padding: 12px 20px 12px 10px;      /* Add some padding */
+      border: 1px solid #ddd;       /* Add a grey border */
+      margin-bottom: 12px;       /* Add some space below the input */
+    }
 
-            // Loop through all table rows, and hide those who don't match the search query
-            for (i = 0; i < tr.length; i++) {
-                td = tr[i].getElementsByTagName("td")[0];
-                if (td) {
-                    txtValue = td.textContent || td.innerText;
-                    if (txtValue.toUpperCase().indexOf(filter) > -1) {
-                        tr[i].style.display = "";
-                    } else {
-                        tr[i].style.display = "none";
-                    }
+#myTable {
+  border-collapse: collapse; /* Collapse borders */
+  width: 100%; /* Full-width */
+  border: 1px solid #ddd; /* Add a grey border */
+  font-size: 18px; /* Increase font-size */
+}
+
+#myTable th, #myTable td {
+  text-align: left; /* Left-align text */
+  padding: 12px; /* Add padding */
+}
+
+#myTable tr {
+  /* Add a bottom border to all table rows */
+  border-bottom: 1px solid #ddd;
+}
+
+#myTable tr.header, #myTable tr:hover {
+  /* Add a grey background color to the table header and on hover */
+  background-color: #f1f1f1;
+}
+</style>
+
+<script>
+    function mySortFunction() {
+        // Declare variables
+        var input, filter, table, tr, td, i, txtValue;
+        input = document.getElementById("myInput");
+        filter = input.value.toUpperCase();
+        table = document.getElementById("myTable");
+        tr = table.getElementsByTagName("tr");
+
+        // Loop through all table rows, and hide those who don't match the search query
+        for (i = 0; i < tr.length; i++) {
+            td = tr[i].getElementsByTagName("td")[0];
+            if (td) {
+                txtValue = td.textContent || td.innerText;
+                if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                    tr[i].style.display = "";
+                } else {
+                    tr[i].style.display = "none";
                 }
             }
         }
-    </script>
+    }
+</script>
 </head>
 
 <body>
+<p>
+<a href="index.html">zurück zur Auswertung</a>
+</p>
 <h1>Landkreisprognose</h1>
 <p>Basierend auf Daten des
 <a href="https://experience.arcgis.com/experience/478220a4c454480e823b17327b2bf1d4/page/page_0/" target="_blank">Robert Koch-Institut COVID-19-Dashboards</a>
@@ -548,9 +588,10 @@ with open('data/de-districts/de-districts-results.tsv', mode='w', encoding='utf-
                 d_results_for_json_export[lk_id]['LK_Einwohner'],
                 d_results_for_json_export[lk_id]['Cases'],
                 d_results_for_json_export[lk_id]['Deaths'],
-                round(d_results_for_json_export[lk_id]
-                      ['Cases_Per_Million'], 0),
-                d_results_for_json_export[lk_id]['Deaths_Per_Million'],
+                int(round(d_results_for_json_export[lk_id]
+                          ['Cases_Per_Million'], 0)),
+                int(round(
+                    d_results_for_json_export[lk_id]['Deaths_Per_Million'], 0)),
                 round(
                     100 * (d_results_for_json_export[lk_id]['Cases_Forecast_Tomorrow_Factor'] - 1), 1)
             )
