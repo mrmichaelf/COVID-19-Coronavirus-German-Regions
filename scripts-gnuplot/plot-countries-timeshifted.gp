@@ -254,7 +254,6 @@ set output '../plots-gnuplot/countries-timeshifted-per-million-log.png'
 replot
 unset output
 # replot to set y2range accordingly to yrange
-print(GPVAL_Y_MAX)
 set y2range[GPVAL_Y_MIN:GPVAL_Y_MAX]
 set output '../plots-gnuplot/countries-timeshifted-per-million-log.png'
 replot
