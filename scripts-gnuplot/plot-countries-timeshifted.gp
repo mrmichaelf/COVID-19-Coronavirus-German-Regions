@@ -300,7 +300,9 @@ set label 27 "SE" left at first last_x_SE/7.0 , first last_y_new_per_million_SE
 
 
 unset y2tics
-set y2tics add ("US 9/11" 9,"1,5%% pop die\nper year" 1000000.0*0.015/365)
+set y2tics add ("US 9/11" 9,"1,5%% pop die\na year\nper day" 1000000.0*0.015/365)
+set y2tics add ("US cancer\nper day" 1857.0/365)
+
 
 
 set xrange [0:]
@@ -331,6 +333,10 @@ set y2range[GPVAL_Y_MIN:GPVAL_Y_MAX]
 set output '../plots-gnuplot/int/countries-timeshifted-new_deaths-per-million.png'
 replot
 unset output
+
+
+# Log plot
+set y2tics add ("US guns\nper day" 44.0/365, "US traffic \nor flu\nper day" 104.0/365, "US drugs\nper day" 205.0/365 , "US cancer\nper day" 1857.0/365)
 
 set yrange [0.01:]
 set logscale y
