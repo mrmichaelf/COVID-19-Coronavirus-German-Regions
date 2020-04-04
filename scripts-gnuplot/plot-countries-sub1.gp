@@ -7,7 +7,7 @@ x_max = ( system("tail -1 " . data . " | cut -f1") + 0 )
 y_last = ( system("tail -1 " . data . " | cut -f".col) + 0)
 date_last = system("tail -1 " . data . " | cut -f2")
 
-print country_name
+# print country_name
 
 title = "Fitting Deaths in ".country_name
 set title title
@@ -36,7 +36,7 @@ unset print
 
 set xtic add (date_last 0) 
 
-print country_name
+# print country_name
 
 # plot range filters != fit range filters 
 # set xrange [x_min:x_max+1]

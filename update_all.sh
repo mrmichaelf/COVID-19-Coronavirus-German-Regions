@@ -25,11 +25,11 @@ echo "Check local html. Enter to continue with upoading, CTRG+C to cancel"
 read ok
 
 
-python fetch-de-districts.py
-python fetch-de-divi.py
+# python fetch-de-districts.py
+# python fetch-de-divi.py
 
-rsync -rvhu --delete --delete-excluded plots-gnuplot/*.png entorb@entorb.net:html/COVID-19-coronavirus/plots-gnuplot/
-rsync -rvhu --delete --delete-excluded plots-excel/*.png entorb@entorb.net:html/COVID-19-coronavirus/plots-excel/
+rsync -rvhu --delete --delete-excluded plots-gnuplot/* entorb@entorb.net:html/COVID-19-coronavirus/plots-gnuplot/
+rsync -rvhu --delete --delete-excluded plots-excel/* entorb@entorb.net:html/COVID-19-coronavirus/plots-excel/
 rsync -rvhu --delete --delete-excluded data/* entorb@entorb.net:html/COVID-19-coronavirus/data/
 
 rsync -rvhu results-de-districts.html entorb@entorb.net:html/COVID-19-coronavirus/results-de-districts.html

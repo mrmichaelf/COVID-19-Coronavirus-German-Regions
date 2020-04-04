@@ -177,6 +177,12 @@ def convert_csv():
             helper_add_per_millions('DE-total', l3))
     del l2, l3
 
+    # check if DE sum of lastdate and per-last date has changed, if so: remove last date
+    if d_states_data['DE-total'][-1][1] == d_states_data['DE-total'][-2][1]:
+        print("WARNING: DE cases sum is unchanged")
+        for code in d_states_data:
+            d_states_data[code].pop()
+
     # write to export files
     for code in d_states_data.keys():
         # ensure sorting by date
