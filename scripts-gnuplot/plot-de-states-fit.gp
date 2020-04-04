@@ -49,6 +49,10 @@ short_name = 'DE-total' ; long_name = "Deutschland" ; load "plot-de-states-fit-s
 # delete fit logfile
 `rm fit.log`
 
+
+
+
+
 unset label 2
 unset label 3
 unset xrange
