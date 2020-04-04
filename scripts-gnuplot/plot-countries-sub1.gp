@@ -50,7 +50,7 @@ set key top left box
 # plot 1: lin scale
 set label 2 sprintf("Fit Results\nDoubling Time: %.1f Days\nIncrease 1 Day: %.0f%%\n  -> %d Deaths\nIncrease 7 Days: %.0f%%\n  -> %d Deaths", t_doubling, (exp(b * 1)-1)*100, y_last * exp(b * 1), (exp(b * 7)-1)*100, y_last * exp(b * 7) )
 set label 3 "" .y_last right at first x_max - 2, first y_last 
-set output '../plots-gnuplot/deaths-'.country_code.'-fit.png'
+set output '../plots-gnuplot/int/deaths-'.country_code.'-fit.png'
 plot data using 1:col title "Deaths" with points ls 1 \
 , f(x) title sprintf ("7 Day Fit/Trend") with lines ls 2 \
 , data using 1:11 title "Doublication Time" axis x1y2 with lines ls 5
@@ -63,7 +63,7 @@ unset output
 set logscale y
 set yrange [1:] 
 set title title ." - Log Scale"
-set output '../plots-gnuplot/deaths-'.country_code.'-fit-log.png'
+set output '../plots-gnuplot/int/deaths-'.country_code.'-fit-log.png'
 replot
 unset output
 unset logscale y

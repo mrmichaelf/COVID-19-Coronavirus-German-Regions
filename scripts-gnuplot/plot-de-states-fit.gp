@@ -73,7 +73,7 @@ set boxwidth 0.75 relative
 set key off
 set yrange [0:]
 y_value_de = ( system("tail -1 " . fit_data_file . " | cut -f6") + 0)
-set output '../plots-gnuplot/cases-de-fit-doubling-time.png'
+set output '../plots-gnuplot/de-states/cases-de-fit-doubling-time.png'
 plot fit_data_file u 6:xticlabels(1) with boxes ls 11, y_value_de with lines ls 12
 unset output
 set ytics format "%g%%" 
@@ -81,7 +81,7 @@ set title "Fitergebnis Zunahme Infektionen pro Tag"
 set ylabel "Zunahme Infektionen pro Tag"
 y_value_de = ( system("tail -1 " . fit_data_file . " | cut -f7") + 0)
 y_value_de = (y_value_de-1)*100
-set output '../plots-gnuplot/cases-de-fit-increase-1-day.png'
+set output '../plots-gnuplot/de-states/cases-de-fit-increase-1-day.png'
 plot fit_data_file u (($7-1)*100):xticlabels(1) with boxes ls 11, y_value_de with lines ls 12
 unset output
 set ytics format "%g" 
@@ -92,7 +92,7 @@ set ylabel "Infektionen pro 1 Mill Einwohner"
 data = '../data/de-states/de-states-latest.tsv'
 y_value_de = ( system("tail -1 " . data . " | cut -f10") + 0)
 
-set output '../plots-gnuplot/cases-de-states-latest-per-million.png'
+set output '../plots-gnuplot/de-states/cases-de-states-latest-per-million.png'
 plot data u 10:xticlabels(1) with boxes ls 11, y_value_de with lines ls 12
 unset output
 

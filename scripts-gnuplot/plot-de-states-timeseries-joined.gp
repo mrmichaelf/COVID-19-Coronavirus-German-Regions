@@ -35,7 +35,7 @@ set ylabel "Infektionen"
 
 
 set yrange [0:]
-set output '../plots-gnuplot/cases-de-absolute.png'
+set output '../plots-gnuplot/de-states/cases-de-absolute.png'
 plot \
   '../data/de-states/de-state-NW.tsv' using 2:3 title "Nordrhein-Westfalen" with lines lw 2, \
   '../data/de-states/de-state-BY.tsv' using 2:3 title "Bayern" with lines lw 2, \
@@ -61,7 +61,7 @@ set yrange [1:]
 set logscale y
 
 set title title ." - Logarithmische Skalierung"
-set output '../plots-gnuplot/cases-de-absolute-log.png'
+set output '../plots-gnuplot/de-states/cases-de-absolute-log.png'
 replot
 unset output
 unset logscale y
@@ -71,7 +71,7 @@ title = "Zeitverlauf der Infektionen in den Bundesländer pro 1 Mill Einwohner"
 set title title
 set ylabel "Infizierte pro 1 Millionen Einwohner"
 set yrange [0:]
-set output '../plots-gnuplot/cases-de-per-million.png'
+set output '../plots-gnuplot/de-states/cases-de-per-million.png'
 plot \
   '../data/de-states/de-state-NW.tsv' using 2:7 title "Nordrhein-Westfalen" with lines lw 2, \
   '../data/de-states/de-state-BY.tsv' using 2:7 title "Bayern" with lines lw 2, \
@@ -97,7 +97,7 @@ unset output
 set yrange [1:]
 set logscale y
 set title title ." - log. Skalierung"
-set output '../plots-gnuplot/cases-de-per-million-log.png'
+set output '../plots-gnuplot/de-states/cases-de-per-million-log.png'
 replot
 unset output
 unset logscale y
@@ -108,7 +108,7 @@ title = "Zeitverlauf der täglichen Neu-Infektionen in den Bundesländer pro 1 M
 set title title
 set ylabel "Täglich neu Infizierte pro 1 Millionen Einwohner"
 set yrange [0:]
-set output '../plots-gnuplot/cases-de-new-per-million.png'
+set output '../plots-gnuplot/de-states/cases-de-new-per-million.png'
 plot \
   '../data/de-states/de-state-NW.tsv' using 2:9 smooth bezier title "Nordrhein-Westfalen" with lines lw 2, \
   '../data/de-states/de-state-BY.tsv' using 2:9 smooth bezier title "Bayern" with lines lw 2, \
@@ -134,25 +134,10 @@ unset output
 set yrange [1:]
 set logscale y
 set title title ." - log. Skalierung"
-set output '../plots-gnuplot/cases-de-new-per-million-log.png'
+set output '../plots-gnuplot/de-states/cases-de-new-per-million-log.png'
 replot
 unset output
 unset logscale y
 
 
 
-
-
-
-# set logscale y
-# # set format y "10^{%L}"
-# set title title ." - Logarithmische Skalierung"
-# set output '../plots-gnuplot/cases-de-log.png'
-# replot
-# unset output
-# unset logscale y
-# unset xdata
-
-# unset timefmt
-# unset format
-# unset xdata 

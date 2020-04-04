@@ -55,7 +55,7 @@ set xrange [x_min:x_max+1]
 set label 2 sprintf("Fit Ergebnisse\nVerdopplungszeit: %.1f Tage\nZunahme 1 Tag: %.0f%%\n  -> %d ".col_name."\nZunahme 7 Tage: %.0f%%\n  -> %d ".col_name."", t_doubling, (exp(b * 1)-1)*100, y_last * exp(b * 1), (exp(b * 7)-1)*100, y_last * exp(b * 7) )
 set label 3 "" .y_last right at first x_max - 0.25, first y_last * 1.20
 set yrange [0:]
-set output '../plots-gnuplot/cases-de-fit-'.short_name.'.png'
+set output '../plots-gnuplot/de-states/cases-de-fit-'.short_name.'.png'
 plot data using 1:col title "Daten" with points ls 1 \
 , f(x) title sprintf ("7-Tages Fit/Trend") with lines ls 2 \
 , data using 1:11 title "Verdopplungszeit" axis x1y2 with lines ls 5
@@ -64,7 +64,7 @@ unset output
 set logscale y
 set title title ." - Logarithmische Skalierung"
 set yrange [1:]
-set output '../plots-gnuplot/cases-de-fit-'.short_name.'-log.png'
+set output '../plots-gnuplot/de-states/cases-de-fit-'.short_name.'-log.png'
 replot
 unset output
 unset logscale y

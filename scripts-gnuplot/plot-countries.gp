@@ -26,14 +26,14 @@ set yrange [0:]
 title = "Deaths"
 set title title
 set ylabel "Deaths"
-set output '../plots-gnuplot/countries-latest-selected-deaths.png'
+set output '../plots-gnuplot/int/countries-latest-selected-deaths.png'
 plot data u 4:xticlabels(1) with boxes ls 11
 unset output
 #
 title = title." - Log Scale"
 set title title
 set logscale y
-set output '../plots-gnuplot/countries-latest-selected-deaths-log.png'
+set output '../plots-gnuplot/int/countries-latest-selected-deaths-log.png'
 set yrange [1:]
 replot
 unset output
@@ -43,14 +43,14 @@ unset yrange
 title = "Deaths per Million Population"
 set title title
 set ylabel "Deaths per Million Population"
-set output '../plots-gnuplot/countries-latest-selected-deaths-per-mill.png'
+set output '../plots-gnuplot/int/countries-latest-selected-deaths-per-mill.png'
 plot data u 6:xticlabels(1) with boxes ls 11
 unset output
 #
 title = title." - Log Scale"
 set title title
 set logscale y
-set output '../plots-gnuplot/countries-latest-selected-deaths-per-mill-log.png'
+set output '../plots-gnuplot/int/countries-latest-selected-deaths-per-mill-log.png'
 replot
 unset output
 unset logscale y
@@ -61,7 +61,7 @@ deaths_per_million_of_IT = system ("grep Italy ../data/int/countries-latest-sele
 print deaths_per_million_of_IT
 set title title
 set ylabel "Duplications"
-set output '../plots-gnuplot/countries-duplications-until-IT-level-of-deaths.png'
+set output '../plots-gnuplot/int/countries-duplications-until-IT-level-of-deaths.png'
 plot data u (log(deaths_per_million_of_IT/$6)/log(2)):xticlabels(1) with boxes ls 11
 unset output
 
@@ -74,7 +74,7 @@ set ytics 0,7
 out = system ("cd .. ; python join-country-latest-and-fit-data.py ; cd scripts-gnuplot")
 print out
 data = '../data/int/countries-joined_selected_and_gnuplot_fit.tsv'
-set output '../plots-gnuplot/countries-days-until-IT-level-of-deaths.png'
+set output '../plots-gnuplot/int/countries-days-until-IT-level-of-deaths.png'
 plot data u 16:xticlabels(1) with boxes ls 11
 unset output
 unset yrange
@@ -152,7 +152,7 @@ set boxwidth 0.75 relative
 set key off
 set yrange [0:]
 # y_value_de = ( system("tail -1 " . fit_data_file . " | cut -f6") + 0)
-set output '../plots-gnuplot/countries-fit-deaths-doubling-time.png'
+set output '../plots-gnuplot/int/countries-fit-deaths-doubling-time.png'
 plot fit_data_file u 6:xticlabels(1) with boxes ls 11
 #, y_value_de
 unset output
@@ -161,7 +161,7 @@ set title "Fit Result: Increase of Deaths per Day"
 set ylabel "Increase Deaths per Day"
 # y_value_de = ( system("tail -1 " . fit_data_file . " | cut -f7") + 0)
 # y_value_de = (y_value_de-1)*100
-set output '../plots-gnuplot/countries-fit-deaths-increase-1-day.png'
+set output '../plots-gnuplot/int/countries-fit-deaths-increase-1-day.png'
 plot fit_data_file u (($7-1)*100):xticlabels(1) with boxes ls 11
 # , y_value_de
 unset output
