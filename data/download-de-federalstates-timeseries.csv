@@ -591,3 +591,19 @@ id,Country/Region,federalstate,infections,deaths,date,newinfections,newdeaths
 591,Germany,Saxony-Anhalt,896,11,2020-04-04,60,0
 577,Germany,Schleswig-Holstein,1559,17,2020-04-04,116,2
 592,Germany,Thuringia,1072,10,2020-04-04,90,1
+600,Germany,Baden-Württemberg,18614,367,2020-04-05,1600,51
+601,Germany,Bavaria,23846,396,2020-04-05,1938,47
+603,Germany,Berlin,3613,24,2020-04-05,142,2
+604,Germany,Brandenburg,1305,17,2020-04-05,94,5
+596,Germany,Bremen,394,6,2020-04-05,40,0
+594,Germany,Hamburg,2945,19,2020-04-05,248,3
+598,Germany,Hesse,4575,56,2020-04-05,296,14
+595,Germany,Lower Saxony,5712,89,2020-04-05,141,4
+605,Germany,Mecklenburg-Western Pomerania,523,5,2020-04-05,22,0
+597,Germany,North Rhine-Westphalia,18735,245,2020-04-05,850,45
+599,Germany,Rhineland-Palatinate,3663,32,2020-04-05,159,3
+602,Germany,Saarland,1358,14,2020-04-05,93,0
+606,Germany,Saxony,2741,32,2020-04-05,150,8
+607,Germany,Saxony-Anhalt,919,12,2020-04-05,23,1
+593,Germany,Schleswig-Holstein,1631,18,2020-04-05,72,1
+608,Germany,Thuringia,1140,10,2020-04-05,68,0

@@ -6,7 +6,7 @@
 
 python fetch-int-country-data.py
 python fetch-de-states-data.py
-rm plots-gnuplot/*.png
+rm plots-gnuplot/*/*.png
 cd scripts-gnuplot
 gnuplot plot-de.gp
 gnuplot plot-countries.gp
