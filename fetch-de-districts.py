@@ -279,6 +279,8 @@ def prepare_lk_time_series(lk_id: str) -> list:
     data_t = []
     data_cases = []
     data_deaths = []
+    last_cases = 0
+    last_deaths = 0
 
     # entry = one data point
     for entry in l_time_series_fetched:
@@ -286,14 +288,19 @@ def prepare_lk_time_series(lk_id: str) -> list:
 
         # covert to int
         d['Cases'] = int(entry['SummeFall'])
-        d['Cases_New'] = int(entry['AnzahlFall'])
         d['Deaths'] = int(entry['SummeTodesfall'])
-        d['Deaths_New'] = int(entry['AnzahlTodesfall'])
+        # d['Cases_New'] = int(entry['AnzahlFall'])
+        # d['Deaths_New'] = int(entry['AnzahlTodesfall'])
+        d['Cases_New'] = d['Cases'] - last_cases
+        d['Deaths_New'] = d['Deaths'] - last_cases
         d['Cases_Per_Million'] = round(d['Cases'] / pop_in_million, 3)
         d['Cases_New_Per_Million'] = round(d['Cases_New'] / pop_in_million, 3)
         d['Deaths_Per_Million'] = round(d['Deaths'] / pop_in_million, 3)
         d['Deaths_New_Per_Million'] = round(
             d['Deaths_New'] / pop_in_million, 3)
+
+        last_cases = d['Cases']
+        last_deaths = d['Deaths']
 
         # Rename 'Meldedatum' (ms) -> Timestamp (s)
         d['Timestamp'] = int(entry['Meldedatum'] / 1000)
