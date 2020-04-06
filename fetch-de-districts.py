@@ -291,7 +291,7 @@ def prepare_lk_time_series(lk_id: str) -> list:
         # d['Cases_New'] = int(entry['AnzahlFall'])
         # d['Deaths_New'] = int(entry['AnzahlTodesfall'])
         d['Cases_New'] = d['Cases'] - last_cases
-        d['Deaths_New'] = d['Deaths'] - last_cases
+        d['Deaths_New'] = d['Deaths'] - last_deaths
 
         d = helper.add_per_million(d_ref_landkreise, lk_id, d)
 

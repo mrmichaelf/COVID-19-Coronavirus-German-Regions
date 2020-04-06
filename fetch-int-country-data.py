@@ -230,10 +230,10 @@ def export_time_series_selected_countries():
                  'Cases', 'Deaths',
                  'Cases_New', 'Deaths_New',
                  'Cases_Per_Million', 'Deaths_Per_Million',
-                 'Cases_New_Per_Million', 'Deaths_New_Per_Million'
+                 'Cases_New_Per_Million', 'Deaths_New_Per_Million',
                  'Deaths Doublication Time',
                  'Days since 2 Deaths',
-                 'Deaths Change Factor',
+                 'Deaths Change Factor'
                  )
             )
             for entry in l_country_data:
@@ -243,10 +243,10 @@ def export_time_series_selected_countries():
                         entry['Cases'], entry['Deaths'],
                         entry['Cases_New'], entry['Deaths_New'],
                         entry['Cases_Per_Million'], entry['Deaths_Per_Million'],
-                        entry['Cases_New_Per_Million'], entry['Deaths_New_Per_Million']
+                        entry['Cases_New_Per_Million'], entry['Deaths_New_Per_Million'],
                         entry['Doublication_Time'],
                         entry['Days_Since_2_Deaths'],
-                        entry['change_deaths_factor'],
+                        entry['change_deaths_factor']
                     )
                 )
 
