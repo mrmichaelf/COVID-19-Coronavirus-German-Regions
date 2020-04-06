@@ -55,22 +55,6 @@ def read_ref_data() -> dict:
     return d_states_ref
 
 
-def date_format(y: int, m: int, d: int) -> str:
-    # return "%02d.%02d.%04d" % (d, m, y)
-    # besser, weil sortierbar
-    return "%04d-%02d-%02d" % (y, m, d)
-
-# TODO: move to helper.py
-
-
-def helper_add_per_millions(state_code: str, d: dict) -> dict:
-    global d_states_ref
-    pop_in_million = d_states_ref[state_code]['Population'] / 1000000
-    for key in ('Cases', 'Deaths', 'Cases_New', 'Deaths_New'):
-        d[key+'_Per_Million'] = round(d[key]/pop_in_million, 3)
-    return d
-
-
 def read_csv_to_dict() -> dict:
     """
     read and convert the source csv file, containing: federalstate,infections,deaths,date,newinfections,newdeaths
@@ -94,7 +78,8 @@ def read_csv_to_dict() -> dict:
             d = {}
             s = row['date']
             l = s.split("-")
-            d['Date'] = helper.date_format(int(l[0]), int(l[1]), int(l[2]))
+            d['Date'] = helper.date_format(
+                int(l[0]), int(l[1]), int(l[2]))
             d['Cases'] = int(row["infections"])
             d['Deaths'] = int(row["deaths"])
 
@@ -183,7 +168,7 @@ def read_csv_to_dict() -> dict:
             last_deaths = d['Deaths']
 
             # add per Million rows
-            d = helper_add_per_millions(code, d)
+            d = helper.add_per_million(d_states_ref, code, d)
 
         # fit cases data
         data = []

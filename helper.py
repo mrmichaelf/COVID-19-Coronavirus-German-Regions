@@ -32,6 +32,13 @@ def date_format(y: int, m: int, d: int) -> str:
     return "%04d-%02d-%02d" % (y, m, d)
 
 
+def add_per_million(d_ref: dict, code: str, d: dict) -> dict:
+    pop_in_million = d_ref[code]['Population'] / 1000000
+    for key in ('Cases', 'Deaths', 'Cases_New', 'Deaths_New'):
+        d[key+'_Per_Million'] = round(d[key]/pop_in_million, 3)
+    return d
+
+
 def check_cache_file_available_and_recent(fname: str, max_age: int = 3600, verbose: bool = False) -> bool:
     b_cache_good = True
     if not os.path.exists(fname):

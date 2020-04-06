@@ -181,8 +181,8 @@ def prepare_ref_landkreise() -> dict:
         assert lk_id.isdecimal() == True
 
         d = {}
-        d['Pop'] = d_this_landkreis['EWZ']
-        assert type(d['Pop']) == int
+        d['Population'] = d_this_landkreis['EWZ']
+        assert type(d['Population']) == int
         d['BL_Name'] = d_this_landkreis['BL']
         d['BL_ID'] = d_this_landkreis['BL_ID']
         d['LK_Name'] = d_this_landkreis['GEN']
@@ -265,7 +265,7 @@ def prepare_lk_time_series(lk_id: str) -> list:
     file_out = f'data/de-districts/de-distict_timeseries-{lk_id}.json'
     l_time_series_fetched = fetch_landkreis_time_series(
         lk_id=lk_id, readFromCache=True)
-    pop_in_million = (d_ref_landkreise[lk_id]['Pop']/1000000)
+    pop_in_million = (d_ref_landkreise[lk_id]['Population']/1000000)
 
     l_time_series = []
 
@@ -458,7 +458,7 @@ for lk_id in d_ref_landkreise.keys():
     d = {
         'Bundesland': d_ref_landkreise[lk_id]['BL_Name'],  # Bundesland
         'Landkreis': lk_name,
-        'LK_Einwohner': d_ref_landkreise[lk_id]['Pop'],  # Einwohner
+        'LK_Einwohner': d_ref_landkreise[lk_id]['Population'],  # Einwohner
         'fit_res_N0': round(d_fit_results['fit_res'][0], 3),
         'fit_res_T': round(d_fit_results['fit_res'][1], 3),
         'fit_used_x_range': d_fit_results['fit_used_x_range'],
