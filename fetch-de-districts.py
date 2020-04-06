@@ -168,6 +168,31 @@ def fetch_ref_landkreise(readFromCache: bool = True) -> dict:
     return l_landkreise
 
 
+def BL_code_from_BL_ID(bl_id: str) -> str:
+    """
+    converts BL IDs to Codes: 01 -> SH
+    """
+    d = {
+        '1': 'SH',
+        '2': 'HH',
+        '3': 'NI',
+        '4': 'HB',
+        '5': 'NW',
+        '6': 'HE',
+        '7': 'RP',
+        '8': 'BW',
+        '9': 'BY',
+        '10': 'SL',
+        '11': 'BE',
+        '12': 'BB',
+        '13': 'MV',
+        '14': 'SN',
+        '15': 'ST',
+        '16': 'TH'
+    }
+    return d[bl_id]
+
+
 def prepare_ref_landkreise() -> dict:
     file_out = 'data/de-districts/ref-de-districts.json'
     l_landkreise = fetch_ref_landkreise(readFromCache=True)
@@ -184,7 +209,7 @@ def prepare_ref_landkreise() -> dict:
         d['Population'] = d_this_landkreis['EWZ']
         assert type(d['Population']) == int
         d['BL_Name'] = d_this_landkreis['BL']
-        d['BL_ID'] = d_this_landkreis['BL_ID']
+        d['BL_Code'] = BL_code_from_BL_ID(d_this_landkreis['BL_ID'])
         d['LK_Name'] = d_this_landkreis['GEN']
         d['LK_Typ'] = d_this_landkreis['BEZ']
         d_landkreise[lk_id] = d
@@ -205,16 +230,16 @@ def gen_mapping_BL2LK_json(d_landkreise: dict):
     d_bundeslaender = {}
     for lk_id in d_landkreise.keys():
         lk = d_landkreise[lk_id]
-        if lk['BL_ID'] not in d_bundeslaender.keys():
+        if lk['BL_Code'] not in d_bundeslaender.keys():
             d = {}
             l_lk_ids = []
             l_lk_ids.append((lk_id, lk['LK_Name']))
             d['BL_Name'] = lk['BL_Name']
             d['LK_IDs'] = l_lk_ids
 
-            d_bundeslaender[lk['BL_ID']] = d
+            d_bundeslaender[lk['BL_Code']] = d
         else:
-            d_bundeslaender[lk['BL_ID']]['LK_IDs'].append(
+            d_bundeslaender[lk['BL_Code']]['LK_IDs'].append(
                 (lk_id, lk['LK_Name']))
 
     with open('data/de-districts/mapping_bundesland_landkreis.json', mode='w', encoding='utf-8', newline='\n') as fh:
