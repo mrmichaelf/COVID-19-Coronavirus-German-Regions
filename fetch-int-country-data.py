@@ -161,19 +161,19 @@ def enrich_data_by_calculated_fields():
         data_deaths = []
 
         DaysPast = 1-len(l_country_data)  # last date gets number 0
+        last_confirmed = 0
+        last_deaths = 0
 
         for i in range(len(l_country_data)):
             entry = l_country_data[i]
 
             entry['Days_Past'] = DaysPast
-            # for fits of doublication time
             data_t.append(entry['Days_Past'])
+            DaysPast += 1
+
+            # for fits of doublication time
             data_cases.append(entry['Cases'])
             data_deaths.append(entry['Deaths'])
-
-            entry['Cases_Per_Million'] = round(
-                entry['Cases']/pop_in_Mill, 3)
-            entry['Deaths_Per_Million'] = round(entry['Deaths']/pop_in_Mill, 3)
 
             # days_since_2_deaths
             entry['Days_Since_2_Deaths'] = ""
@@ -181,26 +181,21 @@ def enrich_data_by_calculated_fields():
                 entry['Days_Since_2_Deaths'] = days_since_2_deaths
                 days_since_2_deaths += 1
 
-            entry['Cases_New'] = ""
-            entry['Cases_New_Per_Million'] = ""
-            if last_confirmed >= 10:
-                entry['Cases_New'] = entry['Cases'] - last_confirmed
-                entry['Cases_New_Per_Million'] = round(
-                    entry['Cases_New']/pop_in_Mill, 3)
+            entry['Cases_New'] = entry['Cases'] - last_confirmed
+            entry['Deaths_New'] = entry['Deaths'] - last_deaths
 
-            entry['Deaths_New'] = ""
             entry['change_deaths_factor'] = ""
-            entry['Deaths_New_Per_Million'] = ""
             if last_deaths >= 1:
-                entry['Deaths_New'] = entry['Deaths'] - last_deaths
                 entry['change_deaths_factor'] = round(
                     entry['Deaths']/last_deaths, 3)
-                entry['Deaths_New_Per_Million'] = round(
-                    entry['Deaths_New']/pop_in_Mill, 3)
 
             last_confirmed = entry['Cases']
             last_deaths = entry['Deaths']
-            DaysPast += 1
+
+            # add per Million rows
+            entry = helper.add_per_million(
+                d_selected_countries, country, entry)
+
             l_country_data[i] = entry
 
         # fit the doublication time each day
@@ -256,7 +251,7 @@ def export_time_series_selected_countries():
 
 
 # TODO: uncomment once a day
-download_new_data()
+# download_new_data()
 
 d_selected_countries = read_ref_selected_countries()
 

@@ -265,7 +265,6 @@ def prepare_lk_time_series(lk_id: str) -> list:
     file_out = f'data/de-districts/de-distict_timeseries-{lk_id}.json'
     l_time_series_fetched = fetch_landkreis_time_series(
         lk_id=lk_id, readFromCache=True)
-    pop_in_million = (d_ref_landkreise[lk_id]['Population']/1000000)
 
     l_time_series = []
 
@@ -293,11 +292,8 @@ def prepare_lk_time_series(lk_id: str) -> list:
         # d['Deaths_New'] = int(entry['AnzahlTodesfall'])
         d['Cases_New'] = d['Cases'] - last_cases
         d['Deaths_New'] = d['Deaths'] - last_cases
-        d['Cases_Per_Million'] = round(d['Cases'] / pop_in_million, 3)
-        d['Cases_New_Per_Million'] = round(d['Cases_New'] / pop_in_million, 3)
-        d['Deaths_Per_Million'] = round(d['Deaths'] / pop_in_million, 3)
-        d['Deaths_New_Per_Million'] = round(
-            d['Deaths_New'] / pop_in_million, 3)
+
+        d = helper.add_per_million(d_ref_landkreise, lk_id, d)
 
         last_cases = d['Cases']
         last_deaths = d['Deaths']

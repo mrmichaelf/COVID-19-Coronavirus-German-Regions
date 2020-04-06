@@ -159,7 +159,7 @@ def read_csv_to_dict() -> dict:
             d = l_state_data[i]
 
             d['Days_Past'] = DaysPast
-            l_state_data[i] = d
+            # l_state_data[i] = d
             DaysPast += 1
 
             d['Cases_New'] = d['Cases'] - last_confirmed
