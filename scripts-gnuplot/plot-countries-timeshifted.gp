@@ -195,23 +195,23 @@ set title title
 set ylabel "Deaths per Million Population"
 
 
-set label 11 "AT" left at first last_x_AT/7.0 , first last_y_AT
-set label 12 "BE" left at first last_x_BE/7.0 , first last_y_BE
-set label 13 "CA" left at first last_x_CA/7.0 , first last_y_CA
-set label 14 "FR" left at first last_x_FR/7.0 , first last_y_FR
-set label 15 "DE" left at first last_x_DE/7.0 , first last_y_DE
-set label 16 "HU" left at first last_x_HU/7.0 , first last_y_HU
-set label 17 "IR" left at first last_x_IR/7.0 , first last_y_IR
-set label 18 "IT" left at first last_x_IT/7.0 , first last_y_IT
-set label 19 "JP" left at first last_x_JP/7.0 , first last_y_JP
-set label 20 "KR" left at first last_x_KR/7.0 , first last_y_KR
-set label 21 "NL" left at first last_x_NL/7.0 , first last_y_NL
-set label 22 "PT" left at first last_x_PT/7.0 , first last_y_PT
-set label 23 "ES" left at first last_x_ES/7.0 , first last_y_ES
-set label 24 "CH" left at first last_x_CH/7.0 , first last_y_CH
-set label 25 "UK" left at first last_x_UK/7.0 , first last_y_UK
-set label 26 "US" left at first last_x_US/7.0 , first last_y_US
-set label 27 "SE" left at first last_x_SE/7.0 , first last_y_SE
+set label 11 "AT" left at first last_x_AT/7.0 , first last_y_AT_pm
+set label 12 "BE" left at first last_x_BE/7.0 , first last_y_BE_pm
+set label 13 "CA" left at first last_x_CA/7.0 , first last_y_CA_pm
+set label 14 "FR" left at first last_x_FR/7.0 , first last_y_FR_pm
+set label 15 "DE" left at first last_x_DE/7.0 , first last_y_DE_pm
+set label 16 "HU" left at first last_x_HU/7.0 , first last_y_HU_pm
+set label 17 "IR" left at first last_x_IR/7.0 , first last_y_IR_pm
+set label 18 "IT" left at first last_x_IT/7.0 , first last_y_IT_pm
+set label 19 "JP" left at first last_x_JP/7.0 , first last_y_JP_pm
+set label 20 "KR" left at first last_x_KR/7.0 , first last_y_KR_pm
+set label 21 "NL" left at first last_x_NL/7.0 , first last_y_NL_pm
+set label 22 "PT" left at first last_x_PT/7.0 , first last_y_PT_pm
+set label 23 "ES" left at first last_x_ES/7.0 , first last_y_ES_pm
+set label 24 "CH" left at first last_x_CH/7.0 , first last_y_CH_pm
+set label 25 "UK" left at first last_x_UK/7.0 , first last_y_UK_pm
+set label 26 "US" left at first last_x_US/7.0 , first last_y_US_pm
+set label 27 "SE" left at first last_x_SE/7.0 , first last_y_SE_pm
 
 
 

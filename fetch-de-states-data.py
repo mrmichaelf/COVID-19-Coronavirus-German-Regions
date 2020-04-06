@@ -280,10 +280,11 @@ def export_latest_data(d_states_data: dict):
 d_states_ref = read_ref_data()
 
 # TODO
-# download_new_data()
+download_new_data()
 d_states_data = read_csv_to_dict()
 # convert_csv()
 
 export_data(d_states_data)
 export_latest_data(d_states_data)
-1
+
+# 1
