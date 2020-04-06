@@ -44,7 +44,7 @@ title = "Deaths per Million Population"
 set title title
 set ylabel "Deaths per Million Population"
 set output '../plots-gnuplot/int/countries-latest-selected-deaths-per-mill.png'
-plot data u 8:xticlabels(1) with boxes ls 11
+plot data u 6:xticlabels(1) with boxes ls 11
 unset output
 #
 title = title." - Log Scale"
@@ -58,11 +58,11 @@ unset logscale y
 title = "Duplications until hitting Italy's deaths per capita\n(larger means more time to prepare)"
 set yrange [0:]
 deaths_per_million_of_IT = system ("grep Italy ../data/int/countries-latest-selected.tsv| tail -1 | cut -f6") + 0
-print deaths_per_million_of_IT
+#print deaths_per_million_of_IT
 set title title
 set ylabel "Duplications"
 set output '../plots-gnuplot/int/countries-duplications-until-IT-level-of-deaths.png'
-plot data u (log(deaths_per_million_of_IT/$8)/log(2)):xticlabels(1) with boxes ls 11
+plot data u (log(deaths_per_million_of_IT/$6)/log(2)):xticlabels(1) with boxes ls 11
 unset output
 
 
