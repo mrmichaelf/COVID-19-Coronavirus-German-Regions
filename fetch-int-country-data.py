@@ -109,7 +109,8 @@ def extract_latest_date_data_selected():
     with open('data/int/countries-latest-selected.tsv', mode='w', encoding='utf-8', newline='\n') as f:
         csvwriter = csv.writer(f, delimiter="\t")
         csvwriter.writerow(
-            ('# Country', 'Date', 'Confirmed', 'Deaths',
+            ('# Country', 'Date',
+             'Confirmed', 'Deaths',
              'Confirmed per Million', 'Deaths per Million')
         )
         for country in sorted(d_selected_countries.keys(), key=str.casefold):
@@ -226,13 +227,13 @@ def export_time_series_selected_countries():
             csvwriter = csv.writer(f, delimiter="\t")
             csvwriter.writerow(  # header row
                 ('# Day', 'Date',
-                 'Confirmed', 'Deaths',
-                 'Confirmed per Million', 'Deaths per Million',
-                 'Confirmed Change', 'Deaths Change',
-                 'Deaths Change Factor',
-                 'Days since 2 Deaths',
+                 'Cases', 'Deaths',
+                 'Cases_New', 'Deaths_New',
+                 'Cases_Per_Million', 'Deaths_Per_Million',
+                 'Cases_New_Per_Million', 'Deaths_New_Per_Million'
                  'Deaths Doublication Time',
-                 'New Confirmed per Million', 'New Deaths per Million'
+                 'Days since 2 Deaths',
+                 'Deaths Change Factor',
                  )
             )
             for entry in l_country_data:
@@ -240,12 +241,12 @@ def export_time_series_selected_countries():
                     (
                         entry['Days_Past'], entry['Date'],
                         entry['Cases'], entry['Deaths'],
-                        entry['Cases_Per_Million'], entry['Deaths_Per_Million'],
                         entry['Cases_New'], entry['Deaths_New'],
-                        entry['change_deaths_factor'],
-                        entry['Days_Since_2_Deaths'],
-                        entry['Doublication_Time'],
+                        entry['Cases_Per_Million'], entry['Deaths_Per_Million'],
                         entry['Cases_New_Per_Million'], entry['Deaths_New_Per_Million']
+                        entry['Doublication_Time'],
+                        entry['Days_Since_2_Deaths'],
+                        entry['change_deaths_factor'],
                     )
                 )
 

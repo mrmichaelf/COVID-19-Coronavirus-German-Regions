@@ -33,90 +33,90 @@ date_last = system("tail -1 '../data/int/country-DE.tsv' | cut -f2")
 set label 1 label1_text_right." based on JHU data of ".date_last
 
 
-last_x_AT = (system("tail -1 '../data/int/country-AT.tsv' | cut -f10") + 0)
-last_y_AT = (system("tail -1 '../data/int/country-AT.tsv' | cut -f6") + 0)
+last_x_AT = (system("tail -1 '../data/int/country-AT.tsv' | cut -f12") + 0)
+last_y_AT_pm = (system("tail -1 '../data/int/country-AT.tsv' | cut -f8") + 0)
 last_y_absolute_AT = (system("tail -1 '../data/int/country-AT.tsv' | cut -f4") + 0)
-last_y_new_per_million_AT = (system("tail -1 '../data/int/country-AT.tsv' | cut -f13") + 0)
+last_y_new_per_million_AT = (system("tail -1 '../data/int/country-AT.tsv' | cut -f10") + 0)
 
-last_x_BE = (system("tail -1 '../data/int/country-BE.tsv' | cut -f10") + 0)
-last_y_BE = (system("tail -1 '../data/int/country-BE.tsv' | cut -f6") + 0)
+last_x_BE = (system("tail -1 '../data/int/country-BE.tsv' | cut -f12") + 0)
+last_y_BE_pm = (system("tail -1 '../data/int/country-BE.tsv' | cut -f8") + 0)
 last_y_absolute_BE = (system("tail -1 '../data/int/country-BE.tsv' | cut -f4") + 0)
-last_y_new_per_million_BE = (system("tail -1 '../data/int/country-BE.tsv' | cut -f13") + 0)
+last_y_new_per_million_BE = (system("tail -1 '../data/int/country-BE.tsv' | cut -f10") + 0)
 
-last_x_CA = (system("tail -1 '../data/int/country-CA.tsv' | cut -f10") + 0)
-last_y_CA = (system("tail -1 '../data/int/country-CA.tsv' | cut -f6") + 0)
+last_x_CA = (system("tail -1 '../data/int/country-CA.tsv' | cut -f12") + 0)
+last_y_CA_pm = (system("tail -1 '../data/int/country-CA.tsv' | cut -f8") + 0)
 last_y_absolute_CA = (system("tail -1 '../data/int/country-CA.tsv' | cut -f4") + 0)
-last_y_new_per_million_CA = (system("tail -1 '../data/int/country-CA.tsv' | cut -f13") + 0)
+last_y_new_per_million_CA = (system("tail -1 '../data/int/country-CA.tsv' | cut -f10") + 0)
 
-last_x_FR = (system("tail -1 '../data/int/country-FR.tsv' | cut -f10") + 0)
-last_y_FR = (system("tail -1 '../data/int/country-FR.tsv' | cut -f6") + 0)
+last_x_FR = (system("tail -1 '../data/int/country-FR.tsv' | cut -f12") + 0)
+last_y_FR_pm = (system("tail -1 '../data/int/country-FR.tsv' | cut -f8") + 0)
 last_y_absolute_FR = (system("tail -1 '../data/int/country-FR.tsv' | cut -f4") + 0)
-last_y_new_per_million_FR = (system("tail -1 '../data/int/country-FR.tsv' | cut -f13") + 0)
+last_y_new_per_million_FR = (system("tail -1 '../data/int/country-FR.tsv' | cut -f10") + 0)
 
-last_x_DE = (system("tail -1 '../data/int/country-DE.tsv' | cut -f10") + 0)
-last_y_DE = (system("tail -1 '../data/int/country-DE.tsv' | cut -f6") + 0)
+last_x_DE = (system("tail -1 '../data/int/country-DE.tsv' | cut -f12") + 0)
+last_y_DE_pm = (system("tail -1 '../data/int/country-DE.tsv' | cut -f8") + 0)
 last_y_absolute_DE = (system("tail -1 '../data/int/country-DE.tsv' | cut -f4") + 0)
-last_y_new_per_million_DE = (system("tail -1 '../data/int/country-DE.tsv' | cut -f13") + 0)
+last_y_new_per_million_DE = (system("tail -1 '../data/int/country-DE.tsv' | cut -f10") + 0)
 
-last_x_HU = (system("tail -1 '../data/int/country-HU.tsv' | cut -f10") + 0)
-last_y_HU = (system("tail -1 '../data/int/country-HU.tsv' | cut -f6") + 0)
+last_x_HU = (system("tail -1 '../data/int/country-HU.tsv' | cut -f12") + 0)
+last_y_HU_pm = (system("tail -1 '../data/int/country-HU.tsv' | cut -f8") + 0)
 last_y_absolute_HU = (system("tail -1 '../data/int/country-HU.tsv' | cut -f4") + 0)
-last_y_new_per_million_HU = (system("tail -1 '../data/int/country-HU.tsv' | cut -f13") + 0)
+last_y_new_per_million_HU = (system("tail -1 '../data/int/country-HU.tsv' | cut -f10") + 0)
 
-last_x_IR = (system("tail -1 '../data/int/country-IR.tsv' | cut -f10") + 0)
-last_y_IR = (system("tail -1 '../data/int/country-IR.tsv' | cut -f6") + 0)
+last_x_IR = (system("tail -1 '../data/int/country-IR.tsv' | cut -f12") + 0)
+last_y_IR_pm = (system("tail -1 '../data/int/country-IR.tsv' | cut -f8") + 0)
 last_y_absolute_IR = (system("tail -1 '../data/int/country-IR.tsv' | cut -f4") + 0)
-last_y_new_per_million_IR = (system("tail -1 '../data/int/country-IR.tsv' | cut -f13") + 0)
+last_y_new_per_million_IR = (system("tail -1 '../data/int/country-IR.tsv' | cut -f10") + 0)
 
-last_x_IT = (system("tail -1 '../data/int/country-IT.tsv' | cut -f10") + 0)
-last_y_IT = (system("tail -1 '../data/int/country-IT.tsv' | cut -f6") + 0)
+last_x_IT = (system("tail -1 '../data/int/country-IT.tsv' | cut -f12") + 0)
+last_y_IT_pm = (system("tail -1 '../data/int/country-IT.tsv' | cut -f8") + 0)
 last_y_absolute_IT = (system("tail -1 '../data/int/country-IT.tsv' | cut -f4") + 0)
-last_y_new_per_million_IT = (system("tail -1 '../data/int/country-IT.tsv' | cut -f13") + 0)
+last_y_new_per_million_IT = (system("tail -1 '../data/int/country-IT.tsv' | cut -f10") + 0)
 
-last_x_JP = (system("tail -1 '../data/int/country-JP.tsv' | cut -f10") + 0)
-last_y_JP = (system("tail -1 '../data/int/country-JP.tsv' | cut -f6") + 0)
+last_x_JP = (system("tail -1 '../data/int/country-JP.tsv' | cut -f12") + 0)
+last_y_JP_pm = (system("tail -1 '../data/int/country-JP.tsv' | cut -f8") + 0)
 last_y_absolute_JP = (system("tail -1 '../data/int/country-JP.tsv' | cut -f4") + 0)
-last_y_new_per_million_JP = (system("tail -1 '../data/int/country-JP.tsv' | cut -f13") + 0)
+last_y_new_per_million_JP = (system("tail -1 '../data/int/country-JP.tsv' | cut -f10") + 0)
 
-last_x_KR = (system("tail -1 '../data/int/country-KR.tsv' | cut -f10") + 0)
-last_y_KR = (system("tail -1 '../data/int/country-KR.tsv' | cut -f6") + 0)
+last_x_KR = (system("tail -1 '../data/int/country-KR.tsv' | cut -f12") + 0)
+last_y_KR_pm = (system("tail -1 '../data/int/country-KR.tsv' | cut -f8") + 0)
 last_y_absolute_KR = (system("tail -1 '../data/int/country-KR.tsv' | cut -f4") + 0)
-last_y_new_per_million_KR = (system("tail -1 '../data/int/country-KR.tsv' | cut -f13") + 0)
+last_y_new_per_million_KR = (system("tail -1 '../data/int/country-KR.tsv' | cut -f10") + 0)
 
-last_x_NL = (system("tail -1 '../data/int/country-NL.tsv' | cut -f10") + 0)
-last_y_NL = (system("tail -1 '../data/int/country-NL.tsv' | cut -f6") + 0)
+last_x_NL = (system("tail -1 '../data/int/country-NL.tsv' | cut -f12") + 0)
+last_y_NL_pm = (system("tail -1 '../data/int/country-NL.tsv' | cut -f8") + 0)
 last_y_absolute_NL = (system("tail -1 '../data/int/country-NL.tsv' | cut -f4") + 0)
-last_y_new_per_million_NL = (system("tail -1 '../data/int/country-NL.tsv' | cut -f13") + 0)
+last_y_new_per_million_NL = (system("tail -1 '../data/int/country-NL.tsv' | cut -f10") + 0)
 
-last_x_PT = (system("tail -1 '../data/int/country-PT.tsv' | cut -f10") + 0)
-last_y_PT = (system("tail -1 '../data/int/country-PT.tsv' | cut -f6") + 0)
+last_x_PT = (system("tail -1 '../data/int/country-PT.tsv' | cut -f12") + 0)
+last_y_PT_pm = (system("tail -1 '../data/int/country-PT.tsv' | cut -f8") + 0)
 last_y_absolute_PT = (system("tail -1 '../data/int/country-PT.tsv' | cut -f4") + 0)
-last_y_new_per_million_PT = (system("tail -1 '../data/int/country-PT.tsv' | cut -f13") + 0)
+last_y_new_per_million_PT = (system("tail -1 '../data/int/country-PT.tsv' | cut -f10") + 0)
 
-last_x_ES = (system("tail -1 '../data/int/country-ES.tsv' | cut -f10") + 0)
-last_y_ES = (system("tail -1 '../data/int/country-ES.tsv' | cut -f6") + 0)
+last_x_ES = (system("tail -1 '../data/int/country-ES.tsv' | cut -f12") + 0)
+last_y_ES_pm = (system("tail -1 '../data/int/country-ES.tsv' | cut -f8") + 0)
 last_y_absolute_ES = (system("tail -1 '../data/int/country-ES.tsv' | cut -f4") + 0)
-last_y_new_per_million_ES = (system("tail -1 '../data/int/country-ES.tsv' | cut -f13") + 0)
+last_y_new_per_million_ES = (system("tail -1 '../data/int/country-ES.tsv' | cut -f10") + 0)
 
-last_x_CH = (system("tail -1 '../data/int/country-CH.tsv' | cut -f10") + 0)
-last_y_CH = (system("tail -1 '../data/int/country-CH.tsv' | cut -f6") + 0)
+last_x_CH = (system("tail -1 '../data/int/country-CH.tsv' | cut -f12") + 0)
+last_y_CH_pm = (system("tail -1 '../data/int/country-CH.tsv' | cut -f8") + 0)
 last_y_absolute_CH = (system("tail -1 '../data/int/country-CH.tsv' | cut -f4") + 0)
-last_y_new_per_million_CH = (system("tail -1 '../data/int/country-CH.tsv' | cut -f13") + 0)
+last_y_new_per_million_CH = (system("tail -1 '../data/int/country-CH.tsv' | cut -f10") + 0)
 
-last_x_UK = (system("tail -1 '../data/int/country-UK.tsv' | cut -f10") + 0)
-last_y_UK = (system("tail -1 '../data/int/country-UK.tsv' | cut -f6") + 0)
+last_x_UK = (system("tail -1 '../data/int/country-UK.tsv' | cut -f12") + 0)
+last_y_UK_pm = (system("tail -1 '../data/int/country-UK.tsv' | cut -f8") + 0)
 last_y_absolute_UK = (system("tail -1 '../data/int/country-UK.tsv' | cut -f4") + 0)
-last_y_new_per_million_UK = (system("tail -1 '../data/int/country-UK.tsv' | cut -f13") + 0)
+last_y_new_per_million_UK = (system("tail -1 '../data/int/country-UK.tsv' | cut -f10") + 0)
 
-last_x_US = (system("tail -1 '../data/int/country-US.tsv' | cut -f10") + 0)
-last_y_US = (system("tail -1 '../data/int/country-US.tsv' | cut -f6") + 0)
+last_x_US = (system("tail -1 '../data/int/country-US.tsv' | cut -f12") + 0)
+last_y_US_pm = (system("tail -1 '../data/int/country-US.tsv' | cut -f8") + 0)
 last_y_absolute_US = (system("tail -1 '../data/int/country-US.tsv' | cut -f4") + 0)
-last_y_new_per_million_US = (system("tail -1 '../data/int/country-US.tsv' | cut -f13") + 0)
+last_y_new_per_million_US = (system("tail -1 '../data/int/country-US.tsv' | cut -f10") + 0)
 
-last_x_SE = (system("tail -1 '../data/int/country-SE.tsv' | cut -f10") + 0)
-last_y_SE = (system("tail -1 '../data/int/country-SE.tsv' | cut -f6") + 0)
+last_x_SE = (system("tail -1 '../data/int/country-SE.tsv' | cut -f12") + 0)
+last_y_SE_pm = (system("tail -1 '../data/int/country-SE.tsv' | cut -f8") + 0)
 last_y_absolute_SE = (system("tail -1 '../data/int/country-SE.tsv' | cut -f4") + 0)
-last_y_new_per_million_SE = (system("tail -1 '../data/int/country-SE.tsv' | cut -f13") + 0)
+last_y_new_per_million_SE = (system("tail -1 '../data/int/country-SE.tsv' | cut -f10") + 0)
 
 
 
@@ -150,23 +150,23 @@ set xrange [0:]
 set yrange [0:]
 set output '../plots-gnuplot/int/countries-timeshifted-absolute.png'
 plot \
-  '../data/int/country-IT.tsv' using ($10/7):4 title "Italy" with lines lw 2, \
-  '../data/int/country-IR.tsv' using ($10/7):4 title "Iran" with lines lw 2, \
-  '../data/int/country-DE.tsv' using ($10/7):4 title "Germany" with lines lw 2, \
-  '../data/int/country-FR.tsv' using ($10/7):4 title "France" with lines lw 2, \
-  '../data/int/country-ES.tsv' using ($10/7):4 title "Spain" with lines lw 2, \
-  '../data/int/country-AT.tsv' using ($10/7):4 title "Austria" with lines lw 2, \
-  '../data/int/country-UK.tsv' using ($10/7):4 title "United Kingdom" with lines lw 2, \
-  '../data/int/country-US.tsv' using ($10/7):4 title "US" with lines lw 2, \
-  '../data/int/country-BE.tsv' using ($10/7):4 title "Belgium" with lines lw 2 dt "-", \
-  '../data/int/country-CA.tsv' using ($10/7):4 title "Canada" with lines lw 2 dt "-", \
-  '../data/int/country-HU.tsv' using ($10/7):4 title "Hungary" with lines lw 2 dt "-", \
-  '../data/int/country-NL.tsv' using ($10/7):4 title "Netherlands" with lines lw 2 dt "-", \
-  '../data/int/country-PT.tsv' using ($10/7):4 title "Portugal" with lines lw 2 dt "-", \
-  '../data/int/country-CH.tsv' using ($10/7):4 title "Switzerland" with lines lw 2 dt "-", \
-  '../data/int/country-JP.tsv' using ($10/7):4 title "Japan" with lines lw 2 dt "-", \
-  '../data/int/country-KR.tsv' using ($10/7):4 title "Korea, South" with lines lw 2 dt "-",\
-  '../data/int/country-SE.tsv' using ($10/7):4 title "Sweden" with lines lw 2 dt ".",\
+  '../data/int/country-IT.tsv' using ($12/7):4 title "Italy" with lines lw 2, \
+  '../data/int/country-IR.tsv' using ($12/7):4 title "Iran" with lines lw 2, \
+  '../data/int/country-DE.tsv' using ($12/7):4 title "Germany" with lines lw 2, \
+  '../data/int/country-FR.tsv' using ($12/7):4 title "France" with lines lw 2, \
+  '../data/int/country-ES.tsv' using ($12/7):4 title "Spain" with lines lw 2, \
+  '../data/int/country-AT.tsv' using ($12/7):4 title "Austria" with lines lw 2, \
+  '../data/int/country-UK.tsv' using ($12/7):4 title "United Kingdom" with lines lw 2, \
+  '../data/int/country-US.tsv' using ($12/7):4 title "US" with lines lw 2, \
+  '../data/int/country-BE.tsv' using ($12/7):4 title "Belgium" with lines lw 2 dt "-", \
+  '../data/int/country-CA.tsv' using ($12/7):4 title "Canada" with lines lw 2 dt "-", \
+  '../data/int/country-HU.tsv' using ($12/7):4 title "Hungary" with lines lw 2 dt "-", \
+  '../data/int/country-NL.tsv' using ($12/7):4 title "Netherlands" with lines lw 2 dt "-", \
+  '../data/int/country-PT.tsv' using ($12/7):4 title "Portugal" with lines lw 2 dt "-", \
+  '../data/int/country-CH.tsv' using ($12/7):4 title "Switzerland" with lines lw 2 dt "-", \
+  '../data/int/country-JP.tsv' using ($12/7):4 title "Japan" with lines lw 2 dt "-", \
+  '../data/int/country-KR.tsv' using ($12/7):4 title "Korea, South" with lines lw 2 dt "-",\
+  '../data/int/country-SE.tsv' using ($12/7):4 title "Sweden" with lines lw 2 dt ".",\
 
 unset output
 
@@ -224,23 +224,23 @@ set xrange [0:]
 set yrange [0:]
 set output '../plots-gnuplot/int/countries-timeshifted-per-million.png'
 plot \
-  '../data/int/country-IT.tsv' using ($10/7):6 title "Italy" with lines lw 2, \
-  '../data/int/country-IR.tsv' using ($10/7):6 title "Iran" with lines lw 2, \
-  '../data/int/country-DE.tsv' using ($10/7):6 title "Germany" with lines lw 2, \
-  '../data/int/country-FR.tsv' using ($10/7):6 title "France" with lines lw 2, \
-  '../data/int/country-ES.tsv' using ($10/7):6 title "Spain" with lines lw 2, \
-  '../data/int/country-AT.tsv' using ($10/7):6 title "Austria" with lines lw 2, \
-  '../data/int/country-UK.tsv' using ($10/7):6 title "United Kingdom" with lines lw 2, \
-  '../data/int/country-US.tsv' using ($10/7):6 title "US" with lines lw 2, \
-  '../data/int/country-BE.tsv' using ($10/7):6 title "Belgium" with lines lw 2 dt "-", \
-  '../data/int/country-CA.tsv' using ($10/7):6 title "Canada" with lines lw 2 dt "-", \
-  '../data/int/country-HU.tsv' using ($10/7):6 title "Hungary" with lines lw 2 dt "-", \
-  '../data/int/country-NL.tsv' using ($10/7):6 title "Netherlands" with lines lw 2 dt "-", \
-  '../data/int/country-PT.tsv' using ($10/7):6 title "Portugal" with lines lw 2 dt "-", \
-  '../data/int/country-CH.tsv' using ($10/7):6 title "Switzerland" with lines lw 2 dt "-", \
-  '../data/int/country-KR.tsv' using ($10/7):6 title "Korea, South" with lines lw 2 dt "-",\
-  '../data/int/country-JP.tsv' using ($10/7):6 title "Japan" with lines lw 2 dt "-", \
-  '../data/int/country-SE.tsv' using ($10/7):6 title "Sweden" with lines lw 2 dt ".", \
+  '../data/int/country-IT.tsv' using ($12/7):8 title "Italy" with lines lw 2, \
+  '../data/int/country-IR.tsv' using ($12/7):8 title "Iran" with lines lw 2, \
+  '../data/int/country-DE.tsv' using ($12/7):8 title "Germany" with lines lw 2, \
+  '../data/int/country-FR.tsv' using ($12/7):8 title "France" with lines lw 2, \
+  '../data/int/country-ES.tsv' using ($12/7):8 title "Spain" with lines lw 2, \
+  '../data/int/country-AT.tsv' using ($12/7):8 title "Austria" with lines lw 2, \
+  '../data/int/country-UK.tsv' using ($12/7):8 title "United Kingdom" with lines lw 2, \
+  '../data/int/country-US.tsv' using ($12/7):8 title "US" with lines lw 2, \
+  '../data/int/country-BE.tsv' using ($12/7):8 title "Belgium" with lines lw 2 dt "-", \
+  '../data/int/country-CA.tsv' using ($12/7):8 title "Canada" with lines lw 2 dt "-", \
+  '../data/int/country-HU.tsv' using ($12/7):8 title "Hungary" with lines lw 2 dt "-", \
+  '../data/int/country-NL.tsv' using ($12/7):8 title "Netherlands" with lines lw 2 dt "-", \
+  '../data/int/country-PT.tsv' using ($12/7):8 title "Portugal" with lines lw 2 dt "-", \
+  '../data/int/country-CH.tsv' using ($12/7):8 title "Switzerland" with lines lw 2 dt "-", \
+  '../data/int/country-KR.tsv' using ($12/7):8 title "Korea, South" with lines lw 2 dt "-",\
+  '../data/int/country-JP.tsv' using ($12/7):8 title "Japan" with lines lw 2 dt "-", \
+  '../data/int/country-SE.tsv' using ($12/7):8 title "Sweden" with lines lw 2 dt ".", \
 
 unset output
 # replot to set y2range accordingly to yrange
@@ -309,23 +309,23 @@ set xrange [0:]
 set yrange [0:]
 set output '../plots-gnuplot/int/countries-timeshifted-new_deaths-per-million.png'
 plot \
-  '../data/int/country-IT.tsv' using ($10/7):13 smooth bezier title "Italy" with lines lw 2, \
-  '../data/int/country-IR.tsv' using ($10/7):13 smooth bezier title "Iran" with lines lw 2, \
-  '../data/int/country-DE.tsv' using ($10/7):13 smooth bezier title "Germany" with lines lw 2, \
-  '../data/int/country-FR.tsv' using ($10/7):13 smooth bezier title "France" with lines lw 2, \
-  '../data/int/country-ES.tsv' using ($10/7):13 smooth bezier title "Spain" with lines lw 2, \
-  '../data/int/country-AT.tsv' using ($10/7):13 smooth bezier title "Austria" with lines lw 2, \
-  '../data/int/country-UK.tsv' using ($10/7):13 smooth bezier title "United Kingdom" with lines lw 2, \
-  '../data/int/country-US.tsv' using ($10/7):13 smooth bezier title "US" with lines lw 2, \
-  '../data/int/country-BE.tsv' using ($10/7):13 smooth bezier title "Belgium" with lines lw 2 dt "-", \
-  '../data/int/country-CA.tsv' using ($10/7):13 smooth bezier title "Canada" with lines lw 2 dt "-", \
-  '../data/int/country-HU.tsv' using ($10/7):13 smooth bezier title "Hungary" with lines lw 2 dt "-", \
-  '../data/int/country-NL.tsv' using ($10/7):13 smooth bezier title "Netherlands" with lines lw 2 dt "-", \
-  '../data/int/country-PT.tsv' using ($10/7):13 smooth bezier title "Portugal" with lines lw 2 dt "-", \
-  '../data/int/country-CH.tsv' using ($10/7):13 smooth bezier title "Switzerland" with lines lw 2 dt "-", \
-  '../data/int/country-JP.tsv' using ($10/7):13 smooth bezier title "Japan" with lines lw 2 dt "-", \
-  '../data/int/country-KR.tsv' using ($10/7):13 smooth bezier title "Korea, South" with lines lw 2 dt "-",\
-  '../data/int/country-SE.tsv' using ($10/7):13 smooth bezier title "Sweden" with lines lw 2 dt ".",\
+  '../data/int/country-IT.tsv' using ($12/7):10 smooth bezier title "Italy" with lines lw 2, \
+  '../data/int/country-IR.tsv' using ($12/7):10 smooth bezier title "Iran" with lines lw 2, \
+  '../data/int/country-DE.tsv' using ($12/7):10 smooth bezier title "Germany" with lines lw 2, \
+  '../data/int/country-FR.tsv' using ($12/7):10 smooth bezier title "France" with lines lw 2, \
+  '../data/int/country-ES.tsv' using ($12/7):10 smooth bezier title "Spain" with lines lw 2, \
+  '../data/int/country-AT.tsv' using ($12/7):10 smooth bezier title "Austria" with lines lw 2, \
+  '../data/int/country-UK.tsv' using ($12/7):10 smooth bezier title "United Kingdom" with lines lw 2, \
+  '../data/int/country-US.tsv' using ($12/7):10 smooth bezier title "US" with lines lw 2, \
+  '../data/int/country-BE.tsv' using ($12/7):10 smooth bezier title "Belgium" with lines lw 2 dt "-", \
+  '../data/int/country-CA.tsv' using ($12/7):10 smooth bezier title "Canada" with lines lw 2 dt "-", \
+  '../data/int/country-HU.tsv' using ($12/7):10 smooth bezier title "Hungary" with lines lw 2 dt "-", \
+  '../data/int/country-NL.tsv' using ($12/7):10 smooth bezier title "Netherlands" with lines lw 2 dt "-", \
+  '../data/int/country-PT.tsv' using ($12/7):10 smooth bezier title "Portugal" with lines lw 2 dt "-", \
+  '../data/int/country-CH.tsv' using ($12/7):10 smooth bezier title "Switzerland" with lines lw 2 dt "-", \
+  '../data/int/country-JP.tsv' using ($12/7):10 smooth bezier title "Japan" with lines lw 2 dt "-", \
+  '../data/int/country-KR.tsv' using ($12/7):10 smooth bezier title "Korea, South" with lines lw 2 dt "-",\
+  '../data/int/country-SE.tsv' using ($12/7):10 smooth bezier title "Sweden" with lines lw 2 dt ".",\
 
 unset output
 # replot to set y2range accordingly to yrange
