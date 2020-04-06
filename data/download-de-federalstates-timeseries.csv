@@ -607,3 +607,19 @@ id,Country/Region,federalstate,infections,deaths,date,newinfections,newdeaths
 607,Germany,Saxony-Anhalt,919,12,2020-04-05,23,1
 593,Germany,Schleswig-Holstein,1631,18,2020-04-05,72,1
 608,Germany,Thuringia,1140,10,2020-04-05,68,0
+616,Germany,Baden-Württemberg,19395,387,2020-04-06,781,20
+617,Germany,Bavaria,24974,437,2020-04-06,1128,41
+619,Germany,Berlin,3670,26,2020-04-06,57,2
+620,Germany,Brandenburg,1345,19,2020-04-06,40,2
+612,Germany,Bremen,397,8,2020-04-06,3,2
+610,Germany,Hamburg,2993,19,2020-04-06,48,0
+614,Germany,Hesse,4674,61,2020-04-06,99,5
+611,Germany,Lower Saxony,5960,92,2020-04-06,248,3
+621,Germany,Mecklenburg-Western Pomerania,528,6,2020-04-06,5,1
+613,Germany,North Rhine-Westphalia,19384,255,2020-04-06,649,10
+615,Germany,Rhineland-Palatinate,3882,32,2020-04-06,219,0
+618,Germany,Saarland,1483,14,2020-04-06,125,0
+622,Germany,Saxony,2903,34,2020-04-06,162,2
+623,Germany,Saxony-Anhalt,956,12,2020-04-06,37,0
+609,Germany,Schleswig-Holstein,1671,20,2020-04-06,40,2
+624,Germany,Thuringia,1176,12,2020-04-06,36,2
