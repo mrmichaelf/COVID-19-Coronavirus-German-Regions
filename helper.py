@@ -101,38 +101,41 @@ def fit_routine(data: list, fit_range_x: list = (-np.inf, np.inf), fit_range_y: 
     (data_x_for_fit, data_y_for_fit) = extract_data_according_to_fit_ranges(
         data, fit_range_x, fit_range_y)
 
-    # Do the fit
-    p0 = [data_y_for_fit[-1], 5.0]  # initial guess of parameters
-    try:
-        fit_res, fit_res_cov = curve_fit(
-            fit_function_exp_growth,
-            data_x_for_fit,
-            data_y_for_fit,
-            p0,
-            bounds=(
-                (0, -np.inf), (np.inf, np.inf)
+    d = {}
+    if len(data_x_for_fit) >= 3:
+        # Do the fit
+        p0 = [data_y_for_fit[-1], 5.0]  # initial guess of parameters
+        try:
+            fit_res, fit_res_cov = curve_fit(
+                fit_function_exp_growth,
+                data_x_for_fit,
+                data_y_for_fit,
+                p0,
+                bounds=(
+                    (0, -np.inf), (np.inf, np.inf)
+                )
             )
-        )
-        # bounds: ( min of all parameters) , (max of all parameters) )
+            # bounds: ( min of all parameters) , (max of all parameters) )
 
-        y_next_day = fit_function_exp_growth(1, fit_res[0], fit_res[1])
-        y_next_day_delta = y_next_day - data_y_for_fit[-1]
-        factor_increase_next_day = y_next_day / data_y_for_fit[-1]
+            y_next_day = fit_function_exp_growth(1, fit_res[0], fit_res[1])
+            y_next_day_delta = y_next_day - data_y_for_fit[-1]
+            factor_increase_next_day = ""
+            if data_y_for_fit[-1] > 0:
+                factor_increase_next_day = y_next_day / data_y_for_fit[-1]
 
-        d = {
-            'fit_set_x_range': fit_range_x,
-            'fit_set_y_range': fit_range_y,
-            'fit_used_x_range': (data_x_for_fit[0], data_x_for_fit[-1]),
-            'fit_res': fit_res,
-            'fit_res_cov': fit_res_cov,
-            'y_at_x_max': data_y_for_fit[-1],
-            'forcast_y_at_x+1': y_next_day,
-            'forcast_y_delta_at_x+1': y_next_day_delta,
-            'factor_increase_x+1': factor_increase_next_day
-        }
-    except (Exception, RuntimeError) as error:
-        d = {}
-        print(error)
+            d = {
+                'fit_set_x_range': fit_range_x,
+                'fit_set_y_range': fit_range_y,
+                'fit_used_x_range': (data_x_for_fit[0], data_x_for_fit[-1]),
+                'fit_res': fit_res,
+                'fit_res_cov': fit_res_cov,
+                'y_at_x_max': data_y_for_fit[-1],
+                'forcast_y_at_x+1': y_next_day,
+                'forcast_y_delta_at_x+1': y_next_day_delta,
+                'factor_increase_x+1': factor_increase_next_day
+            }
+        except (Exception, RuntimeError) as error:
+            print(error)
     return d
 
 
@@ -145,11 +148,15 @@ def series_of_fits(data: list, fit_range: int = 7, max_days_past=14) -> list:
     returns dict: day -> doublication_time
     """
     fit_series_res = {}
-    for last_day_for_fit in range(0, -max_days_past, -1):
-        d = fit_routine(
-            data, (last_day_for_fit-fit_range, last_day_for_fit))
-        # d is empty if fit fails
-        if len(d) != 0:
-            # douplication_time -> dict
-            fit_series_res[last_day_for_fit] = round(d['fit_res'][1], 1)
+    # remove y=0 values until first non-null
+    while len(data) > 0 and data[0][1] == 0:
+        data.pop(0)
+    if len(data) >= 3:
+        for last_day_for_fit in range(0, -max_days_past, -1):
+            d = fit_routine(
+                data, (last_day_for_fit-fit_range, last_day_for_fit))
+            # d is empty if fit fails
+            if len(d) != 0:
+                # douplication_time -> dict
+                fit_series_res[last_day_for_fit] = round(d['fit_res'][1], 1)
     return fit_series_res
