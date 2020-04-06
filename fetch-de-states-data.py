@@ -21,6 +21,7 @@ __version__ = "0.1"
 
 import urllib.request
 import csv
+import json
 
 # from matplotlib import pyplot as plt
 
@@ -59,19 +60,23 @@ def date_format(y: int, m: int, d: int) -> str:
     # besser, weil sortierbar
     return "%04d-%02d-%02d" % (y, m, d)
 
+# TODO: move to helper.py
 
-def helper_add_per_millions(state_code: str, l: list) -> list:
+
+def helper_add_per_millions(state_code: str, d: dict) -> dict:
     global d_states_ref
     pop_in_million = d_states_ref[state_code]['Population'] / 1000000
-    for i in range(1, 5):
-        l.append(round(l[i]/pop_in_million, 3))
-    return l
+    for key in ('Cases', 'Deaths', 'Cases_New', 'Deaths_New'):
+        d[key+'_Per_Million'] = round(d[key]/pop_in_million, 3)
+    return d
 
 
-def convert_csv():
+def read_csv_to_dict() -> dict:
     """
-    read and convert the source csv file: federalstate,infections,deaths,date,newinfections,newdeaths
-    out: one file per state: 'date', 'infections', 'deaths', 'new infections', 'new deaths'
+    read and convert the source csv file, containing: federalstate,infections,deaths,date,newinfections,newdeaths
+    re-calc _New
+    add _Per_Million
+    add Fitted Doublication time
     """
 
     global d_states_ref
@@ -82,175 +87,180 @@ def convert_csv():
     d_states_data['DE-total'] = []
     d_german_sums = {}  # date -> 'infections', 'deaths', 'new infections', 'new deaths'
 
-    # header row
-    for code in d_states_data.keys():
-        # d_states_data is a dict of lists, first item is the header
-        d_states_data[code] = [['# day', 'date',
-                                'infections', 'deaths', 'new infections', 'new deaths',
-                                'infections per million', 'deaths per million', 'new infections per million', 'new deaths per million',
-                                'fitted_infection_doublication_time_last_7_days'
-                                ]]
-
     # data body
     with open(download_file, mode='r', encoding='utf-8') as f:
         csv_reader = csv.DictReader(f, delimiter=",")
         for row in csv_reader:
-            # not needed as date already is in yyyy-mm-dd format
-            # l = row["date"].split('-')
-            # l = [int(v) for v in l]
-            # datum = date_format(*l)
-
-            this_infections = int(row["infections"])
-            this_deaths = int(row["deaths"])
-            if row["newinfections"] != "":
-                this_newinfections = int(row["newinfections"])
-            else:
-                this_newinfections = 0
-            if row["newdeaths"] != "":
-                this_newdeaths = int(row["newdeaths"])
-            else:
-                this_newdeaths = 0
-
-            l = [row["date"],
-                 this_infections,
-                 this_deaths,
-                 this_newinfections,
-                 this_newdeaths
-                 ]
+            d = {}
+            s = row['date']
+            l = s.split("-")
+            d['Date'] = helper.date_format(int(l[0]), int(l[1]), int(l[2]))
+            d['Cases'] = int(row["infections"])
+            d['Deaths'] = int(row["deaths"])
 
             if row["federalstate"] == 'Baden-Württemberg':
-                d_states_data['BW'].append(helper_add_per_millions('BW', l))
+                d_states_data['BW'].append(d)
             elif row["federalstate"] == 'Bavaria':
-                d_states_data['BY'].append(helper_add_per_millions('BY', l))
+                d_states_data['BY'].append(d)
             elif row["federalstate"] == 'Berlin':
-                d_states_data['BE'].append(helper_add_per_millions('BE', l))
+                d_states_data['BE'].append(d)
             elif row["federalstate"] == 'Brandenburg':
-                d_states_data['BB'].append(helper_add_per_millions('BB', l))
+                d_states_data['BB'].append(d)
             elif row["federalstate"] == 'Bremen':
-                d_states_data['HB'].append(helper_add_per_millions('HB', l))
+                d_states_data['HB'].append(d)
             elif row["federalstate"] == 'Hamburg':
-                d_states_data['HH'].append(helper_add_per_millions('HH', l))
+                d_states_data['HH'].append(d)
             elif row["federalstate"] == 'Hesse':
-                d_states_data['HE'].append(helper_add_per_millions('HE', l))
+                d_states_data['HE'].append(d)
             elif row["federalstate"] == 'Lower Saxony':
-                d_states_data['NI'].append(helper_add_per_millions('NI', l))
+                d_states_data['NI'].append(d)
             elif row["federalstate"] == 'North Rhine-Westphalia':
-                d_states_data['NW'].append(helper_add_per_millions('NW', l))
+                d_states_data['NW'].append(d)
             elif row["federalstate"] == 'Mecklenburg-Western Pomerania':
-                d_states_data['MV'].append(helper_add_per_millions('MV', l))
+                d_states_data['MV'].append(d)
             elif row["federalstate"] == 'Rhineland-Palatinate':
-                d_states_data['RP'].append(helper_add_per_millions('RP', l))
+                d_states_data['RP'].append(d)
             elif row["federalstate"] == 'Saarland':
-                d_states_data['SL'].append(helper_add_per_millions('SL', l))
+                d_states_data['SL'].append(d)
             elif row["federalstate"] == 'Saxony':
-                d_states_data['SN'].append(helper_add_per_millions('SN', l))
+                d_states_data['SN'].append(d)
             elif row["federalstate"] == 'Saxony-Anhalt':
-                d_states_data['ST'].append(helper_add_per_millions('ST', l))
+                d_states_data['ST'].append(d)
             elif row["federalstate"] == 'Schleswig-Holstein':
-                d_states_data['SH'].append(helper_add_per_millions('SH', l))
+                d_states_data['SH'].append(d)
             elif row["federalstate"] == 'Thuringia':
-                d_states_data['TH'].append(helper_add_per_millions('TH', l))
+                d_states_data['TH'].append(d)
             else:
                 print("ERROR: unknown state")
                 quit()
-            del l
 
             # add to German sum
-
-            if row["date"] not in d_german_sums:
-                d_german_sums[row["date"]] = [this_infections,
-                                              this_deaths, this_newinfections, this_newdeaths]
+            if d['Date'] not in d_german_sums:
+                d2 = {}
+                d2['Cases'] = d['Cases']
+                d2['Deaths'] = d['Deaths']
             else:
-                l2 = d_german_sums[row["date"]]
-                l2[0] += this_infections
-                l2[1] += this_deaths
-                l2[2] += this_newinfections
-                l2[3] += this_newdeaths
-                d_german_sums[row["date"]] = list(l2)
-                del l2
+                d2 = d_german_sums[d['Date']]
+                d2['Cases'] += d['Cases']
+                d2['Deaths'] += d['Deaths']
+            d_german_sums[d['Date']] = d2
+            del d2
 
-    # for German sum: add per Million rows
+    # for German sum -> same dict
     for datum in d_german_sums.keys():
-        l2 = d_german_sums[datum]
-        l3 = [datum, *l2]
-        d_states_data['DE-total'].append(
-            helper_add_per_millions('DE-total', l3))
-    del l2, l3
+        d = d_german_sums[datum]
+        d['Date'] = datum  # add date field
+        d_states_data['DE-total'].append(d)
+    del d_german_sums, d
 
     # check if DE sum of lastdate and per-last date has changed, if so: remove last date
-    if d_states_data['DE-total'][-1][1] == d_states_data['DE-total'][-2][1]:
+    if d_states_data['DE-total'][-1]['Date'] == d_states_data['DE-total'][-2]['Date']:
         print("WARNING: DE cases sum is unchanged")
         for code in d_states_data:
             d_states_data[code].pop()
 
-    # write to export files
     for code in d_states_data.keys():
-        # ensure sorting by date
-        l_state = d_states_data[code]
-        l_state = sorted(l_state, key=lambda x: x[0], reverse=False)
+        l_state_data = d_states_data[code]
 
-        # add counter of days
-        day_num = 2-len(l_state)
-        for i in range(1, len(l_state)):
-            l_state[i].insert(0, day_num)
-            day_num += 1
+        # ensure sorting by date
+        l_state_data = sorted(
+            l_state_data, key=lambda x: x['Date'], reverse=False)
+
+        # add days past and calc cases and deaths new
+        DaysPast = 1-len(l_state_data)  # last date gets number 0
+        last_confirmed = 0
+        last_deaths = 0
+        for i in range(len(l_state_data)):
+            d = l_state_data[i]
+
+            d['Days_Past'] = DaysPast
+            l_state_data[i] = d
+            DaysPast += 1
+
+            d['Cases_New'] = d['Cases'] - last_confirmed
+            d['Deaths_New'] = d['Deaths'] - last_deaths
+            last_confirmed = d['Cases']
+            last_deaths = d['Deaths']
+
+            # add per Million rows
+            d = helper_add_per_millions(code, d)
 
         # fit cases data
         data = []
-        for i in range(1, len(l_state)):
-            data.append((l_state[i][0], l_state[i][2]))  # x= day , y = cases
-
+        for i in range(1, len(l_state_data)):
+            # x= day , y = cases
+            data.append(
+                (
+                    l_state_data[i]['Days_Past'],
+                    l_state_data[i]['Cases']
+                )
+            )
         fit_series_res = helper.series_of_fits(
             data, fit_range=7, max_days_past=28)
-
-        # add to export data
-        for i in range(1, len(l_state)):
+        for i in range(0, len(l_state_data)):
             this_doublication_time = ""
-            this_days_past = l_state[i][0]
+            this_days_past = l_state_data[i]['Days_Past']
             if this_days_past in fit_series_res:
                 this_doublication_time = fit_series_res[this_days_past]
-            l_state[i].append(this_doublication_time)
+            l_state_data[i]['Doublication_Time'] = this_doublication_time
 
-        # d = fit_routine(data, (-6, 0))
-        # douplication_time = d['fit_res'[1]]
-        # print(douplication_time)
+        d_states_data[code] = l_state_data
+    return d_states_data
 
-        d_states_data[code] = l_state
+
+def export_data(d_states_data: dict):
+    # export JSON and CSV
+    for code in d_states_data.keys():
         outfile = f'data/de-states/de-state-{code}.tsv'
-        with open(outfile, mode='w', encoding='utf-8', newline="\n") as f:
-            csvwriter = csv.writer(f, delimiter="\t")
-            csvwriter.writerows(d_states_data[code])
-        del l_state, day_num, code
+        l_state_data = d_states_data[code]
 
-    # latest data into another file
-    assert len(d_states_data.keys()) == len(d_states_ref.keys())
-    for code in d_states_ref.keys():
-        assert code in d_states_data.keys()
-    del code
+        with open(f'data/de-states/de-state-{code}.json', mode='w', encoding='utf-8', newline='\n') as fh:
+            json.dump(d_states_data, fh, ensure_ascii=False)
 
+        with open(outfile, mode='w', encoding='utf-8', newline='\n') as fh:
+            csvwriter = csv.writer(fh, delimiter='\t')
+            csvwriter.writerow(
+                (
+                    '# Days_Past', 'Date',
+                    'Cases', 'Deaths',
+                    'Cases_New', 'Deaths_New',
+                    'Cases_Per_Million', 'Deaths_Per_Million',
+                    'Cases_New_Per_Million', 'Deaths_New_Per_Million',
+                    'Doublication_Time'
+                )
+            )
+            for entry in l_state_data:
+                csvwriter.writerow(
+                    (
+                        entry['Days_Past'], entry['Date'],
+                        entry['Cases'], entry['Deaths'],
+                        entry['Cases_New'], entry['Deaths_New'],
+                        entry['Cases_Per_Million'], entry['Deaths_Per_Million'],
+                        entry['Cases_New_Per_Million'], entry['Deaths_New_Per_Million'],
+                        entry['Doublication_Time']
+                    )
+                )
+
+
+def export_latest_data(d_states_data: dict):
     d_states_latest = dict(d_states_ref)
-
     for code in d_states_latest.keys():
         assert code in d_states_data.keys()
         l_state = d_states_data[code]
-        l_latest = l_state[-1]
-        d_states_latest[code]['Latest Date'] = l_latest[1]
-        d_states_latest[code]['Infections'] = l_latest[2]
-        d_states_latest[code]['Deaths'] = l_latest[3]
-        d_states_latest[code]['New Infections'] = l_latest[4]
-        d_states_latest[code]['New Deaths'] = l_latest[5]
-        d_states_latest[code]['Infections per Million'] = l_latest[6]
-        d_states_latest[code]['Deaths per Million'] = l_latest[7]
+        d_latest = l_state[-1]
+        d_states_latest[code]['Date_Latest'] = d_latest['Date']
+        for key in ('Cases', 'Deaths', 'Cases_New', 'Deaths_New', 'Cases_Per_Million', 'Deaths_Per_Million'):
+            d_states_latest[code][key] = d_latest[key]
     with open('data/de-states/de-states-latest.tsv', mode='w', encoding='utf-8', newline='\n') as f:
         csvwriter = csv.writer(f, delimiter="\t")
         csvwriter.writerow(
-            ('# State', 'Code', 'Population', 'Pop Density', 'Date', 'Infections', 'Deaths', 'New Infections', 'New Deaths',
-             'Infections per Million', 'Deaths per Million')
+            ('# State', 'Code', 'Population', 'Pop Density', 'Date', 'Cases', 'Deaths', 'Cases_New', 'Deaths_New',
+             'Cases_Per_Million', 'Deaths_Per_Million')
         )
         for code in sorted(d_states_latest.keys()):
             d = d_states_latest[code]
-            l = (d['State'], code, d['Population'], d['Pop Density'], d['Latest Date'], d['Infections'], d['Deaths'],
-                 d['New Infections'], d['New Deaths'], "%.3f" % (d['Infections per Million']), "%.3f" % (d['Deaths per Million']))
+            l = (d['State'], code, d['Population'], d['Pop Density'], d['Date_Latest'], d['Cases'], d['Deaths'],
+                 d['Cases_New'], d['Deaths_New'], d['Cases_Per_Million'], d['Deaths_Per_Million'])
             if code == 'DE-total':  # DE as last row
                 l_de = list(l)
                 continue
@@ -263,11 +273,32 @@ def convert_csv():
         csvwriter.writerow(l_de)
 
 
+# def convert_csv_OLD():
+
+
+#         d_states_data[code] = l_state
+#         outfile = f'data/de-states/de-state-{code}.tsv'
+#         with open(outfile, mode='w', encoding='utf-8', newline="\n") as f:
+#             csvwriter = csv.writer(f, delimiter="\t")
+#             csvwriter.writerows(d_states_data[code])
+#         del l_state, day_num, code
+
+#     # latest data into another file
+#     assert len(d_states_data.keys()) == len(d_states_ref.keys())
+#     for code in d_states_ref.keys():
+#         assert code in d_states_data.keys()
+#     del code
+
+#     d_states_latest = dict(d_states_ref)
+
+
 d_states_ref = read_ref_data()
 
 # TODO
-download_new_data()
+# download_new_data()
+d_states_data = read_csv_to_dict()
+# convert_csv()
 
-convert_csv()
-
+export_data(d_states_data)
+export_latest_data(d_states_data)
 1

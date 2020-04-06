@@ -28,6 +28,10 @@ def convert_timestamp_to_date_str(ts: int) -> str:
     return s
 
 
+def date_format(y: int, m: int, d: int) -> str:
+    return "%04d-%02d-%02d" % (y, m, d)
+
+
 def check_cache_file_available_and_recent(fname: str, max_age: int = 3600, verbose: bool = False) -> bool:
     b_cache_good = True
     if not os.path.exists(fname):

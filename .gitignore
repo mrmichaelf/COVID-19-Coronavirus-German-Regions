@@ -1,4 +1,4 @@
-/__pycache__/
+/__pycache__/*
 
 **/.~lock.*.xlsx#
 .vscode
@@ -15,5 +15,3 @@ index*.html
 /plots-gnuplot/
 /plots-python/
 /test/
-
-

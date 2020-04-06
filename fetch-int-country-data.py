@@ -30,11 +30,6 @@ __version__ = "0.1"
 download_file = 'data/download-countries-timeseries.json'
 
 
-# helper
-def date_format(y: int, m: int, d: int) -> str:
-    return "%04d-%02d-%02d" % (y, m, d)
-
-
 def download_new_data():
     # TODO: caching
     url = "https://pomber.github.io/covid19/timeseries.json"
@@ -58,7 +53,7 @@ def read_json_data() -> dict:
             # entry in country_data:
             s = entry['date']
             l = s.split("-")
-            d['Date'] = date_format(int(l[0]), int(l[1]), int(l[2]))
+            d['Date'] = helper.date_format(int(l[0]), int(l[1]), int(l[2]))
             d['Cases'] = int(entry['confirmed'])
             d['Deaths'] = int(entry['deaths'])
             l_time_series.append(d)
