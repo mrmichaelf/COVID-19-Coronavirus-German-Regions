@@ -526,13 +526,11 @@ with open('data/de-districts/de-districts-results.tsv', mode='w', encoding='utf-
         fh_html.write("""<!doctype html>
 <html lang="de">
 <head>
+    <title>Landkreisprognose</title>
     <meta charset="utf-8">
     
 <style>
     #myInput {
-      background-image: url('/css/searchicon.png');      /* Add a search icon to input */
-      background-position: 10px 12px;      /* Position the search icon */
-      background-repeat: no-repeat;      /* Do not repeat the icon image */
       width: 400px;
       font-size: 16px;      /* Increase font-size */
       padding: 12px 20px 12px 10px;      /* Add some padding */
