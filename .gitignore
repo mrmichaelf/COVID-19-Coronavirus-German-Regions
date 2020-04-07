@@ -1,13 +1,4 @@
-/__pycache__/*
-__pycache__/*
-__pycache__/helper.cpython-38.pyc
-
-**/.~lock.*.xlsx#
-.vscode
-.DS_Store
-
-~$*.xlsx
-index*.html
+__pycache__/
 
 /backup/
 /cache/
@@ -17,3 +8,10 @@ index*.html
 /plots-gnuplot/
 /plots-python/
 /test/
+
+**/.~lock.*.xlsx#
+.vscode
+.DS_Store
+
+~$*.xlsx
+index*.html
