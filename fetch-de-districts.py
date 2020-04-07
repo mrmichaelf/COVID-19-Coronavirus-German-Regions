@@ -358,7 +358,7 @@ def prepare_lk_time_series(lk_id: str) -> list:
         this_days_past = entry['Days_Past']
         if this_days_past in fit_series_res:
             this_doublication_time = fit_series_res[this_days_past]
-        entry['Doublication_Time'] = this_doublication_time
+        entry['Cases_Doublication_Time'] = this_doublication_time
         l_time_series[i] = entry
 
     with open(file_out, mode='w', encoding='utf-8', newline='\n') as fh:
