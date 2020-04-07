@@ -139,7 +139,7 @@ def read_csv_to_dict() -> dict:
     del d_german_sums, d
 
     # check if DE sum of lastdate and per-last date has changed, if so: remove last date
-    if d_states_data['DE-total'][-1]['Date'] == d_states_data['DE-total'][-2]['Date']:
+    if d_states_data['DE-total'][-1]['Cases'] == d_states_data['DE-total'][-2]['Cases']:
         print("WARNING: DE cases sum is unchanged")
         for code in d_states_data:
             d_states_data[code].pop()
