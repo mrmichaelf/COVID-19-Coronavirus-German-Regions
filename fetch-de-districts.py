@@ -306,6 +306,9 @@ def prepare_lk_time_series(lk_id: str) -> list:
     last_cases = 0
     last_deaths = 0
 
+    # if lastdate and lastdate-1 have the same number of cases, than drop lastdate
+    if l_time_series_fetched[-1]['SummeFall'] == l_time_series_fetched[-2]['SummeFall']:
+        l_time_series_fetched.pop()
     # entry = one data point
     for entry in l_time_series_fetched:
         d = {}

@@ -12,7 +12,7 @@ set style line 2 linetype 7 dt 1 lw 2 linecolor rgb 'blue'
 
 
 
-set title "Abschätzung der Dunkelziffer der Infektionen\nAnnahme: Sterben nach 2 Wochen mit Wahrscheinlichkeit von 1%"
+set title "Abschätzung der Dunkelziffer der Infektionen\nAnnahmen: Positive getestete Infizierte sterben nach 2 Wochen mit Wahrscheinlichkeit von 1%"
 # set ylabel "Cases"
 # set xlabel "Days since first data"
 set ylabel "Infektionen"
@@ -56,6 +56,6 @@ set xrange [-35:0]
 set output '../plots-gnuplot/de-states/calc-cases-from-deaths-DE-total.png'
 plot data using ($1-14):($4*100) title "geschätze Infizierte" with linespoints ls 1 ,\
      data using ($1):($3) title "positiv getestet" with linespoints ls 2 ,\
-     (x<=-14.0)?1/0:f(x) notitle with lines ls 1 dt "-"
+     (x<=-21.0)?1/0:f(x) title "Fit/Modell" with lines ls 1 dt "-" linecolor rgb 'black' 
 
 unset output

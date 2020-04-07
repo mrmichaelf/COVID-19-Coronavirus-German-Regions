@@ -623,19 +623,19 @@ id,Country/Region,federalstate,infections,deaths,date,newinfections,newdeaths
 623,Germany,Saxony-Anhalt,956,12,2020-04-06,37,0
 609,Germany,Schleswig-Holstein,1671,20,2020-04-06,40,2
 624,Germany,Thuringia,1176,12,2020-04-06,36,2
-632,Germany,Baden-Württemberg,19395,387,2020-04-07,0,0
-633,Germany,Bavaria,24974,437,2020-04-07,0,0
-635,Germany,Berlin,3670,26,2020-04-07,0,0
-636,Germany,Brandenburg,1345,19,2020-04-07,0,0
-628,Germany,Bremen,397,8,2020-04-07,0,0
-626,Germany,Hamburg,2993,19,2020-04-07,0,0
-630,Germany,Hesse,4674,61,2020-04-07,0,0
-627,Germany,Lower Saxony,5960,92,2020-04-07,0,0
-637,Germany,Mecklenburg-Western Pomerania,528,6,2020-04-07,0,0
-629,Germany,North Rhine-Westphalia,19384,255,2020-04-07,0,0
-631,Germany,Rhineland-Palatinate,3882,32,2020-04-07,0,0
-634,Germany,Saarland,1483,14,2020-04-07,0,0
-638,Germany,Saxony,2903,34,2020-04-07,0,0
-639,Germany,Saxony-Anhalt,956,12,2020-04-07,0,0
-625,Germany,Schleswig-Holstein,1671,20,2020-04-07,0,0
-640,Germany,Thuringia,1176,12,2020-04-07,0,0
+632,Germany,Baden-Württemberg,20141,433,2020-04-07,746,46
+633,Germany,Bavaria,26163,481,2020-04-07,1189,44
+635,Germany,Berlin,3845,28,2020-04-07,175,2
+636,Germany,Brandenburg,1384,20,2020-04-07,39,1
+628,Germany,Bremen,399,9,2020-04-07,2,1
+626,Germany,Hamburg,3059,20,2020-04-07,66,1
+630,Germany,Hesse,4837,73,2020-04-07,163,12
+627,Germany,Lower Saxony,6200,111,2020-04-07,240,19
+637,Germany,Mecklenburg-Western Pomerania,531,8,2020-04-07,3,2
+629,Germany,North Rhine-Westphalia,20220,282,2020-04-07,836,27
+631,Germany,Rhineland-Palatinate,3992,34,2020-04-07,110,2
+634,Germany,Saarland,1532,16,2020-04-07,49,2
+638,Germany,Saxony,2997,38,2020-04-07,94,4
+639,Germany,Saxony-Anhalt,987,12,2020-04-07,31,0
+625,Germany,Schleswig-Holstein,1730,24,2020-04-07,59,4
+640,Germany,Thuringia,1208,18,2020-04-07,32,6

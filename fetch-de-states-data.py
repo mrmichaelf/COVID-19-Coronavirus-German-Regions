@@ -143,6 +143,7 @@ def read_csv_to_dict() -> dict:
         print("WARNING: DE cases sum is unchanged")
         for code in d_states_data:
             d_states_data[code].pop()
+    print(f"DE-States Last Date: {d_states_data['DE-total'][-1]['Date']}")
 
     for code in d_states_data.keys():
         l_state_data = d_states_data[code]
@@ -218,7 +219,7 @@ def export_data(d_states_data: dict):
         l_state_data = d_states_data[code]
 
         with open(f'data/de-states/de-state-{code}.json', mode='w', encoding='utf-8', newline='\n') as fh:
-            json.dump(d_states_data, fh, ensure_ascii=False)
+            json.dump(l_state_data, fh, ensure_ascii=False)
 
         with open(outfile, mode='w', encoding='utf-8', newline='\n') as fh:
             csvwriter = csv.writer(fh, delimiter='\t')
