@@ -148,9 +148,9 @@ def enrich_data_by_calculated_fields():
     global d_selected_countries
     for country in d_selected_countries.keys():
         # print(country)
-        country_code = d_selected_countries[country]['Code']
+        # country_code = d_selected_countries[country]['Code']
         l_country_data = d_json_data[country]
-        pop_in_Mill = d_selected_countries[country]['Population'] / 1000000
+        # pop_in_Mill = d_selected_countries[country]['Population'] / 1000000
 
         # initial values
         last_confirmed = 0
