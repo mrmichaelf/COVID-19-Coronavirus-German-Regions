@@ -639,3 +639,19 @@ id,Country/Region,federalstate,infections,deaths,date,newinfections,newdeaths
 639,Germany,Saxony-Anhalt,987,12,2020-04-07,31,0
 625,Germany,Schleswig-Holstein,1730,24,2020-04-07,59,4
 640,Germany,Thuringia,1208,18,2020-04-07,32,6
+648,Germany,Baden-Württemberg,20141,433,2020-04-08,0,0
+649,Germany,Bavaria,26163,481,2020-04-08,0,0
+651,Germany,Berlin,3845,28,2020-04-08,0,0
+652,Germany,Brandenburg,1384,20,2020-04-08,0,0
+644,Germany,Bremen,399,9,2020-04-08,0,0
+642,Germany,Hamburg,3059,20,2020-04-08,0,0
+646,Germany,Hesse,4837,73,2020-04-08,0,0
+643,Germany,Lower Saxony,6200,111,2020-04-08,0,0
+653,Germany,Mecklenburg-Western Pomerania,531,8,2020-04-08,0,0
+645,Germany,North Rhine-Westphalia,20220,282,2020-04-08,0,0
+647,Germany,Rhineland-Palatinate,3992,34,2020-04-08,0,0
+650,Germany,Saarland,1532,16,2020-04-08,0,0
+654,Germany,Saxony,2997,38,2020-04-08,0,0
+655,Germany,Saxony-Anhalt,987,12,2020-04-08,0,0
+641,Germany,Schleswig-Holstein,1730,24,2020-04-08,0,0
+656,Germany,Thuringia,1208,18,2020-04-08,0,0
