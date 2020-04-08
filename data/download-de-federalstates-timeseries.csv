@@ -639,19 +639,19 @@ id,Country/Region,federalstate,infections,deaths,date,newinfections,newdeaths
 639,Germany,Saxony-Anhalt,987,12,2020-04-07,31,0
 625,Germany,Schleswig-Holstein,1730,24,2020-04-07,59,4
 640,Germany,Thuringia,1208,18,2020-04-07,32,6
-648,Germany,Baden-Württemberg,20141,433,2020-04-08,0,0
-649,Germany,Bavaria,26163,481,2020-04-08,0,0
-651,Germany,Berlin,3845,28,2020-04-08,0,0
-652,Germany,Brandenburg,1384,20,2020-04-08,0,0
-644,Germany,Bremen,399,9,2020-04-08,0,0
-642,Germany,Hamburg,3059,20,2020-04-08,0,0
-646,Germany,Hesse,4837,73,2020-04-08,0,0
-643,Germany,Lower Saxony,6200,111,2020-04-08,0,0
-653,Germany,Mecklenburg-Western Pomerania,531,8,2020-04-08,0,0
-645,Germany,North Rhine-Westphalia,20220,282,2020-04-08,0,0
-647,Germany,Rhineland-Palatinate,3992,34,2020-04-08,0,0
-650,Germany,Saarland,1532,16,2020-04-08,0,0
-654,Germany,Saxony,2997,38,2020-04-08,0,0
-655,Germany,Saxony-Anhalt,987,12,2020-04-08,0,0
-641,Germany,Schleswig-Holstein,1730,24,2020-04-08,0,0
-656,Germany,Thuringia,1208,18,2020-04-08,0,0
+648,Germany,Baden-Württemberg,20680,464,2020-04-08,539,31
+649,Germany,Bavaria,27564,564,2020-04-08,1401,83
+651,Germany,Berlin,4028,32,2020-04-08,183,4
+652,Germany,Brandenburg,1472,22,2020-04-08,88,2
+644,Germany,Bremen,424,10,2020-04-08,25,1
+642,Germany,Hamburg,3165,23,2020-04-08,106,3
+646,Germany,Hesse,4965,84,2020-04-08,128,11
+643,Germany,Lower Saxony,6385,121,2020-04-08,185,10
+653,Germany,Mecklenburg-Western Pomerania,555,11,2020-04-08,24,3
+645,Germany,North Rhine-Westphalia,20929,348,2020-04-08,709,66
+647,Germany,Rhineland-Palatinate,4148,45,2020-04-08,156,11
+650,Germany,Saarland,1637,23,2020-04-08,105,7
+654,Germany,Saxony,3144,50,2020-04-08,147,12
+655,Germany,Saxony-Anhalt,1020,16,2020-04-08,33,4
+641,Germany,Schleswig-Holstein,1827,28,2020-04-08,97,4
+656,Germany,Thuringia,1285,20,2020-04-08,77,2
