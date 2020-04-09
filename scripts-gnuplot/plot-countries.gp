@@ -56,13 +56,30 @@ unset output
 unset logscale y
 
 title = "Duplications until hitting Italy's deaths per capita\n(larger means more time to prepare)"
+set title title
 set yrange [0:]
 deaths_per_million_of_IT = system ("grep Italy ../data/int/countries-latest-selected.tsv| tail -1 | cut -f6") + 0
 #print deaths_per_million_of_IT
-set title title
 set ylabel "Duplications"
 set output '../plots-gnuplot/int/countries-duplications-until-IT-level-of-deaths.png'
 plot data u (log(deaths_per_million_of_IT/$6)/log(2)):xticlabels(1) with boxes ls 11
+unset output
+
+title = "Calculated Mortality: Deaths per Reported Infections"
+set title title
+set ylabel "Calculated Mortality: Deaths per Reported Infections"
+set ytics format "%g%%"
+set output '../plots-gnuplot/int/countries-deaths-per-infections.png'
+plot data u (100.0 * $4/$3):xticlabels(1) with boxes ls 11
+unset output
+set ytics format "%g"
+
+title = "Comparing Calculated Mortality to Deaths per Capita"
+set title title
+set xtics rotate by 0
+set xlabel "Deaths per Million Population"
+set output '../plots-gnuplot/int/countries-mortality-vs-deaths-ppm.png'
+plot data u 6:(100.0 * $4/$3) with points ls 1
 unset output
 
 
@@ -168,6 +185,11 @@ unset output
 unset yrange
 set ytics autofreq
 # plot and fit time series
+
+
+
+
+
 
 
 
