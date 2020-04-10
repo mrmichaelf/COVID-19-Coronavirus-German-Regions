@@ -9,11 +9,13 @@ This script downloads COVID-19 / coronavirus data provided by https://github.com
 # TODO: add 7 day fit of doublication time
 
 
+# Built-in/Generic Imports
+
+import time
 import json
 import urllib.request
 import csv
 
-# Built-in/Generic Imports
 
 import helper
 
@@ -27,6 +29,7 @@ __license__ = "GPL"
 __status__ = "Dev"
 __version__ = "0.1"
 
+args = helper.read_command_line_parameters()
 download_file = 'data/download-countries-timeseries.json'
 
 
@@ -223,6 +226,9 @@ def enrich_data_by_calculated_fields():
             entry['Cases_Doublication_Time'] = this_cases_doublication_time
             entry['Deaths_Doublication_Time'] = this_deaths_doublication_time
             l_country_data[i] = entry
+
+        if args["sleep"]:
+            time.sleep(1)
 
 
 def export_time_series_selected_countries():

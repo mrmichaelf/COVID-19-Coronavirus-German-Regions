@@ -5,7 +5,7 @@ Helper functions collections
 import os.path
 import time
 import datetime
-
+import argparse
 import json
 
 import urllib.request
@@ -14,6 +14,13 @@ import math
 import numpy as np
 # curve-fit() function imported from scipy
 from scipy.optimize import curve_fit
+
+
+def read_command_line_parameters() -> dict:
+    parser = argparse.ArgumentParser()
+    parser.add_argument("-s", "--sleep", help="sleep 1 second after each item",
+                        default=False, action="store_true")  # store_true -> Boolean Value
+    return vars(parser.parse_args())
 
 
 def convert_timestamp_to_date_str(ts: int) -> str:

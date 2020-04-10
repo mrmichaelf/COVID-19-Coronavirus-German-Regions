@@ -19,6 +19,7 @@ __version__ = "0.1"
 
 # Built-in/Generic Imports
 
+import time
 import urllib.request
 import csv
 import json
@@ -28,6 +29,7 @@ import json
 # my helper modules
 import helper
 
+args = helper.read_command_line_parameters()
 download_file = 'data/download-de-federalstates-timeseries.csv'
 
 
@@ -209,6 +211,10 @@ def read_csv_to_dict() -> dict:
             l_state_data[i]['Deaths_Doublication_Time'] = this_doublication_time
 
         d_states_data[code] = l_state_data
+
+        if args["sleep"]:
+            time.sleep(1)
+
     return d_states_data
 
 

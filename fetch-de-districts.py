@@ -64,6 +64,7 @@ __version__ = "0.1"
 import datetime
 import json
 import csv
+import time
 # import re
 
 # further modules
@@ -78,7 +79,7 @@ from matplotlib import pyplot as plt
 import helper
 
 
-# urlbase = ''
+args = helper.read_command_line_parameters()
 
 # here I store the fetched ref_data_from
 d_ref_landkreise = {}
@@ -363,6 +364,9 @@ def prepare_lk_time_series(lk_id: str) -> list:
 
     with open(file_out, mode='w', encoding='utf-8', newline='\n') as fh:
         json.dump(l_time_series, fh, ensure_ascii=False)
+
+    if args["sleep"]:
+        time.sleep(1)
 
     return l_time_series
 
