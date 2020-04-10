@@ -3,6 +3,8 @@
 # date 2020-03-22
 
 
+# TODO: shall this go to de-states or to int/countries?
+
 load "header.gp"
 
 set style data linespoints
