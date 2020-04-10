@@ -53,7 +53,7 @@ set label 3 "" .y_last right at first x_max - 2, first y_last
 set output '../plots-gnuplot/int/deaths-'.country_code.'-fit.png'
 plot data using 1:col title "Deaths" with points ls 1 \
 , f(x) title sprintf ("7 Day Fit/Trend") with lines ls 2 \
-, data using 1:12 title "Doublication Time" axis x1y2 with lines ls 5
+, data using 1:12 title "Doubling Time" axis x1y2 with lines ls 5
 
 unset output
 # , f2(x) title sprintf ("model 2 days doubling") with lines \

@@ -90,7 +90,7 @@ set ylabel "Deaths"
 set xlabel "Days"
 
 set ytics nomirror
-set y2label "Doublication Time (Days)" tc ls 5 offset -2,0
+set y2label "Duplication Time (Days)" tc ls 5 offset -2,0
 set y2tics tc ls 5
 set y2range [14:0]
 

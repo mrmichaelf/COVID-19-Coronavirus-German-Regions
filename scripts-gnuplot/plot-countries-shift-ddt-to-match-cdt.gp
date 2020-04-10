@@ -17,7 +17,7 @@ set style line 3 linetype 7 dt "-" lw 2 linecolor rgb 'black'
 
 set title "How much are the deaths delayed?"
 set xlabel "Days"
-set ylabel "Doublication Time (Days)"
+set ylabel "Doubling Time (Days)"
 set xtics 7
 
 data = '../data/de-states/de-state-DE-total.tsv'
@@ -37,9 +37,9 @@ set xtic add (date_last 0)
 set key width -7 Left reverse
 
 set output '../plots-gnuplot/int/countries-shift-ddt-to-match-cdt.png'
-plot data u 1:11 t "Cases Doublication Time" ,\
-     data u 1:12 t "Deaths Doublication Time" , \
-     data u ($1-8):12 t "Deaths Doublication Time, shifted by 8 days" with lines
+plot data u 1:11 t "Cases Doubling Time" ,\
+     data u 1:12 t "Deaths Doubling Time" , \
+     data u ($1-8):12 t "Deaths Doubling Time, shifted by 8 days" with lines
 unset output
 
 
