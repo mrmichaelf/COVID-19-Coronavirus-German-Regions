@@ -61,6 +61,7 @@ __version__ = "0.1"
 
 
 # Built-in/Generic Imports
+from tqdm import tqdm
 import datetime
 import json
 import csv
@@ -461,8 +462,11 @@ d_results_for_json_export = {}
 # Fit Cases für alle LK
 # 16068 machte Probleme
 
+# for i in tqdm(range(10000)):
+
 # l2 = ('16068',)
-for lk_id in d_ref_landkreise.keys():
+# for lk_id in d_ref_landkreise.keys():
+for lk_id in tqdm(d_ref_landkreise.keys()):
     lk_name = get_lk_name_from_lk_id(lk_id)
     print(f"{lk_id} {lk_name}")
 
