@@ -153,7 +153,7 @@ def enrich_data_by_calculated_fields():
         # pop_in_Mill = d_selected_countries[country]['Population'] / 1000000
 
         # initial values
-        last_confirmed = 0
+        last_cases = 0
         last_deaths = 0
         days_since_2_deaths = 0
         # for fits of doublication time
@@ -162,7 +162,7 @@ def enrich_data_by_calculated_fields():
         data_deaths = []
 
         DaysPast = 1-len(l_country_data)  # last date gets number 0
-        last_confirmed = 0
+        last_cases = 0
         last_deaths = 0
 
         for i in range(len(l_country_data)):
@@ -182,15 +182,19 @@ def enrich_data_by_calculated_fields():
                 entry['Days_Since_2_Deaths'] = days_since_2_deaths
                 days_since_2_deaths += 1
 
-            entry['Cases_New'] = entry['Cases'] - last_confirmed
+            entry['Cases_New'] = entry['Cases'] - last_cases
             entry['Deaths_New'] = entry['Deaths'] - last_deaths
 
-            entry['change_deaths_factor'] = ""
-            if last_deaths >= 1:
-                entry['change_deaths_factor'] = round(
+            entry['Cases_Change_Factor'] = ""
+            if last_cases >= 100:
+                entry['Cases_Change_Factor'] = round(
+                    entry['Cases']/last_cases, 3)
+            entry['Deaths_Change_Factor'] = ""
+            if last_deaths >= 10:
+                entry['Deaths_Change_Factor'] = round(
                     entry['Deaths']/last_deaths, 3)
 
-            last_confirmed = entry['Cases']
+            last_cases = entry['Cases']
             last_deaths = entry['Deaths']
 
             # add per Million rows
@@ -200,17 +204,24 @@ def enrich_data_by_calculated_fields():
             l_country_data[i] = entry
 
         # fit the doublication time each day
+        data = list(zip(data_t, data_cases))
+        fit_series_res_cases = helper.series_of_fits(
+            data, fit_range=7, max_days_past=28)
         data = list(zip(data_t, data_deaths))
-        fit_series_res = helper.series_of_fits(
+        fit_series_res_deaths = helper.series_of_fits(
             data, fit_range=7, max_days_past=28)
 
         for i in range(len(l_country_data)):
             entry = l_country_data[i]
-            this_doublication_time = ""
+            this_cases_doublication_time = ""
+            this_deaths_doublication_time = ""
             this_DaysPast = entry['Days_Past']
-            if this_DaysPast in fit_series_res:
-                this_doublication_time = fit_series_res[this_DaysPast]
-            entry['Doublication_Time'] = this_doublication_time
+            if this_DaysPast in fit_series_res_cases:
+                this_cases_doublication_time = fit_series_res_cases[this_DaysPast]
+            if this_DaysPast in fit_series_res_deaths:
+                this_deaths_doublication_time = fit_series_res_deaths[this_DaysPast]
+            entry['Cases_Doublication_Time'] = this_cases_doublication_time
+            entry['Deaths_Doublication_Time'] = this_deaths_doublication_time
             l_country_data[i] = entry
 
 
@@ -231,9 +242,9 @@ def export_time_series_selected_countries():
                  'Cases_New', 'Deaths_New',
                  'Cases_Per_Million', 'Deaths_Per_Million',
                  'Cases_New_Per_Million', 'Deaths_New_Per_Million',
-                 'Deaths Doublication Time',
-                 'Days since 2 Deaths',
-                 'Deaths Change Factor'
+                 'Cases_Doublication_Time', 'Deaths_Doublication_Time',
+                 'Cases_Change_Factor', 'Deaths_Change_Factor',
+                 'Days_Since_2_Deaths'
                  )
             )
             for entry in l_country_data:
@@ -244,9 +255,9 @@ def export_time_series_selected_countries():
                         entry['Cases_New'], entry['Deaths_New'],
                         entry['Cases_Per_Million'], entry['Deaths_Per_Million'],
                         entry['Cases_New_Per_Million'], entry['Deaths_New_Per_Million'],
-                        entry['Doublication_Time'],
-                        entry['Days_Since_2_Deaths'],
-                        entry['change_deaths_factor']
+                        entry['Cases_Doublication_Time'], entry['Deaths_Doublication_Time'],
+                        entry['Cases_Change_Factor'], entry['Deaths_Change_Factor'],
+                        entry['Days_Since_2_Deaths']
                     )
                 )
 

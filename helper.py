@@ -104,7 +104,7 @@ def fit_routine(data: list, fit_range_x: list = (-np.inf, np.inf), fit_range_y: 
     d = {}
     if len(data_x_for_fit) >= 3:
         # Do the fit
-        p0 = [data_y_for_fit[-1], 5.0]  # initial guess of parameters
+        p0 = [float(data_y_for_fit[-1]), 5.0]  # initial guess of parameters
         try:
             fit_res, fit_res_cov = curve_fit(
                 fit_function_exp_growth,
