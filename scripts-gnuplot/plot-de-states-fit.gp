@@ -70,7 +70,7 @@ unset y2label
 set title "Fitergebnis Verdopplungszeit (Tage)"
 set ylabel "Verdopplungszeit (Tage)"
 set xtics rotate by 60 offset 1,0 right
-set ytics format "%.1f" 
+# set ytics format "%.1f" 
 set bmargin 10.5
 set style fill solid 0.5 border 0
 set boxwidth 0.75 relative

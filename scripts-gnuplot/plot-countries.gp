@@ -127,21 +127,22 @@ unset ytics
 set ytics
 
 # let's plot the fit data as boxes
-set title "Fit Result: Deaths Doubling Time (days)"
-set ylabel "Deaths Doubling Time (days)"
+set title "Fit Result: Deaths Doubling Time (Days)"
+set ylabel "Deaths Doubling Time (Days)"
 set xtics rotate by 60 offset 1,0 right
-set ytics format "%g" 
+set ytics 7 format "%g" 
 unset bmargin
 set style fill solid 0.5 border 0
 set boxwidth 0.75 relative
 set key off
-set yrange [0:]
+set yrange [0:21]
 # y_value_de = ( system("tail -1 " . fit_data_file . " | cut -f6") + 0)
 set output '../plots-gnuplot/int/countries-fit-deaths-doubling-time.png'
 plot fit_data_file u 6:xticlabels(1) with boxes ls 11
 #, y_value_de
 unset output
-set ytics format "%g%%" 
+set yrange [0:*]
+set ytics autofreq format "%g%%" 
 set title "Fit Result: Increase of Deaths per Day"
 set ylabel "Increase Deaths per Day"
 # y_value_de = ( system("tail -1 " . fit_data_file . " | cut -f7") + 0)
@@ -150,7 +151,7 @@ set output '../plots-gnuplot/int/countries-fit-deaths-increase-1-day.png'
 plot fit_data_file u (($7-1)*100):xticlabels(1) with boxes ls 11
 # , y_value_de
 unset output
-set ytics format "%g" 
+set ytics autofreq format "%g" 
 
 # combining the duplications until reaching IT level from countries-latest-selected.tsv and the duplication time from countries-gnuplot-fit.tsv
 # this needs the python script join-country-latest-and-fit-data.py to run first after plotting

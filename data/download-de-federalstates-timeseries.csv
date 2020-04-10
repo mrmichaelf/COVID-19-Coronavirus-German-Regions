@@ -639,3 +639,35 @@ id,Country/Region,federalstate,infections,deaths,date,newinfections,newdeaths
 639,Germany,Saxony-Anhalt,987,12,2020-04-07,31,0
 625,Germany,Schleswig-Holstein,1730,24,2020-04-07,59,4
 640,Germany,Thuringia,1208,18,2020-04-07,32,6
+648,Germany,Baden-Württemberg,20680,464,2020-04-08,539,31
+649,Germany,Bavaria,27564,564,2020-04-08,1401,83
+651,Germany,Berlin,4028,32,2020-04-08,183,4
+652,Germany,Brandenburg,1472,22,2020-04-08,88,2
+644,Germany,Bremen,424,10,2020-04-08,25,1
+642,Germany,Hamburg,3165,23,2020-04-08,106,3
+646,Germany,Hesse,4965,84,2020-04-08,128,11
+643,Germany,Lower Saxony,6385,121,2020-04-08,185,10
+653,Germany,Mecklenburg-Western Pomerania,555,11,2020-04-08,24,3
+645,Germany,North Rhine-Westphalia,20929,348,2020-04-08,709,66
+647,Germany,Rhineland-Palatinate,4148,45,2020-04-08,156,11
+650,Germany,Saarland,1637,23,2020-04-08,105,7
+654,Germany,Saxony,3144,50,2020-04-08,147,12
+655,Germany,Saxony-Anhalt,1020,16,2020-04-08,33,4
+641,Germany,Schleswig-Holstein,1827,28,2020-04-08,97,4
+656,Germany,Thuringia,1285,20,2020-04-08,77,2
+664,Germany,Baden-Württemberg,21603,519,2020-04-09,923,55
+665,Germany,Bavaria,28827,635,2020-04-09,1263,71
+667,Germany,Berlin,4202,37,2020-04-09,174,5
+668,Germany,Brandenburg,1578,30,2020-04-09,106,8
+660,Germany,Bremen,445,11,2020-04-09,21,1
+658,Germany,Hamburg,3320,44,2020-04-09,155,21
+662,Germany,Hesse,5242,100,2020-04-09,277,16
+659,Germany,Lower Saxony,6804,141,2020-04-09,419,20
+669,Germany,Mecklenburg-Western Pomerania,572,11,2020-04-09,17,0
+661,Germany,North Rhine-Westphalia,21961,384,2020-04-09,1032,36
+663,Germany,Rhineland-Palatinate,4336,50,2020-04-09,188,5
+666,Germany,Saarland,1693,23,2020-04-09,56,0
+670,Germany,Saxony,3261,52,2020-04-09,117,2
+671,Germany,Saxony-Anhalt,1075,16,2020-04-09,55,0
+657,Germany,Schleswig-Holstein,1932,34,2020-04-09,105,6
+672,Germany,Thuringia,1351,20,2020-04-09,66,0
