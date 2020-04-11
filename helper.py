@@ -15,6 +15,13 @@ import numpy as np
 # curve-fit() function imported from scipy
 from scipy.optimize import curve_fit
 
+def read_json_file(filename: str) -> dict: 
+    with open(filename, mode='r', encoding='utf-8') as fh:
+        return json.load(fh)
+
+def write_json(filename: str, d: dict):
+    with open(filename, mode='w', encoding='utf-8', newline='\n') as fh:
+        json.dump(d, fh, ensure_ascii=False, sort_keys=False)    
 
 def read_command_line_parameters() -> dict:
     parser = argparse.ArgumentParser()

@@ -12,7 +12,7 @@ Hungary	HU	9772756	105	18535	https://en.wikipedia.org/wiki/Hungary
 Iran	IR	83183741	48	5506	https://en.wikipedia.org/wiki/Iran
 Italy	IT	60317546	201	32947	https://en.wikipedia.org/wiki/Italy
 Japan	JP	126150000	334	43043	https://en.wikipedia.org/wiki/Japan
-Korea, South	KR	51709098	507	31246	https://en.wikipedia.org/wiki/South_Korea
+South Korea	KR	51709098	507	31246	https://en.wikipedia.org/wiki/South_Korea
 Netherlands	NL	17424978	521	53016	https://en.wikipedia.org/wiki/Netherlands
 Portugal	PT	10276617	115	23731	https://en.wikipedia.org/wiki/Portugal
 Spain	ES	46733038	92	30734	https://en.wikipedia.org/wiki/Spain
@@ -20,4 +20,4 @@ Sweden	SE	10333456	23	51242	https://en.wikipedia.org/wiki/Sweden
 Switzerland	CH	8570146	207	82950	https://en.wikipedia.org/wiki/Switzerland
 Turkey	TR	83154997	105	9683	https://en.wikipedia.org/wiki/Turkey
 United Kingdom	UK	67545757	271	41030	https://en.wikipedia.org/wiki/United_Kingdom
-US	US	328239523	34	65112	https://en.wikipedia.org/wiki/United_States
+United States	US	328239523	34	65112	https://en.wikipedia.org/wiki/United_States

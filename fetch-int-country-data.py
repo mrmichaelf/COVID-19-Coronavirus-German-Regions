@@ -6,7 +6,6 @@ This script downloads COVID-19 / coronavirus data provided by https://github.com
 
 
 """
-# TODO: add 7 day fit of doublication time
 
 
 # Built-in/Generic Imports
@@ -30,6 +29,7 @@ __status__ = "Dev"
 __version__ = "0.1"
 
 args = helper.read_command_line_parameters()
+file_cache = 'cache/int/countries-timeseries.json'
 download_file = 'data/download-countries-timeseries.json'
 
 
@@ -38,14 +38,35 @@ def download_new_data():
     url = "https://pomber.github.io/covid19/timeseries.json"
     filedata = urllib.request.urlopen(url)
     datatowrite = filedata.read()
-    with open(download_file, mode='wb') as f:
+    with open(file_cache, mode='wb') as f:
         f.write(datatowrite)
 
-
 def read_json_data() -> dict:
-    "reads json file contents and returns it as a dict"
-    with open(download_file, mode='r', encoding='utf-8') as f:
+    """
+    reads downloaded json file contents
+    renames some country names 
+    exports as json file
+    returns as a dict
+    """
+    with open(file_cache, mode='r', encoding='utf-8') as f:
         d_json_downloaded = json.load(f)
+    
+    # rename some countries
+    d_countries_to_rename = {}
+    d_countries_to_rename['US'] = 'United States'
+    d_countries_to_rename['Korea, South'] = 'South Korea'
+    d_countries_to_rename['Taiwan*'] = 'Taiwan'
+    d_countries_to_rename['Burma'] = 'Myanmar'
+    d_countries_to_rename['Cote d\'Ivoire'] = 'Ivory Coast'
+    for country_name in d_json_downloaded.keys():
+        if country_name in d_countries_to_rename:
+            d_json_downloaded[d_countries_to_rename[country_name]] = d_json_downloaded[country_name]
+            del d_json_downloaded[country_name]
+
+    # export to file
+    with open(download_file, mode='w', encoding='utf-8', newline='\n') as fh:
+        json.dump(d_json_downloaded, fh, ensure_ascii=False, sort_keys=True)
+
     d_countries = {}
     # re-format date using my date_format(y,m,d) function
     for country in d_json_downloaded.keys():
@@ -93,14 +114,24 @@ def extract_latest_date_data():
     with open('data/int/countries-latest-all.tsv', mode='w', encoding='utf-8', newline='\n') as f:
         csvwriter = csv.writer(f, delimiter="\t")
         csvwriter.writerow(  # header row
-            ('# Country', 'Date', 'Confirmed', 'Deaths')  # , 'Recovered'
+            ('# Country', 'Date', 'Cases', 'Deaths', 'Cases_Per_Million', 'Deaths_New_Per_Million')  # , 'Recovered'
         )
         for country in sorted(d_json_data.keys(), key=str.casefold):
             country_data = d_json_data[country]
             entry = country_data[-1]  # last entry (=>latest date)
+
+            pop = fetch_population(country)
+            cases_per_million = ""
+            deaths_per_million = ""
+            if pop != None:
+                cases_per_million = round(entry['Cases'] / pop * 1000000,3)
+                deaths_per_million = round(entry['Deaths'] / pop * 1000000,3)
             csvwriter.writerow(
-                (country, entry['Date'], entry['Cases'],
-                 entry['Deaths'])  # , entry['recovered']
+                (
+                country, entry['Date'], 
+                entry['Cases'], entry['Deaths'],
+                cases_per_million, deaths_per_million
+                 )
             )
 
 
@@ -145,7 +176,7 @@ def check_for_further_interesting_countries():
         if entry['Cases'] >= min_confirmed or entry['Deaths'] >= min_death:
             print(f"{country}\t{entry['Cases']}\t{entry['Deaths']}")
 
-
+            
 def enrich_data_by_calculated_fields():
     global d_json_data
     global d_selected_countries
@@ -268,12 +299,57 @@ def export_time_series_selected_countries():
                 )
 
 
+
+def test():
+    d_country_ref_data = helper.read_json_file('data/ref_country_database.json')
+
+    d_country_covid_time_series = helper.read_json_file('data/download-countries-timeseries.json')
+
+    for country_name in d_country_covid_time_series.keys():
+        pop = None
+        # TODO: do this mapping in other file?
+        if country_name == 'Congo (Brazzaville)':
+            pop = d_country_ref_data['Republic of the Congo']['Population']
+        if country_name == 'Congo (Kinshasa)':
+            pop = d_country_ref_data['Democratic Republic of the Congo']['Population']
+
+        if pop == None:
+            for ref_country_name in d_country_ref_data.keys():
+                if country_name == ref_country_name:
+                    pop = d_country_ref_data[country_name]['Population']
+
+        if pop == None:
+            print (f"not found: {country_name}")
+
+def fetch_population(country_name:str) -> int:
+    global d_country_ref_data
+    pop = None
+    if country_name == 'Congo (Brazzaville)':
+        pop = d_country_ref_data['Republic of the Congo']['Population']
+    if country_name == 'Congo (Kinshasa)':
+        pop = d_country_ref_data['Democratic Republic of the Congo']['Population']
+
+    if pop == None:
+        for ref_country_name in d_country_ref_data.keys():
+            if country_name == ref_country_name:
+                pop = d_country_ref_data[country_name]['Population']
+    if pop != None: pop = int(pop)
+    if pop == 0: pop = None
+    if pop == None: 
+        print (f"No Population found for {country_name}")
+    return pop
+
+
+d_country_ref_data = helper.read_json_file('data/ref_country_database.json')
+
 # TODO: uncomment once a day
 download_new_data()
 
 d_selected_countries = read_ref_selected_countries()
 
 d_json_data = read_json_data()
+
+
 
 check_for_further_interesting_countries()
 
