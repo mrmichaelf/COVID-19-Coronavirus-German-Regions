@@ -46,6 +46,8 @@ read ok
 rsync -rvhu --delete --delete-excluded plots-gnuplot/* entorb@entorb.net:html/COVID-19-coronavirus/plots-gnuplot/
 # rsync -rvhu --delete --delete-excluded plots-excel/* entorb@entorb.net:html/COVID-19-coronavirus/plots-excel/
 
+rsync -rvhu --delete --delete-excluded data/* entorb@entorb.net:html/COVID-19-coronavirus/data/
+
 rsync -rvhu results-de-districts.html entorb@entorb.net:html/COVID-19-coronavirus/results-de-districts.html
 
 # git add .
