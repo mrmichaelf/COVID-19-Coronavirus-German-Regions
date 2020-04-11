@@ -244,10 +244,7 @@ def gen_mapping_BL2LK_json(d_landkreise: dict):
             d_bundeslaender[lk['BL_Code']]['LK_IDs'].append(
                 (lk_id, lk['LK_Name']))
 
-    with open('data/de-districts/mapping_bundesland_landkreis.json', mode='w', encoding='utf-8', newline='\n') as fh:
-        json.dump(d_bundeslaender, fh, ensure_ascii=False)
-
-    1
+    helper.write_json('data/de-districts/mapping_bundesland_landkreis.json', d_bundeslaender)
 
 
 def fetch_landkreis_time_series(lk_id: str, readFromCache: bool = True) -> list:
@@ -510,8 +507,7 @@ for lk_id in tqdm(d_ref_landkreise.keys()):
 
 
 # Export fit data as JSON
-with open('data/de-districts/de-districts-results.json', mode='w', encoding='utf-8', newline='\n') as fh:
-    json.dump(d_results_for_json_export, fh, ensure_ascii=False)
+helper.write_json('data/de-districts/de-districts-results.json', d_results_for_json_export)
 
 # Export fit data as CSV + HTML
 with open('data/de-districts/de-districts-results.tsv', mode='w', encoding='utf-8', newline='\n') as fh_csv:

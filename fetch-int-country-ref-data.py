@@ -41,38 +41,28 @@ while header_row[0] != '#ISO':
 del comment_rows
 header_row[0] = 'ISO' # remove comment space
 
-l_countries = []
-
+d_country_ref_data = {}
 for row in non_comment_rows:
-    country = {}
+    d = {}
 
     # read files from csv and map them to dict
     for i in range(0, len(row)):
-        csv_row = row[i]
-        csv_row_title = header_row[i]
-
-        country[csv_row_title] = csv_row
+        col_title = header_row[i]
+        col = row[i]
+        d[col_title] = col
 
     # add missing keys as None
-    for key in header_row:
-        if key not in country:
-            country[key] = None
+    for col_title in header_row:
+        if col_title not in d:
+            d[col_title] = None
+    country_name = d['Country']
+    del d['Country']
+    
+    d_country_ref_data[country_name] = d
+assert len(non_comment_rows) == len (d_country_ref_data.keys())
+del row, non_comment_rows, d, country_name, col_title, col
 
-    l_countries.append(country)
 
-# export as csv
-keys = header_row
-with open(file_CSV, mode='w', encoding='utf-8', newline='\n') as file:
-    dict_writer = csv.DictWriter(file, keys, delimiter="\t")
-    dict_writer.writeheader()
-    dict_writer.writerows(l_countries)
-
-# convert list of dicts to dict of dicts
-d_country_ref_data = {}
-for d_country in l_countries:
-    country_name = d_country['Country']
-    del d_country['Country']
-    d_country_ref_data[country_name] = d_country
 
 for country_name in d_country_ref_data:
     d_country_ref_data[country_name]['Population'] = int (d_country_ref_data[country_name]['Population'])
@@ -87,6 +77,20 @@ if d_country_ref_data['Eritrea']['Population'] == 0:
 # export as json
 helper.write_json(file_JSON, d_country_ref_data)
 
+# export as csv
+
+l = []
+for country_name in sorted (d_country_ref_data.keys()):
+    d = d_country_ref_data[country_name]
+    d['Country'] = country_name
+    l.append(d)
+del d
+
+keys = header_row
+with open(file_CSV, mode='w', encoding='utf-8', newline='\n') as file:
+    dict_writer = csv.DictWriter(file, keys, delimiter="\t")
+    dict_writer.writeheader()
+    dict_writer.writerows(l)
 
 
 
