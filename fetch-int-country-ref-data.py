@@ -10,14 +10,14 @@ import requests
 
 import csv
 import json
- 
+
 import helper
 
 # header row:
 # ISO	ISO3	ISO-Numeric	fips	Country	Capital	Area(in sq km)	Population	Continent	tld	CurrencyCode	CurrencyName	Phone	Postal Code Format	Postal Code Regex	Languages	geonameid	neighbours	EquivalentFipsCode
 
 file_JSON = 'data/ref_country_database.json'
-file_CSV  = 'data/ref_country_database.tsv'
+file_CSV = 'data/ref_country_database.tsv'
 
 
 url = "http://download.geonames.org/export/dump/countryInfo.txt"
@@ -30,16 +30,18 @@ del url, stream
 comment_rows = []
 non_comment_rows = []
 for row in reader:
-    if row[0][0] == '#': comment_rows.append(row)
-    else: non_comment_rows.append(row)
+    if row[0][0] == '#':
+        comment_rows.append(row)
+    else:
+        non_comment_rows.append(row)
 del reader, row
 
 # search for table headers
-header_row = ["",""] # Dummy entry
+header_row = ["", ""]  # Dummy entry
 while header_row[0] != '#ISO':
     header_row = comment_rows.pop()
 del comment_rows
-header_row[0] = 'ISO' # remove comment space
+header_row[0] = 'ISO'  # remove comment space
 
 d_country_ref_data = {}
 for row in non_comment_rows:
@@ -57,18 +59,21 @@ for row in non_comment_rows:
             d[col_title] = None
     country_name = d['Country']
     del d['Country']
-    
+
     d_country_ref_data[country_name] = d
-assert len(non_comment_rows) == len (d_country_ref_data.keys())
+assert len(non_comment_rows) == len(d_country_ref_data.keys())
 del row, non_comment_rows, d, country_name, col_title, col
 
 
-
 for country_name in d_country_ref_data:
-    d_country_ref_data[country_name]['Population'] = int (d_country_ref_data[country_name]['Population'])
-    d_country_ref_data[country_name]['geonameid'] = int (d_country_ref_data[country_name]['geonameid'])
-    d_country_ref_data[country_name]['ISO-Numeric'] = int (d_country_ref_data[country_name]['ISO-Numeric'])
-    d_country_ref_data[country_name]['Area(in sq km)'] = float (d_country_ref_data[country_name]['Area(in sq km)'])
+    d_country_ref_data[country_name]['Population'] = int(
+        d_country_ref_data[country_name]['Population'])
+    d_country_ref_data[country_name]['geonameid'] = int(
+        d_country_ref_data[country_name]['geonameid'])
+    d_country_ref_data[country_name]['ISO-Numeric'] = int(
+        d_country_ref_data[country_name]['ISO-Numeric'])
+    d_country_ref_data[country_name]['Area(in sq km)'] = float(
+        d_country_ref_data[country_name]['Area(in sq km)'])
 
 
 if d_country_ref_data['Eritrea']['Population'] == 0:
@@ -80,7 +85,7 @@ helper.write_json(file_JSON, d_country_ref_data)
 # export as csv
 
 l = []
-for country_name in sorted (d_country_ref_data.keys()):
+for country_name in sorted(d_country_ref_data.keys()):
     d = d_country_ref_data[country_name]
     d['Country'] = country_name
     l.append(d)
@@ -91,8 +96,4 @@ with open(file_CSV, mode='w', encoding='utf-8', newline='\n') as file:
     dict_writer = csv.DictWriter(file, keys, delimiter="\t")
     dict_writer.writeheader()
     dict_writer.writerows(l)
-
-
-
-
 

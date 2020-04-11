@@ -225,7 +225,7 @@ def export_data(d_states_data: dict):
         l_state_data = d_states_data[code]
 
         helper.write_json(f'data/de-states/de-state-{code}.json', l_state_data)
-        
+
         with open(outfile, mode='w', encoding='utf-8', newline='\n') as fh:
             csvwriter = csv.writer(fh, delimiter='\t')
             csvwriter.writerow(
