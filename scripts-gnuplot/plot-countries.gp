@@ -117,15 +117,15 @@ country_code = "HU" ; country_name = "Hungary" ; load "plot-countries-sub1.gp"
 country_code = "IR" ; country_name = "Iran" ; load "plot-countries-sub1.gp"
 country_code = "IT" ; country_name = "Italy" ; load "plot-countries-sub1.gp"
 country_code = "JP" ; country_name = "Japan" ; load "plot-countries-sub1.gp"
-country_code = "KR" ; country_name = "Korea, South" ; load "plot-countries-sub1.gp"
 country_code = "NL" ; country_name = "Netherlands" ; load "plot-countries-sub1.gp"
 country_code = "PT" ; country_name = "Portugal" ; load "plot-countries-sub1.gp"
+country_code = "KR" ; country_name = "South Korea" ; load "plot-countries-sub1.gp"
 country_code = "ES" ; country_name = "Spain" ; load "plot-countries-sub1.gp"
 country_code = "SE" ; country_name = "Sweden" ; load "plot-countries-sub1.gp"
 country_code = "CH" ; country_name = "Switzerland" ; load "plot-countries-sub1.gp"
 country_code = "TR" ; country_name = "Turkey" ; load "plot-countries-sub1.gp"
 country_code = "UK" ; country_name = "United Kingdom" ; load "plot-countries-sub1.gp"
-country_code = "US" ; country_name = "US" ; load "plot-countries-sub1.gp"
+country_code = "US" ; country_name = "United States" ; load "plot-countries-sub1.gp"
 
 # delete fit logfile
 `rm fit.log`
@@ -180,7 +180,7 @@ out = system ("cd .. ; python join-country-latest-and-fit-data.py ; cd scripts-g
 print out
 data = '../data/int/countries-joined_selected_and_gnuplot_fit.tsv'
 set output '../plots-gnuplot/int/countries-days-until-IT-level-of-deaths.png'
-plot data u 16:xticlabels(1) with boxes ls 11
+plot data u 17:xticlabels(1) with boxes ls 11
 unset output
 unset yrange
 set ytics autofreq

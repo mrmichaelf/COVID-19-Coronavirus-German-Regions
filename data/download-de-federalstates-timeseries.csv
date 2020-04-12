@@ -687,19 +687,35 @@ id,Country/Region,federalstate,infections,deaths,date,newinfections,newdeaths
 687,Germany,Saxony-Anhalt,1121,18,2020-04-10,46,2
 673,Germany,Schleswig-Holstein,2029,38,2020-04-10,97,4
 688,Germany,Thuringia,1416,24,2020-04-10,65,4
-696,Germany,Baden-Württemberg,22433,570,2020-04-11,0,0
-697,Germany,Bavaria,30363,703,2020-04-11,0,0
-699,Germany,Berlin,4349,42,2020-04-11,0,0
-700,Germany,Brandenburg,1691,37,2020-04-11,0,0
-692,Germany,Bremen,454,13,2020-04-11,0,0
-690,Germany,Hamburg,3551,53,2020-04-11,0,0
-694,Germany,Hesse,5694,111,2020-04-11,0,0
-691,Germany,Lower Saxony,7114,161,2020-04-11,0,0
-701,Germany,Mecklenburg-Western Pomerania,586,11,2020-04-11,0,0
-693,Germany,North Rhine-Westphalia,23028,446,2020-04-11,0,0
-695,Germany,Rhineland-Palatinate,4440,51,2020-04-11,0,0
-698,Germany,Saarland,1854,36,2020-04-11,0,0
-702,Germany,Saxony,3402,59,2020-04-11,0,0
-703,Germany,Saxony-Anhalt,1121,18,2020-04-11,0,0
-689,Germany,Schleswig-Holstein,2029,38,2020-04-11,0,0
-704,Germany,Thuringia,1416,24,2020-04-11,0,0
+696,Germany,Baden-Württemberg,23617,622,2020-04-11,1184,52
+697,Germany,Bavaria,31453,747,2020-04-11,1090,44
+699,Germany,Berlin,4458,46,2020-04-11,109,4
+700,Germany,Brandenburg,1764,37,2020-04-11,73,0
+692,Germany,Bremen,469,15,2020-04-11,15,2
+690,Germany,Hamburg,3663,56,2020-04-11,112,3
+694,Germany,Hesse,5808,120,2020-04-11,114,9
+691,Germany,Lower Saxony,7343,171,2020-04-11,229,10
+701,Germany,Mecklenburg-Western Pomerania,601,11,2020-04-11,15,0
+693,Germany,North Rhine-Westphalia,23644,472,2020-04-11,616,26
+695,Germany,Rhineland-Palatinate,4622,59,2020-04-11,182,8
+698,Germany,Saarland,2016,41,2020-04-11,162,5
+702,Germany,Saxony,3565,65,2020-04-11,163,6
+703,Germany,Saxony-Anhalt,1135,18,2020-04-11,14,0
+689,Germany,Schleswig-Holstein,2065,39,2020-04-11,36,1
+704,Germany,Thuringia,1435,25,2020-04-11,19,1
+712,Germany,Baden-Württemberg,24078,649,2020-04-12,461,27
+713,Germany,Bavaria,32282,786,2020-04-12,829,39
+715,Germany,Berlin,4567,50,2020-04-12,109,4
+716,Germany,Brandenburg,1857,38,2020-04-12,93,1
+708,Germany,Bremen,480,15,2020-04-12,11,0
+706,Germany,Hamburg,3742,56,2020-04-12,79,0
+710,Germany,Hesse,5859,123,2020-04-12,51,3
+707,Germany,Lower Saxony,7602,189,2020-04-12,259,18
+717,Germany,Mecklenburg-Western Pomerania,605,11,2020-04-12,4,0
+709,Germany,North Rhine-Westphalia,24267,495,2020-04-12,623,23
+711,Germany,Rhineland-Palatinate,4734,64,2020-04-12,112,5
+714,Germany,Saarland,2058,43,2020-04-12,42,2
+718,Germany,Saxony,3600,67,2020-04-12,35,2
+719,Germany,Saxony-Anhalt,1166,21,2020-04-12,31,3
+705,Germany,Schleswig-Holstein,2118,41,2020-04-12,53,2
+720,Germany,Thuringia,1464,25,2020-04-12,29,0
