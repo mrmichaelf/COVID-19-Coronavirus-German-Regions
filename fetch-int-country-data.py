@@ -62,11 +62,9 @@ def read_json_data() -> dict:
     d_countries_to_rename['Taiwan*'] = 'Taiwan'
     d_countries_to_rename['Burma'] = 'Myanmar'
     d_countries_to_rename['Cote d\'Ivoire'] = 'Ivory Coast'
-    for country_name in d_json_downloaded.keys():
-        if country_name in d_countries_to_rename:
-            d_json_downloaded[d_countries_to_rename[country_name]
-                              ] = d_json_downloaded[country_name]
-            del d_json_downloaded[country_name]
+    for country_name_old, country_name_new in d_countries_to_rename.items():
+        d_json_downloaded[country_name_new] = d_json_downloaded[country_name_old]
+        del d_json_downloaded[country_name_old]
 
     d_countries = {}
     # re-format date using my date_format(y,m,d) function
@@ -74,7 +72,7 @@ def read_json_data() -> dict:
         country_data = d_json_downloaded[country]
         l_time_series = []
 
-        pop = fetch_population(country)
+        pop = read_population(country)
 
         for entry in country_data:
             d = {}
@@ -116,16 +114,16 @@ def read_json_data() -> dict:
             d['Cases_Last_Week_Per_Million'] = None
             d['Deaths_Last_Week_Per_Million'] = None
             if pop != None:
-                d['Cases_Per_Million'] = round(d['Cases'] / pop * 1000000, 3)
-                d['Deaths_Per_Million'] = round(d['Deaths'] / pop * 1000000, 3)
+                d['Cases_Per_Million'] = round(d['Cases'] / pop * 1000000, 0)
+                d['Deaths_Per_Million'] = round(d['Deaths'] / pop * 1000000, 0)
                 d['Cases_New_Per_Million'] = round(
-                    d['Cases_New'] / pop * 1000000, 3)
+                    d['Cases_New'] / pop * 1000000, 0)
                 d['Deaths_New_Per_Million'] = round(
-                    d['Deaths_New'] / pop * 1000000, 3)
+                    d['Deaths_New'] / pop * 1000000, 0)
                 d['Cases_Last_Week_Per_Million'] = round(
-                    d['Cases_Last_Week'] / pop * 1000000, 3)
+                    d['Cases_Last_Week'] / pop * 1000000, 0)
                 d['Deaths_Last_Week_Per_Million'] = round(
-                    d['Deaths_Last_Week'] / pop * 1000000, 3)
+                    d['Deaths_Last_Week'] / pop * 1000000, 0)
 
         d_countries[country] = l_time_series
 
@@ -163,26 +161,40 @@ def extract_latest_date_data():
         csvwriter = csv.writer(f, delimiter="\t")
         csvwriter.writerow(  # header row
             ('# Country', 'Population', 'Date', 'Cases',
-             'Deaths', 'Cases_Per_Million', 'Deaths_Per_Million', 'Cases_Last_Week_Per_Million', 'Deaths_Last_Week_Per_Million')
+             'Deaths', 'Cases_Per_Million', 'Deaths_Per_Million', 'Cases_Last_Week_Per_Million', 'Deaths_Last_Week_Per_Million', 'Continent')
         )
         # TODO: do JSON Export
-        l_for_export = {}
+        l_for_export = []
         for country in sorted(d_countries_timeseries.keys(), key=str.casefold):
             country_data = d_countries_timeseries[country]
             entry = country_data[-1]  # last entry (=>latest date)
-            pop = fetch_population(country)
+            pop = read_population(country)
 
             d_for_export = {}
             d_for_export['Country'] = country
+            d_for_export['Continent'] = read_continent(d_for_export['Country'])
+            d_for_export['Population'] = pop
+            d_for_export['Date'] = entry['Date']
+            d_for_export['Cases'] = entry['Cases']
+            d_for_export['Deaths'] = entry['Deaths']
+            d_for_export['Cases_Per_Million'] = entry['Cases_Per_Million']
+            d_for_export['Deaths_Per_Million'] = entry['Deaths_Per_Million']
+            d_for_export['Cases_Last_Week_Per_Million'] = entry['Cases_Last_Week_Per_Million']
+            d_for_export['Deaths_Last_Week_Per_Million'] = entry['Deaths_Last_Week_Per_Million']
+            l_for_export.append(d_for_export)
+
             csvwriter.writerow(
                 (
-                    country, pop, entry['Date'],
-                    entry['Cases'], entry['Deaths'],
-                    entry['Cases_Per_Million'], entry['Deaths_Per_Million'],
-                    entry['Cases_Last_Week_Per_Million'], entry['Deaths_Last_Week_Per_Million']
+                    d_for_export['Country'], d_for_export['Population'], d_for_export['Date'],
+                    d_for_export['Cases'], d_for_export['Deaths'],
+                    d_for_export['Cases_Per_Million'], d_for_export['Deaths_Per_Million'],
+                    d_for_export['Cases_Last_Week_Per_Million'], d_for_export['Deaths_Last_Week_Per_Million'], d_for_export['Continent']
                 )
             )
-        d_for_export
+            del d_for_export
+
+        helper.write_json(
+            filename='data/int/countries-latest-all.json', d=l_for_export, sort_keys=False)
 
 
 def extract_latest_date_data_selected():
@@ -282,11 +294,11 @@ def enrich_data_by_calculated_fields():
             entry['Cases_Change_Factor'] = ""
             if last_cases >= 100:
                 entry['Cases_Change_Factor'] = round(
-                    entry['Cases']/last_cases, 3)
+                    entry['Cases']/last_cases, 0)
             entry['Deaths_Change_Factor'] = ""
             if last_deaths >= 10:
                 entry['Deaths_Change_Factor'] = round(
-                    entry['Deaths']/last_deaths, 3)
+                    entry['Deaths']/last_deaths, 0)
 
             last_cases = entry['Cases']
             last_deaths = entry['Deaths']
@@ -383,7 +395,7 @@ def test():
             print(f"not found: {country_name}")
 
 
-def fetch_population(country_name: str, verbose: bool = False) -> int:
+def read_population(country_name: str, verbose: bool = False) -> int:
     global d_ref_country_database
     pop = None
     if country_name == 'Congo (Brazzaville)':
@@ -402,6 +414,37 @@ def fetch_population(country_name: str, verbose: bool = False) -> int:
     if verbose and pop == None:
         print(f"No Population found for {country_name}")
     return pop
+
+
+def read_continent(country_name: str, verbose: bool = False) -> str:
+    global d_ref_country_database
+    continent = None
+    if country_name == 'Congo (Brazzaville)':
+        continent = d_ref_country_database['Republic of the Congo']['Continent']
+    if country_name == 'Congo (Kinshasa)':
+        continent = d_ref_country_database['Democratic Republic of the Congo']['Continent']
+
+    if continent == None:
+        for ref_country_name in d_ref_country_database.keys():
+            if country_name == ref_country_name:
+                continent = d_ref_country_database[country_name]['Continent']
+
+    if continent != None:
+        if continent == 'AF':
+            continent = 'Africa'
+        elif continent == 'AN':
+            continent = 'Antarctica'
+        elif continent == 'AS':
+            continent = 'Asia'
+        elif continent == 'EU':
+            continent = 'Europe'
+        elif continent == 'NA':
+            continent = 'North America'
+        elif continent == 'SA':
+            continent = 'South America'
+        elif continent == 'OC':
+            continent = 'Oceania'
+    return continent
 
 
 d_ref_country_database = helper.read_json_file(
