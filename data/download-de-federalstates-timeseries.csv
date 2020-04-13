@@ -719,3 +719,19 @@ id,Country/Region,federalstate,infections,deaths,date,newinfections,newdeaths
 719,Germany,Saxony-Anhalt,1166,21,2020-04-12,31,3
 705,Germany,Schleswig-Holstein,2118,41,2020-04-12,53,2
 720,Germany,Thuringia,1464,25,2020-04-12,29,0
+728,Germany,Baden-Württemberg,24570,677,2020-04-13,492,28
+729,Germany,Bavaria,33015,820,2020-04-13,733,34
+731,Germany,Berlin,4601,51,2020-04-13,34,1
+732,Germany,Brandenburg,1880,38,2020-04-13,23,0
+724,Germany,Bremen,486,17,2020-04-13,6,2
+722,Germany,Hamburg,3770,56,2020-04-13,28,0
+726,Germany,Hesse,6114,135,2020-04-13,255,12
+723,Germany,Lower Saxony,7723,201,2020-04-13,121,12
+733,Germany,Mecklenburg-Western Pomerania,618,11,2020-04-13,13,0
+725,Germany,North Rhine-Westphalia,24883,518,2020-04-13,616,23
+727,Germany,Rhineland-Palatinate,4810,68,2020-04-13,76,4
+730,Germany,Saarland,2079,44,2020-04-13,21,1
+734,Germany,Saxony,3655,68,2020-04-13,55,1
+735,Germany,Saxony-Anhalt,1193,24,2020-04-13,27,3
+721,Germany,Schleswig-Holstein,2134,44,2020-04-13,16,3
+736,Germany,Thuringia,1485,27,2020-04-13,21,2
