@@ -7,11 +7,13 @@
 
 wget -q -O index-online.html https://entorb.net/COVID-19-coronavirus/index.html 
 
+python fetch-de-districts.py
+
 python fetch-int-country-data.py
 echo Date Int-Countries: `tail -1 data/int/countries-latest-selected.tsv | cut -f2`
 
-echo "shall we continue?"
-read ok
+# echo "shall we continue?"
+# read ok
 
 rsync -rvhu --delete --delete-excluded data/* entorb@entorb.net:html/COVID-19-coronavirus/data/
 rsync -rvhu --delete --delete-excluded plots-gnuplot/* entorb@entorb.net:html/COVID-19-coronavirus/plots-gnuplot/
@@ -24,8 +26,8 @@ cd ..
 
 python fetch-de-states-data.py
 echo Date DE-States: `tail -1 data/de-states/de-states-latest.tsv | cut -f5`
-echo "shall we continue?"
-read ok
+# echo "shall we continue?"
+# read ok
 
 rsync -rvhu --delete --delete-excluded data/* entorb@entorb.net:html/COVID-19-coronavirus/data/
 
