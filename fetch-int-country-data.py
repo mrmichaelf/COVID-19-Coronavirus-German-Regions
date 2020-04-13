@@ -44,6 +44,7 @@ def download_new_data():
     with open(file_cache, mode='wb') as f:
         f.write(datatowrite)
 
+
 def read_json_data() -> dict:
     """
     reads downloaded cached json file contents
@@ -53,7 +54,7 @@ def read_json_data() -> dict:
     returns as a dict
     """
     d_json_downloaded = helper.read_json_file(file_cache)
-    
+
     # rename some countries
     d_countries_to_rename = {}
     d_countries_to_rename['US'] = 'United States'
@@ -63,7 +64,8 @@ def read_json_data() -> dict:
     d_countries_to_rename['Cote d\'Ivoire'] = 'Ivory Coast'
     for country_name in d_json_downloaded.keys():
         if country_name in d_countries_to_rename:
-            d_json_downloaded[d_countries_to_rename[country_name]] = d_json_downloaded[country_name]
+            d_json_downloaded[d_countries_to_rename[country_name]
+                              ] = d_json_downloaded[country_name]
             del d_json_downloaded[country_name]
 
     d_countries = {}
@@ -82,16 +84,48 @@ def read_json_data() -> dict:
             d['Date'] = helper.date_format(int(l[0]), int(l[1]), int(l[2]))
             d['Cases'] = int(entry['confirmed'])
             d['Deaths'] = int(entry['deaths'])
-            d['Cases_Per_Million'] = None
-            d['Deaths_Per_Million'] = None
-            if pop != None:
-                d['Cases_Per_Million'] = round(d['Cases'] / pop * 1000000,3)
-                d['Deaths_Per_Million'] = round(d['Deaths'] / pop * 1000000,3)
             l_time_series.append(d)
 
         # ensure sorting by date
         l_time_series = sorted(
             l_time_series, key=lambda x: x['Date'], reverse=False)
+
+        last_cases = 0
+        last_deaths = 0
+        for i in range(len(l_time_series)):
+            d = l_time_series[i]
+
+            # _New
+            d['Cases_New'] = d['Cases'] - last_cases
+            d['Deaths_New'] = d['Deaths'] - last_deaths
+            last_cases = d['Cases']
+            last_deaths = d['Deaths']
+
+            d['Cases_Last_Week'] = 0
+            d['Deaths_Last_Week'] = 0
+            if i >= 7:
+                d['Cases_Last_Week'] = d['Cases'] - l_time_series[i-7]['Cases']
+                d['Deaths_Last_Week'] = d['Deaths'] - \
+                    l_time_series[i-7]['Deaths']
+
+            # _Per_Million
+            d['Cases_Per_Million'] = None
+            d['Deaths_Per_Million'] = None
+            d['Cases_New_Per_Million'] = None
+            d['Deaths_New_Per_Million'] = None
+            d['Cases_Last_Week_Per_Million'] = None
+            d['Deaths_Last_Week_Per_Million'] = None
+            if pop != None:
+                d['Cases_Per_Million'] = round(d['Cases'] / pop * 1000000, 3)
+                d['Deaths_Per_Million'] = round(d['Deaths'] / pop * 1000000, 3)
+                d['Cases_New_Per_Million'] = round(
+                    d['Cases_New'] / pop * 1000000, 3)
+                d['Deaths_New_Per_Million'] = round(
+                    d['Deaths_New'] / pop * 1000000, 3)
+                d['Cases_Last_Week_Per_Million'] = round(
+                    d['Cases_Last_Week'] / pop * 1000000, 3)
+                d['Deaths_Last_Week_Per_Million'] = round(
+                    d['Deaths_Last_Week'] / pop * 1000000, 3)
 
         d_countries[country] = l_time_series
 
@@ -128,20 +162,27 @@ def extract_latest_date_data():
     with open('data/int/countries-latest-all.tsv', mode='w', encoding='utf-8', newline='\n') as f:
         csvwriter = csv.writer(f, delimiter="\t")
         csvwriter.writerow(  # header row
-            ('# Country', 'Population', 'Date', 'Cases', 'Deaths', 'Cases_Per_Million', 'Deaths_Per_Million')
+            ('# Country', 'Population', 'Date', 'Cases',
+             'Deaths', 'Cases_Per_Million', 'Deaths_Per_Million', 'Cases_Last_Week_Per_Million', 'Deaths_Last_Week_Per_Million')
         )
+        # TODO: do JSON Export
+        l_for_export = {}
         for country in sorted(d_countries_timeseries.keys(), key=str.casefold):
             country_data = d_countries_timeseries[country]
             entry = country_data[-1]  # last entry (=>latest date)
             pop = fetch_population(country)
 
+            d_for_export = {}
+            d_for_export['Country'] = country
             csvwriter.writerow(
                 (
-                country, pop, entry['Date'], 
-                entry['Cases'], entry['Deaths'],
-                entry['Cases_Per_Million'], entry['Deaths_Per_Million']
-                 )
+                    country, pop, entry['Date'],
+                    entry['Cases'], entry['Deaths'],
+                    entry['Cases_Per_Million'], entry['Deaths_Per_Million'],
+                    entry['Cases_Last_Week_Per_Million'], entry['Deaths_Last_Week_Per_Million']
+                )
             )
+        d_for_export
 
 
 def extract_latest_date_data_selected():
@@ -165,10 +206,11 @@ def extract_latest_date_data_selected():
             entry = country_data[-1]  # last entry for this country
             pop_in_Mill = d_selected_countries[country]['Population'] / 1000000
             csvwriter.writerow(
-                (country, entry['Date'], 
-                entry['Cases'], entry['Deaths'], 
-                "%.3f" % (entry['Cases']/pop_in_Mill), "%.3f" % (entry['Deaths']/pop_in_Mill),
-                d_selected_countries[country]['Population'])
+                (country, entry['Date'],
+                 entry['Cases'], entry['Deaths'],
+                 "%.3f" % (
+                     entry['Cases']/pop_in_Mill), "%.3f" % (entry['Deaths']/pop_in_Mill),
+                 d_selected_countries[country]['Population'])
             )
 
 
@@ -191,9 +233,10 @@ def check_for_further_interesting_countries():
         entry = l_country_data[-1]  # latest entry
         # if entry['Cases'] >= min_confirmed or entry['Deaths'] >= min_death:
         if entry['Deaths_Per_Million'] and entry['Deaths_Per_Million'] >= min_death_per_million:
-            print(f"{country}\t{entry['Cases']}\t{entry['Deaths']}\t{int(entry['Deaths_Per_Million'])}")
+            print(
+                f"{country}\t{entry['Cases']}\t{entry['Deaths']}\t{int(entry['Deaths_Per_Million'])}")
 
-            
+
 def enrich_data_by_calculated_fields():
     global d_countries_timeseries
     global d_selected_countries
@@ -285,7 +328,8 @@ def export_time_series_selected_countries():
         l_country_data = d_countries_timeseries[country]
         #     pop_in_Mill = d_selected_countries[country]['Population'] / 1000000
 
-        helper.write_json(f'data/int/country-{country_code}.json', l_country_data)
+        helper.write_json(
+            f'data/int/country-{country_code}.json', l_country_data)
 
         with open(f'data/int/country-{country_code}.tsv', mode='w', encoding='utf-8', newline='\n') as f:
             csvwriter = csv.writer(f, delimiter="\t")
@@ -315,11 +359,12 @@ def export_time_series_selected_countries():
                 )
 
 
-
 def test():
-    d_ref_country_database = helper.read_json_file('data/ref_country_database.json')
+    d_ref_country_database = helper.read_json_file(
+        'data/ref_country_database.json')
 
-    d_country_covid_time_series = helper.read_json_file('data/download-countries-timeseries.json')
+    d_country_covid_time_series = helper.read_json_file(
+        'data/download-countries-timeseries.json')
 
     for country_name in d_country_covid_time_series.keys():
         pop = None
@@ -335,9 +380,10 @@ def test():
                     pop = d_ref_country_database[country_name]['Population']
 
         if pop == None:
-            print (f"not found: {country_name}")
+            print(f"not found: {country_name}")
 
-def fetch_population(country_name:str, verbose:bool=False) -> int:
+
+def fetch_population(country_name: str, verbose: bool = False) -> int:
     global d_ref_country_database
     pop = None
     if country_name == 'Congo (Brazzaville)':
@@ -349,23 +395,24 @@ def fetch_population(country_name:str, verbose:bool=False) -> int:
         for ref_country_name in d_ref_country_database.keys():
             if country_name == ref_country_name:
                 pop = d_ref_country_database[country_name]['Population']
-    if pop != None: pop = int(pop)
-    if pop == 0: pop = None
-    if verbose and pop == None : 
-        print (f"No Population found for {country_name}")
+    if pop != None:
+        pop = int(pop)
+    if pop == 0:
+        pop = None
+    if verbose and pop == None:
+        print(f"No Population found for {country_name}")
     return pop
 
 
+d_ref_country_database = helper.read_json_file(
+    'data/ref_country_database.json')
 
-d_ref_country_database = helper.read_json_file('data/ref_country_database.json')
-
-if not helper.check_cache_file_available_and_recent(fname=file_cache, max_age=7200, verbose=True) :
+if not helper.check_cache_file_available_and_recent(fname=file_cache, max_age=7200, verbose=True):
     download_new_data()
 
 d_selected_countries = read_ref_selected_countries()
 
 d_countries_timeseries = read_json_data()
-
 
 
 check_for_further_interesting_countries()
