@@ -193,6 +193,7 @@ def extract_latest_date_data_selected():
     """
     with open('data/int/countries-latest-selected.tsv', mode='w', encoding='utf-8', newline='\n') as f:
         csvwriter = csv.writer(f, delimiter="\t")
+        # TODO: change order: pop as no 3
         csvwriter.writerow(
             ('# Country', 'Date',
              'Confirmed', 'Deaths',
