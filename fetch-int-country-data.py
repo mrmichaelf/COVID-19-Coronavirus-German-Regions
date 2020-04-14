@@ -131,7 +131,7 @@ def extract_latest_date_data():
         csvwriter = csv.writer(f, delimiter="\t")
         csvwriter.writerow(  # header row
             ('# Country', 'Population', 'Date', 'Cases',
-             'Deaths', 'Cases_Per_Million', 'Deaths_Per_Million', 'Cases_Last_Week_Per_Million', 'Deaths_Last_Week_Per_Million', 'Continent')
+             'Deaths', 'Cases_Per_Million', 'Deaths_Per_Million', 'Cases_Last_Week_Per_Million', 'Deaths_Last_Week_Per_Million', 'Continent', 'Code')
         )
         l_for_export = []
         for country in sorted(d_countries_timeseries.keys(), key=str.casefold):
@@ -141,6 +141,7 @@ def extract_latest_date_data():
 
             d_for_export = {}
             d_for_export['Country'] = country
+            d_for_export['Code'] = read_country_code(d_for_export['Country'])
             d_for_export['Continent'] = read_continent(d_for_export['Country'])
             d_for_export['Population'] = pop
             d_for_export['Date'] = entry['Date']
@@ -161,7 +162,8 @@ def extract_latest_date_data():
                     d_for_export['Country'], d_for_export['Population'], d_for_export['Date'],
                     d_for_export['Cases'], d_for_export['Deaths'],
                     d_for_export['Cases_Per_Million'], d_for_export['Deaths_Per_Million'],
-                    d_for_export['Cases_Last_Week_Per_Million'], d_for_export['Deaths_Last_Week_Per_Million'], d_for_export['Continent']
+                    d_for_export['Cases_Last_Week_Per_Million'], d_for_export[
+                        'Deaths_Last_Week_Per_Million'], d_for_export['Continent'], d_for_export['Code']
                 )
             )
             del d_for_export
@@ -332,42 +334,27 @@ def export_time_series_selected_countries():
                 )
 
 
-def test():
-    d_ref_country_database = helper.read_json_file(
-        'data/ref_country_database.json')
-
-    d_country_covid_time_series = helper.read_json_file(
-        'data/download-countries-timeseries.json')
-
-    for country_name in d_country_covid_time_series.keys():
-        pop = None
-        # TODO: do this mapping in other file?
-        if country_name == 'Congo (Brazzaville)':
-            pop = d_ref_country_database['Republic of the Congo']['Population']
-        if country_name == 'Congo (Kinshasa)':
-            pop = d_ref_country_database['Democratic Republic of the Congo']['Population']
-
-        if pop == None:
-            for ref_country_name in d_ref_country_database.keys():
-                if country_name == ref_country_name:
-                    pop = d_ref_country_database[country_name]['Population']
-
-        if pop == None:
-            print(f"not found: {country_name}")
+def get_ref_country_dict(country_name: str) -> dict:
+    global d_ref_country_database
+    d = {}
+    if country_name == 'Congo (Brazzaville)':
+        d = d_ref_country_database['Republic of the Congo']
+    elif country_name == 'Congo (Kinshasa)':
+        d = d_ref_country_database['Democratic Republic of the Congo']
+    else:
+        for ref_country_name in d_ref_country_database.keys():
+            if country_name == ref_country_name:
+                d = d_ref_country_database[country_name]
+                break
+    return d
 
 
 def read_population(country_name: str, verbose: bool = False) -> int:
-    global d_ref_country_database
     pop = None
-    if country_name == 'Congo (Brazzaville)':
-        pop = d_ref_country_database['Republic of the Congo']['Population']
-    if country_name == 'Congo (Kinshasa)':
-        pop = d_ref_country_database['Democratic Republic of the Congo']['Population']
+    d = get_ref_country_dict(country_name)
+    if d != {}:
+        pop = d['Population']
 
-    if pop == None:
-        for ref_country_name in d_ref_country_database.keys():
-            if country_name == ref_country_name:
-                pop = d_ref_country_database[country_name]['Population']
     if pop != None:
         pop = int(pop)
     if pop == 0:
@@ -377,18 +364,11 @@ def read_population(country_name: str, verbose: bool = False) -> int:
     return pop
 
 
-def read_continent(country_name: str, verbose: bool = False) -> str:
-    global d_ref_country_database
+def read_continent(country_name: str) -> str:
     continent = None
-    if country_name == 'Congo (Brazzaville)':
-        continent = d_ref_country_database['Republic of the Congo']['Continent']
-    if country_name == 'Congo (Kinshasa)':
-        continent = d_ref_country_database['Democratic Republic of the Congo']['Continent']
-
-    if continent == None:
-        for ref_country_name in d_ref_country_database.keys():
-            if country_name == ref_country_name:
-                continent = d_ref_country_database[country_name]['Continent']
+    d = get_ref_country_dict(country_name)
+    if d != {}:
+        continent = d['Continent']
 
     if continent != None:
         if continent == 'AF':
@@ -406,6 +386,14 @@ def read_continent(country_name: str, verbose: bool = False) -> str:
         elif continent == 'OC':
             continent = 'Oceania'
     return continent
+
+
+def read_country_code(country_name: str) -> str:
+    code = None
+    d = get_ref_country_dict(country_name)
+    if d != {}:
+        code = d['ISO']
+    return code
 
 
 d_ref_country_database = helper.read_json_file(
