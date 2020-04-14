@@ -1,77 +1,77 @@
 <!doctype html>
-<html lang="de">
-<head>
-    <title>Landkreisprognose</title>
-    <meta charset="utf-8">
-    
-<style>
-    #myInput {
-      width: 400px;
-      font-size: 16px;      /* Increase font-size */
-      padding: 12px 20px 12px 10px;      /* Add some padding */
-      border: 1px solid #ddd;       /* Add a grey border */
-      margin-bottom: 12px;       /* Add some space below the input */
+    <html lang="de">
+    <head>
+        <title>Landkreisprognose</title>
+        <meta charset="utf-8">
+        
+    <style>
+        #myInput {
+        width: 400px;
+        font-size: 16px;      /* Increase font-size */
+        padding: 12px 20px 12px 10px;      /* Add some padding */
+        border: 1px solid #ddd;       /* Add a grey border */
+        margin-bottom: 12px;       /* Add some space below the input */
+        }
+
+    #myTable {
+    border-collapse: collapse; /* Collapse borders */
+    width: 100%; /* Full-width */
+    border: 1px solid #ddd; /* Add a grey border */
+    font-size: 18px; /* Increase font-size */
     }
 
-#myTable {
-  border-collapse: collapse; /* Collapse borders */
-  width: 100%; /* Full-width */
-  border: 1px solid #ddd; /* Add a grey border */
-  font-size: 18px; /* Increase font-size */
-}
+    #myTable th, #myTable td {
+    text-align: left; /* Left-align text */
+    padding: 12px; /* Add padding */
+    }
 
-#myTable th, #myTable td {
-  text-align: left; /* Left-align text */
-  padding: 12px; /* Add padding */
-}
+    #myTable tr {
+    /* Add a bottom border to all table rows */
+    border-bottom: 1px solid #ddd;
+    }
 
-#myTable tr {
-  /* Add a bottom border to all table rows */
-  border-bottom: 1px solid #ddd;
-}
+    #myTable tr.header, #myTable tr:hover {
+    /* Add a grey background color to the table header and on hover */
+    background-color: #f1f1f1;
+    }
+    </style>
 
-#myTable tr.header, #myTable tr:hover {
-  /* Add a grey background color to the table header and on hover */
-  background-color: #f1f1f1;
-}
-</style>
+    <script>
+        function mySortFunction() {
+            // Declare variables
+            var input, filter, table, tr, td, i, txtValue;
+            input = document.getElementById("myInput");
+            filter = input.value.toUpperCase();
+            table = document.getElementById("myTable");
+            tr = table.getElementsByTagName("tr");
 
-<script>
-    function mySortFunction() {
-        // Declare variables
-        var input, filter, table, tr, td, i, txtValue;
-        input = document.getElementById("myInput");
-        filter = input.value.toUpperCase();
-        table = document.getElementById("myTable");
-        tr = table.getElementsByTagName("tr");
-
-        // Loop through all table rows, and hide those who don't match the search query
-        for (i = 0; i < tr.length; i++) {
-            td = tr[i].getElementsByTagName("td")[0];
-            if (td) {
-                txtValue = td.textContent || td.innerText;
-                if (txtValue.toUpperCase().indexOf(filter) > -1) {
-                    tr[i].style.display = "";
-                } else {
-                    tr[i].style.display = "none";
+            // Loop through all table rows, and hide those who don't match the search query
+            for (i = 0; i < tr.length; i++) {
+                td = tr[i].getElementsByTagName("td")[0];
+                if (td) {
+                    txtValue = td.textContent || td.innerText;
+                    if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                        tr[i].style.display = "";
+                    } else {
+                        tr[i].style.display = "none";
+                    }
                 }
             }
         }
-    }
-</script>
-</head>
+    </script>
+    </head>
 
-<body>
-<p>
-<a href="index.html">zurück zur Auswertung</a>
-</p>
-<h1>Landkreisprognose</h1>
-<p>Basierend auf Daten des
-<a href="https://experience.arcgis.com/experience/478220a4c454480e823b17327b2bf1d4/page/page_0/" target="_blank">Robert Koch-Institut COVID-19-Dashboards</a>
-</p>
-    <input type="text" id="myInput" onkeyup="mySortFunction()" placeholder="Landkreissuche">
-    <table id="myTable">        
-        <tr><th>Landkreis</th><th>Bundesland</th><th>Einwohner</th><th>Fälle</th><th>Tode</th><th>Fälle pro 1 Millionen Einwohner</th><th>Tote pro 1 Millionen Einwohner</th><th>Prognose Fälle Morgen (%)</th></tr>
+    <body>
+    <p>
+    <a href="index.html">zurück zur Auswertung</a>
+    </p>
+    <h1>Landkreisprognose</h1>
+    <p>Basierend auf Daten des
+    <a href="https://experience.arcgis.com/experience/478220a4c454480e823b17327b2bf1d4/page/page_0/" target="_blank">Robert Koch-Institut COVID-19-Dashboards</a>
+    </p>
+        <input type="text" id="myInput" onkeyup="mySortFunction()" placeholder="Landkreissuche">
+        <table id="myTable">        
+            <tr><th>Landkreis</th><th>Bundesland</th><th>Einwohner</th><th>Fälle</th><th>Tode</th><th>Fälle pro 1 Millionen Einwohner</th><th>Tote pro 1 Millionen Einwohner</th><th>Prognose Fälle Morgen (%)</th></tr>
 <tr><td>Flensburg (Kreisfreie Stadt)</td><td>Schleswig-Holstein</td><td>89504</td><td>33</td><td>1</td><td>369</td><td>11</td><td>4.3</td></tr>
 <tr><td>Kiel (Kreisfreie Stadt)</td><td>Schleswig-Holstein</td><td>247548</td><td>198</td><td>6</td><td>800</td><td>24</td><td>4.2</td></tr>
 <tr><td>Lübeck (Kreisfreie Stadt)</td><td>Schleswig-Holstein</td><td>217198</td><td>147</td><td>1</td><td>677</td><td>5</td><td>3.5</td></tr>

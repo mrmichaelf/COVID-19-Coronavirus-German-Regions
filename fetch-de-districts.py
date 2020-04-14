@@ -418,81 +418,80 @@ def plot_lk_fit(lk_id: str, data: list, d_fit_results: dict):
     # fetch_fit_and_plot_lk('LK Harburg')
 
 
-d_ref_landkreise = fetch_and_prepare_ref_landkreise()
+def loop_over_all_LK():
 
+    d_results_for_json_export = {}
+    l_for_export_V2 = []
 
-# fetch_ref_landkreise(readFromCache=True)
+    # l2 = ('16068',)
+    # for lk_id in d_ref_landkreise.keys():
+    for lk_id in tqdm(d_ref_landkreise.keys()):
+        lk_name = get_lk_name_from_lk_id(lk_id)
+        print(f"{lk_id} {lk_name}")
 
-# d_ref_landkreise[lk_id]['EWZ']    # = Einwohnerzahl: int
-# d_ref_landkreise[lk_id]['county'] # zB 'SK Flensburg'
-# d_ref_landkreise[lk_id]['BL']     # zB 'Schleswig-Holstein'
-# d_ref_landkreise[lk_id]['BL_ID']  # zB '1'
-# d_ref_landkreise[lk_id]['BEZ']    # zB 'Kreisfreie Stadt'
-# d_ref_landkreise[lk_id]['last_update'] # zB '29.03.2020 00:00'
+        # 03353   LK Harburg      252776
+        # 09562   SK Erlangen     111962
+        # 09563   SK Fürth        127748
 
-# TODO: sort by Bundesland, Landkreis
+        data = []
+        l_lk_time_series = fetch_and_prepare_lk_time_series(lk_id)
+        # l_lk_time_series = fetch_landkreis_time_series(lk_id, readFromCache=True)
+        for entry in l_lk_time_series:
+            # choose columns for fitting
+            data.append((entry['Days_Past'], entry['Cases']))
 
+        last_entry = l_lk_time_series[-1]
 
-d_results_for_json_export = {}
+        d_fit_results = helper.fit_routine(data, fit_range_x=(-6, 0))
 
-# Fit Cases für alle LK
-# 16068 machte Probleme
+        # TODO: add fit range, as needed for plot
+        d = {
+            'Bundesland': d_ref_landkreise[lk_id]['BL_Name'],  # Bundesland
+            'Landkreis': lk_name,
+            'LK_Einwohner': d_ref_landkreise[lk_id]['Population'],  # Einwohner
+            'fit_res_N0': round(d_fit_results['fit_res'][0], 3),
+            'fit_res_T': round(d_fit_results['fit_res'][1], 3),
+            'fit_used_x_range': d_fit_results['fit_used_x_range'],
+            'Cases': last_entry['Cases'],
+            'Cases_Per_Million': last_entry['Cases_Per_Million'],
+            'Deaths': last_entry['Deaths'],
+            'Deaths_Per_Million': last_entry['Deaths_Per_Million'],
+            'Cases_Forecast_Tomorrow': round(d_fit_results['forcast_y_at_x+1'], 3),
+            'Cases_Forecast_Tomorrow_Factor': round(d_fit_results['factor_increase_x+1'], 3),
+            'Date': entry['Date'],
+            'Cases_Last_Week_Per_Million': entry['Cases_Last_Week_Per_Million'],
+            'Deaths_Last_Week_Per_Million': entry['Deaths_Last_Week_Per_Million']
+        }
 
-# for i in tqdm(range(10000)):
+        d_results_for_json_export[lk_id] = d
 
-# l2 = ('16068',)
-# for lk_id in d_ref_landkreise.keys():
-for lk_id in tqdm(d_ref_landkreise.keys()):
-    lk_name = get_lk_name_from_lk_id(lk_id)
-    print(f"{lk_id} {lk_name}")
+        d_for_export_V2 = d
+        d_for_export_V2['Cases_Per_Million'] = round(
+            d['Cases_Per_Million'], 0)
+        d_for_export_V2['Deaths_Per_Million'] = round(
+            d['Deaths_Per_Million'], 0)
+        d_for_export_V2['Cases_Last_Week_Per_Million'] = round(
+            d['Cases_Last_Week_Per_Million'], 0)
+        d_for_export_V2['Deaths_Last_Week_Per_Million'] = round(
+            d['Deaths_Last_Week_Per_Million'], 0)
+        d_for_export_V2['LK_ID'] = lk_id
+        l_for_export_V2.append(d_for_export_V2)
 
-    # 03353   LK Harburg      252776
-    # 09562   SK Erlangen     111962
-    # 09563   SK Fürth        127748
+        # TODO:
+        # plot_lk_fit(lk_id, data, d_fit_results)
+        # break
 
-    data = []
-    l_lk_time_series = fetch_and_prepare_lk_time_series(lk_id)
-    # l_lk_time_series = fetch_landkreis_time_series(lk_id, readFromCache=True)
-    for entry in l_lk_time_series:
-        # choose columns for fitting
-        data.append((entry['Days_Past'], entry['Cases']))
+    # Export fit data as JSON
+    helper.write_json('data/de-districts/de-districts-results.json',
+                      d_results_for_json_export)
 
-    last_entry = l_lk_time_series[-1]
-    last_deaths = last_entry['Deaths']
+    helper.write_json(
+        filename='data/de-districts/de-districts-results-V2.json', d=l_for_export_V2, sort_keys=False)
 
-    d_fit_results = helper.fit_routine(data, fit_range_x=(-6, 0))
-
-    # TODO: add fit range, as needed for plot
-    d = {
-        'Bundesland': d_ref_landkreise[lk_id]['BL_Name'],  # Bundesland
-        'Landkreis': lk_name,
-        'LK_Einwohner': d_ref_landkreise[lk_id]['Population'],  # Einwohner
-        'fit_res_N0': round(d_fit_results['fit_res'][0], 3),
-        'fit_res_T': round(d_fit_results['fit_res'][1], 3),
-        'fit_used_x_range': d_fit_results['fit_used_x_range'],
-        'Cases': last_entry['Cases'],
-        'Cases_Per_Million': last_entry['Cases_Per_Million'],
-        'Deaths': last_entry['Deaths'],
-        'Deaths_Per_Million': last_entry['Deaths_Per_Million'],
-        'Cases_Forecast_Tomorrow': round(d_fit_results['forcast_y_at_x+1'], 3),
-        'Cases_Forecast_Tomorrow_Factor': round(d_fit_results['factor_increase_x+1'], 3)
-    }
-
-    d_results_for_json_export[lk_id] = d
-
-    # TODO:
-    # plot_lk_fit(lk_id, data, d_fit_results)
-    # break
-
-
-# Export fit data as JSON
-helper.write_json('data/de-districts/de-districts-results.json',
-                  d_results_for_json_export)
-
-# Export fit data as CSV + HTML
-with open('data/de-districts/de-districts-results.tsv', mode='w', encoding='utf-8', newline='\n') as fh_csv:
-    csvwriter = csv.writer(fh_csv, delimiter="\t")
-    with open('results-de-districts.html', mode='w', encoding='utf-8', newline='\n') as fh_html:
+    # Export fit data as CSV + HTML
+    with open('data/de-districts/de-districts-results.tsv', mode='w', encoding='utf-8', newline='\n') as fh_csv:
+        csvwriter = csv.writer(fh_csv, delimiter="\t")
+        # with open('results-de-districts.html', mode='w', encoding='utf-8', newline='\n') as fh_html:
 
         l = (
             'Landkreis',
@@ -507,92 +506,92 @@ with open('data/de-districts/de-districts-results.tsv', mode='w', encoding='utf-
 
         csvwriter.writerow(l)
 
-        fh_html.write("""<!doctype html>
-<html lang="de">
-<head>
-    <title>Landkreisprognose</title>
-    <meta charset="utf-8">
-    
-<style>
-    #myInput {
-      width: 400px;
-      font-size: 16px;      /* Increase font-size */
-      padding: 12px 20px 12px 10px;      /* Add some padding */
-      border: 1px solid #ddd;       /* Add a grey border */
-      margin-bottom: 12px;       /* Add some space below the input */
-    }
+    #         fh_html.write("""<!doctype html>
+    # <html lang="de">
+    # <head>
+    #     <title>Landkreisprognose</title>
+    #     <meta charset="utf-8">
 
-#myTable {
-  border-collapse: collapse; /* Collapse borders */
-  width: 100%; /* Full-width */
-  border: 1px solid #ddd; /* Add a grey border */
-  font-size: 18px; /* Increase font-size */
-}
+    # <style>
+    #     #myInput {
+    #     width: 400px;
+    #     font-size: 16px;      /* Increase font-size */
+    #     padding: 12px 20px 12px 10px;      /* Add some padding */
+    #     border: 1px solid #ddd;       /* Add a grey border */
+    #     margin-bottom: 12px;       /* Add some space below the input */
+    #     }
 
-#myTable th, #myTable td {
-  text-align: left; /* Left-align text */
-  padding: 12px; /* Add padding */
-}
+    # #myTable {
+    # border-collapse: collapse; /* Collapse borders */
+    # width: 100%; /* Full-width */
+    # border: 1px solid #ddd; /* Add a grey border */
+    # font-size: 18px; /* Increase font-size */
+    # }
 
-#myTable tr {
-  /* Add a bottom border to all table rows */
-  border-bottom: 1px solid #ddd;
-}
+    # #myTable th, #myTable td {
+    # text-align: left; /* Left-align text */
+    # padding: 12px; /* Add padding */
+    # }
 
-#myTable tr.header, #myTable tr:hover {
-  /* Add a grey background color to the table header and on hover */
-  background-color: #f1f1f1;
-}
-</style>
+    # #myTable tr {
+    # /* Add a bottom border to all table rows */
+    # border-bottom: 1px solid #ddd;
+    # }
 
-<script>
-    function mySortFunction() {
-        // Declare variables
-        var input, filter, table, tr, td, i, txtValue;
-        input = document.getElementById("myInput");
-        filter = input.value.toUpperCase();
-        table = document.getElementById("myTable");
-        tr = table.getElementsByTagName("tr");
+    # #myTable tr.header, #myTable tr:hover {
+    # /* Add a grey background color to the table header and on hover */
+    # background-color: #f1f1f1;
+    # }
+    # </style>
 
-        // Loop through all table rows, and hide those who don't match the search query
-        for (i = 0; i < tr.length; i++) {
-            td = tr[i].getElementsByTagName("td")[0];
-            if (td) {
-                txtValue = td.textContent || td.innerText;
-                if (txtValue.toUpperCase().indexOf(filter) > -1) {
-                    tr[i].style.display = "";
-                } else {
-                    tr[i].style.display = "none";
-                }
-            }
-        }
-    }
-</script>
-</head>
+    # <script>
+    #     function mySortFunction() {
+    #         // Declare variables
+    #         var input, filter, table, tr, td, i, txtValue;
+    #         input = document.getElementById("myInput");
+    #         filter = input.value.toUpperCase();
+    #         table = document.getElementById("myTable");
+    #         tr = table.getElementsByTagName("tr");
 
-<body>
-<p>
-<a href="index.html">zurück zur Auswertung</a>
-</p>
-<h1>Landkreisprognose</h1>
-<p>Basierend auf Daten des
-<a href="https://experience.arcgis.com/experience/478220a4c454480e823b17327b2bf1d4/page/page_0/" target="_blank">Robert Koch-Institut COVID-19-Dashboards</a>
-</p>
-    <input type="text" id="myInput" onkeyup="mySortFunction()" placeholder="Landkreissuche">
-    <table id="myTable">        
-        """)
-        fh_html.write('<tr><th>')
-        fh_html.write('</th><th>'.join(l))
-        # fh_html.write(f'<th>{l[0]}</th>')
-        # fh_html.write(f'<th>{l[1]}</th>')
-        # fh_html.write(f'<th>{l[2]}</th>')
-        # fh_html.write(f'<th>{l[3]}</th>')
-        # fh_html.write(f'<th>{l[4]}</th>')
-        # fh_html.write(f'<th>{l[5]}</th>')
-        # fh_html.write(f'<th>{l[6]}</th>')
-        # fh_html.write(f'<th>{l[7]}</th>')
-        # fh_html.write(f'<th>{l[8]}</th>')
-        fh_html.write('</th></tr>\n')
+    #         // Loop through all table rows, and hide those who don't match the search query
+    #         for (i = 0; i < tr.length; i++) {
+    #             td = tr[i].getElementsByTagName("td")[0];
+    #             if (td) {
+    #                 txtValue = td.textContent || td.innerText;
+    #                 if (txtValue.toUpperCase().indexOf(filter) > -1) {
+    #                     tr[i].style.display = "";
+    #                 } else {
+    #                     tr[i].style.display = "none";
+    #                 }
+    #             }
+    #         }
+    #     }
+    # </script>
+    # </head>
+
+    # <body>
+    # <p>
+    # <a href="index.html">zurück zur Auswertung</a>
+    # </p>
+    # <h1>Landkreisprognose</h1>
+    # <p>Basierend auf Daten des
+    # <a href="https://experience.arcgis.com/experience/478220a4c454480e823b17327b2bf1d4/page/page_0/" target="_blank">Robert Koch-Institut COVID-19-Dashboards</a>
+    # </p>
+    #     <input type="text" id="myInput" onkeyup="mySortFunction()" placeholder="Landkreissuche">
+    #     <table id="myTable">
+    #         """)
+    #         fh_html.write('<tr><th>')
+    #         fh_html.write('</th><th>'.join(l))
+    #         # fh_html.write(f'<th>{l[0]}</th>')
+    #         # fh_html.write(f'<th>{l[1]}</th>')
+    #         # fh_html.write(f'<th>{l[2]}</th>')
+    #         # fh_html.write(f'<th>{l[3]}</th>')
+    #         # fh_html.write(f'<th>{l[4]}</th>')
+    #         # fh_html.write(f'<th>{l[5]}</th>')
+    #         # fh_html.write(f'<th>{l[6]}</th>')
+    #         # fh_html.write(f'<th>{l[7]}</th>')
+    #         # fh_html.write(f'<th>{l[8]}</th>')
+    #         fh_html.write('</th></tr>\n')
 
         for lk_id in d_results_for_json_export.keys():
             l = (
@@ -611,15 +610,37 @@ with open('data/de-districts/de-districts-results.tsv', mode='w', encoding='utf-
             l = [str(v) for v in l]
 
             csvwriter.writerow(l)
-            fh_html.write('<tr><td>')
-            fh_html.write('</td><td>'.join(l))
-            fh_html.write('</td></tr>\n')
+            #     fh_html.write('<tr><td>')
+            #     fh_html.write('</td><td>'.join(l))
+            #     fh_html.write('</td></tr>\n')
 
-        fh_html.write('</table>\n')
-        fh_html.write('</body>\n')
-        fh_html.write('</html>\n')
+            # fh_html.write('</table>\n')
+            # fh_html.write('</body>\n')
+            # fh_html.write('</html>\n')
 
-# Export fit data as HTML
+    # Export fit data as HTML
+
+
+d_ref_landkreise = fetch_and_prepare_ref_landkreise()
+loop_over_all_LK()
+
+# fetch_ref_landkreise(readFromCache=True)
+
+# d_ref_landkreise[lk_id]['EWZ']    # = Einwohnerzahl: int
+# d_ref_landkreise[lk_id]['county'] # zB 'SK Flensburg'
+# d_ref_landkreise[lk_id]['BL']     # zB 'Schleswig-Holstein'
+# d_ref_landkreise[lk_id]['BL_ID']  # zB '1'
+# d_ref_landkreise[lk_id]['BEZ']    # zB 'Kreisfreie Stadt'
+# d_ref_landkreise[lk_id]['last_update'] # zB '29.03.2020 00:00'
+
+# TODO: sort by Bundesland, Landkreis
+
+
+# Fit Cases für alle LK
+# 16068 machte Probleme
+
+# for i in tqdm(range(10000)):
+
 
 # TODO: Bundeslandsummen
 
