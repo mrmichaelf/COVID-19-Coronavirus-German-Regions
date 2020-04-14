@@ -246,6 +246,7 @@ def enrich_data_by_calculated_fields():
             entry = l_country_data[i]
 
             # for fits of doubling time
+            data_t.append(entry['Days_Past'])
             data_cases.append(entry['Cases'])
             data_deaths.append(entry['Deaths'])
 
