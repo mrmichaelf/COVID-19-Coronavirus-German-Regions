@@ -86,7 +86,7 @@ args = helper.read_command_line_parameters()
 d_ref_landkreise = {}
 
 
-# small helpers
+# small helper functions
 
 def get_lk_name_from_lk_id(lk_id: str) -> str:
     global d_ref_landkreise
@@ -95,24 +95,39 @@ def get_lk_name_from_lk_id(lk_id: str) -> str:
     return name
 
 
-# def get_lk_id_from_lk_name(lk_name: str) -> str:
-#     global d_ref_landkreise
-#     this_lk_id = None
-#     for lk_id in d_ref_landkreise.keys():
-#         if d_ref_landkreise[lk_id]['county'] == lk_name:
-#             this_lk_id = lk_id
-#     assert this_lk_id != None, "LK {lk_name} unknown"
-#     return this_lk_id
-
-
 def fetch_json_as_dict_from_url_and_reduce_to_list(url: str) -> list:
     """
-    removes some of the returned structur
+    removes some of the returned structure
     """
     d_json = helper.fetch_json_as_dict_from_url(url)
     l2 = d_json['features']
     l3 = [v['attributes'] for v in l2]
     return l3
+
+
+def BL_code_from_BL_ID(bl_id: str) -> str:
+    """
+    converts BL IDs to Codes: 01 -> SH
+    """
+    d = {
+        '1': 'SH',
+        '2': 'HH',
+        '3': 'NI',
+        '4': 'HB',
+        '5': 'NW',
+        '6': 'HE',
+        '7': 'RP',
+        '8': 'BW',
+        '9': 'BY',
+        '10': 'SL',
+        '11': 'BE',
+        '12': 'BB',
+        '13': 'MV',
+        '14': 'SN',
+        '15': 'ST',
+        '16': 'TH'
+    }
+    return d[bl_id]
 
 
 def helper_read_from_cache_or_fetch_from_url(url: str, file_cache: str, readFromCache: bool = True):
@@ -132,9 +147,10 @@ def helper_read_from_cache_or_fetch_from_url(url: str, file_cache: str, readFrom
         json_cont = fetch_json_as_dict_from_url_and_reduce_to_list(url)
         with open(file_cache, mode='w', encoding='utf-8', newline='\n') as fh:
             json.dump(json_cont, fh, ensure_ascii=False)
-
     return json_cont
 
+
+# Code functions
 
 def fetch_ref_landkreise(readFromCache: bool = True) -> dict:
     """
@@ -170,32 +186,7 @@ def fetch_ref_landkreise(readFromCache: bool = True) -> dict:
     return l_landkreise
 
 
-def BL_code_from_BL_ID(bl_id: str) -> str:
-    """
-    converts BL IDs to Codes: 01 -> SH
-    """
-    d = {
-        '1': 'SH',
-        '2': 'HH',
-        '3': 'NI',
-        '4': 'HB',
-        '5': 'NW',
-        '6': 'HE',
-        '7': 'RP',
-        '8': 'BW',
-        '9': 'BY',
-        '10': 'SL',
-        '11': 'BE',
-        '12': 'BB',
-        '13': 'MV',
-        '14': 'SN',
-        '15': 'ST',
-        '16': 'TH'
-    }
-    return d[bl_id]
-
-
-def prepare_ref_landkreise() -> dict:
+def fetch_and_prepare_ref_landkreise() -> dict:
     file_out = 'data/de-districts/ref-de-districts.json'
     l_landkreise = fetch_ref_landkreise(readFromCache=True)
     d_landkreise = {}
@@ -223,12 +214,18 @@ def prepare_ref_landkreise() -> dict:
     # assure we did not loose any
     assert len(l_landkreise) == len(d_landkreise)
 
+    # generate and export a mapping table
     gen_mapping_BL2LK_json(d_landkreise)
 
     return d_landkreise
 
 
 def gen_mapping_BL2LK_json(d_landkreise: dict):
+    """
+    generates a mapping table of BL_Code <-> LK_ID
+    dict: key1 = BC_Code -> list of LK_IDs:
+    {"SH": {"BL_Name": "Schleswig-Holstein", "LK_IDs": [["01001", "Flensburg"], ["01002", "Kiel"], ..] ..}..}
+    """
     d_bundeslaender = {}
     for lk_id in d_landkreise.keys():
         lk = d_landkreise[lk_id]
@@ -250,7 +247,8 @@ def gen_mapping_BL2LK_json(d_landkreise: dict):
 
 def fetch_landkreis_time_series(lk_id: str, readFromCache: bool = True) -> list:
     """
-    Fetches all data from arcgis Covid19_RKI_Sums endpoint: Bundesland, Landkreis, etc.
+    for a given lk_id: fetches its time series and returns as list
+    Fetches data from arcgis Covid19_RKI_Sums endpoint: Bundesland, Landkreis, etc.
     # API Explorer
     # https://services7.arcgis.com/mOBPykOjAyBO2ZKk/ArcGIS/rest/services/Covid19_RKI_Sums/FeatureServer/0
 
@@ -281,8 +279,9 @@ def fetch_landkreis_time_series(lk_id: str, readFromCache: bool = True) -> list:
     return l_time_series
 
 
-def prepare_lk_time_series(lk_id: str) -> list:
+def fetch_and_prepare_lk_time_series(lk_id: str) -> list:
     """
+    calles fetch_landkreis_time_series
     convert and add fields of time series list
     returns list
     writes to filesystem
@@ -299,33 +298,15 @@ def prepare_lk_time_series(lk_id: str) -> list:
     dt_latest_date = datetime.datetime.fromtimestamp(
         l_time_series_fetched[-1]['Meldedatum'] / 1000)
 
-    # add and convert some data fields
-    data_t = []
-    data_cases = []
-    data_deaths = []
-    last_cases = 0
-    last_deaths = 0
-
-    # if lastdate and lastdate-1 have the same number of cases, than drop lastdate
-    if l_time_series_fetched[-1]['SummeFall'] == l_time_series_fetched[-2]['SummeFall']:
-        l_time_series_fetched.pop()
     # entry = one data point
     for entry in l_time_series_fetched:
         d = {}
-
         # covert to int
         d['Cases'] = int(entry['SummeFall'])
         d['Deaths'] = int(entry['SummeTodesfall'])
+        # these are calculated below
         # d['Cases_New'] = int(entry['AnzahlFall'])
         # d['Deaths_New'] = int(entry['AnzahlTodesfall'])
-        d['Cases_New'] = d['Cases'] - last_cases
-        d['Deaths_New'] = d['Deaths'] - last_deaths
-
-        d = helper.add_per_million(d_ref_landkreise, lk_id, d)
-
-        last_cases = d['Cases']
-        last_deaths = d['Deaths']
-
         # Rename 'Meldedatum' (ms) -> Timestamp (s)
         d['Timestamp'] = int(entry['Meldedatum'] / 1000)
 
@@ -335,6 +316,19 @@ def prepare_lk_time_series(lk_id: str) -> list:
         # ensure that each date is unique
         assert d['Date'] not in l_dates_processed
         l_dates_processed.append(d['Date'])
+        l_time_series.append(d)
+
+    l_time_series = helper.add_new_and_last_week(l_time_series)
+
+    # add and convert some data fields
+    data_t = []
+    data_cases = []
+    data_deaths = []
+
+    for i in range(len(l_time_series)):
+        d = l_time_series[i]
+        # _Per_Million
+        d = helper.add_per_million(d_ref_landkreise, lk_id, d)
 
         # add DaysPast
         this_dt = datetime.datetime.fromtimestamp(
@@ -347,18 +341,18 @@ def prepare_lk_time_series(lk_id: str) -> list:
         data_cases.append(d['Cases'])
         data_deaths.append(d['Deaths'])
 
-    # perform fit for last 7 days to obtain doublication time
+    # perform fit for last 7 days to obtain doubling time
     data = list(zip(data_t, data_cases))
     fit_series_res = helper.series_of_fits(
         data, fit_range=7, max_days_past=14)
 
     for i in range(len(l_time_series)):
         entry = l_time_series[i]
-        this_doublication_time = ""
+        this_doubling_time = ""
         this_days_past = entry['Days_Past']
         if this_days_past in fit_series_res:
-            this_doublication_time = fit_series_res[this_days_past]
-        entry['Cases_Doublication_Time'] = this_doublication_time
+            this_doubling_time = fit_series_res[this_days_past]
+        entry['Cases_Doublication_Time'] = this_doubling_time
         l_time_series[i] = entry
 
     with open(file_out, mode='w', encoding='utf-8', newline='\n') as fh:
@@ -440,7 +434,7 @@ def plot_lk_fit(lk_id: str, data: list, d_fit_results: dict):
     # fetch_fit_and_plot_lk('LK Harburg')
 
 
-d_ref_landkreise = prepare_ref_landkreise()
+d_ref_landkreise = fetch_and_prepare_ref_landkreise()
 
 
 # fetch_ref_landkreise(readFromCache=True)
@@ -473,7 +467,7 @@ for lk_id in tqdm(d_ref_landkreise.keys()):
     # 09563   SK Fürth        127748
 
     data = []
-    l_lk_time_series = prepare_lk_time_series(lk_id)
+    l_lk_time_series = fetch_and_prepare_lk_time_series(lk_id)
     # l_lk_time_series = fetch_landkreis_time_series(lk_id, readFromCache=True)
     for entry in l_lk_time_series:
         # choose columns for fitting

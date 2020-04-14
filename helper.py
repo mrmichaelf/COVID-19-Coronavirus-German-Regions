@@ -52,6 +52,56 @@ def date_format(y: int, m: int, d: int) -> str:
     return "%04d-%02d-%02d" % (y, m, d)
 
 
+def add_new_and_last_week(l_time_series: list) -> list:
+    """
+    assumes items in l_time_series are dicts haveing the following keys: Date, Cases, Deaths
+    sorts l_time_series by Date
+    if cases at last entry equals 2nd last entry, than remove last entry, as sometime the source has a problem.
+    loops over l_time_series and calculates the 
+      _New values per item/day    
+      _Last_Week
+    """
+    # some checks
+    d = l_time_series[0]
+    assert 'Date' in d
+    assert 'Cases' in d
+    assert 'Deaths' in d
+    assert isinstance(d['Date'], str)
+    assert isinstance(d['Cases'], int)
+    assert isinstance(d['Deaths'], int)
+
+    # ensure sorting by date
+    l_time_series = sorted(
+        l_time_series, key=lambda x: x['Date'], reverse=False)
+
+    # if lastdate and lastdate-1 have the same number of cases, than drop lastdate
+    if l_time_series[-1]['Cases'] == l_time_series[-2]['Cases']:
+        l_time_series.pop()
+
+    last_cases = 0
+    last_deaths = 0
+
+    for i in range(len(l_time_series)):
+        d = l_time_series[i]
+        # _New since yesterday
+        d['Cases_New'] = d['Cases'] - last_cases
+        d['Deaths_New'] = d['Deaths'] - last_deaths
+        last_cases = d['Cases']
+        last_deaths = d['Deaths']
+
+        # delta of _Last_Week = last 7 days
+        d['Cases_Last_Week'] = 0
+        d['Deaths_Last_Week'] = 0
+        if i >= 7:
+            d['Cases_Last_Week'] = d['Cases'] - l_time_series[i-7]['Cases']
+            d['Deaths_Last_Week'] = d['Deaths'] - \
+                l_time_series[i-7]['Deaths']
+
+        l_time_series[i] = d
+
+    return l_time_series
+
+
 def add_per_million(d_ref: dict, code: str, d: dict) -> dict:
     pop_in_million = d_ref[code]['Population'] / 1000000
     for key in ('Cases', 'Deaths', 'Cases_New', 'Deaths_New'):

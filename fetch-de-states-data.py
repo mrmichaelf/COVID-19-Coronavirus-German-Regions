@@ -22,7 +22,7 @@ __version__ = "0.1"
 import time
 import urllib.request
 import csv
-import json
+# import json
 
 # from matplotlib import pyplot as plt
 
@@ -148,27 +148,18 @@ def read_csv_to_dict() -> dict:
     print(f"DE-States Last Date: {d_states_data['DE-total'][-1]['Date']}")
 
     for code in d_states_data.keys():
-        l_state_data = d_states_data[code]
+        l_time_series = d_states_data[code]
 
-        # ensure sorting by date
-        l_state_data = sorted(
-            l_state_data, key=lambda x: x['Date'], reverse=False)
+        l_time_series = helper.add_new_and_last_week(l_time_series)
 
         # add days past and calc cases and deaths new
-        DaysPast = 1-len(l_state_data)  # last date gets number 0
-        last_confirmed = 0
-        last_deaths = 0
-        for i in range(len(l_state_data)):
-            d = l_state_data[i]
+        DaysPast = 1-len(l_time_series)  # last date gets number 0
+        for i in range(len(l_time_series)):
+            d = l_time_series[i]
 
             d['Days_Past'] = DaysPast
-            # l_state_data[i] = d
+            # l_time_series[i] = d
             DaysPast += 1
-
-            d['Cases_New'] = d['Cases'] - last_confirmed
-            d['Deaths_New'] = d['Deaths'] - last_deaths
-            last_confirmed = d['Cases']
-            last_deaths = d['Deaths']
 
             # add per Million rows
             d = helper.add_per_million(d_states_ref, code, d)
@@ -177,40 +168,40 @@ def read_csv_to_dict() -> dict:
         # Cases
         dataCases = []
         dataDeaths = []
-        for i in range(1, len(l_state_data)):
+        for i in range(1, len(l_time_series)):
             # x= day , y = cases
             dataCases.append(
                 (
-                    l_state_data[i]['Days_Past'],
-                    l_state_data[i]['Cases']
+                    l_time_series[i]['Days_Past'],
+                    l_time_series[i]['Cases']
                 )
             )
             dataDeaths.append(
                 (
-                    l_state_data[i]['Days_Past'],
-                    l_state_data[i]['Deaths']
+                    l_time_series[i]['Days_Past'],
+                    l_time_series[i]['Deaths']
                 )
             )
 
         fit_series_res = helper.series_of_fits(
             dataCases, fit_range=7, max_days_past=28)
-        for i in range(0, len(l_state_data)):
+        for i in range(0, len(l_time_series)):
             this_doublication_time = ""
-            this_days_past = l_state_data[i]['Days_Past']
+            this_days_past = l_time_series[i]['Days_Past']
             if this_days_past in fit_series_res:
                 this_doublication_time = fit_series_res[this_days_past]
-            l_state_data[i]['Cases_Doublication_Time'] = this_doublication_time
+            l_time_series[i]['Cases_Doublication_Time'] = this_doublication_time
 
         fit_series_res = helper.series_of_fits(
             dataDeaths, fit_range=7, max_days_past=28)
-        for i in range(0, len(l_state_data)):
+        for i in range(0, len(l_time_series)):
             this_doublication_time = ""
-            this_days_past = l_state_data[i]['Days_Past']
+            this_days_past = l_time_series[i]['Days_Past']
             if this_days_past in fit_series_res:
                 this_doublication_time = fit_series_res[this_days_past]
-            l_state_data[i]['Deaths_Doublication_Time'] = this_doublication_time
+            l_time_series[i]['Deaths_Doublication_Time'] = this_doublication_time
 
-        d_states_data[code] = l_state_data
+        d_states_data[code] = l_time_series
 
         if args["sleep"]:
             time.sleep(1)
@@ -222,9 +213,10 @@ def export_data(d_states_data: dict):
     # export JSON and CSV
     for code in d_states_data.keys():
         outfile = f'data/de-states/de-state-{code}.tsv'
-        l_state_data = d_states_data[code]
+        l_time_series = d_states_data[code]
 
-        helper.write_json(f'data/de-states/de-state-{code}.json', l_state_data)
+        helper.write_json(
+            f'data/de-states/de-state-{code}.json', l_time_series)
 
         with open(outfile, mode='w', encoding='utf-8', newline='\n') as fh:
             csvwriter = csv.writer(fh, delimiter='\t')
@@ -238,7 +230,7 @@ def export_data(d_states_data: dict):
                     'Cases_Doublication_Time', 'Deaths_Doublication_Time'
                 )
             )
-            for entry in l_state_data:
+            for entry in l_time_series:
                 csvwriter.writerow(
                     (
                         entry['Days_Past'], entry['Date'],

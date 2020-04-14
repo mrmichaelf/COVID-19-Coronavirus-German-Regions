@@ -84,27 +84,10 @@ def read_json_data() -> dict:
             d['Deaths'] = int(entry['deaths'])
             l_time_series.append(d)
 
-        # ensure sorting by date
-        l_time_series = sorted(
-            l_time_series, key=lambda x: x['Date'], reverse=False)
+        l_time_series = helper.add_new_and_last_week(l_time_series)
 
-        last_cases = 0
-        last_deaths = 0
         for i in range(len(l_time_series)):
             d = l_time_series[i]
-
-            # _New
-            d['Cases_New'] = d['Cases'] - last_cases
-            d['Deaths_New'] = d['Deaths'] - last_deaths
-            last_cases = d['Cases']
-            last_deaths = d['Deaths']
-
-            d['Cases_Last_Week'] = 0
-            d['Deaths_Last_Week'] = 0
-            if i >= 7:
-                d['Cases_Last_Week'] = d['Cases'] - l_time_series[i-7]['Cases']
-                d['Deaths_Last_Week'] = d['Deaths'] - \
-                    l_time_series[i-7]['Deaths']
 
             # _Per_Million
             d['Cases_Per_Million'] = None
