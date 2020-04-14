@@ -180,7 +180,7 @@ def extract_data_according_to_fit_ranges(data: list, fit_range_x: list, fit_rang
 def fit_function_exp_growth(t, N0, T):
     """
     N0 = values at t = 0
-    T = time it takes for t doublication: f(t+T) = 2 x f(t)
+    T = time it takes for t duplication: f(t+T) = 2 x f(t)
     """
     # previously b = ln(2)/T used, but this is better as T = doubling time is directy returned
     return N0 * np.exp(t * math.log(2)/T)
@@ -238,7 +238,7 @@ def series_of_fits(data: list, fit_range: int = 7, max_days_past=14) -> list:
     fit_range: fit over how many days
     max_days_past: how far in the past shall we go
     = (fitted in range [x-6, x])
-    returns dict: day -> doublication_time
+    returns dict: day -> doubling_time
     """
     fit_series_res = {}
     # remove y=0 values until first non-null

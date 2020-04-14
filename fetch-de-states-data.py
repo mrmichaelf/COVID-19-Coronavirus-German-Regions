@@ -62,7 +62,7 @@ def read_csv_to_dict() -> dict:
     read and convert the source csv file, containing: federalstate,infections,deaths,date,newinfections,newdeaths
     re-calc _New
     add _Per_Million
-    add Fitted Doublication time
+    add Fitted Doubling time
     """
 
     global d_states_ref
@@ -180,20 +180,20 @@ def read_csv_to_dict() -> dict:
         fit_series_res = helper.series_of_fits(
             dataCases, fit_range=7, max_days_past=28)
         for i in range(0, len(l_time_series)):
-            this_doublication_time = ""
+            this_Doubling_Time = ""
             this_days_past = l_time_series[i]['Days_Past']
             if this_days_past in fit_series_res:
-                this_doublication_time = fit_series_res[this_days_past]
-            l_time_series[i]['Cases_Doublication_Time'] = this_doublication_time
+                this_Doubling_Time = fit_series_res[this_days_past]
+            l_time_series[i]['Cases_Doubling_Time'] = this_Doubling_Time
 
         fit_series_res = helper.series_of_fits(
             dataDeaths, fit_range=7, max_days_past=28)
         for i in range(0, len(l_time_series)):
-            this_doublication_time = ""
+            this_Doubling_Time = ""
             this_days_past = l_time_series[i]['Days_Past']
             if this_days_past in fit_series_res:
-                this_doublication_time = fit_series_res[this_days_past]
-            l_time_series[i]['Deaths_Doublication_Time'] = this_doublication_time
+                this_Doubling_Time = fit_series_res[this_days_past]
+            l_time_series[i]['Deaths_Doubling_Time'] = this_Doubling_Time
 
         d_states_data[code] = l_time_series
 
@@ -221,7 +221,7 @@ def export_data(d_states_data: dict):
                     'Cases_New', 'Deaths_New',
                     'Cases_Per_Million', 'Deaths_Per_Million',
                     'Cases_New_Per_Million', 'Deaths_New_Per_Million',
-                    'Cases_Doublication_Time', 'Deaths_Doublication_Time'
+                    'Cases_Doubling_Time', 'Deaths_Doubling_Time'
                 )
             )
             for entry in l_time_series:
@@ -232,7 +232,7 @@ def export_data(d_states_data: dict):
                         entry['Cases_New'], entry['Deaths_New'],
                         entry['Cases_Per_Million'], entry['Deaths_Per_Million'],
                         entry['Cases_New_Per_Million'], entry['Deaths_New_Per_Million'],
-                        entry['Cases_Doublication_Time'], entry['Deaths_Doublication_Time']
+                        entry['Cases_Doubling_Time'], entry['Deaths_Doubling_Time']
                     )
                 )
 
