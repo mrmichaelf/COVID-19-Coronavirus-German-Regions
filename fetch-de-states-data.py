@@ -150,19 +150,13 @@ def read_csv_to_dict() -> dict:
     for code in d_states_data.keys():
         l_time_series = d_states_data[code]
 
-        l_time_series = helper.add_new_and_last_week(l_time_series)
+        l_time_series = helper.prepare_time_series(l_time_series)
 
-        # add days past and calc cases and deaths new
-        DaysPast = 1-len(l_time_series)  # last date gets number 0
+        # add days past and per million
         for i in range(len(l_time_series)):
             d = l_time_series[i]
-
-            d['Days_Past'] = DaysPast
-            # l_time_series[i] = d
-            DaysPast += 1
-
             # add per Million rows
-            d = helper.add_per_million(d_states_ref, code, d)
+            d = helper.add_per_million_via_lookup(d, d_states_ref, code)
 
         # fit cases data
         # Cases

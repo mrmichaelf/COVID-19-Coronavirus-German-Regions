@@ -11,7 +11,6 @@ This script downloads COVID-19 / coronavirus data provided by https://github.com
 # Built-in/Generic Imports
 
 import time
-import json
 import urllib.request
 import csv
 
@@ -73,6 +72,10 @@ def read_json_data() -> dict:
         l_time_series = []
 
         pop = read_population(country)
+        if pop != None:
+            pop_in_million = pop / 1000000
+        else:
+            pop_in_million = None
 
         for entry in country_data:
             d = {}
@@ -84,29 +87,13 @@ def read_json_data() -> dict:
             d['Deaths'] = int(entry['deaths'])
             l_time_series.append(d)
 
-        l_time_series = helper.add_new_and_last_week(l_time_series)
+        l_time_series = helper.prepare_time_series(l_time_series)
 
         for i in range(len(l_time_series)):
             d = l_time_series[i]
 
             # _Per_Million
-            d['Cases_Per_Million'] = None
-            d['Deaths_Per_Million'] = None
-            d['Cases_New_Per_Million'] = None
-            d['Deaths_New_Per_Million'] = None
-            d['Cases_Last_Week_Per_Million'] = None
-            d['Deaths_Last_Week_Per_Million'] = None
-            if pop != None:
-                d['Cases_Per_Million'] = round(d['Cases'] / pop * 1000000, 0)
-                d['Deaths_Per_Million'] = round(d['Deaths'] / pop * 1000000, 0)
-                d['Cases_New_Per_Million'] = round(
-                    d['Cases_New'] / pop * 1000000, 0)
-                d['Deaths_New_Per_Million'] = round(
-                    d['Deaths_New'] / pop * 1000000, 0)
-                d['Cases_Last_Week_Per_Million'] = round(
-                    d['Cases_Last_Week'] / pop * 1000000, 0)
-                d['Deaths_Last_Week_Per_Million'] = round(
-                    d['Deaths_Last_Week'] / pop * 1000000, 0)
+            d = helper.add_per_million(d, pop_in_million)
 
         d_countries[country] = l_time_series
 
@@ -146,7 +133,6 @@ def extract_latest_date_data():
             ('# Country', 'Population', 'Date', 'Cases',
              'Deaths', 'Cases_Per_Million', 'Deaths_Per_Million', 'Cases_Last_Week_Per_Million', 'Deaths_Last_Week_Per_Million', 'Continent')
         )
-        # TODO: do JSON Export
         l_for_export = []
         for country in sorted(d_countries_timeseries.keys(), key=str.casefold):
             country_data = d_countries_timeseries[country]
@@ -160,10 +146,14 @@ def extract_latest_date_data():
             d_for_export['Date'] = entry['Date']
             d_for_export['Cases'] = entry['Cases']
             d_for_export['Deaths'] = entry['Deaths']
-            d_for_export['Cases_Per_Million'] = entry['Cases_Per_Million']
-            d_for_export['Deaths_Per_Million'] = entry['Deaths_Per_Million']
-            d_for_export['Cases_Last_Week_Per_Million'] = entry['Cases_Last_Week_Per_Million']
-            d_for_export['Deaths_Last_Week_Per_Million'] = entry['Deaths_Last_Week_Per_Million']
+            d_for_export['Cases_Per_Million'] = round(
+                entry['Cases_Per_Million'], 0)
+            d_for_export['Deaths_Per_Million'] = round(
+                entry['Deaths_Per_Million'], 0)
+            d_for_export['Cases_Last_Week_Per_Million'] = round(
+                entry['Cases_Last_Week_Per_Million'], 0)
+            d_for_export['Deaths_Last_Week_Per_Million'] = round(
+                entry['Deaths_Last_Week_Per_Million'], 0)
             l_for_export.append(d_for_export)
 
             csvwriter.writerow(
@@ -250,16 +240,8 @@ def enrich_data_by_calculated_fields():
         data_cases = []
         data_deaths = []
 
-        DaysPast = 1-len(l_country_data)  # last date gets number 0
-        last_cases = 0
-        last_deaths = 0
-
         for i in range(len(l_country_data)):
             entry = l_country_data[i]
-
-            entry['Days_Past'] = DaysPast
-            data_t.append(entry['Days_Past'])
-            DaysPast += 1
 
             # for fits of doubling time
             data_cases.append(entry['Cases'])
@@ -285,10 +267,6 @@ def enrich_data_by_calculated_fields():
 
             last_cases = entry['Cases']
             last_deaths = entry['Deaths']
-
-            # add per Million rows
-            entry = helper.add_per_million(
-                d_selected_countries, country, entry)
 
             l_country_data[i] = entry
 

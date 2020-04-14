@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 
 """
-This script downloads COVID-19 / coronavirus data of German discticts (Landkreise) provided by
+This script downloads COVID-19 / coronavirus data of German disticts (Landkreise) provided by
 
 GUI: https://experience.arcgis.com/experience/478220a4c454480e823b17327b2bf1d4/page/page_0/
 
@@ -61,12 +61,10 @@ __version__ = "0.1"
 
 
 # Built-in/Generic Imports
-from tqdm import tqdm
 import datetime
 import json
 import csv
 import time
-# import re
 
 # further modules
 # fitting
@@ -75,6 +73,7 @@ import numpy as np
 # from scipy.optimize import curve_fit
 from matplotlib import pyplot as plt
 
+from tqdm import tqdm
 
 # my helper modules
 import helper
@@ -292,12 +291,6 @@ def fetch_and_prepare_lk_time_series(lk_id: str) -> list:
 
     l_time_series = []
 
-    # add days past counter for plotting
-    # to ensure that each date is unique
-    l_dates_processed = []
-    dt_latest_date = datetime.datetime.fromtimestamp(
-        l_time_series_fetched[-1]['Meldedatum'] / 1000)
-
     # entry = one data point
     for entry in l_time_series_fetched:
         d = {}
@@ -313,12 +306,10 @@ def fetch_and_prepare_lk_time_series(lk_id: str) -> list:
         # add Date
         d['Date'] = helper.convert_timestamp_to_date_str(
             d['Timestamp'])
-        # ensure that each date is unique
-        assert d['Date'] not in l_dates_processed
-        l_dates_processed.append(d['Date'])
+
         l_time_series.append(d)
 
-    l_time_series = helper.add_new_and_last_week(l_time_series)
+    l_time_series = helper.prepare_time_series(l_time_series)
 
     # add and convert some data fields
     data_t = []
@@ -328,14 +319,7 @@ def fetch_and_prepare_lk_time_series(lk_id: str) -> list:
     for i in range(len(l_time_series)):
         d = l_time_series[i]
         # _Per_Million
-        d = helper.add_per_million(d_ref_landkreise, lk_id, d)
-
-        # add DaysPast
-        this_dt = datetime.datetime.fromtimestamp(
-            d['Timestamp'])
-        i_days_past = (this_dt-dt_latest_date).days
-        d['Days_Past'] = i_days_past
-        l_time_series.append(d)
+        d = helper.add_per_million_via_lookup(d, d_ref_landkreise, lk_id)
 
         data_t.append(d['Days_Past'])
         data_cases.append(d['Cases'])

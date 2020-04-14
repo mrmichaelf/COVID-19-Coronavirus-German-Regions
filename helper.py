@@ -2,14 +2,15 @@
 Helper functions collections
 """
 
+# Built-in/Generic Imports
 import os.path
 import time
 import datetime
 import argparse
 import json
-
 import urllib.request
 
+# further modules
 import math
 import numpy as np
 # curve-fit() function imported from scipy
@@ -52,12 +53,13 @@ def date_format(y: int, m: int, d: int) -> str:
     return "%04d-%02d-%02d" % (y, m, d)
 
 
-def add_new_and_last_week(l_time_series: list) -> list:
+def prepare_time_series(l_time_series: list) -> list:
     """
     assumes items in l_time_series are dicts haveing the following keys: Date, Cases, Deaths
     sorts l_time_series by Date
     if cases at last entry equals 2nd last entry, than remove last entry, as sometime the source has a problem.
     loops over l_time_series and calculates the 
+      Days_Past
       _New values per item/day    
       _Last_Week
     """
@@ -69,6 +71,8 @@ def add_new_and_last_week(l_time_series: list) -> list:
     assert isinstance(d['Date'], str)
     assert isinstance(d['Cases'], int)
     assert isinstance(d['Deaths'], int)
+    last_date = datetime.datetime.strptime(
+        l_time_series[-1]['Date'], "%Y-%m-%d")
 
     # ensure sorting by date
     l_time_series = sorted(
@@ -78,11 +82,22 @@ def add_new_and_last_week(l_time_series: list) -> list:
     if l_time_series[-1]['Cases'] == l_time_series[-2]['Cases']:
         l_time_series.pop()
 
+    # to ensure that each date is unique
+    l_dates_processed = []
+
     last_cases = 0
     last_deaths = 0
 
     for i in range(len(l_time_series)):
         d = l_time_series[i]
+
+        # ensure that each date is unique
+        assert d['Date'] not in l_dates_processed
+        l_dates_processed.append(d['Date'])
+
+        this_date = datetime.datetime.strptime(d['Date'], "%Y-%m-%d")
+        d['Days_Past'] = (this_date-last_date).days
+
         # _New since yesterday
         d['Cases_New'] = d['Cases'] - last_cases
         d['Deaths_New'] = d['Deaths'] - last_deaths
@@ -102,10 +117,18 @@ def add_new_and_last_week(l_time_series: list) -> list:
     return l_time_series
 
 
-def add_per_million(d_ref: dict, code: str, d: dict) -> dict:
+def add_per_million_via_lookup(d: dict, d_ref: dict, code: str) -> dict:
     pop_in_million = d_ref[code]['Population'] / 1000000
-    for key in ('Cases', 'Deaths', 'Cases_New', 'Deaths_New'):
-        d[key+'_Per_Million'] = round(d[key]/pop_in_million, 3)
+    return add_per_million(d=d, pop_in_million=pop_in_million)
+
+
+def add_per_million(d: dict, pop_in_million: float) -> dict:
+    for key in ('Cases', 'Deaths', 'Cases_New', 'Deaths_New', 'Cases_Last_Week', 'Deaths_Last_Week'):
+        if pop_in_million:
+            perMillion = round(d[key]/pop_in_million, 3)
+        else:
+            perMillion = 0  # if pop is unknown
+        d[key+'_Per_Million'] = perMillion
     return d
 
 
