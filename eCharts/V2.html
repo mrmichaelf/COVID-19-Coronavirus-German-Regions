@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html style="height: 100%">
+
+<head>
+    <title>Testing eCharts - V1</title>
+    <meta charset="utf-8">
+</head>
+
+<body style="height: 100%; margin: 0">
+    <div id="container" style="height: 100%"></div>
+    <script src="lib/echarts-en.min.js"></script>
+    <script type="text/javascript" src="lib/jquery-3.5.0.min.js"></script>
+    <!--  -->
+    <!-- <script scr="lib/V1.js"></script> -->
+    <script type="text/javascript">
+
+        console.log('Start');
+        var url_json_data = 'https://entorb.net/COVID-19-coronavirus/data/de-states/de-state-DE-total.json'
+
+        //        function fetch() {
+        var myData = [];
+        // Attention: getJSON is async!!!
+        var jqxhr = $.getJSON(url_json_data, function (data) {
+            console.log("success");
+        })
+            .done(function (data) {
+                console.log("done");
+                $.each(data, function (key, val) {
+                    myData.push([data[key].Days_Past, data[key].Cases]);
+                });
+                return myData;
+            })
+            .fail(function () {
+                console.log("fail");
+            })
+            .always(function () {
+                console.log("always");
+            });
+        //}
+        //        var myData1 = fetch();
+
+        var myData1 = myData
+
+
+        var dom = document.getElementById("container");
+        var myChart = echarts.init(dom);
+        var app = {};
+        option = null;
+        option = {
+            xAxis: {},
+            yAxis: {},
+            series: [{
+                // symbolSize: 20,
+                // data: myData1,
+                data: myData1,
+                name: 'DE-total',
+                type: 'scatter'
+                // type: 'line'
+            }],
+            //tooltip.show = true
+        };
+        ;
+
+        // wait for async jquery call to finish
+        jqxhr.then(function () {
+            if (option && typeof option === "object") {
+                myChart.setOption(option, true);
+            }
+        }
+        )
+
+    </script>
+</body>
+
+</html>
