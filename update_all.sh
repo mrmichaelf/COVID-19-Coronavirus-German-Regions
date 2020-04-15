@@ -50,7 +50,7 @@ rsync -rvhu --delete --delete-excluded plots-gnuplot/* entorb@entorb.net:html/CO
 
 rsync -rvhu --delete --delete-excluded data/* entorb@entorb.net:html/COVID-19-coronavirus/data/
 
-rsync -rvhu results-de-districts.html entorb@entorb.net:html/COVID-19-coronavirus/results-de-districts.html
+# rsync -rvhu results-de-districts.html entorb@entorb.net:html/COVID-19-coronavirus/results-de-districts.html
 
 # git add .
 # git commit -m "update 24.04."

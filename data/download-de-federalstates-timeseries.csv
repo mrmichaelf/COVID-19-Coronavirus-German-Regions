@@ -751,3 +751,19 @@ id,Country/Region,federalstate,infections,deaths,date,newinfections,newdeaths
 751,Germany,Saxony-Anhalt,1207,25,2020-04-14,14,1
 741,Germany,Schleswig-Holstein,2164,49,2020-04-14,30,5
 743,Germany,Thuringia,1504,31,2020-04-14,19,4
+755,Germany,Baden-Württemberg,25438,767,2020-04-15,398,56
+768,Germany,Bavaria,34294,954,2020-04-15,725,82
+761,Germany,Berlin,4722,62,2020-04-15,54,6
+762,Germany,Brandenburg,1950,42,2020-04-15,34,2
+760,Germany,Bremen,500,21,2020-04-15,8,1
+756,Germany,Hamburg,3869,67,2020-04-15,61,8
+765,Germany,Hesse,6347,173,2020-04-15,164,26
+758,Germany,Lower Saxony,8019,224,2020-04-15,134,13
+767,Germany,Mecklenburg-Western Pomerania,624,11,2020-04-15,5,0
+754,Germany,North Rhine-Westphalia,25835,607,2020-04-15,535,62
+766,Germany,Rhineland-Palatinate,5004,77,2020-04-15,124,7
+764,Germany,Saarland,2145,58,2020-04-15,33,6
+753,Germany,Saxony,3819,73,2020-04-15,68,3
+757,Germany,Saxony-Anhalt,1223,26,2020-04-15,16,1
+763,Germany,Schleswig-Holstein,2245,54,2020-04-15,81,5
+759,Germany,Thuringia,1550,38,2020-04-15,46,7
