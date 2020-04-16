@@ -61,6 +61,9 @@ def read_json_data() -> dict:
     d_countries_to_rename['Taiwan*'] = 'Taiwan'
     d_countries_to_rename['Burma'] = 'Myanmar'
     d_countries_to_rename['Cote d\'Ivoire'] = 'Ivory Coast'
+    d_countries_to_rename['West Bank and Gaza'] = 'Palestinian Territory'
+    d_countries_to_rename['Timor-Leste'] = 'Timor Leste'
+    d_countries_to_rename['Holy See'] = 'Vatican'
     for country_name_old, country_name_new in d_countries_to_rename.items():
         d_json_downloaded[country_name_new] = d_json_downloaded[country_name_old]
         del d_json_downloaded[country_name_old]

@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html style="height: 100%;">
+
+<head>
+  <title>Testing eCharts - V5</title>
+  <meta charset="utf-8" />
+  <script src="lib/echarts-en.min.js"></script>
+  <script type="text/javascript" src="lib/jquery-3.5.0.min.js"></script>
+  <script src="lib/utils.js"></script>
+</head>
+<!-- 
+  Idea for V5: select fields to plot in x and y axis via dropdowns 
+   DONE by AAN: add logic to this form
+   DONE by AAN: retrieve all theses fields from JSON in fetchData
+   TODO: eCharts: set axis label according to selected data field
+   TODO: implement linscale and logscale
+
+   Idea for V6 preselect 20 countries for plot, but offer to select from all available countries
+   TODOs:
+   preselect 20 countries via hard coded list or via fetching from some JSON
+   How to select from all countries? Maybe one dropdown per continent (continent is available in countries-latest-all.json) 
+  -->
+
+<body style="height: 100%; margin: 0;">
+
+  <p>TODOs:<br /> Select from all countries of the world</p>
+  <form>
+    <table>
+      <tr>
+        <td>
+          <label>x axis:</label>
+        </td>
+        <td>
+          <select id="sel_x_axis_field" name="sel_x_axis_field"> </select>
+        </td>
+        <td> TODO: <select id="sel_x_axis_scale" name="sel_x_axis_scale"> </select>
+        </td>
+      </tr>
+      <tr>
+        <td>y axis:</td>
+        <td>
+          <select id="sel_y_axis_row" name="y-Axis"> </select>
+        </td>
+        <td> TODO: <select id="sel_y_axis_scale" name="sel_y_axis_scale"> </select>
+        </td>
+      </tr>
+    </table>
+  </form>
+  <div id="container" style="height: 100%;"></div>
+</body>
+<script type="text/javascript">
+  console.log("Start");
+
+  // array of promises for async fetching
+  const promises = [];
+
+  // fetch ref list: Country Code -> Country Name
+  var countryNames = {};
+  function fetchCountryNames(countryNames) {
+    const url =
+      "https://entorb.net/COVID-19-coronavirus/data/int/countries-latest-all.json";
+    return $.getJSON(url, (data) => {
+      console.log("success: countryNames");
+    })
+      .done((data) => {
+        console.log("done: countryNames");
+        $.each(data, function (key, val) {
+          countryNames[data[key].Code] = data[key].Country;
+        });
+        return countryNames;
+      })
+      .fail(() => {
+        console.log("fail: countryNames");
+      });
+  }
+
+  // fetch the ref data
+  promises.push(fetchCountryNames(countryNames));
+
+  const scales = [
+    { value: "lingscale", text: "linear" },
+    { value: "logscale", text: "logarithmic" },
+  ];
+
+  // TODO: handle "Date"
+  const xAxisOptions = ["Days_Past", "Days_Since_2_Deaths"];
+  const yAxisOptions = [
+    "Cases",
+    "Deaths",
+    "Cases_New",
+    "Deaths_New",
+    "Cases_Last_Week",
+    "Deaths_Last_Week",
+    "Cases_Per_Million",
+    "Deaths_Per_Million",
+    "Cases_New_Per_Million",
+    "Deaths_New_Per_Million",
+    "Cases_Last_Week_Per_Million",
+    "Deaths_Last_Week_Per_Million",
+    "Cases_Doubling_Time",
+    "Deaths_Doubling_Time",
+  ];
+
+  // Get the four selects
+  const xAxisPropertySelect = document.getElementById("sel_x_axis_field");
+  const yAxisPropertySelect = document.getElementById("sel_y_axis_row");
+  const xAxisScaleSelect = document.getElementById("sel_x_axis_scale");
+  const yAxisScaleSelect = document.getElementById("sel_y_axis_scale");
+
+  // Set the options of the selects
+  addOptionsToSelect(xAxisPropertySelect, xAxisOptions);
+  addOptionsToSelect(yAxisPropertySelect, yAxisOptions);
+  addOptionsToSelect(xAxisScaleSelect, scales);
+  addOptionsToSelect(yAxisScaleSelect, scales);
+
+  // If the value of a select changes refresh the chart
+  // TODO: add xAxisScaleSelect and yAxisScaleSelect value to logic
+  xAxisPropertySelect.onchange = () => refreshChartWrapper();
+  yAxisPropertySelect.onchange = () => refreshChartWrapper();
+  xAxisScaleSelect.onchange = () => refreshChartWrapper();
+  yAxisScaleSelect.onchange = () => refreshChartWrapper();
+
+  // Adding a new country code to this array draws a new line
+  // TODO: shall we add all countries manually to this list, but disabling their series? Probable not, as then they would be downloaded. better use a dropbox to add a country to the list
+  const countryCodes = ["DE", "HU", "IT", "ES", "FR", "BE", "CH", "JP", "CZ", "US"];
+  const dataStore = {}; // We store all the data in an object
+
+  const dom = document.getElementById("container");
+  const myChart = echarts.init(dom);
+
+  // For each country code we fetch the data
+  for (let i = 0; i < countryCodes.length; i++) {
+    promises.push(fetchData(countryCodes[i], dataStore));
+  }
+
+  // Wait for all async promises to be done (all data is fetched), then refreshes the chart
+  Promise.all(promises).then(() => {
+    console.log("All data fetched");
+    refreshChartWrapper();
+  });
+
+  // Wraps the refreshChart function so it is more readable, takes less space
+  function refreshChartWrapper() {
+    refreshChart(
+      countryCodes,
+      dataStore,
+      xAxisPropertySelect,
+      yAxisPropertySelect,
+      myChart
+    );
+  }
+</script>
+
+</html>
