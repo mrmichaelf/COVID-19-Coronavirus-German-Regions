@@ -767,3 +767,19 @@ id,Country/Region,federalstate,infections,deaths,date,newinfections,newdeaths
 757,Germany,Saxony-Anhalt,1223,26,2020-04-15,16,1
 763,Germany,Schleswig-Holstein,2245,54,2020-04-15,81,5
 759,Germany,Thuringia,1550,38,2020-04-15,46,7
+771,Germany,Baden-Württemberg,25438,767,2020-04-16,0,0
+773,Germany,Bavaria,34294,954,2020-04-16,0,0
+770,Germany,Berlin,4722,62,2020-04-16,0,0
+781,Germany,Brandenburg,1950,42,2020-04-16,0,0
+774,Germany,Bremen,500,21,2020-04-16,0,0
+776,Germany,Hamburg,3869,67,2020-04-16,0,0
+779,Germany,Hesse,6347,173,2020-04-16,0,0
+778,Germany,Lower Saxony,8019,224,2020-04-16,0,0
+775,Germany,Mecklenburg-Western Pomerania,624,11,2020-04-16,0,0
+780,Germany,North Rhine-Westphalia,25835,607,2020-04-16,0,0
+782,Germany,Rhineland-Palatinate,5004,77,2020-04-16,0,0
+769,Germany,Saarland,2145,58,2020-04-16,0,0
+783,Germany,Saxony,3819,73,2020-04-16,0,0
+777,Germany,Saxony-Anhalt,1223,26,2020-04-16,0,0
+772,Germany,Schleswig-Holstein,2245,54,2020-04-16,0,0
+784,Germany,Thuringia,1550,38,2020-04-16,0,0
