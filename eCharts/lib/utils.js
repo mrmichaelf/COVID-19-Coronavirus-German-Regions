@@ -68,7 +68,7 @@ function getSeries(countryCodes, countriesDataObject, xAxis, yAxis) {
     });
     const seria = {
       data: countryLine, // the line of the country
-      name: countryNames[countryCodes[i]],
+      name: mapCountryNames[countryCodes[i]],
       type: "line",
       symbolSize: 5,
     };
@@ -80,15 +80,15 @@ function getSeries(countryCodes, countriesDataObject, xAxis, yAxis) {
 // Refreshes the chart
 // countryCodes: the codes of the countries to display
 // countriesDataObject: the object which contains all data about the countries
-// xAxisPropertySelect: the select of the X axis
-// yAxisPropertySelect: the select of the Y axis
+// select_xAxisProperty: the select of the X axis
+// select_yAxisProperty: the select of the Y axis
 function refreshChart(
   chart,
   countryCodes,
   countriesDataObject,
-  xAxisPropertySelect,
-  yAxisPropertySelect,
-  yAxisScaleSelect
+  select_xAxisProperty,
+  select_yAxisProperty,
+  select_yAxisScale
 ) {
   option = {}
   option = {
@@ -105,7 +105,7 @@ function refreshChart(
       //          bottom: 20,
     },
     xAxis: {
-      name: formatValueToSentenceLike(xAxisPropertySelect.value, "_"),
+      name: formatValueToSentenceLike(select_xAxisProperty.value, "_"),
       type: "value", // value, time  ; will be overwritten if field "Date" is selected
       nameTextStyle: { fontWeight: "bold" },
       nameLocation: "middle",
@@ -117,7 +117,7 @@ function refreshChart(
     // in type log : setting min is required
     yAxis: {
       // name: "Cases",
-      name: formatValueToSentenceLike(yAxisPropertySelect.value, "_"),
+      name: formatValueToSentenceLike(select_yAxisProperty.value, "_"),
       type: "value", //value or log
       // min: 1,
       // max: 10000,
@@ -131,8 +131,8 @@ function refreshChart(
     series: getSeries(
       countryCodes,
       countriesDataObject,
-      xAxisPropertySelect.value,
-      yAxisPropertySelect.value
+      select_xAxisProperty.value,
+      select_yAxisProperty.value
     ),
     tooltip: {
       trigger: 'item', // item or axis
@@ -156,15 +156,13 @@ function refreshChart(
     }
   };
 
-  if (xAxisPropertySelect.value == "Date") {
+  if (select_xAxisProperty.value == "Date") {
     option.xAxis.type = "time";
   }
 
-  if (yAxisScaleSelect.value == "linscale") {
-    console.log("lin");
+  if (select_yAxisScale.value == "linscale") {
     option.yAxis.type = "value";
   } else {
-    console.log("log");
     option.yAxis.type = "log";
     // for logscale we need to set the min value as 0 is not good ;-)
     option.yAxis.min = 1;

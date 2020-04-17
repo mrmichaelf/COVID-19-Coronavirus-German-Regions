@@ -25,8 +25,6 @@
   -->
 
 <body style="height: 100%; margin: 0;">
-
-  <p>TODOs:<br /> Choose from all countries of the world</p>
   <form>
     <table>
       <tr>
@@ -38,7 +36,7 @@
         </td>
         <td> &nbsp;
           <!-- 
-            TODO: <select id="sel_x_axis_scale" name="sel_x_axis_scale">
+            <select id="sel_x_axis_scale" name="sel_x_axis_scale">
             </select>
           -->
         </td>
@@ -46,51 +44,55 @@
       <tr>
         <td>y axis:</td>
         <td>
-          <select id="sel_y_axis_row" name="y-Axis"> </select>
+          <select id="sel_y_axis_field" name="sel_y_axis_field"> </select>
         </td>
         <td> <select id="sel_y_axis_scale" name="sel_y_axis_scale"> </select>
         </td>
       </tr>
     </table>
+
+    <p>TODOs:<br /> Choose from all countries of the world</p>
+    <select id="sel_countries_europe" name="sel_countries_europe"> </select>
   </form>
+  <!-- 
+    End Form 
+  -->
   <div id="container" style="height: 100%;"></div>
 </body>
 <script type="text/javascript">
-  console.log("Start");
-
   // array of promises for async fetching
   const promises = [];
 
   // fetch ref list: Country Code -> Country Name
-  var countryNames = {};
-  function fetchCountryNames(countryNames) {
+  var mapCountryNames = {};
+  function fetch_mapCountryNames(mapCountryNames) {
     const url =
       "https://entorb.net/COVID-19-coronavirus/data/int/countries-latest-all.json";
     return $.getJSON(url, (data) => {
-      console.log("success: countryNames");
+      console.log("success: mapCountryNames");
     })
       .done((data) => {
-        console.log("done: countryNames");
+        console.log("done: mapCountryNames");
         $.each(data, function (key, val) {
-          countryNames[data[key].Code] = data[key].Country;
+          mapCountryNames[data[key].Code] = data[key].Country;
         });
-        return countryNames;
+        return mapCountryNames;
       })
       .fail(() => {
-        console.log("fail: countryNames");
+        console.log("fail: mapCountryNames");
       });
   }
 
   // fetch the ref data
-  promises.push(fetchCountryNames(countryNames));
+  promises.push(fetch_mapCountryNames(mapCountryNames));
 
-  const scales = [
+  const options_axis_scales = [
     { value: "logscale", text: "logarithmic" },
     { value: "linscale", text: "linear" },
   ];
 
-  const xAxisOptions = ["Date", "Days_Since_2_Deaths", "Days_Past"];
-  const yAxisOptions = [
+  const options_xAxisProperty = ["Date", "Days_Since_2_Deaths", "Days_Past"];
+  const options_yAxisProperty = [
     "Deaths_Per_Million",
     "Deaths_Last_Week_Per_Million",
     "Deaths_New_Per_Million",
@@ -107,36 +109,49 @@
     "Cases_Doubling_Time",
   ];
 
-  // Get the four selects
-  const xAxisPropertySelect = document.getElementById("sel_x_axis_field");
-  const yAxisPropertySelect = document.getElementById("sel_y_axis_row");
+  // TODO: fill by countries-latest-all.json
+  const options_countries_europe = [
+    { value: "GB", text: "United Kingdom" },
+    { value: "IE", text: "Ireland" },
+  ];
+
+
+  // axis selects
+  const select_xAxisProperty = document.getElementById("sel_x_axis_field");
+  const select_yAxisProperty = document.getElementById("sel_y_axis_field");
   // const xAxisScaleSelect = document.getElementById("sel_x_axis_scale");
-  const yAxisScaleSelect = document.getElementById("sel_y_axis_scale");
+  const select_yAxisScale = document.getElementById("sel_y_axis_scale");
+
+  // country selects
+  const select_countries_europe = document.getElementById("sel_countries_europe");
 
   // Set the options of the selects
-  addOptionsToSelect(xAxisPropertySelect, xAxisOptions);
-  addOptionsToSelect(yAxisPropertySelect, yAxisOptions);
-  // addOptionsToSelect(xAxisScaleSelect, scales);
-  addOptionsToSelect(yAxisScaleSelect, scales);
+  addOptionsToSelect(select_xAxisProperty, options_xAxisProperty);
+  addOptionsToSelect(select_yAxisProperty, options_yAxisProperty);
+  // addOptionsToSelect(xAxisScaleSelect, options_axis_scales);
+  addOptionsToSelect(select_yAxisScale, options_axis_scales);
+
+  addOptionsToSelect(select_countries_europe, options_countries_europe);
 
   // If the value of a select changes refresh the chart
-  // TODO: add xAxisScaleSelect and yAxisScaleSelect value to logic
-  xAxisPropertySelect.onchange = () => refreshChartWrapper();
-  yAxisPropertySelect.onchange = () => refreshChartWrapper();
+  // TODO: add xAxisScaleSelect and select_yAxisScale value to logic
+  select_xAxisProperty.onchange = () => refreshChartWrapper();
+  select_yAxisProperty.onchange = () => refreshChartWrapper();
   // xAxisScaleSelect.onchange = () => refreshChartWrapper();
-  yAxisScaleSelect.onchange = () => refreshChartWrapper();
+  select_yAxisScale.onchange = () => refreshChartWrapper();
+  select_countries_europe.onchange = () => refreshChartWrapper();
 
   // Adding a new country code to this array draws a new line
   // TODO: shall we add all countries manually to this list, but disabling their series? Probable not, as then they would be downloaded. better use a dropbox to add a country to the list
   const countryCodes = ["DE", "HU", "IT", "ES", "FR", "BE", "CH", "JP", "CZ", "US"];
-  const dataStore = {}; // We store all the data in an object
+  const countriesDataObject = {}; // We store all the data in an object
 
   const dom = document.getElementById("container");
   const myChart = echarts.init(dom);
 
   // For each country code we fetch the data
   for (let i = 0; i < countryCodes.length; i++) {
-    promises.push(fetchData(countryCodes[i], dataStore));
+    promises.push(fetchData(countryCodes[i], countriesDataObject));
   }
 
   // Wait for all async promises to be done (all data is fetched), then refreshes the chart
@@ -150,10 +165,10 @@
     refreshChart(
       myChart,
       countryCodes,
-      dataStore,
-      xAxisPropertySelect,
-      yAxisPropertySelect,
-      yAxisScaleSelect
+      countriesDataObject,
+      select_xAxisProperty,
+      select_yAxisProperty,
+      select_yAxisScale
     );
   }
 </script>
