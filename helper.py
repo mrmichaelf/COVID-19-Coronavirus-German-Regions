@@ -87,6 +87,7 @@ def prepare_time_series(l_time_series: list) -> list:
 
     last_cases = 0
     last_deaths = 0
+    days_since_2_deaths = 0
 
     for i in range(len(l_time_series)):
         d = l_time_series[i]
@@ -98,11 +99,15 @@ def prepare_time_series(l_time_series: list) -> list:
         this_date = datetime.datetime.strptime(d['Date'], "%Y-%m-%d")
         d['Days_Past'] = (this_date-last_date).days
 
+        # days_since_2_deaths
+        d['Days_Since_2nd_Death'] = None
+        if d['Deaths'] >= 2:  # is 2 a good value?
+            d['Days_Since_2nd_Death'] = days_since_2_deaths
+            days_since_2_deaths += 1
+
         # _New since yesterday
         d['Cases_New'] = d['Cases'] - last_cases
         d['Deaths_New'] = d['Deaths'] - last_deaths
-        last_cases = d['Cases']
-        last_deaths = d['Deaths']
 
         # delta of _Last_Week = last 7 days
         d['Cases_Last_Week'] = 0
@@ -111,6 +116,19 @@ def prepare_time_series(l_time_series: list) -> list:
             d['Cases_Last_Week'] = d['Cases'] - l_time_series[i-7]['Cases']
             d['Deaths_Last_Week'] = d['Deaths'] - \
                 l_time_series[i-7]['Deaths']
+
+        # Change Factors
+        d['Cases_Change_Factor'] = None
+        if last_cases >= 100:
+            d['Cases_Change_Factor'] = round(
+                d['Cases']/last_cases, 3)
+        d['Deaths_Change_Factor'] = None
+        if last_deaths >= 10:
+            d['Deaths_Change_Factor'] = round(
+                d['Deaths']/last_deaths, 3)
+
+        last_cases = d['Cases']
+        last_deaths = d['Deaths']
 
         l_time_series[i] = d
 
@@ -195,7 +213,9 @@ def fit_routine(data: list, fit_range_x: list = (-np.inf, np.inf), fit_range_y: 
         data, fit_range_x, fit_range_y)
 
     d = {}
-    if len(data_x_for_fit) >= 3:
+    # min 3 values in list
+    # only if not all y data values are equal
+    if len(data_x_for_fit) >= 3 and data_y_for_fit.count(data_y_for_fit[0]) < len(data_y_for_fit):
         # Do the fit
         p0 = [float(data_y_for_fit[-1]), 5.0]  # initial guess of parameters
         try:

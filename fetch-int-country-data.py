@@ -200,7 +200,6 @@ def extract_latest_date_data():
             )
 
 
-
 def check_for_further_interesting_countries():
     """
     checks if in the json data are countries with many deaths that are missing in my selection for closer analysis
@@ -224,7 +223,10 @@ def check_for_further_interesting_countries():
                 f"{country}\t{entry['Cases']}\t{entry['Deaths']}\t{int(entry['Deaths_Per_Million'])}")
 
 
-def enrich_data_by_calculated_fields():
+def fit_doubling_time_selected_only():
+    """
+    fit time series for doubling time
+    """
     global d_countries_timeseries
     global d_selected_countries
     for country in d_selected_countries.keys():
@@ -233,10 +235,6 @@ def enrich_data_by_calculated_fields():
         l_country_data = d_countries_timeseries[country]
         # pop_in_Mill = d_selected_countries[country]['Population'] / 1000000
 
-        # initial values
-        last_cases = 0
-        last_deaths = 0
-        days_since_2_deaths = 0
         # for fits of doubling time
         data_t = []
         data_cases = []
@@ -250,27 +248,6 @@ def enrich_data_by_calculated_fields():
             data_cases.append(entry['Cases'])
             data_deaths.append(entry['Deaths'])
 
-            # days_since_2_deaths
-            entry['Days_Since_2_Deaths'] = ""
-            if entry['Deaths'] >= 2:  # TODO: is 2 a good value?
-                entry['Days_Since_2_Deaths'] = days_since_2_deaths
-                days_since_2_deaths += 1
-
-            entry['Cases_New'] = entry['Cases'] - last_cases
-            entry['Deaths_New'] = entry['Deaths'] - last_deaths
-
-            entry['Cases_Change_Factor'] = ""
-            if last_cases >= 100:
-                entry['Cases_Change_Factor'] = round(
-                    entry['Cases']/last_cases, 0)
-            entry['Deaths_Change_Factor'] = ""
-            if last_deaths >= 10:
-                entry['Deaths_Change_Factor'] = round(
-                    entry['Deaths']/last_deaths, 0)
-
-            last_cases = entry['Cases']
-            last_deaths = entry['Deaths']
-
             l_country_data[i] = entry
 
         # fit the doubling time each day
@@ -283,24 +260,26 @@ def enrich_data_by_calculated_fields():
 
         for i in range(len(l_country_data)):
             entry = l_country_data[i]
-            this_cases_doubling_time = ""
-            this_deaths_doubling_time = ""
+            entry['Cases_Doubling_Time'] = ""
+            entry['Deaths_Doubling_Time'] = ""
             this_DaysPast = entry['Days_Past']
             if this_DaysPast in fit_series_res_cases:
-                this_cases_doubling_time = fit_series_res_cases[this_DaysPast]
+                entry['Cases_Doubling_Time'] = fit_series_res_cases[this_DaysPast]
             if this_DaysPast in fit_series_res_deaths:
-                this_deaths_doubling_time = fit_series_res_deaths[this_DaysPast]
-            entry['Cases_Doubling_Time'] = this_cases_doubling_time
-            entry['Deaths_Doubling_Time'] = this_deaths_doubling_time
+                entry['Deaths_Doubling_Time'] = fit_series_res_deaths[this_DaysPast]
             l_country_data[i] = entry
 
         if args["sleep"]:
             time.sleep(1)
 
 
-def export_time_series_selected_countries():
-    for country in d_selected_countries.keys():
-        country_code = d_selected_countries[country]['Code']
+def export_time_series_all_countries():
+    for country in d_countries_timeseries.keys():
+        # for country in d_selected_countries.keys():
+        country_code = read_country_code(country)
+        if not country_code:
+            continue
+        # country_code = d_selected_countries[country]['Code']
         l_country_data = d_countries_timeseries[country]
         #     pop_in_Mill = d_selected_countries[country]['Population'] / 1000000
 
@@ -317,10 +296,17 @@ def export_time_series_selected_countries():
                  'Cases_New_Per_Million', 'Deaths_New_Per_Million',
                  'Cases_Doubling_Time', 'Deaths_Doubling_Time',
                  'Cases_Change_Factor', 'Deaths_Change_Factor',
-                 'Days_Since_2_Deaths'
+                 'Days_Since_2nd_Death'
                  )
             )
+
             for entry in l_country_data:
+                this_Cases_Doubling_Time = None
+                this_Deaths_Doubling_Time = None
+                if 'Cases_Doubling_Time' in entry:
+                    this_Cases_Doubling_Time = entry['Cases_Doubling_Time']
+                if 'Deaths_Doubling_Time' in entry:
+                    this_Deaths_Doubling_Time = entry['Deaths_Doubling_Time']
                 csvwriter.writerow(
                     (
                         entry['Days_Past'], entry['Date'],
@@ -328,9 +314,9 @@ def export_time_series_selected_countries():
                         entry['Cases_New'], entry['Deaths_New'],
                         entry['Cases_Per_Million'], entry['Deaths_Per_Million'],
                         entry['Cases_New_Per_Million'], entry['Deaths_New_Per_Million'],
-                        entry['Cases_Doubling_Time'], entry['Deaths_Doubling_Time'],
+                        this_Cases_Doubling_Time, this_Deaths_Doubling_Time,
                         entry['Cases_Change_Factor'], entry['Deaths_Change_Factor'],
-                        entry['Days_Since_2_Deaths']
+                        entry['Days_Since_2nd_Death']
                     )
                 )
 
@@ -400,23 +386,23 @@ def read_country_code(country_name: str) -> str:
 d_ref_country_database = helper.read_json_file(
     'data/ref_country_database.json')
 
+d_selected_countries = read_ref_selected_countries()
+
 if not helper.check_cache_file_available_and_recent(fname=file_cache, max_age=7200, verbose=True):
     download_new_data()
 
-d_selected_countries = read_ref_selected_countries()
-
 d_countries_timeseries = read_json_data()
-
 
 check_for_further_interesting_countries()
 
 extract_latest_date_data()
 
-# depricated: extract_latest_date_data_selected()
+# deprecated: extract_latest_date_data_selected()
 
-enrich_data_by_calculated_fields()
+# only for selected countries, for performance reasons
+fit_doubling_time_selected_only()
 
-export_time_series_selected_countries()
+export_time_series_all_countries()
 
 print(
     f"int: countries: latest date in DE set: {d_countries_timeseries['Germany'][-1]['Date']}")
