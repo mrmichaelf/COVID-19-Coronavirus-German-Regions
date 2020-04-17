@@ -106,7 +106,7 @@ function refreshChart(
     },
     xAxis: {
       name: formatValueToSentenceLike(xAxisPropertySelect.value, "_"),
-      type: "value",
+      type: "value", // value, time  ; will be overwritten if field "Date" is selected
       nameTextStyle: { fontWeight: "bold" },
       nameLocation: "middle",
       minorTick: { show: true },
@@ -155,6 +155,10 @@ function refreshChart(
       },
     }
   };
+
+  if (xAxisPropertySelect.value == "Date") {
+    option.xAxis.type = "time";
+  }
 
   if (yAxisScaleSelect.value == "linscale") {
     console.log("lin");

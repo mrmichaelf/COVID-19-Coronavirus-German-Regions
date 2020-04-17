@@ -10,10 +10,13 @@
 </head>
 <!-- 
   Idea for V5: select fields to plot in x and y axis via dropdowns 
-   DONE by AAN: add logic to this form
-   DONE by AAN: retrieve all theses fields from JSON in fetchData
-   DONE eCharts: set axis label according to selected data field
-   DONE implement linscale and logscale
+   DONE
+    by AAN: add logic to this form
+    by AAN: retrieve all theses fields from JSON in fetchData
+    eCharts: set axis label according to selected data field
+    implement linscale and logscale
+    Add Date as X axis
+   
 
    Idea for V6 preselect 20 countries for plot, but offer to select from all available countries
    TODOs:
@@ -86,8 +89,7 @@
     { value: "linscale", text: "linear" },
   ];
 
-  // TODO: handle "Date"
-  const xAxisOptions = ["Days_Past", "Days_Since_2_Deaths"];
+  const xAxisOptions = ["Date", "Days_Since_2_Deaths", "Days_Past"];
   const yAxisOptions = [
     "Deaths_Per_Million",
     "Deaths_Last_Week_Per_Million",
