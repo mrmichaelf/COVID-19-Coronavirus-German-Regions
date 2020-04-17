@@ -4,7 +4,7 @@
 """
 This script downloads COVID-19 / coronavirus data provided by https://github.com/pomber/covid19
 
-
+Data is enriched by calculated values and exported
 """
 
 
@@ -36,7 +36,6 @@ def download_new_data():
     """
     downloads the data from the source to the cache dir
     """
-    # TODO: caching
     url = "https://pomber.github.io/covid19/timeseries.json"
     filedata = urllib.request.urlopen(url)
     datatowrite = filedata.read()
@@ -48,8 +47,9 @@ def read_json_data() -> dict:
     """
     reads downloaded cached json file contents
     renames some country names according to ref database
+    calls prepare_time_series
     adds _Per_Million fields
-    exports as json file
+    NO LONGER exports as json file
     returns as a dict
     """
     d_json_downloaded = helper.read_json_file(file_cache)
@@ -101,12 +101,15 @@ def read_json_data() -> dict:
         d_countries[country] = l_time_series
 
     # export to file
-    helper.write_json(file_all_timeseries, d_countries, sort_keys=True)
+    # helper.write_json(file_all_timeseries, d_countries, sort_keys=True)
     return d_countries
 
 
 def read_ref_selected_countries() -> dict:
-    "reads data for selected countries from tsv file and returns it as dict"
+    """
+    reads data for selected countries from tsv file and returns it as dict
+    the population value of this field is no longer used, since I switche to using d_ref_country_database instead
+    """
     d_selected_countries = {}
     with open('data/ref_selected_countries.tsv', mode='r', encoding='utf-8') as f:
         csv_reader = csv.DictReader(f, dialect='excel', delimiter="\t")
@@ -128,15 +131,15 @@ def read_ref_selected_countries() -> dict:
 def extract_latest_date_data():
     """
     for all countries in json: extract latest entry
-    write to data/countries-latest-all.tsv
+    write to data/int/countries-latest-all.tsv and data/int/countries-latest-all.json
     """
+    l_for_export = []
     with open('data/int/countries-latest-all.tsv', mode='w', encoding='utf-8', newline='\n') as f:
         csvwriter = csv.writer(f, delimiter="\t")
         csvwriter.writerow(  # header row
             ('# Country', 'Population', 'Date', 'Cases',
              'Deaths', 'Cases_Per_Million', 'Deaths_Per_Million', 'Cases_Last_Week_Per_Million', 'Deaths_Last_Week_Per_Million', 'Continent', 'Code')
         )
-        l_for_export = []
         for country in sorted(d_countries_timeseries.keys(), key=str.casefold):
             country_data = d_countries_timeseries[country]
             entry = country_data[-1]  # last entry (=>latest date)
@@ -171,16 +174,11 @@ def extract_latest_date_data():
             )
             del d_for_export
 
-        helper.write_json(
-            filename='data/int/countries-latest-all.json', d=l_for_export, sort_keys=False)
+    # JSON export
+    helper.write_json(
+        filename='data/int/countries-latest-all.json', d=l_for_export, sort_keys=False)
 
-
-def extract_latest_date_data_selected():
-    """
-    TODO: this is now the same as extract_latest_date_data()
-    for my selected countries: extract latest of json and calculate per capita values
-    writes to data/countries-latest-selected.tsv
-    """
+    # for selected countries write to separate file, for Gnuplot plotting
     with open('data/int/countries-latest-selected.tsv', mode='w', encoding='utf-8', newline='\n') as f:
         csvwriter = csv.writer(f, delimiter="\t")
         # TODO: change order: pop as no 3
@@ -194,14 +192,13 @@ def extract_latest_date_data_selected():
         for country in sorted(d_selected_countries.keys(), key=str.casefold):
             country_data = d_countries_timeseries[country]
             entry = country_data[-1]  # last entry for this country
-            pop_in_Mill = d_selected_countries[country]['Population'] / 1000000
             csvwriter.writerow(
                 (country, entry['Date'],
                  entry['Cases'], entry['Deaths'],
-                 "%.3f" % (
-                     entry['Cases']/pop_in_Mill), "%.3f" % (entry['Deaths']/pop_in_Mill),
+                 entry['Cases_Per_Million'], entry['Deaths_Per_Million'],
                  d_selected_countries[country]['Population'])
             )
+
 
 
 def check_for_further_interesting_countries():
@@ -415,7 +412,7 @@ check_for_further_interesting_countries()
 
 extract_latest_date_data()
 
-extract_latest_date_data_selected()
+# depricated: extract_latest_date_data_selected()
 
 enrich_data_by_calculated_fields()
 
