@@ -54,11 +54,31 @@
     <p>Choose from all countries of the world</p>
     <table>
       <tr>
+        <th>Africa</th>
+        <th>Asia</th>
         <th>Europe</th>
+        <th>North America</th>
+        <th>South America</th>
+        <th>Oceania</th>
       </tr>
       <tr>
         <td>
+          <select id="sel_countries_africa" name="sel_countries_africa"> </select>
+        </td>
+        <td>
+          <select id="sel_countries_asia" name="sel_countries_asia"> </select>
+        </td>
+        <td>
           <select id="sel_countries_europe" name="sel_countries_europe"> </select>
+        </td>
+        <td>
+          <select id="sel_countries_north_america" name="sel_countries_north_america"> </select>
+        </td>
+        <td>
+          <select id="sel_countries_south_america" name="sel_countries_south_america"> </select>
+        </td>
+        <td>
+          <select id="sel_countries_oceania" name="sel_countries_oceania"> </select>
         </td>
       </tr>
     </table>
@@ -124,7 +144,12 @@
   ];
 
   // fill by data fetched from countries-latest-all.json
+  var options_countries_africa = [];
+  var options_countries_asia = [];
   var options_countries_europe = [];
+  var options_countries_north_america = [];
+  var options_countries_south_america = [];
+  var options_countries_oceania = [];
 
 
   // axis selects
@@ -134,7 +159,12 @@
   const select_yAxisProperty = document.getElementById("sel_y_axis_field");
 
   // country selects
+  const select_countries_africa = document.getElementById("sel_countries_africa");
+  const select_countries_asia = document.getElementById("sel_countries_asia");
   const select_countries_europe = document.getElementById("sel_countries_europe");
+  const select_countries_north_america = document.getElementById("sel_countries_north_america");
+  const select_countries_south_america = document.getElementById("sel_countries_south_america");
+  const select_countries_oceania = document.getElementById("sel_countries_oceania");
 
   // Set the array options to the selects
   setOptionsToSelect(select_xAxisProperty, options_xAxisProperty, "");
@@ -142,24 +172,28 @@
   // setOptionsToSelect(xAxisScaleSelect, options_axis_scales);
   setOptionsToSelect(select_yAxisScale, options_axis_scales, "");
 
-  // setOptionsToSelect(select_countries_europe, options_countries_europe, "Choose");
-
   // If the value of a select changes refresh the chart
   // TODO: add xAxisScaleSelect and select_yAxisScale value to logic
   select_xAxisProperty.onchange = () => refreshChartWrapper();
   select_yAxisProperty.onchange = () => refreshChartWrapper();
   // xAxisScaleSelect.onchange = () => refreshChartWrapper();
   select_yAxisScale.onchange = () => refreshChartWrapper();
-  select_countries_europe.onclick = () => new_country_selected(countryCodes);
+  // countries
+  select_countries_africa.onclick = () => new_country_selected(countryCodes, select_countries_africa, options_countries_africa);
+  select_countries_asia.onclick = () => new_country_selected(countryCodes, select_countries_asia, options_countries_asia);
+  select_countries_europe.onclick = () => new_country_selected(countryCodes, select_countries_europe, options_countries_europe);
+  select_countries_north_america.onclick = () => new_country_selected(countryCodes, select_countries_north_america, options_countries_north_america);
+  select_countries_south_america.onclick = () => new_country_selected(countryCodes, select_countries_south_america, options_countries_south_america);
+  select_countries_oceania.onclick = () => new_country_selected(countryCodes, select_countries_oceania, options_countries_oceania);
 
   // Initial list of country codes
   // Adding a new country code to this array draws a new line
-  var countryCodes = ["DE", "HU", "IT", "ES", "FR", "BE", "CH", "JP", "CZ", "US"];
+  var countryCodes = ["DE"];
 
 
-  function new_country_selected(countryCodes) {
-    if (select_countries_europe.value != "placeholder123") {
-      var country_code_to_add = select_countries_europe.value;
+  function new_country_selected(countryCodes, select_country, options_countries) {
+    if (select_country.value != "placeholder123") {
+      var country_code_to_add = select_country.value;
       console.log(country_code_to_add)
 
       // append to list of country codes
@@ -168,9 +202,9 @@
       // start fetching / download of data
       promises.push(fetchData(country_code_to_add, countriesDataObject))
 
-      // remove selected values from options_countries_europe
-      arrayRemoveValueTextPairByValue(options_countries_europe, country_code_to_add)
-      setOptionsToSelect(select_countries_europe, options_countries_europe, "Choose");
+      // remove selected values from options_countries
+      arrayRemoveValueTextPairByValue(options_countries, country_code_to_add)
+      setOptionsToSelect(select_country, options_countries, "Choose");
 
       // wait for fetching to complete, than update chart
       Promise.all(promises).then(() => {
@@ -195,6 +229,43 @@
 
     // populate country select dropdown
 
+
+    // // Europa
+    // for (let i = 0; i < mapContinentCountries['Europe'].length; i++) {
+    //   const code = mapContinentCountries['Europe'][i][0];
+    //   const name = mapContinentCountries['Europe'][i][1]
+    //   if (!(countryCodes.includes(code))) {
+    //     options_countries_europe.push(
+    //       { value: code, text: name }
+    //     );
+    //   }
+    // }
+    // setOptionsToSelect(select_countries_europe, options_countries_europe, "Choose");
+
+
+    // Africa
+    for (let i = 0; i < mapContinentCountries['Africa'].length; i++) {
+      const code = mapContinentCountries['Africa'][i][0];
+      const name = mapContinentCountries['Africa'][i][1]
+      if (!(countryCodes.includes(code))) {
+        options_countries_africa.push(
+          { value: code, text: name }
+        );
+      }
+    }
+    setOptionsToSelect(select_countries_africa, options_countries_africa, "Choose");
+    // Asia
+    for (let i = 0; i < mapContinentCountries['Asia'].length; i++) {
+      const code = mapContinentCountries['Asia'][i][0];
+      const name = mapContinentCountries['Asia'][i][1]
+      if (!(countryCodes.includes(code))) {
+        options_countries_asia.push(
+          { value: code, text: name }
+        );
+      }
+    }
+    setOptionsToSelect(select_countries_asia, options_countries_asia, "Choose");
+    // Europe
     for (let i = 0; i < mapContinentCountries['Europe'].length; i++) {
       const code = mapContinentCountries['Europe'][i][0];
       const name = mapContinentCountries['Europe'][i][1]
@@ -203,9 +274,41 @@
           { value: code, text: name }
         );
       }
-
     }
     setOptionsToSelect(select_countries_europe, options_countries_europe, "Choose");
+    // North America
+    for (let i = 0; i < mapContinentCountries['North America'].length; i++) {
+      const code = mapContinentCountries['North America'][i][0];
+      const name = mapContinentCountries['North America'][i][1]
+      if (!(countryCodes.includes(code))) {
+        options_countries_north_america.push(
+          { value: code, text: name }
+        );
+      }
+    }
+    setOptionsToSelect(select_countries_north_america, options_countries_north_america, "Choose");
+    // South America
+    for (let i = 0; i < mapContinentCountries['South America'].length; i++) {
+      const code = mapContinentCountries['South America'][i][0];
+      const name = mapContinentCountries['South America'][i][1]
+      if (!(countryCodes.includes(code))) {
+        options_countries_south_america.push(
+          { value: code, text: name }
+        );
+      }
+    }
+    setOptionsToSelect(select_countries_south_america, options_countries_south_america, "Choose");
+    // Oceania
+    for (let i = 0; i < mapContinentCountries['Oceania'].length; i++) {
+      const code = mapContinentCountries['Oceania'][i][0];
+      const name = mapContinentCountries['Oceania'][i][1]
+      if (!(countryCodes.includes(code))) {
+        options_countries_oceania.push(
+          { value: code, text: name }
+        );
+      }
+    }
+    setOptionsToSelect(select_countries_oceania, options_countries_oceania, "Choose");
 
     refreshChartWrapper();
   });
