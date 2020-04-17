@@ -3,7 +3,15 @@
 // optionsArray: the options to add
 // if optionsArray item consists of key, values pairs, than use the value for display, 
 // else format the key to sentenceLike
-function addOptionsToSelect(select, optionsArray) {
+function setOptionsToSelect(select, optionsArray, placeholdertext) {
+  removeAllOptionsFromSelect(select);
+  if (placeholdertext != "") {
+    // add a placeholder as first element, important for onchange event on first selection
+    const option = document.createElement("option");
+    option.value = "placeholder123";
+    option.innerText = placeholdertext;
+    select.add(option);
+  }
   for (let i = 0; i < optionsArray.length; i++) {
     const option = document.createElement("option");
     if (optionsArray[i].value && optionsArray[i].text) {
@@ -16,6 +24,16 @@ function addOptionsToSelect(select, optionsArray) {
     select.add(option);
   }
 }
+
+// remove all options of a select
+// from https://stackoverflow.com/posts/3364546/timeline
+function removeAllOptionsFromSelect(select) {
+  var i, L = select.options.length - 1;
+  for (i = L; i >= 0; i--) {
+    select.remove(i);
+  }
+}
+
 
 // Formats value "Something_Is_HERE" to "Something is here" like sentence
 // value: The value to format
@@ -30,8 +48,9 @@ function formatValueToSentenceLike(value, separator) {
 // countriesDataObject: the object which will contain all data about the countries
 function fetchData(countryCode, countriesDataObject) {
   const url = getUrl(countryCode);
+  console.log(url);
   // I like using "() => {}" lambda expressions instead of "function () {}" as parameters
-  return $.getJSON(url, (data) => {
+  return $.getJSON(url, () => {
     console.log(`success: ${countryCode}`);
   })
     .done((data) => {
@@ -171,4 +190,17 @@ function refreshChart(
 
   chart.clear(); // needed as setOption does not reliable remove all old data, see https://github.com/apache/incubator-echarts/issues/6202#issuecomment-460322781
   chart.setOption(option, true);
+}
+
+// from https://love2dev.com/blog/javascript-remove-from-array/
+function arrayRemove(arr, value) {
+  return arr.filter(function (ele) { return ele != value; });
+}
+
+
+function arrayRemoveValueTextPairByValue(arr, key) {
+  for (let i = 0; i < arr.length; i++) {
+    if (arr[i].value == key) { arr.splice(i, 1); }
+  }
+  //return arr;
 }
