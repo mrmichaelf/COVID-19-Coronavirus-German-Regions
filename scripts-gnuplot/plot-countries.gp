@@ -124,7 +124,7 @@ country_code = "ES" ; country_name = "Spain" ; load "plot-countries-sub1.gp"
 country_code = "SE" ; country_name = "Sweden" ; load "plot-countries-sub1.gp"
 country_code = "CH" ; country_name = "Switzerland" ; load "plot-countries-sub1.gp"
 country_code = "TR" ; country_name = "Turkey" ; load "plot-countries-sub1.gp"
-country_code = "UK" ; country_name = "United Kingdom" ; load "plot-countries-sub1.gp"
+country_code = "GB" ; country_name = "United Kingdom" ; load "plot-countries-sub1.gp"
 country_code = "US" ; country_name = "United States" ; load "plot-countries-sub1.gp"
 
 # delete fit logfile

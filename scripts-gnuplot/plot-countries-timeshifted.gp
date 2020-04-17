@@ -103,10 +103,10 @@ last_y_CH_pm = (system("tail -1 '../data/int/country-CH.tsv' | cut -f8") + 0)
 last_y_absolute_CH = (system("tail -1 '../data/int/country-CH.tsv' | cut -f4") + 0)
 last_y_new_per_million_CH = (system("tail -1 '../data/int/country-CH.tsv' | cut -f10") + 0)
 
-last_x_UK = (system("tail -1 '../data/int/country-UK.tsv' | cut -f15") + 0)
-last_y_UK_pm = (system("tail -1 '../data/int/country-UK.tsv' | cut -f8") + 0)
-last_y_absolute_UK = (system("tail -1 '../data/int/country-UK.tsv' | cut -f4") + 0)
-last_y_new_per_million_UK = (system("tail -1 '../data/int/country-UK.tsv' | cut -f10") + 0)
+last_x_UK = (system("tail -1 '../data/int/country-GB.tsv' | cut -f15") + 0)
+last_y_UK_pm = (system("tail -1 '../data/int/country-GB.tsv' | cut -f8") + 0)
+last_y_absolute_UK = (system("tail -1 '../data/int/country-GB.tsv' | cut -f4") + 0)
+last_y_new_per_million_UK = (system("tail -1 '../data/int/country-GB.tsv' | cut -f10") + 0)
 
 last_x_US = (system("tail -1 '../data/int/country-US.tsv' | cut -f15") + 0)
 last_y_US_pm = (system("tail -1 '../data/int/country-US.tsv' | cut -f8") + 0)
@@ -156,7 +156,7 @@ plot \
   '../data/int/country-FR.tsv' using ($15/7):4 title "France" with lines lw 2, \
   '../data/int/country-ES.tsv' using ($15/7):4 title "Spain" with lines lw 2, \
   '../data/int/country-AT.tsv' using ($15/7):4 title "Austria" with lines lw 2, \
-  '../data/int/country-UK.tsv' using ($15/7):4 title "United Kingdom" with lines lw 2, \
+  '../data/int/country-GB.tsv' using ($15/7):4 title "United Kingdom" with lines lw 2, \
   '../data/int/country-US.tsv' using ($15/7):4 title "US" with lines lw 2, \
   '../data/int/country-BE.tsv' using ($15/7):4 title "Belgium" with lines lw 2 dt "-", \
   '../data/int/country-CA.tsv' using ($15/7):4 title "Canada" with lines lw 2 dt "-", \
@@ -230,7 +230,7 @@ plot \
   '../data/int/country-FR.tsv' using ($15/7):8 title "France" with lines lw 2, \
   '../data/int/country-ES.tsv' using ($15/7):8 title "Spain" with lines lw 2, \
   '../data/int/country-AT.tsv' using ($15/7):8 title "Austria" with lines lw 2, \
-  '../data/int/country-UK.tsv' using ($15/7):8 title "United Kingdom" with lines lw 2, \
+  '../data/int/country-GB.tsv' using ($15/7):8 title "United Kingdom" with lines lw 2, \
   '../data/int/country-US.tsv' using ($15/7):8 title "US" with lines lw 2, \
   '../data/int/country-BE.tsv' using ($15/7):8 title "Belgium" with lines lw 2 dt "-", \
   '../data/int/country-CA.tsv' using ($15/7):8 title "Canada" with lines lw 2 dt "-", \
@@ -315,7 +315,7 @@ plot \
   '../data/int/country-FR.tsv' using ($15/7):10 smooth bezier title "France" with lines lw 2, \
   '../data/int/country-ES.tsv' using ($15/7):10 smooth bezier title "Spain" with lines lw 2, \
   '../data/int/country-AT.tsv' using ($15/7):10 smooth bezier title "Austria" with lines lw 2, \
-  '../data/int/country-UK.tsv' using ($15/7):10 smooth bezier title "United Kingdom" with lines lw 2, \
+  '../data/int/country-GB.tsv' using ($15/7):10 smooth bezier title "United Kingdom" with lines lw 2, \
   '../data/int/country-US.tsv' using ($15/7):10 smooth bezier title "US" with lines lw 2, \
   '../data/int/country-BE.tsv' using ($15/7):10 smooth bezier title "Belgium" with lines lw 2 dt "-", \
   '../data/int/country-CA.tsv' using ($15/7):10 smooth bezier title "Canada" with lines lw 2 dt "-", \

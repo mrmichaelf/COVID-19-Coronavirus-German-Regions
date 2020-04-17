@@ -449,19 +449,22 @@ def loop_over_all_LK():
             'Bundesland': d_ref_landkreise[lk_id]['BL_Name'],  # Bundesland
             'Landkreis': lk_name,
             'LK_Einwohner': d_ref_landkreise[lk_id]['Population'],  # Einwohner
-            'fit_res_N0': round(d_fit_results['fit_res'][0], 3),
-            'fit_res_T': round(d_fit_results['fit_res'][1], 3),
-            'fit_used_x_range': d_fit_results['fit_used_x_range'],
             'Cases': last_entry['Cases'],
             'Cases_Per_Million': last_entry['Cases_Per_Million'],
             'Deaths': last_entry['Deaths'],
             'Deaths_Per_Million': last_entry['Deaths_Per_Million'],
-            'Cases_Forecast_Tomorrow': round(d_fit_results['forcast_y_at_x+1'], 3),
-            'Cases_Forecast_Tomorrow_Factor': round(d_fit_results['factor_increase_x+1'], 3),
             'Date': entry['Date'],
             'Cases_Last_Week_Per_Million': entry['Cases_Last_Week_Per_Million'],
             'Deaths_Last_Week_Per_Million': entry['Deaths_Last_Week_Per_Million']
         }
+        if d_fit_results != {}:
+            d['fit_res_N0'] = round(d_fit_results['fit_res'][0], 3)
+            d['fit_res_T'] = round(d_fit_results['fit_res'][1], 3)
+            d['fit_used_x_range'] = d_fit_results['fit_used_x_range']
+            d['Cases_Forecast_Tomorrow'] = round(
+                d_fit_results['forcast_y_at_x+1'], 3)
+            d['Cases_Forecast_Tomorrow_Factor'] = round(
+                d_fit_results['factor_increase_x+1'], 3)
 
         d_results_for_json_export[lk_id] = d
 
@@ -594,6 +597,10 @@ def loop_over_all_LK():
     #         fh_html.write('</th></tr>\n')
 
         for lk_id in d_results_for_json_export.keys():
+            this_Cases_Forecast_Tomorrow_Factor = None
+            if 'Cases_Forecast_Tomorrow_Factor' in d_results_for_json_export[lk_id]:
+                this_Cases_Forecast_Tomorrow_Factor = round(
+                    100 * (d_results_for_json_export[lk_id]['Cases_Forecast_Tomorrow_Factor'] - 1), 1)
             l = (
                 d_results_for_json_export[lk_id]['Landkreis'],
                 d_results_for_json_export[lk_id]['Bundesland'],
@@ -604,8 +611,7 @@ def loop_over_all_LK():
                           ['Cases_Per_Million'], 0)),
                 int(round(
                     d_results_for_json_export[lk_id]['Deaths_Per_Million'], 0)),
-                round(
-                    100 * (d_results_for_json_export[lk_id]['Cases_Forecast_Tomorrow_Factor'] - 1), 1)
+
             )
             l = [str(v) for v in l]
 
