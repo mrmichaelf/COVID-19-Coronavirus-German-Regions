@@ -767,19 +767,35 @@ id,Country/Region,federalstate,infections,deaths,date,newinfections,newdeaths
 757,Germany,Saxony-Anhalt,1223,26,2020-04-15,16,1
 763,Germany,Schleswig-Holstein,2245,54,2020-04-15,81,5
 759,Germany,Thuringia,1550,38,2020-04-15,46,7
-771,Germany,Baden-Württemberg,25438,767,2020-04-16,0,0
-773,Germany,Bavaria,34294,954,2020-04-16,0,0
-770,Germany,Berlin,4722,62,2020-04-16,0,0
-781,Germany,Brandenburg,1950,42,2020-04-16,0,0
-774,Germany,Bremen,500,21,2020-04-16,0,0
-776,Germany,Hamburg,3869,67,2020-04-16,0,0
-779,Germany,Hesse,6347,173,2020-04-16,0,0
-778,Germany,Lower Saxony,8019,224,2020-04-16,0,0
-775,Germany,Mecklenburg-Western Pomerania,624,11,2020-04-16,0,0
-780,Germany,North Rhine-Westphalia,25835,607,2020-04-16,0,0
-782,Germany,Rhineland-Palatinate,5004,77,2020-04-16,0,0
-769,Germany,Saarland,2145,58,2020-04-16,0,0
-783,Germany,Saxony,3819,73,2020-04-16,0,0
-777,Germany,Saxony-Anhalt,1223,26,2020-04-16,0,0
-772,Germany,Schleswig-Holstein,2245,54,2020-04-16,0,0
-784,Germany,Thuringia,1550,38,2020-04-16,0,0
+771,Germany,Baden-Württemberg,25881,802,2020-04-16,443,35
+773,Germany,Bavaria,35142,1049,2020-04-16,848,95
+770,Germany,Berlin,4848,74,2020-04-16,126,12
+781,Germany,Brandenburg,2058,54,2020-04-16,108,12
+774,Germany,Bremen,507,21,2020-04-16,7,0
+776,Germany,Hamburg,3953,80,2020-04-16,84,13
+779,Germany,Hesse,6470,187,2020-04-16,123,14
+778,Germany,Lower Saxony,8188,248,2020-04-16,169,24
+775,Germany,Mecklenburg-Western Pomerania,634,13,2020-04-16,10,2
+780,Germany,North Rhine-Westphalia,26383,663,2020-04-16,548,56
+782,Germany,Rhineland-Palatinate,5087,87,2020-04-16,83,10
+769,Germany,Saarland,2201,71,2020-04-16,56,13
+783,Germany,Saxony,3955,94,2020-04-16,136,21
+777,Germany,Saxony-Anhalt,1248,26,2020-04-16,25,0
+772,Germany,Schleswig-Holstein,2294,55,2020-04-16,49,1
+784,Germany,Thuringia,1601,45,2020-04-16,51,7
+797,Germany,Baden-Württemberg,26543,872,2020-04-17,662,70
+789,Germany,Bavaria,36027,1137,2020-04-17,885,88
+798,Germany,Berlin,4945,84,2020-04-17,97,10
+790,Germany,Brandenburg,2120,60,2020-04-17,62,6
+800,Germany,Bremen,556,22,2020-04-17,49,1
+799,Germany,Hamburg,4005,84,2020-04-17,52,4
+794,Germany,Hesse,6705,197,2020-04-17,235,10
+787,Germany,Lower Saxony,8442,274,2020-04-17,254,26
+791,Germany,Mecklenburg-Western Pomerania,634,13,2020-04-17,0,0
+793,Germany,North Rhine-Westphalia,27030,726,2020-04-17,647,63
+795,Germany,Rhineland-Palatinate,5211,92,2020-04-17,124,5
+792,Germany,Saarland,2254,76,2020-04-17,53,5
+796,Germany,Saxony,4048,95,2020-04-17,93,1
+786,Germany,Saxony-Anhalt,1279,28,2020-04-17,31,2
+785,Germany,Schleswig-Holstein,2349,59,2020-04-17,55,4
+788,Germany,Thuringia,1682,49,2020-04-17,81,4
