@@ -1,6 +1,8 @@
 // Adds options to the select
 // select: The select object
 // optionsArray: the options to add
+// if optionsArray item consists of key, values pairs, than use the value for display, 
+// else format the key to sentenceLike
 function addOptionsToSelect(select, optionsArray) {
   for (let i = 0; i < optionsArray.length; i++) {
     const option = document.createElement("option");
@@ -81,17 +83,19 @@ function getSeries(countryCodes, countriesDataObject, xAxis, yAxis) {
 // xAxisPropertySelect: the select of the X axis
 // yAxisPropertySelect: the select of the Y axis
 function refreshChart(
+  chart,
   countryCodes,
   countriesDataObject,
   xAxisPropertySelect,
   yAxisPropertySelect,
-  chart
+  yAxisScaleSelect
 ) {
   option = {}
   option = {
     title: {
-      text: "My Title",
-      subtext: "My Subtext"
+      text: "COVID-19 Country Plot",
+      subtext: "by Torben https://entorb.net based on JHU data",
+      sublink: "https://entorb.net/COVID-19-coronavirus/"
     },
     legend: {
       type: 'scroll',
@@ -101,7 +105,7 @@ function refreshChart(
       //          bottom: 20,
     },
     xAxis: {
-      name: "Days Past",
+      name: formatValueToSentenceLike(xAxisPropertySelect.value, "_"),
       type: "value",
       nameTextStyle: { fontWeight: "bold" },
       nameLocation: "middle",
@@ -112,10 +116,11 @@ function refreshChart(
     },
     // in type log : setting min is required
     yAxis: {
-      name: "Cases",
-      type: "log", //value or log
-      min: 1,
-      //          max: 10000,
+      // name: "Cases",
+      name: formatValueToSentenceLike(yAxisPropertySelect.value, "_"),
+      type: "value", //value or log
+      // min: 1,
+      // max: 10000,
       nameTextStyle: { fontWeight: "bold" },
       nameLocation: "center",
       minorTick: { show: true },
@@ -123,7 +128,6 @@ function refreshChart(
         show: true
       }
     }, //max: "dataMax"
-
     series: getSeries(
       countryCodes,
       countriesDataObject,
@@ -151,6 +155,18 @@ function refreshChart(
       },
     }
   };
+
+  if (yAxisScaleSelect.value == "linscale") {
+    console.log("lin");
+    option.yAxis.type = "value";
+  } else {
+    console.log("log");
+    option.yAxis.type = "log";
+    // for logscale we need to set the min value as 0 is not good ;-)
+    option.yAxis.min = 1;
+  }
+
+
   chart.clear(); // needed as setOption does not reliable remove all old data, see https://github.com/apache/incubator-echarts/issues/6202#issuecomment-460322781
   chart.setOption(option, true);
 }

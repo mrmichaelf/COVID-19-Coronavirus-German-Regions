@@ -12,8 +12,8 @@
   Idea for V5: select fields to plot in x and y axis via dropdowns 
    DONE by AAN: add logic to this form
    DONE by AAN: retrieve all theses fields from JSON in fetchData
-   TODO: eCharts: set axis label according to selected data field
-   TODO: implement linscale and logscale
+   DONE eCharts: set axis label according to selected data field
+   DONE implement linscale and logscale
 
    Idea for V6 preselect 20 countries for plot, but offer to select from all available countries
    TODOs:
@@ -33,7 +33,11 @@
         <td>
           <select id="sel_x_axis_field" name="sel_x_axis_field"> </select>
         </td>
-        <td> TODO: <select id="sel_x_axis_scale" name="sel_x_axis_scale"> </select>
+        <td> &nbsp;
+          <!-- 
+            TODO: <select id="sel_x_axis_scale" name="sel_x_axis_scale">
+            </select>
+          -->
         </td>
       </tr>
       <tr>
@@ -41,7 +45,7 @@
         <td>
           <select id="sel_y_axis_row" name="y-Axis"> </select>
         </td>
-        <td> TODO: <select id="sel_y_axis_scale" name="sel_y_axis_scale"> </select>
+        <td> <select id="sel_y_axis_scale" name="sel_y_axis_scale"> </select>
         </td>
       </tr>
     </table>
@@ -78,46 +82,46 @@
   promises.push(fetchCountryNames(countryNames));
 
   const scales = [
-    { value: "lingscale", text: "linear" },
     { value: "logscale", text: "logarithmic" },
+    { value: "linscale", text: "linear" },
   ];
 
   // TODO: handle "Date"
   const xAxisOptions = ["Days_Past", "Days_Since_2_Deaths"];
   const yAxisOptions = [
-    "Cases",
-    "Deaths",
-    "Cases_New",
-    "Deaths_New",
-    "Cases_Last_Week",
-    "Deaths_Last_Week",
-    "Cases_Per_Million",
     "Deaths_Per_Million",
-    "Cases_New_Per_Million",
-    "Deaths_New_Per_Million",
-    "Cases_Last_Week_Per_Million",
     "Deaths_Last_Week_Per_Million",
-    "Cases_Doubling_Time",
+    "Deaths_New_Per_Million",
+    "Deaths",
+    "Deaths_Last_Week",
+    "Deaths_New",
     "Deaths_Doubling_Time",
+    "Cases_Per_Million",
+    "Cases_Last_Week_Per_Million",
+    "Cases_New_Per_Million",
+    "Cases",
+    "Cases_Last_Week",
+    "Cases_New",
+    "Cases_Doubling_Time",
   ];
 
   // Get the four selects
   const xAxisPropertySelect = document.getElementById("sel_x_axis_field");
   const yAxisPropertySelect = document.getElementById("sel_y_axis_row");
-  const xAxisScaleSelect = document.getElementById("sel_x_axis_scale");
+  // const xAxisScaleSelect = document.getElementById("sel_x_axis_scale");
   const yAxisScaleSelect = document.getElementById("sel_y_axis_scale");
 
   // Set the options of the selects
   addOptionsToSelect(xAxisPropertySelect, xAxisOptions);
   addOptionsToSelect(yAxisPropertySelect, yAxisOptions);
-  addOptionsToSelect(xAxisScaleSelect, scales);
+  // addOptionsToSelect(xAxisScaleSelect, scales);
   addOptionsToSelect(yAxisScaleSelect, scales);
 
   // If the value of a select changes refresh the chart
   // TODO: add xAxisScaleSelect and yAxisScaleSelect value to logic
   xAxisPropertySelect.onchange = () => refreshChartWrapper();
   yAxisPropertySelect.onchange = () => refreshChartWrapper();
-  xAxisScaleSelect.onchange = () => refreshChartWrapper();
+  // xAxisScaleSelect.onchange = () => refreshChartWrapper();
   yAxisScaleSelect.onchange = () => refreshChartWrapper();
 
   // Adding a new country code to this array draws a new line
@@ -142,11 +146,12 @@
   // Wraps the refreshChart function so it is more readable, takes less space
   function refreshChartWrapper() {
     refreshChart(
+      myChart,
       countryCodes,
       dataStore,
       xAxisPropertySelect,
       yAxisPropertySelect,
-      myChart
+      yAxisScaleSelect
     );
   }
 </script>
