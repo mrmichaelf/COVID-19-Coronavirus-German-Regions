@@ -28,8 +28,7 @@ __status__ = "Dev"
 __version__ = "0.1"
 
 args = helper.read_command_line_parameters()
-file_cache = 'cache/int/countries-timeseries.json'
-file_all_timeseries = 'data/download-countries-timeseries.json'
+file_cache = 'data/download-countries-timeseries.json'
 
 
 def download_new_data():
@@ -100,8 +99,6 @@ def read_json_data() -> dict:
 
         d_countries[country] = l_time_series
 
-    # export to file
-    # helper.write_json(file_all_timeseries, d_countries, sort_keys=True)
     return d_countries
 
 
@@ -319,6 +316,9 @@ def export_time_series_all_countries():
                         entry['Days_Since_2nd_Death']
                     )
                 )
+
+    # export all to one file
+    # helper.write_json('TODO.json', d_countries, sort_keys=True)
 
 
 def get_ref_country_dict(country_name: str) -> dict:
