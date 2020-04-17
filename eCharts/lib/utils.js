@@ -96,6 +96,21 @@ function getSeries(countryCodes, countriesDataObject, xAxis, yAxis) {
   return series;
 }
 
+
+
+// from https://love2dev.com/blog/javascript-remove-from-array/
+function arrayRemove(arr, value) {
+  return arr.filter(function (ele) { return ele != value; });
+}
+
+
+function arrayRemoveValueTextPairByValue(arr, key) {
+  for (let i = 0; i < arr.length; i++) {
+    if (arr[i].value == key) { arr.splice(i, 1); }
+  }
+  //return arr;
+}
+
 // Refreshes the chart
 // countryCodes: the codes of the countries to display
 // countriesDataObject: the object which contains all data about the countries
@@ -127,7 +142,7 @@ function refreshChart(
       name: formatValueToSentenceLike(select_xAxisProperty.value, "_"),
       type: "value", // value, time  ; will be overwritten if field "Date" is selected
       nameTextStyle: { fontWeight: "bold" },
-      nameLocation: "middle",
+      nameLocation: "center",
       minorTick: { show: true },
       minorSplitLine: {
         show: true
@@ -154,9 +169,10 @@ function refreshChart(
       select_yAxisProperty.value
     ),
     tooltip: {
-      trigger: 'item', // item or axis
+      trigger: 'axis', // item or axis
       axisPointer: {
-        type: 'shadow'
+        type: 'shadow',
+        snap: true
       }
     },
     toolbox: {
@@ -172,7 +188,13 @@ function refreshChart(
         //},
         //brush: {},
       },
-    }
+    },
+    grid: {
+      containLabel: false,
+      left: '5%',
+      bottom: '5%',
+      right: '15%',
+    },
   };
 
   if (select_xAxisProperty.value == "Date") {
@@ -192,15 +214,3 @@ function refreshChart(
   chart.setOption(option, true);
 }
 
-// from https://love2dev.com/blog/javascript-remove-from-array/
-function arrayRemove(arr, value) {
-  return arr.filter(function (ele) { return ele != value; });
-}
-
-
-function arrayRemoveValueTextPairByValue(arr, key) {
-  for (let i = 0; i < arr.length; i++) {
-    if (arr[i].value == key) { arr.splice(i, 1); }
-  }
-  //return arr;
-}

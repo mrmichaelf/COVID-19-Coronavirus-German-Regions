@@ -26,32 +26,8 @@
 
 <body style="height: 100%; margin: 0;">
   <form>
-    <table>
-      <tr>
-        <td>
-          <label>x axis:</label>
-        </td>
-        <td>
-          <select id="sel_x_axis_field" name="sel_x_axis_field"> </select>
-        </td>
-        <td> &nbsp;
-          <!-- 
-            <select id="sel_x_axis_scale" name="sel_x_axis_scale">
-            </select>
-          -->
-        </td>
-      </tr>
-      <tr>
-        <td>y axis:</td>
-        <td>
-          <select id="sel_y_axis_field" name="sel_y_axis_field"> </select>
-        </td>
-        <td> <select id="sel_y_axis_scale" name="sel_y_axis_scale"> </select>
-        </td>
-      </tr>
-    </table>
 
-    <p>Choose from all countries of the world</p>
+    <h3>1. Select countries</h3>
     <table>
       <tr>
         <th>Africa</th>
@@ -82,11 +58,37 @@
         </td>
       </tr>
     </table>
+
+    <h3>2. Select data</h3>
+    <table>
+      <tr>
+        <td>
+          <label>x axis:</label>
+        </td>
+        <td>
+          <select id="sel_x_axis_field" name="sel_x_axis_field"> </select>
+        </td>
+        <td> &nbsp;
+          <!-- 
+            <select id="sel_x_axis_scale" name="sel_x_axis_scale">
+            </select>
+          -->
+        </td>
+      </tr>
+      <tr>
+        <td>y axis:</td>
+        <td>
+          <select id="sel_y_axis_field" name="sel_y_axis_field"> </select>
+        </td>
+        <td> <select id="sel_y_axis_scale" name="sel_y_axis_scale"> </select>
+        </td>
+      </tr>
+    </table>
   </form>
   <!-- 
     End Form 
   -->
-  <div id="container" style="height: 100%;"></div>
+  <div id="container" style="height: 75%;"></div>
 </body>
 <script type="text/javascript">
   // array of promises for async fetching
@@ -125,7 +127,7 @@
     { value: "linscale", text: "linear" },
   ];
 
-  const options_xAxisProperty = ["Date", "Days_Since_2_Deaths", "Days_Past"];
+  const options_xAxisProperty = ["Date", "Days_Since_2nd_Death", "Days_Past"];
   const options_yAxisProperty = [
     "Deaths_Per_Million",
     "Deaths_Last_Week_Per_Million",
