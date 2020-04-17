@@ -93,7 +93,7 @@ function refreshChart(
   option = {}
   option = {
     title: {
-      text: "COVID-19 Country Plot",
+      text: "COVID-19 Country Custom Plot",
       subtext: "by Torben https://entorb.net based on JHU data",
       sublink: "https://entorb.net/COVID-19-coronavirus/"
     },
