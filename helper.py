@@ -3,12 +3,17 @@ Helper functions collections
 """
 
 # Built-in/Generic Imports
+import concurrent.futures
 import os.path
 import time
 import datetime
 import argparse
 import json
 import urllib.request
+
+import multiprocessing as mp  # for fetching number of CPUs
+import logging
+import threading
 
 # further modules
 import math
@@ -265,6 +270,9 @@ def series_of_fits(data: list, fit_range: int = 7, max_days_past=14) -> list:
     while len(data) > 0 and data[0][1] == 0:
         data.pop(0)
     if len(data) >= 3:
+        #
+        # V1 single threading
+        #
         for last_day_for_fit in range(0, -max_days_past, -1):
             d = fit_routine(
                 data, (last_day_for_fit-fit_range, last_day_for_fit))
@@ -272,4 +280,43 @@ def series_of_fits(data: list, fit_range: int = 7, max_days_past=14) -> list:
             if len(d) != 0:
                 # douplication_time -> dict
                 fit_series_res[last_day_for_fit] = round(d['fit_res'][1], 1)
+        #
+        # V2 multi threading
+        #
+        # from https://docs.python.org/3/library/concurrent.futures.html
+        # l_last_day_for_fit = range(0, -max_days_past, -1)
+        # with concurrent.futures.ThreadPoolExecutor(max_workers=mp.cpu_count()) as executor:
+        #     # Start the load operations and mark each future with its URL
+        #     future_to_url = {executor.submit(
+        #         series_of_fits_worker_thread, data, last_day_for_fit): last_day_for_fit for last_day_for_fit in l_last_day_for_fit}
+        #     for future in concurrent.futures.as_completed(future_to_url):
+        #         url = future_to_url[future]
+        #         try:
+        #             data = future.result()
+
+        # listPileOfWork = range(0, -max_days_past, -1)
+
+        # # initializing the threads
+        # threads = []  # List of threads
+        # for i in range(mp.cpu_count()):
+        #     t = threading.Thread(name='myThread'+str(i),
+        #                          target=series_of_fits_worker_thread, args=(data,))
+        #     threads.append(t)
+        #     t.start()
+
+        # # Wait for all threads to complete
+        # for t in threads:
+        #     t.join()
+
     return fit_series_res
+
+
+def series_of_fits_worker_thread(data: list, last_day_for_fit: int):
+    # print(threading.currentThread().getName(), 'Starting')
+    d = fit_routine(
+        data, (last_day_for_fit-fit_range, last_day_for_fit))
+    # d is empty if fit fails
+    if len(d) != 0:
+        # douplication_time -> dict
+        fit_series_res[last_day_for_fit] = round(d['fit_res'][1], 1)
+    return d

@@ -14,7 +14,11 @@ import time
 import urllib.request
 import csv
 
+# further modules
+# process bar
+from tqdm import tqdm
 
+# my helper modules
 import helper
 
 # Author and version info
@@ -220,13 +224,14 @@ def check_for_further_interesting_countries():
                 f"{country}\t{entry['Cases']}\t{entry['Deaths']}\t{int(entry['Deaths_Per_Million'])}")
 
 
-def fit_doubling_time_selected_only():
+def fit_doubling_time():
     """
     fit time series for doubling time
     """
     global d_countries_timeseries
     global d_selected_countries
-    for country in d_selected_countries.keys():
+    for country in tqdm(d_countries_timeseries.keys()):
+        # for country in d_selected_countries.keys():
         # print(country)
         # country_code = d_selected_countries[country]['Code']
         l_country_data = d_countries_timeseries[country]
@@ -400,7 +405,7 @@ extract_latest_date_data()
 # deprecated: extract_latest_date_data_selected()
 
 # only for selected countries, for performance reasons
-fit_doubling_time_selected_only()
+fit_doubling_time()
 
 export_time_series_all_countries()
 

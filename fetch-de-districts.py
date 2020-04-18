@@ -73,6 +73,7 @@ import numpy as np
 # from scipy.optimize import curve_fit
 from matplotlib import pyplot as plt
 
+# process bar
 from tqdm import tqdm
 
 # my helper modules
@@ -136,7 +137,7 @@ def helper_read_from_cache_or_fetch_from_url(url: str, file_cache: str, readFrom
     """
     if readFromCache:
         readFromCache = helper.check_cache_file_available_and_recent(
-            fname=file_cache, max_age=7200, verbose=True)
+            fname=file_cache, max_age=7200, verbose=False)
 
     json_cont = []
     if readFromCache == True:  # read from cache
@@ -427,7 +428,7 @@ def loop_over_all_LK():
     # for lk_id in d_ref_landkreise.keys():
     for lk_id in tqdm(d_ref_landkreise.keys()):
         lk_name = get_lk_name_from_lk_id(lk_id)
-        print(f"{lk_id} {lk_name}")
+        # print(f"{lk_id} {lk_name}")
 
         # 03353   LK Harburg      252776
         # 09562   SK Erlangen     111962
