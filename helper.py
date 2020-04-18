@@ -277,7 +277,7 @@ def series_of_fits(data: list, fit_range: int = 7, max_days_past=14) -> list:
             if len(d) != 0:
                 # doubling_time -> dict
                 this_doubling_time = d['fit_res'][1]
-                if this_doubling_time > 0 and this_doubling_time < 100:
+                if this_doubling_time > 0 and this_doubling_time <= 100:
                     fit_series_res[last_day_for_fit] = round(
                         this_doubling_time, 1)
     return fit_series_res

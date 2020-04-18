@@ -146,14 +146,14 @@ def extract_latest_date_data():
             entry = country_data[-1]  # last entry (=>latest date)
             pop = read_population(country)
 
-            d_for_export = {}
+            d_for_export = entry
             d_for_export['Country'] = country
             d_for_export['Code'] = read_country_code(d_for_export['Country'])
             d_for_export['Continent'] = read_continent(d_for_export['Country'])
             d_for_export['Population'] = pop
-            d_for_export['Date'] = entry['Date']
-            d_for_export['Cases'] = entry['Cases']
-            d_for_export['Deaths'] = entry['Deaths']
+            # d_for_export['Date'] = entry['Date']
+            # d_for_export['Cases'] = entry['Cases']
+            # d_for_export['Deaths'] = entry['Deaths']
             d_for_export['Cases_Per_Million'] = round(
                 entry['Cases_Per_Million'], 0)
             d_for_export['Deaths_Per_Million'] = round(
@@ -273,6 +273,7 @@ def fit_doubling_time():
 
         if args["sleep"]:
             time.sleep(1)
+        d_countries_timeseries[country] = l_country_data
 
 
 def export_time_series_all_countries():
@@ -400,12 +401,12 @@ d_countries_timeseries = read_json_data()
 
 check_for_further_interesting_countries()
 
+fit_doubling_time()
+
 extract_latest_date_data()
 
 # deprecated: extract_latest_date_data_selected()
 
-# only for selected countries, for performance reasons
-fit_doubling_time()
 
 export_time_series_all_countries()
 
