@@ -4,25 +4,10 @@
 <head>
   <title>Testing eCharts - V5</title>
   <meta charset="utf-8" />
-  <script src="lib/echarts-en.min.js"></script>
-  <script type="text/javascript" src="lib/jquery-3.5.0.min.js"></script>
-  <script src="lib/utils.js"></script>
+  <script type="text/javascript" src="echarts-4.7.0-en.min.js"></script>
+  <script type="text/javascript" src="jquery-3.5.0.min.js"></script>
+  <script type="text/javascript" src="myHelper.js"></script>
 </head>
-<!-- 
-  Idea for V5: select fields to plot in x and y axis via dropdowns 
-   DONE
-    by AAN: add logic to this form
-    by AAN: retrieve all theses fields from JSON in fetchData
-    eCharts: set axis label according to selected data field
-    implement linscale and logscale
-    Add Date as X axis
-   
-
-   Idea for V6 preselect 20 countries for plot, but offer to select from all available countries
-   TODOs:
-   preselect 20 countries via hard coded list or via fetching from some JSON
-   How to select from all countries? Maybe one dropdown per continent (continent is available in countries-latest-all.json) 
-  -->
 
 <body style="height: 100%; margin: 0;">
   <form>
@@ -39,22 +24,22 @@
       </tr>
       <tr>
         <td>
-          <select id="sel_countries_africa" name="sel_countries_africa"> </select>
+          <select id="sel_countries_africa" name="sel_countries_africa" style="width:100px"> </select>
         </td>
         <td>
-          <select id="sel_countries_asia" name="sel_countries_asia"> </select>
+          <select id="sel_countries_asia" name="sel_countries_asia" style="width:100px"> </select>
         </td>
         <td>
-          <select id="sel_countries_europe" name="sel_countries_europe"> </select>
+          <select id="sel_countries_europe" name="sel_countries_europe" style="width:100px"> </select>
         </td>
         <td>
-          <select id="sel_countries_north_america" name="sel_countries_north_america"> </select>
+          <select id="sel_countries_north_america" name="sel_countries_north_america" style="width:100px"> </select>
         </td>
         <td>
-          <select id="sel_countries_south_america" name="sel_countries_south_america"> </select>
+          <select id="sel_countries_south_america" name="sel_countries_south_america" style="width:100px"> </select>
         </td>
         <td>
-          <select id="sel_countries_oceania" name="sel_countries_oceania"> </select>
+          <select id="sel_countries_oceania" name="sel_countries_oceania" style="width:100px"> </select>
         </td>
       </tr>
     </table>
@@ -66,19 +51,19 @@
           <label>x axis:</label>
         </td>
         <td>
-          <select id="sel_x_axis_field" name="sel_x_axis_field"> </select>
+          <select id="sel_x_axis_field" name="sel_x_axis_field" style="width:200px"> </select>
         </td>
         <td> &nbsp;
           <!-- 
-            <select id="sel_x_axis_scale" name="sel_x_axis_scale">
-            </select>
-          -->
+				<select id="sel_x_axis_scale" name="sel_x_axis_scale">
+				</select>
+			  -->
         </td>
       </tr>
       <tr>
         <td>y axis:</td>
         <td>
-          <select id="sel_y_axis_field" name="sel_y_axis_field"> </select>
+          <select id="sel_y_axis_field" name="sel_y_axis_field" style="width:200px"> </select>
         </td>
         <td> <select id="sel_y_axis_scale" name="sel_y_axis_scale"> </select>
         </td>
@@ -88,7 +73,7 @@
   <!-- 
     End Form 
   -->
-  <div id="container" style="height: 75%;"></div>
+  <div id="container" style="height: 600px;"></div>
 </body>
 <script type="text/javascript">
   // array of promises for async fetching
@@ -97,6 +82,77 @@
   // fetch ref list: Country Code -> Country Name
   var mapCountryNames = {};
   var mapContinentCountries = {};
+
+  function populate_country_selects() {
+    // Africa
+    for (let i = 0; i < mapContinentCountries['Africa'].length; i++) {
+      const code = mapContinentCountries['Africa'][i][0];
+      const name = mapContinentCountries['Africa'][i][1]
+      if (!(countryCodes.includes(code))) {
+        options_countries_africa.push(
+          { value: code, text: name }
+        );
+      }
+    }
+    setOptionsToSelect(select_countries_africa, options_countries_africa, "Choose");
+    // Asia
+    for (let i = 0; i < mapContinentCountries['Asia'].length; i++) {
+      const code = mapContinentCountries['Asia'][i][0];
+      const name = mapContinentCountries['Asia'][i][1]
+      if (!(countryCodes.includes(code))) {
+        options_countries_asia.push(
+          { value: code, text: name }
+        );
+      }
+    }
+    setOptionsToSelect(select_countries_asia, options_countries_asia, "Choose");
+    // Europe
+    for (let i = 0; i < mapContinentCountries['Europe'].length; i++) {
+      const code = mapContinentCountries['Europe'][i][0];
+      const name = mapContinentCountries['Europe'][i][1]
+      if (!(countryCodes.includes(code))) {
+        options_countries_europe.push(
+          { value: code, text: name }
+        );
+      }
+    }
+    setOptionsToSelect(select_countries_europe, options_countries_europe, "Choose");
+    // North America
+    for (let i = 0; i < mapContinentCountries['North America'].length; i++) {
+      const code = mapContinentCountries['North America'][i][0];
+      const name = mapContinentCountries['North America'][i][1]
+      if (!(countryCodes.includes(code))) {
+        options_countries_north_america.push(
+          { value: code, text: name }
+        );
+      }
+    }
+    setOptionsToSelect(select_countries_north_america, options_countries_north_america, "Choose");
+    // South America
+    for (let i = 0; i < mapContinentCountries['South America'].length; i++) {
+      const code = mapContinentCountries['South America'][i][0];
+      const name = mapContinentCountries['South America'][i][1]
+      if (!(countryCodes.includes(code))) {
+        options_countries_south_america.push(
+          { value: code, text: name }
+        );
+      }
+    }
+    setOptionsToSelect(select_countries_south_america, options_countries_south_america, "Choose");
+    // Oceania
+    for (let i = 0; i < mapContinentCountries['Oceania'].length; i++) {
+      const code = mapContinentCountries['Oceania'][i][0];
+      const name = mapContinentCountries['Oceania'][i][1]
+      if (!(countryCodes.includes(code))) {
+        options_countries_oceania.push(
+          { value: code, text: name }
+        );
+      }
+    }
+    setOptionsToSelect(select_countries_oceania, options_countries_oceania, "Choose");
+  }
+
+  // fetch countries-latest-all.json containing country reference data like code and continent
   function fetch_mapRefCountryData(mapCountryNames, mapContinentCountries) {
     const url =
       "https://entorb.net/COVID-19-coronavirus/data/int/countries-latest-all.json";
@@ -118,6 +174,7 @@
         console.log("fail: mapCountryNames");
       });
   }
+
 
   // fetch the ref data
   promises.push(fetch_mapRefCountryData(mapCountryNames, mapContinentCountries));
@@ -192,29 +249,6 @@
   // Adding a new country code to this array draws a new line
   var countryCodes = ["DE"];
 
-
-  function new_country_selected(countryCodes, select_country, options_countries) {
-    if (select_country.value != "placeholder123") {
-      var country_code_to_add = select_country.value;
-      console.log(country_code_to_add)
-
-      // append to list of country codes
-      countryCodes.push(country_code_to_add);
-
-      // start fetching / download of data
-      promises.push(fetchData(country_code_to_add, countriesDataObject))
-
-      // remove selected values from options_countries
-      arrayRemoveValueTextPairByValue(options_countries, country_code_to_add)
-      setOptionsToSelect(select_country, options_countries, "Choose");
-
-      // wait for fetching to complete, than update chart
-      Promise.all(promises).then(() => {
-        refreshChartWrapper();
-      });
-    }
-  }
-
   const countriesDataObject = {}; // We store all the data in an object
 
   const dom = document.getElementById("container");
@@ -228,90 +262,7 @@
   // Wait for all async promises to be done (all data is fetched), then refreshes the chart
   Promise.all(promises).then(() => {
     console.log("All data fetched");
-
-    // populate country select dropdown
-
-
-    // // Europa
-    // for (let i = 0; i < mapContinentCountries['Europe'].length; i++) {
-    //   const code = mapContinentCountries['Europe'][i][0];
-    //   const name = mapContinentCountries['Europe'][i][1]
-    //   if (!(countryCodes.includes(code))) {
-    //     options_countries_europe.push(
-    //       { value: code, text: name }
-    //     );
-    //   }
-    // }
-    // setOptionsToSelect(select_countries_europe, options_countries_europe, "Choose");
-
-
-    // Africa
-    for (let i = 0; i < mapContinentCountries['Africa'].length; i++) {
-      const code = mapContinentCountries['Africa'][i][0];
-      const name = mapContinentCountries['Africa'][i][1]
-      if (!(countryCodes.includes(code))) {
-        options_countries_africa.push(
-          { value: code, text: name }
-        );
-      }
-    }
-    setOptionsToSelect(select_countries_africa, options_countries_africa, "Choose");
-    // Asia
-    for (let i = 0; i < mapContinentCountries['Asia'].length; i++) {
-      const code = mapContinentCountries['Asia'][i][0];
-      const name = mapContinentCountries['Asia'][i][1]
-      if (!(countryCodes.includes(code))) {
-        options_countries_asia.push(
-          { value: code, text: name }
-        );
-      }
-    }
-    setOptionsToSelect(select_countries_asia, options_countries_asia, "Choose");
-    // Europe
-    for (let i = 0; i < mapContinentCountries['Europe'].length; i++) {
-      const code = mapContinentCountries['Europe'][i][0];
-      const name = mapContinentCountries['Europe'][i][1]
-      if (!(countryCodes.includes(code))) {
-        options_countries_europe.push(
-          { value: code, text: name }
-        );
-      }
-    }
-    setOptionsToSelect(select_countries_europe, options_countries_europe, "Choose");
-    // North America
-    for (let i = 0; i < mapContinentCountries['North America'].length; i++) {
-      const code = mapContinentCountries['North America'][i][0];
-      const name = mapContinentCountries['North America'][i][1]
-      if (!(countryCodes.includes(code))) {
-        options_countries_north_america.push(
-          { value: code, text: name }
-        );
-      }
-    }
-    setOptionsToSelect(select_countries_north_america, options_countries_north_america, "Choose");
-    // South America
-    for (let i = 0; i < mapContinentCountries['South America'].length; i++) {
-      const code = mapContinentCountries['South America'][i][0];
-      const name = mapContinentCountries['South America'][i][1]
-      if (!(countryCodes.includes(code))) {
-        options_countries_south_america.push(
-          { value: code, text: name }
-        );
-      }
-    }
-    setOptionsToSelect(select_countries_south_america, options_countries_south_america, "Choose");
-    // Oceania
-    for (let i = 0; i < mapContinentCountries['Oceania'].length; i++) {
-      const code = mapContinentCountries['Oceania'][i][0];
-      const name = mapContinentCountries['Oceania'][i][1]
-      if (!(countryCodes.includes(code))) {
-        options_countries_oceania.push(
-          { value: code, text: name }
-        );
-      }
-    }
-    setOptionsToSelect(select_countries_oceania, options_countries_oceania, "Choose");
-
+    populate_country_selects();
     refreshChartWrapper();
   });
 

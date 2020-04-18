@@ -1,0 +1,347 @@
+// -------------
+// 1. Small helpers
+// -------------
+
+// remove all options of a select
+// from https://stackoverflow.com/posts/3364546/timeline
+function removeAllOptionsFromSelect(select) {
+  var i, L = select.options.length - 1;
+  for (i = L; i >= 0; i--) {
+    select.remove(i);
+  }
+}
+
+// Formats value "Something_Is_HERE" to "Something is here" like sentence
+// value: The value to format
+// separator: the separator string between words
+function formatValueToSentenceLike(value, separator) {
+  const allLowerCaseValue = value.split(separator).join(" ").toLowerCase();
+  return allLowerCaseValue[0].toUpperCase() + allLowerCaseValue.substr(1);
+}
+
+
+
+// from https://love2dev.com/blog/javascript-remove-from-array/
+function arrayRemove(arr, value) {
+  return arr.filter(function (ele) { return ele != value; });
+}
+
+// modifies array of objects by removing if value == keys
+function arrayRemoveValueTextPairByValue(arr, key) {
+  for (let i = arr.length - 1; i >= 0; i--) {
+    if (arr[i].value == key) { arr.splice(i, 1); }
+  }
+}
+
+
+
+// Adds options to the select, after removing all existing options
+// select: The select object
+// optionsArray: the options to add
+// if optionsArray item consists of key, values pairs, than use the value for display, 
+// else format the key to sentenceLike style
+// if placeholdertext != "" than add this word as first dummy entry (for example "Choose"), important for onchange event on first selection
+function setOptionsToSelect(select, optionsArray, placeholdertext) {
+  removeAllOptionsFromSelect(select);
+  if (placeholdertext != "") {
+    // add a placeholder as first element, important for onchange event on first selection
+    const option = document.createElement("option");
+    option.value = "placeholder123";
+    option.innerText = placeholdertext;
+    select.add(option);
+  }
+  for (let i = 0; i < optionsArray.length; i++) {
+    const option = document.createElement("option");
+    if (optionsArray[i].value && optionsArray[i].text) {
+      option.value = optionsArray[i].value;
+      option.innerText = optionsArray[i].text;
+    } else {
+      option.value = optionsArray[i];
+      option.innerText = formatValueToSentenceLike(optionsArray[i], "_");
+    }
+    select.add(option);
+  }
+}
+
+
+// -------------
+// 2. My data specific functions
+// -------------
+
+
+
+
+// Gets the url of the given country
+// countryCode: the code of the country e.g. "DE"
+function getUrl(country_code) {
+  // `words${variable}words` syntax is more readable than "words" + variable + "words"
+  return `https://entorb.net/COVID-19-coronavirus/data/int/country-${country_code}.json`;
+}
+
+
+
+// Fetches the data for one country code
+// countryCode: the code of the country e.g. "DE"
+// countriesDataObject: the object which will contain all data about the countries
+function fetchData(countryCode, countriesDataObject) {
+  const url = getUrl(countryCode);
+  console.log(url);
+  // AAN: I like using "() => {}" lambda expressions instead of "function () {}" as parameters
+  return $.getJSON(url, () => {
+    console.log(`success: ${countryCode}`);
+  })
+    .done((data) => {
+      console.log(`done: ${countryCode}`);
+      countriesDataObject[countryCode] = data;
+    })
+    .fail(() => {
+      console.log(`fail: ${countryCode}`);
+    });
+}
+
+
+// Gets the series property of the chart object
+// countryCodes: the codes of the countries to display
+// countriesDataObject: the object which contains all data about the countries
+// xAxis: the property displayed in the X axis
+// yAxis: the property displayed in the Y axis
+function getSeries(countryCodes, countriesDataObject, xAxis, yAxis) {
+  const series = [];
+  for (let i = 0; i < countryCodes.length; i++) {
+    const countryLine = [];
+    // We filter the data to display here using the axis data
+    $.each(countriesDataObject[countryCodes[i]], function (key, val) {
+      countryLine.push([
+        countriesDataObject[countryCodes[i]][key][xAxis],
+        countriesDataObject[countryCodes[i]][key][yAxis],
+      ]);
+    });
+    const seria = {
+      data: countryLine, // the line of the country
+      name: mapCountryNames[countryCodes[i]],
+      type: "line",
+      symbolSize: 5,
+    };
+    series.push(seria);
+  }
+  return series;
+}
+
+// when a country is selected for adding to the chart, this is called
+function new_country_selected(countryCodes, select_country, options_countries) {
+  if (select_country.value != "placeholder123") {
+    var country_code_to_add = select_country.value;
+    console.log(country_code_to_add)
+
+    // append to list of country codes
+    countryCodes.push(country_code_to_add);
+
+    // start fetching / download of data
+    promises.push(fetchData(country_code_to_add, countriesDataObject))
+
+    // remove selected values from options_countries
+    arrayRemoveValueTextPairByValue(options_countries, country_code_to_add)
+    setOptionsToSelect(select_country, options_countries, "Choose");
+
+    // wait for fetching to complete, than update chart
+    Promise.all(promises).then(() => {
+      refreshChartWrapper();
+    });
+  }
+}
+
+// resets country selection to default
+function resetChart() {
+  // TODO: This is not working properly: dropdowns are not refilled.
+  // options_countries_africa = [];
+  // options_countries_asia = [];
+  // options_countries_europe = [];
+  // options_countries_north_america = [];
+  // options_countries_south_america = [];
+  // options_countries_oceania = [];
+  console.log(countryCodes);
+  // countryCodes = ["DE"];
+  console.log(countryCodes);
+  populate_country_selects();
+  refreshChartWrapper();
+}
+
+function populate_country_selects() {
+  // Africa
+  for (let i = 0; i < mapContinentCountries['Africa'].length; i++) {
+    const code = mapContinentCountries['Africa'][i][0];
+    const name = mapContinentCountries['Africa'][i][1]
+    if (!(countryCodes.includes(code))) {
+      options_countries_africa.push(
+        { value: code, text: name }
+      );
+    }
+  }
+  setOptionsToSelect(select_countries_africa, options_countries_africa, "Choose");
+  // Asia
+  for (let i = 0; i < mapContinentCountries['Asia'].length; i++) {
+    const code = mapContinentCountries['Asia'][i][0];
+    const name = mapContinentCountries['Asia'][i][1]
+    if (!(countryCodes.includes(code))) {
+      options_countries_asia.push(
+        { value: code, text: name }
+      );
+    }
+  }
+  setOptionsToSelect(select_countries_asia, options_countries_asia, "Choose");
+  // Europe
+  for (let i = 0; i < mapContinentCountries['Europe'].length; i++) {
+    const code = mapContinentCountries['Europe'][i][0];
+    const name = mapContinentCountries['Europe'][i][1]
+    if (!(countryCodes.includes(code))) {
+      options_countries_europe.push(
+        { value: code, text: name }
+      );
+    }
+  }
+  setOptionsToSelect(select_countries_europe, options_countries_europe, "Choose");
+  // North America
+  for (let i = 0; i < mapContinentCountries['North America'].length; i++) {
+    const code = mapContinentCountries['North America'][i][0];
+    const name = mapContinentCountries['North America'][i][1]
+    if (!(countryCodes.includes(code))) {
+      options_countries_north_america.push(
+        { value: code, text: name }
+      );
+    }
+  }
+  setOptionsToSelect(select_countries_north_america, options_countries_north_america, "Choose");
+  // South America
+  for (let i = 0; i < mapContinentCountries['South America'].length; i++) {
+    const code = mapContinentCountries['South America'][i][0];
+    const name = mapContinentCountries['South America'][i][1]
+    if (!(countryCodes.includes(code))) {
+      options_countries_south_america.push(
+        { value: code, text: name }
+      );
+    }
+  }
+  setOptionsToSelect(select_countries_south_america, options_countries_south_america, "Choose");
+  // Oceania
+  for (let i = 0; i < mapContinentCountries['Oceania'].length; i++) {
+    const code = mapContinentCountries['Oceania'][i][0];
+    const name = mapContinentCountries['Oceania'][i][1]
+    if (!(countryCodes.includes(code))) {
+      options_countries_oceania.push(
+        { value: code, text: name }
+      );
+    }
+  }
+  setOptionsToSelect(select_countries_oceania, options_countries_oceania, "Choose");
+}
+
+
+
+// -------------
+// 3. eCharts
+// -------------
+
+
+
+// Refreshes the chart
+// countryCodes: the codes of the countries to display
+// countriesDataObject: the object which contains all data about the countries
+// select_xAxisProperty: the select of the X axis
+// select_yAxisProperty: the select of the Y axis
+function refreshChart(
+  chart,
+  countryCodes,
+  countriesDataObject,
+  select_xAxisProperty,
+  select_yAxisProperty,
+  select_yAxisScale
+) {
+  option = {}
+  option = {
+    title: {
+      text: "COVID-19 Country Custom Plot",
+      subtext: "by Torben https://entorb.net based on JHU data",
+      sublink: "https://entorb.net/COVID-19-coronavirus/"
+    },
+    legend: {
+      type: 'scroll',
+      orient: 'vertical',
+      right: 0,
+      top: 50,
+      //          bottom: 20,
+    },
+    xAxis: {
+      name: formatValueToSentenceLike(select_xAxisProperty.value, "_"),
+      type: "value", // value, time  ; will be overwritten if field "Date" is selected
+      nameTextStyle: { fontWeight: "bold" },
+      nameLocation: "center",
+      minorTick: { show: true },
+      minorSplitLine: {
+        show: true
+      }
+    },
+    // in type log : setting min is required
+    yAxis: {
+      // name: "Cases",
+      name: formatValueToSentenceLike(select_yAxisProperty.value, "_"),
+      type: "value", //value or log
+      // min: 1,
+      // max: 10000,
+      nameTextStyle: { fontWeight: "bold" },
+      nameLocation: "center",
+      minorTick: { show: true },
+      minorSplitLine: {
+        show: true
+      }
+    }, //max: "dataMax"
+    series: getSeries(
+      countryCodes,
+      countriesDataObject,
+      select_xAxisProperty.value,
+      select_yAxisProperty.value
+    ),
+    tooltip: {
+      trigger: 'axis', // item or axis
+      axisPointer: {
+        type: 'shadow',
+        snap: true
+      }
+    },
+    toolbox: {
+      show: true,
+      showTitle: true,
+      feature: {
+        saveAsImage: {},
+        // restore: {},
+        dataZoom: {},
+        dataView: { readOnly: true },
+        // magicType: {
+        //  type: ['line', 'bar', 'stack', 'tiled']
+        //},
+        //brush: {},
+      },
+    },
+    grid: {
+      containLabel: false,
+      left: '5%',
+      bottom: '5%',
+      right: '15%',
+    },
+  };
+
+  if (select_xAxisProperty.value == "Date") {
+    option.xAxis.type = "time";
+  }
+
+  if (select_yAxisScale.value == "linscale") {
+    option.yAxis.type = "value";
+  } else {
+    option.yAxis.type = "log";
+    // for logscale we need to set the min value as 0 is not good ;-)
+    option.yAxis.min = 1;
+  }
+
+  chart.clear(); // needed as setOption does not reliable remove all old data, see https://github.com/apache/incubator-echarts/issues/6202#issuecomment-460322781
+  chart.setOption(option, true);
+}
+
