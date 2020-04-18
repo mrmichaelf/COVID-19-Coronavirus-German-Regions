@@ -270,22 +270,21 @@ def series_of_fits(data: list, fit_range: int = 7, max_days_past=14) -> list:
     while len(data) > 0 and data[0][1] == 0:
         data.pop(0)
     if len(data) >= 3:
-
-        V1 single threading
-
         for last_day_for_fit in range(0, -max_days_past, -1):
             d = fit_routine(
                 data, (last_day_for_fit-fit_range, last_day_for_fit))
             # d is empty if fit fails
             if len(d) != 0:
-                # douplication_time -> dict
-                fit_series_res[last_day_for_fit] = round(d['fit_res'][1], 1)
+                # doubling_time -> dict
+                this_doubling_time = d['fit_res'][1]
+                if this_doubling_time > 0 and this_doubling_time < 100:
+                    fit_series_res[last_day_for_fit] = round(
+                        this_doubling_time, 1)
     return fit_series_res
-
-# This does not speedup the process :-(
 
 
 def series_of_fits_multi_threading(data: list, fit_range: int = 7, max_days_past=14) -> list:
+    # This does not speedup the process, so not used
     # from https://docs.python.org/3/library/concurrent.futures.html
     fit_series_res = {}
     l_last_days_for_fit = range(0, -max_days_past, -1)
