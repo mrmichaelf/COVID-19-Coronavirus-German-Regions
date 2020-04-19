@@ -85,7 +85,6 @@ function getUrl(country_code) {
 // countriesDataObject: the object which will contain all data about the countries
 function fetchData(countryCode, countriesDataObject) {
   const url = getUrl(countryCode);
-  console.log(url);
   // AAN: I like using "() => {}" lambda expressions instead of "function () {}" as parameters
   return $.getJSON(url, () => {
     console.log(`success: ${countryCode}`);
@@ -326,8 +325,8 @@ function refreshChart(
     grid: {
       containLabel: false,
       left: 85,
-      bottom: '5%',
-      right: '15%',
+      bottom: 40,
+      right: 180,
     },
   };
 
