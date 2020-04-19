@@ -87,7 +87,7 @@ function fetchData(countryCode, countriesDataObject) {
   const url = getUrl(countryCode);
   // AAN: I like using "() => {}" lambda expressions instead of "function () {}" as parameters
   return $.getJSON(url, () => {
-    console.log(`success: ${countryCode}`);
+    // console.log(`success: ${countryCode}`);
   })
     .done((data) => {
       console.log(`done: ${countryCode}`);
@@ -130,7 +130,7 @@ function getSeries(countryCodes, countriesDataObject, xAxis, yAxis) {
 function new_country_selected(countryCodes, select_country, options_countries) {
   if (select_country.value != "placeholder123") {
     var country_code_to_add = select_country.value;
-    console.log(country_code_to_add)
+    // console.log(country_code_to_add)
 
     // append to list of country codes
     countryCodes.push(country_code_to_add);

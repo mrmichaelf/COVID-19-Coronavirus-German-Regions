@@ -744,7 +744,7 @@
 	  -->
 	<div id="container" style="height: 600px; width:1000px; background-color: white;"></div>
 	<small> generated via <a href="https://echarts.apache.org" target="_blank">eCharts</a>, raw data can be found in <a href="https://github.com/entorb/COVID-19-Coronavirus-German-Regions/blob/master/data/int/" target="_blank">country-XX.tsv / .json</a>
-		<br /> Many thanks to Attila for code review and implementing the first version of the select data logic!</small>
+		<br /> Many thanks to Attila for code review, cleanup and implementation of the first version of the select data logic!</small>
 	<script type="text/javascript">
 		// array of promises for async fetching
 		const promises = [];
@@ -847,12 +847,14 @@
 		select_xAxisTimeRange.onchange = () => refreshChartWrapper();
 		select_yAxisScale.onchange = () => refreshChartWrapper();
 		// countries
-		select_countries_africa.onclick = () => new_country_selected(countryCodes, select_countries_africa, options_countries_africa);
-		select_countries_asia.onclick = () => new_country_selected(countryCodes, select_countries_asia, options_countries_asia);
-		select_countries_europe.onclick = () => new_country_selected(countryCodes, select_countries_europe, options_countries_europe);
-		select_countries_north_america.onclick = () => new_country_selected(countryCodes, select_countries_north_america, options_countries_north_america);
-		select_countries_south_america.onclick = () => new_country_selected(countryCodes, select_countries_south_america, options_countries_south_america);
-		select_countries_oceania.onclick = () => new_country_selected(countryCodes, select_countries_oceania, options_countries_oceania);
+		select_countries_africa.onchange = () => new_country_selected(countryCodes, select_countries_africa, options_countries_africa);
+		select_countries_asia.onchange = () => new_country_selected(countryCodes, select_countries_asia, options_countries_asia);
+		select_countries_europe.onchange = () => new_country_selected(countryCodes, select_countries_europe, options_countries_europe);
+		select_countries_north_america.onchange = () => new_country_selected(countryCodes, select_countries_north_america, options_countries_north_america);
+		select_countries_south_america.onchange = () => new_country_selected(countryCodes, select_countries_south_america, options_countries_south_america);
+		// select_countries_oceania.addEventListener('click', function () { new_country_selected(countryCodes, select_countries_oceania, options_countries_oceania)});
+		select_countries_oceania.onchange = () => new_country_selected(countryCodes, select_countries_oceania, options_countries_oceania);
+
 
 		// Initial list of country codes
 		// Adding a new country code to this array draws a new line
