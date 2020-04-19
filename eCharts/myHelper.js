@@ -120,6 +120,7 @@ function getSeries(countryCodes, countriesDataObject, xAxis, yAxis) {
       name: mapCountryNames[countryCodes[i]],
       type: "line",
       symbolSize: 5,
+      smooth: true,
     };
     series.push(seria);
   }
@@ -256,6 +257,17 @@ function refreshChart(
   select_yAxisScale
 ) {
   option = {}
+  optionsAxisCommon = {
+    // settings for both axis
+    boundaryGap: false,
+    nameTextStyle: { fontWeight: "bold" },
+    minorTick: { show: true },
+    minorSplitLine: {
+      show: true
+    },
+    axisTick: { inside: true },
+    axisLabel: { show: true },
+  }
   option = {
     title: {
       text: "COVID-19 Country Comparison Custom Chart",
@@ -270,31 +282,9 @@ function refreshChart(
       top: 50,
       //          bottom: 20,
     },
-    xAxis: {
-      name: formatValueToSentenceLike(select_xAxisProperty.value, "_"),
-      type: "value", // value, time  ; will be overwritten if field "Date" is selected
-      boundaryGap: false,
-      nameTextStyle: { fontWeight: "bold" },
-      nameLocation: "end",
-      minorTick: { show: true },
-      minorSplitLine: {
-        show: true
-      }
-    },
+    xAxis: { ...optionsAxisCommon }, // copy of object
     // in type log : setting min is required
-    yAxis: {
-      // name: "Cases",
-      name: formatValueToSentenceLike(select_yAxisProperty.value, "_"),
-      nameTextStyle: { align: 'right' },
-      type: "value", //value or log
-      boundaryGap: false,
-      nameTextStyle: { fontWeight: "bold" },
-      nameLocation: "end",
-      minorTick: { show: true },
-      minorSplitLine: {
-        show: true
-      }
-    }, //max: "dataMax"
+    yAxis: { ...optionsAxisCommon }, // copy of object
     series: getSeries(
       countryCodes,
       countriesDataObject,
@@ -324,20 +314,37 @@ function refreshChart(
     },
     grid: {
       containLabel: false,
-      left: 85,
+      left: 75,
       bottom: 40,
       right: 180,
     },
   };
 
+  option.xAxis.type = "value"; // value, time, log  ; will be overwritten if field "Date" is selected
+  option.xAxis.name = formatValueToSentenceLike(select_xAxisProperty.value, "_");
+  option.xAxis.nameLocation = "end";
+  option.yAxis.type = "value"; // value, time, log  ; will be overwritten if field "Date" is selected
+  option.yAxis.name = formatValueToSentenceLike(select_yAxisProperty.value, "_");
+  option.yAxis.nameLocation = "center";
+  option.yAxis.nameGap = 60;
+
   if (select_xAxisProperty.value == "Date") {
     option.xAxis.type = "time";
+    // option.xAxis.axisLabel.formatter = function (value, index) {
+    //   // Formatted to be month/day; display year only in the first label
+    //   var date = new Date(value);
+    //   var texts = [(date.getMonth() + 1), date.getDate()];
+    //   if (index === 0) {
+    //     texts.unshift(date.getYear());
+    //   }
+    //   return texts.join('-');
+    // }
   }
 
   if (select_yAxisProperty.value == "Cases_Doubling_Time" || select_yAxisProperty.value == "Deaths_Doubling_Time") {
     option.yAxis.inverse = true;
     option.yAxis.name = option.yAxis.name + " (days)";
-    option.yAxis.nameLocation = "start";
+    // option.yAxis.nameLocation = "start";
   }
 
 

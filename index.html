@@ -349,7 +349,7 @@
 			],
 		});
 
-		table.setData("https://entorb.net/COVID-19-coronavirus/data/de-districts/de-districts-results-V2.json");
+		table.setData("https://entorb.net/COVID-19-coronavirus/data/de-districts/de-districts-results-V2.json", {}, "get");
 
 		table.setSort([
 			{ column: "Landkreis", dir: "asc" },
@@ -658,7 +658,8 @@
 			],
 		});
 
-		table.setData("https://entorb.net/COVID-19-coronavirus/data/int/countries-latest-all.json");
+
+		table.setData("https://entorb.net/COVID-19-coronavirus/data/int/countries-latest-all.json", {}, "get");
 
 		table.setSort([
 			{ column: "Country", dir: "asc" }, //then sort by this second
@@ -1094,6 +1095,7 @@
 			<a href="#deaths-FI-fit">FI</a>
 			<a href="#deaths-FR-fit">FR</a>
 			<a href="#deaths-DE-fit">DE</a>
+			<a href="#deaths-GB-fit">GB</a>
 			<a href="#deaths-GR-fit">GR</a>
 			<a href="#deaths-HU-fit">HU</a>
 			<a href="#deaths-IR-fit">IR</a>
@@ -1106,7 +1108,6 @@
 			<a href="#deaths-SE-fit">SE</a>
 			<a href="#deaths-CH-fit">CH</a>
 			<a href="#deaths-TR-fit">TR</a>
-			<a href="#deaths-UK-fit">UK</a>
 			<a href="#deaths-US-fit">US</a>
 		</div>
 		<div class="af_gallery_results" id="results_int_countries_fit" style="display: flex;flex-flow:column">
@@ -1142,6 +1143,10 @@
 				<article id="#deaths-DE-fit">
 					<img src="plots-gnuplot/int/deaths-DE-fit.png" width="640" height="480" />
 					<img src="plots-gnuplot/int/deaths-DE-fit-log.png" width="640" height="480" />
+				</article>
+				<article id="#deaths-GB-fit">
+					<img src="plots-gnuplot/int/deaths-GB-fit.png" width="640" height="480" />
+					<img src="plots-gnuplot/int/deaths-GB-fit-log.png" width="640" height="480" />
 				</article>
 				<article id="#deaths-GR-fit">
 					<img src="plots-gnuplot/int/deaths-GR-fit.png" width="640" height="480" />
@@ -1190,10 +1195,6 @@
 				<article id="#deaths-TR-fit">
 					<img src="plots-gnuplot/int/deaths-TR-fit.png" width="640" height="480" />
 					<img src="plots-gnuplot/int/deaths-TR-fit-log.png" width="640" height="480" />
-				</article>
-				<article id="#deaths-UK-fit">
-					<img src="plots-gnuplot/int/deaths-UK-fit.png" width="640" height="480" />
-					<img src="plots-gnuplot/int/deaths-UK-fit-log.png" width="640" height="480" />
 				</article>
 				<article id="#deaths-US-fit">
 					<img src="plots-gnuplot/int/deaths-US-fit.png" width="640" height="480" />
