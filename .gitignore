@@ -14,6 +14,6 @@ eCharts/apache-echarts-4.7.0-incubating-src/*
 .DS_Store
 
 ~$*.xlsx
-index*.html
+index-*.html
 .vstags
 __pycache__/helper.cpython-38.pyc
