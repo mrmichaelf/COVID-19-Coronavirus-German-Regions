@@ -259,9 +259,10 @@ function refreshChart(
   option = {}
   option = {
     title: {
-      text: "COVID-19 Country Custom Plot",
+      text: "COVID-19 Country Comparison Custom Chart",
+      left: 'center',
       subtext: "by Torben https://entorb.net based on JHU data",
-      sublink: "https://entorb.net/COVID-19-coronavirus/"
+      sublink: "https://entorb.net/COVID-19-coronavirus/",
     },
     legend: {
       type: 'scroll',
@@ -273,8 +274,9 @@ function refreshChart(
     xAxis: {
       name: formatValueToSentenceLike(select_xAxisProperty.value, "_"),
       type: "value", // value, time  ; will be overwritten if field "Date" is selected
+      boundaryGap: false,
       nameTextStyle: { fontWeight: "bold" },
-      nameLocation: "center",
+      nameLocation: "end",
       minorTick: { show: true },
       minorSplitLine: {
         show: true
@@ -284,11 +286,11 @@ function refreshChart(
     yAxis: {
       // name: "Cases",
       name: formatValueToSentenceLike(select_yAxisProperty.value, "_"),
+      nameTextStyle: { align: 'right' },
       type: "value", //value or log
-      // min: 1,
-      // max: 10000,
+      boundaryGap: false,
       nameTextStyle: { fontWeight: "bold" },
-      nameLocation: "center",
+      nameLocation: "end",
       minorTick: { show: true },
       minorSplitLine: {
         show: true
@@ -323,7 +325,7 @@ function refreshChart(
     },
     grid: {
       containLabel: false,
-      left: '5%',
+      left: 85,
       bottom: '5%',
       right: '15%',
     },
@@ -332,6 +334,49 @@ function refreshChart(
   if (select_xAxisProperty.value == "Date") {
     option.xAxis.type = "time";
   }
+
+  if (select_yAxisProperty.value == "Cases_Doubling_Time" || select_yAxisProperty.value == "Deaths_Doubling_Time") {
+    option.yAxis.inverse = true;
+    option.yAxis.name = option.yAxis.name + " (days)";
+    option.yAxis.nameLocation = "start";
+  }
+
+
+
+  if (select_xAxisTimeRange.value == "4weeks") {
+    const daysOffset = - 4 * 7;
+    const daysInterval = 7;
+    if (select_xAxisProperty.value == "Days_Past") {
+      option.xAxis.min = daysOffset;
+      option.xAxis.interval = daysInterval;
+    }
+    else if (select_xAxisProperty.value == "Date") {
+      // fetch latest date of first data series as basis
+      const s_data_last_date = option.series[0].data[option.series[0].data.length - 1][0]
+      const ts_last_date = Date.parse(s_data_last_date)
+      var minDate = new Date(ts_last_date);
+      minDate.setDate(minDate.getDate() + daysOffset);
+      option.xAxis.min = minDate;
+      option.xAxis.interval = 3600 * 1000 * 24 * daysInterval;
+    }
+  } else if (select_xAxisTimeRange.value == "12weeks") {
+    const daysOffset = - 12 * 7;
+    const daysInterval = 14;
+    if (select_xAxisProperty.value == "Days_Past") {
+      option.xAxis.min = daysOffset;
+      option.xAxis.interval = daysInterval;
+    }
+    else if (select_xAxisProperty.value == "Date") {
+      // fetch latest date of first data series as basis
+      const s_data_last_date = option.series[0].data[option.series[0].data.length - 1][0]
+      const ts_last_date = Date.parse(s_data_last_date)
+      var minDate = new Date(ts_last_date);
+      minDate.setDate(minDate.getDate() + daysOffset);
+      option.xAxis.min = minDate;
+      option.xAxis.interval = 3600 * 1000 * 24 * daysInterval;
+    }
+  }
+
 
   if (select_yAxisScale.value == "linscale") {
     option.yAxis.type = "value";
