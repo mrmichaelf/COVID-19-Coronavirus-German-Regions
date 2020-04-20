@@ -365,7 +365,7 @@ function refreshChart(
   }
 
 
-
+  // Time restriction for X Axis only
   if (select_xAxisTimeRange.value == "4weeks") {
     const daysOffset = - 4 * 7;
     const daysInterval = 7;
@@ -400,18 +400,20 @@ function refreshChart(
     }
   }
 
-
+  // Logscale for Y Axis only (eCharts allows either time axis or log axis)
   if (select_yAxisScale.value == "linscale") {
     option.yAxis.type = "value";
   } else {
     option.yAxis.type = "log";
-    // for logscale we need to set the min value as 0 is not good ;-)
-    option.yAxis.min = 1;
+    // for logscale we need to set the min value to avoid 0 is not good ;-)
     if (select_yAxisProperty.value == "Deaths_New_Per_Million") {
       option.yAxis.min = 0.1;
+    } else {
+      option.yAxis.min = 1;
     }
   }
 
+  // Marklines
   if (select_yAxisProperty.value == "Deaths_Per_Million") {
     option.series[0].markLine = {
       symbol: 'none',
@@ -471,10 +473,7 @@ function refreshChart(
       ]
     }
   }
-
-
   if (select_yAxisProperty.value == "Deaths_New_Per_Million") {
-    console.log('male')
     option.series[0].markLine = {
       symbol: 'none',
       animation: false,
@@ -531,9 +530,7 @@ function refreshChart(
       ]
     }
   }
-
   if (select_yAxisProperty.value == "Deaths_Last_Week_Per_Million") {
-    console.log('male')
     option.series[0].markLine = {
       symbol: 'none',
       animation: false,

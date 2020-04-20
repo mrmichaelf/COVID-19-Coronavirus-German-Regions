@@ -123,6 +123,7 @@ def prepare_time_series(l_time_series: list) -> list:
         d['Cases_Last_Week'] = 0
         d['Deaths_Last_Week'] = 0
         if i >= 7:
+            # TM: this is correct, I double checked it ;-)
             d['Cases_Last_Week'] = d['Cases'] - l_time_series[i-7]['Cases']
             d['Deaths_Last_Week'] = d['Deaths'] - \
                 l_time_series[i-7]['Deaths']
@@ -273,13 +274,14 @@ def series_of_fits(data: list, fit_range: int = 7, max_days_past=14) -> list:
     returns dict: day -> doubling_time
     """
     fit_series_res = {}
-    # remove y=0 values until first non-null
+    # remove y=0 values from start until first non-null
     while len(data) > 0 and data[0][1] == 0:
         data.pop(0)
     if len(data) >= 3:
+        # range(0, -7, -1): does not include -7, it has only 0,-1,..-6 = 7 values
         for last_day_for_fit in range(0, -max_days_past, -1):
             d = fit_routine(
-                data, (last_day_for_fit-fit_range, last_day_for_fit))
+                data, (last_day_for_fit-fit_range+0.1, last_day_for_fit+0.1))  # +0.1 to ensure that last day is included and that lastday - 7 is not included, so 7 days!
             # d is empty if fit fails
             if len(d) != 0:
                 # doubling_time -> dict
