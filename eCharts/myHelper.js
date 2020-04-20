@@ -463,7 +463,7 @@ function refreshChart(
       symbol: 'none',
       animation: false,
       lineStyle: {
-        color: "#000"
+        color: "#0000ff"
         //type: 'solid'
       },
       data: [
@@ -522,7 +522,7 @@ function refreshChart(
       symbol: 'none',
       animation: false,
       lineStyle: {
-        color: "#000"
+        color: "#0000ff"
         //type: 'solid'
       },
       data: [
