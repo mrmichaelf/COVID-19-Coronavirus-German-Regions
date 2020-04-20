@@ -302,10 +302,10 @@ function refreshChart(
       show: true,
       showTitle: true,
       feature: {
-        saveAsImage: {},
         // restore: {},
-        dataZoom: {},
+        // dataZoom: {},
         dataView: { readOnly: true },
+        saveAsImage: {},
         // magicType: {
         //  type: ['line', 'bar', 'stack', 'tiled']
         //},
