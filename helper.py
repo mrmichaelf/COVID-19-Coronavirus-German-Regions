@@ -113,6 +113,11 @@ def prepare_time_series(l_time_series: list) -> list:
         # _New since yesterday
         d['Cases_New'] = d['Cases'] - last_cases
         d['Deaths_New'] = d['Deaths'] - last_deaths
+        # sometimes values are corrected, leading to negative values, which I drop
+        if (d['Cases_New'] < 0):
+            d['Cases_New'] = None
+        if (d['Deaths_New'] < 0):
+            d['Deaths_New'] = None
 
         # delta of _Last_Week = last 7 days
         d['Cases_Last_Week'] = 0
@@ -147,10 +152,12 @@ def add_per_million_via_lookup(d: dict, d_ref: dict, code: str) -> dict:
 
 def add_per_million(d: dict, pop_in_million: float) -> dict:
     for key in ('Cases', 'Deaths', 'Cases_New', 'Deaths_New', 'Cases_Last_Week', 'Deaths_Last_Week'):
-        if pop_in_million:
-            perMillion = round(d[key]/pop_in_million, 3)
-        else:
-            perMillion = 0  # if pop is unknown
+        perMillion = None
+        if d[key]:
+            if pop_in_million:
+                perMillion = round(d[key]/pop_in_million, 3)
+            # else:
+            #     perMillion = 0  # if pop is unknown
         d[key+'_Per_Million'] = perMillion
     return d
 

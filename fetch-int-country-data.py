@@ -154,14 +154,18 @@ def extract_latest_date_data():
             # d_for_export['Date'] = entry['Date']
             # d_for_export['Cases'] = entry['Cases']
             # d_for_export['Deaths'] = entry['Deaths']
-            d_for_export['Cases_Per_Million'] = round(
-                entry['Cases_Per_Million'], 0)
-            d_for_export['Deaths_Per_Million'] = round(
-                entry['Deaths_Per_Million'], 0)
-            d_for_export['Cases_Last_Week_Per_Million'] = round(
-                entry['Cases_Last_Week_Per_Million'], 0)
-            d_for_export['Deaths_Last_Week_Per_Million'] = round(
-                entry['Deaths_Last_Week_Per_Million'], 0)
+            if d_for_export['Cases_Per_Million']:
+                d_for_export['Cases_Per_Million'] = round(
+                    entry['Cases_Per_Million'], 0)
+            if d_for_export['Deaths_Per_Million']:
+                d_for_export['Deaths_Per_Million'] = round(
+                    entry['Deaths_Per_Million'], 0)
+            if d_for_export['Cases_Last_Week_Per_Million']:
+                d_for_export['Cases_Last_Week_Per_Million'] = round(
+                    entry['Cases_Last_Week_Per_Million'], 0)
+            if d_for_export['Deaths_Last_Week_Per_Million']:
+                d_for_export['Deaths_Last_Week_Per_Million'] = round(
+                    entry['Deaths_Last_Week_Per_Million'], 0)
             l_for_export.append(d_for_export)
 
             csvwriter.writerow(

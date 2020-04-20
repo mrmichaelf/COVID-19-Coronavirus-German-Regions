@@ -390,7 +390,191 @@ function refreshChart(
     option.yAxis.type = "log";
     // for logscale we need to set the min value as 0 is not good ;-)
     option.yAxis.min = 1;
+    if (select_yAxisProperty.value == "Deaths_New_Per_Million") {
+      option.yAxis.min = 0.1;
+    }
   }
+
+  if (select_yAxisProperty.value == "Deaths_Per_Million") {
+    console.log('male')
+    option.series[0].markLine = {
+      symbol: 'none',
+      silent: true,
+      animation: false,
+      lineStyle: {
+        color: "#0000ff"
+        //type: 'solid'
+      },
+      data: [
+        // { type: 'average', name: '123' },
+        {
+          yAxis: 9,
+          name: 'US 9/11',
+          // value: 'value',
+          label: {
+            position: 'insideStartTop',
+            formatter: '{b}' // b -> name
+          },
+        },
+        {
+          yAxis: 44,
+          name: 'US guns 2017',
+          // value: 'value',
+          label: {
+            position: 'insideStartTop',
+            formatter: '{b}' // b -> name
+          },
+        },
+        {
+          yAxis: 104,
+          name: 'US traffic 2018 and\nflu 2018/19',
+          // value: 'value',
+          label: {
+            position: 'insideStartTop',
+            formatter: '{b}' // b -> name
+          },
+        },
+        {
+          yAxis: 205,
+          name: 'US drugs 2018',
+          // value: 'value',
+          label: {
+            position: 'insideStartTop',
+            formatter: '{b}' // b -> name
+          },
+        },
+        {
+          yAxis: 1857,
+          name: 'US cancer 2018',
+          // value: 'value',
+          label: {
+            position: 'insideStartTop',
+            formatter: '{b}' // b -> name
+          },
+        },
+      ]
+    }
+  }
+
+
+  if (select_yAxisProperty.value == "Deaths_New_Per_Million") {
+    console.log('male')
+    option.series[0].markLine = {
+      symbol: 'none',
+      animation: false,
+      lineStyle: {
+        color: "#000"
+        //type: 'solid'
+      },
+      data: [
+        {
+          yAxis: 44 / 365,
+          name: 'US guns 2017',
+          // value: 'value',
+          label: {
+            position: 'insideStartTop',
+            formatter: '{b}' // b -> name
+          },
+        },
+        {
+          yAxis: 104 / 365,
+          name: 'US traffic 2018 and\nflu 2018/19',
+          // value: 'value',
+          label: {
+            position: 'insideStartTop',
+            formatter: '{b}' // b -> name
+          },
+        },
+        {
+          yAxis: 205 / 365,
+          name: 'US drugs 2018',
+          // value: 'value',
+          label: {
+            position: 'insideStartTop',
+            formatter: '{b}' // b -> name
+          },
+        },
+        {
+          yAxis: 1857 / 365,
+          name: 'US cancer 2018',
+          // value: 'value',
+          label: {
+            position: 'insideStartTop',
+            formatter: '{b}' // b -> name
+          },
+        },
+        {
+          yAxis: 8638 / 365,
+          name: 'US total mortality 2017',
+          // value: 'value',
+          label: {
+            position: 'insideStartTop',
+            formatter: '{b}' // b -> name
+          },
+        },
+      ]
+    }
+  }
+
+  if (select_yAxisProperty.value == "Deaths_Last_Week_Per_Million") {
+    console.log('male')
+    option.series[0].markLine = {
+      symbol: 'none',
+      animation: false,
+      lineStyle: {
+        color: "#000"
+        //type: 'solid'
+      },
+      data: [
+        {
+          yAxis: 44 / 52.14,
+          name: 'US guns 2017',
+          // value: 'value',
+          label: {
+            position: 'insideStartTop',
+            formatter: '{b}' // b -> name
+          },
+        },
+        {
+          yAxis: 104 / 52.14,
+          name: 'US traffic 2018 and\nflu 2018/19',
+          // value: 'value',
+          label: {
+            position: 'insideStartTop',
+            formatter: '{b}' // b -> name
+          },
+        },
+        {
+          yAxis: 205 / 52.14,
+          name: 'US drugs 2018',
+          // value: 'value',
+          label: {
+            position: 'insideStartTop',
+            formatter: '{b}' // b -> name
+          },
+        },
+        {
+          yAxis: 1857 / 52.14,
+          name: 'US cancer 2018',
+          // value: 'value',
+          label: {
+            position: 'insideStartTop',
+            formatter: '{b}' // b -> name
+          },
+        },
+        {
+          yAxis: 8638 / 52.14,
+          name: 'US total mortality 2017',
+          // value: 'value',
+          label: {
+            position: 'insideStartTop',
+            formatter: '{b}' // b -> name
+          },
+        },
+      ]
+    }
+  }
+
 
   chart.clear(); // needed as setOption does not reliable remove all old data, see https://github.com/apache/incubator-echarts/issues/6202#issuecomment-460322781
   chart.setOption(option, true);
