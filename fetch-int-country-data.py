@@ -366,6 +366,9 @@ def read_continent(country_name: str) -> str:
     d = get_ref_country_dict(country_name)
     if d != {}:
         continent = d['Continent']
+    # move Turkey from Asia to Europe
+    if country_name == 'Turkey':
+        continent = 'EU'
 
     if continent != None:
         if continent == 'AF':
