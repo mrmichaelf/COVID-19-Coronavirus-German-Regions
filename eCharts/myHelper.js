@@ -254,6 +254,7 @@ function refreshChart(
   select_xAxisProperty,
   select_yAxisProperty,
   select_xAxisTimeRange,
+  select_xAxisScale,
   select_yAxisScale
 ) {
 
@@ -263,7 +264,14 @@ function refreshChart(
   } else {
     select_xAxisTimeRange.disabled = true;
   }
+  // disable logscale for time series
+  if (select_xAxisProperty.value == "Date" || select_xAxisProperty.value == "Days_Past") {
+    select_xAxisScale.disabled = true;
+    select_xAxisScale.value = 'linscale';
+  } else {
+    select_xAxisScale.disabled = false;
 
+  }
 
   option = {}
   // optionsAxisCommon = {
@@ -330,7 +338,7 @@ function refreshChart(
       showTitle: true,
       feature: {
         // restore: {},
-        // dataZoom: {},
+        dataZoom: {},
         dataView: { readOnly: true },
         saveAsImage: {},
         // magicType: {
@@ -368,6 +376,7 @@ function refreshChart(
     // }
   }
 
+  // For doubling time: invert axis
   if (select_yAxisProperty.value == "Cases_Doubling_Time" || select_yAxisProperty.value == "Deaths_Doubling_Time") {
     option.yAxis.inverse = true;
     option.yAxis.name = option.yAxis.name + " (days)";
@@ -410,7 +419,22 @@ function refreshChart(
     }
   }
 
-  // Logscale for Y Axis only (eCharts allows either time axis or log axis)
+
+  // Logscale for X Axis (eCharts allows either time axis or log axis)
+  if (select_xAxisProperty.value != "Date") {
+    if (select_xAxisScale.value == "linscale") {
+      option.xAxis.type = "value";
+    } else {
+      option.xAxis.type = "log";
+      // for logscale we need to set the min value to avoid 0 is not good ;-)
+      if (select_xAxisProperty.value == "Deaths_New_Per_Million") {
+        option.xAxis.min = 0.1;
+      } else {
+        option.xAxis.min = 1;
+      }
+    }
+  }
+  // Logscale for Y Axis (eCharts allows either time axis or log axis)
   if (select_yAxisScale.value == "linscale") {
     option.yAxis.type = "value";
   } else {

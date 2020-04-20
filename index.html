@@ -751,21 +751,24 @@
 			<h4>2. Select data</h4>
 			<table>
 				<tr>
+					<td>y axis:</td>
+					<td>
+						<select id="sel_y_axis_field" name="sel_y_axis_field" style="width:200px"> </select>
+					</td>
+					<td> <select id="sel_y_axis_scale" name="sel_y_axis_scale" style="width:200px"> </select>
+					</td>
+					<td> &nbsp; </td>
+				</tr>
+				<tr>
 					<td>
 						<label>x axis:</label>
 					</td>
 					<td>
 						<select id="sel_x_axis_field" name="sel_x_axis_field" style="width:200px"> </select>
 					</td>
+					<td> <select id="sel_x_axis_scale" name="sel_x_axis_scale" style="width:200px"> </select>
+					</td>
 					<td> <select id="sel_x_axis_time_range" name="sel_x_axis_time_range" style="width:200px"> </select>
-					</td>
-				</tr>
-				<tr>
-					<td>y axis:</td>
-					<td>
-						<select id="sel_y_axis_field" name="sel_y_axis_field" style="width:200px"> </select>
-					</td>
-					<td> <select id="sel_y_axis_scale" name="sel_y_axis_scale" style="width:200px"> </select>
 					</td>
 				</tr>
 			</table>
@@ -873,6 +876,7 @@
 			const select_xAxisProperty = document.getElementById("sel_x_axis_field");
 			const select_yAxisProperty = document.getElementById("sel_y_axis_field");
 			const select_xAxisTimeRange = document.getElementById("sel_x_axis_time_range");
+			const select_xAxisScale = document.getElementById("sel_x_axis_scale");
 			const select_yAxisScale = document.getElementById("sel_y_axis_scale");
 
 			// country selects
@@ -887,13 +891,14 @@
 			setOptionsToSelect(select_xAxisProperty, options_xAxisProperty, "");
 			setOptionsToSelect(select_yAxisProperty, options_yAxisProperty, "");
 			setOptionsToSelect(select_xAxisTimeRange, options_xaxis_time_range, "");
+			setOptionsToSelect(select_xAxisScale, options_axis_scales, "");
 			setOptionsToSelect(select_yAxisScale, options_axis_scales, "");
 
 			// If the value of a select changes refresh the chart
-			// TODO: add xAxisScaleSelect and select_yAxisScale value to logic
 			select_xAxisProperty.onchange = function () { refreshChartWrapper() };
 			select_yAxisProperty.onchange = function () { refreshChartWrapper() };
 			select_xAxisTimeRange.onchange = function () { refreshChartWrapper() };
+			select_xAxisScale.onchange = function () { refreshChartWrapper() };
 			select_yAxisScale.onchange = function () { refreshChartWrapper() };
 			// countries
 			select_countries_africa.onchange = function () { new_country_selected(countryCodes, select_countries_africa, options_countries_africa) };
@@ -935,6 +940,7 @@
 					select_xAxisProperty,
 					select_yAxisProperty,
 					select_xAxisTimeRange,
+					select_xAxisScale,
 					select_yAxisScale
 				);
 			}
