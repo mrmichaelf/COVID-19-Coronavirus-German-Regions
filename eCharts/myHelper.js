@@ -253,8 +253,18 @@ function refreshChart(
   countriesDataObject,
   select_xAxisProperty,
   select_yAxisProperty,
+  select_xAxisTimeRange,
   select_yAxisScale
 ) {
+
+  // disable time selection for non-time series 
+  if (select_xAxisProperty.value == "Date" || select_xAxisProperty.value == "Days_Past") {
+    select_xAxisTimeRange.disabled = false;
+  } else {
+    select_xAxisTimeRange.disabled = true;
+  }
+
+
   option = {}
   // optionsAxisCommon = {
   //   // settings for both axis
