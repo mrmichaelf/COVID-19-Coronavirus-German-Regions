@@ -4,9 +4,9 @@ DE data copied on daily basis from [Robert Koch Institut](https://www.rki.de/DE/
 
 International data is from [pomber](https://github.com/pomber/covid19), based on data provided by Johns Hopkins University Center for Systems Science and Engineering (JHU CSSE) 
 
-[Here](https://entorb.net/COVID-19-coronavirus/#CountriesCustomChart) you see the interactive country comparison chart in action.
+Created an you see the [interactive country comparison chart](https://entorb.net/COVID-19-coronavirus/#CountriesCustomChart) from the data.
 
-futher good information sources
+Futher good information sources
 * [Robert Koch Institut](https://www.rki.de/DE/Content/InfAZ/N/Neuartiges_Coronavirus/Fallzahlen.html)
 * [WHO Dashboard](https://experience.arcgis.com/experience/685d0ace521648f8a5beeeee1b9125cd)
 * [NDR Info Podcast: Das Coronavirus-Update mit Christian Drosten](https://www.ndr.de/nachrichten/info/podcast4684.html)
