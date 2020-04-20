@@ -74,8 +74,7 @@ function setOptionsToSelect(select, optionsArray, placeholdertext) {
 // Gets the url of the given country
 // countryCode: the code of the country e.g. "DE"
 function getUrl(country_code) {
-  // `words${variable}words` syntax is more readable than "words" + variable + "words"
-  return `https://entorb.net/COVID-19-coronavirus/data/int/country-${country_code}.json`;
+  return 'https://entorb.net/COVID-19-coronavirus/data/int/country-' + country_code + '.json';
 }
 
 
@@ -86,15 +85,15 @@ function getUrl(country_code) {
 function fetchData(countryCode, countriesDataObject) {
   const url = getUrl(countryCode);
   // AAN: I like using "() => {}" lambda expressions instead of "function () {}" as parameters
-  return $.getJSON(url, () => {
+  return $.getJSON(url, function () {
     // console.log(`success: ${countryCode}`);
   })
-    .done((data) => {
-      console.log(`done: ${countryCode}`);
+    .done(function (data) {
+      console.log('done: ' + countryCode);
       countriesDataObject[countryCode] = data;
     })
-    .fail(() => {
-      console.log(`fail: ${countryCode}`);
+    .fail(function () {
+      console.log('fail:' + countryCode);
     });
 }
 
@@ -144,7 +143,7 @@ function new_country_selected(countryCodes, select_country, options_countries) {
     setOptionsToSelect(select_country, options_countries, "Choose");
 
     // wait for fetching to complete, than update chart
-    Promise.all(promises).then(() => {
+    Promise.all(promises).then(function () {
       refreshChartWrapper();
     });
   }
@@ -257,17 +256,17 @@ function refreshChart(
   select_yAxisScale
 ) {
   option = {}
-  optionsAxisCommon = {
-    // settings for both axis
-    boundaryGap: false,
-    nameTextStyle: { fontWeight: "bold" },
-    minorTick: { show: true },
-    minorSplitLine: {
-      show: true
-    },
-    axisTick: { inside: true },
-    axisLabel: { show: true },
-  }
+  // optionsAxisCommon = {
+  //   // settings for both axis
+  //   boundaryGap: false,
+  //   nameTextStyle: { fontWeight: "bold" },
+  //   minorTick: { show: true },
+  //   minorSplitLine: {
+  //     show: true
+  //   },
+  //   axisTick: { inside: true },
+  //   axisLabel: { show: true },
+  // }
   option = {
     title: {
       text: "COVID-19 Country Comparison Custom Chart",
@@ -282,9 +281,27 @@ function refreshChart(
       top: 50,
       //          bottom: 20,
     },
-    xAxis: { ...optionsAxisCommon }, // copy of object
+    xAxis: {
+      boundaryGap: false,
+      nameTextStyle: { fontWeight: "bold" },
+      minorTick: { show: true },
+      minorSplitLine: {
+        show: true
+      },
+      axisTick: { inside: true },
+      axisLabel: { show: true },
+    },
     // in type log : setting min is required
-    yAxis: { ...optionsAxisCommon }, // copy of object
+    yAxis: {
+      boundaryGap: false,
+      nameTextStyle: { fontWeight: "bold" },
+      minorTick: { show: true },
+      minorSplitLine: {
+        show: true
+      },
+      axisTick: { inside: true },
+      axisLabel: { show: true },
+    },
     series: getSeries(
       countryCodes,
       countriesDataObject,
@@ -396,7 +413,6 @@ function refreshChart(
   }
 
   if (select_yAxisProperty.value == "Deaths_Per_Million") {
-    console.log('male')
     option.series[0].markLine = {
       symbol: 'none',
       silent: true,
