@@ -427,7 +427,7 @@ function refreshChart(
         },
         {
           yAxis: 104,
-          name: 'US traffic 2018 and\nflu 2018/19',
+          name: 'US traffic 2018 and flu 2018/19',
           // value: 'value',
           label: {
             position: 'insideStartTop',
@@ -478,7 +478,7 @@ function refreshChart(
         },
         {
           yAxis: 104 / 365,
-          name: 'US traffic 2018 and\nflu 2018/19',
+          name: 'US traffic 2018 and flu 2018/19',
           // value: 'value',
           label: {
             position: 'insideStartTop',
@@ -537,7 +537,7 @@ function refreshChart(
         },
         {
           yAxis: 104 / 52.14,
-          name: 'US traffic 2018 and\nflu 2018/19',
+          name: 'US traffic 2018 and flu 2018/19',
           // value: 'value',
           label: {
             position: 'insideStartTop',
