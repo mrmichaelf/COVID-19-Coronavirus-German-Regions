@@ -1,13 +1,12 @@
-# COVID-19 Coronavirus Disease Spread Time Series in German Regions and Selected Countries
+# COVID-19 Coronavirus Disease Spread Time Series Analyses for German Regions and Selected Countries
 
 DE data copied on daily basis from [Robert Koch Institut](https://www.rki.de/DE/Content/InfAZ/N/Neuartiges_Coronavirus/Fallzahlen.html)
 
 International data is from [pomber](https://github.com/pomber/covid19), based on data provided by Johns Hopkins University Center for Systems Science and Engineering (JHU CSSE) 
 
-DE data re-aranged using Excel sheet [cases-de.xlsx](https://github.com/entorb/COVID-19-Coronavirus-German-Regions/raw/master/data/cases-de.xlsx) and exported as [cases-de.tsv](https://github.com/entorb/COVID-19-Coronavirus-German-Regions/raw/master/data/cases-de.csv) to allow for processing in any tool.
-format: UTF-8 encoded, tab as column separator
+Created an [interactive country comparison chart](https://entorb.net/COVID-19-coronavirus/#CountriesCustomChart) for the data.
 
-futher good information sources
+Futher good information sources
 * [Robert Koch Institut](https://www.rki.de/DE/Content/InfAZ/N/Neuartiges_Coronavirus/Fallzahlen.html)
 * [WHO Dashboard](https://experience.arcgis.com/experience/685d0ace521648f8a5beeeee1b9125cd)
 * [NDR Info Podcast: Das Coronavirus-Update mit Christian Drosten](https://www.ndr.de/nachrichten/info/podcast4684.html)
