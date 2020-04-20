@@ -300,6 +300,8 @@ function refreshChart(
       //          bottom: 20,
     },
     xAxis: {
+      // common settings for both axes
+      type: 'value', // will be overwritten if needed below
       boundaryGap: false,
       nameTextStyle: { fontWeight: "bold" },
       minorTick: { show: true },
@@ -308,9 +310,14 @@ function refreshChart(
       },
       axisTick: { inside: true },
       axisLabel: { show: true },
+      // for x only
+      name: formatValueToSentenceLike(select_xAxisProperty.value, "_"),
+      nameLocation: 'end',
     },
     // in type log : setting min is required
     yAxis: {
+      // common settings for both axes
+      type: 'value', // will be overwritten if needed below
       boundaryGap: false,
       nameTextStyle: { fontWeight: "bold" },
       minorTick: { show: true },
@@ -319,6 +326,10 @@ function refreshChart(
       },
       axisTick: { inside: true },
       axisLabel: { show: true },
+      // for y only
+      name: formatValueToSentenceLike(select_yAxisProperty.value, "_"),
+      nameLocation: 'center',
+      nameGap: 60,
     },
     series: getSeries(
       countryCodes,
@@ -355,16 +366,9 @@ function refreshChart(
     },
   };
 
-  option.xAxis.type = "value"; // value, time, log  ; will be overwritten if field "Date" is selected
-  option.xAxis.name = formatValueToSentenceLike(select_xAxisProperty.value, "_");
-  option.xAxis.nameLocation = "end";
-  option.yAxis.type = "value"; // value, time, log  ; will be overwritten if field "Date" is selected
-  option.yAxis.name = formatValueToSentenceLike(select_yAxisProperty.value, "_");
-  option.yAxis.nameLocation = "center";
-  option.yAxis.nameGap = 60;
-
   if (select_xAxisProperty.value == "Date") {
     option.xAxis.type = "time";
+    // trying to modify the date format
     // option.xAxis.axisLabel.formatter = function (value, index) {
     //   // Formatted to be month/day; display year only in the first label
     //   var date = new Date(value);
@@ -376,13 +380,12 @@ function refreshChart(
     // }
   }
 
-  // For doubling time: invert axis
+  // For doubling time: invert axis, only for Y
   if (select_yAxisProperty.value == "Cases_Doubling_Time" || select_yAxisProperty.value == "Deaths_Doubling_Time") {
     option.yAxis.inverse = true;
     option.yAxis.name = option.yAxis.name + " (days)";
     // option.yAxis.nameLocation = "start";
   }
-
 
   // Time restriction for X Axis only
   if (select_xAxisTimeRange.value == "4weeks") {
@@ -418,7 +421,6 @@ function refreshChart(
       option.xAxis.interval = 3600 * 1000 * 24 * daysInterval;
     }
   }
-
 
   // Logscale for X Axis (eCharts allows either time axis or log axis)
   if (select_xAxisProperty.value != "Date") {
