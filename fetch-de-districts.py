@@ -470,14 +470,9 @@ def loop_over_all_LK():
         d_results_for_json_export[lk_id] = d
 
         d_for_export_V2 = d
-        d_for_export_V2['Cases_Per_Million'] = round(
-            d['Cases_Per_Million'], 0)
-        d_for_export_V2['Deaths_Per_Million'] = round(
-            d['Deaths_Per_Million'], 0)
-        d_for_export_V2['Cases_Last_Week_Per_Million'] = round(
-            d['Cases_Last_Week_Per_Million'], 0)
-        d_for_export_V2['Deaths_Last_Week_Per_Million'] = round(
-            d['Deaths_Last_Week_Per_Million'], 0)
+        for key in ('Cases_Per_Million', 'Deaths_Per_Million', 'Cases_Last_Week_Per_Million', 'Deaths_Last_Week_Per_Million'):
+            if d_for_export_V2[key]:
+                d_for_export_V2[key] = round(d[key], 0)
         d_for_export_V2['LK_ID'] = lk_id
         l_for_export_V2.append(d_for_export_V2)
 

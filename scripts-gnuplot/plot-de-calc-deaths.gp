@@ -24,14 +24,14 @@ data = '../data/de-states/de-state-DE-total.tsv'
 
 f(x)=N0 * exp(x * log(2)/T)
 N0 = 10000.0
-b = 5.0
+T = 5.0
 
 # use only last 7 days for fit at require the number to be at least 2
 set xrange [-20.1:-13.9]
 
 
 fit f(x) data using ($1-14):($4*100) via N0, T
-b = log(2)/T
+#b = log(2)/T
 
 # delete fit logfile
 `rm fit.log`
@@ -51,7 +51,7 @@ set label 2 \
  Fit Ergebnisse\n\
  Verdopplungszeit: %.1f Tage\n\
  Abschätzung Infizierte heute: %d\n\
- = %.1f%% der DE-Bevölkerung\n\
+ = %.1f%% der DE Bevölkerung\n\
  Vergleich Abschätzung zu offizieller Fallzahl: %.1fx höher\
  "\
  , T, f(0) , f(0) / 83019200 * 100, f(0)/cases_last \
