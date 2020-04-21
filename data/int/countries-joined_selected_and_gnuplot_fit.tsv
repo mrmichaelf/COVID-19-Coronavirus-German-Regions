@@ -1,4 +1,4 @@
-# Country	Date	Confirmed	Deaths	Confirmed per Million	Deaths per Million	Population	Code	a	b	Deaths	Doubling time	Factor at t+1	Deaths at t+1	Factor at t+7	Deaths at t+7	Days till deaths/pop of Italy
+Country	Date	Cases	Deaths	Cases_Per_Million	Deaths_Per_Million	Population	Code	a	b	Deaths	Deaths_Doubling_Time	Factor at t+1	Deaths at t+1	Factor at t+7	Deaths at t+7	Days till deaths/pop of Italy
 Austria	2020-04-20	14795	470	1672.0	53.0	8902600	AT	470	471.103	0.034	20.261	1.035	486	1.271	597	59.0
 Belgium	2020-04-20	39983	5828	3501.0	510.0	11515793	BE	5828	5977.423	0.056	12.358	1.058	6164	1.481	8630	-4.4
 Canada	2020-04-20	37657	1725	1016.0	47.0	37894799	CA	1725	1740.915	0.100	6.924	1.105	1906	2.015	3476	21.4

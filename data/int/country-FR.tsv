@@ -1,4 +1,4 @@
-# Day	Date	Cases	Deaths	Cases_New	Deaths_New	Cases_Per_Million	Deaths_Per_Million	Cases_New_Per_Million	Deaths_New_Per_Million	Cases_Doubling_Time	Deaths_Doubling_Time	Cases_Change_Factor	Deaths_Change_Factor	Days_Since_2nd_Death
+Days_Past	Date	Cases	Deaths	Cases_New	Deaths_New	Cases_Per_Million	Deaths_Per_Million	Cases_New_Per_Million	Deaths_New_Per_Million	Cases_Doubling_Time	Deaths_Doubling_Time	Cases_Change_Factor	Deaths_Change_Factor	Days_Since_2nd_Death
 -89	2020-01-22	0	0	0	0									
 -88	2020-01-23	0	0	0	0									
 -87	2020-01-24	2	0	2	0	0.03		0.03						

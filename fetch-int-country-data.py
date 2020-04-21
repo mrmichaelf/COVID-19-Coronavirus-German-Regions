@@ -138,7 +138,7 @@ def extract_latest_date_data():
     with open('data/int/countries-latest-all.tsv', mode='w', encoding='utf-8', newline='\n') as f:
         csvwriter = csv.writer(f, delimiter="\t")
         csvwriter.writerow(  # header row
-            ('# Country', 'Population', 'Date', 'Cases',
+            ('Country', 'Population', 'Date', 'Cases',
              'Deaths', 'Cases_Per_Million', 'Deaths_Per_Million', 'Cases_Last_Week_Per_Million', 'Deaths_Last_Week_Per_Million', 'Continent', 'Code')
         )
         for country in sorted(d_countries_timeseries.keys(), key=str.casefold):
@@ -188,9 +188,9 @@ def extract_latest_date_data():
         csvwriter = csv.writer(f, delimiter="\t")
         # TODO: change order: pop as no 3
         csvwriter.writerow(
-            ('# Country', 'Date',
-             'Confirmed', 'Deaths',
-             'Confirmed per Million', 'Deaths per Million',
+            ('Country', 'Date',
+             'Cases', 'Deaths',
+             'Cases_Per_Million', 'Deaths_Per_Million',
              'Population'
              )
         )
@@ -296,7 +296,7 @@ def export_time_series_all_countries():
         with open(f'data/int/country-{country_code}.tsv', mode='w', encoding='utf-8', newline='\n') as f:
             csvwriter = csv.writer(f, delimiter="\t")
             csvwriter.writerow(  # header row
-                ('# Day', 'Date',
+                ('Days_Past', 'Date',
                  'Cases', 'Deaths',
                  'Cases_New', 'Deaths_New',
                  'Cases_Per_Million', 'Deaths_Per_Million',

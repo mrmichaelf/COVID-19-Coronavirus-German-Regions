@@ -1,4 +1,4 @@
-# Country	Population	Date	Cases	Deaths	Cases_Per_Million	Deaths_Per_Million	Cases_Last_Week_Per_Million	Deaths_Last_Week_Per_Million	Continent	Code
+Country	Population	Date	Cases	Deaths	Cases_Per_Million	Deaths_Per_Million	Cases_Last_Week_Per_Million	Deaths_Last_Week_Per_Million	Continent	Code
 Afghanistan	37172386	2020-04-20	1026	36	28.0	1.0	10.0	0.0	Asia	AF
 Albania	2866376	2020-04-20	584	26	204.0	9.0	41.0	1.0	Europe	AL
 Algeria	42228429	2020-04-20	2718	384	64.0	9.0	17.0	2.0	Africa	DZ

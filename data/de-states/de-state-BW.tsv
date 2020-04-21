@@ -1,4 +1,4 @@
-# Days_Past	Date	Cases	Deaths	Cases_New	Deaths_New	Cases_Per_Million	Deaths_Per_Million	Cases_New_Per_Million	Deaths_New_Per_Million	Cases_Doubling_Time	Deaths_Doubling_Time
+Days_Past	Date	Cases	Deaths	Cases_New	Deaths_New	Cases_Per_Million	Deaths_Per_Million	Cases_New_Per_Million	Deaths_New_Per_Million	Cases_Doubling_Time	Deaths_Doubling_Time
 -53	2020-02-28	10	0	10	0	0.903		0.903			
 -52	2020-02-29	14	0	4	0	1.265		0.361			
 -51	2020-03-01	15	0	1	0	1.355		0.09			

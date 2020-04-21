@@ -8,7 +8,7 @@ data = '../data/de-states/de-state-'.short_name.'.tsv'
 x_min = ( system("head -n 2 " . data . " | tail -1 | cut -f1") + 0 )
 x_max = ( system("tail -1 " . data . " | cut -f1") + 0 )
 date_last = system("tail -1 " . data . " | cut -f2")
-y_last = ( system("tail -1 " . data . " | cut -f".col) + 0)
+y_last = ( system("tail -1 " . data . " | cut -f3") + 0)
 set label 1 label1_text_right." based on RKI data of ".date_last
 
 
@@ -36,9 +36,9 @@ set yrange [1.9:]
 
 set xtic add (date_last 0) 
 
-fit f(x) data using 1:col via a, b
+fit f(x) data using (column("Days_Past")):(column("Cases")) via a, b
 
-# stats data using 1:col nooutput
+# stats data using (column("Days_Past")):(column("Cases")) nooutput
 # x_max = STATS_max_x
 t_doubling = log(2) / b
 
@@ -56,9 +56,9 @@ set label 2 sprintf("Fit Ergebnisse\nVerdopplungszeit: %.1f Tage\nZunahme 1 Tag:
 set label 3 "" .y_last right at first x_max - 0.25, first y_last * 1.20
 set yrange [0:]
 set output '../plots-gnuplot/de-states/cases-de-fit-'.short_name.'.png'
-plot data using 1:col title "Daten" with points ls 1 \
+plot data using (column("Days_Past")):(column("Cases")) title "Daten" with points ls 1 \
 , f(x) title sprintf ("7-Tages Fit/Trend") with lines ls 2 \
-, data using 1:11 title "Verdopplungszeit" axis x1y2 with lines ls 5
+, data using (column("Days_Past")):(column("Cases_Doubling_Time")) title "Verdopplungszeit" axis x1y2 with lines ls 5
 unset output
 # plot 2: log scale
 set logscale y

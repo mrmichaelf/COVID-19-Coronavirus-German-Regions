@@ -1,4 +1,4 @@
-# Country	Date	Confirmed	Deaths	Confirmed per Million	Deaths per Million	Population
+Country	Date	Cases	Deaths	Cases_Per_Million	Deaths_Per_Million	Population
 Austria	2020-04-20	14795	470	1672.0	53.0	8902600
 Belgium	2020-04-20	39983	5828	3501.0	510.0	11515793
 Canada	2020-04-20	37657	1725	1016.0	47.0	37894799

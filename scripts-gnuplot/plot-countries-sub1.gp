@@ -4,7 +4,7 @@ data = "../data/int/country-".country_code.".tsv"
 x_min = ( system("head -n 2 " . data . " | tail -1 | cut -f1") + 0 )
 x_max = ( system("tail -1 " . data . " | cut -f1") + 0 )
 # fetch data from last row of data
-y_last = ( system("tail -1 " . data . " | cut -f".col) + 0)
+y_last = ( system("tail -1 " . data . " | cut -f4") + 0)
 date_last = system("tail -1 " . data . " | cut -f2")
 
 # print country_name
@@ -20,7 +20,7 @@ set yrange [1.9:]
 f(x)=a * exp(b * x)
 a = y_last # initial value
 b = 0.24
-fit f(x) data using 1:col via a, b
+fit f(x) data using (column("Days_Past")):(column("Deaths")) via a, b
 t_doubling = log(2) / b
 
 print sprintf (country_code."\t%.1f days", t_doubling)
@@ -51,9 +51,9 @@ set key top left box
 set label 2 sprintf("Fit Results\nDoubling Time: %.1f Days\nIncrease 1 Day: %.0f%%\n  -> %d Deaths\nIncrease 7 Days: %.0f%%\n  -> %d Deaths", t_doubling, (exp(b * 1)-1)*100, y_last * exp(b * 1), (exp(b * 7)-1)*100, y_last * exp(b * 7) )
 set label 3 "" .y_last right at first x_max - 2, first y_last 
 set output '../plots-gnuplot/int/deaths-'.country_code.'-fit.png'
-plot data using 1:col title "Deaths" with points ls 1 \
+plot data using (column("Days_Past")):(column("Deaths")) title "Deaths" with points ls 1 \
 , f(x) title sprintf ("7 Day Fit/Trend") with lines ls 2 \
-, data using 1:12 title "Doubling Time" axis x1y2 with lines ls 5
+, data using (column("Days_Past")):(column("Deaths_Doubling_Time")) title "Doubling Time" axis x1y2 with lines ls 5
 
 unset output
 # , f2(x) title sprintf ("model 2 days doubling") with lines \

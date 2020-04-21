@@ -22,12 +22,12 @@ set y2range [14:0]
 # write header line into fit output file
 fit_data_file = "../data/de-states/de-states-cases-gnuplot-fit.tsv"
 set print fit_data_file
-print "# State\tShort\ta\tb\tCases\tDoubling time\tfactor t+1\tcases t+1\tfactor t+7\tcases t+7"
+print "State\tShort\ta\tb\tCases\tCases_Doubling_Time\tfactor t+1\tcases t+1\tfactor t+7\tcases t+7"
 unset print
 
 # text will be inserted later on
 set label 2 "" right front at graph 0.98, graph 0.22
-col = 3 ; col_name = 'Fälle' # infections
+col_name = 'Fälle' # infections
 short_name = 'BW' ; long_name = "Baden-Württemberg" ; load "plot-de-states-fit-sub1.gp"
 short_name = 'BY' ; long_name = "Bayern" ; load "plot-de-states-fit-sub1.gp"
 short_name = 'BE' ; long_name = "Berlin" ; load "plot-de-states-fit-sub1.gp"
@@ -49,60 +49,3 @@ short_name = 'DE-total' ; long_name = "Deutschland" ; load "plot-de-states-fit-s
 # delete fit logfile
 `rm fit.log`
 
-
-
-
-
-unset label 2
-unset label 3
-unset xrange
-unset yrange
-unset xlabel
-unset ytics
-set ytics
-set xtics autofreq
-set ytics mirror
-unset y2tics
-unset y2label
-
-
-# let's plot the fit data as boxes
-set title "Fitergebnis Verdopplungszeit (Tage)"
-set ylabel "Verdopplungszeit (Tage)"
-set xtics rotate by 60 offset 1,0 right
-# set ytics format "%.1f" 
-set bmargin 10.5
-set style fill solid 0.5 border 0
-set boxwidth 0.75 relative
-set key off
-set yrange [0:]
-y_value_de = ( system("tail -1 " . fit_data_file . " | cut -f6") + 0)
-set output '../plots-gnuplot/de-states/cases-de-fit-doubling-time.png'
-plot fit_data_file u 6:xticlabels(1) with boxes ls 11, y_value_de with lines ls 12
-unset output
-set ytics format "%g%%" 
-set title "Fitergebnis Zunahme Infektionen pro Tag"
-set ylabel "Zunahme Infektionen pro Tag"
-y_value_de = ( system("tail -1 " . fit_data_file . " | cut -f7") + 0)
-y_value_de = (y_value_de-1)*100
-set output '../plots-gnuplot/de-states/cases-de-fit-increase-1-day.png'
-plot fit_data_file u (($7-1)*100):xticlabels(1) with boxes ls 11, y_value_de with lines ls 12
-unset output
-set ytics format "%g" 
-
-# Plotting the latest number of infections per 1 Mill pop
-set title "Infektionen pro 1 Millionen Einwohner"
-set ylabel "Infektionen pro 1 Mill Einwohner"
-data = '../data/de-states/de-states-latest.tsv'
-y_value_de = ( system("tail -1 " . data . " | cut -f10") + 0)
-
-set output '../plots-gnuplot/de-states/cases-de-states-latest-per-million.png'
-plot data u 10:xticlabels(1) with boxes ls 11, y_value_de with lines ls 12
-unset output
-
-unset yrange
-unset style
-unset boxwidth
-unset bmargin
-unset xtics
-unset ytics

@@ -150,23 +150,23 @@ set xrange [0:]
 set yrange [0:]
 set output '../plots-gnuplot/int/countries-timeshifted-absolute.png'
 plot \
-  '../data/int/country-IT.tsv' using ($15/7):4 title "Italy" with lines lw 2, \
-  '../data/int/country-IR.tsv' using ($15/7):4 title "Iran" with lines lw 2, \
-  '../data/int/country-DE.tsv' using ($15/7):4 title "Germany" with lines lw 2, \
-  '../data/int/country-FR.tsv' using ($15/7):4 title "France" with lines lw 2, \
-  '../data/int/country-ES.tsv' using ($15/7):4 title "Spain" with lines lw 2, \
-  '../data/int/country-AT.tsv' using ($15/7):4 title "Austria" with lines lw 2, \
-  '../data/int/country-GB.tsv' using ($15/7):4 title "United Kingdom" with lines lw 2, \
-  '../data/int/country-US.tsv' using ($15/7):4 title "US" with lines lw 2, \
-  '../data/int/country-BE.tsv' using ($15/7):4 title "Belgium" with lines lw 2 dt "-", \
-  '../data/int/country-CA.tsv' using ($15/7):4 title "Canada" with lines lw 2 dt "-", \
-  '../data/int/country-HU.tsv' using ($15/7):4 title "Hungary" with lines lw 2 dt "-", \
-  '../data/int/country-NL.tsv' using ($15/7):4 title "Netherlands" with lines lw 2 dt "-", \
-  '../data/int/country-PT.tsv' using ($15/7):4 title "Portugal" with lines lw 2 dt "-", \
-  '../data/int/country-CH.tsv' using ($15/7):4 title "Switzerland" with lines lw 2 dt "-", \
-  '../data/int/country-JP.tsv' using ($15/7):4 title "Japan" with lines lw 2 dt "-", \
-  '../data/int/country-KR.tsv' using ($15/7):4 title "Korea, South" with lines lw 2 dt "-",\
-  '../data/int/country-SE.tsv' using ($15/7):4 title "Sweden" with lines lw 2 dt ".",\
+  '../data/int/country-IT.tsv' using (column("Days_Since_2nd_Death")/7):(column("Deaths")) title "Italy" with lines lw 2, \
+  '../data/int/country-IR.tsv' using (column("Days_Since_2nd_Death")/7):(column("Deaths")) title "Iran" with lines lw 2, \
+  '../data/int/country-DE.tsv' using (column("Days_Since_2nd_Death")/7):(column("Deaths")) title "Germany" with lines lw 2, \
+  '../data/int/country-FR.tsv' using (column("Days_Since_2nd_Death")/7):(column("Deaths")) title "France" with lines lw 2, \
+  '../data/int/country-ES.tsv' using (column("Days_Since_2nd_Death")/7):(column("Deaths")) title "Spain" with lines lw 2, \
+  '../data/int/country-AT.tsv' using (column("Days_Since_2nd_Death")/7):(column("Deaths")) title "Austria" with lines lw 2, \
+  '../data/int/country-GB.tsv' using (column("Days_Since_2nd_Death")/7):(column("Deaths")) title "United Kingdom" with lines lw 2, \
+  '../data/int/country-US.tsv' using (column("Days_Since_2nd_Death")/7):(column("Deaths")) title "US" with lines lw 2, \
+  '../data/int/country-BE.tsv' using (column("Days_Since_2nd_Death")/7):(column("Deaths")) title "Belgium" with lines lw 2 dt "-", \
+  '../data/int/country-CA.tsv' using (column("Days_Since_2nd_Death")/7):(column("Deaths")) title "Canada" with lines lw 2 dt "-", \
+  '../data/int/country-HU.tsv' using (column("Days_Since_2nd_Death")/7):(column("Deaths")) title "Hungary" with lines lw 2 dt "-", \
+  '../data/int/country-NL.tsv' using (column("Days_Since_2nd_Death")/7):(column("Deaths")) title "Netherlands" with lines lw 2 dt "-", \
+  '../data/int/country-PT.tsv' using (column("Days_Since_2nd_Death")/7):(column("Deaths")) title "Portugal" with lines lw 2 dt "-", \
+  '../data/int/country-CH.tsv' using (column("Days_Since_2nd_Death")/7):(column("Deaths")) title "Switzerland" with lines lw 2 dt "-", \
+  '../data/int/country-JP.tsv' using (column("Days_Since_2nd_Death")/7):(column("Deaths")) title "Japan" with lines lw 2 dt "-", \
+  '../data/int/country-KR.tsv' using (column("Days_Since_2nd_Death")/7):(column("Deaths")) title "Korea, South" with lines lw 2 dt "-",\
+  '../data/int/country-SE.tsv' using (column("Days_Since_2nd_Death")/7):(column("Deaths")) title "Sweden" with lines lw 2 dt ".",\
 
 unset output
 
@@ -224,23 +224,23 @@ set xrange [0:]
 set yrange [0:]
 set output '../plots-gnuplot/int/countries-timeshifted-per-million.png'
 plot \
-  '../data/int/country-IT.tsv' using ($15/7):8 title "Italy" with lines lw 2, \
-  '../data/int/country-IR.tsv' using ($15/7):8 title "Iran" with lines lw 2, \
-  '../data/int/country-DE.tsv' using ($15/7):8 title "Germany" with lines lw 2, \
-  '../data/int/country-FR.tsv' using ($15/7):8 title "France" with lines lw 2, \
-  '../data/int/country-ES.tsv' using ($15/7):8 title "Spain" with lines lw 2, \
-  '../data/int/country-AT.tsv' using ($15/7):8 title "Austria" with lines lw 2, \
-  '../data/int/country-GB.tsv' using ($15/7):8 title "United Kingdom" with lines lw 2, \
-  '../data/int/country-US.tsv' using ($15/7):8 title "US" with lines lw 2, \
-  '../data/int/country-BE.tsv' using ($15/7):8 title "Belgium" with lines lw 2 dt "-", \
-  '../data/int/country-CA.tsv' using ($15/7):8 title "Canada" with lines lw 2 dt "-", \
-  '../data/int/country-HU.tsv' using ($15/7):8 title "Hungary" with lines lw 2 dt "-", \
-  '../data/int/country-NL.tsv' using ($15/7):8 title "Netherlands" with lines lw 2 dt "-", \
-  '../data/int/country-PT.tsv' using ($15/7):8 title "Portugal" with lines lw 2 dt "-", \
-  '../data/int/country-CH.tsv' using ($15/7):8 title "Switzerland" with lines lw 2 dt "-", \
-  '../data/int/country-KR.tsv' using ($15/7):8 title "Korea, South" with lines lw 2 dt "-",\
-  '../data/int/country-JP.tsv' using ($15/7):8 title "Japan" with lines lw 2 dt "-", \
-  '../data/int/country-SE.tsv' using ($15/7):8 title "Sweden" with lines lw 2 dt ".", \
+  '../data/int/country-IT.tsv' using (column("Days_Since_2nd_Death")/7):(column("Deaths_Per_Million")) title "Italy" with lines lw 2, \
+  '../data/int/country-IR.tsv' using (column("Days_Since_2nd_Death")/7):(column("Deaths_Per_Million")) title "Iran" with lines lw 2, \
+  '../data/int/country-DE.tsv' using (column("Days_Since_2nd_Death")/7):(column("Deaths_Per_Million")) title "Germany" with lines lw 2, \
+  '../data/int/country-FR.tsv' using (column("Days_Since_2nd_Death")/7):(column("Deaths_Per_Million")) title "France" with lines lw 2, \
+  '../data/int/country-ES.tsv' using (column("Days_Since_2nd_Death")/7):(column("Deaths_Per_Million")) title "Spain" with lines lw 2, \
+  '../data/int/country-AT.tsv' using (column("Days_Since_2nd_Death")/7):(column("Deaths_Per_Million")) title "Austria" with lines lw 2, \
+  '../data/int/country-GB.tsv' using (column("Days_Since_2nd_Death")/7):(column("Deaths_Per_Million")) title "United Kingdom" with lines lw 2, \
+  '../data/int/country-US.tsv' using (column("Days_Since_2nd_Death")/7):(column("Deaths_Per_Million")) title "US" with lines lw 2, \
+  '../data/int/country-BE.tsv' using (column("Days_Since_2nd_Death")/7):(column("Deaths_Per_Million")) title "Belgium" with lines lw 2 dt "-", \
+  '../data/int/country-CA.tsv' using (column("Days_Since_2nd_Death")/7):(column("Deaths_Per_Million")) title "Canada" with lines lw 2 dt "-", \
+  '../data/int/country-HU.tsv' using (column("Days_Since_2nd_Death")/7):(column("Deaths_Per_Million")) title "Hungary" with lines lw 2 dt "-", \
+  '../data/int/country-NL.tsv' using (column("Days_Since_2nd_Death")/7):(column("Deaths_Per_Million")) title "Netherlands" with lines lw 2 dt "-", \
+  '../data/int/country-PT.tsv' using (column("Days_Since_2nd_Death")/7):(column("Deaths_Per_Million")) title "Portugal" with lines lw 2 dt "-", \
+  '../data/int/country-CH.tsv' using (column("Days_Since_2nd_Death")/7):(column("Deaths_Per_Million")) title "Switzerland" with lines lw 2 dt "-", \
+  '../data/int/country-KR.tsv' using (column("Days_Since_2nd_Death")/7):(column("Deaths_Per_Million")) title "Korea, South" with lines lw 2 dt "-",\
+  '../data/int/country-JP.tsv' using (column("Days_Since_2nd_Death")/7):(column("Deaths_Per_Million")) title "Japan" with lines lw 2 dt "-", \
+  '../data/int/country-SE.tsv' using (column("Days_Since_2nd_Death")/7):(column("Deaths_Per_Million")) title "Sweden" with lines lw 2 dt ".", \
 
 unset output
 # replot to set y2range accordingly to yrange
@@ -309,23 +309,23 @@ set xrange [0:]
 set yrange [0:]
 set output '../plots-gnuplot/int/countries-timeshifted-new_deaths-per-million.png'
 plot \
-  '../data/int/country-IT.tsv' using ($15/7):10 smooth bezier title "Italy" with lines lw 2, \
-  '../data/int/country-IR.tsv' using ($15/7):10 smooth bezier title "Iran" with lines lw 2, \
-  '../data/int/country-DE.tsv' using ($15/7):10 smooth bezier title "Germany" with lines lw 2, \
-  '../data/int/country-FR.tsv' using ($15/7):10 smooth bezier title "France" with lines lw 2, \
-  '../data/int/country-ES.tsv' using ($15/7):10 smooth bezier title "Spain" with lines lw 2, \
-  '../data/int/country-AT.tsv' using ($15/7):10 smooth bezier title "Austria" with lines lw 2, \
-  '../data/int/country-GB.tsv' using ($15/7):10 smooth bezier title "United Kingdom" with lines lw 2, \
-  '../data/int/country-US.tsv' using ($15/7):10 smooth bezier title "US" with lines lw 2, \
-  '../data/int/country-BE.tsv' using ($15/7):10 smooth bezier title "Belgium" with lines lw 2 dt "-", \
-  '../data/int/country-CA.tsv' using ($15/7):10 smooth bezier title "Canada" with lines lw 2 dt "-", \
-  '../data/int/country-HU.tsv' using ($15/7):10 smooth bezier title "Hungary" with lines lw 2 dt "-", \
-  '../data/int/country-NL.tsv' using ($15/7):10 smooth bezier title "Netherlands" with lines lw 2 dt "-", \
-  '../data/int/country-PT.tsv' using ($15/7):10 smooth bezier title "Portugal" with lines lw 2 dt "-", \
-  '../data/int/country-CH.tsv' using ($15/7):10 smooth bezier title "Switzerland" with lines lw 2 dt "-", \
-  '../data/int/country-JP.tsv' using ($15/7):10 smooth bezier title "Japan" with lines lw 2 dt "-", \
-  '../data/int/country-KR.tsv' using ($15/7):10 smooth bezier title "Korea, South" with lines lw 2 dt "-",\
-  '../data/int/country-SE.tsv' using ($15/7):10 smooth bezier title "Sweden" with lines lw 2 dt ".",\
+  '../data/int/country-IT.tsv' using (column("Days_Since_2nd_Death")/7):(column("Deaths_New_Per_Million")) smooth bezier title "Italy" with lines lw 2, \
+  '../data/int/country-IR.tsv' using (column("Days_Since_2nd_Death")/7):(column("Deaths_New_Per_Million")) smooth bezier title "Iran" with lines lw 2, \
+  '../data/int/country-DE.tsv' using (column("Days_Since_2nd_Death")/7):(column("Deaths_New_Per_Million")) smooth bezier title "Germany" with lines lw 2, \
+  '../data/int/country-FR.tsv' using (column("Days_Since_2nd_Death")/7):(column("Deaths_New_Per_Million")) smooth bezier title "France" with lines lw 2, \
+  '../data/int/country-ES.tsv' using (column("Days_Since_2nd_Death")/7):(column("Deaths_New_Per_Million")) smooth bezier title "Spain" with lines lw 2, \
+  '../data/int/country-AT.tsv' using (column("Days_Since_2nd_Death")/7):(column("Deaths_New_Per_Million")) smooth bezier title "Austria" with lines lw 2, \
+  '../data/int/country-GB.tsv' using (column("Days_Since_2nd_Death")/7):(column("Deaths_New_Per_Million")) smooth bezier title "United Kingdom" with lines lw 2, \
+  '../data/int/country-US.tsv' using (column("Days_Since_2nd_Death")/7):(column("Deaths_New_Per_Million")) smooth bezier title "US" with lines lw 2, \
+  '../data/int/country-BE.tsv' using (column("Days_Since_2nd_Death")/7):(column("Deaths_New_Per_Million")) smooth bezier title "Belgium" with lines lw 2 dt "-", \
+  '../data/int/country-CA.tsv' using (column("Days_Since_2nd_Death")/7):(column("Deaths_New_Per_Million")) smooth bezier title "Canada" with lines lw 2 dt "-", \
+  '../data/int/country-HU.tsv' using (column("Days_Since_2nd_Death")/7):(column("Deaths_New_Per_Million")) smooth bezier title "Hungary" with lines lw 2 dt "-", \
+  '../data/int/country-NL.tsv' using (column("Days_Since_2nd_Death")/7):(column("Deaths_New_Per_Million")) smooth bezier title "Netherlands" with lines lw 2 dt "-", \
+  '../data/int/country-PT.tsv' using (column("Days_Since_2nd_Death")/7):(column("Deaths_New_Per_Million")) smooth bezier title "Portugal" with lines lw 2 dt "-", \
+  '../data/int/country-CH.tsv' using (column("Days_Since_2nd_Death")/7):(column("Deaths_New_Per_Million")) smooth bezier title "Switzerland" with lines lw 2 dt "-", \
+  '../data/int/country-JP.tsv' using (column("Days_Since_2nd_Death")/7):(column("Deaths_New_Per_Million")) smooth bezier title "Japan" with lines lw 2 dt "-", \
+  '../data/int/country-KR.tsv' using (column("Days_Since_2nd_Death")/7):(column("Deaths_New_Per_Million")) smooth bezier title "Korea, South" with lines lw 2 dt "-",\
+  '../data/int/country-SE.tsv' using (column("Days_Since_2nd_Death")/7):(column("Deaths_New_Per_Million")) smooth bezier title "Sweden" with lines lw 2 dt ".",\
 
 unset output
 # replot to set y2range accordingly to yrange

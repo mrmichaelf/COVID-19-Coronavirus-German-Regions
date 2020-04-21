@@ -216,7 +216,7 @@ def export_data(d_states_data: dict):
             csvwriter = csv.writer(fh, delimiter='\t')
             csvwriter.writerow(
                 (
-                    '# Days_Past', 'Date',
+                    'Days_Past', 'Date',
                     'Cases', 'Deaths',
                     'Cases_New', 'Deaths_New',
                     'Cases_Per_Million', 'Deaths_Per_Million',
@@ -249,7 +249,7 @@ def export_latest_data(d_states_data: dict):
     with open('data/de-states/de-states-latest.tsv', mode='w', encoding='utf-8', newline='\n') as f:
         csvwriter = csv.writer(f, delimiter="\t")
         csvwriter.writerow(
-            ('# State', 'Code', 'Population', 'Pop Density', 'Date', 'Cases', 'Deaths', 'Cases_New', 'Deaths_New',
+            ('State', 'Code', 'Population', 'Pop Density', 'Date', 'Cases', 'Deaths', 'Cases_New', 'Deaths_New',
              'Cases_Per_Million', 'Deaths_Per_Million')
         )
         for code in sorted(d_states_latest.keys()):

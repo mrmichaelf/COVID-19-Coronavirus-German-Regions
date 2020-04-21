@@ -1,4 +1,4 @@
-# State	Code	Population	Pop Density	Date	Cases	Deaths	Cases_New	Deaths_New	Cases_Per_Million	Deaths_Per_Million
+State	Code	Population	Pop Density	Date	Cases	Deaths	Cases_New	Deaths_New	Cases_Per_Million	Deaths_Per_Million
 Brandenburg	BB	2511900	84.0	2020-04-21	2275	67	37	1	905.689	26.673
 Berlin	BE	3644800	4055.0	2020-04-21	5237	97	41	3	1436.842	26.613
 Baden-Württemberg	BW	11069500	308.0	2020-04-21	28712	1031	459	49	2593.794	93.139

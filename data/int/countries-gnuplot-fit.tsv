@@ -1,4 +1,4 @@
-# Country	Code	a	b	Deaths	Doubling time	Factor at t+1	Deaths at t+1	Factor at t+7	Deaths at t+7
+Country	Code	a	b	Deaths	Deaths_Doubling_Time	Factor at t+1	Deaths at t+1	Factor at t+7	Deaths at t+7
 Austria	AT	470	471.103	0.034	20.261	1.035	486	1.271	597
 Belgium	BE	5828	5977.423	0.056	12.358	1.058	6164	1.481	8630
 Canada	CA	1725	1740.915	0.100	6.924	1.105	1906	2.015	3476

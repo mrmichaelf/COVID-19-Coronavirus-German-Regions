@@ -37,25 +37,25 @@ set ylabel "Infektionen"
 set yrange [0:]
 set output '../plots-gnuplot/de-states/cases-de-absolute.png'
 plot \
-  '../data/de-states/de-state-NW.tsv' using 2:3 title "Nordrhein-Westfalen" with lines lw 2, \
-  '../data/de-states/de-state-BY.tsv' using 2:3 title "Bayern" with lines lw 2, \
-  '../data/de-states/de-state-BW.tsv' using 2:3 title "Baden-Württemberg" with lines lw 2, \
-  '../data/de-states/de-state-NI.tsv' using 2:3 title "Niedersachsen" with lines lw 2, \
-  '../data/de-states/de-state-HE.tsv' using 2:3 title "Hessen" with lines lw 2, \
-  '../data/de-states/de-state-RP.tsv' using 2:3 title "Rheinland-Pfalz" with lines lw 2, \
-  '../data/de-states/de-state-BE.tsv' using 2:3 title "Berlin" with lines lw 2, \
-  '../data/de-states/de-state-HH.tsv' using 2:3 title "Hamburg" with lines lw 2, \
-  '../data/de-states/de-state-SN.tsv' using 2:3 title "Sachsen" with lines lw 2 dt "-", \
-  '../data/de-states/de-state-SH.tsv' using 2:3 title "Schleswig-Holstein" with lines lw 2 dt "-", \
-  '../data/de-states/de-state-BB.tsv' using 2:3 title "Brandenburg" with lines lw 2 dt "-", \
-  '../data/de-states/de-state-TH.tsv' using 2:3 title "Thüringen" with lines lw 2 dt "-", \
-  '../data/de-states/de-state-ST.tsv' using 2:3 title "Sachsen-Anhalt" with lines lw 2 dt "-", \
-  '../data/de-states/de-state-SL.tsv' using 2:3 title "Saarland" with lines lw 2 dt "-", \
-  '../data/de-states/de-state-MV.tsv' using 2:3 title "Mecklenburg-Vorpommern" with lines lw 2 dt "-", \
-  '../data/de-states/de-state-HB.tsv' using 2:3 title "Bremen" with lines lw 2 dt "-", \
+  '../data/de-states/de-state-NW.tsv' using (column("Date")):(column("Cases")) title "Nordrhein-Westfalen" with lines lw 2, \
+  '../data/de-states/de-state-BY.tsv' using (column("Date")):(column("Cases")) title "Bayern" with lines lw 2, \
+  '../data/de-states/de-state-BW.tsv' using (column("Date")):(column("Cases")) title "Baden-Württemberg" with lines lw 2, \
+  '../data/de-states/de-state-NI.tsv' using (column("Date")):(column("Cases")) title "Niedersachsen" with lines lw 2, \
+  '../data/de-states/de-state-HE.tsv' using (column("Date")):(column("Cases")) title "Hessen" with lines lw 2, \
+  '../data/de-states/de-state-RP.tsv' using (column("Date")):(column("Cases")) title "Rheinland-Pfalz" with lines lw 2, \
+  '../data/de-states/de-state-BE.tsv' using (column("Date")):(column("Cases")) title "Berlin" with lines lw 2, \
+  '../data/de-states/de-state-HH.tsv' using (column("Date")):(column("Cases")) title "Hamburg" with lines lw 2, \
+  '../data/de-states/de-state-SN.tsv' using (column("Date")):(column("Cases")) title "Sachsen" with lines lw 2 dt "-", \
+  '../data/de-states/de-state-SH.tsv' using (column("Date")):(column("Cases")) title "Schleswig-Holstein" with lines lw 2 dt "-", \
+  '../data/de-states/de-state-BB.tsv' using (column("Date")):(column("Cases")) title "Brandenburg" with lines lw 2 dt "-", \
+  '../data/de-states/de-state-TH.tsv' using (column("Date")):(column("Cases")) title "Thüringen" with lines lw 2 dt "-", \
+  '../data/de-states/de-state-ST.tsv' using (column("Date")):(column("Cases")) title "Sachsen-Anhalt" with lines lw 2 dt "-", \
+  '../data/de-states/de-state-SL.tsv' using (column("Date")):(column("Cases")) title "Saarland" with lines lw 2 dt "-", \
+  '../data/de-states/de-state-MV.tsv' using (column("Date")):(column("Cases")) title "Mecklenburg-Vorpommern" with lines lw 2 dt "-", \
+  '../data/de-states/de-state-HB.tsv' using (column("Date")):(column("Cases")) title "Bremen" with lines lw 2 dt "-", \
 
 unset output
-#  '../data/de-states/de-state-DE-total.tsv' using 2:3 title "Deutschland" with lines , \
+#  '../data/de-states/de-state-DE-total.tsv' using (column("Date")):(column("Cases")) title "Deutschland" with lines , \
 
 set yrange [1:]
 set logscale y
@@ -73,26 +73,26 @@ set ylabel "Infizierte pro 1 Millionen Einwohner"
 set yrange [0:]
 set output '../plots-gnuplot/de-states/cases-de-per-million.png'
 plot \
-  '../data/de-states/de-state-NW.tsv' using 2:7 title "Nordrhein-Westfalen" with lines lw 2, \
-  '../data/de-states/de-state-BY.tsv' using 2:7 title "Bayern" with lines lw 2, \
-  '../data/de-states/de-state-BW.tsv' using 2:7 title "Baden-Württemberg" with lines lw 2, \
-  '../data/de-states/de-state-NI.tsv' using 2:7 title "Niedersachsen" with lines lw 2, \
-  '../data/de-states/de-state-HE.tsv' using 2:7 title "Hessen" with lines lw 2, \
-  '../data/de-states/de-state-RP.tsv' using 2:7 title "Rheinland-Pfalz" with lines lw 2, \
-  '../data/de-states/de-state-BE.tsv' using 2:7 title "Berlin" with lines lw 2, \
-  '../data/de-states/de-state-HH.tsv' using 2:7 title "Hamburg" with lines lw 2, \
-  '../data/de-states/de-state-SN.tsv' using 2:7 title "Sachsen" with lines lw 2 dt "-", \
-  '../data/de-states/de-state-SH.tsv' using 2:7 title "Schleswig-Holstein" with lines lw 2 dt "-", \
-  '../data/de-states/de-state-BB.tsv' using 2:7 title "Brandenburg" with lines lw 2 dt "-", \
-  '../data/de-states/de-state-TH.tsv' using 2:7 title "Thüringen" with lines lw 2 dt "-", \
-  '../data/de-states/de-state-ST.tsv' using 2:7 title "Sachsen-Anhalt" with lines lw 2 dt "-", \
-  '../data/de-states/de-state-SL.tsv' using 2:7 title "Saarland" with lines lw 2 dt "-", \
-  '../data/de-states/de-state-MV.tsv' using 2:7 title "Mecklenburg-Vorpommern" with lines lw 2 dt "-", \
-  '../data/de-states/de-state-HB.tsv' using 2:7 title "Bremen" with lines lw 2 dt "-", \
-  '../data/de-states/de-state-DE-total.tsv' using 2:7 title "Deutschland" with lines lw 4 dt 1, \
+  '../data/de-states/de-state-NW.tsv' using (column("Date")):(column("Cases_Per_Million")) title "Nordrhein-Westfalen" with lines lw 2, \
+  '../data/de-states/de-state-BY.tsv' using (column("Date")):(column("Cases_Per_Million")) title "Bayern" with lines lw 2, \
+  '../data/de-states/de-state-BW.tsv' using (column("Date")):(column("Cases_Per_Million")) title "Baden-Württemberg" with lines lw 2, \
+  '../data/de-states/de-state-NI.tsv' using (column("Date")):(column("Cases_Per_Million")) title "Niedersachsen" with lines lw 2, \
+  '../data/de-states/de-state-HE.tsv' using (column("Date")):(column("Cases_Per_Million")) title "Hessen" with lines lw 2, \
+  '../data/de-states/de-state-RP.tsv' using (column("Date")):(column("Cases_Per_Million")) title "Rheinland-Pfalz" with lines lw 2, \
+  '../data/de-states/de-state-BE.tsv' using (column("Date")):(column("Cases_Per_Million")) title "Berlin" with lines lw 2, \
+  '../data/de-states/de-state-HH.tsv' using (column("Date")):(column("Cases_Per_Million")) title "Hamburg" with lines lw 2, \
+  '../data/de-states/de-state-SN.tsv' using (column("Date")):(column("Cases_Per_Million")) title "Sachsen" with lines lw 2 dt "-", \
+  '../data/de-states/de-state-SH.tsv' using (column("Date")):(column("Cases_Per_Million")) title "Schleswig-Holstein" with lines lw 2 dt "-", \
+  '../data/de-states/de-state-BB.tsv' using (column("Date")):(column("Cases_Per_Million")) title "Brandenburg" with lines lw 2 dt "-", \
+  '../data/de-states/de-state-TH.tsv' using (column("Date")):(column("Cases_Per_Million")) title "Thüringen" with lines lw 2 dt "-", \
+  '../data/de-states/de-state-ST.tsv' using (column("Date")):(column("Cases_Per_Million")) title "Sachsen-Anhalt" with lines lw 2 dt "-", \
+  '../data/de-states/de-state-SL.tsv' using (column("Date")):(column("Cases_Per_Million")) title "Saarland" with lines lw 2 dt "-", \
+  '../data/de-states/de-state-MV.tsv' using (column("Date")):(column("Cases_Per_Million")) title "Mecklenburg-Vorpommern" with lines lw 2 dt "-", \
+  '../data/de-states/de-state-HB.tsv' using (column("Date")):(column("Cases_Per_Million")) title "Bremen" with lines lw 2 dt "-", \
+  '../data/de-states/de-state-DE-total.tsv' using (column("Date")):(column("Cases_Per_Million")) title "Deutschland" with lines lw 4 dt 1, \
 
 unset output
-#  '../data/de-states/de-state-DE-total.tsv' using 2:3 title "Deutschland" with lines , \
+#  '../data/de-states/de-state-DE-total.tsv' using (column("Date")):(column("Cases")) title "Deutschland" with lines , \
 
 set yrange [1:]
 set logscale y
@@ -110,26 +110,26 @@ set ylabel "Täglich neu Infizierte pro 1 Millionen Einwohner"
 set yrange [0:]
 set output '../plots-gnuplot/de-states/cases-de-new-per-million.png'
 plot \
-  '../data/de-states/de-state-NW.tsv' using 2:9 smooth bezier title "Nordrhein-Westfalen" with lines lw 2, \
-  '../data/de-states/de-state-BY.tsv' using 2:9 smooth bezier title "Bayern" with lines lw 2, \
-  '../data/de-states/de-state-BW.tsv' using 2:9 smooth bezier title "Baden-Württemberg" with lines lw 2, \
-  '../data/de-states/de-state-NI.tsv' using 2:9 smooth bezier title "Niedersachsen" with lines lw 2, \
-  '../data/de-states/de-state-HE.tsv' using 2:9 smooth bezier title "Hessen" with lines lw 2, \
-  '../data/de-states/de-state-RP.tsv' using 2:9 smooth bezier title "Rheinland-Pfalz" with lines lw 2, \
-  '../data/de-states/de-state-BE.tsv' using 2:9 smooth bezier title "Berlin" with lines lw 2, \
-  '../data/de-states/de-state-HH.tsv' using 2:9 smooth bezier title "Hamburg" with lines lw 2, \
-  '../data/de-states/de-state-SN.tsv' using 2:9 smooth bezier title "Sachsen" with lines lw 2 dt "-", \
-  '../data/de-states/de-state-SH.tsv' using 2:9 smooth bezier title "Schleswig-Holstein" with lines lw 2 dt "-", \
-  '../data/de-states/de-state-BB.tsv' using 2:9 smooth bezier title "Brandenburg" with lines lw 2 dt "-", \
-  '../data/de-states/de-state-TH.tsv' using 2:9 smooth bezier title "Thüringen" with lines lw 2 dt "-", \
-  '../data/de-states/de-state-ST.tsv' using 2:9 smooth bezier title "Sachsen-Anhalt" with lines lw 2 dt "-", \
-  '../data/de-states/de-state-SL.tsv' using 2:9 smooth bezier title "Saarland" with lines lw 2 dt "-", \
-  '../data/de-states/de-state-MV.tsv' using 2:9 smooth bezier title "Mecklenburg-Vorpommern" with lines lw 2 dt "-", \
-  '../data/de-states/de-state-HB.tsv' using 2:9 smooth bezier title "Bremen" with lines lw 2 dt "-", \
-  '../data/de-states/de-state-DE-total.tsv' using 2:9 smooth bezier title "Deutschland" with lines lw 4 dt 1, \
+  '../data/de-states/de-state-NW.tsv' using (column("Date")):(column("Cases_New_Per_Million")) smooth bezier title "Nordrhein-Westfalen" with lines lw 2, \
+  '../data/de-states/de-state-BY.tsv' using (column("Date")):(column("Cases_New_Per_Million")) smooth bezier title "Bayern" with lines lw 2, \
+  '../data/de-states/de-state-BW.tsv' using (column("Date")):(column("Cases_New_Per_Million")) smooth bezier title "Baden-Württemberg" with lines lw 2, \
+  '../data/de-states/de-state-NI.tsv' using (column("Date")):(column("Cases_New_Per_Million")) smooth bezier title "Niedersachsen" with lines lw 2, \
+  '../data/de-states/de-state-HE.tsv' using (column("Date")):(column("Cases_New_Per_Million")) smooth bezier title "Hessen" with lines lw 2, \
+  '../data/de-states/de-state-RP.tsv' using (column("Date")):(column("Cases_New_Per_Million")) smooth bezier title "Rheinland-Pfalz" with lines lw 2, \
+  '../data/de-states/de-state-BE.tsv' using (column("Date")):(column("Cases_New_Per_Million")) smooth bezier title "Berlin" with lines lw 2, \
+  '../data/de-states/de-state-HH.tsv' using (column("Date")):(column("Cases_New_Per_Million")) smooth bezier title "Hamburg" with lines lw 2, \
+  '../data/de-states/de-state-SN.tsv' using (column("Date")):(column("Cases_New_Per_Million")) smooth bezier title "Sachsen" with lines lw 2 dt "-", \
+  '../data/de-states/de-state-SH.tsv' using (column("Date")):(column("Cases_New_Per_Million")) smooth bezier title "Schleswig-Holstein" with lines lw 2 dt "-", \
+  '../data/de-states/de-state-BB.tsv' using (column("Date")):(column("Cases_New_Per_Million")) smooth bezier title "Brandenburg" with lines lw 2 dt "-", \
+  '../data/de-states/de-state-TH.tsv' using (column("Date")):(column("Cases_New_Per_Million")) smooth bezier title "Thüringen" with lines lw 2 dt "-", \
+  '../data/de-states/de-state-ST.tsv' using (column("Date")):(column("Cases_New_Per_Million")) smooth bezier title "Sachsen-Anhalt" with lines lw 2 dt "-", \
+  '../data/de-states/de-state-SL.tsv' using (column("Date")):(column("Cases_New_Per_Million")) smooth bezier title "Saarland" with lines lw 2 dt "-", \
+  '../data/de-states/de-state-MV.tsv' using (column("Date")):(column("Cases_New_Per_Million")) smooth bezier title "Mecklenburg-Vorpommern" with lines lw 2 dt "-", \
+  '../data/de-states/de-state-HB.tsv' using (column("Date")):(column("Cases_New_Per_Million")) smooth bezier title "Bremen" with lines lw 2 dt "-", \
+  '../data/de-states/de-state-DE-total.tsv' using (column("Date")):(column("Cases_New_Per_Million")) smooth bezier title "Deutschland" with lines lw 4 dt 1, \
 
 unset output
-#  '../data/de-states/de-state-DE-total.tsv' using 2:3 title "Deutschland" with lines , \
+#  '../data/de-states/de-state-DE-total.tsv' using (column("Date")):(column("Cases")) title "Deutschland" with lines , \
 
 set yrange [1:]
 set logscale y

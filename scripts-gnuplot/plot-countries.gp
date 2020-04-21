@@ -14,8 +14,6 @@ date_last = system("tail -1 " . data . " | cut -f2")
 
 set label 1 label1_text_right." based on JHU data of ".date_last
 
-# Deaths
-
 set xtics rotate by 60 offset 1,0 right
 # set bmargin 10.5
 set style fill solid 0.5 border 0
@@ -27,7 +25,7 @@ title = "Deaths"
 set title title
 set ylabel "Deaths"
 set output '../plots-gnuplot/int/countries-latest-selected-deaths.png'
-plot data u 4:xticlabels(1) with boxes ls 11
+plot data using (column("Deaths")):xticlabels(1) with boxes ls 11
 unset output
 #
 title = title." - Log Scale"
@@ -44,7 +42,7 @@ title = "Deaths per Million Population"
 set title title
 set ylabel "Deaths per Million Population"
 set output '../plots-gnuplot/int/countries-latest-selected-deaths-per-mill.png'
-plot data u 6:xticlabels(1) with boxes ls 11
+plot data using (column("Deaths_Per_Million")):xticlabels(1) with boxes ls 11
 unset output
 #
 title = title." - Log Scale"
@@ -62,7 +60,7 @@ deaths_per_million_of_IT = system ("grep Italy ../data/int/countries-latest-sele
 #print deaths_per_million_of_IT
 set ylabel "Duplications"
 set output '../plots-gnuplot/int/countries-duplications-until-IT-level-of-deaths.png'
-plot data u (log(deaths_per_million_of_IT/$6)/log(2)):xticlabels(1) with boxes ls 11
+plot data using (log(deaths_per_million_of_IT/column("Deaths_Per_Million"))/log(2)):xticlabels(1) with boxes ls 11
 unset output
 
 title = "Calculated Mortality: Deaths per Reported Infections"
@@ -70,7 +68,7 @@ set title title
 set ylabel "Calculated Mortality: Deaths per Reported Infections"
 set ytics format "%g%%"
 set output '../plots-gnuplot/int/countries-deaths-per-infections.png'
-plot data u (100.0 * $4/$3):xticlabels(1) with boxes ls 11
+plot data using (100.0 * column("Deaths")/column("Cases")):xticlabels(1) with boxes ls 11
 unset output
 set ytics format "%g"
 
@@ -79,7 +77,7 @@ set title title
 set xtics rotate by 0
 set xlabel "Deaths per Million Population"
 set output '../plots-gnuplot/int/countries-mortality-vs-deaths-ppm.png'
-plot data u 6:(100.0 * $4/$3) with points ls 1
+plot data using (column("Deaths_Per_Million")):(100.0 * column("Deaths")/column("Cases")) with points ls 1
 unset output
 
 
@@ -97,11 +95,10 @@ set y2range [14:0]
 
 # set lmargin 9
 
-col = 4
 
 fit_data_file = "../data/int/countries-gnuplot-fit.tsv"
 set print fit_data_file
-print "# Country\tCode\ta\tb\tDeaths\tDoubling time\tFactor at t+1\tDeaths at t+1\tFactor at t+7\tDeaths at t+7"
+print "Country\tCode\ta\tb\tDeaths\tDeaths_Doubling_Time\tFactor at t+1\tDeaths at t+1\tFactor at t+7\tDeaths at t+7"
 unset print
 set xtics 7 rotate by 0
 country_code = "AT" ; country_name = "Austria" ; load "plot-countries-sub1.gp"
@@ -155,7 +152,7 @@ set key off
 set yrange [0:21]
 # y_value_de = ( system("tail -1 " . fit_data_file . " | cut -f6") + 0)
 set output '../plots-gnuplot/int/countries-fit-deaths-doubling-time.png'
-plot fit_data_file u 6:xticlabels(1) with boxes ls 11
+plot fit_data_file using (column("Deaths_Doubling_Time")):xticlabels(1) with boxes ls 11
 #, y_value_de
 unset output
 set yrange [0:*]
@@ -165,7 +162,7 @@ set ylabel "Increase Deaths per Day"
 # y_value_de = ( system("tail -1 " . fit_data_file . " | cut -f7") + 0)
 # y_value_de = (y_value_de-1)*100
 set output '../plots-gnuplot/int/countries-fit-deaths-increase-1-day.png'
-plot fit_data_file u (($7-1)*100):xticlabels(1) with boxes ls 11
+plot fit_data_file using ((column("Factor at t+1")-1)*100):xticlabels(1) with boxes ls 11
 # , y_value_de
 unset output
 set ytics autofreq format "%g" 
@@ -180,7 +177,7 @@ out = system ("cd .. ; python join-country-latest-and-fit-data.py ; cd scripts-g
 print out
 data = '../data/int/countries-joined_selected_and_gnuplot_fit.tsv'
 set output '../plots-gnuplot/int/countries-days-until-IT-level-of-deaths.png'
-plot data u 17:xticlabels(1) with boxes ls 11
+plot data u (column("Days till deaths/pop of Italy")):xticlabels(1) with boxes ls 11
 unset output
 unset yrange
 set ytics autofreq

@@ -30,7 +30,7 @@ T = 5.0
 set xrange [-20.1:-13.9]
 
 
-fit f(x) data using ($1-14):($4*100) via N0, T
+fit f(x) data using (column("Days_Past")-14):(column("Deaths")*100) via N0, T
 #b = log(2)/T
 
 # delete fit logfile
@@ -63,8 +63,8 @@ set logscale y
 set xrange [-35:0]
 # set samples 300
 set output '../plots-gnuplot/de-states/calc-cases-from-deaths-DE-total.png'
-plot data using ($1-14):($4*100) title "geschätze Infizierte" with linespoints ls 1 ,\
-     data using ($1):($3) title "positiv getestet" with linespoints ls 2 ,\
+plot data using (column("Days_Past")-14):(column("Deaths")*100) title "geschätze Infizierte" with linespoints ls 1 ,\
+     data using (column("Days_Past")):(column("Cases")) title "positiv getestet" with linespoints ls 2 ,\
      (x<=-20.25)?1/0:f(x) title "Fit/Modell" with lines ls 1 dt "-" linecolor rgb 'black' 
 
 unset output
