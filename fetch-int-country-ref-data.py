@@ -5,12 +5,11 @@
 
 import codecs
 import urllib
-
 import requests
-
 import csv
 import json
 
+# my helper modules
 import helper
 
 # header row:
@@ -96,4 +95,3 @@ with open(file_CSV, mode='w', encoding='utf-8', newline='\n') as file:
     dict_writer = csv.DictWriter(file, keys, delimiter="\t")
     dict_writer.writeheader()
     dict_writer.writerows(l)
-

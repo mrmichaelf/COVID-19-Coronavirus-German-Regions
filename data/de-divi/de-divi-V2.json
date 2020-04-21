@@ -1,0 +1,114 @@
+{
+ "Baden-Württemberg": [
+  {
+   "date": "2020-04-22",
+   "occupied": 2095,
+   "total": 3635
+  }
+ ],
+ "Bayern": [
+  {
+   "date": "2020-04-22",
+   "occupied": 3061,
+   "total": 4798
+  }
+ ],
+ "Berlin": [
+  {
+   "date": "2020-04-22",
+   "occupied": 976,
+   "total": 1381
+  }
+ ],
+ "Brandenburg": [
+  {
+   "date": "2020-04-22",
+   "occupied": 599,
+   "total": 1064
+  }
+ ],
+ "Bremen": [
+  {
+   "date": "2020-04-22",
+   "occupied": 153,
+   "total": 256
+  }
+ ],
+ "Hamburg": [
+  {
+   "date": "2020-04-22",
+   "occupied": 559,
+   "total": 916
+  }
+ ],
+ "Hessen": [
+  {
+   "date": "2020-04-22",
+   "occupied": 1531,
+   "total": 2459
+  }
+ ],
+ "Mecklenburg-Vorpommern": [
+  {
+   "date": "2020-04-22",
+   "occupied": 457,
+   "total": 745
+  }
+ ],
+ "Niedersachsen": [
+  {
+   "date": "2020-04-22",
+   "occupied": 1489,
+   "total": 2625
+  }
+ ],
+ "Nordrhein-Westfalen": [
+  {
+   "date": "2020-04-22",
+   "occupied": 4195,
+   "total": 7030
+  }
+ ],
+ "Rheinland-Pfalz": [
+  {
+   "date": "2020-04-22",
+   "occupied": 754,
+   "total": 1371
+  }
+ ],
+ "Saarland": [
+  {
+   "date": "2020-04-22",
+   "occupied": 268,
+   "total": 550
+  }
+ ],
+ "Sachsen": [
+  {
+   "date": "2020-04-22",
+   "occupied": 868,
+   "total": 1446
+  }
+ ],
+ "Sachsen-Anhalt": [
+  {
+   "date": "2020-04-22",
+   "occupied": 496,
+   "total": 898
+  }
+ ],
+ "Schleswig-Holstein": [
+  {
+   "date": "2020-04-22",
+   "occupied": 536,
+   "total": 1043
+  }
+ ],
+ "Thüringen": [
+  {
+   "date": "2020-04-22",
+   "occupied": 570,
+   "total": 1028
+  }
+ ]
+}

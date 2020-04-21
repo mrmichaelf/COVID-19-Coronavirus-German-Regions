@@ -30,9 +30,10 @@ def read_json_file(filename: str):
         return json.load(fh)
 
 
-def write_json(filename: str, d: dict, sort_keys: bool = False):
+def write_json(filename: str, d: dict, sort_keys: bool = False, indent: int = None):
     with open(filename, mode='w', encoding='utf-8', newline='\n') as fh:
-        json.dump(d, fh, ensure_ascii=False, sort_keys=sort_keys)
+        json.dump(d, fh, ensure_ascii=False,
+                  sort_keys=sort_keys, indent=indent)
 
 
 def read_command_line_parameters() -> dict:
