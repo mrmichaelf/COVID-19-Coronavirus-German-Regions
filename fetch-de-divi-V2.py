@@ -1,12 +1,5 @@
 """
-https://www.divi.de/register/kartenansicht
-
-https://diviexchange.z6.web.core.windows.net/report.html
-
-https://docs.python-guide.org/scenarios/scrape/
-
-https://towardsdatascience.com/web-scraping-html-tables-with-python-c9baba21059
-
+Source: https://www.intensivregister.de/#/intensivregister
 """
 
 import sys
