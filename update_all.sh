@@ -7,6 +7,7 @@
 
 wget -q -O index-online.html https://entorb.net/COVID-19-coronavirus/index.html 
 
+python fetch-de-divi-V2.py
 python fetch-de-districts.py
 
 python fetch-int-country-data.py
