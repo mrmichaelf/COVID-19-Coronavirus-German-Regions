@@ -1,3 +1,7 @@
+# TODO
+/data/
+
+
 __pycache__/
 eCharts/apache-echarts-4.7.0-incubating-src/*
 /backup/

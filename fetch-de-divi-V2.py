@@ -77,13 +77,13 @@ helper.write_json(filename+'.json',
 
 # TODO write csv per state
 # # Test for Bayern
-# with open(filename+'.tsv', mode='w', encoding='utf-8', newline='\n') as f:
-#     writer = csv.DictWriter(f, delimiter="\t", fieldnames=[
+# with open(filename+'.tsv', mode='w', encoding='utf-8', newline='\n') as fh:
+#     csvwriter = csv.DictWriter(fh, delimiter='\t', extrasaction='ignore', fieldnames=[
 #                             'date', 'occupied_percent', 'occupied', 'total'])
-#     writer.writeheader()
+#     csvwriter.writeheader()
 #     l = d_data_all['Bayern']
 #     for d in l:
 #         d['occupied_percent'] = round(100*d['occupied'] / d['total'], 1)
-#         writer.writerow(d)
+#         csvwriter.writerow(d)
 
 # TODO: write csv for DE Sum

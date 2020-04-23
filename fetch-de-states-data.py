@@ -213,28 +213,19 @@ def export_data(d_states_data: dict):
             f'data/de-states/de-state-{code}.json', l_time_series)
 
         with open(outfile, mode='w', encoding='utf-8', newline='\n') as fh:
-            csvwriter = csv.writer(fh, delimiter='\t')
-            csvwriter.writerow(
-                (
-                    'Days_Past', 'Date',
-                    'Cases', 'Deaths',
-                    'Cases_New', 'Deaths_New',
-                    'Cases_Per_Million', 'Deaths_Per_Million',
-                    'Cases_New_Per_Million', 'Deaths_New_Per_Million',
-                    'Cases_Doubling_Time', 'Deaths_Doubling_Time'
-                )
+            csvwriter = csv.DictWriter(fh, delimiter='\t', extrasaction='ignore', fieldnames=[
+                'Days_Past', 'Date',
+                'Cases', 'Deaths',
+                'Cases_New', 'Deaths_New',
+                'Cases_Per_Million', 'Deaths_Per_Million',
+                'Cases_New_Per_Million', 'Deaths_New_Per_Million',
+                'Cases_Last_Week_Per_Million', 'Deaths_Last_Week_Per_Million',
+                'Cases_Doubling_Time', 'Deaths_Doubling_Time'
+            ]
             )
-            for entry in l_time_series:
-                csvwriter.writerow(
-                    (
-                        entry['Days_Past'], entry['Date'],
-                        entry['Cases'], entry['Deaths'],
-                        entry['Cases_New'], entry['Deaths_New'],
-                        entry['Cases_Per_Million'], entry['Deaths_Per_Million'],
-                        entry['Cases_New_Per_Million'], entry['Deaths_New_Per_Million'],
-                        entry['Cases_Doubling_Time'], entry['Deaths_Doubling_Time']
-                    )
-                )
+            csvwriter.writeheader()
+            for d in l_time_series:
+                csvwriter.writerow(d)
 
 
 def export_latest_data(d_states_data: dict):
@@ -246,26 +237,30 @@ def export_latest_data(d_states_data: dict):
         d_states_latest[code]['Date_Latest'] = d_latest['Date']
         for key in ('Cases', 'Deaths', 'Cases_New', 'Deaths_New', 'Cases_Per_Million', 'Deaths_Per_Million'):
             d_states_latest[code][key] = d_latest[key]
-    with open('data/de-states/de-states-latest.tsv', mode='w', encoding='utf-8', newline='\n') as f:
-        csvwriter = csv.writer(f, delimiter="\t")
-        csvwriter.writerow(
-            ('State', 'Code', 'Population', 'Pop Density', 'Date', 'Cases', 'Deaths', 'Cases_New', 'Deaths_New',
-             'Cases_Per_Million', 'Deaths_Per_Million')
-        )
+    with open('data/de-states/de-states-latest.tsv', mode='w', encoding='utf-8', newline='\n') as fh:
+        csvwriter = csv.DictWriter(fh, delimiter='\t', extrasaction='ignore',
+                                   fieldnames=('State', 'Code', 'Population', 'Pop Density',
+                                               'Date',
+                                               'Cases', 'Deaths',
+                                               'Cases_New', 'Deaths_New',
+                                               'Cases_Per_Million',
+                                               'Deaths_Per_Million')
+                                   )
+        csvwriter.writeheader()
         for code in sorted(d_states_latest.keys()):
             d = d_states_latest[code]
-            l = (d['State'], code, d['Population'], d['Pop Density'], d['Date_Latest'], d['Cases'], d['Deaths'],
-                 d['Cases_New'], d['Deaths_New'], d['Cases_Per_Million'], d['Deaths_Per_Million'])
+            d['Code'] = code
             if code == 'DE-total':  # DE as last row
-                l_de = list(l)
+                d_de = dict(d)
                 continue
             csvwriter.writerow(
-                l
+                d
             )
-        del d, l, code
+        del d, code
         # add # to uncomment the DE total sum last line
-        l_de[0] = '# Deutschland'
-        csvwriter.writerow(l_de)
+        d_de['State'] = '# Deutschland'
+        csvwriter.writerow(d_de)
+        del d_de
 
 
 # def convert_csv_OLD():

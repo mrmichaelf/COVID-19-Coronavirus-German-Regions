@@ -217,12 +217,12 @@ set label 27 "SE" left at first last_x_SE/7.0 , first last_y_SE_pm
 
 
 
-
+output = '../plots-gnuplot/int/countries-timeshifted-per-million.png'
 set xrange [0:]
 # TODO:
 # set yrange [0:2000]
 set yrange [0:]
-set output '../plots-gnuplot/int/countries-timeshifted-per-million.png'
+set output output
 plot \
   '../data/int/country-IT.tsv' using (column("Days_Since_2nd_Death")/7):(column("Deaths_Per_Million")) title "Italy" with lines lw 2, \
   '../data/int/country-IR.tsv' using (column("Days_Since_2nd_Death")/7):(column("Deaths_Per_Million")) title "Iran" with lines lw 2, \
@@ -245,7 +245,7 @@ plot \
 unset output
 # replot to set y2range accordingly to yrange
 set y2range[GPVAL_Y_MIN:GPVAL_Y_MAX]
-set output '../plots-gnuplot/int/countries-timeshifted-per-million.png'
+set output output
 replot
 unset output
 
@@ -256,12 +256,13 @@ set logscale y
 set logscale y2
 title = "Death toll development - scaled per million population and log"
 set title title
-set output '../plots-gnuplot/int/countries-timeshifted-per-million-log.png'
+output = '../plots-gnuplot/int/countries-timeshifted-per-million-log.png'
+set output = output
 replot
 unset output
 # replot to set y2range accordingly to yrange
 set y2range[GPVAL_Y_MIN:GPVAL_Y_MAX]
-set output '../plots-gnuplot/int/countries-timeshifted-per-million-log.png'
+set output output
 replot
 unset output
 
@@ -307,7 +308,8 @@ set y2tics add ("US cancer\nper day" 1857.0/365)
 
 set xrange [0:]
 set yrange [0:]
-set output '../plots-gnuplot/int/countries-timeshifted-new_deaths-per-million.png'
+output = '../plots-gnuplot/int/countries-timeshifted-new_deaths-per-million.png'
+set output output
 plot \
   '../data/int/country-IT.tsv' using (column("Days_Since_2nd_Death")/7):(column("Deaths_New_Per_Million")) smooth bezier title "Italy" with lines lw 2, \
   '../data/int/country-IR.tsv' using (column("Days_Since_2nd_Death")/7):(column("Deaths_New_Per_Million")) smooth bezier title "Iran" with lines lw 2, \
@@ -330,7 +332,7 @@ plot \
 unset output
 # replot to set y2range accordingly to yrange
 set y2range[GPVAL_Y_MIN:GPVAL_Y_MAX]
-set output '../plots-gnuplot/int/countries-timeshifted-new_deaths-per-million.png'
+set output output
 replot
 unset output
 
@@ -342,12 +344,13 @@ set yrange [0.01:]
 set logscale y
 set logscale y2
 set title title ." - log. scaled"
-set output '../plots-gnuplot/int/countries-timeshifted-new_deaths-per-million-log.png'
+output= '../plots-gnuplot/int/countries-timeshifted-new_deaths-per-million-log.png'
+set output output
 replot
 unset output
 # replot to set y2range accordingly to yrange
 set y2range[GPVAL_Y_MIN:GPVAL_Y_MAX]
-set output '../plots-gnuplot/int/countries-timeshifted-new_deaths-per-million-log.png'
+set output output
 replot
 unset output
 
