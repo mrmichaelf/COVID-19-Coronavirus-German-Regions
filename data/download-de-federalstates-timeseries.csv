@@ -879,3 +879,19 @@ id,Country/Region,federalstate,infections,deaths,date,newinfections,newdeaths
 880,Germany,Saxony-Anhalt,1395,33,2020-04-22,12,1
 869,Germany,Schleswig-Holstein,2496,79,2020-04-22,82,9
 879,Germany,Thuringia,1872,71,2020-04-22,74,16
+896,Germany,Baden-Württemberg,29443,1113,2020-04-23,545,50
+884,Germany,Bavaria,39395,1476,2020-04-23,581,52
+894,Germany,Berlin,5324,105,2020-04-23,12,0
+882,Germany,Brandenburg,2447,84,2020-04-23,58,10
+886,Germany,Bremen,672,27,2020-04-23,48,1
+888,Germany,Hamburg,4286,113,2020-04-23,82,22
+891,Germany,Hesse,7593,286,2020-04-23,213,21
+881,Germany,Lower Saxony,9391,340,2020-04-23,155,12
+885,Germany,Mecklenburg-Western Pomerania,659,15,2020-04-23,3,0
+889,Germany,North Rhine-Westphalia,30584,999,2020-04-23,399,35
+892,Germany,Rhineland-Palatinate,5643,131,2020-04-23,50,9
+893,Germany,Saarland,2395,99,2020-04-23,28,2
+890,Germany,Saxony,4327,127,2020-04-23,54,5
+887,Germany,Saxony-Anhalt,1425,34,2020-04-23,30,1
+895,Germany,Schleswig-Holstein,2530,84,2020-04-23,34,5
+883,Germany,Thuringia,1932,61,2020-04-23,60,-10
