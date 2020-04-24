@@ -21,11 +21,6 @@
 			g.type = 'text/javascript'; g.async = true; g.defer = true; g.src = u + 'matomo.js'; s.parentNode.insertBefore(g, s);
 		})();
 	</script>
-	<noscript>
-
-		<p><img src="https://entorb.net/stats/matomo/matomo.php?idsite=1&amp;rec=1" style="border:0;" alt="" /></p>
-	</noscript>
-	<!-- End Matomo Code -->
 	<!-- von AF -->
 	<style>
 		.af_gallery_container {
@@ -150,6 +145,10 @@
 </head>
 
 <body>
+	<!-- Matomo noscript-->
+	<noscript>
+		<img src="https://entorb.net/stats/matomo/matomo.php?idsite=1&amp;rec=1" style="border:0;" alt="" />
+	</noscript>
 
 	<h1>COVID-19 Disease Spread Time Series in German Regions and Selected Countries</h1>
 
@@ -818,7 +817,6 @@
 		// fetch ref list: Country Code -> Country Name
 		var mapCountryNames = {};
 		var mapContinentCountries = {};
-
 
 		// fetch countries-latest-all.json containing country reference data like code and continent
 		function fetch_mapRefCountryData(mapCountryNames, mapContinentCountries) {
