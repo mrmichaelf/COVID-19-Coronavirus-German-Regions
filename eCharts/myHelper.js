@@ -397,8 +397,8 @@ function refreshChart(
     }
     else if (select_xAxisProperty.value == "Date") {
       // fetch latest date of first data series as basis
-      const s_data_last_date = option.series[0].data[option.series[0].data.length - 1][0]
-      const ts_last_date = Date.parse(s_data_last_date)
+      const s_data_last_date = option.series[0].data[option.series[0].data.length - 1][0];
+      const ts_last_date = Date.parse(s_data_last_date);
       var minDate = new Date(ts_last_date);
       minDate.setDate(minDate.getDate() + daysOffset);
       option.xAxis.min = minDate;
@@ -413,8 +413,8 @@ function refreshChart(
     }
     else if (select_xAxisProperty.value == "Date") {
       // fetch latest date of first data series as basis
-      const s_data_last_date = option.series[0].data[option.series[0].data.length - 1][0]
-      const ts_last_date = Date.parse(s_data_last_date)
+      const s_data_last_date = option.series[0].data[option.series[0].data.length - 1][0];
+      const ts_last_date = Date.parse(s_data_last_date);
       var minDate = new Date(ts_last_date);
       minDate.setDate(minDate.getDate() + daysOffset);
       option.xAxis.min = minDate;

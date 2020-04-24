@@ -308,7 +308,8 @@ def series_of_fits_multi_threading(data: list, fit_range: int = 7, max_days_past
             try:
                 d_this_fit_result = future.result()
             except Exception as exc:
-                print('%r generated an exception: %s' % (day, exc))
+                print('%r generated an exception: %s' %
+                      (last_day_for_fit, exc))
             if len(d_this_fit_result) != 0:
                 fit_series_res[last_day_for_fit] = round(
                     d_this_fit_result['fit_res'][1], 1)
