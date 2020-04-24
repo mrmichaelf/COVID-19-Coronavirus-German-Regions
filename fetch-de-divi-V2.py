@@ -52,8 +52,34 @@ def extractAreaTagTitleData(cont: str) -> list:
 
 def extractBundeslandKeyValueData(s1: str) -> list:
     # 'Baden-Württemberg\rAnzahl COVID-19 Patienten/innen in intensivmedizinischer Behandlung: 456\rAnteil COVID-19 Patienten/innen pro Intensivbett: 11,9%'
+    l1 = s1.split("\r")
+    bundesland = l1.pop(0)
+    global d_data_all
+    if bundesland not in d_data_all:
+        d_data_all[bundesland] = []
+    d = {}
+    for s2 in l1:
+        l2 = s2.split(': ')
+        key = l2[0]
+        value = l2[1]
 
-    return l
+        # remove percent sign from end
+        if value[-1] == '%':
+            value = value[0: -1]
+
+        # remove 1000 separator .
+        pattern = re.compile(r'(?<=\d)\.(?=\d)')
+        value = pattern.sub('', value)
+        if value.isdigit():
+            value = int(value)
+        elif value.isnumeric():
+            value = float(value)
+        else:
+            # if isinstance(value, str):
+            print("ERROR: values is string")
+
+        d[key] = value
+    return (bundesland, d)
 
 
 def fetch_betten():
@@ -70,44 +96,25 @@ def fetch_betten():
 
     # extract data
     for s1 in myMatches:
-        l = []
-        # l = extractBundeslandKeyValueData(s1)
-        l1 = s1.split("\r")
-        bundesland = l1.pop(0)
-        l.append((bundesland))
-        if bundesland not in d_data_all:
-            d_data_all[bundesland] = []
-        d1 = {}
-        for s2 in l1:
-            l2 = s2.split(': ')
-            key = l2[0]
-            value = l2[1]
+        bundesland, d1 = extractBundeslandKeyValueData(s1)
 
-            # remove percent sign from end
-            if value[-1] == '%':
-                print("Percent found")
-                value = value[0: -1]
-
-            # remove 1000 separator .
-            pattern = re.compile(r'(?<=\d)\.(?=\d)')
-            value = pattern.sub('', value)
-            if value.isdigit():
-                value = int(value)
-            elif value.isnumeric():
-                value = float(value)
-            if isinstance(value, str):
-                if value[-1] == '%':
-                    print("Percent found")
-
-            d1[key] = value
-        l.append(d1)
         d2 = {}
         d2['Date'] = datestr
         d2['Betten belegt'] = d1['Belegte Betten']
         d2['Betten gesamt'] = d1['Freie Betten'] + d1['Belegte Betten']
         d_data_all[bundesland].append(d2)
         1
-    del myMatches, s1, s2, l1, l2, d1, d2, key, value, bundesland
+    del myMatches, s1, bundesland, d1, d2
+
+
+def fetch_covid():
+    # fetch data per bundesland, having many duplicates
+    cont = read_from_url(
+        "https://diviexchange.z6.web.core.windows.net/gmap_covid.htm").decode('utf-8')
+    myMatches = extractAreaTagTitleData(cont)
+    1
+    # example
+    # 'Schleswig-Holstein\rFreie Betten: 507\rBelegte Betten: 536\rAnteil freier Betten an Gesamtzahl: 48.6%'
 
 
 def export_data():
@@ -127,16 +134,6 @@ def export_data():
     #         csvwriter.writerow(d)
 
     # TODO: write csv for DE Sum
-
-
-def fetch_covid():
-    # fetch data per bundesland, having many duplicates
-    cont = read_from_url(
-        "https://diviexchange.z6.web.core.windows.net/gmap_covid.htm").decode('utf-8')
-    myMatches = extractAreaTagTitleData(cont)
-    1
-    # example
-    # 'Schleswig-Holstein\rFreie Betten: 507\rBelegte Betten: 536\rAnteil freier Betten an Gesamtzahl: 48.6%'
 
 
 fetch_betten()

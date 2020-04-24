@@ -1,274 +1,354 @@
 {
-    "Baden-Württemberg": [
-        {
-            "Date": "2020-04-22",
-            "Betten belegt": 2095,
-            "Betten gesamt": 3635
-        },
-        {
-            "Date": "2020-04-23",
-            "Betten belegt": 2239,
-            "Betten gesamt": 3827
-        },
-        {
-            "Date": "2020-04-24",
-            "Betten belegt": 2218,
-            "Betten gesamt": 3816
-        }
-    ],
-    "Bayern": [
-        {
-            "Date": "2020-04-22",
-            "Betten belegt": 3061,
-            "Betten gesamt": 4798
-        },
-        {
-            "Date": "2020-04-23",
-            "Betten belegt": 2970,
-            "Betten gesamt": 6151
-        },
-        {
-            "Date": "2020-04-24",
-            "Betten belegt": 2956,
-            "Betten gesamt": 4606
-        }
-    ],
-    "Berlin": [
-        {
-            "Date": "2020-04-22",
-            "Betten belegt": 976,
-            "Betten gesamt": 1381
-        },
-        {
-            "Date": "2020-04-23",
-            "Betten belegt": 1009,
-            "Betten gesamt": 1497
-        },
-        {
-            "Date": "2020-04-24",
-            "Betten belegt": 1034,
-            "Betten gesamt": 1494
-        }
-    ],
-    "Brandenburg": [
-        {
-            "Date": "2020-04-22",
-            "Betten belegt": 599,
-            "Betten gesamt": 1064
-        },
-        {
-            "Date": "2020-04-23",
-            "Betten belegt": 588,
-            "Betten gesamt": 1055
-        },
-        {
-            "Date": "2020-04-24",
-            "Betten belegt": 589,
-            "Betten gesamt": 1055
-        }
-    ],
-    "Bremen": [
-        {
-            "Date": "2020-04-22",
-            "Betten belegt": 153,
-            "Betten gesamt": 256
-        },
-        {
-            "Date": "2020-04-23",
-            "Betten belegt": 153,
-            "Betten gesamt": 257
-        },
-        {
-            "Date": "2020-04-24",
-            "Betten belegt": 152,
-            "Betten gesamt": 259
-        }
-    ],
-    "Hamburg": [
-        {
-            "Date": "2020-04-22",
-            "Betten belegt": 559,
-            "Betten gesamt": 916
-        },
-        {
-            "Date": "2020-04-23",
-            "Betten belegt": 569,
-            "Betten gesamt": 918
-        },
-        {
-            "Date": "2020-04-24",
-            "Betten belegt": 585,
-            "Betten gesamt": 933
-        }
-    ],
-    "Hessen": [
-        {
-            "Date": "2020-04-22",
-            "Betten belegt": 1531,
-            "Betten gesamt": 2459
-        },
-        {
-            "Date": "2020-04-23",
-            "Betten belegt": 1669,
-            "Betten gesamt": 2618
-        },
-        {
-            "Date": "2020-04-24",
-            "Betten belegt": 1665,
-            "Betten gesamt": 2599
-        }
-    ],
-    "Mecklenburg-Vorpommern": [
-        {
-            "Date": "2020-04-22",
-            "Betten belegt": 457,
-            "Betten gesamt": 745
-        },
-        {
-            "Date": "2020-04-23",
-            "Betten belegt": 470,
-            "Betten gesamt": 753
-        },
-        {
-            "Date": "2020-04-24",
-            "Betten belegt": 496,
-            "Betten gesamt": 785
-        }
-    ],
-    "Niedersachsen": [
-        {
-            "Date": "2020-04-22",
-            "Betten belegt": 1489,
-            "Betten gesamt": 2625
-        },
-        {
-            "Date": "2020-04-23",
-            "Betten belegt": 1612,
-            "Betten gesamt": 2766
-        },
-        {
-            "Date": "2020-04-24",
-            "Betten belegt": 1560,
-            "Betten gesamt": 2787
-        }
-    ],
-    "Nordrhein-Westfalen": [
-        {
-            "Date": "2020-04-22",
-            "Betten belegt": 4195,
-            "Betten gesamt": 7030
-        },
-        {
-            "Date": "2020-04-23",
-            "Betten belegt": 4296,
-            "Betten gesamt": 7117
-        },
-        {
-            "Date": "2020-04-24",
-            "Betten belegt": 4314,
-            "Betten gesamt": 7068
-        }
-    ],
-    "Rheinland-Pfalz": [
-        {
-            "Date": "2020-04-22",
-            "Betten belegt": 754,
-            "Betten gesamt": 1371
-        },
-        {
-            "Date": "2020-04-23",
-            "Betten belegt": 748,
-            "Betten gesamt": 1393
-        },
-        {
-            "Date": "2020-04-24",
-            "Betten belegt": 736,
-            "Betten gesamt": 1392
-        }
-    ],
-    "Saarland": [
-        {
-            "Date": "2020-04-22",
-            "Betten belegt": 268,
-            "Betten gesamt": 550
-        },
-        {
-            "Date": "2020-04-23",
-            "Betten belegt": 313,
-            "Betten gesamt": 647
-        },
-        {
-            "Date": "2020-04-24",
-            "Betten belegt": 321,
-            "Betten gesamt": 678
-        }
-    ],
-    "Sachsen": [
-        {
-            "Date": "2020-04-22",
-            "Betten belegt": 868,
-            "Betten gesamt": 1446
-        },
-        {
-            "Date": "2020-04-23",
-            "Betten belegt": 886,
-            "Betten gesamt": 1467
-        },
-        {
-            "Date": "2020-04-24",
-            "Betten belegt": 887,
-            "Betten gesamt": 1560
-        }
-    ],
-    "Sachsen-Anhalt": [
-        {
-            "Date": "2020-04-22",
-            "Betten belegt": 496,
-            "Betten gesamt": 898
-        },
-        {
-            "Date": "2020-04-23",
-            "Betten belegt": 530,
-            "Betten gesamt": 946
-        },
-        {
-            "Date": "2020-04-24",
-            "Betten belegt": 679,
-            "Betten gesamt": 1137
-        }
-    ],
-    "Schleswig-Holstein": [
-        {
-            "Date": "2020-04-22",
-            "Betten belegt": 536,
-            "Betten gesamt": 1043
-        },
-        {
-            "Date": "2020-04-23",
-            "Betten belegt": 545,
-            "Betten gesamt": 1037
-        },
-        {
-            "Date": "2020-04-24",
-            "Betten belegt": 555,
-            "Betten gesamt": 1061
-        }
-    ],
-    "Thüringen": [
-        {
-            "Date": "2020-04-22",
-            "Betten belegt": 570,
-            "Betten gesamt": 1028
-        },
-        {
-            "Date": "2020-04-23",
-            "Betten belegt": 599,
-            "Betten gesamt": 1032
-        },
-        {
-            "Date": "2020-04-24",
-            "Betten belegt": 598,
-            "Betten gesamt": 1038
-        }
-    ]
+ "Baden-Württemberg": [
+  {
+   "Date": "2020-04-22",
+   "Betten belegt": 2095,
+   "Betten gesamt": 3635
+  },
+  {
+   "Date": "2020-04-23",
+   "Betten belegt": 2239,
+   "Betten gesamt": 3827
+  },
+  {
+   "Date": "2020-04-24",
+   "Betten belegt": 2218,
+   "Betten gesamt": 3816
+  },
+  {
+   "Date": "2020-04-24",
+   "Betten belegt": 2234,
+   "Betten gesamt": 3835
+  }
+ ],
+ "Bayern": [
+  {
+   "Date": "2020-04-22",
+   "Betten belegt": 3061,
+   "Betten gesamt": 4798
+  },
+  {
+   "Date": "2020-04-23",
+   "Betten belegt": 2970,
+   "Betten gesamt": 6151
+  },
+  {
+   "Date": "2020-04-24",
+   "Betten belegt": 2956,
+   "Betten gesamt": 4606
+  },
+  {
+   "Date": "2020-04-24",
+   "Betten belegt": 2991,
+   "Betten gesamt": 4625
+  }
+ ],
+ "Berlin": [
+  {
+   "Date": "2020-04-22",
+   "Betten belegt": 976,
+   "Betten gesamt": 1381
+  },
+  {
+   "Date": "2020-04-23",
+   "Betten belegt": 1009,
+   "Betten gesamt": 1497
+  },
+  {
+   "Date": "2020-04-24",
+   "Betten belegt": 1034,
+   "Betten gesamt": 1494
+  },
+  {
+   "Date": "2020-04-24",
+   "Betten belegt": 1061,
+   "Betten gesamt": 1503
+  }
+ ],
+ "Brandenburg": [
+  {
+   "Date": "2020-04-22",
+   "Betten belegt": 599,
+   "Betten gesamt": 1064
+  },
+  {
+   "Date": "2020-04-23",
+   "Betten belegt": 588,
+   "Betten gesamt": 1055
+  },
+  {
+   "Date": "2020-04-24",
+   "Betten belegt": 589,
+   "Betten gesamt": 1055
+  },
+  {
+   "Date": "2020-04-24",
+   "Betten belegt": 604,
+   "Betten gesamt": 1055
+  }
+ ],
+ "Bremen": [
+  {
+   "Date": "2020-04-22",
+   "Betten belegt": 153,
+   "Betten gesamt": 256
+  },
+  {
+   "Date": "2020-04-23",
+   "Betten belegt": 153,
+   "Betten gesamt": 257
+  },
+  {
+   "Date": "2020-04-24",
+   "Betten belegt": 152,
+   "Betten gesamt": 259
+  },
+  {
+   "Date": "2020-04-24",
+   "Betten belegt": 169,
+   "Betten gesamt": 260
+  }
+ ],
+ "Hamburg": [
+  {
+   "Date": "2020-04-22",
+   "Betten belegt": 559,
+   "Betten gesamt": 916
+  },
+  {
+   "Date": "2020-04-23",
+   "Betten belegt": 569,
+   "Betten gesamt": 918
+  },
+  {
+   "Date": "2020-04-24",
+   "Betten belegt": 585,
+   "Betten gesamt": 933
+  },
+  {
+   "Date": "2020-04-24",
+   "Betten belegt": 553,
+   "Betten gesamt": 923
+  }
+ ],
+ "Hessen": [
+  {
+   "Date": "2020-04-22",
+   "Betten belegt": 1531,
+   "Betten gesamt": 2459
+  },
+  {
+   "Date": "2020-04-23",
+   "Betten belegt": 1669,
+   "Betten gesamt": 2618
+  },
+  {
+   "Date": "2020-04-24",
+   "Betten belegt": 1665,
+   "Betten gesamt": 2599
+  },
+  {
+   "Date": "2020-04-24",
+   "Betten belegt": 1677,
+   "Betten gesamt": 2621
+  }
+ ],
+ "Mecklenburg-Vorpommern": [
+  {
+   "Date": "2020-04-22",
+   "Betten belegt": 457,
+   "Betten gesamt": 745
+  },
+  {
+   "Date": "2020-04-23",
+   "Betten belegt": 470,
+   "Betten gesamt": 753
+  },
+  {
+   "Date": "2020-04-24",
+   "Betten belegt": 496,
+   "Betten gesamt": 785
+  },
+  {
+   "Date": "2020-04-24",
+   "Betten belegt": 517,
+   "Betten gesamt": 791
+  }
+ ],
+ "Niedersachsen": [
+  {
+   "Date": "2020-04-22",
+   "Betten belegt": 1489,
+   "Betten gesamt": 2625
+  },
+  {
+   "Date": "2020-04-23",
+   "Betten belegt": 1612,
+   "Betten gesamt": 2766
+  },
+  {
+   "Date": "2020-04-24",
+   "Betten belegt": 1560,
+   "Betten gesamt": 2787
+  },
+  {
+   "Date": "2020-04-24",
+   "Betten belegt": 1529,
+   "Betten gesamt": 2735
+  }
+ ],
+ "Nordrhein-Westfalen": [
+  {
+   "Date": "2020-04-22",
+   "Betten belegt": 4195,
+   "Betten gesamt": 7030
+  },
+  {
+   "Date": "2020-04-23",
+   "Betten belegt": 4296,
+   "Betten gesamt": 7117
+  },
+  {
+   "Date": "2020-04-24",
+   "Betten belegt": 4314,
+   "Betten gesamt": 7068
+  },
+  {
+   "Date": "2020-04-24",
+   "Betten belegt": 4428,
+   "Betten gesamt": 7195
+  }
+ ],
+ "Rheinland-Pfalz": [
+  {
+   "Date": "2020-04-22",
+   "Betten belegt": 754,
+   "Betten gesamt": 1371
+  },
+  {
+   "Date": "2020-04-23",
+   "Betten belegt": 748,
+   "Betten gesamt": 1393
+  },
+  {
+   "Date": "2020-04-24",
+   "Betten belegt": 736,
+   "Betten gesamt": 1392
+  },
+  {
+   "Date": "2020-04-24",
+   "Betten belegt": 762,
+   "Betten gesamt": 1385
+  }
+ ],
+ "Saarland": [
+  {
+   "Date": "2020-04-22",
+   "Betten belegt": 268,
+   "Betten gesamt": 550
+  },
+  {
+   "Date": "2020-04-23",
+   "Betten belegt": 313,
+   "Betten gesamt": 647
+  },
+  {
+   "Date": "2020-04-24",
+   "Betten belegt": 321,
+   "Betten gesamt": 678
+  },
+  {
+   "Date": "2020-04-24",
+   "Betten belegt": 316,
+   "Betten gesamt": 655
+  }
+ ],
+ "Sachsen": [
+  {
+   "Date": "2020-04-22",
+   "Betten belegt": 868,
+   "Betten gesamt": 1446
+  },
+  {
+   "Date": "2020-04-23",
+   "Betten belegt": 886,
+   "Betten gesamt": 1467
+  },
+  {
+   "Date": "2020-04-24",
+   "Betten belegt": 887,
+   "Betten gesamt": 1560
+  },
+  {
+   "Date": "2020-04-24",
+   "Betten belegt": 915,
+   "Betten gesamt": 1566
+  }
+ ],
+ "Sachsen-Anhalt": [
+  {
+   "Date": "2020-04-22",
+   "Betten belegt": 496,
+   "Betten gesamt": 898
+  },
+  {
+   "Date": "2020-04-23",
+   "Betten belegt": 530,
+   "Betten gesamt": 946
+  },
+  {
+   "Date": "2020-04-24",
+   "Betten belegt": 679,
+   "Betten gesamt": 1137
+  },
+  {
+   "Date": "2020-04-24",
+   "Betten belegt": 672,
+   "Betten gesamt": 1159
+  }
+ ],
+ "Schleswig-Holstein": [
+  {
+   "Date": "2020-04-22",
+   "Betten belegt": 536,
+   "Betten gesamt": 1043
+  },
+  {
+   "Date": "2020-04-23",
+   "Betten belegt": 545,
+   "Betten gesamt": 1037
+  },
+  {
+   "Date": "2020-04-24",
+   "Betten belegt": 555,
+   "Betten gesamt": 1061
+  },
+  {
+   "Date": "2020-04-24",
+   "Betten belegt": 568,
+   "Betten gesamt": 1082
+  }
+ ],
+ "Thüringen": [
+  {
+   "Date": "2020-04-22",
+   "Betten belegt": 570,
+   "Betten gesamt": 1028
+  },
+  {
+   "Date": "2020-04-23",
+   "Betten belegt": 599,
+   "Betten gesamt": 1032
+  },
+  {
+   "Date": "2020-04-24",
+   "Betten belegt": 598,
+   "Betten gesamt": 1038
+  },
+  {
+   "Date": "2020-04-24",
+   "Betten belegt": 590,
+   "Betten gesamt": 1045
+  }
+ ]
 }
