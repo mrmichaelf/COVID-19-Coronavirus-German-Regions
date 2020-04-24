@@ -1,5 +1,4 @@
-# Date	ICU low occupied percent	ICU high occupied percent	ICU ECMO occupied percent
-2020-03-29	46.3	47.9	0.0
-2020-03-31	37.0	46.6	0.0
-2020-04-02	61.0	46.8	0.0
-2020-04-03	54.0	41.9	0.0
+Date	Int Betten gesamt	Betten pro 1000000	Int Betten belegt	Int Betten belegt Prozent	Int COVID-19 Patienten	Int Betten COVID-19 Prozent
+2020-04-22	898	407.0	496	55.2		
+2020-04-23	946	428.0	530	56.0		
+2020-04-24	1159	525.0	672	58.0	30	2.6

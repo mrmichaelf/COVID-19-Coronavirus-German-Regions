@@ -41,21 +41,6 @@ def download_new_data():
         f.write(datatowrite)
 
 
-def read_ref_data() -> dict:
-    """
-    read pop etc from ref table and returns it as dict of dict
-    """
-    d_states_ref = {}
-    with open('data/ref_de-states.tsv', mode='r', encoding='utf-8') as f:
-        csv_reader = csv.DictReader(f, delimiter="\t")
-        for row in csv_reader:
-            d = {}
-            d['State'] = row['State']
-            d['Population'] = int(row['Population'])
-            d['Pop Density'] = float(row['Pop Density'])
-            d_states_ref[row["Code"]] = d
-    return d_states_ref
-
 
 def read_csv_to_dict() -> dict:
     """
@@ -282,7 +267,7 @@ def export_latest_data(d_states_data: dict):
 #     d_states_latest = dict(d_states_ref)
 
 
-d_states_ref = read_ref_data()
+d_states_ref = helper.read_de_states_ref_data()
 
 # TODO
 download_new_data()
