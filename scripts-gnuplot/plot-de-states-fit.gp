@@ -15,7 +15,7 @@ set xtics 7
 set ytics nomirror
 set y2label "Verdopplungszeit (Tage)" tc ls 5 offset -2,0
 set y2tics tc ls 5
-set y2range [14:0]
+set y2range [70:0]
 
 
 # prepare data file for fit results

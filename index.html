@@ -145,7 +145,8 @@
 	<!-- eCharts -->
 	<script src="eCharts/echarts-4.7.0-en.min.js"></script>
 	<script src="eCharts/jquery-3.5.0.min.js"></script>
-	<script src="eCharts/myHelper.js"></script>
+	<!-- TODO -->
+	<script src="eCharts/myHelper.js?v=1"></script>
 </head>
 
 <body>
@@ -362,18 +363,29 @@
 	<h3>
 		<a id="de-states-deaths"></a>Opferzahlen in den Bundesländern</h3>
 
-	<p> Hier eine Darstellung des Zeitverlaufs der Zahl der an COVID-19 verstorbenen Personen in den deutschen Bundesländern. Die Zahlen habe ich skaliert auf die Bevölkerung der Bundesländer, damit man diese vergleichen kann. Auf der rechten Seite sind Referenzwerte zu anderen Todesursachen angegeben, Quellen dazu siehe <a href="#RefDeathCauses">diese Tabelle</a> unten. </p>
+	<p> Hier Darstellungen des Zeitverlaufs der Zahl der an COVID-19 verstorbenen Personen in den deutschen Bundesländern. Die Zahlen habe ich skaliert auf die Bevölkerung der Bundesländer, damit man diese miteinander vergleichen kann. Auf der rechten Seite sind Referenzwerte zu anderen Todesursachen angegeben, Quellen dazu siehe <a href="#RefDeathCauses">diese Tabelle</a> unten. </p>
+
+	<p>Hinweis: die Todeszahlen laufen den Infektionszahlen um ca. 3 Wochen hinterher. Im Median sterben Patienten <a href="https://www.worldometers.info/coronavirus/coronavirus-death-rate/#days" target="_blank">14 Tage</a> nach den ersten Symtomen, die wiederrum etwa <a href="https://www.worldometers.info/coronavirus/coronavirus-incubation-period/" target="_blank">3-5 Tage</a> nach der Infektion auftreten.</p>
+
+	<p>Die ersten Darstellungen zeigen den Verlauf der Gesamtzahl:</p>
 	<img src="plots-gnuplot/de-states/deaths-de-per-million.png" alt="deaths-de-per-million.png" width="640" height="800">
 	<img src="plots-gnuplot/de-states/deaths-de-per-million-log.png" alt="deaths-de-per-million-log.png" width="640" height="800"><br />
 	<br />
 	<small>generated via Gnuplot <a href="https://github.com/entorb/COVID-19-Coronavirus-German-Regions/tree/master/scripts-gnuplot/" target="_blank">plot-de-states-timeseries-joined</a>, raw data can be found in <a href="https://github.com/entorb/COVID-19-Coronavirus-German-Regions/blob/master/data/de-states/" target="_blank">de-state-XX.tsv</a></small>
 
-	<p> Nun eine Übersicht über die Neu-Verstorbenen. Da die täglichen Zahlen stark schwanken und Wochenenden einen deutlichen Effekt auf diese Schwankungen haben, habe ich in den folgenden Grafiken jeweils pro Tag die Differenz zur Vorwoche dargestellt. </p>
+	<p> Nun eine Übersicht über die Zunahme/Neu-Verstorbenen. Da die täglichen Zahlen stark schwanken und Wochenenden einen deutlichen Effekt auf diese Schwankungen haben, habe ich in den folgenden Grafiken jeweils pro Tag die Differenz zur 7 Tage vorher dargestellt. </p>
 	<img src="plots-gnuplot/de-states/deaths-de-last_week-per-million.png" alt="deaths-de-last_week-per-million.png" width="640" height="800">
 	<img src="plots-gnuplot/de-states/deaths-de-last_week-per-million-log.png" alt="deaths-de-last_week-per-million-log.png" width="640" height="800"><br />
 	<br />
 	<small>generated via Gnuplot <a href="https://github.com/entorb/COVID-19-Coronavirus-German-Regions/tree/master/scripts-gnuplot/" target="_blank">plot-de-states-timeseries-joined</a>, raw data can be found in <a href="https://github.com/entorb/COVID-19-Coronavirus-German-Regions/blob/master/data/de-states/" target="_blank">de-state-XX.tsv</a>
 	</small>
+
+	<p> Fazit vom 24.04.2020: </p>
+	<ul>
+		<li>Bisher noch unter den geschätzten Zahlen der besonders starken Grippe Saison von 2017</li>
+		<li> In einigen Bundesländern bereits mehr COVID-19 Tote als Verkehrstote im ganzen Jahr 2019</li>
+		<li>Die Steigerungsrate der Todeszahl hat zwar stagniert, nimmt aber noch immer nicht merklich ab. Sprich bisher starben jede Woche mehr Menschen an COVID-19 als in den Wochen zuvor.</li>
+	</ul>
 
 	<p><small><a href="#ToC">Back to top</a></small></p>
 

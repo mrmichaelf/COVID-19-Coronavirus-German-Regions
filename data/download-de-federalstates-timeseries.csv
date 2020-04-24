@@ -895,3 +895,19 @@ id,Country/Region,federalstate,infections,deaths,date,newinfections,newdeaths
 887,Germany,Saxony-Anhalt,1425,34,2020-04-23,30,1
 895,Germany,Schleswig-Holstein,2530,84,2020-04-23,34,5
 883,Germany,Thuringia,1932,61,2020-04-23,60,-10
+897,Germany,Baden-Württemberg,29792,1153,2020-04-24,349,40
+908,Germany,Bavaria,39939,1525,2020-04-24,544,49
+902,Germany,Berlin,5459,112,2020-04-24,135,7
+906,Germany,Brandenburg,2536,90,2020-04-24,89,6
+899,Germany,Bremen,707,27,2020-04-24,35,0
+901,Germany,Hamburg,4358,122,2020-04-24,72,9
+905,Germany,Hesse,7712,296,2020-04-24,119,10
+903,Germany,Lower Saxony,9544,364,2020-04-24,153,24
+912,Germany,Mecklenburg-Western Pomerania,661,16,2020-04-24,2,1
+911,Germany,North Rhine-Westphalia,31106,1052,2020-04-24,522,53
+904,Germany,Rhineland-Palatinate,5731,136,2020-04-24,88,5
+910,Germany,Saarland,2445,105,2020-04-24,50,6
+898,Germany,Saxony,4377,135,2020-04-24,50,8
+900,Germany,Saxony-Anhalt,1436,35,2020-04-24,11,1
+909,Germany,Schleswig-Holstein,2557,88,2020-04-24,27,4
+907,Germany,Thuringia,2023,65,2020-04-24,91,4
