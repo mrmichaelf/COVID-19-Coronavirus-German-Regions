@@ -13,8 +13,19 @@ import helper
 
 
 def read_from_url(url: str) -> str:
-    page = requests.get(url)
+    headers = {
+        'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:75.0) Gecko/20100101 Firefox/75.0 ',
+    }
+    page = requests.get(url, headers=headers)
     return page.content
+
+
+def isFloat(value) -> bool:
+    try:
+        float(value)
+        return True
+    except ValueError:
+        return False
 
 
 filename = 'data/de-divi/de-divi-V2'
@@ -70,12 +81,21 @@ def extractBundeslandKeyValueData(s1: str) -> list:
         # remove 1000 separator .
         pattern = re.compile(r'(?<=\d)\.(?=\d)')
         value = pattern.sub('', value)
+
+        # fix decimal separator 0,5 -> 0.5
+        pattern = re.compile(r'(?<=\d),(?=\d)')
+        value = pattern.sub('.', value)
+        test = float('11.9')
+        # convert value to numeric format
         if value.isdigit():
             value = int(value)
-        elif value.isnumeric():
-            value = float(value)
         else:
-            # if isinstance(value, str):
+            try:
+                value = float(value)
+            except ValueError:
+                1
+
+        if isinstance(value, str):
             print("ERROR: values is string")
 
         d[key] = value
@@ -92,16 +112,14 @@ def fetch_betten():
 
     global d_data_all
 
-# 'Baden-Württemberg\rAnzahl COVID-19 Patienten/innen in intensivmedizinischer Behandlung: 456\rAnteil COVID-19 Patienten/innen pro Intensivbett: 11,9%'
-
     # extract data
     for s1 in myMatches:
         bundesland, d1 = extractBundeslandKeyValueData(s1)
 
         d2 = {}
         d2['Date'] = datestr
-        d2['Betten belegt'] = d1['Belegte Betten']
-        d2['Betten gesamt'] = d1['Freie Betten'] + d1['Belegte Betten']
+        d2['Int Betten belegt'] = d1['Belegte Betten']
+        d2['Int Betten gesamt'] = d1['Freie Betten'] + d1['Belegte Betten']
         d_data_all[bundesland].append(d2)
         1
     del myMatches, s1, bundesland, d1, d2
@@ -112,9 +130,23 @@ def fetch_covid():
     cont = read_from_url(
         "https://diviexchange.z6.web.core.windows.net/gmap_covid.htm").decode('utf-8')
     myMatches = extractAreaTagTitleData(cont)
-    1
-    # example
-    # 'Schleswig-Holstein\rFreie Betten: 507\rBelegte Betten: 536\rAnteil freier Betten an Gesamtzahl: 48.6%'
+    # 'Baden-Württemberg\rAnzahl COVID-19 Patienten/innen in intensivmedizinischer Behandlung: 456\rAnteil COVID-19 Patienten/innen pro Intensivbett: 11,9%'
+
+    global d_data_all
+
+    # extract data
+    for s1 in myMatches:
+        bundesland, d1 = extractBundeslandKeyValueData(s1)
+
+        d2 = d_data_all[bundesland][-1]
+
+        assert d2['Date'] == datestr
+        # d2['Prozent COVID-19 pro Intensivbett'] = d1['Anteil COVID-19 Patienten/innen pro Intensivbett']
+        # = COVID-19 Patienten / Betten gesamt
+        d2['COVID-19 Int Patienten'] = d1['Anzahl COVID-19 Patienten/innen in intensivmedizinischer Behandlung']
+        d_data_all[bundesland][-1] = d2
+        1
+    del myMatches, s1, bundesland, d1, d2
 
 
 def export_data():
