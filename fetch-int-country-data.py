@@ -401,7 +401,7 @@ d_ref_country_database = helper.read_json_file(
 
 d_selected_countries = read_ref_selected_countries()
 
-if not helper.check_cache_file_available_and_recent(fname=file_cache, max_age=7200, verbose=True):
+if not helper.check_cache_file_available_and_recent(fname=file_cache, max_age=900, verbose=True):
     download_new_data()
 
 d_countries_timeseries = read_json_data()

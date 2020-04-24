@@ -257,7 +257,7 @@ set logscale y2
 title = "Death toll development - scaled per million population and log"
 set title title
 output = '../plots-gnuplot/int/countries-timeshifted-per-million-log.png'
-set output = output
+set output output
 replot
 unset output
 # replot to set y2range accordingly to yrange
