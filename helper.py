@@ -7,8 +7,10 @@ import os.path
 import time
 import datetime
 import argparse
+import csv
 import json
 import urllib.request
+import requests  # for read_url_or_cachefile
 
 import multiprocessing as mp  # for fetching number of CPUs
 import logging
@@ -20,6 +22,27 @@ import math
 import numpy as np
 # curve-fit() function imported from scipy
 from scipy.optimize import curve_fit
+
+
+#
+# General Helpers
+#
+
+def read_url_or_cachefile(url: str, cachefile: str, cache_max_age: int = 15, verbose: bool = True) -> str:
+    b_cache_is_recent = check_cache_file_available_and_recent(
+        fname=cachefile, max_age=cache_max_age, verbose=verbose)
+    if not b_cache_is_recent:
+        headers = {
+            'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:75.0) Gecko/20100101 Firefox/75.0 ',
+        }
+        cont = requests.get(url, headers=headers).content
+        with open(cachefile, mode='wb') as fh:
+            fh.write(cont)
+        cont = cont.decode('utf-8')
+    else:
+        with open(cachefile, mode='r', encoding='utf-8') as fh:
+            cont = fh.read()
+    return cont
 
 
 def read_json_file(filename: str):
@@ -57,6 +80,26 @@ def convert_timestamp_to_date_str(ts: int) -> str:
 
 def date_format(y: int, m: int, d: int) -> str:
     return "%04d-%02d-%02d" % (y, m, d)
+
+#
+# COVID-19 Helpers
+#
+
+
+def read_ref_data_de_states() -> dict:
+    """
+    read pop etc from ref table and returns it as dict of dict
+    """
+    d_states_ref = {}
+    with open('data/ref_de-states.tsv', mode='r', encoding='utf-8') as f:
+        csv_reader = csv.DictReader(f, delimiter="\t")
+        for row in csv_reader:
+            d = {}
+            d['State'] = row['State']
+            d['Population'] = int(row['Population'])
+            d['Pop Density'] = float(row['Pop Density'])
+            d_states_ref[row["Code"]] = d
+    return d_states_ref
 
 
 def prepare_time_series(l_time_series: list) -> list:

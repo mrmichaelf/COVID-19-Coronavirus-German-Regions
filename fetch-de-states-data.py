@@ -41,22 +41,6 @@ def download_new_data():
         f.write(datatowrite)
 
 
-def read_ref_data() -> dict:
-    """
-    read pop etc from ref table and returns it as dict of dict
-    """
-    d_states_ref = {}
-    with open('data/ref_de-states.tsv', mode='r', encoding='utf-8') as f:
-        csv_reader = csv.DictReader(f, delimiter="\t")
-        for row in csv_reader:
-            d = {}
-            d['State'] = row['State']
-            d['Population'] = int(row['Population'])
-            d['Pop Density'] = float(row['Pop Density'])
-            d_states_ref[row["Code"]] = d
-    return d_states_ref
-
-
 def read_csv_to_dict() -> dict:
     """
     read and convert the source csv file, containing: federalstate,infections,deaths,date,newinfections,newdeaths
@@ -263,31 +247,11 @@ def export_latest_data(d_states_data: dict):
         del d_de
 
 
-# def convert_csv_OLD():
+d_states_ref = helper.read_ref_data_de_states()
 
 
-#         d_states_data[code] = l_state
-#         outfile = f'data/de-states/de-state-{code}.tsv'
-#         with open(outfile, mode='w', encoding='utf-8', newline="\n") as f:
-#             csvwriter = csv.writer(f, delimiter="\t")
-#             csvwriter.writerows(d_states_data[code])
-#         del l_state, day_num, code
-
-#     # latest data into another file
-#     assert len(d_states_data.keys()) == len(d_states_ref.keys())
-#     for code in d_states_ref.keys():
-#         assert code in d_states_data.keys()
-#     del code
-
-#     d_states_latest = dict(d_states_ref)
-
-
-d_states_ref = read_ref_data()
-
-# TODO
 download_new_data()
 d_states_data = read_csv_to_dict()
-# convert_csv()
 
 export_data(d_states_data)
 export_latest_data(d_states_data)

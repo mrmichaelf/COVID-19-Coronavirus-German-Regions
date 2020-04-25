@@ -3,7 +3,6 @@ Source: https://www.intensivregister.de/#/intensivregister
 """
 
 import sys
-import requests
 import csv
 from datetime import datetime
 import re
@@ -11,21 +10,8 @@ import re
 # my helper modules
 import helper
 
-
-def read_from_url(url: str) -> str:
-    headers = {
-        'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:75.0) Gecko/20100101 Firefox/75.0 ',
-    }
-    page = requests.get(url, headers=headers)
-    return page.content
-
-
-def isFloat(value) -> bool:
-    try:
-        float(value)
-        return True
-    except ValueError:
-        return False
+# TODO: commit ist verlorgen gegangen:
+# DE SUM
 
 
 filename = 'data/de-divi/de-divi-V2'
@@ -38,9 +24,10 @@ d_data_all = helper.read_json_file(filename+'.json')
 # d_data_all[Bayern] -> list of dicts: data, occupied, total
 
 # check if date is already in data set
-# if d_data_all['Bayern'][-1]['Date'] == datestr:
-#     print(f"WARNING: Date: {datestr} already in data file: {filename+'.json'}")
-#     sys.exit()
+if d_data_all['Bayern'][-1]['Date'] == datestr:
+    print(
+        f"WARNING: Date: {datestr} already in data file: {filename+'.json'}  -->  SKIPPING")
+    sys.exit()
 
 
 def extractAreaTagTitleData(cont: str) -> list:
@@ -64,6 +51,8 @@ def extractAreaTagTitleData(cont: str) -> list:
 def extractBundeslandKeyValueData(s1: str) -> list:
     # 'Baden-Württemberg\rAnzahl COVID-19 Patienten/innen in intensivmedizinischer Behandlung: 456\rAnteil COVID-19 Patienten/innen pro Intensivbett: 11,9%'
     l1 = s1.split("\r")
+    if len(l1) == 1:
+        l1 = s1.split("\n")
     bundesland = l1.pop(0)
     global d_data_all
     if bundesland not in d_data_all:
@@ -104,8 +93,8 @@ def extractBundeslandKeyValueData(s1: str) -> list:
 
 def fetch_betten():
     # fetch data per bundesland, having many duplicates
-    cont = read_from_url(
-        "https://diviexchange.z6.web.core.windows.net/gmap_betten.htm").decode('utf-8')
+    cont = helper.read_url_or_cachefile(
+        url="https://diviexchange.z6.web.core.windows.net/gmap_betten.htm", cachefile='cache/de-divi/de-divi-betten.html', cache_max_age=3600, verbose=True)
     myMatches = extractAreaTagTitleData(cont)
     # example
     # 'Schleswig-Holstein\rFreie Betten: 507\rBelegte Betten: 536\rAnteil freier Betten an Gesamtzahl: 48.6%'
@@ -127,8 +116,8 @@ def fetch_betten():
 
 def fetch_covid():
     # fetch data per bundesland, having many duplicates
-    cont = read_from_url(
-        "https://diviexchange.z6.web.core.windows.net/gmap_covid.htm").decode('utf-8')
+    cont = helper.read_url_or_cachefile(
+        url="https://diviexchange.z6.web.core.windows.net/gmap_covid.htm", cachefile='cache/de-divi/de-divi-covid.html', cache_max_age=3600, verbose=True)
     myMatches = extractAreaTagTitleData(cont)
     # 'Baden-Württemberg\rAnzahl COVID-19 Patienten/innen in intensivmedizinischer Behandlung: 456\rAnteil COVID-19 Patienten/innen pro Intensivbett: 11,9%'
 
@@ -149,26 +138,71 @@ def fetch_covid():
     del myMatches, s1, bundesland, d1, d2
 
 
+def calc_de_sum():
+    global d_data_all
+    d_de_sum = {}
+    for state, l_time_series in d_data_all.items():
+        for d in l_time_series:
+            if not d['Date'] in d_de_sum:
+                d_de_sum[d['Date']] = {}
+            for key, value in d.items():
+                if key == 'Date':
+                    continue
+                if not key in d_de_sum[d['Date']]:
+                    d_de_sum[d['Date']][key] = 0
+                d_de_sum[d['Date']][key] += value
+    # flatten the dict
+    l = []
+    for date, d in d_de_sum.items():
+        d2 = d
+        d2['Date'] = date
+        l.append(d2)
+
+    d_data_all['Deutschland'] = l
+
+
 def export_data():
     global d_data_all
     helper.write_json(filename+'.json',
                       d_data_all, sort_keys=False, indent=1)
 
-    # TODO write csv per state
-    # # Test for Bayern
-    # with open(filename+'.tsv', mode='w', encoding='utf-8', newline='\n') as fh:
-    #     csvwriter = csv.DictWriter(fh, delimiter='\t', extrasaction='ignore', fieldnames=[
-    #                             'date', 'occupied_percent', 'Belegte Betten', 'Betten gesamt'])
-    #     csvwriter.writeheader()
-    #     l = d_data_all['Bayern']
-    #     for d in l:
-    #         d['occupied_percent'] = round(100*d['Belegte Betten'] / d['Betten gesamt'], 1)
-    #         csvwriter.writerow(d)
 
-    # TODO: write csv for DE Sum
+def export_time_series():
+    # Idea: Betten pro Einwohner
+    for state, l_time_series in d_data_all.items():
+        if state != 'Deutschland':
+            code = d_states_ref_map_name_code[state]
+        else:
+            code = 'DE'
+        with open(f'data/de-divi/de-divi-{code}.tsv', mode='w', encoding='utf-8', newline='\n') as fh:
+            csvwriter = csv.DictWriter(fh, delimiter='\t', extrasaction='ignore', fieldnames=[
+                'Date', 'Int Betten gesamt', 'Int Betten belegt', 'Prozent Int Betten belegt', 'Int COVID-19 Patienten', 'Prozent Int COVID-19 Patienten'
+            ])
+            csvwriter.writeheader()
+            for d in l_time_series:
+                d2 = d
+                gesamt = d2['Int Betten gesamt']
+                belegt = d2['Int Betten belegt']
+                if 'Int COVID-19 Patienten' in d2:
+                    covid = d2['Int COVID-19 Patienten']
+                    d2['Prozent Int COVID-19 Patienten'] = round(
+                        100*covid/gesamt, 1)
+                else:
+                    d2['Int COVID-19 Patienten'] = None
+                    d2['Prozent Int COVID-19 Patienten'] = None
+
+                d2['Prozent Int Betten belegt'] = round(100*belegt/gesamt, 1)
+                csvwriter.writerow(d2)
+
+
+d_states_ref = helper.read_ref_data_de_states()
+d_states_ref_map_name_code = {}
+for code, d in d_states_ref.items():
+    d_states_ref_map_name_code[d['State']] = code
 
 
 fetch_betten()
 fetch_covid()
-
+calc_de_sum()
+export_time_series()
 export_data()
