@@ -489,48 +489,29 @@ def loop_over_all_LK():
 
     # Export fit data as CSV + HTML
     with open('data/de-districts/de-districts-results.tsv', mode='w', encoding='utf-8', newline='\n') as fh_csv:
-        csvwriter = csv.writer(fh_csv, delimiter="\t")
-        # with open('results-de-districts.html', mode='w', encoding='utf-8', newline='\n') as fh_html:
+        csvwriter = csv.DictWriter(fh_csv, delimiter='\t', extrasaction='ignore', fieldnames=[
+            'Landkreis',   'Bundesland', 'Population', 'Cases', 'Deaths',
+            'Cases_Per_Million', 'Deaths_Per_Million', 'Forecase Cases Tomorrow (%)'
+        ])
 
-        l = (
-            'Landkreis',
-            'Bundesland',
-            'Einwohner',
-            'Fälle',
-            'Tode',
-            'Fälle pro 1 Millionen Einwohner',
-            'Tote pro 1 Millionen Einwohner',
-            'Prognose Fälle Morgen (%)'
-        )
+        csvwriter.writeheader()
 
-        csvwriter.writerow(l)
+        for lk_id, d in d_results_for_json_export.items():
+            d2 = d
+            d2['Population'] = d['LK_Einwohner']
 
-        for lk_id in d_results_for_json_export.keys():
             this_Cases_Forecast_Tomorrow_Factor = None
-            if 'Cases_Forecast_Tomorrow_Factor' in d_results_for_json_export[lk_id]:
-                this_Cases_Forecast_Tomorrow_Factor = round(
-                    100 * (d_results_for_json_export[lk_id]['Cases_Forecast_Tomorrow_Factor'] - 1), 1)
-            l = [
-                d_results_for_json_export[lk_id]['Landkreis'],
-                d_results_for_json_export[lk_id]['Bundesland'],
-                d_results_for_json_export[lk_id]['LK_Einwohner'],
-                d_results_for_json_export[lk_id]['Cases'],
-                d_results_for_json_export[lk_id]['Deaths'],
-            ]
-            if d_results_for_json_export[lk_id]['Cases_Per_Million']:
-                d_results_for_json_export[lk_id] = round(
-                    d_results_for_json_export[lk_id]['Cases_Per_Million'], 0)
-            else:
-                d_results_for_json_export[lk_id]['Deaths_Per_Million'] = None
-            if d_results_for_json_export[lk_id]['Deaths_Per_Million']:
-                d_results_for_json_export[lk_id] = round(
-                    d_results_for_json_export[lk_id]['Deaths_Per_Million'], 0)
-            else:
-                d_results_for_json_export[lk_id]['Cases_Per_Million'] = None
+            if 'Cases_Forecast_Tomorrow_Factor' in d2:
+                d2['Forecase Cases Tomorrow (%)'] = round(
+                    100 * (d2['Cases_Forecast_Tomorrow_Factor'] - 1), 1)
+            if d2['Cases_Per_Million']:
+                d2['Cases_Per_Million'] = round(
+                    d2['Cases_Per_Million'], 0)
+            if d2['Deaths_Per_Million']:
+                d2['Deaths_Per_Million'] = round(
+                    d2['Deaths_Per_Million'], 0)
 
-            l = [str(v) for v in l]
-
-            csvwriter.writerow(l)
+            csvwriter.writerow(d2)
             #     fh_html.write('<tr><td>')
             #     fh_html.write('</td><td>'.join(l))
             #     fh_html.write('</td></tr>\n')
