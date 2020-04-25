@@ -2,6 +2,7 @@
 Helper functions collections
 """
 
+
 # Built-in/Generic Imports
 import os.path
 import time
@@ -198,7 +199,7 @@ def add_per_million_via_lookup(d: dict, d_ref: dict, code: str) -> dict:
 def add_per_million(d: dict, pop_in_million: float) -> dict:
     for key in ('Cases', 'Deaths', 'Cases_New', 'Deaths_New', 'Cases_Last_Week', 'Deaths_Last_Week'):
         perMillion = None
-        if d[key]:
+        if key in d and d[key] is not None:
             if pop_in_million:
                 perMillion = round(d[key]/pop_in_million, 3)
             # else:

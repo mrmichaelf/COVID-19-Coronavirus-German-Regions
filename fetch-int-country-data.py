@@ -218,6 +218,10 @@ def fit_doubling_time():
     """
     global d_countries_timeseries
     global d_selected_countries
+    # TODO!
+    # l = []
+    # l.append('South Korea')
+    # for country in l:
     for country in tqdm(d_countries_timeseries.keys()):
         # for country in d_selected_countries.keys():
         # print(country)
