@@ -10,18 +10,12 @@ import re
 # my helper modules
 import helper
 
-# TODO: commit ist verlorgen gegangen:
-# DE SUM
-
 
 filename = 'data/de-divi/de-divi-V2'
 
-# now = datetime.now() # current date and time
 datestr = datetime.now().strftime("%Y-%m-%d")
 
-# d_data_all = {}
 d_data_all = helper.read_json_file(filename+'.json')
-# d_data_all[Bayern] -> list of dicts: data, occupied, total
 
 # check if date is already in data set
 if d_data_all['Bayern'][-1]['Date'] == datestr:
