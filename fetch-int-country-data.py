@@ -135,74 +135,58 @@ def extract_latest_date_data():
     write to data/int/countries-latest-all.tsv and data/int/countries-latest-all.json
     """
     l_for_export = []
-    with open('data/int/countries-latest-all.tsv', mode='w', encoding='utf-8', newline='\n') as f:
-        csvwriter = csv.writer(f, delimiter="\t")
-        csvwriter.writerow(  # header row
-            ('Country', 'Population', 'Date', 'Cases',
-             'Deaths', 'Cases_Per_Million', 'Deaths_Per_Million', 'Cases_Last_Week_Per_Million', 'Deaths_Last_Week_Per_Million', 'Continent', 'Code')
-        )
+    with open('data/int/countries-latest-all.tsv', mode='w', encoding='utf-8', newline='\n') as fh:
+        csvwriter = csv.DictWriter(fh, delimiter='\t', extrasaction='ignore', fieldnames=[
+            'Country', 'Population', 'Date', 'Cases',
+            'Deaths', 'Cases_Per_Million', 'Deaths_Per_Million', 'Cases_Last_Week_Per_Million',
+            'Deaths_Last_Week_Per_Million', 'Continent', 'Code'
+        ])
+        csvwriter.writeheader()
+
         for country in sorted(d_countries_timeseries.keys(), key=str.casefold):
-            country_data = d_countries_timeseries[country]
-            entry = country_data[-1]  # last entry (=>latest date)
+            l_time_series = d_countries_timeseries[country]
+            d = l_time_series[-1]  # last entry (=>latest date)
             pop = read_population(country)
 
-            d_for_export = entry
-            d_for_export['Country'] = country
-            d_for_export['Code'] = read_country_code(d_for_export['Country'])
-            d_for_export['Continent'] = read_continent(d_for_export['Country'])
-            d_for_export['Population'] = pop
-            # d_for_export['Date'] = entry['Date']
-            # d_for_export['Cases'] = entry['Cases']
-            # d_for_export['Deaths'] = entry['Deaths']
-            if d_for_export['Cases_Per_Million']:
-                d_for_export['Cases_Per_Million'] = round(
-                    entry['Cases_Per_Million'], 0)
-            if d_for_export['Deaths_Per_Million']:
-                d_for_export['Deaths_Per_Million'] = round(
-                    entry['Deaths_Per_Million'], 0)
-            if d_for_export['Cases_Last_Week_Per_Million']:
-                d_for_export['Cases_Last_Week_Per_Million'] = round(
-                    entry['Cases_Last_Week_Per_Million'], 0)
-            if d_for_export['Deaths_Last_Week_Per_Million']:
-                d_for_export['Deaths_Last_Week_Per_Million'] = round(
-                    entry['Deaths_Last_Week_Per_Million'], 0)
-            l_for_export.append(d_for_export)
-
-            csvwriter.writerow(
-                (
-                    d_for_export['Country'], d_for_export['Population'], d_for_export['Date'],
-                    d_for_export['Cases'], d_for_export['Deaths'],
-                    d_for_export['Cases_Per_Million'], d_for_export['Deaths_Per_Million'],
-                    d_for_export['Cases_Last_Week_Per_Million'], d_for_export[
-                        'Deaths_Last_Week_Per_Million'], d_for_export['Continent'], d_for_export['Code']
-                )
-            )
-            del d_for_export
+            d2 = d
+            d2['Country'] = country
+            d2['Code'] = read_country_code(d2['Country'])
+            d2['Continent'] = read_continent(d2['Country'])
+            d2['Population'] = pop
+            if d2['Cases_Per_Million']:
+                d2['Cases_Per_Million'] = round(
+                    d['Cases_Per_Million'], 0)
+            if d2['Deaths_Per_Million']:
+                d2['Deaths_Per_Million'] = round(
+                    d['Deaths_Per_Million'], 0)
+            if d2['Cases_Last_Week_Per_Million']:
+                d2['Cases_Last_Week_Per_Million'] = round(
+                    d['Cases_Last_Week_Per_Million'], 0)
+            if d2['Deaths_Last_Week_Per_Million']:
+                d2['Deaths_Last_Week_Per_Million'] = round(
+                    d['Deaths_Last_Week_Per_Million'], 0)
+            csvwriter.writerow(d2)
+            l_for_export.append(d2)
 
     # JSON export
     helper.write_json(
         filename='data/int/countries-latest-all.json', d=l_for_export, sort_keys=False)
 
     # for selected countries write to separate file, for Gnuplot plotting
-    with open('data/int/countries-latest-selected.tsv', mode='w', encoding='utf-8', newline='\n') as f:
-        csvwriter = csv.writer(f, delimiter="\t")
-        # TODO: change order: pop as no 3
-        csvwriter.writerow(
-            ('Country', 'Date',
-             'Cases', 'Deaths',
-             'Cases_Per_Million', 'Deaths_Per_Million',
-             'Population'
-             )
-        )
+    with open('data/int/countries-latest-selected.tsv', mode='w', encoding='utf-8', newline='\n') as fh:
+        csvwriter = csv.DictWriter(fh, delimiter='\t', extrasaction='ignore', fieldnames=[
+            'Country', 'Date',
+            'Population',
+            'Cases', 'Deaths',
+            'Cases_Per_Million', 'Deaths_Per_Million'
+        ])
+        csvwriter.writeheader()
         for country in sorted(d_selected_countries.keys(), key=str.casefold):
-            country_data = d_countries_timeseries[country]
-            entry = country_data[-1]  # last entry for this country
-            csvwriter.writerow(
-                (country, entry['Date'],
-                 entry['Cases'], entry['Deaths'],
-                 entry['Cases_Per_Million'], entry['Deaths_Per_Million'],
-                 d_selected_countries[country]['Population'])
-            )
+            l_time_series = d_countries_timeseries[country]
+            d = l_time_series[-1]  # last entry for this country
+            d2 = d
+            d2['Population'] = d_selected_countries[country]['Population']
+            csvwriter.writerow(d2)
 
 
 def check_for_further_interesting_countries():
@@ -293,39 +277,39 @@ def export_time_series_all_countries():
         helper.write_json(
             f'data/int/country-{country_code}.json', l_country_data)
 
-        with open(f'data/int/country-{country_code}.tsv', mode='w', encoding='utf-8', newline='\n') as f:
-            csvwriter = csv.writer(f, delimiter="\t")
-            csvwriter.writerow(  # header row
-                ('Days_Past', 'Date',
-                 'Cases', 'Deaths',
-                 'Cases_New', 'Deaths_New',
-                 'Cases_Per_Million', 'Deaths_Per_Million',
-                 'Cases_New_Per_Million', 'Deaths_New_Per_Million',
-                 'Cases_Doubling_Time', 'Deaths_Doubling_Time',
-                 'Cases_Change_Factor', 'Deaths_Change_Factor',
-                 'Days_Since_2nd_Death'
-                 )
-            )
+        with open(f'data/int/country-{country_code}.tsv', mode='w', encoding='utf-8', newline='\n') as fh:
+            csvwriter = csv.DictWriter(fh, delimiter='\t', extrasaction='ignore', fieldnames=[
+                'Days_Past', 'Date',
+                'Cases', 'Deaths',
+                'Cases_New', 'Deaths_New',
+                'Cases_Per_Million', 'Deaths_Per_Million',
+                'Cases_New_Per_Million', 'Deaths_New_Per_Million',
+                'Cases_Doubling_Time', 'Deaths_Doubling_Time',
+                'Cases_Change_Factor', 'Deaths_Change_Factor',
+                'Days_Since_2nd_Death'
+            ])
+            csvwriter.writeheader()
 
-            for entry in l_country_data:
-                this_Cases_Doubling_Time = None
-                this_Deaths_Doubling_Time = None
-                if 'Cases_Doubling_Time' in entry:
-                    this_Cases_Doubling_Time = entry['Cases_Doubling_Time']
-                if 'Deaths_Doubling_Time' in entry:
-                    this_Deaths_Doubling_Time = entry['Deaths_Doubling_Time']
-                csvwriter.writerow(
-                    (
-                        entry['Days_Past'], entry['Date'],
-                        entry['Cases'], entry['Deaths'],
-                        entry['Cases_New'], entry['Deaths_New'],
-                        entry['Cases_Per_Million'], entry['Deaths_Per_Million'],
-                        entry['Cases_New_Per_Million'], entry['Deaths_New_Per_Million'],
-                        this_Cases_Doubling_Time, this_Deaths_Doubling_Time,
-                        entry['Cases_Change_Factor'], entry['Deaths_Change_Factor'],
-                        entry['Days_Since_2nd_Death']
-                    )
-                )
+            for d in l_country_data:
+                d2 = d
+                # d2[]
+                # this_Cases_Doubling_Time = None
+                # this_Deaths_Doubling_Time = None
+                # if 'Cases_Doubling_Time' in d:
+                #     this_Cases_Doubling_Time = d['Cases_Doubling_Time']
+                # if 'Deaths_Doubling_Time' in d:
+                #     this_Deaths_Doubling_Time = d['Deaths_Doubling_Time']
+                csvwriter.writerow(d2)
+                # (
+                #     d['Days_Past'], d['Date'],
+                #     d['Cases'], d['Deaths'],
+                #     d['Cases_New'], d['Deaths_New'],
+                #     d['Cases_Per_Million'], d['Deaths_Per_Million'],
+                #     d['Cases_New_Per_Million'], d['Deaths_New_Per_Million'],
+                #     this_Cases_Doubling_Time, this_Deaths_Doubling_Time,
+                #     d['Cases_Change_Factor'], d['Deaths_Change_Factor'],
+                #     d['Days_Since_2nd_Death']
+                # )
 
     # export all to one file
     # helper.write_json('TODO.json', d_countries, sort_keys=True)
