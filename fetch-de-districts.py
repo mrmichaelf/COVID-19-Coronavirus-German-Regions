@@ -505,110 +505,29 @@ def loop_over_all_LK():
 
         csvwriter.writerow(l)
 
-    #         fh_html.write("""<!doctype html>
-    # <html lang="de">
-    # <head>
-    #     <title>Landkreisprognose</title>
-    #     <meta charset="utf-8">
-
-    # <style>
-    #     #myInput {
-    #     width: 400px;
-    #     font-size: 16px;      /* Increase font-size */
-    #     padding: 12px 20px 12px 10px;      /* Add some padding */
-    #     border: 1px solid #ddd;       /* Add a grey border */
-    #     margin-bottom: 12px;       /* Add some space below the input */
-    #     }
-
-    # #myTable {
-    # border-collapse: collapse; /* Collapse borders */
-    # width: 100%; /* Full-width */
-    # border: 1px solid #ddd; /* Add a grey border */
-    # font-size: 18px; /* Increase font-size */
-    # }
-
-    # #myTable th, #myTable td {
-    # text-align: left; /* Left-align text */
-    # padding: 12px; /* Add padding */
-    # }
-
-    # #myTable tr {
-    # /* Add a bottom border to all table rows */
-    # border-bottom: 1px solid #ddd;
-    # }
-
-    # #myTable tr.header, #myTable tr:hover {
-    # /* Add a grey background color to the table header and on hover */
-    # background-color: #f1f1f1;
-    # }
-    # </style>
-
-    # <script>
-    #     function mySortFunction() {
-    #         // Declare variables
-    #         var input, filter, table, tr, td, i, txtValue;
-    #         input = document.getElementById("myInput");
-    #         filter = input.value.toUpperCase();
-    #         table = document.getElementById("myTable");
-    #         tr = table.getElementsByTagName("tr");
-
-    #         // Loop through all table rows, and hide those who don't match the search query
-    #         for (i = 0; i < tr.length; i++) {
-    #             td = tr[i].getElementsByTagName("td")[0];
-    #             if (td) {
-    #                 txtValue = td.textContent || td.innerText;
-    #                 if (txtValue.toUpperCase().indexOf(filter) > -1) {
-    #                     tr[i].style.display = "";
-    #                 } else {
-    #                     tr[i].style.display = "none";
-    #                 }
-    #             }
-    #         }
-    #     }
-    # </script>
-    # </head>
-
-    # <body>
-    # <p>
-    # <a href="index.html">zurück zur Auswertung</a>
-    # </p>
-    # <h1>Landkreisprognose</h1>
-    # <p>Basierend auf Daten des
-    # <a href="https://experience.arcgis.com/experience/478220a4c454480e823b17327b2bf1d4/page/page_0/" target="_blank">Robert Koch-Institut COVID-19-Dashboards</a>
-    # </p>
-    #     <input type="text" id="myInput" onkeyup="mySortFunction()" placeholder="Landkreissuche">
-    #     <table id="myTable">
-    #         """)
-    #         fh_html.write('<tr><th>')
-    #         fh_html.write('</th><th>'.join(l))
-    #         # fh_html.write(f'<th>{l[0]}</th>')
-    #         # fh_html.write(f'<th>{l[1]}</th>')
-    #         # fh_html.write(f'<th>{l[2]}</th>')
-    #         # fh_html.write(f'<th>{l[3]}</th>')
-    #         # fh_html.write(f'<th>{l[4]}</th>')
-    #         # fh_html.write(f'<th>{l[5]}</th>')
-    #         # fh_html.write(f'<th>{l[6]}</th>')
-    #         # fh_html.write(f'<th>{l[7]}</th>')
-    #         # fh_html.write(f'<th>{l[8]}</th>')
-    #         fh_html.write('</th></tr>\n')
-
         for lk_id in d_results_for_json_export.keys():
             this_Cases_Forecast_Tomorrow_Factor = None
             if 'Cases_Forecast_Tomorrow_Factor' in d_results_for_json_export[lk_id]:
                 this_Cases_Forecast_Tomorrow_Factor = round(
                     100 * (d_results_for_json_export[lk_id]['Cases_Forecast_Tomorrow_Factor'] - 1), 1)
-            l = (
+            l = [
                 d_results_for_json_export[lk_id]['Landkreis'],
                 d_results_for_json_export[lk_id]['Bundesland'],
                 d_results_for_json_export[lk_id]['LK_Einwohner'],
                 d_results_for_json_export[lk_id]['Cases'],
                 d_results_for_json_export[lk_id]['Deaths'],
-                int(round(d_results_for_json_export[lk_id]
-                          ['Cases_Per_Million'], 0)),
-                int(round(
-                    d_results_for_json_export[lk_id]['Deaths_Per_Million'], 0)),
+            ]
+            if d_results_for_json_export[lk_id]['Cases_Per_Million']:
+                d_results_for_json_export[lk_id] = round(
+                    d_results_for_json_export[lk_id]['Cases_Per_Million'], 0)
+            else:
+                d_results_for_json_export[lk_id]['Deaths_Per_Million'] = None
+            if d_results_for_json_export[lk_id]['Deaths_Per_Million']:
+                d_results_for_json_export[lk_id] = round(
+                    d_results_for_json_export[lk_id]['Deaths_Per_Million'], 0)
+            else:
+                d_results_for_json_export[lk_id]['Cases_Per_Million'] = None
 
-            )
             l = [str(v) for v in l]
 
             csvwriter.writerow(l)

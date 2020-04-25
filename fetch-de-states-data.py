@@ -240,7 +240,7 @@ def export_latest_data(d_states_data: dict):
     with open('data/de-states/de-states-latest.tsv', mode='w', encoding='utf-8', newline='\n') as fh:
         csvwriter = csv.DictWriter(fh, delimiter='\t', extrasaction='ignore',
                                    fieldnames=('State', 'Code', 'Population', 'Pop Density',
-                                               'Date',
+                                               'Date_Latest',
                                                'Cases', 'Deaths',
                                                'Cases_New', 'Deaths_New',
                                                'Cases_Per_Million',

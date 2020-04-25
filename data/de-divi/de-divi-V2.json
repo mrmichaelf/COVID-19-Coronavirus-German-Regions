@@ -15,6 +15,12 @@
    "Int Betten belegt": 2234,
    "Int Betten gesamt": 3839,
    "COVID-19 Int Patienten": 457
+  },
+  {
+   "Date": "2020-04-25",
+   "Int Betten belegt": 2205,
+   "Int Betten gesamt": 3801,
+   "COVID-19 Int Patienten": 448
   }
  ],
  "Bayern": [
@@ -33,6 +39,12 @@
    "Int Betten belegt": 2988,
    "Int Betten gesamt": 4625,
    "COVID-19 Int Patienten": 681
+  },
+  {
+   "Date": "2020-04-25",
+   "Int Betten belegt": 2931,
+   "Int Betten gesamt": 4558,
+   "COVID-19 Int Patienten": 669
   }
  ],
  "Berlin": [
@@ -51,6 +63,12 @@
    "Int Betten belegt": 1061,
    "Int Betten gesamt": 1503,
    "COVID-19 Int Patienten": 143
+  },
+  {
+   "Date": "2020-04-25",
+   "Int Betten belegt": 1044,
+   "Int Betten gesamt": 1484,
+   "COVID-19 Int Patienten": 144
   }
  ],
  "Brandenburg": [
@@ -67,6 +85,12 @@
   {
    "Date": "2020-04-24",
    "Int Betten belegt": 604,
+   "Int Betten gesamt": 1055,
+   "COVID-19 Int Patienten": 51
+  },
+  {
+   "Date": "2020-04-25",
+   "Int Betten belegt": 608,
    "Int Betten gesamt": 1055,
    "COVID-19 Int Patienten": 51
   }
@@ -87,6 +111,12 @@
    "Int Betten belegt": 169,
    "Int Betten gesamt": 260,
    "COVID-19 Int Patienten": 10
+  },
+  {
+   "Date": "2020-04-25",
+   "Int Betten belegt": 158,
+   "Int Betten gesamt": 246,
+   "COVID-19 Int Patienten": 10
   }
  ],
  "Hamburg": [
@@ -105,6 +135,12 @@
    "Int Betten belegt": 553,
    "Int Betten gesamt": 923,
    "COVID-19 Int Patienten": 74
+  },
+  {
+   "Date": "2020-04-25",
+   "Int Betten belegt": 561,
+   "Int Betten gesamt": 937,
+   "COVID-19 Int Patienten": 74
   }
  ],
  "Hessen": [
@@ -121,6 +157,12 @@
   {
    "Date": "2020-04-24",
    "Int Betten belegt": 1676,
+   "Int Betten gesamt": 2620,
+   "COVID-19 Int Patienten": 213
+  },
+  {
+   "Date": "2020-04-25",
+   "Int Betten belegt": 1674,
    "Int Betten gesamt": 2620,
    "COVID-19 Int Patienten": 213
   }
@@ -141,6 +183,12 @@
    "Int Betten belegt": 515,
    "Int Betten gesamt": 783,
    "COVID-19 Int Patienten": 5
+  },
+  {
+   "Date": "2020-04-25",
+   "Int Betten belegt": 515,
+   "Int Betten gesamt": 784,
+   "COVID-19 Int Patienten": 5
   }
  ],
  "Niedersachsen": [
@@ -158,6 +206,12 @@
    "Date": "2020-04-24",
    "Int Betten belegt": 1576,
    "Int Betten gesamt": 2856,
+   "COVID-19 Int Patienten": 163
+  },
+  {
+   "Date": "2020-04-25",
+   "Int Betten belegt": 1566,
+   "Int Betten gesamt": 2858,
    "COVID-19 Int Patienten": 163
   }
  ],
@@ -177,6 +231,12 @@
    "Int Betten belegt": 4423,
    "Int Betten gesamt": 7186,
    "COVID-19 Int Patienten": 533
+  },
+  {
+   "Date": "2020-04-25",
+   "Int Betten belegt": 4377,
+   "Int Betten gesamt": 7150,
+   "COVID-19 Int Patienten": 529
   }
  ],
  "Rheinland-Pfalz": [
@@ -195,6 +255,12 @@
    "Int Betten belegt": 762,
    "Int Betten gesamt": 1383,
    "COVID-19 Int Patienten": 104
+  },
+  {
+   "Date": "2020-04-25",
+   "Int Betten belegt": 761,
+   "Int Betten gesamt": 1386,
+   "COVID-19 Int Patienten": 103
   }
  ],
  "Saarland": [
@@ -210,6 +276,12 @@
   },
   {
    "Date": "2020-04-24",
+   "Int Betten belegt": 316,
+   "Int Betten gesamt": 655,
+   "COVID-19 Int Patienten": 60
+  },
+  {
+   "Date": "2020-04-25",
    "Int Betten belegt": 316,
    "Int Betten gesamt": 655,
    "COVID-19 Int Patienten": 60
@@ -231,6 +303,12 @@
    "Int Betten belegt": 915,
    "Int Betten gesamt": 1566,
    "COVID-19 Int Patienten": 73
+  },
+  {
+   "Date": "2020-04-25",
+   "Int Betten belegt": 904,
+   "Int Betten gesamt": 1555,
+   "COVID-19 Int Patienten": 72
   }
  ],
  "Sachsen-Anhalt": [
@@ -247,6 +325,12 @@
   {
    "Date": "2020-04-24",
    "Int Betten belegt": 672,
+   "Int Betten gesamt": 1159,
+   "COVID-19 Int Patienten": 30
+  },
+  {
+   "Date": "2020-04-25",
+   "Int Betten belegt": 669,
    "Int Betten gesamt": 1159,
    "COVID-19 Int Patienten": 30
   }
@@ -267,6 +351,12 @@
    "Int Betten belegt": 568,
    "Int Betten gesamt": 1082,
    "COVID-19 Int Patienten": 28
+  },
+  {
+   "Date": "2020-04-25",
+   "Int Betten belegt": 568,
+   "Int Betten gesamt": 1082,
+   "COVID-19 Int Patienten": 28
   }
  ],
  "Thüringen": [
@@ -284,6 +374,12 @@
    "Date": "2020-04-24",
    "Int Betten belegt": 589,
    "Int Betten gesamt": 1045,
+   "COVID-19 Int Patienten": 63
+  },
+  {
+   "Date": "2020-04-25",
+   "Int Betten belegt": 585,
+   "Int Betten gesamt": 1041,
    "COVID-19 Int Patienten": 63
   }
  ]
