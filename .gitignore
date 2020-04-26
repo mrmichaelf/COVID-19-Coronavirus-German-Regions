@@ -9,6 +9,7 @@ eCharts/apache-echarts-4.7.0-incubating-src/*
 /cache/de-districts/
 /data/de-districts/cache/
 /data/old/
+/maps/out/*
 /plots-gnuplot/
 /plots-python/
 /test/
