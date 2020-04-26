@@ -19,8 +19,14 @@ import re
 import helper
 
 unit = 1000000
-meta = {"colour": ["#fee5d9", "#fcbba1",
-                   "#fc9272", "#fb6a4a", "#de2d26", "#a50f15"]}
+meta = {"colour": [
+    "#fee5d9",
+    "#fcbba1",
+    "#fc9272",
+    "#fb6a4a",
+    "#de2d26",
+    "#a50f15"
+]}
 
 
 d_all_date_data = {}
