@@ -4585,7 +4585,7 @@
   "Cases_Last_Week_Per_Million": 5.0,
   "Deaths_Last_Week_Per_Million": 0.0,
   "fit_res_N0": 191.467,
-  "fit_res_T": 578.662,
+  "fit_res_T": 578.663,
   "fit_used_x_range": [
    -6,
    -1
@@ -4984,7 +4984,7 @@
   "Cases_Last_Week_Per_Million": 16.0,
   "Deaths_Last_Week_Per_Million": 0.0,
   "fit_res_N0": 126.468,
-  "fit_res_T": 381.55,
+  "fit_res_T": 381.549,
   "fit_used_x_range": [
    -6,
    -1
@@ -5110,7 +5110,7 @@
   "Cases_Last_Week_Per_Million": 9.0,
   "Deaths_Last_Week_Per_Million": 0.0,
   "fit_res_N0": 94.669,
-  "fit_res_T": 455.976,
+  "fit_res_T": 455.975,
   "fit_used_x_range": [
    -6,
    -1
@@ -6186,7 +6186,7 @@
   "Cases_Last_Week_Per_Million": 30.0,
   "Deaths_Last_Week_Per_Million": 0.0,
   "fit_res_N0": 510.181,
-  "fit_res_T": 657.705,
+  "fit_res_T": 657.704,
   "fit_used_x_range": [
    -6,
    0
