@@ -290,7 +290,9 @@ def export_time_series_all_countries():
                 'Cases_New_Per_Million', 'Deaths_New_Per_Million',
                 'Cases_Doubling_Time', 'Deaths_Doubling_Time',
                 'Cases_Change_Factor', 'Deaths_Change_Factor',
-                'Days_Since_2nd_Death'
+                'Days_Since_2nd_Death',
+                'Cases_Last_Week_Per_Million',
+                'Deaths_Last_Week_Per_Million'
             ])
             csvwriter.writeheader()
 

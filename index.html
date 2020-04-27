@@ -1040,9 +1040,11 @@
 	<img src="plots-gnuplot/int/countries-timeshifted-per-million-log.png" alt="countries-timeshifted-per-million-log.png" width="800" height="800">
 	<br />
 
-	<p> Now a similar chart, but using the daily new death cases per million population as y-axes. Note: for here the data is smoothed using a Bézier curve. </p>
-	<img src="plots-gnuplot/int/countries-timeshifted-new_deaths-per-million.png" alt="countries-timeshifted-new_deaths-per-million.png" width="800" height="800">
-	<img src="plots-gnuplot/int/countries-timeshifted-new_deaths-per-million-log.png" alt="countries-timeshifted-new_deaths-per-million-log.png" width="800" height="800"><br />
+	<p> Now a similar chart, but using new deaths per million population as y-axes. I decided to use the delta of the last 7 days, instead the daily values, since there are strong weekend and other effects present, leading to wrong conclusions. The 7 days delta data is much more reliable.
+		<!-- Note: for here the data is smoothed using a Bézier curve. -->
+	</p>
+	<img src="plots-gnuplot/int/countries-timeshifted-last_week-per-million.png" alt="countries-timeshifted-last_week-per-million.png" width="800" height="800">
+	<img src="plots-gnuplot/int/countries-timeshifted-last_week-per-million-log.png" alt="countries-timeshifted-last_week-per-million-log.png" width="800" height="800"><br />
 	<br />
 	<small> generated via Gnuplot <a href="https://github.com/entorb/COVID-19-Coronavirus-German-Regions/tree/master/scripts-gnuplot" target="_blank">plot-countries-timeshifted.gp</a>, raw data can be found in <a href="https://github.com/entorb/COVID-19-Coronavirus-German-Regions/blob/master/data/int/" target="_blank">countries-timeseries-XX.tsv</a>
 	</small>
