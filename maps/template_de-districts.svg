@@ -31,6 +31,9 @@
       <text id="text941" y="750" x="20" xml:space="preserve">
         <tspan y="750" x="20" id="tspan939">Date</tspan>
       </text>
+      <!-- <text id="texttitle" y="700" x="20" xml:space="preserve">
+        <tspan y="700" x="20" id="tspan939">!!!TYPE!!!</tspan>
+      </text> -->
     </g>
   </g>
   <g id="query" stroke="#000" stroke-width=".5">
