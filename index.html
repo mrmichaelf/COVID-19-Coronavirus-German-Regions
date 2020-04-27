@@ -179,6 +179,9 @@
 				<a href="#de-states-deaths">Opferzahlen in den Bundesländern</a><b> (new)</b>
 			</li>
 			<li>
+				<a href="#DE_shift_deaths_to_cases">Um wieviele Tage läuft die Opferzahl der Zahl der Infizierten hinterher?</a><b> (new)</b>
+			</li>
+			<li>
 				<a href="#DE_calc-cases-from-deaths-DE-total">Abschätzung der Dunkelziffer der Infizierten</a>
 			</li>
 			<li>
@@ -413,6 +416,18 @@
 		<li> In einigen Bundesländern bereits mehr COVID-19 Tote als Verkehrstote im ganzen Jahr 2019</li>
 		<li>Die Steigerungsrate der Todeszahl hat zwar stagniert, nimmt aber noch immer nicht merklich ab. Sprich bisher starben jede Woche mehr Menschen an COVID-19 als in den Wochen zuvor.</li>
 	</ul>
+
+	<p><small><a href="#ToC">Back to top</a></small></p>
+
+	<h3>
+		<a id="DE_shift_deaths_to_cases"></a> Um wieviele Tage läuft die Opferzahl der Zahl der Infizierten hinterher?</h3>
+
+	<p>In der folgenden Abbildung habe ich für Deutschland die Neu-Infizierten und die Neu-Verstorbenen aufgetragen. Die Kurve der Neu-Verstorbenen habe ich dann zeitlich verschoben um heraus zu finden, um wie viele Tage die Verstorbenen "nachlaufen". Anstatt von Tagessummen wurde die 7-Tage-Differenz verwendet um Wochenendeffekte auszuschließen.</p>
+	<img src="plots-gnuplot/int/shift-deaths-to-match-cases_DE_last-week.png" alt="shift-deaths-to-match-cases_DE_last-week.png" width="640" height="480">
+	<br />
+	<small>generated via Gnuplot <a href="https://github.com/entorb/COVID-19-Coronavirus-German-Regions/tree/master/scripts-gnuplot/" target="_blank">plot-countries-shift-deaths-to-match-cases.gp</a>, raw data can be found in <a href="https://github.com/entorb/COVID-19-Coronavirus-German-Regions/blob/master/data/de-states/de-state-DE-total.tsv" target="_blank">de-state-DE-total.tsv</a> </small>
+
+	<p>Ergebnis vom 27.04.2020: 14 Tage passen ziemlich gut. Somit ist anzunehmen, dass die Opferzahlen noch mindestens 14 Tage lang abnehmen werden. Für die Zeit von Infektion bis positiv getestet vergehen vermutlich nochmal 7 Tage, so dass wohl 3 Wochen zwischen Beginn einer Maßnahme und Sichtbarkeit dieser in den Opferzahlen liegen wird. Für die beste Übereinstimmung der Kurven habe ich die rechte Achse der Verstorbenen auf 4.1% der linken Achse skaliert. Beides habe ich "nach Auge" gemacht und keine Optimierungsroutine verwendet.</p>
 
 	<p><small><a href="#ToC">Back to top</a></small></p>
 

@@ -42,7 +42,7 @@ set xtic add (date_last 0)
 #unset output
 
 
-set key width -4
+set key width -3
 
 
 # set yrange [100:1000000]
@@ -60,8 +60,8 @@ set y2tics nomirror
 #unset output
 
 
-set ylabel "Cases Last Week" offset 1,0
-set y2label "Deaths Last Week" offset -2,0
+set ylabel "Cases last week" offset 1,0
+set y2label "Deaths last week" offset -2,0
 
 set xrange [-56:0]
 y_min=0
@@ -73,11 +73,11 @@ set y2range [y_min*mortality:y_max*mortality]
 
 mask_zero_values(x) = (x<=0)?1/0:x
 
-set label 2 sprintf("scaling factor used: %.2f%%", mortality*100.0) right front at graph 0.98, graph 0.05
+set label 2 sprintf("scaling: %.2f%%", mortality*100.0) left front at graph 0.04, graph 0.85
 
-set output '../plots-gnuplot/int/countries-shift-deaths-to-match-cases_last-week.png'
-plot data u (column("Days_Past")):(column("Cases_Last_Week")) t "Cases Last Week" ,\
-     data u (column("Days_Past")):(column("Deaths_Last_Week")) t "Deaths Last Week" axes x1y2, \
-     data u (column("Days_Past")-14):(column("Deaths_Last_Week")) t "Deaths, shifted by 14 days" axes x1y2 with lines lc rgb "red"
+set output '../plots-gnuplot/int/shift-deaths-to-match-cases_DE_last-week.png'
+plot data u (column("Days_Past")):(column("Cases_Last_Week")) t "Cases" ,\
+     data u (column("Days_Past")):(column("Deaths_Last_Week")) t "Deaths" axes x1y2, \
+     data u (column("Days_Past")-14):(column("Deaths_Last_Week")) t "Deaths shifted by 14 days" axes x1y2 with lines lc rgb "red"
 unset output
 
