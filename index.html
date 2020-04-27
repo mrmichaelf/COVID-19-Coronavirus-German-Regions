@@ -170,13 +170,16 @@
 		</li>
 		<ul>
 			<li>
-				<a href="#DeDistrictTable">Übersicht über alle DE Landkreise</a><b> (new)</b>
+				<a href="#DeDistrictAni">Animation der Ausbreitung in den Landkreisen</a><b> (new)</b>
+			</li>
+			<li>
+				<a href="#DeDistrictTable">Landkreisetabelle</a><b> (new)</b>
 			</li>
 			<li>
 				<a href="#de-states-deaths">Opferzahlen in den Bundesländern</a><b> (new)</b>
 			</li>
 			<li>
-				<a href="#DE_calc-cases-from-deaths-DE-total">Abschätzung der Dunkelziffer der Infizierten</a><b> (new)</b>
+				<a href="#DE_calc-cases-from-deaths-DE-total">Abschätzung der Dunkelziffer der Infizierten</a>
 			</li>
 			<li>
 				<a href="#DE_cases_time_series-absolute">Zeitverlauf der Ausbreitung in den Bundesländern</a>
@@ -277,13 +280,37 @@
 	</ul>
 
 	<h2><a id="Germany"></a>Germany / Deutschland</h2>
-
-	<p>Aktueller Stand der Infektionen in den Landkreisen, skaliert auf deren Einwohnerzahl. Eingebettet von <a href="https://commons.wikimedia.org/wiki/File:COVID-19_outbreak_Germany_per_capita_cases_map.svg" target="_blank">Wikipedia</a></p>
+	<!-- <p>Aktueller Stand der Infektionen in den Landkreisen, skaliert auf deren Einwohnerzahl. Eingebettet von <a href="https://commons.wikimedia.org/wiki/File:COVID-19_outbreak_Germany_per_capita_cases_map.svg" target="_blank">Wikipedia</a></p>
 	<a title="Ythlev / CC BY-SA (https://creativecommons.org/licenses/by-sa/4.0)" href="https://commons.wikimedia.org/wiki/File:COVID-19_outbreak_Germany_per_capita_cases_map.svg" target="_blank">
 		<img width="512" alt="COVID-19 outbreak Germany per capita cases map" src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/af/COVID-19_outbreak_Germany_per_capita_cases_map.svg/512px-COVID-19_outbreak_Germany_per_capita_cases_map.svg.png"></a>
 	<br />
 	<small>Eingebettet von <a href="https://commons.wikimedia.org/wiki/File:COVID-19_outbreak_Germany_per_capita_cases_map.svg" target="_blank">Wikipedia</a>, Erstell-Skript dazu wurde hier publiziert: <a href="https://github.com/ythlev/covid-19" target="_blank">github.com/ythlev/covid-19</a>
-	</small>
+	</small> -->
+
+	<h3><a id="DeDistrictAni"></a>Animation der Ausbreitung in den Landkreisen</h3>
+	<table>
+		<tr>
+			<th>Infizierte</th>
+			<th>Verstorbene</th>
+		</tr>
+		<tr>
+			<td>
+				<img src="maps/de-districts-Cases_Last_Week_Per_Million.gif" alt="de-districts-Cases_Last_Week_Per_Million.gif" width="480" height="651">
+			</td>
+			<td>
+				<img src="maps/de-districts-Deaths_Last_Week_Per_Million.gif" alt="de-districts-Deaths_Last_Week_Per_Million.gif" width="480" height="651">
+			</td>
+		</tr>
+		<tr>
+			<td colspan="2" style="text-align: center;"><br />Einheit: pro Woche und pro Million Einwohner</td>
+		</tr>
+	</table>
+	<ul>
+		<li>Datenquelle: <a href="https://experience.arcgis.com/experience/478220a4c454480e823b17327b2bf1d4/page/page_1/" target="_blank">RKI: COVID-19-Dashboard der Nationale Plattform für geographische Daten (NPGEO-DE)</a>
+		</li>
+		<li> Skript Quellcode: ist in meinem <a href="https://github.com/entorb/COVID-19-Coronavirus-German-Regions/blob/master/gen-map-de-districts.py" target="_blank">GitHub Repository</a> zu finden. Es basiert zum Großteil auf der Arbeit von <a href="https://github.com/ythlev/covid-19" target="_blank">ythlev</a>. </li>
+	</ul>
+	<!-- <p>siehe <a href="maps/">hier</a></p> -->
 
 	<p><small><a href="#ToC">Back to top</a></small></p>
 
