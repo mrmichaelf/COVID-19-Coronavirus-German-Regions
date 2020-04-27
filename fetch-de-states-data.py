@@ -201,10 +201,11 @@ def export_data(d_states_data: dict):
                 'Days_Past', 'Date',
                 'Cases', 'Deaths',
                 'Cases_New', 'Deaths_New',
+                'Cases_Last_Week', 'Deaths_Last_Week',
                 'Cases_Per_Million', 'Deaths_Per_Million',
                 'Cases_New_Per_Million', 'Deaths_New_Per_Million',
                 'Cases_Last_Week_Per_Million', 'Deaths_Last_Week_Per_Million',
-                'Cases_Doubling_Time', 'Deaths_Doubling_Time'
+                'Cases_Doubling_Time', 'Deaths_Doubling_Time',
             ]
             )
             csvwriter.writeheader()
