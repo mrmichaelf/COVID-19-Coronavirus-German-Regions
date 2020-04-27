@@ -2,17 +2,18 @@
 # https://raw.githubusercontent.com/ythlev/covid-19/master/run.py
 # by Chang Chia-huan
 
+import os
 import glob
-import argparse
-import pathlib
+# import argparse
+# import pathlib
 import json
-import csv
-import io
-import urllib.request
-import urllib.parse
+# import csv
+# import io
+# import urllib.request
+# import urllib.parse
 import math
 import statistics
-import datetime
+# import datetime
 import re
 
 # my helper modules
@@ -45,6 +46,7 @@ d_color_scales = {
 }
 
 d_all_date_data = {}
+# TODO: Typo in filename -> district
 for f in glob.glob('data/de-districts/de-distict_timeseries-*.json'):
     lk_id = int(re.search('^.*de-distict_timeseries\-(\d+)\.json$', f).group(1))
     l = helper.read_json_file(f)
@@ -61,13 +63,13 @@ del f, d, l
 # check if last date has as many values as the 2nd last, of not drop it
 dates = sorted(d_all_date_data.keys())
 if len(d_all_date_data[dates[-1]]) != len(d_all_date_data[dates[-2]]):
-    print(
-        f'{len(d_all_date_data[dates[-1]])} != {len(d_all_date_data[dates[-2]])}')
+    print("WARNIGN: last date is incomplete, so removing it")
     del d_all_date_data[dates[-1]]
 del dates
 
 
-property_to_plot = 'Deaths_Last_Week_Per_Million'
+# property_to_plot = 'Deaths_Last_Week_Per_Million'
+l_subprocesses = []
 for property_to_plot in ('Cases_Last_Week_Per_Million', 'Deaths_Last_Week_Per_Million'):
 
     if property_to_plot == 'Cases_Last_Week_Per_Million':
@@ -77,10 +79,10 @@ for property_to_plot in ('Cases_Last_Week_Per_Million', 'Deaths_Last_Week_Per_Mi
 
     values = []
     # collect all values for autoscaling
-    for date_str, l_distritcs in d_all_date_data.items():
-        for lk_id, d in l_distritcs.items():
+    for date_str, l_districts in d_all_date_data.items():
+        for lk_id, d in l_districts.items():
             values.append(d[property_to_plot])
-    del d, l_distritcs, lk_id
+    del d, l_districts, lk_id
 
     # generate color scale range
     q = statistics.quantiles(values, n=100, method="inclusive")
@@ -93,11 +95,11 @@ for property_to_plot in ('Cases_Last_Week_Per_Million', 'Deaths_Last_Week_Per_Mi
     with open('maps/template_de-districts.svg', mode="r", newline="", encoding="utf-8") as file_in:
         # plot loop for each date
         # date_str = '2020-04-24'
-        # l_distritcs = d_all_date_data[date_str]
-        for date_str, l_distritcs in d_all_date_data.items():
+        # l_districts = d_all_date_data[date_str]
+        for date_str, l_districts in d_all_date_data.items():
             file_in.seek(0, 0)  # reset file pointer
             main = {}
-            for lk_id, d in l_distritcs.items():
+            for lk_id, d in l_districts.items():
                 area = lk_id
                 pcapita = d[property_to_plot]
                 main[area] = {'pcapita': pcapita}
@@ -154,9 +156,22 @@ for property_to_plot in ('Cases_Last_Week_Per_Million', 'Deaths_Last_Week_Per_Mi
                             file_out.write(row)
         # break
 
+    # generate .gif out of .svgs
+    # from https://janakiev.com/blog/python-shell-commands/
+    import subprocess
 
-# from svglib.svglib import svg2rlg
-# from reportlab.graphics import renderPDF, renderPM
-# drawing = svg2rlg("file.svg")
-# ' renderPDF.drawToFile(drawing, "file.pdf")
-# renderPM.drawToFile(drawing, "file.png", fmt="PNG")
+    process = subprocess.Popen(['magick', 'convert', '-delay', '150x1000', '-size', '480x', f'maps/out/de-districts/{property_to_plot}-*.svg', '-coalesce', '-fuzz', '2%', '+dither', '-resize', '480x', '-layers', 'Optimize', f'maps/de-districts-{property_to_plot}.gif'],
+                               stdout=subprocess.PIPE, stderr=subprocess.PIPE,
+                               universal_newlines=True)
+    l_subprocesses.append(process)
+
+# wait for subprocesses to finish
+i = 1
+for process in l_subprocesses:
+    stdout, stderr = process.communicate()
+    print(f'{i}:\t{stdout}\t{stderr}')
+    i += 1
+
+# cleanup
+for f in glob.glob('maps/out/de-districts/*.svg'):
+    os.remove(f)

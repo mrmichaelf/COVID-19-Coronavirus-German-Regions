@@ -257,7 +257,7 @@ def fetch_landkreis_time_series(lk_id: str, readFromCache: bool = True) -> list:
 
     returns data as list, ordered by date
     """
-    file_cache = f"cache/de-districts/distict_timeseries-{lk_id}.json"
+    file_cache = f"cache/de-districts/district_timeseries-{lk_id}.json"
 
     max_allowed_rows_to_fetch = 2000
 
@@ -286,6 +286,7 @@ def fetch_and_prepare_lk_time_series(lk_id: str) -> list:
     returns list
     writes to filesystem
     """
+    # TODO: Typo in filename -> district
     file_out = f'data/de-districts/de-distict_timeseries-{lk_id}.json'
     l_time_series_fetched = fetch_landkreis_time_series(
         lk_id=lk_id, readFromCache=True)
