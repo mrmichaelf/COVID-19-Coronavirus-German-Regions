@@ -88,7 +88,7 @@ def extractBundeslandKeyValueData(s1: str) -> list:
 def fetch_betten():
     # fetch data per bundesland, having many duplicates
     cont = helper.read_url_or_cachefile(
-        url="https://diviexchange.z6.web.core.windows.net/gmap_betten.htm", cachefile='cache/de-divi/de-divi-betten.html', cache_max_age=3600, verbose=True)
+        url="https://diviexchange.z6.web.core.windows.net/gmap_betten.htm", cachefile='cache/de-divi/de-divi-betten.html', cache_max_age=1, verbose=True)
     myMatches = extractAreaTagTitleData(cont)
     # example
     # 'Schleswig-Holstein\rFreie Betten: 507\rBelegte Betten: 536\rAnteil freier Betten an Gesamtzahl: 48.6%'
@@ -111,7 +111,7 @@ def fetch_betten():
 def fetch_covid():
     # fetch data per bundesland, having many duplicates
     cont = helper.read_url_or_cachefile(
-        url="https://diviexchange.z6.web.core.windows.net/gmap_covid.htm", cachefile='cache/de-divi/de-divi-covid.html', cache_max_age=3600, verbose=True)
+        url="https://diviexchange.z6.web.core.windows.net/gmap_covid.htm", cachefile='cache/de-divi/de-divi-covid.html', cache_max_age=1, verbose=True)
     myMatches = extractAreaTagTitleData(cont)
     # 'Baden-Württemberg\rAnzahl COVID-19 Patienten/innen in intensivmedizinischer Behandlung: 456\rAnteil COVID-19 Patienten/innen pro Intensivbett: 11,9%'
 
@@ -126,7 +126,7 @@ def fetch_covid():
         assert d2['Date'] == datestr
         # d2['Prozent COVID-19 pro Intensivbett'] = d1['Anteil COVID-19 Patienten/innen pro Intensivbett']
         # = COVID-19 Patienten / Betten gesamt
-        d2['COVID-19 Int Patienten'] = d1['Anzahl COVID-19 Patienten/innen in intensivmedizinischer Behandlung']
+        d2['Int COVID-19 Patienten'] = d1['Anzahl COVID-19 Patienten/innen in intensivmedizinischer Behandlung']
         d_data_all[bundesland][-1] = d2
         1
     del myMatches, s1, bundesland, d1, d2
@@ -141,6 +141,8 @@ def calc_de_sum():
                 d_de_sum[d['Date']] = {}
             for key, value in d.items():
                 if key == 'Date':
+                    continue
+                if value == None:
                     continue
                 if not key in d_de_sum[d['Date']]:
                     d_de_sum[d['Date']][key] = 0
@@ -177,7 +179,7 @@ def export_time_series():
                 d2 = d
                 gesamt = d2['Int Betten gesamt']
                 belegt = d2['Int Betten belegt']
-                if 'Int COVID-19 Patienten' in d2:
+                if 'Int COVID-19 Patienten' in d2 and d2['Int COVID-19 Patienten'] != None:
                     covid = d2['Int COVID-19 Patienten']
                     d2['Prozent Int COVID-19 Patienten'] = round(
                         100*covid/gesamt, 1)

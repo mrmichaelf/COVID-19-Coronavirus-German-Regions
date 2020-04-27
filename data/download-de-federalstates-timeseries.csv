@@ -943,3 +943,19 @@ id,Country/Region,federalstate,infections,deaths,date,newinfections,newdeaths
 929,Germany,Saxony-Anhalt,1494,36,2020-04-26,14,1
 944,Germany,Schleswig-Holstein,2630,96,2020-04-26,18,1
 939,Germany,Thuringia,2098,73,2020-04-26,40,2
+946,Germany,Baden-Württemberg,31043,1249,2020-04-27,282,12
+952,Germany,Bavaria,41070,1621,2020-04-27,158,25
+947,Germany,Berlin,5638,125,2020-04-27,38,2
+951,Germany,Brandenburg,2721,100,2020-04-27,27,0
+948,Germany,Bremen,754,27,2020-04-27,15,0
+949,Germany,Hamburg,4475,142,2020-04-27,46,2
+960,Germany,Hesse,7979,320,2020-04-27,33,5
+953,Germany,Lower Saxony,9847,391,2020-04-27,62,7
+958,Germany,Mecklenburg-Western Pomerania,674,16,2020-04-27,1,0
+959,Germany,North Rhine-Westphalia,31879,1131,2020-04-27,210,35
+956,Germany,Rhineland-Palatinate,5879,152,2020-04-27,44,5
+957,Germany,Saarland,2503,121,2020-04-27,21,14
+945,Germany,Saxony,4458,147,2020-04-27,30,0
+955,Germany,Saxony-Anhalt,1515,36,2020-04-27,21,0
+954,Germany,Schleswig-Holstein,2638,98,2020-04-27,8,2
+950,Germany,Thuringia,2120,74,2020-04-27,22,1
