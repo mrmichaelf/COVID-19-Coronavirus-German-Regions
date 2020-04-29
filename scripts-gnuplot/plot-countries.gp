@@ -173,7 +173,7 @@ set title "Days until hitting Italy's deaths per capita\nbased on current deaths
 set ylabel "Days (estimated)"
 set yrange [0:28]
 set ytics 0,7
-out = system ("cd .. ; python join-country-latest-and-fit-data.py ; cd scripts-gnuplot")
+out = system ("cd .. ; python3 join-country-latest-and-fit-data.py ; cd scripts-gnuplot")
 print out
 data = '../data/int/countries-joined_selected_and_gnuplot_fit.tsv'
 set output '../plots-gnuplot/int/countries-days-until-IT-level-of-deaths.png'
