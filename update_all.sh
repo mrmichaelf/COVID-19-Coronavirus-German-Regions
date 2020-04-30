@@ -1,10 +1,6 @@
 #!/bin/bash
 
-# dir_old=$PWD
-# dir_of_this_script="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
-# cd dir_of_this_script
-
-
+# fetch current index.html
 wget -q -O index-online.html https://entorb.net/COVID-19-coronavirus/index.html 
 
 # fetching and generating new data
@@ -13,16 +9,20 @@ python fetch-de-divi-V2.py
 python fetch-de-districts.py
 python fetch-int-country-data.py
 
+# IDEA: run in background processes via appending &
+
+
 # plotting
-rm plots-gnuplot/int/*.png
+rm plots-gnuplot/*/*.png
 cd scripts-gnuplot
-gnuplot plot-de.gp
-gnuplot plot-countries.gp
+gnuplot all.gp
+bash upload-to-entorb.sh
 cd ..
 
-# uploading
-rsync -rvhu --delete --delete-excluded data/* entorb@entorb.net:html/COVID-19-coronavirus/data/
-rsync -rvhu --delete --delete-excluded plots-gnuplot/* entorb@entorb.net:html/COVID-19-coronavirus/plots-gnuplot/
+# uploading data # (after plotting because gnuplot generates 2 data files as well)
+cd data
+bash upload-to-entorb.sh
+cd ..
 
 # reporting
 echo Date Int-Countries: `tail -1 data/int/countries-latest-selected.tsv | cut -f2`
@@ -30,11 +30,6 @@ echo Date DE-States: `tail -1 data/de-states/de-states-latest.tsv | cut -f5`
 
 echo "Check local html. Enter to close, CTRG+C to cancel"
 read ok
-
-
-# python fetch-de-districts.py
-# python fetch-de-divi.py
-
 
 # git add .
 # git add data/*
