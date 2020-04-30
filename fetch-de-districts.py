@@ -350,74 +350,74 @@ def fetch_and_prepare_lk_time_series(lk_id: str) -> list:
     return l_time_series
 
 
-def plot_lk_fit(lk_id: str, data: list, d_fit_results: dict):
-    """
-    plots a 4 week history as log plot
-    1-day forcase
-    TODO: format and re-structrue this dirty code
-    """
+# def plot_lk_fit(lk_id: str, data: list, d_fit_results: dict):
+#     """
+#     plots a 4 week history as log plot
+#     1-day forcase
+#     TODO: format and re-structrue this dirty code
+#     """
 
-    lk_name = get_lk_name_from_lk_id(lk_id)
+#     lk_name = get_lk_name_from_lk_id(lk_id)
 
-    dt_latest_date = datetime.datetime.fromtimestamp(
-        l_lk_time_series[-1]['Timestamp'])
+#     dt_latest_date = datetime.datetime.fromtimestamp(
+#         l_lk_time_series[-1]['Timestamp'])
 
-    # print(
-    #     f"=== Zeitverlauf für {l_lk_time_series[-1]['Bundesland']}: {l_lk_time_series[-1]['Landkreis']}, vom {l_lk_time_series[-1]['Datenstand']} ===")
+#     # print(
+#     #     f"=== Zeitverlauf für {l_lk_time_series[-1]['Bundesland']}: {l_lk_time_series[-1]['Landkreis']}, vom {l_lk_time_series[-1]['Datenstand']} ===")
 
-    # these will be used for plotting, and partly for fitting
+#     # these will be used for plotting, and partly for fitting
 
-    # print(
-    #     f"{s_this_date}\t{i_days_past}\t{entry['SummeFall']}\t{entry['SummeTodesfall']}\t{entry['AnzahlFall']}\t{entry['AnzahlTodesfall']}")
+#     # print(
+#     #     f"{s_this_date}\t{i_days_past}\t{entry['SummeFall']}\t{entry['SummeTodesfall']}\t{entry['AnzahlFall']}\t{entry['AnzahlTodesfall']}")
 
-    # print(f"Coefficients:\n{param}")
-    # print(f"Covariance of coefficients:\n{param_cov}")
+#     # print(f"Coefficients:\n{param}")
+#     # print(f"Covariance of coefficients:\n{param_cov}")
 
-    # print("Tomorrow it could be: %d , that is a factor of %.3f" %
-    #   (y_next_day, factor_increase_next_day))
+#     # print("Tomorrow it could be: %d , that is a factor of %.3f" %
+#     #   (y_next_day, factor_increase_next_day))
 
-    #
-    (data_x, data_y) = helper.extract_x_and_y_data(data)
+#     #
+#     (data_x, data_y) = helper.extract_x_and_y_data(data)
 
-    fit_range_x = d_fit_results['fit_set_x_range']
-    fit_range_y = d_fit_results['fit_set_y_range']
+#     fit_range_x = d_fit_results['fit_set_x_range']
+#     fit_range_y = d_fit_results['fit_set_y_range']
 
-    (data_x_for_fit, data_y_for_fit) = helper.extract_data_according_to_fit_ranges(
-        data, fit_range_x, fit_range_y)
+#     (data_x_for_fit, data_y_for_fit) = helper.extract_data_according_to_fit_ranges(
+#         data, fit_range_x, fit_range_y)
 
-    data_y_fitted = []
-    for x in data_x_for_fit:
-        y = helper.fit_function_exp_growth(x, *d_fit_results['fit_res'])
-        data_y_fitted.append(y)
+#     data_y_fitted = []
+#     for x in data_x_for_fit:
+#         y = helper.fit_function_exp_growth(x, *d_fit_results['fit_res'])
+#         data_y_fitted.append(y)
 
-    plt.title(f"{lk_name}\n%d new cases expected\nfactor:%.2f" %
-              (d_fit_results['forcast_y_at_x+1'], d_fit_results['factor_increase_x+1']))
-    range_x = (-28, 1)
-    plt.plot(data_x, data_y, 'o', color='red', label="data")
-    plt.plot(data_x_for_fit, data_y_fitted,
-             '--', color='blue', label="fit")
-    plt.legend()
-    plt.grid()
-    # plt.xticks(np.arange(min(data_x), 0, 7.0))
-    axes = plt.gca()
-    axes.tick_params(direction='in', bottom=True,
-                     top=True, left=True, right=True)
-    plt.yscale('log')
-    x_ticks = np.arange(range_x[0], range_x[1], 7)
-    axes.set_xlim([range_x[0], range_x[1]])
-    plt.xticks(x_ticks)
+#     plt.title(f"{lk_name}\n%d new cases expected\nfactor:%.2f" %
+#               (d_fit_results['forcast_y_at_x+1'], d_fit_results['factor_increase_x+1']))
+#     range_x = (-28, 1)
+#     plt.plot(data_x, data_y, 'o', color='red', label="data")
+#     plt.plot(data_x_for_fit, data_y_fitted,
+#              '--', color='blue', label="fit")
+#     plt.legend()
+#     plt.grid()
+#     # plt.xticks(np.arange(min(data_x), 0, 7.0))
+#     axes = plt.gca()
+#     axes.tick_params(direction='in', bottom=True,
+#                      top=True, left=True, right=True)
+#     plt.yscale('log')
+#     x_ticks = np.arange(range_x[0], range_x[1], 7)
+#     axes.set_xlim([range_x[0], range_x[1]])
+#     plt.xticks(x_ticks)
 
-    # axes.set_ylim([ymin,ymax])
-    fileout = f'plots-python/de-cases-fit-region-{lk_id}.png'
-    # .replace(" ", "_")
-    plt.savefig(fileout)
-    # plt.show()
-    plt.clf()  # clear plot
+#     # axes.set_ylim([ymin,ymax])
+#     fileout = f'plots-python/de-cases-fit-region-{lk_id}.png'
+#     # .replace(" ", "_")
+#     plt.savefig(fileout)
+#     # plt.show()
+#     plt.clf()  # clear plot
 
-    # fetch_fit_and_plot_lk('SK Fürth')
-    # fetch_fit_and_plot_lk('SK Erlangen')
-    # fetch_fit_and_plot_lk('SK Hamburg')
-    # fetch_fit_and_plot_lk('LK Harburg')
+#     # fetch_fit_and_plot_lk('SK Fürth')
+#     # fetch_fit_and_plot_lk('SK Erlangen')
+#     # fetch_fit_and_plot_lk('SK Hamburg')
+#     # fetch_fit_and_plot_lk('LK Harburg')
 
 
 def loop_over_all_LK():
