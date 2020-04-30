@@ -1970,7 +1970,7 @@
   "Deaths_New_Per_Million": 0.189,
   "Cases_Last_Week_Per_Million": 16.79,
   "Deaths_Last_Week_Per_Million": 1.208,
-  "Cases_Doubling_Time": "",
+  "Cases_Doubling_Time": 20.0,
   "Deaths_Doubling_Time": 33.7
  },
  {

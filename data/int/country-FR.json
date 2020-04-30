@@ -1992,7 +1992,7 @@
   "Cases_Last_Week_Per_Million": 202.397,
   "Deaths_Last_Week_Per_Million": 49.308,
   "Cases_Doubling_Time": 87.0,
-  "Deaths_Doubling_Time": ""
+  "Deaths_Doubling_Time": 30.2
  },
  {
   "Date": "2020-04-26",
@@ -2012,7 +2012,7 @@
   "Deaths_New_Per_Million": 3.613,
   "Cases_Last_Week_Per_Million": 137.474,
   "Deaths_Last_Week_Per_Million": 46.964,
-  "Cases_Doubling_Time": "",
+  "Cases_Doubling_Time": 98.0,
   "Deaths_Doubling_Time": 34.4
  },
  {

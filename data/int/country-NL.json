@@ -1971,7 +1971,7 @@
   "Cases_Last_Week_Per_Million": 354.593,
   "Deaths_Last_Week_Per_Million": 48.343,
   "Cases_Doubling_Time": 29.6,
-  "Deaths_Doubling_Time": ""
+  "Deaths_Doubling_Time": 22.6
  },
  {
   "Date": "2020-04-25",
@@ -1991,7 +1991,7 @@
   "Deaths_New_Per_Million": 6.964,
   "Cases_Last_Week_Per_Million": 326.04,
   "Deaths_Last_Week_Per_Million": 47.066,
-  "Cases_Doubling_Time": "",
+  "Cases_Doubling_Time": 31.7,
   "Deaths_Doubling_Time": 22.3
  },
  {

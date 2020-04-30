@@ -1928,7 +1928,7 @@
   "Deaths_New_Per_Million": 1.421,
   "Cases_Last_Week_Per_Million": 355.711,
   "Deaths_Last_Week_Per_Million": 10.423,
-  "Cases_Doubling_Time": "",
+  "Cases_Doubling_Time": 14.5,
   "Deaths_Doubling_Time": 11.4
  },
  {
@@ -1949,7 +1949,7 @@
   "Deaths_New_Per_Million": 1.397,
   "Cases_Last_Week_Per_Million": 335.242,
   "Deaths_Last_Week_Per_Million": 10.301,
-  "Cases_Doubling_Time": "",
+  "Cases_Doubling_Time": 15.8,
   "Deaths_Doubling_Time": 12.3
  },
  {
