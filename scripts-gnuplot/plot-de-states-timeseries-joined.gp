@@ -2,7 +2,6 @@
 # https://entorb.net
 # date 2020-03-22
 
-
 load "header.gp"
 
 set terminal pngcairo size 640,800

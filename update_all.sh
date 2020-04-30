@@ -11,7 +11,7 @@ python3 fetch-de-divi-V2.py
 python3 fetch-de-districts.py
 python3 fetch-int-country-data.py
 
-# IDEA: run in background processes via appending &
+# IDEA: run in background processes via appending '&'. Problem 1: how to know when ready for plotting? Problem 2: Errors are no longer displayed at the terminal
 
 
 echo === plotting
@@ -35,10 +35,6 @@ echo === Check local html. Enter to close, CTRG+C to cancel
 read ok
 
 echo  === git: add and commit
-# git add .
 git add data/*
-# git add plot-gnuplot/*
 git commit -m "update"
-# git push
-
-# cd dir_old
+git push

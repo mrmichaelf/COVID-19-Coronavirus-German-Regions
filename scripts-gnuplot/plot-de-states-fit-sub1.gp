@@ -1,3 +1,8 @@
+#!/usr/bin/gnuplot
+
+# by Torben Menke
+# https://entorb.net
+
 title = "Infektionen in ".long_name
 set title title
 # fitting

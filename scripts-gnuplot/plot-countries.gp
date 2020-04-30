@@ -1,10 +1,7 @@
+#!/usr/bin/gnuplot
+
 # by Torben Menke
 # https://entorb.net
-# date 2020-03-12
-
-
-# TODO: add 7 day fit of doublication time
-
 
 load "header.gp"
 

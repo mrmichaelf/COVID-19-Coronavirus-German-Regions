@@ -1,6 +1,7 @@
+#!/usr/bin/gnuplot
+
 # by Torben Menke
 # https://entorb.net
-# date 2020-03-12
 
 # set terminal png noenhanced large size 640,480
 set terminal pngcairo size 640,480 font 'Verdana,9'

@@ -1,4 +1,5 @@
-
+#!/usr/bin/python3
+# -*- coding: utf-8 -*-
 
 # this is based on https://raw.githubusercontent.com/lorey/list-of-l_countries/master/generator.py
 # fetches a ref table of country data from geonames.org

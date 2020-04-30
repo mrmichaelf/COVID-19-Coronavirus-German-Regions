@@ -1,3 +1,6 @@
+#!/usr/bin/python3
+# -*- coding: utf-8 -*-
+
 # Based on
 # https://raw.githubusercontent.com/ythlev/covid-19/master/run.py
 # by Chang Chia-huan

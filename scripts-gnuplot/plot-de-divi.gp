@@ -1,3 +1,8 @@
+#!/usr/bin/gnuplot
+
+# by Torben Menke
+# https://entorb.net
+
 load "header.gp"
 
 # set terminal pngcairo size 640,480 font 'Verdana,9'

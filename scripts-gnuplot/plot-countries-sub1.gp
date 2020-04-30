@@ -1,3 +1,8 @@
+#!/usr/bin/gnuplot
+
+# by Torben Menke
+# https://entorb.net
+
 data = "../data/int/country-".country_code.".tsv"
 
 # fetch data from last row of data

@@ -1,7 +1,7 @@
+#!/usr/bin/gnuplot
+
 # by Torben Menke
 # https://entorb.net
-# date 2020-03-22
-
 
 load "header.gp"
 
