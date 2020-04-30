@@ -141,6 +141,56 @@ unset logscale y
 
 
 
+
+title = "Neu Infizierte in 7 Tagen pro 1 Mill. Einwohner"
+set title title
+set ylabel "Neu Infizierte in 7 Tagen pro 1 Mill. Einwohner"
+set yrange [0:]
+output = '../plots-gnuplot/de-states/cases-de-last_week-per-million.png'
+set output output
+plot \
+  '../data/de-states/de-state-NW.tsv' using (column("Date")):(column("Cases_Last_Week_Per_Million")) title "Nordrhein-Westfalen" with lines lw 2, \
+  '../data/de-states/de-state-BY.tsv' using (column("Date")):(column("Cases_Last_Week_Per_Million")) title "Bayern" with lines lw 2, \
+  '../data/de-states/de-state-BW.tsv' using (column("Date")):(column("Cases_Last_Week_Per_Million")) title "Baden-Württemberg" with lines lw 2, \
+  '../data/de-states/de-state-NI.tsv' using (column("Date")):(column("Cases_Last_Week_Per_Million")) title "Niedersachsen" with lines lw 2, \
+  '../data/de-states/de-state-HE.tsv' using (column("Date")):(column("Cases_Last_Week_Per_Million")) title "Hessen" with lines lw 2, \
+  '../data/de-states/de-state-RP.tsv' using (column("Date")):(column("Cases_Last_Week_Per_Million")) title "Rheinland-Pfalz" with lines lw 2, \
+  '../data/de-states/de-state-BE.tsv' using (column("Date")):(column("Cases_Last_Week_Per_Million")) title "Berlin" with lines lw 2, \
+  '../data/de-states/de-state-HH.tsv' using (column("Date")):(column("Cases_Last_Week_Per_Million")) title "Hamburg" with lines lw 2, \
+  '../data/de-states/de-state-SN.tsv' using (column("Date")):(column("Cases_Last_Week_Per_Million")) title "Sachsen" with lines lw 2 dt "-", \
+  '../data/de-states/de-state-SH.tsv' using (column("Date")):(column("Cases_Last_Week_Per_Million")) title "Schleswig-Holstein" with lines lw 2 dt "-", \
+  '../data/de-states/de-state-BB.tsv' using (column("Date")):(column("Cases_Last_Week_Per_Million")) title "Brandenburg" with lines lw 2 dt "-", \
+  '../data/de-states/de-state-TH.tsv' using (column("Date")):(column("Cases_Last_Week_Per_Million")) title "Thüringen" with lines lw 2 dt "-", \
+  '../data/de-states/de-state-ST.tsv' using (column("Date")):(column("Cases_Last_Week_Per_Million")) title "Sachsen-Anhalt" with lines lw 2 dt "-", \
+  '../data/de-states/de-state-SL.tsv' using (column("Date")):(column("Cases_Last_Week_Per_Million")) title "Saarland" with lines lw 2 dt "-", \
+  '../data/de-states/de-state-MV.tsv' using (column("Date")):(column("Cases_Last_Week_Per_Million")) title "Mecklenburg-Vorpommern" with lines lw 2 dt "-", \
+  '../data/de-states/de-state-HB.tsv' using (column("Date")):(column("Cases_Last_Week_Per_Million")) title "Bremen" with lines lw 2 dt "-", \
+  '../data/de-states/de-state-DE-total.tsv' using (column("Date")):(column("Cases_Last_Week_Per_Million")) title "Deutschland" with lines lw 4 dt 1 linecolor rgb "red", \
+
+unset output
+#  '../data/de-states/de-state-DE-total.tsv' using (column("Date")):(column("Deaths")) title "Deutschland" with lines , \
+
+set y2range[GPVAL_Y_MIN:GPVAL_Y_MAX]
+set output output
+replot
+unset output
+
+set yrange [0.1:]
+set logscale y
+set logscale y2
+set title title ." - log. skaliert"
+output = '../plots-gnuplot/de-states/cases-de-last_week-per-million-log.png'
+set output output
+replot
+unset output
+unset logscale y
+unset logscale y2
+
+
+
+
+
+
 # Deaths: only per million
 set ytics nomirror
 set y2tics ("DE HIV\n2018" 5, "DE Drogen\n2019" 17, "DE Verkehr\n2019" 39, "DE Suizid\n2017" 111, "DE Grippe\n2017" 302, "DE Krebs\n2017" 2741, "DE Tote\n2018" 11502)
