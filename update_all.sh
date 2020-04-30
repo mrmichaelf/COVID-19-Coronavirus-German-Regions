@@ -4,10 +4,10 @@
 wget -q -O index-online.html https://entorb.net/COVID-19-coronavirus/index.html 
 
 # fetching and generating new data
-python fetch-de-states-data.py
-python fetch-de-divi-V2.py
-python fetch-de-districts.py
-python fetch-int-country-data.py
+python3 fetch-de-states-data.py
+python3 fetch-de-divi-V2.py
+python3 fetch-de-districts.py
+python3 fetch-int-country-data.py
 
 # IDEA: run in background processes via appending &
 
@@ -32,7 +32,7 @@ echo "Check local html. Enter to close, CTRG+C to cancel"
 read ok
 
 # git add .
-# git add data/*
+git add data/*
 # git add plot-gnuplot/*
 # git commit -m "update"
 # git push
