@@ -258,7 +258,7 @@ def fit_function_exp_growth(t, N0, T):
     N0 = values at t = 0
     T = time it takes for t duplication: f(t+T) = 2 x f(t)
     """
-    # previously b = ln(2)/T used, but this is better as T = doubling time is directy returned
+    # previously b = ln(2)/T used, but this is better as T = doubling time is directly returned
     return N0 * np.exp(t * math.log(2)/T)
 
 
@@ -283,7 +283,7 @@ def fit_routine(data: list, fit_range_x: list = (-np.inf, np.inf), fit_range_y: 
                 data_y_for_fit,
                 p0,
                 bounds=(
-                    (0, -np.inf), (np.inf, np.inf)
+                    (1, 0.1), (np.inf, np.inf)
                 )
             )
             # bounds: ( min of all parameters) , (max of all parameters) )
@@ -305,7 +305,8 @@ def fit_routine(data: list, fit_range_x: list = (-np.inf, np.inf), fit_range_y: 
                 'forcast_y_delta_at_x+1': y_next_day_delta,
                 'factor_increase_x+1': factor_increase_next_day
             }
-        except (Exception, RuntimeError) as error:
+        except (RuntimeError) as error:  # Exception, RuntimeWarning
+            1
             print(error)
     return d
 
