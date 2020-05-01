@@ -71,7 +71,7 @@ import time
 import numpy as np
 # curve-fit() function imported from scipy
 # from scipy.optimize import curve_fit
-from matplotlib import pyplot as plt
+# from matplotlib import pyplot as plt
 
 # process bar
 from tqdm import tqdm
@@ -162,7 +162,7 @@ def fetch_ref_landkreise(readFromCache: bool = True) -> dict:
     Api Explorer
     https://services7.arcgis.com/mOBPykOjAyBO2ZKk/arcgis/rest/services/RKI_Landkreisdaten/FeatureServer/0
 
-    converts/flattens the retrieved json a bit and use the district ID lk_id as key for the returred dict
+    converts/flattens the retrieved json a bit and use the district ID lk_id as key for the returned dict
     write the json to cache folder in file system, using utf-8 encoding
 
     returns the data as list of dicts
@@ -287,7 +287,7 @@ def fetch_and_prepare_lk_time_series(lk_id: str) -> list:
     writes to filesystem
     """
     # TODO: Typo in filename -> district
-    file_out = f'data/de-districts/de-distict_timeseries-{lk_id}.json'
+    file_out = f'data/de-districts/de-district_timeseries-{lk_id}.json'
     l_time_series_fetched = fetch_landkreis_time_series(
         lk_id=lk_id, readFromCache=True)
 
