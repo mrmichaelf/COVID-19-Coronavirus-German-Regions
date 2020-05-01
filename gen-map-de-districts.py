@@ -6,7 +6,9 @@
 # by Chang Chia-huan
 
 import os
+import sys
 import glob
+import subprocess
 # import argparse
 # import pathlib
 import json
@@ -18,11 +20,40 @@ import math
 import statistics
 # import datetime
 import re
-
 # my helper modules
 import helper
 
 unit = 1000000
+
+
+def run_imagemagick_convert(l_imagemagick_parameters: list, wait_for_finish: bool = True):
+    """
+    wait_for_finish = False: the calling function needs to handle the returned process
+    """
+    # prepend 'convert'
+    l_imagemagick_parameters.insert(0, 'convert')
+    if os.name == 'posix':
+        # print ('posix/Unix/Linux')
+        1
+    elif os.name == 'nt':
+        # print ('Windows')
+        # prepend 'magick
+        l_imagemagick_parameters.insert(0, 'magick')
+    else:
+        print('unknown os')
+        sys.exit(1)  # throws exception, use quit() to close silently
+
+    process = subprocess.Popen(l_imagemagick_parameters,
+                               stdout=subprocess.PIPE, stderr=subprocess.PIPE,
+                               universal_newlines=True)
+    if wait_for_finish:
+        stdout, stderr = process.communicate()
+        if stdout != '':
+            print(f'Out: {stdout}')
+        if stderr != '':
+            print(f'ERROR: {stderr}')
+    return process
+
 
 # https://www.w3schools.com/colors/colors_picker.asp
 d_color_scales = {
@@ -158,23 +189,48 @@ for property_to_plot in ('Cases_Last_Week_Per_Million', 'Deaths_Last_Week_Per_Mi
                         else:
                             file_out.write(row)
         # break
+    l_subprocesses = []
+    for month in ('2020-03', '2020-04'):
+        # convert -size 480x maps/out/de-districts/Cases_Last_Week_Per_Million-2020-03*.svg -resize 480x -coalesce -fuzz 2% +dither -layers Optimize maps/out/de-districts/Cases_Last_Week_Per_Million-2020-03.gif
+        l_imagemagick_parameters = [
+            '-size', '480x', f'maps/out/de-districts/{property_to_plot}-{month}*.svg', '-resize', '480x', '-coalesce', '-fuzz', '2%', '+dither', '-layers', 'Optimize', f'maps/out/de-districts/{property_to_plot}-{month}.gif']
+        # 'convert', '-delay', '150x1000', '-size', '480x', f'maps/out/de-districts/{property_to_plot}-*.svg', '-coalesce', '-fuzz', '2%', '+dither', '-resize', '480x', '-layers', 'Optimize', f'maps/de-districts-{property_to_plot}.gif']
+        process = run_imagemagick_convert(
+            l_imagemagick_parameters, wait_for_finish=False)
+        l_subprocesses.append(process)
 
-    # generate .gif out of .svgs
-    # from https://janakiev.com/blog/python-shell-commands/
-    import subprocess
+    # wait for subprocesses to finish
+    for process in l_subprocesses:
+        stdout, stderr = process.communicate()
+        if stdout != '':
+            print(f'Out: {stdout}')
+        if stderr != '':
+            print(f'ERROR: {stderr}')
 
-    process = subprocess.Popen(['magick', 'convert', '-delay', '150x1000', '-size', '480x', f'maps/out/de-districts/{property_to_plot}-*.svg', '-coalesce', '-fuzz', '2%', '+dither', '-resize', '480x', '-layers', 'Optimize', f'maps/de-districts-{property_to_plot}.gif'],
-                               stdout=subprocess.PIPE, stderr=subprocess.PIPE,
-                               universal_newlines=True)
-    l_subprocesses.append(process)
+    outfile = f'maps/de-districts-{property_to_plot}.gif'
 
-# wait for subprocesses to finish
-i = 1
-for process in l_subprocesses:
-    stdout, stderr = process.communicate()
-    print(f'{i}:\t{stdout}\t{stderr}')
-    i += 1
+    # join monthly gifs
+    l_imagemagick_parameters = [
+        f'maps/out/de-districts/{property_to_plot}-*.gif', '-coalesce', '-fuzz', '2%', '+dither', '-layers', 'Optimize', outfile
+    ]
+    run_imagemagick_convert(l_imagemagick_parameters)
+
+    # set delay of 1/4s for all frames
+    l_imagemagick_parameters = [
+        outfile, '-delay', '250x1000', outfile
+    ]
+    run_imagemagick_convert(l_imagemagick_parameters)
+
+    # clone last frame and set longer delay time of 1s
+    l_imagemagick_parameters = [
+        outfile, '(', '-clone', '-1', '-set', 'delay', '100', ')', outfile
+    ]
+    run_imagemagick_convert(l_imagemagick_parameters)
+
 
 # cleanup
+for f in glob.glob('maps/out/de-districts/*.gif'):
+    os.remove(f)
+
 for f in glob.glob('maps/out/de-districts/*.svg'):
     os.remove(f)
