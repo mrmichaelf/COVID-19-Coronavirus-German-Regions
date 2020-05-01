@@ -7,6 +7,7 @@ eCharts/apache-echarts-4.7.0-incubating-src/*
 /backup/
 /cache/
 /cache/de-districts/
+cache/de-districts/de-districts.json
 /data/de-districts/cache/
 /data/old/
 /maps/out/*
