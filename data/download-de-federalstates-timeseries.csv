@@ -1023,3 +1023,19 @@ id,Country/Region,federalstate,infections,deaths,date,newinfections,newdeaths
 1022,Germany,Saxony-Anhalt,1564,44,2020-05-01,15,1
 1011,Germany,Schleswig-Holstein,2714,110,2020-05-01,24,4
 1010,Germany,Thuringia,2323,93,2020-05-01,69,8
+1038,Germany,Baden-Württemberg,32146,1402,2020-05-02,227,17
+1039,Germany,Bavaria,42658,1885,2020-05-02,169,35
+1033,Germany,Berlin,5943,152,2020-05-02,56,3
+1031,Germany,Brandenburg,2886,122,2020-05-02,14,2
+1027,Germany,Bremen,871,30,2020-05-02,12,0
+1025,Germany,Hamburg,4609,163,2020-05-02,5,0
+1036,Germany,Hesse,8486,364,2020-05-02,110,4
+1035,Germany,Lower Saxony,10246,451,2020-05-02,105,22
+1028,Germany,Mecklenburg-Western Pomerania,695,18,2020-05-02,2,0
+1026,Germany,North Rhine-Westphalia,33216,1268,2020-05-02,158,7
+1032,Germany,Rhineland-Palatinate,6099,173,2020-05-02,13,1
+1037,Germany,Saarland,2597,135,2020-05-02,16,0
+1029,Germany,Saxony,4617,163,2020-05-02,25,1
+1030,Germany,Saxony-Anhalt,1571,44,2020-05-02,7,0
+1040,Germany,Schleswig-Holstein,2728,112,2020-05-02,14,2
+1034,Germany,Thuringia,2335,93,2020-05-02,12,0
