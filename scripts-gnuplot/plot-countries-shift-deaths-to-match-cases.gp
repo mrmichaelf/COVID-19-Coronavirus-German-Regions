@@ -60,8 +60,11 @@ set y2tics nomirror
 #unset output
 
 
-set ylabel "Cases last week" offset 1,0
-set y2label "Deaths last week" offset -2,0
+set ylabel "Cases last week" offset 1,0 textcolor rgb 'blue' 
+set y2label "Deaths last week" offset -2,0 textcolor rgb 'red' 
+
+set ytics textcolor rgb 'blue' 
+set y2tics textcolor rgb 'red' 
 
 set xrange [-56:0]
 y_min=0
@@ -73,7 +76,7 @@ set y2range [y_min*mortality:y_max*mortality]
 
 mask_zero_values(x) = (x<=0)?1/0:x
 
-set label 2 sprintf("scaling: %.2f%%", mortality*100.0) left front at graph 0.04, graph 0.85
+set label 2 sprintf("scaling: %.2f%%", mortality*100.0) right front at graph 0.999, graph 0.95
 
 set output '../plots-gnuplot/int/shift-deaths-to-match-cases_DE_last-week.png'
 plot data u (column("Days_Past")):(column("Cases_Last_Week")) t "Cases" ,\

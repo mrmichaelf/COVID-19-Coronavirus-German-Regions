@@ -1,26 +1,19 @@
-# TODO
-# /data/
-
-
+# dirs
 __pycache__/
-eCharts/apache-echarts-4.7.0-incubating-src/*
-/backup/
-/cache/
-/cache/de-districts/
-cache/de-districts/de-districts.json
-/data/de-districts/cache/
-/data/old/
-/maps/out/*
-/maps/*.gif
-/plots-gnuplot/
-/plots-python/
-/test/
+__pycache__/helper.cpython-38.pyc
+backup/
+cache/
+data/old/
+plots-gnuplot/
+plots-python/
+maps/out/
+maps/*.gif
+test/
+.vscode/
 
+# files
 **/.~lock.*.xlsx#
-.vscode
 .DS_Store
-
 ~$*.xlsx
 index-*.html
 .vstags
-__pycache__/helper.cpython-38.pyc
