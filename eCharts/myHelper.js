@@ -285,9 +285,12 @@ function refreshChart(
   //   axisTick: { inside: true },
   //   axisLabel: { show: true },
   // }
+
+  //  text: "COVID-19 Country Comparison Custom Chart",
+
   option = {
     title: {
-      text: "COVID-19 Country Comparison Custom Chart",
+      text: "COVID-19: " + formatValueToSentenceLike(select_yAxisProperty.value, "_"),
       left: 'center',
       subtext: "by Torben https://entorb.net based on JHU data",
       sublink: "https://entorb.net/COVID-19-coronavirus/",
