@@ -286,7 +286,6 @@ def fetch_and_prepare_lk_time_series(lk_id: str) -> list:
     returns list
     writes to filesystem
     """
-    # TODO: Typo in filename -> district
     file_out = f'data/de-districts/de-district_timeseries-{lk_id}.json'
     l_time_series_fetched = fetch_landkreis_time_series(
         lk_id=lk_id, readFromCache=True)
