@@ -1039,3 +1039,19 @@ id,Country/Region,federalstate,infections,deaths,date,newinfections,newdeaths
 1030,Germany,Saxony-Anhalt,1571,44,2020-05-02,7,0
 1040,Germany,Schleswig-Holstein,2728,112,2020-05-02,14,2
 1034,Germany,Thuringia,2335,93,2020-05-02,12,0
+1043,Germany,Baden-Württemberg,32291,1412,2020-05-03,145,10
+1044,Germany,Bavaria,42792,1910,2020-05-03,134,25
+1041,Germany,Berlin,5976,154,2020-05-03,33,2
+1050,Germany,Brandenburg,2905,122,2020-05-03,19,0
+1047,Germany,Bremen,875,30,2020-05-03,4,0
+1051,Germany,Hamburg,4631,164,2020-05-03,22,1
+1056,Germany,Hesse,8524,370,2020-05-03,38,6
+1046,Germany,Lower Saxony,10283,453,2020-05-03,37,2
+1048,Germany,Mecklenburg-Western Pomerania,698,18,2020-05-03,3,0
+1053,Germany,North Rhine-Westphalia,33428,1287,2020-05-03,212,19
+1055,Germany,Rhineland-Palatinate,6133,176,2020-05-03,34,3
+1052,Germany,Saarland,2605,138,2020-05-03,8,3
+1054,Germany,Saxony,4696,165,2020-05-03,79,2
+1049,Germany,Saxony-Anhalt,1576,44,2020-05-03,5,0
+1042,Germany,Schleswig-Holstein,2738,113,2020-05-03,10,1
+1045,Germany,Thuringia,2345,93,2020-05-03,10,0
