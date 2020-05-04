@@ -81,8 +81,8 @@ d_color_scales = {
 
 d_all_date_data = {}
 # TODO: Typo in filename -> district
-for f in glob.glob('data/de-districts/de-distict_timeseries-*.json'):
-    lk_id = int(re.search('^.*de-distict_timeseries\-(\d+)\.json$', f).group(1))
+for f in glob.glob('data/de-districts/de-district_timeseries-*.json'):
+    lk_id = int(re.search('^.*de-district_timeseries\-(\d+)\.json$', f).group(1))
     l = helper.read_json_file(f)
     for d in l:
         date = d['Date']
@@ -138,7 +138,13 @@ for property_to_plot in ('Cases_Last_Week_Per_Million', 'Deaths_Last_Week_Per_Mi
                 pcapita = d[property_to_plot]
                 main[area] = {'pcapita': pcapita}
 
-            with open(f'maps/out/de-districts/{property_to_plot}-{date_str}.svg', mode="w", newline="", encoding="utf-8") as file_out:
+            outfile = f'maps/out/de-districts/{property_to_plot}-{date_str}.svg'
+
+            # skip svg generation if I have not cleaned up, for faster gif generation debugging
+            if os.path.isfile(outfile):
+                continue
+
+            with open(outfile, mode="w", newline="", encoding="utf-8") as file_out:
                 if threshold[5] >= 10000:
                     num = "{:_.0f}"
                 elif threshold[1] >= 10:
@@ -230,7 +236,9 @@ for property_to_plot in ('Cases_Last_Week_Per_Million', 'Deaths_Last_Week_Per_Mi
 
 # cleanup
 for f in glob.glob('maps/out/de-districts/*.gif'):
-    os.remove(f)
+    1
+    #    os.remove(f)
 
 for f in glob.glob('maps/out/de-districts/*.svg'):
-    os.remove(f)
+    1
+    # os.remove(f)
