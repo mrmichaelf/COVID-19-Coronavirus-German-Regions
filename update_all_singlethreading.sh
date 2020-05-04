@@ -48,7 +48,8 @@ read ok
 
 #rsync -rvhu --delete --delete-excluded ../plots-gnuplot/* entorb@entorb.net:html/COVID-19-coronavirus/plots-gnuplot/
 
-scp index.html entorb@entorb.net:html/COVID-19-coronavirus/
+# scp index.html entorb@entorb.net:html/COVID-19-coronavirus/
+rsync -vhu --no-perms index.html entorb@entorb.net:html/COVID-19-coronavirus/
 
 
 echo  === git: add and commit
