@@ -489,18 +489,29 @@
 		"nachlaufen". Anstatt von Tagessummen wurde die 7-Tage-Differenz verwendet um Wochenendeffekte auszuschließen.</p>
 	<img src="plots-gnuplot/de-states/shift-deaths-to-match-cases_DE_last-week.png"
 		alt="shift-deaths-to-match-cases_DE_last-week.png" width="640" height="480">
-	<br />
-	<small>generated via Gnuplot <a
-			href="https://github.com/entorb/COVID-19-Coronavirus-German-Regions/tree/master/scripts-gnuplot/"
-			target="_blank">plot-countries-shift-deaths-to-match-cases.gp</a>, raw data can be found in <a
-			href="https://github.com/entorb/COVID-19-Coronavirus-German-Regions/blob/master/data/de-states/de-state-DE-total.tsv"
-			target="_blank">de-state-DE-total.tsv</a> </small>
 
 	<p>Ergebnis vom 27.04.2020: 14 Tage passen ziemlich gut. Somit ist anzunehmen, dass die Opferzahlen noch mindestens 14
 		Tage lang abnehmen werden. Für die Zeit von Infektion bis positiv getestet vergehen vermutlich nochmal 7 Tage, so
 		dass wohl 3 Wochen zwischen Beginn einer Maßnahme und Sichtbarkeit dieser in den Opferzahlen liegen wird. Für die
-		beste Übereinstimmung der Kurven habe ich die rechte Achse der Verstorbenen auf 4.1% der linken Achse skaliert.
+		beste Übereinstimmung der Kurven habe ich die rechte Achse der Verstorbenen auf 4.2% der linken Achse skaliert.
 		Beides habe ich "nach Auge" gemacht und keine Optimierungsroutine verwendet.</p>
+
+	<p><a id="DE_forecasting-deaths"></a>
+		Analog lässt sich aus dem Zeitverlauf der Infektionen eine Prognose für die Opferzahl für die nächsten 14 Tage
+		erstellen, die direkt mit der Auslastung der Krankenhäuser korrelieren sollte. Hier exemplarisch für Deutschland,
+		Bundesland Bayern und Stadt Erlangen. Skaliert jeweils pro Millionen Einwohner.
+	</p>
+	<img src="plots-gnuplot/de-states/forecasting-deaths-DE.png" alt="forecasting-deaths-DE.png" width="640" height="480">
+	<img src="plots-gnuplot/de-states/forecasting-deaths-BY.png" alt="forecasting-deaths-BY.png" width="640" height="480">
+	<img src="plots-gnuplot/de-states/forecasting-deaths-Erlangen.png" alt="forecasting-deaths-Erlangen.png" width="640"
+		height="480">
+	<br />
+	<small>generated via Gnuplot <a
+			href="https://github.com/entorb/COVID-19-Coronavirus-German-Regions/tree/master/scripts-gnuplot/"
+			target="_blank">plot-de-shift-deaths-to-match-cases.gp</a>, raw data can be found in <a
+			href="https://github.com/entorb/COVID-19-Coronavirus-German-Regions/blob/master/data/de-states/de-state-DE-total.tsv"
+			target="_blank">de-state-DE-total.tsv</a> </small>
+
 
 	<p><small><a href="#ToC">Back to top</a></small></p>
 

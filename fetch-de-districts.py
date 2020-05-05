@@ -284,9 +284,9 @@ def fetch_and_prepare_lk_time_series(lk_id: str) -> list:
     calles fetch_landkreis_time_series
     convert and add fields of time series list
     returns list
-    writes to filesystem
+    writes json and tsv to filesystem
     """
-    file_out = f'data/de-districts/de-district_timeseries-{lk_id}.json'
+    file_out = f'data/de-districts/de-district_timeseries-{lk_id}'
     l_time_series_fetched = fetch_landkreis_time_series(
         lk_id=lk_id, readFromCache=True)
 
@@ -340,9 +340,25 @@ def fetch_and_prepare_lk_time_series(lk_id: str) -> list:
         entry['Cases_Doubling_Time'] = this_doubling_time
         l_time_series[i] = entry
 
-    with open(file_out, mode='w', encoding='utf-8', newline='\n') as fh:
+    # Export data as JSON
+    with open(file_out+'.json', mode='w', encoding='utf-8', newline='\n') as fh:
         json.dump(l_time_series, fh, ensure_ascii=False)
 
+    with open(file_out+'.tsv', mode='w', encoding='utf-8', newline='\n') as fh_csv:
+        csvwriter = csv.DictWriter(fh_csv, delimiter='\t', extrasaction='ignore', fieldnames=[
+            'Days_Past', 'Date',
+            'Cases', 'Deaths',
+            'Cases_New', 'Deaths_New',
+            'Cases_Last_Week', 'Deaths_Last_Week',
+            'Cases_Per_Million', 'Deaths_Per_Million',
+            'Cases_New_Per_Million', 'Deaths_New_Per_Million',
+            'Cases_Last_Week_Per_Million', 'Deaths_Last_Week_Per_Million',
+            'Cases_Doubling_Time', 'Deaths_Doubling_Time',
+        ]
+        )
+        csvwriter.writeheader()
+        for d in l_time_series:
+            csvwriter.writerow(d)
     if args["sleep"]:
         time.sleep(1)
 
@@ -487,7 +503,7 @@ def loop_over_all_LK():
     helper.write_json(
         filename='data/de-districts/de-districts-results-V2.json', d=l_for_export_V2, sort_keys=False)
 
-    # Export fit data as CSV + HTML
+    # Export fit data as CSV
     with open('data/de-districts/de-districts-results.tsv', mode='w', encoding='utf-8', newline='\n') as fh_csv:
         csvwriter = csv.DictWriter(fh_csv, delimiter='\t', extrasaction='ignore', fieldnames=[
             'Landkreis',   'Bundesland', 'Population', 'Cases', 'Deaths',
