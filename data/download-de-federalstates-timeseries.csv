@@ -1071,3 +1071,19 @@ id,Country/Region,federalstate,infections,deaths,date,newinfections,newdeaths
 1068,Germany,Saxony-Anhalt,1578,45,2020-05-04,2,1
 1062,Germany,Schleswig-Holstein,2788,113,2020-05-04,50,0
 1061,Germany,Thuringia,2355,96,2020-05-04,10,3
+1076,Germany,Baden-Württemberg,32482,1452,2020-05-05,71,31
+1087,Germany,Bavaria,43162,1949,2020-05-05,165,23
+1080,Germany,Berlin,6042,154,2020-05-05,32,0
+1079,Germany,Brandenburg,2940,123,2020-05-05,26,1
+1073,Germany,Bremen,895,31,2020-05-05,2,1
+1082,Germany,Hamburg,4644,172,2020-05-05,8,6
+1086,Germany,Hesse,8585,381,2020-05-05,36,9
+1077,Germany,Lower Saxony,10380,463,2020-05-05,55,7
+1088,Germany,Mecklenburg-Western Pomerania,703,19,2020-05-05,4,1
+1074,Germany,North Rhine-Westphalia,33728,1332,2020-05-05,168,42
+1085,Germany,Rhineland-Palatinate,6160,182,2020-05-05,10,5
+1083,Germany,Saarland,2618,139,2020-05-05,10,0
+1075,Germany,Saxony,4745,171,2020-05-05,43,4
+1078,Germany,Saxony-Anhalt,1585,46,2020-05-05,7,1
+1084,Germany,Schleswig-Holstein,2799,118,2020-05-05,11,5
+1081,Germany,Thuringia,2392,99,2020-05-05,37,3
