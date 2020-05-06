@@ -11,9 +11,9 @@ Scripts for daily
 Resulting data in JSON and CSV/TSV format can be browsed [here at GitHub](https://github.com/entorb/COVID-19-Coronavirus-German-Regions/tree/master/data). 
 
 Sources
-* German states data is from [Robert Koch Institut](https://www.rki.de/DE/Content/InfAZ/N/Neuartiges_Coronavirus/Fallzahlen.html) obtaind via [swildermann/COVID-19](https://github.com/swildermann/COVID-19)
-* German districts data is from [ArcGIS Covid19_RKI_Sums](https://services7.arcgis.com/mOBPykOjAyBO2ZKk/ArcGIS/rest/services/Covid19_RKI_Sums/FeatureServer/0/)
-* International data is from Johns Hopkins University Center for Systems Science and Engineering (JHU CSSE)  obtained via [pomber/covid19](https://github.com/pomber/covid19)
+* [German states data](https://github.com/entorb/COVID-19-Coronavirus-German-Regions/tree/master/data/de-states) is from [Robert Koch Institut](https://www.rki.de/DE/Content/InfAZ/N/Neuartiges_Coronavirus/Fallzahlen.html) obtaind via [swildermann/COVID-19](https://github.com/swildermann/COVID-19)
+* [German districts data](https://github.com/entorb/COVID-19-Coronavirus-German-Regions/tree/master/data/de-districts) is from [ArcGIS Covid19_RKI_Sums](https://services7.arcgis.com/mOBPykOjAyBO2ZKk/ArcGIS/rest/services/Covid19_RKI_Sums/FeatureServer/0/)
+* [International data](https://github.com/entorb/COVID-19-Coronavirus-German-Regions/tree/master/data/int) is from Johns Hopkins University Center for Systems Science and Engineering (JHU CSSE)  obtained via [pomber/covid19](https://github.com/pomber/covid19)
 
 List of provided/generated data fields
 * Date
