@@ -6,7 +6,15 @@ This script downloads COVID-19 / coronavirus data of German disticts (Landkreise
 
 GUI: https://experience.arcgis.com/experience/478220a4c454480e823b17327b2bf1d4/page/page_0/
 
-
+LK_ID is https://de.wikipedia.org/wiki/Amtlicher_Gemeindeschl%C3%BCssel
+Amtliche Gemeindeschlüssel (AGS)
+bzw Kreisschlüssel ohne letzte 3 Stellen
+03 2 54 021 = Hildesheim
+  03 Niedersachsen
+   2 ehemaliger Regierungsbezirk Hannover
+  54 Landkreis Hildesheim
+( 021 Stadt Hildesheim)
+-> LK_ID = 03254
 
 Endpoint: RKI_Landkreisdaten
 https://services7.arcgis.com/mOBPykOjAyBO2ZKk/arcgis/rest/services/RKI_Landkreisdaten/FeatureServer/0
