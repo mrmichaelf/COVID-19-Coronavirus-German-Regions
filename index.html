@@ -135,13 +135,16 @@
 		// 	}
 		// }
 	</script>
+	<!-- Polyfiles for IE, suggested by Tabulator : http://tabulator.info/docs/4.6/browsers#ie -->
+	<script src="tabulator/polyfill.min.js"></script>
+	<script src="tabulator/fetch.umd.js"></script>
 	<!-- Tabulator -->
 	<script src="tabulator/tabulator-4.6.min.js"></script>
 	<!-- eCharts -->
 	<script src="eCharts/echarts-4.7.0-en.min.js"></script>
 	<script src="eCharts/jquery-3.5.0.min.js"></script>
 	<!-- TODO -->
-	<script src="eCharts/myHelper.js?v=1"></script>
+	<script src="eCharts/myHelper.js"></script>
 </head>
 
 <body>
@@ -395,6 +398,8 @@
 			{ column: "Deaths_Last_Week_Per_Million", dir: "desc" }, //sort by this first
 		]);
 	</script>
+
+	<p> 07.05.2020: In Bayern wurde als Richtwert für die Verschärfung von Maßnahmen der Grenzwert von 500 Neuinfektionen pro 1.000.000 Einwohner in einer Woche in einem Landkreis festgelegt. Diese Zahl ist in der Spalte "Infizierte 7 Tage pro Millionen" zu finden. </p>
 
 	<p><small><a href="#ToC">Back to top</a></small></p>
 
@@ -764,6 +769,7 @@
 	<p><small><a href="#ToC">Back to top</a></small></p>
 
 	<h3><a id="CountriesCustomChart"></a>Country comparison custom chart</h3>
+	<small>(Browser Internet Explorer ist not compatible, please user a better one)</small>
 
 	<p>See the <a href="#CountryTable">country table</a> above to browse for interesting countries. You can download your chart using the button top right.</p>
 
