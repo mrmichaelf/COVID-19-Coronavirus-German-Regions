@@ -80,7 +80,7 @@ d_color_scales = {
 }
 
 d_all_date_data = {}
-# TODO: Typo in filename -> district
+
 for f in glob.glob('data/de-districts/de-district_timeseries-*.json'):
     lk_id = int(re.search('^.*de-district_timeseries\-(\d+)\.json$', f).group(1))
     l = helper.read_json_file(f)
@@ -113,6 +113,7 @@ for property_to_plot in ('Cases_Last_Week_Per_Million', 'Deaths_Last_Week_Per_Mi
 
     values = []
     # collect all values for autoscaling
+    # TODO filter here on selecten month as well?
     for date_str, l_districts in d_all_date_data.items():
         for lk_id, d in l_districts.items():
             values.append(d[property_to_plot])
@@ -196,11 +197,11 @@ for property_to_plot in ('Cases_Last_Week_Per_Million', 'Deaths_Last_Week_Per_Mi
                             file_out.write(row)
         # break
     l_subprocesses = []
+    # months are processed in to gifs in parallel and later joined
     for month in ('2020-03', '2020-04', '2020-05'):
         # convert -size 480x maps/out/de-districts/Cases_Last_Week_Per_Million-2020-03*.svg -resize 480x -coalesce -fuzz 2% +dither -layers Optimize maps/out/de-districts/Cases_Last_Week_Per_Million-2020-03.gif
         l_imagemagick_parameters = [
             '-size', '480x', f'maps/out/de-districts/{property_to_plot}-{month}*.svg', '-resize', '480x', '-coalesce', '-fuzz', '2%', '+dither', '-layers', 'Optimize', f'maps/out/de-districts/{property_to_plot}-{month}.gif']
-        # 'convert', '-delay', '150x1000', '-size', '480x', f'maps/out/de-districts/{property_to_plot}-*.svg', '-coalesce', '-fuzz', '2%', '+dither', '-resize', '480x', '-layers', 'Optimize', f'maps/de-districts-{property_to_plot}.gif']
         process = run_imagemagick_convert(
             l_imagemagick_parameters, wait_for_finish=False)
         l_subprocesses.append(process)
@@ -236,9 +237,9 @@ for property_to_plot in ('Cases_Last_Week_Per_Million', 'Deaths_Last_Week_Per_Mi
 
 # cleanup
 for f in glob.glob('maps/out/de-districts/*.gif'):
-    1
-    #    os.remove(f)
+    os.remove(f)
+    pass
 
 for f in glob.glob('maps/out/de-districts/*.svg'):
-    1
-    # os.remove(f)
+    os.remove(f)
+    pass
