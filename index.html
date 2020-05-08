@@ -316,7 +316,7 @@
 			</td>
 		</tr>
 		<tr>
-			<td colspan="2" style="text-align: center;"><br />Einheit: pro Woche und pro Million Einwohner</td>
+			<td colspan="2" style="text-align: center;"><br />Einheiten: Neu-Infizierte bzw Neu-Verstorbene pro Million Einwohner und pro Woche</td>
 		</tr>
 	</table>
 	<ul>
@@ -329,6 +329,8 @@
 	<p><small><a href="#ToC">Back to top</a></small></p>
 
 	<h3><a id="DeDistrictTable"></a>Landkreistabelle</h3>
+
+	<p> 07.05.2020: In Bayern wurde als Richtwert für die Verschärfung von Maßnahmen der Grenzwert von <a href="https://www.br.de/nachrichten/bayern/br-interview-soeder-sieht-corona-lockerungen-kritisch,RyH5FRQ" target="_blank">500 Neuinfektionen pro 1.000.000 Einwohner in einer Woche in einem Landkreis</a> festgelegt. Daher habe ich die Landkreistabelle nun nach diesem Wert in der Spalte "Infizierte pro Millionen Einwohner pro Woche" sortiert. </p>
 	<div id="table-de-districts"></div>
 	<!-- <script type="text/javascript" src="tabulator/tabulator.min.js"></script> -->
 	<script>
@@ -340,50 +342,50 @@
 			tooltipsHeader: true,
 			columns: [ //Define Table Columns
 				{
-					title: "Bundesland<br/>&nbsp;", field: "Bundesland", sorterParams: {
+					title: "Bundesland<br/>&nbsp;<br/>&nbsp;", field: "Bundesland", sorterParams: {
 						alignEmptyValues: "bottom"
 					}, headerFilter: true
 					// , headerFilterPlaceholder:"select"
 				},
-				{ title: "Landkreis<br/>&nbsp;", field: "Landkreis", sorter: "string", headerFilter: true },
+				{ title: "Landkreis<br/>&nbsp;<br/>&nbsp;", field: "Landkreis", sorter: "string", headerFilter: true },
 				// {
 				// 	title: "ID", field: "LK_ID", sorter: "string", width: 30, sorterParams: {
 				// 		alignEmptyValues: "bottom"
 				// 	}, headerFilter: true
 				// },
 				{
-					title: "Einwohner<br/>&nbsp;", field: "LK_Einwohner", sorter: "number", width: 100, hozAlign: "right", sorterParams: {
+					title: "Einwohner<br/>&nbsp;<br/>&nbsp;", field: "LK_Einwohner", sorter: "number", width: 100, hozAlign: "right", sorterParams: {
 						alignEmptyValues: "bottom"
 					}, headerFilter: true, headerFilterPlaceholder: "filter >=", headerFilterFunc: ">="
 				},
 				// { title: "Date", field: "Date", sorter: "date", sorterParams: { format: "YYYY-MM-DD" }, hozAlign: "center", headerFilter: true },
 				{
-					title: "Infizierte<br/>&nbsp;", field: "Cases", sorter: "number", width: 100, hozAlign: "right", sorterParams: {
+					title: "Infizierte<br/>&nbsp;<br/>&nbsp;", field: "Cases", sorter: "number", width: 100, hozAlign: "right", sorterParams: {
 						alignEmptyValues: "bottom"
 					}, headerFilter: true, headerFilterPlaceholder: "filter >=", headerFilterFunc: ">="
 				},
 				{
-					title: "Tote<br/>&nbsp;", field: "Deaths", sorter: "number", width: 100, hozAlign: "right", sorterParams: {
+					title: "Tote<br/>&nbsp;<br/>&nbsp;", field: "Deaths", sorter: "number", width: 100, hozAlign: "right", sorterParams: {
 						alignEmptyValues: "bottom"
 					}, headerFilter: true, headerFilterPlaceholder: "filter >=", headerFilterFunc: ">="
 				},
 				{
-					title: "Infizierte<br/>pro Mill.", field: "Cases_Per_Million", sorter: "number", hozAlign: "right", sorterParams: {
+					title: "Infizierte<br/>pro Mill.EW.<br/>gesamt", field: "Cases_Per_Million", sorter: "number", hozAlign: "right", sorterParams: {
 						alignEmptyValues: "bottom"
 					}, headerFilter: true, headerFilterPlaceholder: "filter >=", headerFilterFunc: ">="
 				},
 				{
-					title: "Tote<br/>pro Mill.", field: "Deaths_Per_Million", sorter: "number", hozAlign: "right", sorterParams: {
+					title: "Tote<br/>pro Mill.EW.<br/>gesamt", field: "Deaths_Per_Million", sorter: "number", hozAlign: "right", sorterParams: {
 						alignEmptyValues: "bottom"
 					}, headerFilter: true, headerFilterPlaceholder: "filter >=", headerFilterFunc: ">="
 				},
 				{
-					title: "Infizierte 7 Tage<br/>pro Mill.", field: "Cases_Last_Week_Per_Million", sorter: "number", hozAlign: "right", sorterParams: {
+					title: "Infizierte<br/>pro Mill.EW.<br/>pro Woche", field: "Cases_Last_Week_Per_Million", sorter: "number", hozAlign: "right", sorterParams: {
 						alignEmptyValues: "bottom"
 					}, headerFilter: true, headerFilterPlaceholder: "filter >=", headerFilterFunc: ">="
 				},
 				{
-					title: "Tote 7 Tage<br/>pro Mill.", field: "Deaths_Last_Week_Per_Million", sorter: "number", hozAlign: "right", sorterParams: {
+					title: "Tote<br/>pro Mill.EW.<br/>pro Woche", field: "Deaths_Last_Week_Per_Million", sorter: "number", hozAlign: "right", sorterParams: {
 						alignEmptyValues: "bottom"
 					}, headerFilter: true, headerFilterPlaceholder: "filter >=", headerFilterFunc: ">="
 				},
@@ -395,11 +397,9 @@
 		table.setSort([
 			{ column: "Landkreis", dir: "asc" },
 			{ column: "Bundesland", dir: "asc" },
-			{ column: "Deaths_Last_Week_Per_Million", dir: "desc" }, //sort by this first
+			{ column: "Cases_Last_Week_Per_Million", dir: "desc" }, //sort by this first
 		]);
 	</script>
-
-	<p> 07.05.2020: In Bayern wurde als Richtwert für die Verschärfung von Maßnahmen der Grenzwert von 500 Neuinfektionen pro 1.000.000 Einwohner in einer Woche in einem Landkreis festgelegt. Diese Zahl ist in der Spalte "Infizierte 7 Tage pro Millionen" zu finden. </p>
 
 	<p><small><a href="#ToC">Back to top</a></small></p>
 
