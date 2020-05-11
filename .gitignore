@@ -17,3 +17,4 @@ test/
 ~$*.xlsx
 index-*.html
 .vstags
+cache/de-districts/de-districts.json
