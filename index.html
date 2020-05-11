@@ -5,7 +5,6 @@
 	<title>COVID-19 Coronavirus Disease Spread Time Series in German Regions and Selected Countries</title>
 	<meta charset="utf-8">
 	<meta name="author" content="Dr. Torben Menke">
-	<link href="tabulator/tabulator.min.css" rel="stylesheet">
 	<link rel="stylesheet" href="/style.css" />
 	<!-- Matomo -->
 	<script>
@@ -136,15 +135,16 @@
 		// }
 	</script>
 	<!-- Polyfiles for IE, suggested by Tabulator : http://tabulator.info/docs/4.6/browsers#ie -->
-	<script src="tabulator/polyfill.min.js"></script>
-	<script src="tabulator/fetch.umd.js"></script>
+	<link href="./tabulator/tabulator.min.css" rel="stylesheet">
+	<script src="./tabulator/polyfill.min.js"></script>
+	<script src="./tabulator/fetch.umd.js"></script>
 	<!-- Tabulator -->
-	<script src="tabulator/tabulator-4.6.min.js"></script>
+	<script src="./tabulator/tabulator-4.6.min.js"></script>
 	<!-- eCharts -->
-	<script src="eCharts/echarts-4.7.0-en.min.js"></script>
-	<script src="eCharts/jquery-3.5.0.min.js"></script>
+	<script src="./eCharts/echarts-4.7.0-en.min.js"></script>
+	<script src="./eCharts/jquery-3.5.0.min.js"></script>
 	<!-- TODO -->
-	<script src="eCharts/myHelper.js"></script>
+	<script src="./eCharts/myHelper-test.js"></script>
 </head>
 
 <body>
@@ -155,13 +155,17 @@
 
 	<h1>COVID-19 Disease Spread Time Series in German Regions and Selected Countries</h1>
 
-	<p> In early 2020 the SARS-CoV-2 virus (colloquially known as the coronavirus) spread across the globe and caused a pandemic of COVID-19 disease. This page displays a collection of daily updated charts of disease spread in German regions and in selected countries. The focus lies on displaying the data of the past and deriving trends for the near future. In order to compare data of different regions, the data is scaled by the regions' population. Charts are updated daily in the morning (UTC). Raw data and plot scripts are available at <a href="https://github.com/entorb/COVID-19-Coronavirus-German-Regions" target="_blank">my GitHub repository</a>. </p>
+	<p> In early 2020 the SARS-CoV-2 virus (colloquially known as the coronavirus) spread across the globe and caused a pandemic of COVID-19 disease. This page displays a collection of daily updated charts of disease spread in German regions and in selected countries. The focus lies on displaying the data of the past and deriving trends for the near future. In order to compare data of different regions, the data is scaled by the regions' population. Charts are updated daily in the morning (UTC). Raw data and plot scripts are available in <a href="https://github.com/entorb/COVID-19-Coronavirus-German-Regions" target="_blank">my GitHub repository</a>. </p>
+
+	<p>Data sources</p>
 	<ul>
-		<li> German data is taken from <a href="https://www.rki.de/DE/Content/InfAZ/N/Neuartiges_Coronavirus/Fallzahlen.html" target="_blank">Robert Koch Institut</a>. On 22.03.2020 I switched to an automated fetching process from <a href="https://github.com/swildermann/COVID-19" target="_blank">github.com/swildermann/COVID-19</a> where the RKI data are already converted in CSV format. </li>
-		<li> International data is from <a href="https://github.com/pomber/covid19" target="_blank">github.com/pomber/covid19</a>, based on <a href="https://github.com/CSSEGISandData/COVID-19" target="_blank">data</a> provided by Johns Hopkins University Center for Systems Science and Engineering (JHU CSSE) </li>
+		<li> German "Bundesland" data is from <a href="https://www.rki.de/DE/Content/InfAZ/N/Neuartiges_Coronavirus/Fallzahlen.html" target="_blank">Robert Koch Institut</a>. On 22.03.2020 I switched to an automated fetching process from <a href="https://github.com/swildermann/COVID-19" target="_blank">github.com/swildermann/COVID-19</a> where the RKI data are already converted in CSV format. </li>
+		<li> German "Landkreis" data is from Robert Koch Institut, fetched from <a href="https://experience.arcgis.com/experience/478220a4c454480e823b17327b2bf1d4/page/page_1/" target="_blank">COVID-19-Dashboard der Nationale Plattform für geographische Daten (NPGEO-DE)</a>
+		</li>
+		<li> International data is from <a href="https://github.com/CSSEGISandData/COVID-19" target="_blank">Johns Hopkins University Center for Systems Science and Engineering (JHU CSSE)</a>, fetched from <a href="https://github.com/pomber/covid19" target="_blank">github.com/pomber/covid19</a> where the JHU data is merged into one json file. </li>
 	</ul>
 
-	<p>Feel free to drop me a <a href="/contact.php?origin=COVID-19">message</a> if you find a typo, bug or bigger issue. I am happy for inspirations for further analysis as well.</p>
+	<p>Feel free to drop me a <a href="/contact.php?origin=COVID-19">message</a> if you find a typo, bug or bigger issue. I am happy for inspirations for further analyses as well.</p>
 
 	<p>Stay safe, <i>Torben</i></p>
 
@@ -173,41 +177,64 @@
 		</li>
 		<ul>
 			<li>
-				<a href="#DeDistrictAni">Animation der Ausbreitung in den Landkreisen</a><b> (new)</b>
+				<a href="#DeSituation">Aktuelle Lage</a>
 			</li>
+			<ul>
+				<li>
+					<a href="#DeDistricts">Landkreise</a>
+				</li>
+				<ul>
+					<li>
+						<a href="#DeDistrictAni">Animation der Ausbreitung in den Landkreisen</a><b> (new)</b>
+					</li>
+					<li>
+						<a href="#DeDistrictTable">Landkreistabelle</a><b> (new)</b>
+					</li>
+				</ul>
+				<li>
+					<a href="#DeStates">Bundesländer</a>
+				</li>
+				<ul>
+					<li>
+						<a href="#DeStatesCasesLastWeek">Infektionen</a>
+					</li>
+					<li>
+						<a href="#DeStatesDeaths">Opfer</a>
+					</li>
+				</ul>
+			</ul>
 			<li>
-				<a href="#DeDistrictTable">Landkreistabelle</a><b> (new)</b>
+				<a href="#DeAnalyses">Weitere Auswertungen</a>
 			</li>
-			<li>
-				<a href="#de-states-deaths">Opferzahlen in den Bundesländern</a><b> (new)</b>
-			</li>
-			<li>
-				<a href="#DE_shift_deaths_to_cases">Um wieviele Tage läuft die Opferzahl der Zahl der Infizierten hinterher?</a><b> (new)</b>
-			</li>
-			<li>
-				<a href="#DE_calc-cases-from-deaths-DE-total">Abschätzung der Dunkelziffer der Infizierten</a>
-			</li>
-			<li>
-				<a href="#DE_cases_time_series-absolute">Zeitverlauf der Ausbreitung in den Bundesländern</a>
-			</li>
-			<li>
-				<a href="#DE_cases_time_series-per-million">Zeitverlauf der Ausbreitung in den Deutschen Bundesländern, skaliert auf deren Einwohnerzahlen</a>
-			</li>
-			<li>
-				<a href="#DE_cases_new_time_series-per-million">Zeitverlauf der Neu-Infektionen in den Bundesländern, skaliert auf deren Einwohnerzahlen</a>
-			</li>
-			<li>
-				<a href="#cases-de-states-latest-per-million">Ist-Stand der Infektionen in den Bundesländern, skaliert auf deren Einwohnerzahlen</a>
-			</li>
-			<li>
-				<a href="#Exp_Wachstum">Untersuchung der exponentiellen Zunahme der Infektionen in Deutschland</a>
-			</li>
-			<!-- <li>
+			<ul>
+				<li>
+					<a href="#DE_shift_deaths_to_cases">Um wieviele Tage läuft die Opferzahl der Zahl der Infizierten hinterher?</a><b> (new)</b>
+				</li>
+				<li>
+					<a href="#DE_calc-cases-from-deaths-DE-total">Abschätzung der Dunkelziffer der Infizierten</a>
+				</li>
+				<li>
+					<a href="#DE_cases_time_series-absolute">Zeitverlauf der Ausbreitung in den Bundesländern</a>
+				</li>
+				<li>
+					<a href="#DE_cases_time_series-per-million">Zeitverlauf der Ausbreitung in den Deutschen Bundesländern, skaliert auf deren Einwohnerzahlen</a>
+				</li>
+				<li>
+					<a href="#DE_cases_new_time_series-per-million">Zeitverlauf der Neu-Infektionen in den Bundesländern, skaliert auf deren Einwohnerzahlen</a>
+				</li>
+				<li>
+					<a href="#cases-de-states-latest-per-million">Ist-Stand der Infektionen in den Bundesländern, skaliert auf deren Einwohnerzahlen</a>
+				</li>
+				<li>
+					<a href="#Exp_Wachstum">Untersuchung der exponentiellen Zunahme der Infektionen in Deutschland</a>
+				</li>
+				<!-- <li>
 				<a href="results-de-districts.html">Übersicht über alle DE Landkreise</a><b> (new)</b>
 			</li> -->
-			<li>
-				<a href="#cases-de-fit-results">Vergleich der Ergebnisse</a>
-			</li>
+				<li>
+					<a href="#cases-de-fit-results">Vergleich der Ergebnisse</a>
+				</li>
+			</ul>
 		</ul>
 		<li>
 			<a href="#Countries">International</a>
@@ -229,7 +256,7 @@
 				<a href="#RefDeathCauses">Reference data: deaths by other causes</a>
 			</li>
 			<li>
-				<a href="#countries-fit-results">Death toll regression analysis results for selected countries</a>
+				<a href="#countries-fit-results">Death toll regression analyses results for selected countries</a>
 			</li>
 			<li>
 				<a href="#CountriesDeathTimeSeries">Time series, Doubling time calculation and forecast for selected countries</a>
@@ -294,6 +321,8 @@
 	</ul>
 
 	<h2><a id="Germany"></a>Germany / Deutschland</h2>
+	<!-- Aktuelle Lage -->
+	<a id="DeSituation"></a>
 	<!-- <p>Aktueller Stand der Infektionen in den Landkreisen, skaliert auf deren Einwohnerzahl. Eingebettet von <a href="https://commons.wikimedia.org/wiki/File:COVID-19_outbreak_Germany_per_capita_cases_map.svg" target="_blank">Wikipedia</a></p>
 	<a title="Ythlev / CC BY-SA (https://creativecommons.org/licenses/by-sa/4.0)" href="https://commons.wikimedia.org/wiki/File:COVID-19_outbreak_Germany_per_capita_cases_map.svg" target="_blank">
 		<img width="512" alt="COVID-19 outbreak Germany per capita cases map" src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/af/COVID-19_outbreak_Germany_per_capita_cases_map.svg/512px-COVID-19_outbreak_Germany_per_capita_cases_map.svg.png"></a>
@@ -301,7 +330,9 @@
 	<small>Eingebettet von <a href="https://commons.wikimedia.org/wiki/File:COVID-19_outbreak_Germany_per_capita_cases_map.svg" target="_blank">Wikipedia</a>, Erstell-Skript dazu wurde hier publiziert: <a href="https://github.com/ythlev/covid-19" target="_blank">github.com/ythlev/covid-19</a>
 	</small> -->
 
-	<h3><a id="DeDistrictAni"></a>Animation der Ausbreitung in den Landkreisen</h3>
+	<h3><a id="DeDistricts"></a>Landkreise</h3>
+
+	<h4><a id="DeDistrictAni"></a>Animation der Ausbreitung in den Landkreisen</h4>
 	<table>
 		<tr>
 			<th>Infizierte</th>
@@ -328,7 +359,7 @@
 
 	<p><small><a href="#ToC">Back to top</a></small></p>
 
-	<h3><a id="DeDistrictTable"></a>Landkreistabelle</h3>
+	<h4><a id="DeDistrictTable"></a>Landkreistabelle</h4>
 
 	<p> 06.05.2020: In Deutschland wurde als Richtwert für die Verschärfung von Maßnahmen der Grenzwert von <a href="https://www.tagesschau.de/inland/lockerungen-bund-laender-101.html" target="_blank">500 Neuinfektionen pro 1.000.000 Einwohnern in sieben Tagen in einem Stadt-/Landkreis</a> festgelegt. Daher habe ich die Landkreistabelle nun nach diesem Wert in der Spalte "Infizierte pro Millionen Einwohner pro Woche" sortiert. </p>
 	<div id="table-de-districts"></div>
@@ -404,24 +435,27 @@
 	<p><small><a href="#ToC">Back to top</a></small></p>
 
 	<h3>
-		<a id="de-states-deaths"></a>Opferzahlen in den Bundesländern</h3>
+		<a id="DeStates"></a>Bundesländer</h3>
 
-	<p> Hier Darstellungen des Zeitverlaufs der Zahl der an COVID-19 verstorbenen Personen in den deutschen Bundesländern. Die Zahlen habe ich skaliert auf die Bevölkerung der Bundesländer, damit man diese miteinander vergleichen kann. Auf der rechten Seite sind Referenzwerte zu anderen Todesursachen angegeben, Quellen dazu siehe <a href="#RefDeathCauses">diese Tabelle</a> unten. </p>
+	<p>Darstellungen des Zeitverlaufs an COVID-19 Erkrankungen in den deutschen Bundesländern. Die Zahlen habe ich skaliert auf die Bevölkerung der Bundesländer, damit man diese miteinander vergleichen kann. Da die täglichen Zahlen stark schwanken und Wochenenden einen deutlichen Effekt auf diese Schwankungen haben, habe ich in den Darstellungen der Veränderung zum Vortrag 7-Tagesdifferenzen verwendet.</p>
 
-	<p>Hinweis: die Todeszahlen laufen den Infektionszahlen um ca. 3 Wochen hinterher. Im Median sterben Patienten <a href="https://www.worldometers.info/coronavirus/coronavirus-death-rate/#days" target="_blank">14 Tage</a> nach den ersten Symtomen, die wiederrum etwa <a href="https://www.worldometers.info/coronavirus/coronavirus-incubation-period/" target="_blank">3-5 Tage</a> nach der Infektion auftreten.</p>
-
-	<p>Die ersten Darstellungen zeigen den Verlauf der Gesamtzahl:</p>
-	<img src="plots-gnuplot/de-states/deaths-de-per-million.png" alt="deaths-de-per-million.png" width="640" height="800">
-	<img src="plots-gnuplot/de-states/deaths-de-per-million-log.png" alt="deaths-de-per-million-log.png" width="640" height="800"><br />
-	<br />
-	<small>generated via Gnuplot <a href="https://github.com/entorb/COVID-19-Coronavirus-German-Regions/tree/master/scripts-gnuplot/" target="_blank">plot-de-states-timeseries-joined</a>, raw data can be found in <a href="https://github.com/entorb/COVID-19-Coronavirus-German-Regions/blob/master/data/de-states/" target="_blank">de-state-XX.tsv</a></small>
-
-	<p> Nun eine Übersicht über die Zunahme/Neu-Verstorbenen. Da die täglichen Zahlen stark schwanken und Wochenenden einen deutlichen Effekt auf diese Schwankungen haben, habe ich in den folgenden Grafiken jeweils pro Tag die Differenz zur 7 Tage vorher dargestellt. </p>
-	<img src="plots-gnuplot/de-states/deaths-de-last_week-per-million.png" alt="deaths-de-last_week-per-million.png" width="640" height="800">
-	<img src="plots-gnuplot/de-states/deaths-de-last_week-per-million-log.png" alt="deaths-de-last_week-per-million-log.png" width="640" height="800"><br />
+	<h4>
+		<a id="DeStatesCasesLastWeek"></a>Bundesländer - Infektionen</h4>
+	<!-- <h5><a id="DeStatesDeathsLastWeek"></a>Neu-Infizierte pro 7 Tage</h5> -->
+	<img src="plots-gnuplot/de-states/cases-de-last_week-per-million.png" alt="cases-de-last_week-per-million.png" width="640" height="800">
+	<img src="plots-gnuplot/de-states/cases-de-last_week-per-million-log.png" alt="cases-de-last_week-per-million-log.png" width="640" height="800">
 	<br />
 	<small>generated via Gnuplot <a href="https://github.com/entorb/COVID-19-Coronavirus-German-Regions/tree/master/scripts-gnuplot/" target="_blank">plot-de-states-timeseries-joined</a>, raw data can be found in <a href="https://github.com/entorb/COVID-19-Coronavirus-German-Regions/blob/master/data/de-states/" target="_blank">de-state-XX.tsv</a>
 	</small>
+
+	<h4>
+		<a id="DeStatesDeaths"></a>Bundesländer - Opfer</h4>
+
+	<p> In den Darstellungen der Opferzahlen habe ich auf der rechten Seite Referenzwerte zu anderen Todesursachen angegeben, Quellen dazu siehe <a href="#RefDeathCauses">diese Tabelle</a> unten. Hinweis: die Todeszahlen laufen den Infektionszahlen um ca. 3 Wochen hinterher. Im Median sterben Patienten <a href="https://www.worldometers.info/coronavirus/coronavirus-death-rate/#days" target="_blank">14 Tage</a> nach den ersten Symptomen, die wiederrum etwa <a href="https://www.worldometers.info/coronavirus/coronavirus-incubation-period/" target="_blank">3-5 Tage</a> nach der Infektion auftreten.</p>
+
+	<h5><a id="DeStatesDeathsLastWeek"></a>Neu-Verstorbene pro 7 Tage</h5>
+	<img src="plots-gnuplot/de-states/deaths-de-last_week-per-million.png" alt="deaths-de-last_week-per-million.png" width="640" height="800">
+	<img src="plots-gnuplot/de-states/deaths-de-last_week-per-million-log.png" alt="deaths-de-last_week-per-million-log.png" width="640" height="800"><br />
 
 	<p> Fazit vom 24.04.2020: </p>
 	<ul>
@@ -430,7 +464,16 @@
 		<li>Die Steigerungsrate der Todeszahl hat zwar stagniert, nimmt aber noch immer nicht merklich ab. Sprich bisher starben jede Woche mehr Menschen an COVID-19 als in den Wochen zuvor.</li>
 	</ul>
 
+	<h5>Gesamtzahl der Opfer</h5>
+	<img src="plots-gnuplot/de-states/deaths-de-per-million.png" alt="deaths-de-per-million.png" width="640" height="800">
+	<img src="plots-gnuplot/de-states/deaths-de-per-million-log.png" alt="deaths-de-per-million-log.png" width="640" height="800"><br />
+	<br />
+	<small>generated via Gnuplot <a href="https://github.com/entorb/COVID-19-Coronavirus-German-Regions/tree/master/scripts-gnuplot/" target="_blank">plot-de-states-timeseries-joined</a>, raw data can be found in <a href="https://github.com/entorb/COVID-19-Coronavirus-German-Regions/blob/master/data/de-states/" target="_blank">de-state-XX.tsv</a></small>
+
 	<p><small><a href="#ToC">Back to top</a></small></p>
+
+	<h3>
+		<a id="DeAnalyses"></a>Weitere Auswertungen</h3>
 
 	<h3>
 		<a id="DE_shift_deaths_to_cases"></a> Um wieviele Tage läuft die Opferzahl der Zahl der Infizierten hinterher?</h3>
