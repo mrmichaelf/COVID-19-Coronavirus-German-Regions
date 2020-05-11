@@ -681,6 +681,8 @@
 	<p><small><a href="#ToC">Back to top</a></small></p>
 
 	<h3><a id="CountryTable"></a>Country Table</h3>
+
+	<p>Click on a row to add it to the country comparison custom chart below.</p>
 	<div id="table-countries-latest-all"></div>
 	<small> generated via <a href="http://tabulator.info/" target="_blank">Tabulator</a>, raw data can be found in <a href="https://github.com/entorb/COVID-19-Coronavirus-German-Regions/blob/master/data/int/countries-latest-all.tsv" target="_blank">countries-latest-all.tsv</a> / <a href="https://github.com/entorb/COVID-19-Coronavirus-German-Regions/blob/master/data/int/countries-latest-all.json" target="_blank">countries-latest-all.json</a></small>
 	<!-- <script type="text/javascript" src="tabulator/tabulator.min.js"></script> -->
@@ -755,6 +757,13 @@
 					}, headerFilter: true, headerFilterPlaceholder: "filter >=", headerFilterFunc: ">="
 				},
 			],
+			rowClick: function (e, row) {
+				var rowData = row.getData();
+				var clickedCode = rowData["Code"];
+				var clickedCountry = rowData["Country"];
+				new_country_selected(countryCodes, clickedCode);
+				alert(clickedCountry + " added to country comparison custom chart below")
+			},
 		});
 
 
@@ -997,12 +1006,19 @@
 		select_xAxisScale.onchange = function () { refreshChartWrapper() };
 		select_yAxisScale.onchange = function () { refreshChartWrapper() };
 		// countries
-		select_countries_africa.onchange = function () { new_country_selected(countryCodes, select_countries_africa, options_countries_africa) };
-		select_countries_asia.onchange = function () { new_country_selected(countryCodes, select_countries_asia, options_countries_asia) };
-		select_countries_europe.onchange = function () { new_country_selected(countryCodes, select_countries_europe, options_countries_europe) };
-		select_countries_north_america.onchange = function () { new_country_selected(countryCodes, select_countries_north_america, options_countries_north_america) };
-		select_countries_south_america.onchange = function () { new_country_selected(countryCodes, select_countries_south_america, options_countries_south_america) };
-		select_countries_oceania.onchange = function () { new_country_selected(countryCodes, select_countries_oceania, options_countries_oceania) };
+		select_countries_africa.onchange = function () { new_country_selected(countryCodes, select_countries_africa.value) };
+		select_countries_asia.onchange = function () { new_country_selected(countryCodes, select_countries_asia.value) };
+		select_countries_europe.onchange = function () { new_country_selected(countryCodes, select_countries_europe.value) };
+		select_countries_north_america.onchange = function () { new_country_selected(countryCodes, select_countries_north_america.value) };
+		select_countries_south_america.onchange = function () { new_country_selected(countryCodes, select_countries_south_america.value) };
+		select_countries_oceania.onchange = function () { new_country_selected(countryCodes, select_countries_oceania.value) };
+
+		//		select_countries_africa.onchange = function () { new_country_selected(countryCodes, select_countries_africa, options_countries_africa) };
+		// select_countries_asia.onchange = function () { new_country_selected(countryCodes, select_countries_asia, options_countries_asia) };
+		// select_countries_europe.onchange = function () { new_country_selected(countryCodes, select_countries_europe, options_countries_europe) };
+		// select_countries_north_america.onchange = function () { new_country_selected(countryCodes, select_countries_north_america, options_countries_north_america) };
+		// select_countries_south_america.onchange = function () { new_country_selected(countryCodes, select_countries_south_america, options_countries_south_america) };
+		// select_countries_oceania.onchange = function () { new_country_selected(countryCodes, select_countries_oceania, options_countries_oceania) };
 
 
 		// Initial list of country codes

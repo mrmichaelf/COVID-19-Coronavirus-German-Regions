@@ -127,9 +127,9 @@ function getSeries(countryCodes, countriesDataObject, xAxis, yAxis) {
 }
 
 // when a country is selected for adding to the chart, this is called
-function new_country_selected(countryCodes, select_country, options_countries) {
-  if (select_country.value != "placeholder123") {
-    var country_code_to_add = select_country.value;
+function new_country_selected(countryCodes, country_code_to_add) { // , select_country, options_countries
+  if (country_code_to_add != "placeholder123") {
+    // var country_code_to_add = select_country.value;
     // console.log(country_code_to_add)
 
     // append to list of country codes
@@ -138,9 +138,24 @@ function new_country_selected(countryCodes, select_country, options_countries) {
     // start fetching / download of data
     promises.push(fetchData(country_code_to_add, countriesDataObject))
 
+    // Version 1: pass select and its options as parameter
     // remove selected values from options_countries
-    arrayRemoveValueTextPairByValue(options_countries, country_code_to_add)
-    setOptionsToSelect(select_country, options_countries, "Choose");
+    // arrayRemoveValueTextPairByValue(options_countries, country_code_to_add)
+    // setOptionsToSelect(select_country, options_countries, "Choose");
+
+    // Version 2: refresh all selects, as this is required when clicking in tabular instead of selecting via dropdown
+    arrayRemoveValueTextPairByValue(options_countries_africa, country_code_to_add)
+    arrayRemoveValueTextPairByValue(options_countries_asia, country_code_to_add)
+    arrayRemoveValueTextPairByValue(options_countries_europe, country_code_to_add)
+    arrayRemoveValueTextPairByValue(options_countries_north_america, country_code_to_add)
+    arrayRemoveValueTextPairByValue(options_countries_south_america, country_code_to_add)
+    arrayRemoveValueTextPairByValue(options_countries_oceania, country_code_to_add)
+    setOptionsToSelect(select_countries_africa, options_countries_africa, "Choose");
+    setOptionsToSelect(select_countries_asia, options_countries_asia, "Choose");
+    setOptionsToSelect(select_countries_europe, options_countries_europe, "Choose");
+    setOptionsToSelect(select_countries_north_america, options_countries_north_america, "Choose");
+    setOptionsToSelect(select_countries_south_america, options_countries_south_america, "Choose");
+    setOptionsToSelect(select_countries_oceania, options_countries_oceania, "Choose");
 
     // wait for fetching to complete, than update chart
     Promise.all(promises).then(function () {
@@ -158,7 +173,7 @@ function resetChart() {
   // options_countries_north_america = [];
   // options_countries_south_america = [];
   // options_countries_oceania = [];
-  console.log(countryCodes);
+  // console.log(countryCodes);
   // countryCodes = ["DE"];
   console.log(countryCodes);
   populate_country_selects();
