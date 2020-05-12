@@ -143,8 +143,7 @@
 	<!-- eCharts -->
 	<script src="./eCharts/echarts-4.7.0-en.min.js"></script>
 	<script src="./eCharts/jquery-3.5.0.min.js"></script>
-	<!-- TODO -->
-	<script src="./eCharts/myHelper-test.js"></script>
+	<script src="./eCharts/myHelper.js"></script>
 </head>
 
 <body>
@@ -189,6 +188,9 @@
 					</li>
 					<li>
 						<a href="#DeDistrictTable">Landkreistabelle</a><b> (new)</b>
+					</li>
+					<li>
+						<a href="#DeDistrictECharts">Interaktiver Landkreis Vergleich </a><b> (new)</b>
 					</li>
 				</ul>
 				<li>
@@ -421,6 +423,14 @@
 					}, headerFilter: true, headerFilterPlaceholder: "filter >=", headerFilterFunc: ">="
 				},
 			],
+			rowClick: function (e, row) {
+				var rowData = row.getData();
+				console.log(rowData)
+				var clickedCode = rowData["LK_ID"];
+				var clickedDistrict = rowData["Landkreis"];
+				new_deDistrict_selected(deDistrictCodes, clickedCode);
+				alert(clickedDistrict + " zum Chart unten hinzugefügt")
+			},
 		});
 
 		table.setData("https://entorb.net/COVID-19-coronavirus/data/de-districts/de-districts-results-V2.json", {}, "get");
@@ -430,6 +440,82 @@
 			{ column: "Bundesland", dir: "asc" },
 			{ column: "Cases_Last_Week_Per_Million", dir: "desc" }, //sort by this first
 		]);
+	</script>
+	<small> generated via <a href="http://tabulator.info/" target="_blank">Tabulator</a>, raw data can be found <a href="https://github.com/entorb/COVID-19-Coronavirus-German-Regions/tree/master/data/de-districts" target="_blank">here</a>
+	</small>
+
+	<p><small><a href="#ToC">Back to top</a></small></p>
+
+	<h4><a id="DeDistrictECharts"></a>Interaktiver Landkreis Vergleich</h4>
+
+	<p>Landkreise und Städte in obiger Tabelle auswählen.</p>
+	<div id="eChartsDeDistrictsContainer" style="height: 600px; width:1000px; background-color: white;"></div>
+	<small> generated via <a href="https://echarts.apache.org" target="_blank">eCharts</a>, raw data can be found <a href="https://github.com/entorb/COVID-19-Coronavirus-German-Regions/tree/master/data/de-districts" target="_blank">here</a>
+	</small>
+	<!-- 
+		JS for eCharts DE Districts 
+	-->
+	<script>
+		// array of promises for async fetching, used for eCharts plots
+		const promises = [];
+
+		var mapDeDistrictNames = {};
+
+		// fetch countries-latest-all.json containing country reference data like code and continent
+		function fetch_mapRefDeDistrictData(mapDeDistrictNames) {
+			const url =
+				"https://entorb.net/COVID-19-coronavirus/data/de-districts/mapping_landkreis_ID_name.json";
+			return $.getJSON(url, function (data) {
+				console.log("success: mapDeDistrictNames");
+			})
+				.done(function (data) {
+					console.log("done: mapDeDistrictNames");
+					$.each(data, function (key, val) {
+						mapDeDistrictNames[key] = val;
+					});
+				})
+				.fail(function () {
+					console.log("fail: mapDeDistrictNames");
+				});
+		}
+
+		// fetch the ref data
+		promises.push(fetch_mapRefDeDistrictData(mapDeDistrictNames));
+
+		// Initial list of DeDistrict codes
+		// Adding an entry to this array draws a new line
+		// 02000 = Hamburg
+		var deDistrictCodes = ["02000"];
+
+		const deDistrictDataObject = {}; // We store all the data in an object
+
+		// const dom = document.getElementById("eChartsDeDistrictsContainer");
+		const eChartDeDistricts = echarts.init(document.getElementById("eChartsDeDistrictsContainer"));
+
+		// For each country code we fetch the data
+		for (let i = 0; i < deDistrictCodes.length; i++) {
+			promises.push(fetchData('DeDistrict', deDistrictCodes[i], deDistrictDataObject));
+		}
+
+		// Wait for all async promises to be done (all data is fetched), then refreshes the chart
+		Promise.all(promises).then(function () {
+			console.log("eCharts DeDistricts: all data fetched");
+			refreshDeDistrictsChartWrapper();
+		});
+		// Wraps the refreshChart function so it is more readable, takes less space
+		function refreshDeDistrictsChartWrapper() {
+			refreshDeDistrictsChart(
+				eChartDeDistricts,
+				deDistrictCodes,
+				deDistrictDataObject
+				// select_xAxisProperty,
+				// select_yAxisProperty,
+				// select_xAxisTimeRange,
+				// select_xAxisScale,
+				// select_yAxisScale
+			);
+		}
+
 	</script>
 
 	<p><small><a href="#ToC">Back to top</a></small></p>
@@ -892,7 +978,7 @@
 					<select id="sel_countries_oceania" name="sel_countries_oceania" style="width:140px"> </select>
 				</td>
 				<td>
-					<!-- TODO: input type="reset" onclick="resetChart(countryCodes)"> -->
+					<!-- TODO: input type="reset" onclick="resetCountryChart(countryCodes)"> -->
 				</td>
 			</tr>
 		</table>
@@ -925,12 +1011,16 @@
 	<!-- 
 		End Form 
 	  -->
-	<div id="container" style="height: 600px; width:1000px; background-color: white;"></div>
+	<div id="eChartsCountryContainer" style="height: 600px; width:1000px; background-color: white;"></div>
 	<small> generated via <a href="https://echarts.apache.org" target="_blank">eCharts</a>, raw data can be found in <a href="https://github.com/entorb/COVID-19-Coronavirus-German-Regions/blob/master/data/int/" target="_blank">country-XX.tsv / .json</a>
 		<br /> Many thanks to Attila for code review, cleanup and implementation of the first version of the select data logic!</small>
+	<!-- 
+		JS for eCharts Countries
+	-->
 	<script>
-		// array of promises for async fetching
-		const promises = [];
+		// uncommented here, as already created above
+		// array of promises for async fetching, used for eCharts plots
+		// const promises = [];
 
 		// fetch ref list: Country Code -> Country Name
 		var mapCountryNames = {};
@@ -1043,11 +1133,11 @@
 		setOptionsToSelect(select_yAxisScale, options_axis_scales, "");
 
 		// If the value of a select changes refresh the chart
-		select_xAxisProperty.onchange = function () { refreshChartWrapper() };
-		select_yAxisProperty.onchange = function () { refreshChartWrapper() };
-		select_xAxisTimeRange.onchange = function () { refreshChartWrapper() };
-		select_xAxisScale.onchange = function () { refreshChartWrapper() };
-		select_yAxisScale.onchange = function () { refreshChartWrapper() };
+		select_xAxisProperty.onchange = function () { refreshCountryChartWrapper() };
+		select_yAxisProperty.onchange = function () { refreshCountryChartWrapper() };
+		select_xAxisTimeRange.onchange = function () { refreshCountryChartWrapper() };
+		select_xAxisScale.onchange = function () { refreshCountryChartWrapper() };
+		select_yAxisScale.onchange = function () { refreshCountryChartWrapper() };
 		// countries
 		select_countries_africa.onchange = function () { new_country_selected(countryCodes, select_countries_africa.value) };
 		select_countries_asia.onchange = function () { new_country_selected(countryCodes, select_countries_asia.value) };
@@ -1070,26 +1160,26 @@
 
 		const countriesDataObject = {}; // We store all the data in an object
 
-		const dom = document.getElementById("container");
-		const myChart = echarts.init(dom);
+		// const dom = document.getElementById("eChartsCountryContainer");
+		const eChartCountries = echarts.init(document.getElementById("eChartsCountryContainer"));
 
 		// For each country code we fetch the data
 		for (let i = 0; i < countryCodes.length; i++) {
-			promises.push(fetchData(countryCodes[i], countriesDataObject));
+			promises.push(fetchData('Country', countryCodes[i], countriesDataObject));
 		}
 
 		// Wait for all async promises to be done (all data is fetched), then refreshes the chart
 		Promise.all(promises).then(function () {
-			console.log("All data fetched");
+			console.log("eCharts Countries: all data fetched");
 			// populate_country_selects();
-			// refreshChartWrapper();
-			resetChart();
+			// refreshCountryChartWrapper();
+			resetCountryChart();
 		});
 
 		// Wraps the refreshChart function so it is more readable, takes less space
-		function refreshChartWrapper() {
-			refreshChart(
-				myChart,
+		function refreshCountryChartWrapper() {
+			refreshCountryChart(
+				eChartCountries,
 				countryCodes,
 				countriesDataObject,
 				select_xAxisProperty,

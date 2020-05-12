@@ -72,51 +72,56 @@ function setOptionsToSelect(select, optionsArray, placeholdertext) {
 
 
 // Gets the url of the given country
-// countryCode: the code of the country e.g. "DE"
-function getUrl(country_code) {
-  return 'https://entorb.net/COVID-19-coronavirus/data/int/country-' + country_code + '.json';
+// type: Country or DeDistrict
+// code: the code of the country e.g. "DE"
+function getUrl(type, code) {
+  if (type == 'Country') {
+    return 'https://entorb.net/COVID-19-coronavirus/data/int/country-' + code + '.json';
+  } else if (type == 'DeDistrict') {
+    return 'https://entorb.net/COVID-19-coronavirus/data/de-districts/de-district_timeseries-' + code + '.json';
+  }
 }
 
 
 
 // Fetches the data for one country code
-// countryCode: the code of the country e.g. "DE"
-// countriesDataObject: the object which will contain all data about the countries
-function fetchData(countryCode, countriesDataObject) {
-  const url = getUrl(countryCode);
-  // AAN: I like using "() => {}" lambda expressions instead of "function () {}" as parameters
+// type: Country or DeDistrict
+// code: the code of the country e.g. "DE"
+// dataObject: the object which will contain all data about the Countries/DeDistricts
+function fetchData(type, code, dataObject) {
+  const url = getUrl(type, code);
   return $.getJSON(url, function () {
-    // console.log(`success: ${countryCode}`);
+    // console.log(`success: ${code}`);
   })
     .done(function (data) {
-      console.log('done: ' + countryCode);
-      countriesDataObject[countryCode] = data;
+      console.log('done: ' + code);
+      dataObject[code] = data;
     })
     .fail(function () {
-      console.log('fail:' + countryCode);
+      console.log('fail:' + code);
     });
 }
 
 
 // Gets the series property of the chart object
-// countryCodes: the codes of the countries to display
-// countriesDataObject: the object which contains all data about the countries
+// codes: the codes of the countries to display
+// dataObject: the object which contains all data about the countries
 // xAxis: the property displayed in the X axis
 // yAxis: the property displayed in the Y axis
-function getSeries(countryCodes, countriesDataObject, xAxis, yAxis) {
+function getSeries(codes, dataObject, map_id_name, xAxis, yAxis) {
   const series = [];
-  for (let i = 0; i < countryCodes.length; i++) {
+  for (let i = 0; i < codes.length; i++) {
     const countryLine = [];
     // We filter the data to display here using the axis data
-    $.each(countriesDataObject[countryCodes[i]], function (key, val) {
+    $.each(dataObject[codes[i]], function (key, val) {
       countryLine.push([
-        countriesDataObject[countryCodes[i]][key][xAxis],
-        countriesDataObject[countryCodes[i]][key][yAxis],
+        dataObject[codes[i]][key][xAxis],
+        dataObject[codes[i]][key][yAxis],
       ]);
     });
     const seria = {
       data: countryLine, // the line of the country
-      name: mapCountryNames[countryCodes[i]],
+      name: map_id_name[codes[i]],
       type: "line",
       symbolSize: 5,
       smooth: true,
@@ -136,7 +141,7 @@ function new_country_selected(countryCodes, country_code_to_add) { // , select_c
     countryCodes.push(country_code_to_add);
 
     // start fetching / download of data
-    promises.push(fetchData(country_code_to_add, countriesDataObject))
+    promises.push(fetchData('Country', country_code_to_add, countriesDataObject))
 
     // Version 1: pass select and its options as parameter
     // remove selected values from options_countries
@@ -159,13 +164,29 @@ function new_country_selected(countryCodes, country_code_to_add) { // , select_c
 
     // wait for fetching to complete, than update chart
     Promise.all(promises).then(function () {
-      refreshChartWrapper();
+      refreshCountryChartWrapper();
     });
   }
 }
 
+// when a DeDistrict is selected for adding to the chart, this is called
+function new_deDistrict_selected(deDistrictCodes, deDistrict_code_to_add) {
+  // append to list of codes
+  deDistrictCodes.push(deDistrict_code_to_add);
+
+  // start fetching / download of data
+  promises.push(fetchData('DeDistrict', deDistrict_code_to_add, deDistrictDataObject))
+
+  // wait for fetching to complete, than update chart
+  Promise.all(promises).then(function () {
+    refreshDeDistrictsChartWrapper();
+  });
+}
+
+
+
 // resets country selection to default
-function resetChart() {
+function resetCountryChart() {
   // TODO: This is not working properly: dropdowns are not refilled.
   // options_countries_africa = [];
   // options_countries_asia = [];
@@ -175,12 +196,12 @@ function resetChart() {
   // options_countries_oceania = [];
   // console.log(countryCodes);
   // countryCodes = ["DE"];
-  console.log(countryCodes);
-  populate_country_selects();
-  refreshChartWrapper();
+  // console.log(countryCodes);
+  populateCountrySelects();
+  refreshCountryChartWrapper();
 }
 
-function populate_country_selects() {
+function populateCountrySelects() {
   // Africa
   for (let i = 0; i < mapContinentCountries['Africa'].length; i++) {
     const code = mapContinentCountries['Africa'][i][0];
@@ -257,12 +278,12 @@ function populate_country_selects() {
 
 
 
-// Refreshes the chart
+// Refreshes the country chart
 // countryCodes: the codes of the countries to display
 // countriesDataObject: the object which contains all data about the countries
 // select_xAxisProperty: the select of the X axis
 // select_yAxisProperty: the select of the Y axis
-function refreshChart(
+function refreshCountryChart(
   chart,
   countryCodes,
   countriesDataObject,
@@ -352,6 +373,7 @@ function refreshChart(
     series: getSeries(
       countryCodes,
       countriesDataObject,
+      mapCountryNames,
       select_xAxisProperty.value,
       select_yAxisProperty.value
     ),
@@ -641,6 +663,111 @@ function refreshChart(
       ]
     }
   }
+
+
+  chart.clear(); // needed as setOption does not reliable remove all old data, see https://github.com/apache/incubator-echarts/issues/6202#issuecomment-460322781
+  chart.setOption(option, true);
+}
+
+
+
+
+
+
+function refreshDeDistrictsChart(
+  chart,
+  codes,
+  dataObject
+) {
+  option = {
+    title: {
+      text: "COVID-19: Landkreisvergleich 7-Tages-Neuinfektionen",
+      left: 'center',
+      subtext: "by Torben https://entorb.net based on RKI data",
+      sublink: "https://entorb.net/COVID-19-coronavirus/",
+    },
+    legend: {
+      type: 'scroll',
+      orient: 'vertical',
+      right: 0,
+      top: 50,
+      //          bottom: 20,
+    },
+    xAxis: {
+      // common settings for both axes
+      type: 'time', // will be overwritten if needed below
+      boundaryGap: false,
+      nameTextStyle: { fontWeight: "bold" },
+      minorTick: { show: true },
+      minorSplitLine: {
+        show: true
+      },
+      axisTick: { inside: true },
+      axisLabel: {
+        show: true,
+        formatter: function (value) {
+          var date = new Date(value);
+          return date.toLocaleDateString("de-DE")
+        }
+      },
+      // for x only
+      name: 'Datum',
+      nameLocation: 'end',
+
+    },
+    yAxis: {
+      // common settings for both axes
+      type: 'value', // will be overwritten if needed below
+      boundaryGap: false,
+      nameTextStyle: { fontWeight: "bold" },
+      minorTick: { show: true },
+      minorSplitLine: {
+        show: true
+      },
+      axisTick: { inside: true },
+      axisLabel: { show: true },
+      // for y only
+      name: 'Neu-Infektionen 7 Tage',
+      nameLocation: 'center',
+      nameGap: 60,
+    },
+    series: getSeries(
+      codes,
+      dataObject,
+      mapDeDistrictNames,
+      'Date',
+      'Cases_Last_Week_Per_Million'
+    ),
+    tooltip: {
+      trigger: 'axis', // item or axis
+      axisPointer: {
+        type: 'shadow',
+        snap: true
+      }
+    },
+    toolbox: {
+      show: true,
+      showTitle: true,
+      feature: {
+        // restore: {},
+        dataZoom: {},
+        dataView: { readOnly: true },
+        saveAsImage: {},
+        // magicType: {
+        //  type: ['line', 'bar', 'stack', 'tiled']
+        //},
+        //brush: {},
+      },
+    },
+    grid: {
+      containLabel: false,
+      left: 75,
+      bottom: 40,
+      right: 180,
+    },
+  };
+
+
 
 
   chart.clear(); // needed as setOption does not reliable remove all old data, see https://github.com/apache/incubator-echarts/issues/6202#issuecomment-460322781

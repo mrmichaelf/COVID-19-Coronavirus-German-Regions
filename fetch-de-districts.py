@@ -222,21 +222,21 @@ def fetch_and_prepare_ref_landkreise() -> dict:
     # assure we did not loose any
     assert len(l_landkreise) == len(d_landkreise)
 
-    # generate and export a mapping table
-    gen_mapping_BL2LK_json(d_landkreise)
-
     return d_landkreise
 
 
-def gen_mapping_BL2LK_json(d_landkreise: dict):
+def gen_mapping_BL2LK_json():
     """
     generates a mapping table of BL_Code <-> LK_ID
     dict: key1 = BC_Code -> list of LK_IDs:
     {"SH": {"BL_Name": "Schleswig-Holstein", "LK_IDs": [["01001", "Flensburg"], ["01002", "Kiel"], ..] ..}..}
     """
+    global d_ref_landkreise
     d_bundeslaender = {}
+    d_landkreis_id_name_mapping = {}  # lk_id -> name
     for lk_id in d_landkreise.keys():
         lk = d_landkreise[lk_id]
+        d_landkreis_id_name_mapping[lk_id] = get_lk_name_from_lk_id(lk_id)
         if lk['BL_Code'] not in d_bundeslaender.keys():
             d = {}
             l_lk_ids = []
@@ -251,6 +251,8 @@ def gen_mapping_BL2LK_json(d_landkreise: dict):
 
     helper.write_json(
         'data/de-districts/mapping_bundesland_landkreis.json', d_bundeslaender)
+    helper.write_json(
+        'data/de-districts/mapping_landkreis_ID_name.json', d_landkreis_id_name_mapping)
 
 
 def fetch_landkreis_time_series(lk_id: str, readFromCache: bool = True) -> list:
@@ -548,6 +550,9 @@ def loop_over_all_LK():
 
 
 d_ref_landkreise = fetch_and_prepare_ref_landkreise()
+# generate and export a mapping table
+gen_mapping_BL2LK_json()
+
 loop_over_all_LK()
 
 # fetch_ref_landkreise(readFromCache=True)
