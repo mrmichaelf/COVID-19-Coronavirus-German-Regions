@@ -190,7 +190,7 @@
 						<a href="#DeDistrictTable">Landkreistabelle</a><b> (new)</b>
 					</li>
 					<li>
-						<a href="#DeDistrictECharts">Interaktiver Landkreis Vergleich </a><b> (new)</b>
+						<a href="#DeDistrictChart">Interaktiver Landkreis Vergleich </a><b> (new)</b>
 					</li>
 				</ul>
 				<li>
@@ -446,9 +446,9 @@
 
 	<p><small><a href="#ToC">Back to top</a></small></p>
 
-	<h4><a id="DeDistrictECharts"></a>Interaktiver Landkreis Vergleich</h4>
+	<h4><a id="DeDistrictChart"></a>Interaktiver Landkreis Vergleich</h4>
 
-	<p>Landkreise und Städte in obiger Tabelle auswählen.</p>
+	<p>Landkreise und Städte in obiger <a href="#DeDistrictTable">Tabelle</a> auswählen.</p>
 	<div id="eChartsDeDistrictsContainer" style="height: 600px; width:1000px; background-color: white;"></div>
 	<small> generated via <a href="https://echarts.apache.org" target="_blank">eCharts</a>, raw data can be found <a href="https://github.com/entorb/COVID-19-Coronavirus-German-Regions/tree/master/data/de-districts" target="_blank">here</a>
 	</small>
@@ -485,7 +485,8 @@
 		// Initial list of DeDistrict codes
 		// Adding an entry to this array draws a new line
 		// 02000 = Hamburg
-		var deDistrictCodes = ["02000"];
+		// 05558 = Coesfeld
+		var deDistrictCodes = ["05558"];
 
 		const deDistrictDataObject = {}; // We store all the data in an object
 

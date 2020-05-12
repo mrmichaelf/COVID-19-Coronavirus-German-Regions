@@ -727,7 +727,7 @@ function refreshDeDistrictsChart(
       axisTick: { inside: true },
       axisLabel: { show: true },
       // for y only
-      name: 'Neu-Infektionen 7 Tage',
+      name: 'Neu-Infektionen in 7 Tagen pro 1 Millionen Einwohner',
       nameLocation: 'center',
       nameGap: 60,
     },
@@ -763,12 +763,25 @@ function refreshDeDistrictsChart(
       containLabel: false,
       left: 75,
       bottom: 40,
-      right: 180,
+      right: 250,
     },
   };
 
 
-
+  option.series[0].markLine = {
+    symbol: 'none',
+    silent: true,
+    animation: false,
+    lineStyle: {
+      color: "#0000ff"
+      //type: 'solid'
+    },
+    data: [
+      {
+        yAxis: 500,
+      },
+    ]
+  }
 
   chart.clear(); // needed as setOption does not reliable remove all old data, see https://github.com/apache/incubator-echarts/issues/6202#issuecomment-460322781
   chart.setOption(option, true);
