@@ -234,8 +234,8 @@ def gen_mapping_BL2LK_json():
     global d_ref_landkreise
     d_bundeslaender = {}
     d_landkreis_id_name_mapping = {}  # lk_id -> name
-    for lk_id in d_landkreise.keys():
-        lk = d_landkreise[lk_id]
+    for lk_id in d_ref_landkreise.keys():
+        lk = d_ref_landkreise[lk_id]
         d_landkreis_id_name_mapping[lk_id] = get_lk_name_from_lk_id(lk_id)
         if lk['BL_Code'] not in d_bundeslaender.keys():
             d = {}

@@ -183,6 +183,9 @@ def prepare_time_series(l_time_series: list) -> list:
             d['Deaths_Change_Factor'] = round(
                 d['Deaths']/last_deaths, 3)
 
+        if d['Cases'] and d['Deaths'] > 0:
+            d['Deaths_Per_Cases'] = round(d['Deaths'] / d['Cases'], 3)
+
         last_cases = d['Cases']
         last_deaths = d['Deaths']
 

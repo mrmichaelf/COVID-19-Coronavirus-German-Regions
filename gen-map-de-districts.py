@@ -97,7 +97,7 @@ del f, d, l
 # check if last date has as many values as the 2nd last, of not drop it
 dates = sorted(d_all_date_data.keys())
 if len(d_all_date_data[dates[-1]]) != len(d_all_date_data[dates[-2]]):
-    print("WARNIGN: last date is incomplete, so removing it")
+    print("WARNING: last date is incomplete, so removing it")
     del d_all_date_data[dates[-1]]
 del dates
 

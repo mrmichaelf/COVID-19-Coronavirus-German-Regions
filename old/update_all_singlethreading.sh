@@ -40,9 +40,7 @@ cd ..
 
 
 echo  === date of data
-echo Date Int-Countries: `tail -1 data/int/countries-latest-selected.tsv | cut -f2`
-echo Date DE-States: `tail -1 data/de-states/de-states-latest.tsv | cut -f5`
-echo Date DE-Erlangen: `tail -1 data/de-districts/de-district_timeseries-09562.tsv | cut -f2`
+bash show_data_dates.sh
 
 # echo === Check local html. Enter to copy and commit, CTRG+C to cancel
 # read ok

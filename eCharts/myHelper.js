@@ -306,8 +306,13 @@ function refreshCountryChart(
     select_xAxisScale.value = 'linscale';
   } else {
     select_xAxisScale.disabled = false;
-
   }
+  // disable logscale for deaths_per_cases
+  if (select_yAxisProperty.value == "Deaths_Per_Cases") {
+    select_yAxisScale.disabled = true;
+    select_yAxisScale.value = 'linscale';
+  }
+
 
   option = {}
   // optionsAxisCommon = {
