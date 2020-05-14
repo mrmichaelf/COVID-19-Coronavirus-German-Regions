@@ -1215,3 +1215,19 @@ id,Country/Region,federalstate,infections,deaths,date,newinfections,newdeaths
 1208,Germany,Saxony-Anhalt,1650,52,2020-05-13,2,2
 1216,Germany,Schleswig-Holstein,2972,125,2020-05-13,16,0
 1207,Germany,Thuringia,2622,126,2020-05-13,28,8
+1218,Germany,Baden-Württemberg,33670,1608,2020-05-14,152,14
+1230,Germany,Bavaria,44980,2229,2020-05-14,178,20
+1223,Germany,Berlin,6342,173,2020-05-14,44,3
+1226,Germany,Brandenburg,3135,138,2020-05-14,10,1
+1224,Germany,Bremen,1104,37,2020-05-14,27,1
+1221,Germany,Hamburg,4976,228,2020-05-14,4,5
+1228,Germany,Hesse,9169,423,2020-05-14,82,4
+1220,Germany,Lower Saxony,11003,524,2020-05-14,100,16
+1231,Germany,Mecklenburg-Western Pomerania,739,20,2020-05-14,3,0
+1217,Germany,North Rhine-Westphalia,35741,1483,2020-05-14,186,10
+1229,Germany,Rhineland-Palatinate,6382,212,2020-05-14,22,5
+1232,Germany,Saarland,2677,145,2020-05-14,10,1
+1219,Germany,Saxony,5031,195,2020-05-14,69,4
+1222,Germany,Saxony-Anhalt,1656,52,2020-05-14,6,0
+1225,Germany,Schleswig-Holstein,2982,125,2020-05-14,10,0
+1227,Germany,Thuringia,2652,131,2020-05-14,30,5
