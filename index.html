@@ -243,10 +243,10 @@
 					<a href="#DE_cases_new_time_series-per-million">Zeitverlauf der Neu-Infektionen in den Bundesländern, skaliert
 						auf deren Einwohnerzahlen</a>
 				</li>
-				<li>
+				<!-- <li>
 					<a href="#cases-de-states-latest-per-million">Ist-Stand der Infektionen in den Bundesländern, skaliert auf
-						deren Einwohnerzahlen</a>
-				</li>
+						deren Einwohnerzahlen</a> 
+					</li>-->
 				<li>
 					<a href="#Exp_Wachstum">Untersuchung der exponentiellen Zunahme der Infektionen in Deutschland</a>
 				</li>
@@ -287,11 +287,11 @@
 			<li>
 				<a href="#DuplicationsUntilIT">Duplications until hitting Italy's deaths per capita</a>
 			</li>
-			<li>
+			<!-- <li>
 				<a href="#DaysUntilIT">Estimated days until hitting Italy's deaths per capita</a>
-			</li>
+			</li> -->
 			<li>
-				<a href="#Countries_Mortality">Investigating the Calculated Mortality: Deaths per Reported Infections</a>
+				<a href="#Countries_Mortality">Investigating the Calculated Case Mortality: Deaths per Reported Infections</a>
 			</li>
 		</ul>
 	</ul>
@@ -1660,7 +1660,8 @@
 	<p><small>
 			<a href="#ToC">Back to top</a></small></p>
 
-	<h3>
+	<!--
+		 <h3>
 		<a id="countries-fit-results"></a>Death toll increase for selected countries</h3>
 
 	<p> Before diving into the math of exponential growth functions, let's start by showing the results. </p>
@@ -1677,7 +1678,8 @@
 	</small>
 
 	<p><small>
-			<a href="#ToC">Back to top</a></small></p>
+			<a href="#ToC">Back to top</a></small></p> 
+		-->
 
 	<h3>
 		<a id="CountriesDeathTimeSeries"></a>Time series, Doubling time calculation and forecast for selected countries
@@ -1868,7 +1870,8 @@
 	<p><small>
 			<a href="#ToC">Back to top</a></small></p>
 
-	<h3>
+	<!-- 
+		<h3>
 		<a id="DaysUntilIT"></a>Estimated days until hitting Italy's deaths per capita</h3>
 
 	<p> This plot combines the fit result for the deaths doubling time and the number of duplications until hitting
@@ -1892,14 +1895,16 @@
 	</ul>
 
 	<p><small>
-			<a href="#ToC">Back to top</a></small></p>
+			<a href="#ToC">Back to top</a></small></p> 
+		-->
 
 	<h3>
-		<a id="Countries_Mortality"></a>Investigating the Calculated Mortality: Deaths per Reported Infections</h3>
+		<a id="Countries_Mortality"></a>Investigating the Calculated Case Mortality: Deaths per Reported Infections</h3>
 
 	<p>Different countries put different effort in testing the population for COVID-19. Hence, some have rather high death
-		toll despite a rather low reported cases. The ratio between the two will be called "calculated mortality" in the
-		following. The calculated mortality is of cause highly related to the test effort: more testing results in more
+		toll despite a rather low reported cases. The ratio between the two will be called "calculated case mortality" in
+		the
+		following. The calculated case mortality is of cause highly related to the test effort: more testing results in more
 		reported cases and hence a lower calculated mortality. If on the other hand the clinics are overrun, this will
 		result in an increase in mortality, as the docs are unable to heal all patients. Countries that show a strongly
 		exponentially increasing death toll (short doubling time) will have a lower calculated mortality than the true
@@ -1915,16 +1920,18 @@
 
 	<p>Findings</p>
 	<ul>
-		<li> Many of the selected countries have a calculated mortality of around 2%. </li>
+		<li> Many of the selected countries have a calculated case mortality of around 2%. </li>
 		<li> 08.04.2020: In South Korea and Japan the exponential spread of the virus seems to be under control and they
-			test quite a lot. Therefore, their calculated mortality might be close to the true mortality in high-technology
+			test quite a lot. Therefore, their calculated case mortality might be close to the true mortality in
+			high-technology
 			countries. South Korea today has a value of 1.9%, Japan of 2.2%. </li>
-		<li> 08.04.2020: Most countries that show high calculated mortality (probably due to too little testing) are the
+		<li> 08.04.2020: Most countries that show high calculated case mortality (probably due to too little testing) are
+			the
 			owes facing severe problems today (IT, FR, BE. ES). If this correlation is true, I expect UK, NL and SE to have
 			severe problems soon.</li>
 	</ul>
 
-	<p> Let us now compare the calculated mortality to the deaths per capita </p>
+	<p> Let us now compare the calculated case mortality to the deaths per capita </p>
 	<img src="plots-gnuplot/int/countries-mortality-vs-deaths-ppm.png" alt="countries-mortality-vs-deaths-ppm.png"
 		width="640" height="480"><br />
 	<small>generated via Gnuplot <a
@@ -1936,7 +1943,8 @@
 
 	<p>Findings</p>
 	<ul>
-		<li> A low calculated mortality seems to be related to low deaths per capita, so testing might safe lives, or it is
+		<li> A low calculated case mortality seems to be related to low deaths per capita, so testing might safe lives, or
+			it is
 			a stronger medical system being related to higher testing capacity.</li>
 	</ul>
 	<!-- asf -->
