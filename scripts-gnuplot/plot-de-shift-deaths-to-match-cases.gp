@@ -41,7 +41,7 @@ set y2label "Tote letzte Woche" offset -0,0 textcolor rgb 'red'
 set ytics textcolor rgb 'blue' 
 set y2tics textcolor rgb 'red' 
 
-x_min = -7
+x_min = -10
 
 set xrange [x_min:0]
 # y_max=41000
