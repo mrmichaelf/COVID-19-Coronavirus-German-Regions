@@ -110,7 +110,30 @@ function fetchData(type, code, dataObject) {
 // yAxis: the property displayed in the Y axis
 function getSeries(codes, dataObject, map_id_name, xAxis, yAxis) {
   const series = [];
-  var dataSymbols = new Array('circle', 'rect', 'triangle', 'diamond'); // 'roundRect', 'pin', 'arrow'
+  const dataSymbols = new Array('circle', 'rect', 'triangle', 'diamond'); // 'roundRect', 'pin', 'arrow'
+
+  // sort codes by last value
+  const lastValues2 = [];
+  for (let i = 0; i < codes.length; i++) {
+    const yValues = dataObject[codes[i]]; //[key][yAxis];
+    const last_value = yValues[yValues.length - 1][yAxis]
+    // console.log(codes[i] + " : " + last_value);
+    lastValues2.push([codes[i], last_value]);
+  }
+  lastValues2.sort(function (a, b) {
+    return a[1] - b[1];
+  });
+  codes_ordered = [];
+  for (let i = 0; i < codes.length; i++) {
+    codes_ordered.push(lastValues2[i][0]);
+  }
+  // reverse sorting, for all but the Doubling_Time series
+  if (yAxis != "Cases_Doubling_Time" && yAxis != "Deaths_Doubling_Time") {
+    // console.log("reversing")
+    codes_ordered.reverse();
+  }
+
+  codes = codes_ordered;
 
   for (let i = 0; i < codes.length; i++) {
     const countryLine = [];
@@ -121,8 +144,7 @@ function getSeries(codes, dataObject, map_id_name, xAxis, yAxis) {
         dataObject[codes[i]][key][yAxis],
       ]);
     });
-    console.log("i=" + i);
-    modulo = i % dataSymbols.length;
+    const modulo = i % dataSymbols.length;
 
     const seria = {
       data: countryLine, // the line of the country
