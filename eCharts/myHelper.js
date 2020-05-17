@@ -150,7 +150,7 @@ function getSeries(codes, dataObject, map_id_name, xAxis, yAxis) {
       data: countryLine, // the line of the country
       name: map_id_name[codes[i]],
       type: "line",
-      symbolSize: 10,
+      symbolSize: 6,
       smooth: true,
       symbol: dataSymbols[modulo],
     };
