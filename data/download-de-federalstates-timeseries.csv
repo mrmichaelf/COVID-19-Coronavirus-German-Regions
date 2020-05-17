@@ -1263,3 +1263,19 @@ id,Country/Region,federalstate,infections,deaths,date,newinfections,newdeaths
 1252,Germany,Saxony-Anhalt,1676,54,2020-05-16,8,0
 1262,Germany,Schleswig-Holstein,2998,126,2020-05-16,10,0
 1255,Germany,Thuringia,2711,137,2020-05-16,30,2
+1265,Germany,Baden-Württemberg,33950,1648,2020-05-17,57,4
+1276,Germany,Bavaria,45427,2283,2020-05-17,87,10
+1267,Germany,Berlin,6447,182,2020-05-17,19,1
+1274,Germany,Brandenburg,3171,149,2020-05-17,2,0
+1268,Germany,Bremen,1164,37,2020-05-17,14,0
+1269,Germany,Hamburg,5029,232,2020-05-17,12,1
+1270,Germany,Hesse,9317,435,2020-05-17,56,3
+1273,Germany,Lower Saxony,11155,544,2020-05-17,63,9
+1279,Germany,Mecklenburg-Western Pomerania,748,20,2020-05-17,2,0
+1278,Germany,North Rhine-Westphalia,36286,1505,2020-05-17,221,5
+1271,Germany,Rhineland-Palatinate,6449,216,2020-05-17,0,0
+1280,Germany,Saarland,2696,149,2020-05-17,8,0
+1266,Germany,Saxony,5115,196,2020-05-17,26,-1
+1275,Germany,Saxony-Anhalt,1676,54,2020-05-17,0,0
+1272,Germany,Schleswig-Holstein,3000,126,2020-05-17,2,0
+1277,Germany,Thuringia,2725,138,2020-05-17,14,1
