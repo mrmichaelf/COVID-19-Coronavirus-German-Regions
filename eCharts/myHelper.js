@@ -110,6 +110,8 @@ function fetchData(type, code, dataObject) {
 // yAxis: the property displayed in the Y axis
 function getSeries(codes, dataObject, map_id_name, xAxis, yAxis) {
   const series = [];
+  var dataSymbols = new Array('circle', 'rect', 'triangle', 'diamond'); // 'roundRect', 'pin', 'arrow'
+
   for (let i = 0; i < codes.length; i++) {
     const countryLine = [];
     // We filter the data to display here using the axis data
@@ -119,12 +121,16 @@ function getSeries(codes, dataObject, map_id_name, xAxis, yAxis) {
         dataObject[codes[i]][key][yAxis],
       ]);
     });
+    console.log("i=" + i);
+    modulo = i % dataSymbols.length;
+
     const seria = {
       data: countryLine, // the line of the country
       name: map_id_name[codes[i]],
       type: "line",
-      symbolSize: 5,
+      symbolSize: 10,
       smooth: true,
+      symbol: dataSymbols[modulo],
     };
     series.push(seria);
   }
