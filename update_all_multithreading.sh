@@ -54,6 +54,7 @@ rsync -vhu --no-perms index.html entorb@entorb.net:html/COVID-19-coronavirus/
 
 echo  === git: add and commit
 git add data/*
-git commit -m "update"
-git push
+git commit -m "update" 
+git push --quiet
+
 
