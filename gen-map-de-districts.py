@@ -222,15 +222,16 @@ for property_to_plot in ('Cases_Last_Week_Per_Million', 'Deaths_Last_Week_Per_Mi
     ]
     run_imagemagick_convert(l_imagemagick_parameters)
 
-    # set delay of 1/4s for all frames
+    # set delay of 0.5s for all frames
+    # TODO: create copies with shorter and longer delay
     l_imagemagick_parameters = [
-        outfile, '-delay', '250x1000', outfile
+        outfile, '-delay', '500x1000', outfile
     ]
     run_imagemagick_convert(l_imagemagick_parameters)
 
-    # clone last frame and set longer delay time of 1s
+    # clone last frame and set longer delay time of 2s
     l_imagemagick_parameters = [
-        outfile, '(', '-clone', '-1', '-set', 'delay', '100', ')', outfile
+        outfile, '(', '-clone', '-1', '-set', 'delay', '2000x1000', ')', outfile
     ]
     run_imagemagick_convert(l_imagemagick_parameters)
 
