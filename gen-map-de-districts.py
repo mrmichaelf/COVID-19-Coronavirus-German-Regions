@@ -223,7 +223,6 @@ for property_to_plot in ('Cases_Last_Week_Per_Million', 'Deaths_Last_Week_Per_Mi
     run_imagemagick_convert(l_imagemagick_parameters)
 
     # set delay of 0.5s for all frames
-    # TODO: create copies with shorter and longer delay
     l_imagemagick_parameters = [
         outfile, '-delay', '500x1000', outfile
     ]
@@ -234,6 +233,17 @@ for property_to_plot in ('Cases_Last_Week_Per_Million', 'Deaths_Last_Week_Per_Mi
         outfile, '(', '-clone', '-1', '-set', 'delay', '2000x1000', ')', outfile
     ]
     run_imagemagick_convert(l_imagemagick_parameters)
+
+    # create copies with shorter and longer delay
+    delay_variants = (100, 250, 500)
+    for delay in delay_variants:
+        outfileDelay = f'maps/de-districts-{property_to_plot}-{delay}.gif'
+        run_imagemagick_convert([
+            outfile, '-delay', f'{delay}x1000', outfileDelay
+        ])
+        run_imagemagick_convert([
+            outfileDelay, '(', '-clone', '-1', '-set', 'delay', '2000x1000', ')', outfileDelay
+        ])
 
 
 # cleanup
