@@ -14,7 +14,14 @@ function removeAllOptionsFromSelect(select) {
 // Formats value "Something_Is_HERE" to "Something is here" like sentence
 // value: The value to format
 // separator: the separator string between words
-function formatValueToSentenceLike(value, separator) {
+function formatValueToSentenceLike(value, separator) { // , TODO: language
+  // if (language == 'de') {
+  //   value.replace("Cases", "Infektionen");
+  //   value.replace("Deaths", "Tote");
+  //   value.replace("_New", "_Neu");
+  //   value.replace("_Last_Week", "_Letzte_Woche");
+  //   value.replace("_Per_Million", "_Pro_Millionen");
+  // }
   const allLowerCaseValue = value.split(separator).join(" ").toLowerCase();
   return allLowerCaseValue[0].toUpperCase() + allLowerCaseValue.substr(1);
 }
@@ -211,20 +218,20 @@ function new_deDistrict_selected(deDistrictCodes, deDistrict_code_to_add) {
   });
 }
 
-
+function resetDeDistrictsChart() {
+  deDistrictCodes = [deDistrictCodesDefaultValue];
+  refreshDeDistrictsChartWrapper();
+}
 
 // resets country selection to default
 function resetCountryChart() {
-  // TODO: This is not working properly: dropdowns are not refilled.
-  // options_countries_africa = [];
-  // options_countries_asia = [];
-  // options_countries_europe = [];
-  // options_countries_north_america = [];
-  // options_countries_south_america = [];
-  // options_countries_oceania = [];
-  // console.log(countryCodes);
-  // countryCodes = ["DE"];
-  // console.log(countryCodes);
+  options_countries_africa = [];
+  options_countries_asia = [];
+  options_countries_europe = [];
+  options_countries_north_america = [];
+  options_countries_south_america = [];
+  options_countries_oceania = [];
+  countryCodes = ["DE"];
   populateCountrySelects();
   refreshCountryChartWrapper();
 }
@@ -710,11 +717,13 @@ function refreshCountryChart(
 function refreshDeDistrictsChart(
   chart,
   codes,
-  dataObject
+  dataObject,
+  select_yAxisProperty
 ) {
   option = {
     title: {
-      text: "COVID-19: Landkreisvergleich 7-Tages-Neuinfektionen",
+      // text: "COVID-19: Landkreisvergleich 7-Tages-Neuinfektionen",
+      text: "COVID-19: Landkreisvergleich " + formatValueToSentenceLike(select_yAxisProperty.value, "_"),
       left: 'center',
       subtext: "by Torben https://entorb.net based on RKI data",
       sublink: "https://entorb.net/COVID-19-coronavirus/",
@@ -760,7 +769,7 @@ function refreshDeDistrictsChart(
       axisTick: { inside: true },
       axisLabel: { show: true },
       // for y only
-      name: 'Neu-Infektionen in 7 Tagen pro 1 Millionen Einwohner',
+      name: formatValueToSentenceLike(select_yAxisProperty.value, "_"),
       nameLocation: 'center',
       nameGap: 60,
     },
@@ -769,7 +778,7 @@ function refreshDeDistrictsChart(
       dataObject,
       mapDeDistrictNames,
       'Date',
-      'Cases_Last_Week_Per_Million'
+      select_yAxisProperty.value
     ),
     tooltip: {
       trigger: 'axis', // item or axis
@@ -800,23 +809,23 @@ function refreshDeDistrictsChart(
     },
   };
 
-
-  option.series[0].markLine = {
-    symbol: 'none',
-    silent: true,
-    animation: false,
-    lineStyle: {
-      color: "#0000ff"
-      //type: 'solid'
-    },
-    data: [
-      {
-        yAxis: 500,
+  if (select_yAxisProperty.value == "Cases_Last_Week_Per_Million") {
+    option.series[0].markLine = {
+      symbol: 'none',
+      silent: true,
+      animation: false,
+      lineStyle: {
+        color: "#0000ff"
+        //type: 'solid'
       },
-    ]
+      data: [
+        {
+          yAxis: 500,
+        },
+      ]
+    }
   }
 
   chart.clear(); // needed as setOption does not reliable remove all old data, see https://github.com/apache/incubator-echarts/issues/6202#issuecomment-460322781
   chart.setOption(option, true);
 }
-
