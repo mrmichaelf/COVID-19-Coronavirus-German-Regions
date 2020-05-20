@@ -1311,3 +1311,19 @@ id,Country/Region,federalstate,infections,deaths,date,newinfections,newdeaths
 1301,Germany,Saxony-Anhalt,1679,54,2020-05-19,1,0
 1311,Germany,Schleswig-Holstein,3002,128,2020-05-19,0,2
 1307,Germany,Thuringia,2750,147,2020-05-19,10,8
+1314,Germany,Baden-Württemberg,34115,1672,2020-05-20,81,19
+1320,Germany,Bavaria,45766,2339,2020-05-20,127,25
+1313,Germany,Berlin,6507,186,2020-05-20,29,4
+1316,Germany,Brandenburg,3193,151,2020-05-20,8,1
+1315,Germany,Bremen,1256,38,2020-05-20,19,0
+1318,Germany,Hamburg,5042,236,2020-05-20,0,4
+1325,Germany,Hesse,9483,446,2020-05-20,115,4
+1323,Germany,Lower Saxony,11288,557,2020-05-20,81,9
+1319,Germany,Mecklenburg-Western Pomerania,755,20,2020-05-20,3,0
+1327,Germany,North Rhine-Westphalia,36766,1537,2020-05-20,281,12
+1326,Germany,Rhineland-Palatinate,6529,222,2020-05-20,9,0
+1324,Germany,Saarland,2703,154,2020-05-20,4,0
+1328,Germany,Saxony,5150,198,2020-05-20,17,0
+1321,Germany,Saxony-Anhalt,1680,54,2020-05-20,1,0
+1317,Germany,Schleswig-Holstein,3014,131,2020-05-20,12,3
+1322,Germany,Thuringia,2760,149,2020-05-20,10,2
