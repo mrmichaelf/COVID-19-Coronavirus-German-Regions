@@ -1327,3 +1327,19 @@ id,Country/Region,federalstate,infections,deaths,date,newinfections,newdeaths
 1321,Germany,Saxony-Anhalt,1680,54,2020-05-20,1,0
 1317,Germany,Schleswig-Holstein,3014,131,2020-05-20,12,3
 1322,Germany,Thuringia,2760,149,2020-05-20,10,2
+1337,Germany,Baden-Württemberg,34175,1680,2020-05-21,60,8
+1333,Germany,Bavaria,45929,2348,2020-05-21,163,9
+1340,Germany,Berlin,6555,186,2020-05-21,48,0
+1331,Germany,Brandenburg,3205,151,2020-05-21,12,0
+1341,Germany,Bremen,1273,39,2020-05-21,17,1
+1343,Germany,Hamburg,5053,239,2020-05-21,11,3
+1329,Germany,Hesse,9574,451,2020-05-21,91,5
+1342,Germany,Lower Saxony,11362,566,2020-05-21,74,9
+1335,Germany,Mecklenburg-Western Pomerania,762,20,2020-05-21,7,0
+1339,Germany,North Rhine-Westphalia,36912,1546,2020-05-21,146,9
+1330,Germany,Rhineland-Palatinate,6555,224,2020-05-21,26,2
+1336,Germany,Saarland,2706,157,2020-05-21,3,3
+1338,Germany,Saxony,5185,201,2020-05-21,35,3
+1344,Germany,Saxony-Anhalt,1689,54,2020-05-21,9,0
+1332,Germany,Schleswig-Holstein,3021,134,2020-05-21,7,3
+1334,Germany,Thuringia,2796,151,2020-05-21,36,2
