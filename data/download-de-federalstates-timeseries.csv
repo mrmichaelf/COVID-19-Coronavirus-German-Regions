@@ -1343,3 +1343,19 @@ id,Country/Region,federalstate,infections,deaths,date,newinfections,newdeaths
 1344,Germany,Saxony-Anhalt,1689,54,2020-05-21,9,0
 1332,Germany,Schleswig-Holstein,3021,134,2020-05-21,7,3
 1334,Germany,Thuringia,2796,151,2020-05-21,36,2
+1360,Germany,Baden-Württemberg,34174,1680,2020-05-22,-1,0
+1359,Germany,Bavaria,46024,2358,2020-05-22,95,10
+1357,Germany,Berlin,6585,190,2020-05-22,30,4
+1354,Germany,Brandenburg,3211,152,2020-05-22,6,1
+1347,Germany,Bremen,1291,39,2020-05-22,18,0
+1345,Germany,Hamburg,5059,240,2020-05-22,6,1
+1352,Germany,Hesse,9656,457,2020-05-22,82,6
+1353,Germany,Lower Saxony,11420,568,2020-05-22,58,2
+1346,Germany,Mecklenburg-Western Pomerania,763,20,2020-05-22,1,0
+1348,Germany,North Rhine-Westphalia,37010,1547,2020-05-22,98,1
+1351,Germany,Rhineland-Palatinate,6566,224,2020-05-22,11,0
+1356,Germany,Saarland,2707,157,2020-05-22,1,0
+1355,Germany,Saxony,5197,203,2020-05-22,12,2
+1349,Germany,Saxony-Anhalt,1692,54,2020-05-22,3,0
+1358,Germany,Schleswig-Holstein,3039,134,2020-05-22,18,0
+1350,Germany,Thuringia,2818,151,2020-05-22,22,0
