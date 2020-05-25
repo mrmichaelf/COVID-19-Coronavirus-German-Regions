@@ -145,7 +145,7 @@ def helper_read_from_cache_or_fetch_from_url(url: str, file_cache: str, readFrom
     """
     if readFromCache:
         readFromCache = helper.check_cache_file_available_and_recent(
-            fname=file_cache, max_age=7200, verbose=False)
+            fname=file_cache, max_age=900, verbose=False)
 
     json_cont = []
     if readFromCache == True:  # read from cache
@@ -452,6 +452,7 @@ def loop_over_all_LK():
 
     # l2 = ('16068',)
     # for lk_id in d_ref_landkreise.keys():
+    # for lk_id in tqdm(('09562',)):
     for lk_id in tqdm(d_ref_landkreise.keys()):
         lk_name = get_lk_name_from_lk_id(lk_id)
         # print(f"{lk_id} {lk_name}")

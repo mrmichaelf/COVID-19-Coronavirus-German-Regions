@@ -128,9 +128,10 @@ def prepare_time_series(l_time_series: list) -> list:
     l_time_series = sorted(
         l_time_series, key=lambda x: x['Date'], reverse=False)
 
+    # NO, THIS RESULTS IN DATA SEAMING TO OLD
     # if lastdate and lastdate-1 have the same number of cases, than drop lastdate
-    if l_time_series[-1]['Cases'] == l_time_series[-2]['Cases']:
-        l_time_series.pop()
+    # if l_time_series[-1]['Cases'] == l_time_series[-2]['Cases']:
+    #     l_time_series.pop()
 
     # to ensure that each date is unique
     l_dates_processed = []
