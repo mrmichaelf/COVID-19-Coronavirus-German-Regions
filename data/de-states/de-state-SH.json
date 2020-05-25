@@ -1999,5 +1999,28 @@
   "Deaths_Last_Week_Per_Million": 3.797,
   "Cases_Doubling_Time": "",
   "Deaths_Doubling_Time": 49.6
+ },
+ {
+  "Date": "2020-05-25",
+  "Cases": 3062,
+  "Deaths": 137,
+  "Days_Past": 0,
+  "Days_Since_2nd_Death": 62,
+  "Cases_New": 0,
+  "Deaths_New": 0,
+  "Cases_Last_Week": 60,
+  "Deaths_Last_Week": 11,
+  "Cases_Change_Factor": 1.0,
+  "Deaths_Change_Factor": 1.0,
+  "Deaths_Per_Cases": 0.045,
+  "Deaths_Per_Cases_Last_Week": 0.183,
+  "Cases_Per_Million": 1057.065,
+  "Deaths_Per_Million": 47.295,
+  "Cases_New_Per_Million": 0.0,
+  "Deaths_New_Per_Million": 0.0,
+  "Cases_Last_Week_Per_Million": 20.713,
+  "Deaths_Last_Week_Per_Million": 3.797,
+  "Cases_Doubling_Time": "",
+  "Deaths_Doubling_Time": 63.7
  }
 ]
