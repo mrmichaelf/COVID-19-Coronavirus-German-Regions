@@ -241,7 +241,7 @@ function populateCountrySelects() {
   for (let i = 0; i < mapContinentCountries['Africa'].length; i++) {
     const code = mapContinentCountries['Africa'][i][0];
     const name = mapContinentCountries['Africa'][i][1]
-    if (!(countryCodes.includes(code))) {
+    if (!(countryCodes.indexOf(code) > -1)) {
       options_countries_africa.push(
         { value: code, text: name }
       );
@@ -252,7 +252,7 @@ function populateCountrySelects() {
   for (let i = 0; i < mapContinentCountries['Asia'].length; i++) {
     const code = mapContinentCountries['Asia'][i][0];
     const name = mapContinentCountries['Asia'][i][1]
-    if (!(countryCodes.includes(code))) {
+    if (!(countryCodes.indexOf(code) > -1)) {
       options_countries_asia.push(
         { value: code, text: name }
       );
@@ -263,7 +263,7 @@ function populateCountrySelects() {
   for (let i = 0; i < mapContinentCountries['Europe'].length; i++) {
     const code = mapContinentCountries['Europe'][i][0];
     const name = mapContinentCountries['Europe'][i][1]
-    if (!(countryCodes.includes(code))) {
+    if (!(countryCodes.indexOf(code) > -1)) {
       options_countries_europe.push(
         { value: code, text: name }
       );
@@ -274,7 +274,7 @@ function populateCountrySelects() {
   for (let i = 0; i < mapContinentCountries['North America'].length; i++) {
     const code = mapContinentCountries['North America'][i][0];
     const name = mapContinentCountries['North America'][i][1]
-    if (!(countryCodes.includes(code))) {
+    if (!(countryCodes.indexOf(code) > -1)) {
       options_countries_north_america.push(
         { value: code, text: name }
       );
@@ -285,7 +285,7 @@ function populateCountrySelects() {
   for (let i = 0; i < mapContinentCountries['South America'].length; i++) {
     const code = mapContinentCountries['South America'][i][0];
     const name = mapContinentCountries['South America'][i][1]
-    if (!(countryCodes.includes(code))) {
+    if (!(countryCodes.indexOf(code) > -1)) {
       options_countries_south_america.push(
         { value: code, text: name }
       );
@@ -296,7 +296,7 @@ function populateCountrySelects() {
   for (let i = 0; i < mapContinentCountries['Oceania'].length; i++) {
     const code = mapContinentCountries['Oceania'][i][0];
     const name = mapContinentCountries['Oceania'][i][1]
-    if (!(countryCodes.includes(code))) {
+    if (!(countryCodes.indexOf(code) > -1)) {
       options_countries_oceania.push(
         { value: code, text: name }
       );
