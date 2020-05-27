@@ -1407,19 +1407,35 @@ id,Country/Region,federalstate,infections,deaths,date,newinfections,newdeaths
 1396,Germany,Saxony-Anhalt,1694,54,2020-05-25,0,0
 1408,Germany,Schleswig-Holstein,3062,137,2020-05-25,0,0
 1401,Germany,Thuringia,2871,152,2020-05-25,14,0
-1413,Germany,Baden-Württemberg,34431,1698,2020-05-26,0,0
-1411,Germany,Bavaria,46326,2382,2020-05-26,0,0
-1410,Germany,Berlin,6642,191,2020-05-26,0,0
-1423,Germany,Brandenburg,3214,154,2020-05-26,0,0
-1419,Germany,Bremen,1312,41,2020-05-26,0,0
+1413,Germany,Baden-Württemberg,34466,1707,2020-05-26,35,9
+1411,Germany,Bavaria,46456,2401,2020-05-26,130,19
+1410,Germany,Berlin,6652,191,2020-05-26,10,0
+1423,Germany,Brandenburg,3236,154,2020-05-26,22,0
+1419,Germany,Bremen,1313,42,2020-05-26,1,1
 1417,Germany,Hamburg,5069,241,2020-05-26,0,0
-1420,Germany,Hesse,9770,460,2020-05-26,0,0
-1418,Germany,Lower Saxony,11578,572,2020-05-26,0,0
+1420,Germany,Hesse,9804,462,2020-05-26,34,2
+1418,Germany,Lower Saxony,11646,574,2020-05-26,68,2
 1416,Germany,Mecklenburg-Western Pomerania,760,20,2020-05-26,0,0
-1422,Germany,North Rhine-Westphalia,37298,1565,2020-05-26,0,0
-1424,Germany,Rhineland-Palatinate,6596,228,2020-05-26,0,0
-1409,Germany,Saarland,2716,157,2020-05-26,0,0
-1421,Germany,Saxony,5231,205,2020-05-26,0,0
-1415,Germany,Saxony-Anhalt,1694,54,2020-05-26,0,0
-1412,Germany,Schleswig-Holstein,3062,137,2020-05-26,0,0
-1414,Germany,Thuringia,2871,152,2020-05-26,0,0
+1422,Germany,North Rhine-Westphalia,37395,1571,2020-05-26,97,6
+1424,Germany,Rhineland-Palatinate,6600,228,2020-05-26,4,0
+1409,Germany,Saarland,2727,158,2020-05-26,11,1
+1421,Germany,Saxony,5236,207,2020-05-26,5,2
+1415,Germany,Saxony-Anhalt,1698,54,2020-05-26,4,0
+1412,Germany,Schleswig-Holstein,3067,139,2020-05-26,5,2
+1414,Germany,Thuringia,2877,153,2020-05-26,6,1
+1437,Germany,Baden-Württemberg,34500,1724,2020-05-27,34,17
+1429,Germany,Bavaria,46458,2404,2020-05-27,2,3
+1438,Germany,Berlin,6673,193,2020-05-27,21,2
+1426,Germany,Brandenburg,3246,154,2020-05-27,10,0
+1440,Germany,Bremen,1322,42,2020-05-27,9,0
+1439,Germany,Hamburg,5072,242,2020-05-27,3,1
+1430,Germany,Hesse,9860,466,2020-05-27,56,4
+1427,Germany,Lower Saxony,11678,578,2020-05-27,32,4
+1433,Germany,Mecklenburg-Western Pomerania,760,20,2020-05-27,0,0
+1434,Germany,North Rhine-Westphalia,37541,1577,2020-05-27,146,6
+1428,Germany,Rhineland-Palatinate,6611,229,2020-05-27,11,1
+1435,Germany,Saarland,2730,160,2020-05-27,3,2
+1436,Germany,Saxony,5247,208,2020-05-27,11,1
+1425,Germany,Saxony-Anhalt,1698,55,2020-05-27,0,1
+1431,Germany,Schleswig-Holstein,3070,140,2020-05-27,3,1
+1432,Germany,Thuringia,2898,157,2020-05-27,21,4
