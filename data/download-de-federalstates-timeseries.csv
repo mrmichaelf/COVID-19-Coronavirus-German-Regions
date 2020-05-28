@@ -1439,3 +1439,19 @@ id,Country/Region,federalstate,infections,deaths,date,newinfections,newdeaths
 1425,Germany,Saxony-Anhalt,1698,55,2020-05-27,0,1
 1431,Germany,Schleswig-Holstein,3070,140,2020-05-27,3,1
 1432,Germany,Thuringia,2898,157,2020-05-27,21,4
+1442,Germany,Baden-Württemberg,34129,1724,2020-05-28,-371,0
+1455,Germany,Bavaria,46729,2438,2020-05-28,271,34
+1448,Germany,Berlin,6703,195,2020-05-28,30,2
+1450,Germany,Brandenburg,3261,155,2020-05-28,15,1
+1444,Germany,Bremen,1348,41,2020-05-28,26,-1
+1447,Germany,Hamburg,5076,245,2020-05-28,4,3
+1451,Germany,Hesse,9915,471,2020-05-28,55,5
+1449,Germany,Lower Saxony,11750,583,2020-05-28,72,5
+1456,Germany,Mecklenburg-Western Pomerania,760,20,2020-05-28,0,0
+1443,Germany,North Rhine-Westphalia,37698,1582,2020-05-28,157,5
+1454,Germany,Rhineland-Palatinate,6652,230,2020-05-28,41,1
+1453,Germany,Saarland,2731,161,2020-05-28,1,1
+1441,Germany,Saxony,5260,210,2020-05-28,13,2
+1446,Germany,Saxony-Anhalt,1701,55,2020-05-28,3,0
+1452,Germany,Schleswig-Holstein,3072,143,2020-05-28,2,3
+1445,Germany,Thuringia,2932,158,2020-05-28,34,1
