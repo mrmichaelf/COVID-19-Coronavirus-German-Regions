@@ -194,7 +194,7 @@ PM	SPM	666	SB	Saint Pierre and Miquelon	Saint-Pierre	242.0	7012	NA	.pm	EUR	Euro	
 VC	VCT	670	VC	Saint Vincent and the Grenadines	Kingstown	389.0	110211	NA	.vc	XCD	Dollar	+1-784			en-VC,fr	3577815		
 WS	WSM	882	WS	Samoa	Apia	2944.0	196130	OC	.ws	WST	Tala	685			sm,en-WS	4034894		
 SM	SMR	674	SM	San Marino	San Marino	61.2	33785	EU	.sm	EUR	Euro	378	4789#	^(4789\d)$	it-SM	3168068	IT	
-ST	STP	678	TP	Sao Tome and Principe	Sao Tome	1001.0	197700	AF	.st	STD	Dobra	239			pt-ST	2410758		
+ST	STP	678	TP	Sao Tome and Principe	Sao Tome	1001.0	197700	AF	.st	STN	Dobra	239			pt-ST	2410758		
 SA	SAU	682	SA	Saudi Arabia	Riyadh	1960582.0	33699947	AS	.sa	SAR	Rial	966	#####	^(\d{5})$	ar-SA	102358	QA,OM,IQ,YE,JO,AE,KW	
 SN	SEN	686	SG	Senegal	Dakar	196190.0	15854360	AF	.sn	XOF	Franc	221	#####	^(\d{5})$	fr-SN,wo,fuc,mnk	2245662	GN,MR,GW,GM,ML	
 RS	SRB	688	RI	Serbia	Belgrade	88361.0	6982084	EU	.rs	RSD	Dinar	381	######	^(\d{6})$	sr,hu,bs,rom	6290252	AL,HU,MK,RO,HR,BA,BG,ME,XK	
@@ -210,7 +210,7 @@ SO	SOM	706	SO	Somalia	Mogadishu	637657.0	15008154	AF	.so	SOS	Shilling	252	@@  ##
 ZA	ZAF	710	SF	South Africa	Pretoria	1219912.0	57779622	AF	.za	ZAR	Rand	27	####	^(\d{4})$	zu,xh,af,nso,en-ZA,tn,st,ts,ss,ve,nr	953987	ZW,SZ,MZ,BW,NA,LS	
 GS	SGS	239	SX	South Georgia and the South Sandwich Islands	Grytviken	3903.0	30	AN	.gs	GBP	Pound				en	3474415		
 KR	KOR	410	KS	South Korea	Seoul	98480.0	51635256	AS	.kr	KRW	Won	82	#####	^(\d{5})$	ko-KR,en	1835841	KP	
-SS	SSD	728	OD	South Sudan	Juba	644329.0	8260490	AF		SSP	Pound	211			en	7909807	CD,CF,ET,KE,SD,UG	
+SS	SSD	728	OD	South Sudan	Juba	644329.0	8260490	AF	.ss	SSP	Pound	211			en	7909807	CD,CF,ET,KE,SD,UG	
 ES	ESP	724	SP	Spain	Madrid	504782.0	46723749	EU	.es	EUR	Euro	34	#####	^(\d{5})$	es-ES,ca,gl,eu,oc	2510769	AD,PT,GI,FR,MA	
 LK	LKA	144	CE	Sri Lanka	Colombo	65610.0	21670000	AS	.lk	LKR	Rupee	94	#####	^(\d{5})$	si,ta,en	1227603		
 SD	SDN	729	SU	Sudan	Khartoum	1861484.0	41801533	AF	.sd	SDG	Pound	249	#####	^(\d{5})$	ar-SD,en,fia	366755	SS,TD,EG,ET,ER,LY,CF	
