@@ -1503,3 +1503,19 @@ id,Country/Region,federalstate,infections,deaths,date,newinfections,newdeaths
 1492,Germany,Saxony-Anhalt,1705,55,2020-05-31,4,0
 1498,Germany,Schleswig-Holstein,3094,145,2020-05-31,4,0
 1497,Germany,Thuringia,2984,162,2020-05-31,10,1
+1508,Germany,Baden-Württemberg,34784,1752,2020-06-01,66,4
+1507,Germany,Bavaria,47004,2451,2020-06-01,87,1
+1506,Germany,Berlin,6816,198,2020-06-01,16,0
+1520,Germany,Brandenburg,3273,155,2020-06-01,2,0
+1510,Germany,Bremen,1398,42,2020-06-01,0,0
+1513,Germany,Hamburg,5089,253,2020-06-01,2,1
+1515,Germany,Hesse,10047,480,2020-06-01,14,3
+1518,Germany,Lower Saxony,12043,593,2020-06-01,51,0
+1512,Germany,Mecklenburg-Western Pomerania,761,20,2020-06-01,0,0
+1511,Germany,North Rhine-Westphalia,38046,1598,2020-06-01,46,1
+1519,Germany,Rhineland-Palatinate,6703,230,2020-06-01,9,0
+1505,Germany,Saarland,2724,163,2020-06-01,0,0
+1517,Germany,Saxony,5309,214,2020-06-01,5,1
+1514,Germany,Saxony-Anhalt,1706,55,2020-06-01,1,0
+1509,Germany,Schleswig-Holstein,3097,145,2020-06-01,3,0
+1516,Germany,Thuringia,3015,162,2020-06-01,31,0
