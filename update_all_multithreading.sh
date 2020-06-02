@@ -21,12 +21,12 @@ wait
 # IDEA: run in background processes via appending '&'. Problem 1: how to know when ready for plotting? Problem 2: Errors are no longer displayed at the terminal
 
 
-#echo === plotting + uploading plots
-#rm plots-gnuplot/*/*.png
-#cd scripts-gnuplot
-#gnuplot all.gp
-#bash upload-to-entorb.sh
-#cd ..
+echo === plotting + uploading plots
+rm plots-gnuplot/*/*.png
+cd scripts-gnuplot
+gnuplot all.gp
+bash upload-to-entorb.sh
+cd ..
 
 echo  === uploading data
 # (after plotting because gnuplot generates 2 data files as well)
@@ -34,10 +34,10 @@ cd data
 bash upload-to-entorb.sh
 cd ..
 
-#echo  === uploading maps
-#cd maps
-#bash upload-to-entorb.sh
-#cd ..
+echo  === uploading maps
+cd maps
+bash upload-to-entorb.sh
+cd ..
 
 
 echo  === date of data
