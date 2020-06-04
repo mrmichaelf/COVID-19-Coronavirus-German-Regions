@@ -421,6 +421,8 @@
 	<p><small><a href="#ToC">Back to top</a></small></p>
 
 	<h4><a id="DeDistrictTable"></a>Landkreistabelle</h4>
+	<p>Ein Klick auf einer Zeile fügt diesen Landkreis in die <a href="#DeDistrictChart">interaktive Landkreis-Grafik</a>
+		hinzu.</p>
 
 	<p> 06.05.2020: In Deutschland wurde als Richtwert für die Verschärfung von Maßnahmen der Grenzwert von <a
 			href="https://www.tagesschau.de/inland/lockerungen-bund-laender-101.html" target="_blank">500 Neuinfektionen pro
@@ -654,20 +656,19 @@
 	<img src="plots-gnuplot/de-states/deaths-de-last_week-per-million-log.png"
 		alt="deaths-de-last_week-per-million-log.png" width="640" height="800"><br />
 
-	<p> Fazit vom 24.04.2020: </p>
+	<!-- <p> Fazit vom 24.04.2020: </p>
 	<ul>
 		<li>Bisher noch unter den geschätzten Zahlen der besonders starken Grippe Saison von 2017</li>
 		<li> In einigen Bundesländern bereits mehr COVID-19 Tote als Verkehrstote im ganzen Jahr 2019</li>
 		<li>Die Steigerungsrate der Todeszahl hat zwar stagniert, nimmt aber noch immer nicht merklich ab. Sprich bisher
 			starben jede Woche mehr Menschen an COVID-19 als in den Wochen zuvor.</li>
-	</ul>
+	</ul> -->
 
 	<h5>Gesamtzahl der Opfer</h5>
 	<img src="plots-gnuplot/de-states/deaths-de-per-million.png" alt="deaths-de-per-million.png" width="640" height="800">
 	<img src="plots-gnuplot/de-states/deaths-de-per-million-log.png" alt="deaths-de-per-million-log.png" width="640"
-		height="800"><br />
-	<br />
-	<small>generated via Gnuplot <a
+		height="800">
+	<br /> <small>generated via Gnuplot <a
 			href="https://github.com/entorb/COVID-19-Coronavirus-German-Regions/tree/master/scripts-gnuplot/"
 			target="_blank">plot-de-states-timeseries-joined</a>, raw data can be found in <a
 			href="https://github.com/entorb/COVID-19-Coronavirus-German-Regions/blob/master/data/de-states/"
@@ -800,7 +801,7 @@
 		<a id="DE_cases_time_series-absolute"></a> Zeitverlauf der Ausbreitung in den Bundesländern </h3>
 
 	<p> Update vom 04.04.2020: Wie <a href="#DE_calc-cases-from-deaths-DE-total">hier</a> beschrieben, halte ich es
-		mittlerweile für riskant zuviel in die Daten der positiv getesteten Fälle zu interpretieren. Für meine <a
+		mittlerweile für riskant allzuviel in die Daten der positiv getesteten Fälle hinhein zu interpretieren. Für meine <a
 			href="#Countries">internationalen Vergleiche</a> habe ich mich ausschließlich auf die Opferzahlen gestützt, diese
 		halte ich für belastbarer. Die folgenden Kapitel belasse ich trotzdem online. </p>
 
@@ -876,6 +877,7 @@
 	<h3>
 		<a id="cases-de-states-latest-per-million"></a> Ist-Stand der Infektionen in den Bundesländern, skaliert auf deren
 		Einwohnerzahlen </h3>
+	<p>Die graue Linie zeigt den Wert für Gesamtdeutschland.</p>
 	<img src="plots-gnuplot/de-states/cases-de-states-latest-per-million.png"
 		alt="cases-de-states-latest-per-million.png"><br />
 	<small>generated via Gnuplot <a
@@ -902,6 +904,9 @@
 
 	<h3>
 		<a id="Exp_Wachstum"></a> Untersuchung der exponentiellen Zunahme der Infektionen in Deutschland </h3>
+	<p>Dieses Kapitel ist nicht mehr relevant, da wir glücklicherweise den Bereich der exponentiellen Zunahme der
+		Neu-Infektionen verlassen
+		haben.</p>
 
 	<p> Achtung: nun wird es etwas mathematisch...<br /> Zur Untersuchung der Zunahme der Infektionen habe ich die Daten
 		mit einer exponentiellen Wachstumsfunktion "gefittet" (angenähert über eine <a
@@ -1084,7 +1089,7 @@
 			href="https://commons.wikimedia.org/wiki/File:COVID-19_Outbreak_World_Map_Total_Deaths_per_Capita.svg"
 			target="_blank">Wikipedia</a>. </small>
 
-	<p> My Data Source: the <a href="https://pomber.github.io/covid19/timeseries.json" target="_blank">.json file</a>
+	<p> Data source: the <a href="https://pomber.github.io/covid19/timeseries.json" target="_blank">.json file</a>
 		provided by <a href="https://github.com/pomber/covid19" target="_blank">github.com/pomber/covid19</a>, based on <a
 			href="https://github.com/CSSEGISandData/COVID-19" target="_blank">data</a> provided by Johns Hopkins University
 		Center for Systems Science and Engineering (JHU CSSE) </p>
@@ -1097,7 +1102,7 @@
 
 	<h3><a id="CountryTable"></a>Country Table</h3>
 
-	<p>Click on a row to add it to the country comparison chart below.</p>
+	<p>Click on a row to add it to the <a href=#CountriesCustomChart>country comparison chart</a> below.</p>
 	<div id="table-countries-latest-all"></div>
 	<small> generated via <a href="http://tabulator.info/" target="_blank">Tabulator</a>, raw data can be found in <a
 			href="https://github.com/entorb/COVID-19-Coronavirus-German-Regions/blob/master/data/int/countries-latest-all.tsv"
@@ -1486,10 +1491,7 @@
 	<p><small><a href="#ToC">Back to top</a></small></p>
 
 	<h3>Deaths per Country</h3>
-
-	<p> The first set of plots shows the current death toll of different counties. I think that the number of deaths are a
-		more reliably measure for comparison of countries, since the number of reported infections strongly depends upon the
-		testing and hence are not comparable. </p>
+	<p>Analyzing data for selected countries.</p>
 	<img src="plots-gnuplot/int/countries-latest-selected-deaths.png" alt="countries-latest-selected-deaths.png"
 		width="640" height="480">
 	<img src="plots-gnuplot/int/countries-latest-selected-deaths-log.png" alt="countries-latest-selected-deaths-log.png"
@@ -1522,8 +1524,10 @@
 	<h3>
 		<a id="countries-timeshifted"></a>How did the death toll develop in different countries?</h3>
 
-	<p> Let us now take a look into the recent past. In the following set of plots, I moved the time (x) axis the time
-		when a given country reported 2 death cases. This allows for comparing the spreading in the countries. First using
+	<p> Let us now take a look into the past. In the following set of plots, I moved the time (x) axis zero point to the
+		time
+		when a given country reported its 2nd death cases. This allows for comparing the spreading in the countries. First
+		using
 		absolute values. </p>
 	<img src="plots-gnuplot/int/countries-timeshifted-absolute.png" alt="countries-timeshifted-absolute.png" width="800"
 		height="800">
@@ -1545,14 +1549,15 @@
 	<br />
 
 	<p> Now a similar chart, but using new deaths per million population as y-axes. I decided to use the delta of the last
-		7 days, instead the daily values, since there are strong weekend and other effects present, leading to wrong
+		7 days (rolling week) instead of daily values, since there are strong weekend and other effects present, leading to
+		wrong
 		conclusions. The 7 days delta data is much more reliable.
 		<!-- Note: for here the data is smoothed using a Bézier curve. -->
 	</p>
 	<img src="plots-gnuplot/int/countries-timeshifted-last_week-per-million.png"
 		alt="countries-timeshifted-last_week-per-million.png" width="800" height="800">
 	<img src="plots-gnuplot/int/countries-timeshifted-last_week-per-million-log.png"
-		alt="countries-timeshifted-last_week-per-million-log.png" width="800" height="800"><br />
+		alt="countries-timeshifted-last_week-per-million-log.png" width="800" height="800">
 	<br />
 	<small> generated via Gnuplot <a
 			href="https://github.com/entorb/COVID-19-Coronavirus-German-Regions/tree/master/scripts-gnuplot"
@@ -1561,12 +1566,12 @@
 			target="_blank">countries-timeseries-XX.tsv</a>
 	</small>
 
+	<p> See <a href="#RefDeathCauses">reference table</a> for the numbers used. </p>
+
 	<p><small>
 			<a href="#ToC">Back to top</a></small></p>
 
-	<h4>Findings</h4>
-
-	<p> See <a href="#RefDeathCauses">reference table</a> for the numbers used. </p>
+	<!-- <h4>Findings</h4>
 	<ul>
 		<li> 02.04.2020: Spain and Italy have about twice the death toll per million population that the US had in the flu
 			seasion 2018/19. </li>
@@ -1577,7 +1582,7 @@
 	</ul>
 
 	<p><small>
-			<a href="#ToC">Back to top</a></small></p>
+			<a href="#ToC">Back to top</a></small></p> -->
 
 	<h3>
 		<a id="RefDeathCauses"></a> Reference data: deaths by other causes per year. </h3>

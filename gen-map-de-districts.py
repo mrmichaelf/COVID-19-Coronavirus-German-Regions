@@ -198,7 +198,7 @@ for property_to_plot in ('Cases_Last_Week_Per_Million', 'Deaths_Last_Week_Per_Mi
         # break
     l_subprocesses = []
     # months are processed in to gifs in parallel and later joined
-    for month in ('2020-03', '2020-04', '2020-05'):
+    for month in ('2020-03', '2020-04', '2020-05', '2020-06'):
         # convert -size 480x maps/out/de-districts/Cases_Last_Week_Per_Million-2020-03*.svg -resize 480x -coalesce -fuzz 2% +dither -layers Optimize maps/out/de-districts/Cases_Last_Week_Per_Million-2020-03.gif
         l_imagemagick_parameters = [
             '-size', '480x', f'maps/out/de-districts/{property_to_plot}-{month}*.svg', '-resize', '480x', '-coalesce', '-fuzz', '2%', '+dither', '-layers', 'Optimize', f'maps/out/de-districts/{property_to_plot}-{month}.gif']
