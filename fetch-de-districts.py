@@ -576,5 +576,3 @@ loop_over_all_LK()
 
 # TODO: Bundeslandsummen
 
-
-print(1)
