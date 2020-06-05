@@ -344,7 +344,6 @@ function refreshCountryChart(
 ) {
 
   // update/modify the URL
-  // TODO remove -url
   window.history.pushState("object or string", "Title", "https://entorb.net/COVID-19-coronavirus/index.html?yAxis=" + select_yAxisProperty.value + "&countries=" + countryCodes.toString() + "#CountriesCustomChart");
 
 
@@ -740,8 +739,7 @@ function refreshDeDistrictsChart(
   select_yAxisProperty
 ) {
   // update/modify the URL
-  // TODO remove -url
-  window.history.pushState("object or string", "Title", "https://entorb.net/COVID-19-coronavirus/index.html?yAxis=" + select_yAxisProperty_DeDistricts.value + "&districts=" + deDistrictCodes.toString() + "#DeDistrictChart");
+  window.history.pushState("object or string", "Title", "https://entorb.net/COVID-19-coronavirus/index.html?yAxis=" + select_yAxisProperty_DeDistricts.value + "&DeDistricts=" + deDistrictCodes.toString() + "#DeDistrictChart");
   // console.log("codes");
   // console.log(codes);
   option = {

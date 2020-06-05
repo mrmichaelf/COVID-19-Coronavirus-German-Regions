@@ -565,15 +565,15 @@
 
 		// read districts list from URL parameter if set
 		const urlParams = new URLSearchParams(window.location.search);
-		if (urlParams.has('districts')) {
+		if (urlParams.has('DeDistricts')) {
 			// console.log("urlParams: Found Dedistrits in URL");
-			var deDistrictCodes = urlParams.get('districts').split(",");
+			var deDistrictCodes = urlParams.get('DeDistricts').split(",");
 			// console.log(deDistrictCodes);
 		} else {
 			var deDistrictCodes = [deDistrictCodesDefaultValue];
 		}
 
-		// https://entorb.net/COVID-19-coronavirus/?yAxis=" + select_yAxisProperty_DeDistricts.value + "&districts=" + deDistrictCodes.toString() + "#DeDistrictChart"
+		// https://entorb.net/COVID-19-coronavirus/?yAxis=" + select_yAxisProperty_DeDistricts.value + "&DeDistricts=" + deDistrictCodes.toString() + "#DeDistrictChart"
 
 		const deDistrictDataObject = {}; // We store all the data in an object
 
