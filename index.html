@@ -515,8 +515,10 @@
 	<h4><a id="DeDistrictChart"></a>Interaktiver Landkreis Vergleich</h4>
 
 	<p>Landkreise und Städte in obiger <a href="#DeDistrictTable">Tabelle</a> auswählen.</p>
-	<form> y_Achse: <select id="sel_y_axis_field_DeDistricts" name="sel_y_axis_field_DeDistricts" style="width:200px">
-		</select>
+	<form>
+		y_Achse:
+		<select id="sel_y_axis_field_DeDistricts" name="sel_y_axis_field_DeDistricts" style="width:200px"></select>
+		<select id="sel_sorting_DeDistricts" name="sel_sorting_DeDistricts" style="width:200px"></select>
 		<input type="reset" onclick="resetDeDistrictsChart()">
 	</form>
 	<div id="eChartsDeDistrictsContainer" style="height: 600px; width:1000px; background-color: white;"></div>
@@ -566,7 +568,7 @@
 		if (urlParams.has('districts')) {
 			// console.log("urlParams: Found Dedistrits in URL");
 			var deDistrictCodes = urlParams.get('districts').split(",");
-			console.log(deDistrictCodes);
+			// console.log(deDistrictCodes);
 		} else {
 			var deDistrictCodes = [deDistrictCodesDefaultValue];
 		}
@@ -592,6 +594,13 @@
 		const select_yAxisProperty_DeDistricts = document.getElementById("sel_y_axis_field_DeDistricts");
 		setOptionsToSelect(select_yAxisProperty_DeDistricts, options_yAxisProperty_DeDistricts, "");
 		select_yAxisProperty_DeDistricts.onchange = function () { refreshDeDistrictsChartWrapper() };
+		const options_eCharts_sorting = [
+			"Sort_by_name",
+			"Sort_by_value"
+		]
+		const select_sorting_DeDistricts = document.getElementById("sel_sorting_DeDistricts");
+		setOptionsToSelect(select_sorting_DeDistricts, options_eCharts_sorting, "");
+		select_sorting_DeDistricts.onchange = function () { refreshDeDistrictsChartWrapper() };
 
 		if (urlParams.has('yAxis') && options_yAxisProperty_DeDistricts.indexOf(urlParams.get('yAxis')) > -1) {
 			select_yAxisProperty_DeDistricts.value = urlParams.get('yAxis');
@@ -1289,7 +1298,7 @@
 				</td>
 				<td> <select id="sel_y_axis_scale" name="sel_y_axis_scale" style="width:200px"> </select>
 				</td>
-				<td> &nbsp; </td>
+				<td> <select id="sel_sorting_Countries" name="sel_sorting_Countries" style="width:200px"></select></td>
 			</tr>
 			<tr>
 				<td>
@@ -1403,6 +1412,12 @@
 			{ value: "linscale", text: "linear" },
 		];
 
+		const select_sorting_Countries = document.getElementById("sel_sorting_Countries");
+		setOptionsToSelect(select_sorting_Countries, options_eCharts_sorting, "");
+		select_sorting_Countries.onchange = function () {
+			select_sorting_DeDistricts.value = this.value;
+			refreshCountryChartWrapper()
+		};
 
 		// axis selects
 		const select_xAxisProperty = document.getElementById("sel_x_axis_field");
