@@ -133,6 +133,10 @@
 		// 		}
 		// 	}
 		// }
+
+
+
+
 	</script>
 	<!-- Polyfiles for IE, suggested by Tabulator : http://tabulator.info/docs/4.6/browsers#ie -->
 	<link href="./tabulator/tabulator.min.css" rel="stylesheet">
@@ -563,15 +567,39 @@
 		// 05370 = Heinsberg
 		var deDistrictCodesDefaultValue = "05370";
 
+
+
 		// read districts list from URL parameter if set
-		const urlParams = new URLSearchParams(window.location.search);
-		if (urlParams.has('DeDistricts')) {
-			// console.log("urlParams: Found Dedistrits in URL");
-			var deDistrictCodes = urlParams.get('DeDistricts').split(",");
-			// console.log(deDistrictCodes);
+
+		// small polyfile for URLSearchParams function
+		$.urlParam = function (name) {
+			var results = new RegExp('[\?&]' + name + '=([^&#]*)').exec(window.location.href);
+			if (results == null) {
+				return null;
+			}
+			else {
+				return decodeURI(results[1]) || 0;
+			}
+		}
+
+		// This dirty workaround is needed for Edge and IE :-(
+		var urlParams = [];
+		if ('search' in window.location) {
+			urlParams = URLToParameterArray(window.location.search);
+		}
+		if ('DeDistricts' in urlParams) {
+			var deDistrictCodes = urlParams.DeDistricts.split(",");
 		} else {
 			var deDistrictCodes = [deDistrictCodesDefaultValue];
 		}
+
+		// if (urlParams.has('DeDistricts')) {
+		// 	// console.log("urlParams: Found Dedistrits in URL");
+		// 	var deDistrictCodes = urlParams.get('DeDistricts').split(",");
+		// 	// console.log(deDistrictCodes);
+		// } else {
+		// }
+		// var deDistrictCodes = [deDistrictCodesDefaultValue];
 
 		// https://entorb.net/COVID-19-coronavirus/?yAxis=" + select_yAxisProperty_DeDistricts.value + "&DeDistricts=" + deDistrictCodes.toString() + "#DeDistrictChart"
 
@@ -602,8 +630,8 @@
 		setOptionsToSelect(select_sorting_DeDistricts, options_eCharts_sorting, "");
 		select_sorting_DeDistricts.onchange = function () { refreshDeDistrictsChartWrapper() };
 
-		if (urlParams.has('yAxis') && options_yAxisProperty_DeDistricts.indexOf(urlParams.get('yAxis')) > -1) {
-			select_yAxisProperty_DeDistricts.value = urlParams.get('yAxis');
+		if ('yAxis' in urlParams && options_yAxisProperty_DeDistricts.indexOf(urlParams.yAxis) > -1) {
+			select_yAxisProperty_DeDistricts.value = urlParams.yAxis;
 		}
 
 		// const dom = document.getElementById("eChartsDeDistrictsContainer");
@@ -629,10 +657,11 @@
 				deDistrictCodes,
 				deDistrictDataObject,
 				// select_xAxisProperty,
-				select_yAxisProperty_DeDistricts
+				select_yAxisProperty_DeDistricts,
 				// select_xAxisTimeRange,
 				// select_xAxisScale,
 				// select_yAxisScale
+				select_sorting_DeDistricts
 			);
 		}
 
@@ -1415,7 +1444,7 @@
 		const select_sorting_Countries = document.getElementById("sel_sorting_Countries");
 		setOptionsToSelect(select_sorting_Countries, options_eCharts_sorting, "");
 		select_sorting_Countries.onchange = function () {
-			select_sorting_DeDistricts.value = this.value;
+			//select_sorting_DeDistricts.value = this.value;
 			refreshCountryChartWrapper()
 		};
 
@@ -1440,8 +1469,12 @@
 		select_xAxisScale.onchange = function () { refreshCountryChartWrapper() };
 		select_yAxisScale.onchange = function () { refreshCountryChartWrapper() };
 
-		if (urlParams.has('yAxis') && options_yAxisProperty.indexOf(urlParams.get('yAxis')) > -1) {
-			select_yAxisProperty.value = urlParams.get('yAxis');
+		// TODO
+		// if (urlParams.has('yAxis') && options_yAxisProperty.indexOf(urlParams.get('yAxis')) > -1) {
+		// 	select_yAxisProperty.value = urlParams.get('yAxis');
+		// }
+		if ('yAxis' in urlParams && options_yAxisProperty.indexOf(urlParams.yAxis) > -1) {
+			select_yAxisProperty.value = urlParams.yAxis;
 		}
 
 		// country arrays
@@ -1478,12 +1511,18 @@
 
 		// Initial list of country codes
 		// Adding a new country code to this array draws a new line
-		if (urlParams.has('countries')) {
-			var countryCodes = urlParams.get('countries').split(",");
-			// console.log(countryCodes);
+
+		if ('countries' in urlParams) {
+			var countryCodes = urlParams.countries.split(",");
 		} else {
 			var countryCodes = ["DE"];
 		}
+		// if (urlParams.has('countries')) {
+		// 	var countryCodes = urlParams.get('countries').split(",");
+		// 	// console.log(countryCodes);
+		// } else {
+		// 	var countryCodes = ["DE"];
+		// }
 
 
 
@@ -1516,7 +1555,8 @@
 				select_yAxisProperty,
 				select_xAxisTimeRange,
 				select_xAxisScale,
-				select_yAxisScale
+				select_yAxisScale,
+				select_sorting_Countries
 			);
 		}
 	</script>

@@ -40,6 +40,21 @@ function arrayRemoveValueTextPairByValue(arr, key) {
   }
 }
 
+// from https://stackoverflow.com/questions/4297765/make-a-javascript-array-from-url 
+// needed as 
+// const urlParams = new URLSearchParams(window.location.search); 
+// is not available in Edge and IE :-(
+function URLToParameterArray(url) {
+  var request = {};
+  var pairs = url.substring(url.indexOf('?') + 1).split('&');
+  for (var i = 0; i < pairs.length; i++) {
+    if (!pairs[i])
+      continue;
+    var pair = pairs[i].split('=');
+    request[decodeURIComponent(pair[0])] = decodeURIComponent(pair[1]);
+  }
+  return request;
+}
 
 
 // Adds options to the select, after removing all existing options
@@ -115,14 +130,14 @@ function fetchData(type, code, dataObject) {
 // dataObject: the object which contains all data about the countries
 // xAxis: the property displayed in the X axis
 // yAxis: the property displayed in the Y axis
-function getSeries(codes, dataObject, map_id_name, xAxis, yAxis) {
+function getSeries(codes, dataObject, map_id_name, xAxis, yAxis, sorting) {
   const series = [];
   const dataSymbols = new Array('circle', 'rect', 'triangle', 'diamond'); // 'roundRect', 'pin', 'arrow'
 
   let sortmap = [];
   const codes_ordered = [];
   // sort codes by last value
-  if (select_sorting_DeDistricts.value == "Sort_by_value") {
+  if (sorting == "Sort_by_value") {
     for (let i = 0; i < codes.length; i++) {
       const yValues = dataObject[codes[i]]; //[key][yAxis];
       const values = yValues[yValues.length - 1][yAxis]
@@ -142,7 +157,7 @@ function getSeries(codes, dataObject, map_id_name, xAxis, yAxis) {
 
   }
   // sort codes by name
-  else if (select_sorting_DeDistricts.value == "Sort_by_name") {
+  else if (sorting == "Sort_by_name") {
     for (let i = 0; i < codes.length; i++) {
       sortmap.push([codes[i], map_id_name[codes[i]]]);
     }
@@ -340,7 +355,8 @@ function refreshCountryChart(
   select_yAxisProperty,
   select_xAxisTimeRange,
   select_xAxisScale,
-  select_yAxisScale
+  select_yAxisScale,
+  select_sorting
 ) {
 
   // update/modify the URL
@@ -433,7 +449,8 @@ function refreshCountryChart(
       countriesDataObject,
       mapCountryNames,
       select_xAxisProperty.value,
-      select_yAxisProperty.value
+      select_yAxisProperty.value,
+      select_sorting.value
     ),
     tooltip: {
       trigger: 'axis', // item or axis
@@ -736,7 +753,8 @@ function refreshDeDistrictsChart(
   chart,
   codes,
   dataObject,
-  select_yAxisProperty
+  select_yAxisProperty,
+  select_sorting
 ) {
   // update/modify the URL
   window.history.pushState("object or string", "Title", "https://entorb.net/COVID-19-coronavirus/index.html?yAxis=" + select_yAxisProperty_DeDistricts.value + "&DeDistricts=" + deDistrictCodes.toString() + "#DeDistrictChart");
@@ -800,7 +818,8 @@ function refreshDeDistrictsChart(
       dataObject,
       mapDeDistrictNames,
       'Date',
-      select_yAxisProperty.value
+      select_yAxisProperty.value,
+      select_sorting.value
     ),
     tooltip: {
       trigger: 'axis', // item or axis
