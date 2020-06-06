@@ -201,7 +201,9 @@ function new_country_selected(countryCodes, country_code_to_add) { // , select_c
     // console.log(country_code_to_add)
 
     // append to list of country codes
-    countryCodes.push(country_code_to_add);
+    if (countryCodes.indexOf(country_code_to_add) == -1) {
+      countryCodes.push(country_code_to_add);
+    }
 
     // start fetching / download of data
     promises.push(fetchData('Country', country_code_to_add, countriesDataObject))
@@ -234,8 +236,14 @@ function new_country_selected(countryCodes, country_code_to_add) { // , select_c
 
 // when a DeDistrict is selected for adding to the chart, this is called
 function new_deDistrict_selected(deDistrictCodes, deDistrict_code_to_add) {
-  // append to list of codes
-  deDistrictCodes.push(deDistrict_code_to_add);
+  // append to list of codes, if not already included
+  if (deDistrictCodes.indexOf(deDistrict_code_to_add) == -1) {
+    deDistrictCodes.push(deDistrict_code_to_add);
+  }
+  // else { // if already included, remove it
+  // not working, so uncommented
+  //   deDistrictCodes = arrayRemove(deDistrictCodes, deDistrict_code_to_add);
+  // }
 
   // start fetching / download of data
   promises.push(fetchData('DeDistrict', deDistrict_code_to_add, deDistrictDataObject))

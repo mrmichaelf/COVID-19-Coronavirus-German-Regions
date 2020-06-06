@@ -572,15 +572,15 @@
 		// read districts list from URL parameter if set
 
 		// small polyfile for URLSearchParams function
-		$.urlParam = function (name) {
-			var results = new RegExp('[\?&]' + name + '=([^&#]*)').exec(window.location.href);
-			if (results == null) {
-				return null;
-			}
-			else {
-				return decodeURI(results[1]) || 0;
-			}
-		}
+		// $.urlParam = function (name) {
+		// 	var results = new RegExp('[\?&]' + name + '=([^&#]*)').exec(window.location.href);
+		// 	if (results == null) {
+		// 		return null;
+		// 	}
+		// 	else {
+		// 		return decodeURI(results[1]) || 0;
+		// 	}
+		// }
 
 		// This dirty workaround is needed for Edge and IE :-(
 		var urlParams = [];
@@ -593,6 +593,7 @@
 			var deDistrictCodes = [deDistrictCodesDefaultValue];
 		}
 
+		// original solution working in Firefox etc.
 		// if (urlParams.has('DeDistricts')) {
 		// 	// console.log("urlParams: Found Dedistrits in URL");
 		// 	var deDistrictCodes = urlParams.get('DeDistricts').split(",");
