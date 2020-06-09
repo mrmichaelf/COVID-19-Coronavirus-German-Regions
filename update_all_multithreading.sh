@@ -22,7 +22,7 @@ wait
 
 
 echo === plotting + uploading plots
-rm plots-gnuplot/*/*.png
+# DO NOT DELETE because I stopped updateing the doubling time data !!! rm plots-gnuplot/*/*.png
 cd scripts-gnuplot
 gnuplot all.gp
 bash upload-to-entorb.sh

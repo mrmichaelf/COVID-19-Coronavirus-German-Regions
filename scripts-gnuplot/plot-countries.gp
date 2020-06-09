@@ -57,9 +57,9 @@ deaths_per_million_of_IT = system ("grep Italy ../data/int/countries-latest-sele
 #print deaths_per_million_of_IT
 set ylabel "Duplications"
 # TODO
-set output '../plots-gnuplot/int/countries-duplications-until-IT-level-of-deaths.png'
-plot data using (log(deaths_per_million_of_IT/column("Deaths_Per_Million"))/log(2)):xticlabels(1) with boxes ls 11
-unset output
+# set output '../plots-gnuplot/int/countries-duplications-until-IT-level-of-deaths.png'
+# plot data using (log(deaths_per_million_of_IT/column("Deaths_Per_Million"))/log(2)):xticlabels(1) with boxes ls 11
+# unset output
 
 title = "Calculated Case Mortality: Deaths per Reported Infections"
 set title title
