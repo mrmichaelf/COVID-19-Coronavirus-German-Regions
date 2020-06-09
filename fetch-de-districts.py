@@ -463,17 +463,16 @@ def loop_over_all_LK():
 
         data = []
         l_lk_time_series = fetch_and_prepare_lk_time_series(lk_id)
-        # l_lk_time_series = fetch_landkreis_time_series(lk_id, readFromCache=True)
-        for entry in l_lk_time_series:
-            # choose columns for fitting
-            # TODO: replace by lin slope of Cases_New_Slope_14 and Deaths_New_Slope_14 of last 14 days
-            data.append((entry['Days_Past'], entry['Cases']))
+        # the following was used for multiple fitting to derive a time series of the doubling time
+        # # l_lk_time_series = fetch_landkreis_time_series(lk_id, readFromCache=True)
+        # for entry in l_lk_time_series:
+        #     # choose columns for fitting
+        #     data.append((entry['Days_Past'], entry['Cases']))
 
         last_entry = l_lk_time_series[-1]
 
-        d_fit_results = helper.fit_routine(data, fit_range_x=(-6, 0))
+        # d_fit_results = helper.fit_routine(data, fit_range_x=(-6, 0))
 
-        # TODO: add fit range, as needed for plot
         d = {
             'Bundesland': d_ref_landkreise[lk_id]['BL_Name'],  # Bundesland
             'Landkreis': lk_name,
@@ -482,18 +481,18 @@ def loop_over_all_LK():
             'Cases_Per_Million': last_entry['Cases_Per_Million'],
             'Deaths': last_entry['Deaths'],
             'Deaths_Per_Million': last_entry['Deaths_Per_Million'],
-            'Date': entry['Date'],
-            'Cases_Last_Week_Per_Million': entry['Cases_Last_Week_Per_Million'],
-            'Deaths_Last_Week_Per_Million': entry['Deaths_Last_Week_Per_Million']
+            'Date': last_entry['Date'],
+            'Cases_Last_Week_Per_Million': last_entry['Cases_Last_Week_Per_Million'],
+            'Deaths_Last_Week_Per_Million': last_entry['Deaths_Last_Week_Per_Million']
         }
-        if d_fit_results != {}:
-            d['fit_res_N0'] = round(d_fit_results['fit_res'][0], 3)
-            d['fit_res_T'] = round(d_fit_results['fit_res'][1], 3)
-            d['fit_used_x_range'] = d_fit_results['fit_used_x_range']
-            d['Cases_Forecast_Tomorrow'] = round(
-                d_fit_results['forcast_y_at_x+1'], 3)
-            d['Cases_Forecast_Tomorrow_Factor'] = round(
-                d_fit_results['factor_increase_x+1'], 3)
+        # if d_fit_results != {}:
+        #     d['fit_res_N0'] = round(d_fit_results['fit_res'][0], 3)
+        #     d['fit_res_T'] = round(d_fit_results['fit_res'][1], 3)
+        #     d['fit_used_x_range'] = d_fit_results['fit_used_x_range']
+        #     d['Cases_Forecast_Tomorrow'] = round(
+        #         d_fit_results['forcast_y_at_x+1'], 3)
+        #     d['Cases_Forecast_Tomorrow_Factor'] = round(
+        #         d_fit_results['factor_increase_x+1'], 3)
 
         d_results_for_json_export[lk_id] = d
 
@@ -519,7 +518,7 @@ def loop_over_all_LK():
     with open('data/de-districts/de-districts-results.tsv', mode='w', encoding='utf-8', newline='\n') as fh_csv:
         csvwriter = csv.DictWriter(fh_csv, delimiter='\t', extrasaction='ignore', fieldnames=[
             'Landkreis',   'Bundesland', 'Population', 'Cases', 'Deaths',
-            'Cases_Per_Million', 'Deaths_Per_Million', 'Forecase Cases Tomorrow (%)'
+            'Cases_Per_Million', 'Deaths_Per_Million'
         ])
 
         csvwriter.writeheader()
@@ -528,10 +527,10 @@ def loop_over_all_LK():
             d2 = d
             d2['Population'] = d['LK_Einwohner']
 
-            this_Cases_Forecast_Tomorrow_Factor = None
-            if 'Cases_Forecast_Tomorrow_Factor' in d2:
-                d2['Forecase Cases Tomorrow (%)'] = round(
-                    100 * (d2['Cases_Forecast_Tomorrow_Factor'] - 1), 1)
+            # this_Cases_Forecast_Tomorrow_Factor = None
+            # if 'Cases_Forecast_Tomorrow_Factor' in d2:
+            #     d2['Forecase Cases Tomorrow (%)'] = round(
+            #         100 * (d2['Cases_Forecast_Tomorrow_Factor'] - 1), 1)
             if d2['Cases_Per_Million']:
                 d2['Cases_Per_Million'] = round(
                     d2['Cases_Per_Million'], 0)
@@ -540,15 +539,6 @@ def loop_over_all_LK():
                     d2['Deaths_Per_Million'], 0)
 
             csvwriter.writerow(d2)
-            #     fh_html.write('<tr><td>')
-            #     fh_html.write('</td><td>'.join(l))
-            #     fh_html.write('</td></tr>\n')
-
-            # fh_html.write('</table>\n')
-            # fh_html.write('</body>\n')
-            # fh_html.write('</html>\n')
-
-    # Export fit data as HTML
 
 
 d_ref_landkreise = fetch_and_prepare_ref_landkreise()

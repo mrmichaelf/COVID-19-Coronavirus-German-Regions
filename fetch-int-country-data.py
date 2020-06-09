@@ -8,6 +8,10 @@ Data is enriched by calculated values and exported
 """
 
 
+# TODO: modify cache to plot old data via
+# ,\n\s+\{[\n]\s+"date": "2020-4-1",[^\]]*\]
+# -> ]
+
 # Built-in/Generic Imports
 
 import time

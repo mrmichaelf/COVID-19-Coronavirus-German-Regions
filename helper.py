@@ -112,6 +112,7 @@ def prepare_time_series(l_time_series: list) -> list:
       Days_Past
       _New values per item/day    
       _Last_Week
+    TODO: add fitted Cases_New_Slope_14 and Deaths_New_Slope_14
     """
     # some checks
     d = l_time_series[0]
