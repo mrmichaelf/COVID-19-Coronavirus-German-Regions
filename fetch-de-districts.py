@@ -466,6 +466,7 @@ def loop_over_all_LK():
         # l_lk_time_series = fetch_landkreis_time_series(lk_id, readFromCache=True)
         for entry in l_lk_time_series:
             # choose columns for fitting
+            # TODO: replace by lin slope of Cases_New_Slope_14 and Deaths_New_Slope_14 of last 14 days
             data.append((entry['Days_Past'], entry['Cases']))
 
         last_entry = l_lk_time_series[-1]
@@ -575,4 +576,3 @@ loop_over_all_LK()
 
 
 # TODO: Bundeslandsummen
-

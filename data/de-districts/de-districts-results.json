@@ -10,14 +10,6 @@
   "Date": "2020-06-08",
   "Cases_Last_Week_Per_Million": 11.0,
   "Deaths_Last_Week_Per_Million": 0.0,
-  "fit_res_N0": 43.075,
-  "fit_res_T": 137.016,
-  "fit_used_x_range": [
-   -6,
-   0
-  ],
-  "Cases_Forecast_Tomorrow": 43.294,
-  "Cases_Forecast_Tomorrow_Factor": 1.007,
   "LK_ID": "01001"
  },
  "01002": {
@@ -70,14 +62,6 @@
   "Date": "2020-06-08",
   "Cases_Last_Week_Per_Million": 15.0,
   "Deaths_Last_Week_Per_Million": 0.0,
-  "fit_res_N0": 61.044,
-  "fit_res_T": 105.426,
-  "fit_used_x_range": [
-   -6,
-   0
-  ],
-  "Cases_Forecast_Tomorrow": 61.447,
-  "Cases_Forecast_Tomorrow_Factor": 1.007,
   "LK_ID": "01051"
  },
  "01053": {
@@ -104,14 +88,6 @@
   "Date": "2020-06-08",
   "Cases_Last_Week_Per_Million": 6.0,
   "Deaths_Last_Week_Per_Million": 0.0,
-  "fit_res_N0": 90.073,
-  "fit_res_T": 289.044,
-  "fit_used_x_range": [
-   -6,
-   0
-  ],
-  "Cases_Forecast_Tomorrow": 90.289,
-  "Cases_Forecast_Tomorrow_Factor": 1.003,
   "LK_ID": "01054"
  },
  "01055": {
@@ -177,14 +153,6 @@
   "Date": "2020-06-08",
   "Cases_Last_Week_Per_Million": 5.0,
   "Deaths_Last_Week_Per_Million": 0.0,
-  "fit_res_N0": 156.465,
-  "fit_res_T": 1008.991,
-  "fit_used_x_range": [
-   -6,
-   0
-  ],
-  "Cases_Forecast_Tomorrow": 156.572,
-  "Cases_Forecast_Tomorrow_Factor": 0.997,
   "LK_ID": "01059"
  },
  "01060": {
@@ -198,14 +166,6 @@
   "Date": "2020-06-08",
   "Cases_Last_Week_Per_Million": 7.0,
   "Deaths_Last_Week_Per_Million": 0.0,
-  "fit_res_N0": 331.287,
-  "fit_res_T": 533.724,
-  "fit_used_x_range": [
-   -6,
-   0
-  ],
-  "Cases_Forecast_Tomorrow": 331.718,
-  "Cases_Forecast_Tomorrow_Factor": 1.002,
   "LK_ID": "01060"
  },
  "01061": {
@@ -219,14 +179,6 @@
   "Date": "2020-06-08",
   "Cases_Last_Week_Per_Million": 8.0,
   "Deaths_Last_Week_Per_Million": 0.0,
-  "fit_res_N0": 178.465,
-  "fit_res_T": 1151.318,
-  "fit_used_x_range": [
-   -6,
-   0
-  ],
-  "Cases_Forecast_Tomorrow": 178.572,
-  "Cases_Forecast_Tomorrow_Factor": 0.998,
   "LK_ID": "01061"
  },
  "01062": {
@@ -240,14 +192,6 @@
   "Date": "2020-06-08",
   "Cases_Last_Week_Per_Million": 4.0,
   "Deaths_Last_Week_Per_Million": 0.0,
-  "fit_res_N0": 419.072,
-  "fit_res_T": 1353.256,
-  "fit_used_x_range": [
-   -6,
-   0
-  ],
-  "Cases_Forecast_Tomorrow": 419.287,
-  "Cases_Forecast_Tomorrow_Factor": 1.001,
   "LK_ID": "01062"
  },
  "10041": {
@@ -261,14 +205,6 @@
   "Date": "2020-06-08",
   "Cases_Last_Week_Per_Million": 9.0,
   "Deaths_Last_Week_Per_Million": 0.0,
-  "fit_res_N0": 1259.893,
-  "fit_res_T": 2221.157,
-  "fit_used_x_range": [
-   -6,
-   0
-  ],
-  "Cases_Forecast_Tomorrow": 1260.286,
-  "Cases_Forecast_Tomorrow_Factor": 1.0,
   "LK_ID": "10041"
  },
  "10042": {
@@ -282,14 +218,6 @@
   "Date": "2020-06-08",
   "Cases_Last_Week_Per_Million": 39.0,
   "Deaths_Last_Week_Per_Million": 0.0,
-  "fit_res_N0": 210.005,
-  "fit_res_T": 336.87,
-  "fit_used_x_range": [
-   -6,
-   0
-  ],
-  "Cases_Forecast_Tomorrow": 210.437,
-  "Cases_Forecast_Tomorrow_Factor": 0.997,
   "LK_ID": "10042"
  },
  "10043": {
@@ -303,14 +231,6 @@
   "Date": "2020-06-08",
   "Cases_Last_Week_Per_Million": 53.0,
   "Deaths_Last_Week_Per_Million": 0.0,
-  "fit_res_N0": 264.453,
-  "fit_res_T": 140.173,
-  "fit_used_x_range": [
-   -6,
-   0
-  ],
-  "Cases_Forecast_Tomorrow": 265.764,
-  "Cases_Forecast_Tomorrow_Factor": 1.003,
   "LK_ID": "10043"
  },
  "10044": {
@@ -324,14 +244,6 @@
   "Date": "2020-06-08",
   "Cases_Last_Week_Per_Million": 31.0,
   "Deaths_Last_Week_Per_Million": 0.0,
-  "fit_res_N0": 551.824,
-  "fit_res_T": 367.489,
-  "fit_used_x_range": [
-   -6,
-   0
-  ],
-  "Cases_Forecast_Tomorrow": 552.866,
-  "Cases_Forecast_Tomorrow_Factor": 1.003,
   "LK_ID": "10044"
  },
  "10045": {
@@ -358,14 +270,6 @@
   "Date": "2020-06-08",
   "Cases_Last_Week_Per_Million": 23.0,
   "Deaths_Last_Week_Per_Million": 0.0,
-  "fit_res_N0": 167.465,
-  "fit_res_T": 1080.155,
-  "fit_used_x_range": [
-   -6,
-   0
-  ],
-  "Cases_Forecast_Tomorrow": 167.572,
-  "Cases_Forecast_Tomorrow_Factor": 0.997,
   "LK_ID": "10046"
  },
  "11012": {
@@ -379,14 +283,6 @@
   "Date": "2020-06-08",
   "Cases_Last_Week_Per_Million": 34.0,
   "Deaths_Last_Week_Per_Million": 0.0,
-  "fit_res_N0": 530.826,
-  "fit_res_T": 276.605,
-  "fit_used_x_range": [
-   -6,
-   0
-  ],
-  "Cases_Forecast_Tomorrow": 532.158,
-  "Cases_Forecast_Tomorrow_Factor": 1.004,
   "LK_ID": "11012"
  },
  "11004": {
@@ -400,14 +296,6 @@
   "Date": "2020-06-08",
   "Cases_Last_Week_Per_Million": 20.0,
   "Deaths_Last_Week_Per_Million": 0.0,
-  "fit_res_N0": 758.535,
-  "fit_res_T": 444.644,
-  "fit_used_x_range": [
-   -6,
-   0
-  ],
-  "Cases_Forecast_Tomorrow": 759.719,
-  "Cases_Forecast_Tomorrow_Factor": 1.004,
   "LK_ID": "11004"
  },
  "11009": {
@@ -421,14 +309,6 @@
   "Date": "2020-06-08",
   "Cases_Last_Week_Per_Million": 22.0,
   "Deaths_Last_Week_Per_Million": 0.0,
-  "fit_res_N0": 355.795,
-  "fit_res_T": 380.383,
-  "fit_used_x_range": [
-   -6,
-   0
-  ],
-  "Cases_Forecast_Tomorrow": 356.443,
-  "Cases_Forecast_Tomorrow_Factor": 0.993,
   "LK_ID": "11009"
  },
  "11003": {
@@ -442,14 +322,6 @@
   "Date": "2020-06-08",
   "Cases_Last_Week_Per_Million": 37.0,
   "Deaths_Last_Week_Per_Million": 0.0,
-  "fit_res_N0": 721.15,
-  "fit_res_T": 316.139,
-  "fit_used_x_range": [
-   -6,
-   0
-  ],
-  "Cases_Forecast_Tomorrow": 722.732,
-  "Cases_Forecast_Tomorrow_Factor": 1.002,
   "LK_ID": "11003"
  },
  "11008": {
@@ -463,14 +335,6 @@
   "Date": "2020-06-08",
   "Cases_Last_Week_Per_Million": 76.0,
   "Deaths_Last_Week_Per_Million": 0.0,
-  "fit_res_N0": 785.369,
-  "fit_res_T": 147.764,
-  "fit_used_x_range": [
-   -6,
-   0
-  ],
-  "Cases_Forecast_Tomorrow": 789.062,
-  "Cases_Forecast_Tomorrow_Factor": 1.008,
   "LK_ID": "11008"
  },
  "11011": {
@@ -484,14 +348,6 @@
   "Date": "2020-06-08",
   "Cases_Last_Week_Per_Million": 69.0,
   "Deaths_Last_Week_Per_Million": 0.0,
-  "fit_res_N0": 352.676,
-  "fit_res_T": 79.047,
-  "fit_used_x_range": [
-   -6,
-   0
-  ],
-  "Cases_Forecast_Tomorrow": 355.782,
-  "Cases_Forecast_Tomorrow_Factor": 1.019,
   "LK_ID": "11011"
  },
  "11010": {
@@ -505,14 +361,6 @@
   "Date": "2020-06-08",
   "Cases_Last_Week_Per_Million": 48.0,
   "Deaths_Last_Week_Per_Million": 0.0,
-  "fit_res_N0": 383.682,
-  "fit_res_T": 150.358,
-  "fit_used_x_range": [
-   -6,
-   0
-  ],
-  "Cases_Forecast_Tomorrow": 385.455,
-  "Cases_Forecast_Tomorrow_Factor": 1.009,
   "LK_ID": "11010"
  },
  "11005": {
@@ -526,14 +374,6 @@
   "Date": "2020-06-08",
   "Cases_Last_Week_Per_Million": 115.0,
   "Deaths_Last_Week_Per_Million": 0.0,
-  "fit_res_N0": 343.468,
-  "fit_res_T": 62.362,
-  "fit_used_x_range": [
-   -6,
-   0
-  ],
-  "Cases_Forecast_Tomorrow": 347.307,
-  "Cases_Forecast_Tomorrow_Factor": 1.021,
   "LK_ID": "11005"
  },
  "11006": {
@@ -547,14 +387,6 @@
   "Date": "2020-06-08",
   "Cases_Last_Week_Per_Million": 36.0,
   "Deaths_Last_Week_Per_Million": 0.0,
-  "fit_res_N0": 561.324,
-  "fit_res_T": 277.632,
-  "fit_used_x_range": [
-   -6,
-   0
-  ],
-  "Cases_Forecast_Tomorrow": 562.728,
-  "Cases_Forecast_Tomorrow_Factor": 1.003,
   "LK_ID": "11006"
  },
  "11001": {
@@ -568,14 +400,6 @@
   "Date": "2020-06-08",
   "Cases_Last_Week_Per_Million": 62.0,
   "Deaths_Last_Week_Per_Million": 0.0,
-  "fit_res_N0": 1011.586,
-  "fit_res_T": 243.504,
-  "fit_used_x_range": [
-   -6,
-   0
-  ],
-  "Cases_Forecast_Tomorrow": 1014.469,
-  "Cases_Forecast_Tomorrow_Factor": 1.002,
   "LK_ID": "11001"
  },
  "11002": {
@@ -589,14 +413,6 @@
   "Date": "2020-06-08",
   "Cases_Last_Week_Per_Million": 104.0,
   "Deaths_Last_Week_Per_Million": 0.0,
-  "fit_res_N0": 560.216,
-  "fit_res_T": 137.867,
-  "fit_used_x_range": [
-   -6,
-   0
-  ],
-  "Cases_Forecast_Tomorrow": 563.039,
-  "Cases_Forecast_Tomorrow_Factor": 1.011,
   "LK_ID": "11002"
  },
  "11007": {
@@ -610,14 +426,6 @@
   "Date": "2020-06-08",
   "Cases_Last_Week_Per_Million": 34.0,
   "Deaths_Last_Week_Per_Million": 0.0,
-  "fit_res_N0": 691.609,
-  "fit_res_T": 581.612,
-  "fit_used_x_range": [
-   -6,
-   0
-  ],
-  "Cases_Forecast_Tomorrow": 692.434,
-  "Cases_Forecast_Tomorrow_Factor": 1.002,
   "LK_ID": "11007"
  },
  "12051": {
@@ -657,14 +465,6 @@
   "Date": "2020-06-08",
   "Cases_Last_Week_Per_Million": 17.0,
   "Deaths_Last_Week_Per_Million": 0.0,
-  "fit_res_N0": 30.178,
-  "fit_res_T": 194.311,
-  "fit_used_x_range": [
-   -6,
-   0
-  ],
-  "Cases_Forecast_Tomorrow": 30.285,
-  "Cases_Forecast_Tomorrow_Factor": 1.01,
   "LK_ID": "12053"
  },
  "12054": {
@@ -678,14 +478,6 @@
   "Date": "2020-06-08",
   "Cases_Last_Week_Per_Million": 17.0,
   "Deaths_Last_Week_Per_Million": 0.0,
-  "fit_res_N0": 622.179,
-  "fit_res_T": 4024.177,
-  "fit_used_x_range": [
-   -6,
-   0
-  ],
-  "Cases_Forecast_Tomorrow": 622.286,
-  "Cases_Forecast_Tomorrow_Factor": 1.0,
   "LK_ID": "12054"
  },
  "12060": {
@@ -699,14 +491,6 @@
   "Date": "2020-06-08",
   "Cases_Last_Week_Per_Million": 16.0,
   "Deaths_Last_Week_Per_Million": 0.0,
-  "fit_res_N0": 411.465,
-  "fit_res_T": 724.34,
-  "fit_used_x_range": [
-   -6,
-   0
-  ],
-  "Cases_Forecast_Tomorrow": 411.858,
-  "Cases_Forecast_Tomorrow_Factor": 1.002,
   "LK_ID": "12060"
  },
  "12061": {
@@ -720,14 +504,6 @@
   "Date": "2020-06-08",
   "Cases_Last_Week_Per_Million": 12.0,
   "Deaths_Last_Week_Per_Million": 0.0,
-  "fit_res_N0": 251.428,
-  "fit_res_T": 608.757,
-  "fit_used_x_range": [
-   -6,
-   0
-  ],
-  "Cases_Forecast_Tomorrow": 251.715,
-  "Cases_Forecast_Tomorrow_Factor": 1.003,
   "LK_ID": "12061"
  },
  "12062": {
@@ -741,14 +517,6 @@
   "Date": "2020-06-08",
   "Cases_Last_Week_Per_Million": 10.0,
   "Deaths_Last_Week_Per_Million": 0.0,
-  "fit_res_N0": 77.465,
-  "fit_res_T": 497.911,
-  "fit_used_x_range": [
-   -6,
-   0
-  ],
-  "Cases_Forecast_Tomorrow": 77.573,
-  "Cases_Forecast_Tomorrow_Factor": 0.995,
   "LK_ID": "12062"
  },
  "12063": {
@@ -801,14 +569,6 @@
   "Date": "2020-06-08",
   "Cases_Last_Week_Per_Million": 9.0,
   "Deaths_Last_Week_Per_Million": 0.0,
-  "fit_res_N0": 51.25,
-  "fit_res_T": 197.549,
-  "fit_used_x_range": [
-   -6,
-   0
-  ],
-  "Cases_Forecast_Tomorrow": 51.43,
-  "Cases_Forecast_Tomorrow_Factor": 1.008,
   "LK_ID": "12066"
  },
  "12067": {
@@ -822,14 +582,6 @@
   "Date": "2020-06-08",
   "Cases_Last_Week_Per_Million": 17.0,
   "Deaths_Last_Week_Per_Million": 0.0,
-  "fit_res_N0": 134.431,
-  "fit_res_T": 215.571,
-  "fit_used_x_range": [
-   -6,
-   0
-  ],
-  "Cases_Forecast_Tomorrow": 134.864,
-  "Cases_Forecast_Tomorrow_Factor": 1.006,
   "LK_ID": "12067"
  },
  "12068": {
@@ -856,14 +608,6 @@
   "Date": "2020-06-08",
   "Cases_Last_Week_Per_Million": 37.0,
   "Deaths_Last_Week_Per_Million": 5.0,
-  "fit_res_N0": 553.179,
-  "fit_res_T": 396.096,
-  "fit_used_x_range": [
-   -6,
-   0
-  ],
-  "Cases_Forecast_Tomorrow": 554.148,
-  "Cases_Forecast_Tomorrow_Factor": 1.004,
   "LK_ID": "12069"
  },
  "12070": {
@@ -929,14 +673,6 @@
   "Date": "2020-06-08",
   "Cases_Last_Week_Per_Million": 5.0,
   "Deaths_Last_Week_Per_Million": 0.0,
-  "fit_res_N0": 100.073,
-  "fit_res_T": 321.391,
-  "fit_used_x_range": [
-   -6,
-   0
-  ],
-  "Cases_Forecast_Tomorrow": 100.289,
-  "Cases_Forecast_Tomorrow_Factor": 1.003,
   "LK_ID": "13003"
  },
  "13004": {
@@ -950,14 +686,6 @@
   "Date": "2020-06-08",
   "Cases_Last_Week_Per_Million": 10.0,
   "Deaths_Last_Week_Per_Million": 0.0,
-  "fit_res_N0": 91.215,
-  "fit_res_T": 293.203,
-  "fit_used_x_range": [
-   -6,
-   0
-  ],
-  "Cases_Forecast_Tomorrow": 91.431,
-  "Cases_Forecast_Tomorrow_Factor": 1.005,
   "LK_ID": "13004"
  },
  "13071": {
@@ -971,14 +699,6 @@
   "Date": "2020-06-08",
   "Cases_Last_Week_Per_Million": 12.0,
   "Deaths_Last_Week_Per_Million": 0.0,
-  "fit_res_N0": 125.571,
-  "fit_res_T": 201.707,
-  "fit_used_x_range": [
-   -6,
-   0
-  ],
-  "Cases_Forecast_Tomorrow": 126.003,
-  "Cases_Forecast_Tomorrow_Factor": 1.008,
   "LK_ID": "13071"
  },
  "13072": {
@@ -1005,14 +725,6 @@
   "Date": "2020-06-08",
   "Cases_Last_Week_Per_Million": 31.0,
   "Deaths_Last_Week_Per_Million": 0.0,
-  "fit_res_N0": 86.729,
-  "fit_res_T": 37.808,
-  "fit_used_x_range": [
-   -6,
-   0
-  ],
-  "Cases_Forecast_Tomorrow": 88.333,
-  "Cases_Forecast_Tomorrow_Factor": 1.027,
   "LK_ID": "13073"
  },
  "13074": {
@@ -1039,14 +751,6 @@
   "Date": "2020-06-08",
   "Cases_Last_Week_Per_Million": 4.0,
   "Deaths_Last_Week_Per_Million": 0.0,
-  "fit_res_N0": 138.25,
-  "fit_res_T": 535.249,
-  "fit_used_x_range": [
-   -6,
-   0
-  ],
-  "Cases_Forecast_Tomorrow": 138.429,
-  "Cases_Forecast_Tomorrow_Factor": 1.003,
   "LK_ID": "13075"
  },
  "13076": {
@@ -1073,14 +777,6 @@
   "Date": "2020-06-08",
   "Cases_Last_Week_Per_Million": 12.0,
   "Deaths_Last_Week_Per_Million": 0.0,
-  "fit_res_N0": 206.897,
-  "fit_res_T": 265.569,
-  "fit_used_x_range": [
-   -6,
-   0
-  ],
-  "Cases_Forecast_Tomorrow": 207.437,
-  "Cases_Forecast_Tomorrow_Factor": 1.002,
   "LK_ID": "14511"
  },
  "14521": {
@@ -1094,14 +790,6 @@
   "Date": "2020-06-08",
   "Cases_Last_Week_Per_Million": 3.0,
   "Deaths_Last_Week_Per_Million": 0.0,
-  "fit_res_N0": 554.25,
-  "fit_res_T": 2150.008,
-  "fit_used_x_range": [
-   -6,
-   0
-  ],
-  "Cases_Forecast_Tomorrow": 554.429,
-  "Cases_Forecast_Tomorrow_Factor": 1.001,
   "LK_ID": "14521"
  },
  "14522": {
@@ -1115,14 +803,6 @@
   "Date": "2020-06-08",
   "Cases_Last_Week_Per_Million": 7.0,
   "Deaths_Last_Week_Per_Million": 0.0,
-  "fit_res_N0": 259.251,
-  "fit_res_T": 557.214,
-  "fit_used_x_range": [
-   -6,
-   0
-  ],
-  "Cases_Forecast_Tomorrow": 259.573,
-  "Cases_Forecast_Tomorrow_Factor": 1.002,
   "LK_ID": "14522"
  },
  "14523": {
@@ -1136,14 +816,6 @@
   "Date": "2020-06-08",
   "Cases_Last_Week_Per_Million": 40.0,
   "Deaths_Last_Week_Per_Million": 0.0,
-  "fit_res_N0": 487.715,
-  "fit_res_T": 235.117,
-  "fit_used_x_range": [
-   -6,
-   0
-  ],
-  "Cases_Forecast_Tomorrow": 489.155,
-  "Cases_Forecast_Tomorrow_Factor": 1.006,
   "LK_ID": "14523"
  },
  "14524": {
@@ -1157,14 +829,6 @@
   "Date": "2020-06-08",
   "Cases_Last_Week_Per_Million": 16.0,
   "Deaths_Last_Week_Per_Million": 0.0,
-  "fit_res_N0": 875.963,
-  "fit_res_T": 998.988,
-  "fit_used_x_range": [
-   -6,
-   0
-  ],
-  "Cases_Forecast_Tomorrow": 876.571,
-  "Cases_Forecast_Tomorrow_Factor": 1.002,
   "LK_ID": "14524"
  },
  "14612": {
@@ -1178,14 +842,6 @@
   "Date": "2020-06-08",
   "Cases_Last_Week_Per_Million": 2.0,
   "Deaths_Last_Week_Per_Million": 0.0,
-  "fit_res_N0": 624.072,
-  "fit_res_T": 2016.364,
-  "fit_used_x_range": [
-   -6,
-   0
-  ],
-  "Cases_Forecast_Tomorrow": 624.286,
-  "Cases_Forecast_Tomorrow_Factor": 1.0,
   "LK_ID": "14612"
  },
  "14625": {
@@ -1199,14 +855,6 @@
   "Date": "2020-06-08",
   "Cases_Last_Week_Per_Million": 10.0,
   "Deaths_Last_Week_Per_Million": 0.0,
-  "fit_res_N0": 501.537,
-  "fit_res_T": 570.706,
-  "fit_used_x_range": [
-   -6,
-   0
-  ],
-  "Cases_Forecast_Tomorrow": 502.146,
-  "Cases_Forecast_Tomorrow_Factor": 1.002,
   "LK_ID": "14625"
  },
  "14626": {
@@ -1233,14 +881,6 @@
   "Date": "2020-06-08",
   "Cases_Last_Week_Per_Million": 17.0,
   "Deaths_Last_Week_Per_Million": 0.0,
-  "fit_res_N0": 235.612,
-  "fit_res_T": 302.352,
-  "fit_used_x_range": [
-   -6,
-   0
-  ],
-  "Cases_Forecast_Tomorrow": 236.153,
-  "Cases_Forecast_Tomorrow_Factor": 1.001,
   "LK_ID": "14627"
  },
  "14628": {
@@ -1254,14 +894,6 @@
   "Date": "2020-06-08",
   "Cases_Last_Week_Per_Million": 4.0,
   "Deaths_Last_Week_Per_Million": 0.0,
-  "fit_res_N0": 387.25,
-  "fit_res_T": 1501.77,
-  "fit_used_x_range": [
-   -6,
-   0
-  ],
-  "Cases_Forecast_Tomorrow": 387.429,
-  "Cases_Forecast_Tomorrow_Factor": 1.001,
   "LK_ID": "14628"
  },
  "14713": {
@@ -1327,14 +959,6 @@
   "Date": "2020-06-08",
   "Cases_Last_Week_Per_Million": 13.0,
   "Deaths_Last_Week_Per_Million": 0.0,
-  "fit_res_N0": 356.214,
-  "fit_res_T": 1150.393,
-  "fit_used_x_range": [
-   -6,
-   0
-  ],
-  "Cases_Forecast_Tomorrow": 356.429,
-  "Cases_Forecast_Tomorrow_Factor": 1.001,
   "LK_ID": "15002"
  },
  "15003": {
@@ -1348,14 +972,6 @@
   "Date": "2020-06-08",
   "Cases_Last_Week_Per_Million": 13.0,
   "Deaths_Last_Week_Per_Million": 0.0,
-  "fit_res_N0": 109.325,
-  "fit_res_T": 139.602,
-  "fit_used_x_range": [
-   -6,
-   0
-  ],
-  "Cases_Forecast_Tomorrow": 109.87,
-  "Cases_Forecast_Tomorrow_Factor": 1.008,
   "LK_ID": "15003"
  },
  "15081": {
@@ -1395,14 +1011,6 @@
   "Date": "2020-06-08",
   "Cases_Last_Week_Per_Million": 12.0,
   "Deaths_Last_Week_Per_Million": 0.0,
-  "fit_res_N0": 163.5,
-  "fit_res_T": 315.937,
-  "fit_used_x_range": [
-   -6,
-   0
-  ],
-  "Cases_Forecast_Tomorrow": 163.859,
-  "Cases_Forecast_Tomorrow_Factor": 1.005,
   "LK_ID": "15083"
  },
  "15084": {
@@ -1416,14 +1024,6 @@
   "Date": "2020-06-08",
   "Cases_Last_Week_Per_Million": 11.0,
   "Deaths_Last_Week_Per_Million": 0.0,
-  "fit_res_N0": 118.499,
-  "fit_res_T": 228.601,
-  "fit_used_x_range": [
-   -6,
-   0
-  ],
-  "Cases_Forecast_Tomorrow": 118.859,
-  "Cases_Forecast_Tomorrow_Factor": 1.007,
   "LK_ID": "15084"
  },
  "15085": {
@@ -1463,14 +1063,6 @@
   "Date": "2020-06-08",
   "Cases_Last_Week_Per_Million": 15.0,
   "Deaths_Last_Week_Per_Million": 0.0,
-  "fit_res_N0": 53.216,
-  "fit_res_T": 170.286,
-  "fit_used_x_range": [
-   -6,
-   0
-  ],
-  "Cases_Forecast_Tomorrow": 53.433,
-  "Cases_Forecast_Tomorrow_Factor": 1.008,
   "LK_ID": "15087"
  },
  "15088": {
@@ -1549,14 +1141,6 @@
   "Date": "2020-06-08",
   "Cases_Last_Week_Per_Million": 127.0,
   "Deaths_Last_Week_Per_Million": 0.0,
-  "fit_res_N0": 254.077,
-  "fit_res_T": 89.727,
-  "fit_used_x_range": [
-   -6,
-   0
-  ],
-  "Cases_Forecast_Tomorrow": 256.047,
-  "Cases_Forecast_Tomorrow_Factor": 1.016,
   "LK_ID": "16052"
  },
  "16053": {
@@ -1609,14 +1193,6 @@
   "Date": "2020-06-08",
   "Cases_Last_Week_Per_Million": 24.0,
   "Deaths_Last_Week_Per_Million": 0.0,
-  "fit_res_N0": 28.828,
-  "fit_res_T": 109.104,
-  "fit_used_x_range": [
-   -6,
-   0
-  ],
-  "Cases_Forecast_Tomorrow": 29.011,
-  "Cases_Forecast_Tomorrow_Factor": 1.0,
   "LK_ID": "16056"
  },
  "16061": {
@@ -1630,14 +1206,6 @@
   "Date": "2020-06-08",
   "Cases_Last_Week_Per_Million": 10.0,
   "Deaths_Last_Week_Per_Million": 0.0,
-  "fit_res_N0": 158.215,
-  "fit_res_T": 509.927,
-  "fit_used_x_range": [
-   -6,
-   0
-  ],
-  "Cases_Forecast_Tomorrow": 158.43,
-  "Cases_Forecast_Tomorrow_Factor": 1.003,
   "LK_ID": "16061"
  },
  "16062": {
@@ -1651,14 +1219,6 @@
   "Date": "2020-06-08",
   "Cases_Last_Week_Per_Million": 36.0,
   "Deaths_Last_Week_Per_Million": 0.0,
-  "fit_res_N0": 64.642,
-  "fit_res_T": 88.132,
-  "fit_used_x_range": [
-   -6,
-   0
-  ],
-  "Cases_Forecast_Tomorrow": 65.153,
-  "Cases_Forecast_Tomorrow_Factor": 1.018,
   "LK_ID": "16062"
  },
  "16063": {
@@ -1672,14 +1232,6 @@
   "Date": "2020-06-08",
   "Cases_Last_Week_Per_Million": 24.0,
   "Deaths_Last_Week_Per_Million": 0.0,
-  "fit_res_N0": 76.643,
-  "fit_res_T": 104.767,
-  "fit_used_x_range": [
-   -6,
-   0
-  ],
-  "Cases_Forecast_Tomorrow": 77.151,
-  "Cases_Forecast_Tomorrow_Factor": 1.015,
   "LK_ID": "16063"
  },
  "16064": {
@@ -1693,14 +1245,6 @@
   "Date": "2020-06-08",
   "Cases_Last_Week_Per_Million": 39.0,
   "Deaths_Last_Week_Per_Million": 0.0,
-  "fit_res_N0": 85.549,
-  "fit_res_T": 77.077,
-  "fit_used_x_range": [
-   -6,
-   0
-  ],
-  "Cases_Forecast_Tomorrow": 86.322,
-  "Cases_Forecast_Tomorrow_Factor": 1.016,
   "LK_ID": "16064"
  },
  "16065": {
@@ -1727,14 +1271,6 @@
   "Date": "2020-06-08",
   "Cases_Last_Week_Per_Million": 49.0,
   "Deaths_Last_Week_Per_Million": 0.0,
-  "fit_res_N0": 141.62,
-  "fit_res_T": 99.843,
-  "fit_used_x_range": [
-   -6,
-   0
-  ],
-  "Cases_Forecast_Tomorrow": 142.607,
-  "Cases_Forecast_Tomorrow_Factor": 1.011,
   "LK_ID": "16066"
  },
  "16067": {
@@ -1748,14 +1284,6 @@
   "Date": "2020-06-08",
   "Cases_Last_Week_Per_Million": 59.0,
   "Deaths_Last_Week_Per_Million": 0.0,
-  "fit_res_N0": 306.722,
-  "fit_res_T": 133.56,
-  "fit_used_x_range": [
-   -6,
-   0
-  ],
-  "Cases_Forecast_Tomorrow": 308.318,
-  "Cases_Forecast_Tomorrow_Factor": 1.011,
   "LK_ID": "16067"
  },
  "16068": {
@@ -1782,14 +1310,6 @@
   "Date": "2020-06-08",
   "Cases_Last_Week_Per_Million": 157.0,
   "Deaths_Last_Week_Per_Million": 0.0,
-  "fit_res_N0": 57.776,
-  "fit_res_T": 32.914,
-  "fit_used_x_range": [
-   -6,
-   0
-  ],
-  "Cases_Forecast_Tomorrow": 59.006,
-  "Cases_Forecast_Tomorrow_Factor": 1.054,
   "LK_ID": "16069"
  },
  "16070": {
@@ -1816,14 +1336,6 @@
   "Date": "2020-06-08",
   "Cases_Last_Week_Per_Million": 12.0,
   "Deaths_Last_Week_Per_Million": 0.0,
-  "fit_res_N0": 74.215,
-  "fit_res_T": 238.214,
-  "fit_used_x_range": [
-   -6,
-   0
-  ],
-  "Cases_Forecast_Tomorrow": 74.431,
-  "Cases_Forecast_Tomorrow_Factor": 1.006,
   "LK_ID": "16071"
  },
  "16072": {
@@ -1837,14 +1349,6 @@
   "Date": "2020-06-08",
   "Cases_Last_Week_Per_Million": 320.0,
   "Deaths_Last_Week_Per_Million": 0.0,
-  "fit_res_N0": 269.503,
-  "fit_res_T": 54.916,
-  "fit_used_x_range": [
-   -6,
-   0
-  ],
-  "Cases_Forecast_Tomorrow": 272.926,
-  "Cases_Forecast_Tomorrow_Factor": 1.018,
   "LK_ID": "16072"
  },
  "16073": {
@@ -1871,14 +1375,6 @@
   "Date": "2020-06-08",
   "Cases_Last_Week_Per_Million": 12.0,
   "Deaths_Last_Week_Per_Million": 0.0,
-  "fit_res_N0": 72.25,
-  "fit_res_T": 279.062,
-  "fit_used_x_range": [
-   -6,
-   0
-  ],
-  "Cases_Forecast_Tomorrow": 72.429,
-  "Cases_Forecast_Tomorrow_Factor": 1.006,
   "LK_ID": "16074"
  },
  "16075": {
@@ -1905,14 +1401,6 @@
   "Date": "2020-06-08",
   "Cases_Last_Week_Per_Million": 10.0,
   "Deaths_Last_Week_Per_Million": 0.0,
-  "fit_res_N0": 625.464,
-  "fit_res_T": 4043.099,
-  "fit_used_x_range": [
-   -6,
-   0
-  ],
-  "Cases_Forecast_Tomorrow": 625.572,
-  "Cases_Forecast_Tomorrow_Factor": 0.999,
   "LK_ID": "16076"
  },
  "16077": {
@@ -1926,14 +1414,6 @@
   "Date": "2020-06-08",
   "Cases_Last_Week_Per_Million": 11.0,
   "Deaths_Last_Week_Per_Million": 0.0,
-  "fit_res_N0": 71.465,
-  "fit_res_T": 459.095,
-  "fit_used_x_range": [
-   -6,
-   0
-  ],
-  "Cases_Forecast_Tomorrow": 71.573,
-  "Cases_Forecast_Tomorrow_Factor": 0.994,
   "LK_ID": "16077"
  },
  "02000": {
@@ -1947,14 +1427,6 @@
   "Date": "2020-06-08",
   "Cases_Last_Week_Per_Million": 11.0,
   "Deaths_Last_Week_Per_Million": 0.0,
-  "fit_res_N0": 5120.785,
-  "fit_res_T": 1210.573,
-  "fit_used_x_range": [
-   -6,
-   0
-  ],
-  "Cases_Forecast_Tomorrow": 5123.718,
-  "Cases_Forecast_Tomorrow_Factor": 1.001,
   "LK_ID": "02000"
  },
  "03101": {
@@ -1968,14 +1440,6 @@
   "Date": "2020-06-08",
   "Cases_Last_Week_Per_Million": 4.0,
   "Deaths_Last_Week_Per_Million": 0.0,
-  "fit_res_N0": 331.178,
-  "fit_res_T": 2141.596,
-  "fit_used_x_range": [
-   -6,
-   0
-  ],
-  "Cases_Forecast_Tomorrow": 331.286,
-  "Cases_Forecast_Tomorrow_Factor": 1.001,
   "LK_ID": "03101"
  },
  "03102": {
@@ -1989,14 +1453,6 @@
   "Date": "2020-06-08",
   "Cases_Last_Week_Per_Million": 29.0,
   "Deaths_Last_Week_Per_Million": 0.0,
-  "fit_res_N0": 145.534,
-  "fit_res_T": 312.917,
-  "fit_used_x_range": [
-   -6,
-   0
-  ],
-  "Cases_Forecast_Tomorrow": 145.857,
-  "Cases_Forecast_Tomorrow_Factor": 1.006,
   "LK_ID": "03102"
  },
  "03103": {
@@ -2010,14 +1466,6 @@
   "Date": "2020-06-08",
   "Cases_Last_Week_Per_Million": 97.0,
   "Deaths_Last_Week_Per_Million": 0.0,
-  "fit_res_N0": 320.992,
-  "fit_res_T": 93.964,
-  "fit_used_x_range": [
-   -6,
-   0
-  ],
-  "Cases_Forecast_Tomorrow": 323.368,
-  "Cases_Forecast_Tomorrow_Factor": 1.014,
   "LK_ID": "03103"
  },
  "03151": {
@@ -2031,14 +1479,6 @@
   "Date": "2020-06-08",
   "Cases_Last_Week_Per_Million": 68.0,
   "Deaths_Last_Week_Per_Million": 0.0,
-  "fit_res_N0": 151.193,
-  "fit_res_T": 68.688,
-  "fit_used_x_range": [
-   -6,
-   0
-  ],
-  "Cases_Forecast_Tomorrow": 152.727,
-  "Cases_Forecast_Tomorrow_Factor": 1.025,
   "LK_ID": "03151"
  },
  "03153": {
@@ -2078,14 +1518,6 @@
   "Date": "2020-06-08",
   "Cases_Last_Week_Per_Million": 15.0,
   "Deaths_Last_Week_Per_Million": 0.0,
-  "fit_res_N0": 126.289,
-  "fit_res_T": 202.171,
-  "fit_used_x_range": [
-   -6,
-   0
-  ],
-  "Cases_Forecast_Tomorrow": 126.723,
-  "Cases_Forecast_Tomorrow_Factor": 1.006,
   "LK_ID": "03155"
  },
  "03157": {
@@ -2099,14 +1531,6 @@
   "Date": "2020-06-08",
   "Cases_Last_Week_Per_Million": 45.0,
   "Deaths_Last_Week_Per_Million": 0.0,
-  "fit_res_N0": 151.538,
-  "fit_res_T": 116.035,
-  "fit_used_x_range": [
-   -6,
-   0
-  ],
-  "Cases_Forecast_Tomorrow": 152.446,
-  "Cases_Forecast_Tomorrow_Factor": 1.01,
   "LK_ID": "03157"
  },
  "03158": {
@@ -2120,14 +1544,6 @@
   "Date": "2020-06-08",
   "Cases_Last_Week_Per_Million": 17.0,
   "Deaths_Last_Week_Per_Million": 0.0,
-  "fit_res_N0": 189.643,
-  "fit_res_T": 611.356,
-  "fit_used_x_range": [
-   -6,
-   0
-  ],
-  "Cases_Forecast_Tomorrow": 189.859,
-  "Cases_Forecast_Tomorrow_Factor": 0.999,
   "LK_ID": "03158"
  },
  "03159": {
@@ -2141,14 +1557,6 @@
   "Date": "2020-06-08",
   "Cases_Last_Week_Per_Million": 347.0,
   "Deaths_Last_Week_Per_Million": 0.0,
-  "fit_res_N0": 999.888,
-  "fit_res_T": 35.498,
-  "fit_used_x_range": [
-   -6,
-   0
-  ],
-  "Cases_Forecast_Tomorrow": 1019.603,
-  "Cases_Forecast_Tomorrow_Factor": 1.032,
   "LK_ID": "03159"
  },
  "03241": {
@@ -2162,14 +1570,6 @@
   "Date": "2020-06-08",
   "Cases_Last_Week_Per_Million": 107.0,
   "Deaths_Last_Week_Per_Million": 0.0,
-  "fit_res_N0": 2614.036,
-  "fit_res_T": 102.103,
-  "fit_used_x_range": [
-   -6,
-   0
-  ],
-  "Cases_Forecast_Tomorrow": 2631.842,
-  "Cases_Forecast_Tomorrow_Factor": 1.014,
   "LK_ID": "03241"
  },
  "03251": {
@@ -2183,14 +1583,6 @@
   "Date": "2020-06-08",
   "Cases_Last_Week_Per_Million": 37.0,
   "Deaths_Last_Week_Per_Million": 0.0,
-  "fit_res_N0": 368.215,
-  "fit_res_T": 395.402,
-  "fit_used_x_range": [
-   -6,
-   0
-  ],
-  "Cases_Forecast_Tomorrow": 368.861,
-  "Cases_Forecast_Tomorrow_Factor": 1.002,
   "LK_ID": "03251"
  },
  "03252": {
@@ -2204,14 +1596,6 @@
   "Date": "2020-06-08",
   "Cases_Last_Week_Per_Million": 54.0,
   "Deaths_Last_Week_Per_Million": 0.0,
-  "fit_res_N0": 131.556,
-  "fit_res_T": 60.482,
-  "fit_used_x_range": [
-   -6,
-   0
-  ],
-  "Cases_Forecast_Tomorrow": 133.072,
-  "Cases_Forecast_Tomorrow_Factor": 1.024,
   "LK_ID": "03252"
  },
  "03254": {
@@ -2225,14 +1609,6 @@
   "Date": "2020-06-08",
   "Cases_Last_Week_Per_Million": 25.0,
   "Deaths_Last_Week_Per_Million": 0.0,
-  "fit_res_N0": 404.325,
-  "fit_res_T": 222.502,
-  "fit_used_x_range": [
-   -6,
-   0
-  ],
-  "Cases_Forecast_Tomorrow": 405.586,
-  "Cases_Forecast_Tomorrow_Factor": 1.006,
   "LK_ID": "03254"
  },
  "03255": {
@@ -2259,14 +1635,6 @@
   "Date": "2020-06-08",
   "Cases_Last_Week_Per_Million": 8.0,
   "Deaths_Last_Week_Per_Million": 0.0,
-  "fit_res_N0": 74.215,
-  "fit_res_T": 238.214,
-  "fit_used_x_range": [
-   -6,
-   0
-  ],
-  "Cases_Forecast_Tomorrow": 74.431,
-  "Cases_Forecast_Tomorrow_Factor": 1.006,
   "LK_ID": "03256"
  },
  "03257": {
@@ -2293,14 +1661,6 @@
   "Date": "2020-06-08",
   "Cases_Last_Week_Per_Million": 61.0,
   "Deaths_Last_Week_Per_Million": 0.0,
-  "fit_res_N0": 213.775,
-  "fit_res_T": 104.241,
-  "fit_used_x_range": [
-   -6,
-   0
-  ],
-  "Cases_Forecast_Tomorrow": 215.201,
-  "Cases_Forecast_Tomorrow_Factor": 1.006,
   "LK_ID": "03351"
  },
  "03352": {
@@ -2314,14 +1674,6 @@
   "Date": "2020-06-08",
   "Cases_Last_Week_Per_Million": 338.0,
   "Deaths_Last_Week_Per_Million": 0.0,
-  "fit_res_N0": 316.821,
-  "fit_res_T": 24.43,
-  "fit_used_x_range": [
-   -6,
-   0
-  ],
-  "Cases_Forecast_Tomorrow": 325.939,
-  "Cases_Forecast_Tomorrow_Factor": 1.048,
   "LK_ID": "03352"
  },
  "03353": {
@@ -2335,14 +1687,6 @@
   "Date": "2020-06-08",
   "Cases_Last_Week_Per_Million": 12.0,
   "Deaths_Last_Week_Per_Million": 0.0,
-  "fit_res_N0": 533.608,
-  "fit_res_T": 688.758,
-  "fit_used_x_range": [
-   -6,
-   0
-  ],
-  "Cases_Forecast_Tomorrow": 534.145,
-  "Cases_Forecast_Tomorrow_Factor": 1.002,
   "LK_ID": "03353"
  },
  "03354": {
@@ -2369,14 +1713,6 @@
   "Date": "2020-06-08",
   "Cases_Last_Week_Per_Million": 5.0,
   "Deaths_Last_Week_Per_Million": 0.0,
-  "fit_res_N0": 169.178,
-  "fit_res_T": 1093.555,
-  "fit_used_x_range": [
-   -6,
-   0
-  ],
-  "Cases_Forecast_Tomorrow": 169.286,
-  "Cases_Forecast_Tomorrow_Factor": 1.002,
   "LK_ID": "03355"
  },
  "03356": {
@@ -2390,14 +1726,6 @@
   "Date": "2020-06-08",
   "Cases_Last_Week_Per_Million": 9.0,
   "Deaths_Last_Week_Per_Million": 0.0,
-  "fit_res_N0": 112.215,
-  "fit_res_T": 361.131,
-  "fit_used_x_range": [
-   -6,
-   0
-  ],
-  "Cases_Forecast_Tomorrow": 112.43,
-  "Cases_Forecast_Tomorrow_Factor": 1.004,
   "LK_ID": "03356"
  },
  "03357": {
@@ -2437,14 +1765,6 @@
   "Date": "2020-06-08",
   "Cases_Last_Week_Per_Million": 20.0,
   "Deaths_Last_Week_Per_Million": 0.0,
-  "fit_res_N0": 223.253,
-  "fit_res_T": 252.918,
-  "fit_used_x_range": [
-   -6,
-   0
-  ],
-  "Cases_Forecast_Tomorrow": 223.866,
-  "Cases_Forecast_Tomorrow_Factor": 1.004,
   "LK_ID": "03359"
  },
  "03360": {
@@ -2458,14 +1778,6 @@
   "Date": "2020-06-08",
   "Cases_Last_Week_Per_Million": 11.0,
   "Deaths_Last_Week_Per_Million": 0.0,
-  "fit_res_N0": 43.466,
-  "fit_res_T": 277.951,
-  "fit_used_x_range": [
-   -6,
-   0
-  ],
-  "Cases_Forecast_Tomorrow": 43.575,
-  "Cases_Forecast_Tomorrow_Factor": 0.99,
   "LK_ID": "03360"
  },
  "03361": {
@@ -2479,14 +1791,6 @@
   "Date": "2020-06-08",
   "Cases_Last_Week_Per_Million": 73.0,
   "Deaths_Last_Week_Per_Million": 0.0,
-  "fit_res_N0": 177.924,
-  "fit_res_T": 80.804,
-  "fit_used_x_range": [
-   -6,
-   0
-  ],
-  "Cases_Forecast_Tomorrow": 179.456,
-  "Cases_Forecast_Tomorrow_Factor": 1.02,
   "LK_ID": "03361"
  },
  "03401": {
@@ -2500,14 +1804,6 @@
   "Date": "2020-06-08",
   "Cases_Last_Week_Per_Million": 180.0,
   "Deaths_Last_Week_Per_Million": 0.0,
-  "fit_res_N0": 83.533,
-  "fit_res_T": 26.942,
-  "fit_used_x_range": [
-   -6,
-   0
-  ],
-  "Cases_Forecast_Tomorrow": 85.71,
-  "Cases_Forecast_Tomorrow_Factor": 1.045,
   "LK_ID": "03401"
  },
  "03402": {
@@ -2534,14 +1830,6 @@
   "Date": "2020-06-08",
   "Cases_Last_Week_Per_Million": 6.0,
   "Deaths_Last_Week_Per_Million": 0.0,
-  "fit_res_N0": 171.178,
-  "fit_res_T": 1106.492,
-  "fit_used_x_range": [
-   -6,
-   0
-  ],
-  "Cases_Forecast_Tomorrow": 171.286,
-  "Cases_Forecast_Tomorrow_Factor": 1.002,
   "LK_ID": "03403"
  },
  "03404": {
@@ -2555,14 +1843,6 @@
   "Date": "2020-06-08",
   "Cases_Last_Week_Per_Million": 36.0,
   "Deaths_Last_Week_Per_Million": 0.0,
-  "fit_res_N0": 492.217,
-  "fit_res_T": 365.503,
-  "fit_used_x_range": [
-   -6,
-   0
-  ],
-  "Cases_Forecast_Tomorrow": 493.152,
-  "Cases_Forecast_Tomorrow_Factor": 1.002,
   "LK_ID": "03404"
  },
  "03405": {
@@ -2589,14 +1869,6 @@
   "Date": "2020-06-08",
   "Cases_Last_Week_Per_Million": 48.0,
   "Deaths_Last_Week_Per_Million": 0.0,
-  "fit_res_N0": 190.034,
-  "fit_res_T": 158.973,
-  "fit_used_x_range": [
-   -6,
-   0
-  ],
-  "Cases_Forecast_Tomorrow": 190.864,
-  "Cases_Forecast_Tomorrow_Factor": 1.01,
   "LK_ID": "03451"
  },
  "03452": {
@@ -2610,14 +1882,6 @@
   "Date": "2020-06-08",
   "Cases_Last_Week_Per_Million": 79.0,
   "Deaths_Last_Week_Per_Million": 0.0,
-  "fit_res_N0": 131.533,
-  "fit_res_T": 31.654,
-  "fit_used_x_range": [
-   -6,
-   0
-  ],
-  "Cases_Forecast_Tomorrow": 134.445,
-  "Cases_Forecast_Tomorrow_Factor": 1.05,
   "LK_ID": "03452"
  },
  "03453": {
@@ -2631,14 +1895,6 @@
   "Date": "2020-06-08",
   "Cases_Last_Week_Per_Million": 6.0,
   "Deaths_Last_Week_Per_Million": 0.0,
-  "fit_res_N0": 121.178,
-  "fit_res_T": 783.025,
-  "fit_used_x_range": [
-   -6,
-   0
-  ],
-  "Cases_Forecast_Tomorrow": 121.286,
-  "Cases_Forecast_Tomorrow_Factor": 1.002,
   "LK_ID": "03453"
  },
  "03454": {
@@ -2652,14 +1908,6 @@
   "Date": "2020-06-08",
   "Cases_Last_Week_Per_Million": 25.0,
   "Deaths_Last_Week_Per_Million": 0.0,
-  "fit_res_N0": 452.758,
-  "fit_res_T": 249.0,
-  "fit_used_x_range": [
-   -6,
-   0
-  ],
-  "Cases_Forecast_Tomorrow": 454.02,
-  "Cases_Forecast_Tomorrow_Factor": 1.004,
   "LK_ID": "03454"
  },
  "03455": {
@@ -2686,14 +1934,6 @@
   "Date": "2020-06-08",
   "Cases_Last_Week_Per_Million": 51.0,
   "Deaths_Last_Week_Per_Million": 0.0,
-  "fit_res_N0": 248.373,
-  "fit_res_T": 112.856,
-  "fit_used_x_range": [
-   -6,
-   0
-  ],
-  "Cases_Forecast_Tomorrow": 249.903,
-  "Cases_Forecast_Tomorrow_Factor": 1.012,
   "LK_ID": "03456"
  },
  "03457": {
@@ -2707,14 +1947,6 @@
   "Date": "2020-06-08",
   "Cases_Last_Week_Per_Million": 18.0,
   "Deaths_Last_Week_Per_Million": 0.0,
-  "fit_res_N0": 141.501,
-  "fit_res_T": 194.479,
-  "fit_used_x_range": [
-   -6,
-   0
-  ],
-  "Cases_Forecast_Tomorrow": 142.007,
-  "Cases_Forecast_Tomorrow_Factor": 1.007,
   "LK_ID": "03457"
  },
  "03458": {
@@ -2741,14 +1973,6 @@
   "Date": "2020-06-08",
   "Cases_Last_Week_Per_Million": 25.0,
   "Deaths_Last_Week_Per_Million": 0.0,
-  "fit_res_N0": 1213.753,
-  "fit_res_T": 670.947,
-  "fit_used_x_range": [
-   -6,
-   0
-  ],
-  "Cases_Forecast_Tomorrow": 1215.008,
-  "Cases_Forecast_Tomorrow_Factor": 1.001,
   "LK_ID": "03459"
  },
  "03460": {
@@ -2762,14 +1986,6 @@
   "Date": "2020-06-08",
   "Cases_Last_Week_Per_Million": 56.0,
   "Deaths_Last_Week_Per_Million": 0.0,
-  "fit_res_N0": 329.266,
-  "fit_res_T": 217.72,
-  "fit_used_x_range": [
-   -6,
-   0
-  ],
-  "Cases_Forecast_Tomorrow": 330.316,
-  "Cases_Forecast_Tomorrow_Factor": 0.995,
   "LK_ID": "03460"
  },
  "03461": {
@@ -2783,14 +1999,6 @@
   "Date": "2020-06-08",
   "Cases_Last_Week_Per_Million": 56.0,
   "Deaths_Last_Week_Per_Million": 0.0,
-  "fit_res_N0": 69.587,
-  "fit_res_T": 51.493,
-  "fit_used_x_range": [
-   -6,
-   0
-  ],
-  "Cases_Forecast_Tomorrow": 70.53,
-  "Cases_Forecast_Tomorrow_Factor": 1.008,
   "LK_ID": "03461"
  },
  "03462": {
@@ -2804,14 +2012,6 @@
   "Date": "2020-06-08",
   "Cases_Last_Week_Per_Million": 18.0,
   "Deaths_Last_Week_Per_Million": 0.0,
-  "fit_res_N0": 41.178,
-  "fit_res_T": 265.475,
-  "fit_used_x_range": [
-   -6,
-   0
-  ],
-  "Cases_Forecast_Tomorrow": 41.286,
-  "Cases_Forecast_Tomorrow_Factor": 1.007,
   "LK_ID": "03462"
  },
  "04011": {
@@ -2825,14 +2025,6 @@
   "Date": "2020-06-08",
   "Cases_Last_Week_Per_Million": 81.0,
   "Deaths_Last_Week_Per_Million": 0.0,
-  "fit_res_N0": 1361.039,
-  "fit_res_T": 138.728,
-  "fit_used_x_range": [
-   -6,
-   0
-  ],
-  "Cases_Forecast_Tomorrow": 1367.857,
-  "Cases_Forecast_Tomorrow_Factor": 1.009,
   "LK_ID": "04011"
  },
  "04012": {
@@ -2846,14 +2038,6 @@
   "Date": "2020-06-08",
   "Cases_Last_Week_Per_Million": 440.0,
   "Deaths_Last_Week_Per_Million": 0.0,
-  "fit_res_N0": 183.257,
-  "fit_res_T": 14.467,
-  "fit_used_x_range": [
-   -6,
-   0
-  ],
-  "Cases_Forecast_Tomorrow": 192.251,
-  "Cases_Forecast_Tomorrow_Factor": 1.092,
   "LK_ID": "04012"
  },
  "05111": {
@@ -2867,14 +2051,6 @@
   "Date": "2020-06-08",
   "Cases_Last_Week_Per_Million": 79.0,
   "Deaths_Last_Week_Per_Million": 0.0,
-  "fit_res_N0": 1499.182,
-  "fit_res_T": 125.166,
-  "fit_used_x_range": [
-   -6,
-   0
-  ],
-  "Cases_Forecast_Tomorrow": 1507.507,
-  "Cases_Forecast_Tomorrow_Factor": 1.008,
   "LK_ID": "05111"
  },
  "05112": {
@@ -2888,14 +2064,6 @@
   "Date": "2020-06-08",
   "Cases_Last_Week_Per_Million": 142.0,
   "Deaths_Last_Week_Per_Million": 0.0,
-  "fit_res_N0": 1253.549,
-  "fit_res_T": 65.862,
-  "fit_used_x_range": [
-   -6,
-   0
-  ],
-  "Cases_Forecast_Tomorrow": 1266.811,
-  "Cases_Forecast_Tomorrow_Factor": 1.021,
   "LK_ID": "05112"
  },
  "05113": {
@@ -2909,14 +2077,6 @@
   "Date": "2020-06-08",
   "Cases_Last_Week_Per_Million": 26.0,
   "Deaths_Last_Week_Per_Million": 0.0,
-  "fit_res_N0": 879.932,
-  "fit_res_T": 273.816,
-  "fit_used_x_range": [
-   -6,
-   0
-  ],
-  "Cases_Forecast_Tomorrow": 882.162,
-  "Cases_Forecast_Tomorrow_Factor": 1.005,
   "LK_ID": "05113"
  },
  "05114": {
@@ -2930,14 +2090,6 @@
   "Date": "2020-06-08",
   "Cases_Last_Week_Per_Million": 53.0,
   "Deaths_Last_Week_Per_Million": 0.0,
-  "fit_res_N0": 643.684,
-  "fit_res_T": 253.198,
-  "fit_used_x_range": [
-   -6,
-   0
-  ],
-  "Cases_Forecast_Tomorrow": 645.448,
-  "Cases_Forecast_Tomorrow_Factor": 1.005,
   "LK_ID": "05114"
  },
  "05116": {
@@ -2951,14 +2103,6 @@
   "Date": "2020-06-08",
   "Cases_Last_Week_Per_Million": 61.0,
   "Deaths_Last_Week_Per_Million": 0.0,
-  "fit_res_N0": 637.036,
-  "fit_res_T": 172.615,
-  "fit_used_x_range": [
-   -6,
-   0
-  ],
-  "Cases_Forecast_Tomorrow": 639.6,
-  "Cases_Forecast_Tomorrow_Factor": 1.009,
   "LK_ID": "05116"
  },
  "05117": {
@@ -2985,14 +2129,6 @@
   "Date": "2020-06-08",
   "Cases_Last_Week_Per_Million": 28.0,
   "Deaths_Last_Week_Per_Million": 0.0,
-  "fit_res_N0": 267.07,
-  "fit_res_T": 234.222,
-  "fit_used_x_range": [
-   -6,
-   0
-  ],
-  "Cases_Forecast_Tomorrow": 267.862,
-  "Cases_Forecast_Tomorrow_Factor": 1.007,
   "LK_ID": "05119"
  },
  "05120": {
@@ -3019,14 +2155,6 @@
   "Date": "2020-06-08",
   "Cases_Last_Week_Per_Million": 13.0,
   "Deaths_Last_Week_Per_Million": 0.0,
-  "fit_res_N0": 255.001,
-  "fit_res_T": 616.554,
-  "fit_used_x_range": [
-   -6,
-   0
-  ],
-  "Cases_Forecast_Tomorrow": 255.288,
-  "Cases_Forecast_Tomorrow_Factor": 1.001,
   "LK_ID": "05122"
  },
  "05124": {
@@ -3040,14 +2168,6 @@
   "Date": "2020-06-08",
   "Cases_Last_Week_Per_Million": 23.0,
   "Deaths_Last_Week_Per_Million": 0.0,
-  "fit_res_N0": 949.181,
-  "fit_res_T": 524.476,
-  "fit_used_x_range": [
-   -6,
-   0
-  ],
-  "Cases_Forecast_Tomorrow": 950.436,
-  "Cases_Forecast_Tomorrow_Factor": 1.003,
   "LK_ID": "05124"
  },
  "05154": {
@@ -3061,14 +2181,6 @@
   "Date": "2020-06-08",
   "Cases_Last_Week_Per_Million": 113.0,
   "Deaths_Last_Week_Per_Million": 0.0,
-  "fit_res_N0": 744.761,
-  "fit_res_T": 107.639,
-  "fit_used_x_range": [
-   -6,
-   0
-  ],
-  "Cases_Forecast_Tomorrow": 749.572,
-  "Cases_Forecast_Tomorrow_Factor": 1.006,
   "LK_ID": "05154"
  },
  "05158": {
@@ -3082,14 +2194,6 @@
   "Date": "2020-06-08",
   "Cases_Last_Week_Per_Million": 10.0,
   "Deaths_Last_Week_Per_Million": 0.0,
-  "fit_res_N0": 967.0,
-  "fit_res_T": 937.066,
-  "fit_used_x_range": [
-   -6,
-   0
-  ],
-  "Cases_Forecast_Tomorrow": 967.715,
-  "Cases_Forecast_Tomorrow_Factor": 1.002,
   "LK_ID": "05158"
  },
  "05162": {
@@ -3103,14 +2207,6 @@
   "Date": "2020-06-08",
   "Cases_Last_Week_Per_Million": 20.0,
   "Deaths_Last_Week_Per_Million": 0.0,
-  "fit_res_N0": 711.433,
-  "fit_res_T": 312.012,
-  "fit_used_x_range": [
-   -6,
-   0
-  ],
-  "Cases_Forecast_Tomorrow": 713.015,
-  "Cases_Forecast_Tomorrow_Factor": 1.004,
   "LK_ID": "05162"
  },
  "05166": {
@@ -3124,14 +2220,6 @@
   "Date": "2020-06-08",
   "Cases_Last_Week_Per_Million": 10.0,
   "Deaths_Last_Week_Per_Million": 0.0,
-  "fit_res_N0": 712.465,
-  "fit_res_T": 919.992,
-  "fit_used_x_range": [
-   -6,
-   0
-  ],
-  "Cases_Forecast_Tomorrow": 713.002,
-  "Cases_Forecast_Tomorrow_Factor": 1.001,
   "LK_ID": "05166"
  },
  "05170": {
@@ -3145,14 +2233,6 @@
   "Date": "2020-06-08",
   "Cases_Last_Week_Per_Million": 48.0,
   "Deaths_Last_Week_Per_Million": 0.0,
-  "fit_res_N0": 642.973,
-  "fit_res_T": 120.339,
-  "fit_used_x_range": [
-   -6,
-   0
-  ],
-  "Cases_Forecast_Tomorrow": 646.687,
-  "Cases_Forecast_Tomorrow_Factor": 1.007,
   "LK_ID": "05170"
  },
  "05314": {
@@ -3166,14 +2246,6 @@
   "Date": "2020-06-08",
   "Cases_Last_Week_Per_Million": 43.0,
   "Deaths_Last_Week_Per_Million": 0.0,
-  "fit_res_N0": 748.832,
-  "fit_res_T": 221.734,
-  "fit_used_x_range": [
-   -6,
-   0
-  ],
-  "Cases_Forecast_Tomorrow": 751.177,
-  "Cases_Forecast_Tomorrow_Factor": 1.006,
   "LK_ID": "05314"
  },
  "05315": {
@@ -3187,14 +2259,6 @@
   "Date": "2020-06-08",
   "Cases_Last_Week_Per_Million": 24.0,
   "Deaths_Last_Week_Per_Million": 0.0,
-  "fit_res_N0": 2520.517,
-  "fit_res_T": 363.128,
-  "fit_used_x_range": [
-   -6,
-   0
-  ],
-  "Cases_Forecast_Tomorrow": 2525.333,
-  "Cases_Forecast_Tomorrow_Factor": 1.003,
   "LK_ID": "05315"
  },
  "05316": {
@@ -3208,14 +2272,6 @@
   "Date": "2020-06-08",
   "Cases_Last_Week_Per_Million": 12.0,
   "Deaths_Last_Week_Per_Million": 0.0,
-  "fit_res_N0": 242.25,
-  "fit_res_T": 938.938,
-  "fit_used_x_range": [
-   -6,
-   0
-  ],
-  "Cases_Forecast_Tomorrow": 242.429,
-  "Cases_Forecast_Tomorrow_Factor": 1.002,
   "LK_ID": "05316"
  },
  "05334": {
@@ -3229,14 +2285,6 @@
   "Date": "2020-06-08",
   "Cases_Last_Week_Per_Million": 16.0,
   "Deaths_Last_Week_Per_Million": 0.0,
-  "fit_res_N0": 1980.358,
-  "fit_res_T": 1009.733,
-  "fit_used_x_range": [
-   -6,
-   0
-  ],
-  "Cases_Forecast_Tomorrow": 1981.718,
-  "Cases_Forecast_Tomorrow_Factor": 1.001,
   "LK_ID": "05334"
  },
  "05358": {
@@ -3250,14 +2298,6 @@
   "Date": "2020-06-08",
   "Cases_Last_Week_Per_Million": 11.0,
   "Deaths_Last_Week_Per_Million": 0.0,
-  "fit_res_N0": 602.322,
-  "fit_res_T": 1060.831,
-  "fit_used_x_range": [
-   -6,
-   0
-  ],
-  "Cases_Forecast_Tomorrow": 602.716,
-  "Cases_Forecast_Tomorrow_Factor": 1.001,
   "LK_ID": "05358"
  },
  "05362": {
@@ -3271,14 +2311,6 @@
   "Date": "2020-06-08",
   "Cases_Last_Week_Per_Million": 11.0,
   "Deaths_Last_Week_Per_Million": 0.0,
-  "fit_res_N0": 1100.287,
-  "fit_res_T": 887.748,
-  "fit_used_x_range": [
-   -6,
-   0
-  ],
-  "Cases_Forecast_Tomorrow": 1101.147,
-  "Cases_Forecast_Tomorrow_Factor": 1.001,
   "LK_ID": "05362"
  },
  "05366": {
@@ -3292,14 +2324,6 @@
   "Date": "2020-06-08",
   "Cases_Last_Week_Per_Million": 52.0,
   "Deaths_Last_Week_Per_Million": 5.0,
-  "fit_res_N0": 469.965,
-  "fit_res_T": 699.812,
-  "fit_used_x_range": [
-   -6,
-   0
-  ],
-  "Cases_Forecast_Tomorrow": 470.431,
-  "Cases_Forecast_Tomorrow_Factor": 1.001,
   "LK_ID": "05366"
  },
  "05370": {
@@ -3313,14 +2337,6 @@
   "Date": "2020-06-08",
   "Cases_Last_Week_Per_Million": 35.0,
   "Deaths_Last_Week_Per_Million": 0.0,
-  "fit_res_N0": 1894.429,
-  "fit_res_T": 1311.285,
-  "fit_used_x_range": [
-   -6,
-   0
-  ],
-  "Cases_Forecast_Tomorrow": 1895.431,
-  "Cases_Forecast_Tomorrow_Factor": 1.0,
   "LK_ID": "05370"
  },
  "05374": {
@@ -3334,14 +2350,6 @@
   "Date": "2020-06-08",
   "Cases_Last_Week_Per_Million": 11.0,
   "Deaths_Last_Week_Per_Million": 0.0,
-  "fit_res_N0": 490.214,
-  "fit_res_T": 1583.843,
-  "fit_used_x_range": [
-   -6,
-   0
-  ],
-  "Cases_Forecast_Tomorrow": 490.429,
-  "Cases_Forecast_Tomorrow_Factor": 1.001,
   "LK_ID": "05374"
  },
  "05378": {
@@ -3368,14 +2376,6 @@
   "Date": "2020-06-08",
   "Cases_Last_Week_Per_Million": 15.0,
   "Deaths_Last_Week_Per_Million": 0.0,
-  "fit_res_N0": 1444.501,
-  "fit_res_T": 736.123,
-  "fit_used_x_range": [
-   -6,
-   0
-  ],
-  "Cases_Forecast_Tomorrow": 1445.862,
-  "Cases_Forecast_Tomorrow_Factor": 1.002,
   "LK_ID": "05382"
  },
  "05512": {
@@ -3389,14 +2389,6 @@
   "Date": "2020-06-08",
   "Cases_Last_Week_Per_Million": 17.0,
   "Deaths_Last_Week_Per_Million": 0.0,
-  "fit_res_N0": 203.178,
-  "fit_res_T": 1313.514,
-  "fit_used_x_range": [
-   -6,
-   0
-  ],
-  "Cases_Forecast_Tomorrow": 203.286,
-  "Cases_Forecast_Tomorrow_Factor": 1.001,
   "LK_ID": "05512"
  },
  "05513": {
@@ -3410,14 +2402,6 @@
   "Date": "2020-06-08",
   "Cases_Last_Week_Per_Million": 65.0,
   "Deaths_Last_Week_Per_Million": 0.0,
-  "fit_res_N0": 431.682,
-  "fit_res_T": 135.78,
-  "fit_used_x_range": [
-   -6,
-   0
-  ],
-  "Cases_Forecast_Tomorrow": 433.891,
-  "Cases_Forecast_Tomorrow_Factor": 1.011,
   "LK_ID": "05513"
  },
  "05515": {
@@ -3431,14 +2415,6 @@
   "Date": "2020-06-08",
   "Cases_Last_Week_Per_Million": 41.0,
   "Deaths_Last_Week_Per_Million": 0.0,
-  "fit_res_N0": 727.606,
-  "fit_res_T": 454.235,
-  "fit_used_x_range": [
-   -6,
-   0
-  ],
-  "Cases_Forecast_Tomorrow": 728.717,
-  "Cases_Forecast_Tomorrow_Factor": 1.004,
   "LK_ID": "05515"
  },
  "05554": {
@@ -3452,14 +2428,6 @@
   "Date": "2020-06-08",
   "Cases_Last_Week_Per_Million": 30.0,
   "Deaths_Last_Week_Per_Million": 0.0,
-  "fit_res_N0": 1106.965,
-  "fit_res_T": 739.062,
-  "fit_used_x_range": [
-   -6,
-   0
-  ],
-  "Cases_Forecast_Tomorrow": 1108.004,
-  "Cases_Forecast_Tomorrow_Factor": 1.001,
   "LK_ID": "05554"
  },
  "05558": {
@@ -3473,14 +2441,6 @@
   "Date": "2020-06-08",
   "Cases_Last_Week_Per_Million": 9.0,
   "Deaths_Last_Week_Per_Million": 0.0,
-  "fit_res_N0": 861.929,
-  "fit_res_T": 2784.853,
-  "fit_used_x_range": [
-   -6,
-   0
-  ],
-  "Cases_Forecast_Tomorrow": 862.144,
-  "Cases_Forecast_Tomorrow_Factor": 0.999,
   "LK_ID": "05558"
  },
  "05562": {
@@ -3494,14 +2454,6 @@
   "Date": "2020-06-08",
   "Cases_Last_Week_Per_Million": 42.0,
   "Deaths_Last_Week_Per_Million": 2.0,
-  "fit_res_N0": 1305.73,
-  "fit_res_T": 241.816,
-  "fit_used_x_range": [
-   -6,
-   0
-  ],
-  "Cases_Forecast_Tomorrow": 1309.479,
-  "Cases_Forecast_Tomorrow_Factor": 1.004,
   "LK_ID": "05562"
  },
  "05566": {
@@ -3515,14 +2467,6 @@
   "Date": "2020-06-08",
   "Cases_Last_Week_Per_Million": 16.0,
   "Deaths_Last_Week_Per_Million": 0.0,
-  "fit_res_N0": 1340.144,
-  "fit_res_T": 811.026,
-  "fit_used_x_range": [
-   -6,
-   0
-  ],
-  "Cases_Forecast_Tomorrow": 1341.29,
-  "Cases_Forecast_Tomorrow_Factor": 1.002,
   "LK_ID": "05566"
  },
  "05570": {
@@ -3536,14 +2480,6 @@
   "Date": "2020-06-08",
   "Cases_Last_Week_Per_Million": 22.0,
   "Deaths_Last_Week_Per_Million": 0.0,
-  "fit_res_N0": 499.073,
-  "fit_res_T": 689.682,
-  "fit_used_x_range": [
-   -6,
-   0
-  ],
-  "Cases_Forecast_Tomorrow": 499.575,
-  "Cases_Forecast_Tomorrow_Factor": 1.001,
   "LK_ID": "05570"
  },
  "05711": {
@@ -3557,14 +2493,6 @@
   "Date": "2020-06-08",
   "Cases_Last_Week_Per_Million": 15.0,
   "Deaths_Last_Week_Per_Million": 0.0,
-  "fit_res_N0": 413.145,
-  "fit_res_T": 665.653,
-  "fit_used_x_range": [
-   -6,
-   0
-  ],
-  "Cases_Forecast_Tomorrow": 413.575,
-  "Cases_Forecast_Tomorrow_Factor": 0.999,
   "LK_ID": "05711"
  },
  "05754": {
@@ -3578,14 +2506,6 @@
   "Date": "2020-06-08",
   "Cases_Last_Week_Per_Million": 80.0,
   "Deaths_Last_Week_Per_Million": 0.0,
-  "fit_res_N0": 698.468,
-  "fit_res_T": 122.066,
-  "fit_used_x_range": [
-   -6,
-   0
-  ],
-  "Cases_Forecast_Tomorrow": 702.445,
-  "Cases_Forecast_Tomorrow_Factor": 1.003,
   "LK_ID": "05754"
  },
  "05758": {
@@ -3599,14 +2519,6 @@
   "Date": "2020-06-08",
   "Cases_Last_Week_Per_Million": 20.0,
   "Deaths_Last_Week_Per_Million": 0.0,
-  "fit_res_N0": 334.545,
-  "fit_res_T": 306.471,
-  "fit_used_x_range": [
-   -6,
-   0
-  ],
-  "Cases_Forecast_Tomorrow": 335.302,
-  "Cases_Forecast_Tomorrow_Factor": 0.998,
   "LK_ID": "05758"
  },
  "05762": {
@@ -3620,14 +2532,6 @@
   "Date": "2020-06-08",
   "Cases_Last_Week_Per_Million": 64.0,
   "Deaths_Last_Week_Per_Million": 0.0,
-  "fit_res_N0": 364.822,
-  "fit_res_T": 171.175,
-  "fit_used_x_range": [
-   -6,
-   0
-  ],
-  "Cases_Forecast_Tomorrow": 366.302,
-  "Cases_Forecast_Tomorrow_Factor": 1.009,
   "LK_ID": "05762"
  },
  "05766": {
@@ -3641,14 +2545,6 @@
   "Date": "2020-06-08",
   "Cases_Last_Week_Per_Million": 6.0,
   "Deaths_Last_Week_Per_Million": 0.0,
-  "fit_res_N0": 744.214,
-  "fit_res_T": 2405.446,
-  "fit_used_x_range": [
-   -6,
-   0
-  ],
-  "Cases_Forecast_Tomorrow": 744.429,
-  "Cases_Forecast_Tomorrow_Factor": 1.001,
   "LK_ID": "05766"
  },
  "05770": {
@@ -3662,14 +2558,6 @@
   "Date": "2020-06-08",
   "Cases_Last_Week_Per_Million": 13.0,
   "Deaths_Last_Week_Per_Million": 0.0,
-  "fit_res_N0": 489.964,
-  "fit_res_T": 451.306,
-  "fit_used_x_range": [
-   -6,
-   0
-  ],
-  "Cases_Forecast_Tomorrow": 490.717,
-  "Cases_Forecast_Tomorrow_Factor": 1.004,
   "LK_ID": "05770"
  },
  "05774": {
@@ -3683,14 +2571,6 @@
   "Date": "2020-06-08",
   "Cases_Last_Week_Per_Million": 55.0,
   "Deaths_Last_Week_Per_Million": 0.0,
-  "fit_res_N0": 664.303,
-  "fit_res_T": 228.046,
-  "fit_used_x_range": [
-   -6,
-   0
-  ],
-  "Cases_Forecast_Tomorrow": 666.326,
-  "Cases_Forecast_Tomorrow_Factor": 1.0,
   "LK_ID": "05774"
  },
  "05911": {
@@ -3704,14 +2584,6 @@
   "Date": "2020-06-08",
   "Cases_Last_Week_Per_Million": 93.0,
   "Deaths_Last_Week_Per_Million": 0.0,
-  "fit_res_N0": 573.616,
-  "fit_res_T": 58.857,
-  "fit_used_x_range": [
-   -6,
-   0
-  ],
-  "Cases_Forecast_Tomorrow": 580.411,
-  "Cases_Forecast_Tomorrow_Factor": 1.02,
   "LK_ID": "05911"
  },
  "05913": {
@@ -3725,14 +2597,6 @@
   "Date": "2020-06-08",
   "Cases_Last_Week_Per_Million": 78.0,
   "Deaths_Last_Week_Per_Million": 0.0,
-  "fit_res_N0": 787.239,
-  "fit_res_T": 77.153,
-  "fit_used_x_range": [
-   -6,
-   0
-  ],
-  "Cases_Forecast_Tomorrow": 794.344,
-  "Cases_Forecast_Tomorrow_Factor": 1.014,
   "LK_ID": "05913"
  },
  "05914": {
@@ -3759,14 +2623,6 @@
   "Date": "2020-06-08",
   "Cases_Last_Week_Per_Million": 17.0,
   "Deaths_Last_Week_Per_Million": 0.0,
-  "fit_res_N0": 474.965,
-  "fit_res_T": 707.277,
-  "fit_used_x_range": [
-   -6,
-   0
-  ],
-  "Cases_Forecast_Tomorrow": 475.431,
-  "Cases_Forecast_Tomorrow_Factor": 1.001,
   "LK_ID": "05915"
  },
  "05916": {
@@ -3780,14 +2636,6 @@
   "Date": "2020-06-08",
   "Cases_Last_Week_Per_Million": 45.0,
   "Deaths_Last_Week_Per_Million": 0.0,
-  "fit_res_N0": 204.686,
-  "fit_res_T": 118.615,
-  "fit_used_x_range": [
-   -6,
-   0
-  ],
-  "Cases_Forecast_Tomorrow": 205.886,
-  "Cases_Forecast_Tomorrow_Factor": 1.009,
   "LK_ID": "05916"
  },
  "05954": {
@@ -3801,14 +2649,6 @@
   "Date": "2020-06-08",
   "Cases_Last_Week_Per_Million": 46.0,
   "Deaths_Last_Week_Per_Million": 0.0,
-  "fit_res_N0": 449.296,
-  "fit_res_T": 196.258,
-  "fit_used_x_range": [
-   -6,
-   0
-  ],
-  "Cases_Forecast_Tomorrow": 450.885,
-  "Cases_Forecast_Tomorrow_Factor": 1.006,
   "LK_ID": "05954"
  },
  "05958": {
@@ -3822,14 +2662,6 @@
   "Date": "2020-06-08",
   "Cases_Last_Week_Per_Million": 4.0,
   "Deaths_Last_Week_Per_Million": 0.0,
-  "fit_res_N0": 609.464,
-  "fit_res_T": 3939.611,
-  "fit_used_x_range": [
-   -6,
-   0
-  ],
-  "Cases_Forecast_Tomorrow": 609.572,
-  "Cases_Forecast_Tomorrow_Factor": 0.999,
   "LK_ID": "05958"
  },
  "05962": {
@@ -3856,14 +2688,6 @@
   "Date": "2020-06-08",
   "Cases_Last_Week_Per_Million": 52.0,
   "Deaths_Last_Week_Per_Million": 7.0,
-  "fit_res_N0": 637.785,
-  "fit_res_T": 686.292,
-  "fit_used_x_range": [
-   -6,
-   0
-  ],
-  "Cases_Forecast_Tomorrow": 638.43,
-  "Cases_Forecast_Tomorrow_Factor": 1.002,
   "LK_ID": "05966"
  },
  "05970": {
@@ -3877,14 +2701,6 @@
   "Date": "2020-06-08",
   "Cases_Last_Week_Per_Million": 4.0,
   "Deaths_Last_Week_Per_Million": 0.0,
-  "fit_res_N0": 314.178,
-  "fit_res_T": 2031.617,
-  "fit_used_x_range": [
-   -6,
-   0
-  ],
-  "Cases_Forecast_Tomorrow": 314.286,
-  "Cases_Forecast_Tomorrow_Factor": 1.001,
   "LK_ID": "05970"
  },
  "05974": {
@@ -3898,14 +2714,6 @@
   "Date": "2020-06-08",
   "Cases_Last_Week_Per_Million": 7.0,
   "Deaths_Last_Week_Per_Million": 0.0,
-  "fit_res_N0": 364.465,
-  "fit_res_T": 2354.619,
-  "fit_used_x_range": [
-   -6,
-   0
-  ],
-  "Cases_Forecast_Tomorrow": 364.572,
-  "Cases_Forecast_Tomorrow_Factor": 0.999,
   "LK_ID": "05974"
  },
  "05978": {
@@ -3919,14 +2727,6 @@
   "Date": "2020-06-08",
   "Cases_Last_Week_Per_Million": 23.0,
   "Deaths_Last_Week_Per_Million": 0.0,
-  "fit_res_N0": 680.933,
-  "fit_res_T": 345.882,
-  "fit_used_x_range": [
-   -6,
-   0
-  ],
-  "Cases_Forecast_Tomorrow": 682.299,
-  "Cases_Forecast_Tomorrow_Factor": 1.003,
   "LK_ID": "05978"
  },
  "06411": {
@@ -3953,14 +2753,6 @@
   "Date": "2020-06-08",
   "Cases_Last_Week_Per_Million": 33.0,
   "Deaths_Last_Week_Per_Million": 0.0,
-  "fit_res_N0": 1653.699,
-  "fit_res_T": 254.864,
-  "fit_used_x_range": [
-   -6,
-   0
-  ],
-  "Cases_Forecast_Tomorrow": 1658.203,
-  "Cases_Forecast_Tomorrow_Factor": 1.005,
   "LK_ID": "06412"
  },
  "06413": {
@@ -3974,14 +2766,6 @@
   "Date": "2020-06-08",
   "Cases_Last_Week_Per_Million": 8.0,
   "Deaths_Last_Week_Per_Million": 0.0,
-  "fit_res_N0": 161.178,
-  "fit_res_T": 1041.8,
-  "fit_used_x_range": [
-   -6,
-   0
-  ],
-  "Cases_Forecast_Tomorrow": 161.286,
-  "Cases_Forecast_Tomorrow_Factor": 1.002,
   "LK_ID": "06413"
  },
  "06414": {
@@ -3995,14 +2779,6 @@
   "Date": "2020-06-08",
   "Cases_Last_Week_Per_Million": 18.0,
   "Deaths_Last_Week_Per_Million": 0.0,
-  "fit_res_N0": 448.396,
-  "fit_res_T": 412.292,
-  "fit_used_x_range": [
-   -6,
-   0
-  ],
-  "Cases_Forecast_Tomorrow": 449.151,
-  "Cases_Forecast_Tomorrow_Factor": 1.003,
   "LK_ID": "06414"
  },
  "06431": {
@@ -4016,14 +2792,6 @@
   "Date": "2020-06-08",
   "Cases_Last_Week_Per_Million": 11.0,
   "Deaths_Last_Week_Per_Million": 0.0,
-  "fit_res_N0": 355.108,
-  "fit_res_T": 763.309,
-  "fit_used_x_range": [
-   -6,
-   0
-  ],
-  "Cases_Forecast_Tomorrow": 355.431,
-  "Cases_Forecast_Tomorrow_Factor": 0.998,
   "LK_ID": "06431"
  },
  "06432": {
@@ -4037,14 +2805,6 @@
   "Date": "2020-06-08",
   "Cases_Last_Week_Per_Million": 20.0,
   "Deaths_Last_Week_Per_Million": 0.0,
-  "fit_res_N0": 425.644,
-  "fit_res_T": 457.093,
-  "fit_used_x_range": [
-   -6,
-   0
-  ],
-  "Cases_Forecast_Tomorrow": 426.29,
-  "Cases_Forecast_Tomorrow_Factor": 1.003,
   "LK_ID": "06432"
  },
  "06433": {
@@ -4058,14 +2818,6 @@
   "Date": "2020-06-08",
   "Cases_Last_Week_Per_Million": 25.0,
   "Deaths_Last_Week_Per_Million": 0.0,
-  "fit_res_N0": 531.501,
-  "fit_res_T": 395.041,
-  "fit_used_x_range": [
-   -6,
-   0
-  ],
-  "Cases_Forecast_Tomorrow": 532.435,
-  "Cases_Forecast_Tomorrow_Factor": 1.003,
   "LK_ID": "06433"
  },
  "06434": {
@@ -4079,14 +2831,6 @@
   "Date": "2020-06-08",
   "Cases_Last_Week_Per_Million": 21.0,
   "Deaths_Last_Week_Per_Million": 0.0,
-  "fit_res_N0": 285.893,
-  "fit_res_T": 502.658,
-  "fit_used_x_range": [
-   -6,
-   0
-  ],
-  "Cases_Forecast_Tomorrow": 286.288,
-  "Cases_Forecast_Tomorrow_Factor": 1.001,
   "LK_ID": "06434"
  },
  "06435": {
@@ -4100,14 +2844,6 @@
   "Date": "2020-06-08",
   "Cases_Last_Week_Per_Million": 14.0,
   "Deaths_Last_Week_Per_Million": 0.0,
-  "fit_res_N0": 764.68,
-  "fit_res_T": 591.921,
-  "fit_used_x_range": [
-   -6,
-   0
-  ],
-  "Cases_Forecast_Tomorrow": 765.576,
-  "Cases_Forecast_Tomorrow_Factor": 1.002,
   "LK_ID": "06435"
  },
  "06436": {
@@ -4134,14 +2870,6 @@
   "Date": "2020-06-08",
   "Cases_Last_Week_Per_Million": 10.0,
   "Deaths_Last_Week_Per_Million": 0.0,
-  "fit_res_N0": 407.179,
-  "fit_res_T": 2633.262,
-  "fit_used_x_range": [
-   -6,
-   0
-  ],
-  "Cases_Forecast_Tomorrow": 407.286,
-  "Cases_Forecast_Tomorrow_Factor": 1.001,
   "LK_ID": "06437"
  },
  "06438": {
@@ -4155,14 +2883,6 @@
   "Date": "2020-06-08",
   "Cases_Last_Week_Per_Million": 8.0,
   "Deaths_Last_Week_Per_Million": 0.0,
-  "fit_res_N0": 630.25,
-  "fit_res_T": 939.108,
-  "fit_used_x_range": [
-   -6,
-   0
-  ],
-  "Cases_Forecast_Tomorrow": 630.716,
-  "Cases_Forecast_Tomorrow_Factor": 1.001,
   "LK_ID": "06438"
  },
  "06439": {
@@ -4176,14 +2896,6 @@
   "Date": "2020-06-08",
   "Cases_Last_Week_Per_Million": 5.0,
   "Deaths_Last_Week_Per_Million": 0.0,
-  "fit_res_N0": 244.25,
-  "fit_res_T": 946.701,
-  "fit_used_x_range": [
-   -6,
-   0
-  ],
-  "Cases_Forecast_Tomorrow": 244.429,
-  "Cases_Forecast_Tomorrow_Factor": 1.002,
   "LK_ID": "06439"
  },
  "06440": {
@@ -4197,14 +2909,6 @@
   "Date": "2020-06-08",
   "Cases_Last_Week_Per_Million": 26.0,
   "Deaths_Last_Week_Per_Million": 0.0,
-  "fit_res_N0": 340.221,
-  "fit_res_T": 171.976,
-  "fit_used_x_range": [
-   -6,
-   0
-  ],
-  "Cases_Forecast_Tomorrow": 341.595,
-  "Cases_Forecast_Tomorrow_Factor": 1.008,
   "LK_ID": "06440"
  },
  "06531": {
@@ -4218,14 +2922,6 @@
   "Date": "2020-06-08",
   "Cases_Last_Week_Per_Million": 4.0,
   "Deaths_Last_Week_Per_Million": 0.0,
-  "fit_res_N0": 245.822,
-  "fit_res_T": 951.414,
-  "fit_used_x_range": [
-   -6,
-   0
-  ],
-  "Cases_Forecast_Tomorrow": 246.001,
-  "Cases_Forecast_Tomorrow_Factor": 1.0,
   "LK_ID": "06531"
  },
  "06532": {
@@ -4265,14 +2961,6 @@
   "Date": "2020-06-08",
   "Cases_Last_Week_Per_Million": 4.0,
   "Deaths_Last_Week_Per_Million": 0.0,
-  "fit_res_N0": 197.215,
-  "fit_res_T": 636.079,
-  "fit_used_x_range": [
-   -6,
-   0
-  ],
-  "Cases_Forecast_Tomorrow": 197.43,
-  "Cases_Forecast_Tomorrow_Factor": 1.002,
   "LK_ID": "06534"
  },
  "06535": {
@@ -4299,14 +2987,6 @@
   "Date": "2020-06-08",
   "Cases_Last_Week_Per_Million": 50.0,
   "Deaths_Last_Week_Per_Million": 0.0,
-  "fit_res_N0": 329.72,
-  "fit_res_T": 143.768,
-  "fit_used_x_range": [
-   -6,
-   0
-  ],
-  "Cases_Forecast_Tomorrow": 331.313,
-  "Cases_Forecast_Tomorrow_Factor": 1.01,
   "LK_ID": "06611"
  },
  "06631": {
@@ -4320,14 +3000,6 @@
   "Date": "2020-06-08",
   "Cases_Last_Week_Per_Million": 162.0,
   "Deaths_Last_Week_Per_Million": 0.0,
-  "fit_res_N0": 365.625,
-  "fit_res_T": 66.398,
-  "fit_used_x_range": [
-   -6,
-   0
-  ],
-  "Cases_Forecast_Tomorrow": 369.462,
-  "Cases_Forecast_Tomorrow_Factor": 1.009,
   "LK_ID": "06631"
  },
  "06632": {
@@ -4341,14 +3013,6 @@
   "Date": "2020-06-08",
   "Cases_Last_Week_Per_Million": 199.0,
   "Deaths_Last_Week_Per_Million": 0.0,
-  "fit_res_N0": 241.041,
-  "fit_res_T": 49.124,
-  "fit_used_x_range": [
-   -6,
-   0
-  ],
-  "Cases_Forecast_Tomorrow": 244.466,
-  "Cases_Forecast_Tomorrow_Factor": 0.994,
   "LK_ID": "06632"
  },
  "06633": {
@@ -4362,14 +3026,6 @@
   "Date": "2020-06-08",
   "Cases_Last_Week_Per_Million": 17.0,
   "Deaths_Last_Week_Per_Million": 0.0,
-  "fit_res_N0": 385.643,
-  "fit_res_T": 533.13,
-  "fit_used_x_range": [
-   -6,
-   0
-  ],
-  "Cases_Forecast_Tomorrow": 386.145,
-  "Cases_Forecast_Tomorrow_Factor": 1.003,
   "LK_ID": "06633"
  },
  "06634": {
@@ -4383,14 +3039,6 @@
   "Date": "2020-06-08",
   "Cases_Last_Week_Per_Million": 22.0,
   "Deaths_Last_Week_Per_Million": 0.0,
-  "fit_res_N0": 524.785,
-  "fit_res_T": 726.419,
-  "fit_used_x_range": [
-   -6,
-   0
-  ],
-  "Cases_Forecast_Tomorrow": 525.286,
-  "Cases_Forecast_Tomorrow_Factor": 1.002,
   "LK_ID": "06634"
  },
  "06635": {
@@ -4404,14 +3052,6 @@
   "Date": "2020-06-08",
   "Cases_Last_Week_Per_Million": 25.0,
   "Deaths_Last_Week_Per_Million": 0.0,
-  "fit_res_N0": 173.786,
-  "fit_res_T": 185.842,
-  "fit_used_x_range": [
-   -6,
-   0
-  ],
-  "Cases_Forecast_Tomorrow": 174.435,
-  "Cases_Forecast_Tomorrow_Factor": 1.008,
   "LK_ID": "06635"
  },
  "06636": {
@@ -4438,14 +3078,6 @@
   "Date": "2020-06-08",
   "Cases_Last_Week_Per_Million": 9.0,
   "Deaths_Last_Week_Per_Million": 0.0,
-  "fit_res_N0": 263.465,
-  "fit_res_T": 1701.215,
-  "fit_used_x_range": [
-   -6,
-   0
-  ],
-  "Cases_Forecast_Tomorrow": 263.572,
-  "Cases_Forecast_Tomorrow_Factor": 0.998,
   "LK_ID": "07111"
  },
  "07131": {
@@ -4459,14 +3091,6 @@
   "Date": "2020-06-08",
   "Cases_Last_Week_Per_Million": 39.0,
   "Deaths_Last_Week_Per_Million": 0.0,
-  "fit_res_N0": 193.722,
-  "fit_res_T": 154.691,
-  "fit_used_x_range": [
-   -6,
-   0
-  ],
-  "Cases_Forecast_Tomorrow": 194.592,
-  "Cases_Forecast_Tomorrow_Factor": 1.008,
   "LK_ID": "07131"
  },
  "07132": {
@@ -4493,14 +3117,6 @@
   "Date": "2020-06-08",
   "Cases_Last_Week_Per_Million": 13.0,
   "Deaths_Last_Week_Per_Million": 0.0,
-  "fit_res_N0": 198.357,
-  "fit_res_T": 640.699,
-  "fit_used_x_range": [
-   -6,
-   0
-  ],
-  "Cases_Forecast_Tomorrow": 198.571,
-  "Cases_Forecast_Tomorrow_Factor": 1.003,
   "LK_ID": "07133"
  },
  "07134": {
@@ -4527,14 +3143,6 @@
   "Date": "2020-06-08",
   "Cases_Last_Week_Per_Million": 32.0,
   "Deaths_Last_Week_Per_Million": 0.0,
-  "fit_res_N0": 131.356,
-  "fit_res_T": 423.974,
-  "fit_used_x_range": [
-   -6,
-   0
-  ],
-  "Cases_Forecast_Tomorrow": 131.571,
-  "Cases_Forecast_Tomorrow_Factor": 1.004,
   "LK_ID": "07135"
  },
  "07137": {
@@ -4574,14 +3182,6 @@
   "Date": "2020-06-08",
   "Cases_Last_Week_Per_Million": 49.0,
   "Deaths_Last_Week_Per_Million": 0.0,
-  "fit_res_N0": 169.889,
-  "fit_res_T": 218.895,
-  "fit_used_x_range": [
-   -6,
-   0
-  ],
-  "Cases_Forecast_Tomorrow": 170.427,
-  "Cases_Forecast_Tomorrow_Factor": 1.008,
   "LK_ID": "07140"
  },
  "07141": {
@@ -4608,14 +3208,6 @@
   "Date": "2020-06-08",
   "Cases_Last_Week_Per_Million": 10.0,
   "Deaths_Last_Week_Per_Million": 0.0,
-  "fit_res_N0": 361.428,
-  "fit_res_T": 875.618,
-  "fit_used_x_range": [
-   -6,
-   0
-  ],
-  "Cases_Forecast_Tomorrow": 361.715,
-  "Cases_Forecast_Tomorrow_Factor": 1.002,
   "LK_ID": "07143"
  },
  "07211": {
@@ -4642,14 +3234,6 @@
   "Date": "2020-06-08",
   "Cases_Last_Week_Per_Million": 36.0,
   "Deaths_Last_Week_Per_Million": 0.0,
-  "fit_res_N0": 166.4,
-  "fit_res_T": 151.802,
-  "fit_used_x_range": [
-   -6,
-   0
-  ],
-  "Cases_Forecast_Tomorrow": 167.161,
-  "Cases_Forecast_Tomorrow_Factor": 1.007,
   "LK_ID": "07231"
  },
  "07232": {
@@ -4715,14 +3299,6 @@
   "Date": "2020-06-08",
   "Cases_Last_Week_Per_Million": 140.0,
   "Deaths_Last_Week_Per_Million": 0.0,
-  "fit_res_N0": 187.077,
-  "fit_res_T": 44.223,
-  "fit_used_x_range": [
-   -6,
-   0
-  ],
-  "Cases_Forecast_Tomorrow": 190.033,
-  "Cases_Forecast_Tomorrow_Factor": 1.033,
   "LK_ID": "07312"
  },
  "07313": {
@@ -4749,14 +3325,6 @@
   "Date": "2020-06-08",
   "Cases_Last_Week_Per_Million": 41.0,
   "Deaths_Last_Week_Per_Million": 0.0,
-  "fit_res_N0": 321.893,
-  "fit_res_T": 327.349,
-  "fit_used_x_range": [
-   -6,
-   0
-  ],
-  "Cases_Forecast_Tomorrow": 322.575,
-  "Cases_Forecast_Tomorrow_Factor": 1.005,
   "LK_ID": "07314"
  },
  "07315": {
@@ -4770,14 +3338,6 @@
   "Date": "2020-06-08",
   "Cases_Last_Week_Per_Million": 83.0,
   "Deaths_Last_Week_Per_Million": 0.0,
-  "fit_res_N0": 657.105,
-  "fit_res_T": 141.817,
-  "fit_used_x_range": [
-   -6,
-   0
-  ],
-  "Cases_Forecast_Tomorrow": 660.325,
-  "Cases_Forecast_Tomorrow_Factor": 1.011,
   "LK_ID": "07315"
  },
  "07316": {
@@ -4817,14 +3377,6 @@
   "Date": "2020-06-08",
   "Cases_Last_Week_Per_Million": 20.0,
   "Deaths_Last_Week_Per_Million": 0.0,
-  "fit_res_N0": 87.178,
-  "fit_res_T": 563.066,
-  "fit_used_x_range": [
-   -6,
-   0
-  ],
-  "Cases_Forecast_Tomorrow": 87.286,
-  "Cases_Forecast_Tomorrow_Factor": 1.003,
   "LK_ID": "07318"
  },
  "07319": {
@@ -4864,14 +3416,6 @@
   "Date": "2020-06-08",
   "Cases_Last_Week_Per_Million": 15.0,
   "Deaths_Last_Week_Per_Million": 0.0,
-  "fit_res_N0": 268.43,
-  "fit_res_T": 432.294,
-  "fit_used_x_range": [
-   -6,
-   0
-  ],
-  "Cases_Forecast_Tomorrow": 268.86,
-  "Cases_Forecast_Tomorrow_Factor": 1.003,
   "LK_ID": "07331"
  },
  "07332": {
@@ -4885,14 +3429,6 @@
   "Date": "2020-06-08",
   "Cases_Last_Week_Per_Million": 15.0,
   "Deaths_Last_Week_Per_Million": 0.0,
-  "fit_res_N0": 326.5,
-  "fit_res_T": 632.289,
-  "fit_used_x_range": [
-   -6,
-   0
-  ],
-  "Cases_Forecast_Tomorrow": 326.858,
-  "Cases_Forecast_Tomorrow_Factor": 1.003,
   "LK_ID": "07332"
  },
  "07333": {
@@ -4906,14 +3442,6 @@
   "Date": "2020-06-08",
   "Cases_Last_Week_Per_Million": 27.0,
   "Deaths_Last_Week_Per_Million": 0.0,
-  "fit_res_N0": 136.716,
-  "fit_res_T": 329.592,
-  "fit_used_x_range": [
-   -6,
-   0
-  ],
-  "Cases_Forecast_Tomorrow": 137.004,
-  "Cases_Forecast_Tomorrow_Factor": 1.0,
   "LK_ID": "07333"
  },
  "07334": {
@@ -4940,14 +3468,6 @@
   "Date": "2020-06-08",
   "Cases_Last_Week_Per_Million": 19.0,
   "Deaths_Last_Week_Per_Million": 0.0,
-  "fit_res_N0": 104.431,
-  "fit_res_T": 167.052,
-  "fit_used_x_range": [
-   -6,
-   0
-  ],
-  "Cases_Forecast_Tomorrow": 104.865,
-  "Cases_Forecast_Tomorrow_Factor": 1.008,
   "LK_ID": "07335"
  },
  "07336": {
@@ -4987,14 +3507,6 @@
   "Date": "2020-06-08",
   "Cases_Last_Week_Per_Million": 32.0,
   "Deaths_Last_Week_Per_Million": 0.0,
-  "fit_res_N0": 242.036,
-  "fit_res_T": 202.732,
-  "fit_used_x_range": [
-   -6,
-   0
-  ],
-  "Cases_Forecast_Tomorrow": 242.865,
-  "Cases_Forecast_Tomorrow_Factor": 1.008,
   "LK_ID": "07338"
  },
  "07339": {
@@ -5008,14 +3520,6 @@
   "Date": "2020-06-08",
   "Cases_Last_Week_Per_Million": 9.0,
   "Deaths_Last_Week_Per_Million": 0.0,
-  "fit_res_N0": 430.464,
-  "fit_res_T": 757.862,
-  "fit_used_x_range": [
-   -6,
-   0
-  ],
-  "Cases_Forecast_Tomorrow": 430.858,
-  "Cases_Forecast_Tomorrow_Factor": 1.002,
   "LK_ID": "07339"
  },
  "07340": {
@@ -5042,14 +3546,6 @@
   "Date": "2020-06-08",
   "Cases_Last_Week_Per_Million": 25.0,
   "Deaths_Last_Week_Per_Million": 0.0,
-  "fit_res_N0": 1490.874,
-  "fit_res_T": 342.317,
-  "fit_used_x_range": [
-   -6,
-   0
-  ],
-  "Cases_Forecast_Tomorrow": 1493.896,
-  "Cases_Forecast_Tomorrow_Factor": 1.003,
   "LK_ID": "08111"
  },
  "08115": {
@@ -5063,14 +3559,6 @@
   "Date": "2020-06-08",
   "Cases_Last_Week_Per_Million": 23.0,
   "Deaths_Last_Week_Per_Million": 0.0,
-  "fit_res_N0": 1376.291,
-  "fit_res_T": 511.65,
-  "fit_used_x_range": [
-   -6,
-   0
-  ],
-  "Cases_Forecast_Tomorrow": 1378.157,
-  "Cases_Forecast_Tomorrow_Factor": 1.002,
   "LK_ID": "08115"
  },
  "08116": {
@@ -5084,14 +3572,6 @@
   "Date": "2020-06-08",
   "Cases_Last_Week_Per_Million": 43.0,
   "Deaths_Last_Week_Per_Million": 2.0,
-  "fit_res_N0": 1836.01,
-  "fit_res_T": 316.386,
-  "fit_used_x_range": [
-   -6,
-   0
-  ],
-  "Cases_Forecast_Tomorrow": 1840.037,
-  "Cases_Forecast_Tomorrow_Factor": 1.004,
   "LK_ID": "08116"
  },
  "08117": {
@@ -5105,14 +3585,6 @@
   "Date": "2020-06-08",
   "Cases_Last_Week_Per_Million": 4.0,
   "Deaths_Last_Week_Per_Million": 0.0,
-  "fit_res_N0": 778.072,
-  "fit_res_T": 2514.499,
-  "fit_used_x_range": [
-   -6,
-   0
-  ],
-  "Cases_Forecast_Tomorrow": 778.286,
-  "Cases_Forecast_Tomorrow_Factor": 1.0,
   "LK_ID": "08117"
  },
  "08118": {
@@ -5126,14 +3598,6 @@
   "Date": "2020-06-08",
   "Cases_Last_Week_Per_Million": 13.0,
   "Deaths_Last_Week_Per_Million": 0.0,
-  "fit_res_N0": 1771.715,
-  "fit_res_T": 1226.078,
-  "fit_used_x_range": [
-   -6,
-   0
-  ],
-  "Cases_Forecast_Tomorrow": 1772.717,
-  "Cases_Forecast_Tomorrow_Factor": 1.001,
   "LK_ID": "08118"
  },
  "08119": {
@@ -5147,14 +3611,6 @@
   "Date": "2020-06-08",
   "Cases_Last_Week_Per_Million": 31.0,
   "Deaths_Last_Week_Per_Million": 0.0,
-  "fit_res_N0": 1589.573,
-  "fit_res_T": 480.417,
-  "fit_used_x_range": [
-   -6,
-   0
-  ],
-  "Cases_Forecast_Tomorrow": 1591.868,
-  "Cases_Forecast_Tomorrow_Factor": 1.003,
   "LK_ID": "08119"
  },
  "08121": {
@@ -5168,14 +3624,6 @@
   "Date": "2020-06-08",
   "Cases_Last_Week_Per_Million": 48.0,
   "Deaths_Last_Week_Per_Million": 0.0,
-  "fit_res_N0": 440.144,
-  "fit_res_T": 303.5,
-  "fit_used_x_range": [
-   -6,
-   0
-  ],
-  "Cases_Forecast_Tomorrow": 441.15,
-  "Cases_Forecast_Tomorrow_Factor": 1.005,
   "LK_ID": "08121"
  },
  "08125": {
@@ -5189,14 +3637,6 @@
   "Date": "2020-06-08",
   "Cases_Last_Week_Per_Million": 12.0,
   "Deaths_Last_Week_Per_Million": 0.0,
-  "fit_res_N0": 944.607,
-  "fit_res_T": 1665.507,
-  "fit_used_x_range": [
-   -6,
-   0
-  ],
-  "Cases_Forecast_Tomorrow": 945.0,
-  "Cases_Forecast_Tomorrow_Factor": 1.001,
   "LK_ID": "08125"
  },
  "08126": {
@@ -5223,14 +3663,6 @@
   "Date": "2020-06-08",
   "Cases_Last_Week_Per_Million": 5.0,
   "Deaths_Last_Week_Per_Million": 0.0,
-  "fit_res_N0": 866.179,
-  "fit_res_T": 5602.712,
-  "fit_used_x_range": [
-   -6,
-   0
-  ],
-  "Cases_Forecast_Tomorrow": 866.286,
-  "Cases_Forecast_Tomorrow_Factor": 1.0,
   "LK_ID": "08127"
  },
  "08128": {
@@ -5257,14 +3689,6 @@
   "Date": "2020-06-08",
   "Cases_Last_Week_Per_Million": 23.0,
   "Deaths_Last_Week_Per_Million": 8.0,
-  "fit_res_N0": 511.535,
-  "fit_res_T": 1102.18,
-  "fit_used_x_range": [
-   -6,
-   0
-  ],
-  "Cases_Forecast_Tomorrow": 511.857,
-  "Cases_Forecast_Tomorrow_Factor": 1.002,
   "LK_ID": "08135"
  },
  "08136": {
@@ -5291,14 +3715,6 @@
   "Date": "2020-06-08",
   "Cases_Last_Week_Per_Million": 18.0,
   "Deaths_Last_Week_Per_Million": 0.0,
-  "fit_res_N0": 185.072,
-  "fit_res_T": 596.339,
-  "fit_used_x_range": [
-   -6,
-   0
-  ],
-  "Cases_Forecast_Tomorrow": 185.288,
-  "Cases_Forecast_Tomorrow_Factor": 1.002,
   "LK_ID": "08211"
  },
  "08212": {
@@ -5312,14 +3728,6 @@
   "Date": "2020-06-08",
   "Cases_Last_Week_Per_Million": 13.0,
   "Deaths_Last_Week_Per_Million": 0.0,
-  "fit_res_N0": 387.611,
-  "fit_res_T": 325.088,
-  "fit_used_x_range": [
-   -6,
-   0
-  ],
-  "Cases_Forecast_Tomorrow": 388.438,
-  "Cases_Forecast_Tomorrow_Factor": 1.004,
   "LK_ID": "08212"
  },
  "08215": {
@@ -5333,14 +3741,6 @@
   "Date": "2020-06-08",
   "Cases_Last_Week_Per_Million": 14.0,
   "Deaths_Last_Week_Per_Million": 0.0,
-  "fit_res_N0": 970.037,
-  "fit_res_T": 695.536,
-  "fit_used_x_range": [
-   -6,
-   0
-  ],
-  "Cases_Forecast_Tomorrow": 971.004,
-  "Cases_Forecast_Tomorrow_Factor": 1.002,
   "LK_ID": "08215"
  },
  "08216": {
@@ -5354,14 +3754,6 @@
   "Date": "2020-06-08",
   "Cases_Last_Week_Per_Million": 4.0,
   "Deaths_Last_Week_Per_Million": 0.0,
-  "fit_res_N0": 518.214,
-  "fit_res_T": 1674.41,
-  "fit_used_x_range": [
-   -6,
-   0
-  ],
-  "Cases_Forecast_Tomorrow": 518.429,
-  "Cases_Forecast_Tomorrow_Factor": 1.001,
   "LK_ID": "08216"
  },
  "08221": {
@@ -5375,14 +3767,6 @@
   "Date": "2020-06-08",
   "Cases_Last_Week_Per_Million": 6.0,
   "Deaths_Last_Week_Per_Million": 0.0,
-  "fit_res_N0": 300.215,
-  "fit_res_T": 969.25,
-  "fit_used_x_range": [
-   -6,
-   0
-  ],
-  "Cases_Forecast_Tomorrow": 300.429,
-  "Cases_Forecast_Tomorrow_Factor": 1.001,
   "LK_ID": "08221"
  },
  "08222": {
@@ -5396,14 +3780,6 @@
   "Date": "2020-06-08",
   "Cases_Last_Week_Per_Million": 13.0,
   "Deaths_Last_Week_Per_Million": 3.0,
-  "fit_res_N0": 488.822,
-  "fit_res_T": 450.117,
-  "fit_used_x_range": [
-   -6,
-   0
-  ],
-  "Cases_Forecast_Tomorrow": 489.575,
-  "Cases_Forecast_Tomorrow_Factor": 1.003,
   "LK_ID": "08222"
  },
  "08225": {
@@ -5417,14 +3793,6 @@
   "Date": "2020-06-08",
   "Cases_Last_Week_Per_Million": 14.0,
   "Deaths_Last_Week_Per_Million": 0.0,
-  "fit_res_N0": 441.393,
-  "fit_res_T": 950.305,
-  "fit_used_x_range": [
-   -6,
-   0
-  ],
-  "Cases_Forecast_Tomorrow": 441.715,
-  "Cases_Forecast_Tomorrow_Factor": 1.002,
   "LK_ID": "08225"
  },
  "08226": {
@@ -5438,14 +3806,6 @@
   "Date": "2020-06-08",
   "Cases_Last_Week_Per_Million": 7.0,
   "Deaths_Last_Week_Per_Million": 0.0,
-  "fit_res_N0": 955.679,
-  "fit_res_T": 881.387,
-  "fit_used_x_range": [
-   -6,
-   0
-  ],
-  "Cases_Forecast_Tomorrow": 956.431,
-  "Cases_Forecast_Tomorrow_Factor": 1.001,
   "LK_ID": "08226"
  },
  "08231": {
@@ -5459,14 +3819,6 @@
   "Date": "2020-06-08",
   "Cases_Last_Week_Per_Million": 32.0,
   "Deaths_Last_Week_Per_Million": 0.0,
-  "fit_res_N0": 401.111,
-  "fit_res_T": 368.524,
-  "fit_used_x_range": [
-   -6,
-   0
-  ],
-  "Cases_Forecast_Tomorrow": 401.866,
-  "Cases_Forecast_Tomorrow_Factor": 1.002,
   "LK_ID": "08231"
  },
  "08235": {
@@ -5480,14 +3832,6 @@
   "Date": "2020-06-08",
   "Cases_Last_Week_Per_Million": 32.0,
   "Deaths_Last_Week_Per_Million": 0.0,
-  "fit_res_N0": 754.465,
-  "fit_res_T": 635.013,
-  "fit_used_x_range": [
-   -6,
-   0
-  ],
-  "Cases_Forecast_Tomorrow": 755.289,
-  "Cases_Forecast_Tomorrow_Factor": 1.002,
   "LK_ID": "08235"
  },
  "08236": {
@@ -5501,14 +3845,6 @@
   "Date": "2020-06-08",
   "Cases_Last_Week_Per_Million": 15.0,
   "Deaths_Last_Week_Per_Million": 0.0,
-  "fit_res_N0": 656.75,
-  "fit_res_T": 848.366,
-  "fit_used_x_range": [
-   -6,
-   0
-  ],
-  "Cases_Forecast_Tomorrow": 657.287,
-  "Cases_Forecast_Tomorrow_Factor": 1.002,
   "LK_ID": "08236"
  },
  "08237": {
@@ -5522,14 +3858,6 @@
   "Date": "2020-06-08",
   "Cases_Last_Week_Per_Million": 8.0,
   "Deaths_Last_Week_Per_Million": 0.0,
-  "fit_res_N0": 569.822,
-  "fit_res_T": 2209.056,
-  "fit_used_x_range": [
-   -6,
-   0
-  ],
-  "Cases_Forecast_Tomorrow": 570.001,
-  "Cases_Forecast_Tomorrow_Factor": 1.0,
   "LK_ID": "08237"
  },
  "08311": {
@@ -5543,14 +3871,6 @@
   "Date": "2020-06-08",
   "Cases_Last_Week_Per_Million": 13.0,
   "Deaths_Last_Week_Per_Million": 0.0,
-  "fit_res_N0": 969.357,
-  "fit_res_T": 3134.655,
-  "fit_used_x_range": [
-   -6,
-   0
-  ],
-  "Cases_Forecast_Tomorrow": 969.571,
-  "Cases_Forecast_Tomorrow_Factor": 1.001,
   "LK_ID": "08311"
  },
  "08315": {
@@ -5564,14 +3884,6 @@
   "Date": "2020-06-08",
   "Cases_Last_Week_Per_Million": 4.0,
   "Deaths_Last_Week_Per_Million": 0.0,
-  "fit_res_N0": 1131.25,
-  "fit_res_T": 4389.69,
-  "fit_used_x_range": [
-   -6,
-   0
-  ],
-  "Cases_Forecast_Tomorrow": 1131.429,
-  "Cases_Forecast_Tomorrow_Factor": 1.0,
   "LK_ID": "08315"
  },
  "08316": {
@@ -5585,14 +3897,6 @@
   "Date": "2020-06-08",
   "Cases_Last_Week_Per_Million": 18.0,
   "Deaths_Last_Week_Per_Million": 0.0,
-  "fit_res_N0": 524.572,
-  "fit_res_T": 634.577,
-  "fit_used_x_range": [
-   -6,
-   0
-  ],
-  "Cases_Forecast_Tomorrow": 525.145,
-  "Cases_Forecast_Tomorrow_Factor": 1.002,
   "LK_ID": "08316"
  },
  "08317": {
@@ -5606,14 +3910,6 @@
   "Date": "2020-06-08",
   "Cases_Last_Week_Per_Million": 2.0,
   "Deaths_Last_Week_Per_Million": 0.0,
-  "fit_res_N0": 1206.464,
-  "fit_res_T": 7801.798,
-  "fit_used_x_range": [
-   -6,
-   0
-  ],
-  "Cases_Forecast_Tomorrow": 1206.572,
-  "Cases_Forecast_Tomorrow_Factor": 1.0,
   "LK_ID": "08317"
  },
  "08325": {
@@ -5627,14 +3923,6 @@
   "Date": "2020-06-08",
   "Cases_Last_Week_Per_Million": 7.0,
   "Deaths_Last_Week_Per_Million": 0.0,
-  "fit_res_N0": 674.179,
-  "fit_res_T": 4360.6,
-  "fit_used_x_range": [
-   -6,
-   0
-  ],
-  "Cases_Forecast_Tomorrow": 674.286,
-  "Cases_Forecast_Tomorrow_Factor": 1.0,
   "LK_ID": "08325"
  },
  "08326": {
@@ -5648,14 +3936,6 @@
   "Date": "2020-06-08",
   "Cases_Last_Week_Per_Million": 42.0,
   "Deaths_Last_Week_Per_Million": 5.0,
-  "fit_res_N0": 564.035,
-  "fit_res_T": 404.002,
-  "fit_used_x_range": [
-   -6,
-   0
-  ],
-  "Cases_Forecast_Tomorrow": 565.004,
-  "Cases_Forecast_Tomorrow_Factor": 1.004,
   "LK_ID": "08326"
  },
  "08327": {
@@ -5669,14 +3949,6 @@
   "Date": "2020-06-08",
   "Cases_Last_Week_Per_Million": 14.0,
   "Deaths_Last_Week_Per_Million": 0.0,
-  "fit_res_N0": 504.5,
-  "fit_res_T": 977.754,
-  "fit_used_x_range": [
-   -6,
-   0
-  ],
-  "Cases_Forecast_Tomorrow": 504.858,
-  "Cases_Forecast_Tomorrow_Factor": 1.002,
   "LK_ID": "08327"
  },
  "08335": {
@@ -5690,14 +3962,6 @@
   "Date": "2020-06-08",
   "Cases_Last_Week_Per_Million": 4.0,
   "Deaths_Last_Week_Per_Million": 0.0,
-  "fit_res_N0": 467.179,
-  "fit_res_T": 3021.431,
-  "fit_used_x_range": [
-   -6,
-   0
-  ],
-  "Cases_Forecast_Tomorrow": 467.286,
-  "Cases_Forecast_Tomorrow_Factor": 1.001,
   "LK_ID": "08335"
  },
  "08336": {
@@ -5711,14 +3975,6 @@
   "Date": "2020-06-08",
   "Cases_Last_Week_Per_Million": 4.0,
   "Deaths_Last_Week_Per_Million": 0.0,
-  "fit_res_N0": 666.822,
-  "fit_res_T": 2585.577,
-  "fit_used_x_range": [
-   -6,
-   0
-  ],
-  "Cases_Forecast_Tomorrow": 667.0,
-  "Cases_Forecast_Tomorrow_Factor": 1.0,
   "LK_ID": "08336"
  },
  "08337": {
@@ -5758,14 +4014,6 @@
   "Date": "2020-06-08",
   "Cases_Last_Week_Per_Million": 4.0,
   "Deaths_Last_Week_Per_Million": 0.0,
-  "fit_res_N0": 1289.072,
-  "fit_res_T": 4167.405,
-  "fit_used_x_range": [
-   -6,
-   0
-  ],
-  "Cases_Forecast_Tomorrow": 1289.286,
-  "Cases_Forecast_Tomorrow_Factor": 1.0,
   "LK_ID": "08416"
  },
  "08417": {
@@ -5779,14 +4027,6 @@
   "Date": "2020-06-08",
   "Cases_Last_Week_Per_Million": 53.0,
   "Deaths_Last_Week_Per_Million": 0.0,
-  "fit_res_N0": 1208.252,
-  "fit_res_T": 570.19,
-  "fit_used_x_range": [
-   -6,
-   0
-  ],
-  "Cases_Forecast_Tomorrow": 1209.722,
-  "Cases_Forecast_Tomorrow_Factor": 1.002,
   "LK_ID": "08417"
  },
  "08421": {
@@ -5800,14 +4040,6 @@
   "Date": "2020-06-08",
   "Cases_Last_Week_Per_Million": 24.0,
   "Deaths_Last_Week_Per_Million": 0.0,
-  "fit_res_N0": 288.5,
-  "fit_res_T": 558.538,
-  "fit_used_x_range": [
-   -6,
-   0
-  ],
-  "Cases_Forecast_Tomorrow": 288.858,
-  "Cases_Forecast_Tomorrow_Factor": 1.003,
   "LK_ID": "08421"
  },
  "08425": {
@@ -5821,14 +4053,6 @@
   "Date": "2020-06-08",
   "Cases_Last_Week_Per_Million": 15.0,
   "Deaths_Last_Week_Per_Million": 0.0,
-  "fit_res_N0": 643.464,
-  "fit_res_T": 1133.674,
-  "fit_used_x_range": [
-   -6,
-   0
-  ],
-  "Cases_Forecast_Tomorrow": 643.858,
-  "Cases_Forecast_Tomorrow_Factor": 1.001,
   "LK_ID": "08425"
  },
  "08426": {
@@ -5842,14 +4066,6 @@
   "Date": "2020-06-08",
   "Cases_Last_Week_Per_Million": 5.0,
   "Deaths_Last_Week_Per_Million": 0.0,
-  "fit_res_N0": 600.25,
-  "fit_res_T": 2328.556,
-  "fit_used_x_range": [
-   -6,
-   0
-  ],
-  "Cases_Forecast_Tomorrow": 600.429,
-  "Cases_Forecast_Tomorrow_Factor": 1.001,
   "LK_ID": "08426"
  },
  "08435": {
@@ -5863,14 +4079,6 @@
   "Date": "2020-06-08",
   "Cases_Last_Week_Per_Million": 5.0,
   "Deaths_Last_Week_Per_Million": 0.0,
-  "fit_res_N0": 290.822,
-  "fit_res_T": 1126.087,
-  "fit_used_x_range": [
-   -6,
-   0
-  ],
-  "Cases_Forecast_Tomorrow": 291.001,
-  "Cases_Forecast_Tomorrow_Factor": 1.0,
   "LK_ID": "08435"
  },
  "08436": {
@@ -5910,14 +4118,6 @@
   "Date": "2020-06-08",
   "Cases_Last_Week_Per_Million": 22.0,
   "Deaths_Last_Week_Per_Million": 0.0,
-  "fit_res_N0": 467.357,
-  "fit_res_T": 1510.83,
-  "fit_used_x_range": [
-   -6,
-   0
-  ],
-  "Cases_Forecast_Tomorrow": 467.571,
-  "Cases_Forecast_Tomorrow_Factor": 1.001,
   "LK_ID": "09161"
  },
  "09162": {
@@ -5931,14 +4131,6 @@
   "Date": "2020-06-08",
   "Cases_Last_Week_Per_Million": 37.0,
   "Deaths_Last_Week_Per_Million": 1.0,
-  "fit_res_N0": 6556.59,
-  "fit_res_T": 519.64,
-  "fit_used_x_range": [
-   -6,
-   0
-  ],
-  "Cases_Forecast_Tomorrow": 6565.342,
-  "Cases_Forecast_Tomorrow_Factor": 1.002,
   "LK_ID": "09162"
  },
  "09163": {
@@ -5952,14 +4144,6 @@
   "Date": "2020-06-08",
   "Cases_Last_Week_Per_Million": 16.0,
   "Deaths_Last_Week_Per_Million": 0.0,
-  "fit_res_N0": 510.822,
-  "fit_res_T": 1980.042,
-  "fit_used_x_range": [
-   -6,
-   0
-  ],
-  "Cases_Forecast_Tomorrow": 511.001,
-  "Cases_Forecast_Tomorrow_Factor": 1.0,
   "LK_ID": "09163"
  },
  "09171": {
@@ -6025,14 +4209,6 @@
   "Date": "2020-06-08",
   "Cases_Last_Week_Per_Million": 42.0,
   "Deaths_Last_Week_Per_Million": 0.0,
-  "fit_res_N0": 516.18,
-  "fit_res_T": 525.443,
-  "fit_used_x_range": [
-   -6,
-   0
-  ],
-  "Cases_Forecast_Tomorrow": 516.861,
-  "Cases_Forecast_Tomorrow_Factor": 1.002,
   "LK_ID": "09175"
  },
  "09176": {
@@ -6046,14 +4222,6 @@
   "Date": "2020-06-08",
   "Cases_Last_Week_Per_Million": 15.0,
   "Deaths_Last_Week_Per_Million": 0.0,
-  "fit_res_N0": 292.43,
-  "fit_res_T": 471.11,
-  "fit_used_x_range": [
-   -6,
-   0
-  ],
-  "Cases_Forecast_Tomorrow": 292.86,
-  "Cases_Forecast_Tomorrow_Factor": 1.003,
   "LK_ID": "09176"
  },
  "09177": {
@@ -6067,14 +4235,6 @@
   "Date": "2020-06-08",
   "Cases_Last_Week_Per_Million": 7.0,
   "Deaths_Last_Week_Per_Million": 0.0,
-  "fit_res_N0": 612.25,
-  "fit_res_T": 2375.147,
-  "fit_used_x_range": [
-   -6,
-   0
-  ],
-  "Cases_Forecast_Tomorrow": 612.429,
-  "Cases_Forecast_Tomorrow_Factor": 1.001,
   "LK_ID": "09177"
  },
  "09178": {
@@ -6088,14 +4248,6 @@
   "Date": "2020-06-08",
   "Cases_Last_Week_Per_Million": 11.0,
   "Deaths_Last_Week_Per_Million": 0.0,
-  "fit_res_N0": 956.643,
-  "fit_res_T": 3092.361,
-  "fit_used_x_range": [
-   -6,
-   0
-  ],
-  "Cases_Forecast_Tomorrow": 956.857,
-  "Cases_Forecast_Tomorrow_Factor": 1.0,
   "LK_ID": "09178"
  },
  "09179": {
@@ -6109,14 +4261,6 @@
   "Date": "2020-06-08",
   "Cases_Last_Week_Per_Million": 14.0,
   "Deaths_Last_Week_Per_Million": 0.0,
-  "fit_res_N0": 899.678,
-  "fit_res_T": 1341.88,
-  "fit_used_x_range": [
-   -6,
-   0
-  ],
-  "Cases_Forecast_Tomorrow": 900.143,
-  "Cases_Forecast_Tomorrow_Factor": 1.001,
   "LK_ID": "09179"
  },
  "09180": {
@@ -6130,14 +4274,6 @@
   "Date": "2020-06-08",
   "Cases_Last_Week_Per_Million": 11.0,
   "Deaths_Last_Week_Per_Million": 0.0,
-  "fit_res_N0": 287.822,
-  "fit_res_T": 1114.443,
-  "fit_used_x_range": [
-   -6,
-   0
-  ],
-  "Cases_Forecast_Tomorrow": 288.001,
-  "Cases_Forecast_Tomorrow_Factor": 1.0,
   "LK_ID": "09180"
  },
  "09181": {
@@ -6164,14 +4300,6 @@
   "Date": "2020-06-08",
   "Cases_Last_Week_Per_Million": 60.0,
   "Deaths_Last_Week_Per_Million": 0.0,
-  "fit_res_N0": 587.249,
-  "fit_res_T": 454.566,
-  "fit_used_x_range": [
-   -6,
-   0
-  ],
-  "Cases_Forecast_Tomorrow": 588.145,
-  "Cases_Forecast_Tomorrow_Factor": 1.004,
   "LK_ID": "09182"
  },
  "09183": {
@@ -6185,14 +4313,6 @@
   "Date": "2020-06-08",
   "Cases_Last_Week_Per_Million": 9.0,
   "Deaths_Last_Week_Per_Million": 0.0,
-  "fit_res_N0": 497.464,
-  "fit_res_T": 3215.049,
-  "fit_used_x_range": [
-   -6,
-   0
-  ],
-  "Cases_Forecast_Tomorrow": 497.572,
-  "Cases_Forecast_Tomorrow_Factor": 0.999,
   "LK_ID": "09183"
  },
  "09184": {
@@ -6206,14 +4326,6 @@
   "Date": "2020-06-08",
   "Cases_Last_Week_Per_Million": 17.0,
   "Deaths_Last_Week_Per_Million": 3.0,
-  "fit_res_N0": 1396.821,
-  "fit_res_T": 3010.495,
-  "fit_used_x_range": [
-   -6,
-   0
-  ],
-  "Cases_Forecast_Tomorrow": 1397.143,
-  "Cases_Forecast_Tomorrow_Factor": 1.0,
   "LK_ID": "09184"
  },
  "09185": {
@@ -6227,14 +4339,6 @@
   "Date": "2020-06-08",
   "Cases_Last_Week_Per_Million": 41.0,
   "Deaths_Last_Week_Per_Million": 0.0,
-  "fit_res_N0": 331.786,
-  "fit_res_T": 356.202,
-  "fit_used_x_range": [
-   -6,
-   0
-  ],
-  "Cases_Forecast_Tomorrow": 332.432,
-  "Cases_Forecast_Tomorrow_Factor": 1.004,
   "LK_ID": "09185"
  },
  "09186": {
@@ -6248,14 +4352,6 @@
   "Date": "2020-06-08",
   "Cases_Last_Week_Per_Million": 8.0,
   "Deaths_Last_Week_Per_Million": 0.0,
-  "fit_res_N0": 374.072,
-  "fit_res_T": 1207.695,
-  "fit_used_x_range": [
-   -6,
-   0
-  ],
-  "Cases_Forecast_Tomorrow": 374.287,
-  "Cases_Forecast_Tomorrow_Factor": 1.001,
   "LK_ID": "09186"
  },
  "09187": {
@@ -6269,14 +4365,6 @@
   "Date": "2020-06-08",
   "Cases_Last_Week_Per_Million": 34.0,
   "Deaths_Last_Week_Per_Million": 0.0,
-  "fit_res_N0": 2281.251,
-  "fit_res_T": 1078.216,
-  "fit_used_x_range": [
-   -6,
-   0
-  ],
-  "Cases_Forecast_Tomorrow": 2282.718,
-  "Cases_Forecast_Tomorrow_Factor": 1.001,
   "LK_ID": "09187"
  },
  "09188": {
@@ -6290,14 +4378,6 @@
   "Date": "2020-06-08",
   "Cases_Last_Week_Per_Million": 37.0,
   "Deaths_Last_Week_Per_Million": 0.0,
-  "fit_res_N0": 539.821,
-  "fit_res_T": 614.903,
-  "fit_used_x_range": [
-   -6,
-   0
-  ],
-  "Cases_Forecast_Tomorrow": 540.43,
-  "Cases_Forecast_Tomorrow_Factor": 1.003,
   "LK_ID": "09188"
  },
  "09189": {
@@ -6311,14 +4391,6 @@
   "Date": "2020-06-08",
   "Cases_Last_Week_Per_Million": 28.0,
   "Deaths_Last_Week_Per_Million": 0.0,
-  "fit_res_N0": 1317.001,
-  "fit_res_T": 1275.945,
-  "fit_used_x_range": [
-   -6,
-   0
-  ],
-  "Cases_Forecast_Tomorrow": 1317.717,
-  "Cases_Forecast_Tomorrow_Factor": 1.001,
   "LK_ID": "09189"
  },
  "09190": {
@@ -6345,14 +4417,6 @@
   "Date": "2020-06-08",
   "Cases_Last_Week_Per_Million": 28.0,
   "Deaths_Last_Week_Per_Million": 0.0,
-  "fit_res_N0": 282.357,
-  "fit_res_T": 912.413,
-  "fit_used_x_range": [
-   -6,
-   0
-  ],
-  "Cases_Forecast_Tomorrow": 282.571,
-  "Cases_Forecast_Tomorrow_Factor": 1.002,
   "LK_ID": "09261"
  },
  "09262": {
@@ -6379,14 +4443,6 @@
   "Date": "2020-06-08",
   "Cases_Last_Week_Per_Million": 21.0,
   "Deaths_Last_Week_Per_Million": 0.0,
-  "fit_res_N0": 427.214,
-  "fit_res_T": 1380.055,
-  "fit_used_x_range": [
-   -6,
-   0
-  ],
-  "Cases_Forecast_Tomorrow": 427.429,
-  "Cases_Forecast_Tomorrow_Factor": 1.001,
   "LK_ID": "09263"
  },
  "09271": {
@@ -6400,14 +4456,6 @@
   "Date": "2020-06-08",
   "Cases_Last_Week_Per_Million": 34.0,
   "Deaths_Last_Week_Per_Million": 0.0,
-  "fit_res_N0": 326.072,
-  "fit_res_T": 450.447,
-  "fit_used_x_range": [
-   -6,
-   0
-  ],
-  "Cases_Forecast_Tomorrow": 326.574,
-  "Cases_Forecast_Tomorrow_Factor": 1.002,
   "LK_ID": "09271"
  },
  "09272": {
@@ -6447,14 +4495,6 @@
   "Date": "2020-06-08",
   "Cases_Last_Week_Per_Million": 6.0,
   "Deaths_Last_Week_Per_Million": 0.0,
-  "fit_res_N0": 668.179,
-  "fit_res_T": 4321.745,
-  "fit_used_x_range": [
-   -6,
-   0
-  ],
-  "Cases_Forecast_Tomorrow": 668.286,
-  "Cases_Forecast_Tomorrow_Factor": 1.0,
   "LK_ID": "09274"
  },
  "09275": {
@@ -6468,14 +4508,6 @@
   "Date": "2020-06-08",
   "Cases_Last_Week_Per_Million": 21.0,
   "Deaths_Last_Week_Per_Million": 0.0,
-  "fit_res_N0": 577.893,
-  "fit_res_T": 588.847,
-  "fit_used_x_range": [
-   -6,
-   0
-  ],
-  "Cases_Forecast_Tomorrow": 578.573,
-  "Cases_Forecast_Tomorrow_Factor": 1.003,
   "LK_ID": "09275"
  },
  "09276": {
@@ -6515,14 +4547,6 @@
   "Date": "2020-06-08",
   "Cases_Last_Week_Per_Million": 30.0,
   "Deaths_Last_Week_Per_Million": 0.0,
-  "fit_res_N0": 551.357,
-  "fit_res_T": 1782.541,
-  "fit_used_x_range": [
-   -6,
-   0
-  ],
-  "Cases_Forecast_Tomorrow": 551.571,
-  "Cases_Forecast_Tomorrow_Factor": 1.001,
   "LK_ID": "09278"
  },
  "09279": {
@@ -6536,14 +4560,6 @@
   "Date": "2020-06-08",
   "Cases_Last_Week_Per_Million": 42.0,
   "Deaths_Last_Week_Per_Million": 0.0,
-  "fit_res_N0": 215.971,
-  "fit_res_T": 244.112,
-  "fit_used_x_range": [
-   -6,
-   0
-  ],
-  "Cases_Forecast_Tomorrow": 216.585,
-  "Cases_Forecast_Tomorrow_Factor": 1.003,
   "LK_ID": "09279"
  },
  "09361": {
@@ -6557,14 +4573,6 @@
   "Date": "2020-06-08",
   "Cases_Last_Week_Per_Million": 48.0,
   "Deaths_Last_Week_Per_Million": 0.0,
-  "fit_res_N0": 86.324,
-  "fit_res_T": 150.416,
-  "fit_used_x_range": [
-   -6,
-   0
-  ],
-  "Cases_Forecast_Tomorrow": 86.723,
-  "Cases_Forecast_Tomorrow_Factor": 1.008,
   "LK_ID": "09361"
  },
  "09362": {
@@ -6578,14 +4586,6 @@
   "Date": "2020-06-08",
   "Cases_Last_Week_Per_Million": 131.0,
   "Deaths_Last_Week_Per_Million": 0.0,
-  "fit_res_N0": 658.461,
-  "fit_res_T": 143.217,
-  "fit_used_x_range": [
-   -6,
-   0
-  ],
-  "Cases_Forecast_Tomorrow": 661.656,
-  "Cases_Forecast_Tomorrow_Factor": 1.007,
   "LK_ID": "09362"
  },
  "09363": {
@@ -6599,14 +4599,6 @@
   "Date": "2020-06-08",
   "Cases_Last_Week_Per_Million": 118.0,
   "Deaths_Last_Week_Per_Million": 0.0,
-  "fit_res_N0": 328.613,
-  "fit_res_T": 234.26,
-  "fit_used_x_range": [
-   -6,
-   0
-  ],
-  "Cases_Forecast_Tomorrow": 329.586,
-  "Cases_Forecast_Tomorrow_Factor": 1.005,
   "LK_ID": "09363"
  },
  "09371": {
@@ -6659,14 +4651,6 @@
   "Date": "2020-06-08",
   "Cases_Last_Week_Per_Million": 21.0,
   "Deaths_Last_Week_Per_Million": 0.0,
-  "fit_res_N0": 820.0,
-  "fit_res_T": 1987.253,
-  "fit_used_x_range": [
-   -6,
-   0
-  ],
-  "Cases_Forecast_Tomorrow": 820.286,
-  "Cases_Forecast_Tomorrow_Factor": 1.0,
   "LK_ID": "09374"
  },
  "09375": {
@@ -6680,14 +4664,6 @@
   "Date": "2020-06-08",
   "Cases_Last_Week_Per_Million": 67.0,
   "Deaths_Last_Week_Per_Million": 0.0,
-  "fit_res_N0": 502.581,
-  "fit_res_T": 201.332,
-  "fit_used_x_range": [
-   -6,
-   0
-  ],
-  "Cases_Forecast_Tomorrow": 504.314,
-  "Cases_Forecast_Tomorrow_Factor": 1.005,
   "LK_ID": "09375"
  },
  "09376": {
@@ -6701,14 +4677,6 @@
   "Date": "2020-06-08",
   "Cases_Last_Week_Per_Million": 14.0,
   "Deaths_Last_Week_Per_Million": 0.0,
-  "fit_res_N0": 506.5,
-  "fit_res_T": 981.635,
-  "fit_used_x_range": [
-   -6,
-   0
-  ],
-  "Cases_Forecast_Tomorrow": 506.858,
-  "Cases_Forecast_Tomorrow_Factor": 1.002,
   "LK_ID": "09376"
  },
  "09377": {
@@ -6722,14 +4690,6 @@
   "Date": "2020-06-08",
   "Cases_Last_Week_Per_Million": 14.0,
   "Deaths_Last_Week_Per_Million": 0.0,
-  "fit_res_N0": 1138.25,
-  "fit_res_T": 4416.856,
-  "fit_used_x_range": [
-   -6,
-   0
-  ],
-  "Cases_Forecast_Tomorrow": 1138.429,
-  "Cases_Forecast_Tomorrow_Factor": 1.0,
   "LK_ID": "09377"
  },
  "09461": {
@@ -6756,14 +4716,6 @@
   "Date": "2020-06-08",
   "Cases_Last_Week_Per_Million": 13.0,
   "Deaths_Last_Week_Per_Million": 0.0,
-  "fit_res_N0": 210.215,
-  "fit_res_T": 678.13,
-  "fit_used_x_range": [
-   -6,
-   0
-  ],
-  "Cases_Forecast_Tomorrow": 210.43,
-  "Cases_Forecast_Tomorrow_Factor": 1.002,
   "LK_ID": "09462"
  },
  "09463": {
@@ -6777,14 +4729,6 @@
   "Date": "2020-06-08",
   "Cases_Last_Week_Per_Million": 145.0,
   "Deaths_Last_Week_Per_Million": 0.0,
-  "fit_res_N0": 99.076,
-  "fit_res_T": 59.773,
-  "fit_used_x_range": [
-   -6,
-   0
-  ],
-  "Cases_Forecast_Tomorrow": 100.232,
-  "Cases_Forecast_Tomorrow_Factor": 1.012,
   "LK_ID": "09463"
  },
  "09464": {
@@ -6811,14 +4755,6 @@
   "Date": "2020-06-08",
   "Cases_Last_Week_Per_Million": 20.0,
   "Deaths_Last_Week_Per_Million": 0.0,
-  "fit_res_N0": 420.429,
-  "fit_res_T": 678.36,
-  "fit_used_x_range": [
-   -6,
-   0
-  ],
-  "Cases_Forecast_Tomorrow": 420.859,
-  "Cases_Forecast_Tomorrow_Factor": 1.002,
   "LK_ID": "09471"
  },
  "09472": {
@@ -6845,14 +4781,6 @@
   "Date": "2020-06-08",
   "Cases_Last_Week_Per_Million": 288.0,
   "Deaths_Last_Week_Per_Million": 12.0,
-  "fit_res_N0": 363.57,
-  "fit_res_T": 56.648,
-  "fit_used_x_range": [
-   -6,
-   0
-  ],
-  "Cases_Forecast_Tomorrow": 368.046,
-  "Cases_Forecast_Tomorrow_Factor": 1.014,
   "LK_ID": "09473"
  },
  "09474": {
@@ -6892,14 +4820,6 @@
   "Date": "2020-06-08",
   "Cases_Last_Week_Per_Million": 15.0,
   "Deaths_Last_Week_Per_Million": 0.0,
-  "fit_res_N0": 157.178,
-  "fit_res_T": 1015.922,
-  "fit_used_x_range": [
-   -6,
-   0
-  ],
-  "Cases_Forecast_Tomorrow": 157.286,
-  "Cases_Forecast_Tomorrow_Factor": 1.002,
   "LK_ID": "09476"
  },
  "09477": {
@@ -6926,14 +4846,6 @@
   "Date": "2020-06-08",
   "Cases_Last_Week_Per_Million": 165.0,
   "Deaths_Last_Week_Per_Million": 0.0,
-  "fit_res_N0": 293.153,
-  "fit_res_T": 99.916,
-  "fit_used_x_range": [
-   -6,
-   0
-  ],
-  "Cases_Forecast_Tomorrow": 295.194,
-  "Cases_Forecast_Tomorrow_Factor": 1.014,
   "LK_ID": "09478"
  },
  "09479": {
@@ -6947,14 +4859,6 @@
   "Date": "2020-06-08",
   "Cases_Last_Week_Per_Million": 27.0,
   "Deaths_Last_Week_Per_Million": 0.0,
-  "fit_res_N0": 653.036,
-  "fit_res_T": 1149.933,
-  "fit_used_x_range": [
-   -6,
-   0
-  ],
-  "Cases_Forecast_Tomorrow": 653.43,
-  "Cases_Forecast_Tomorrow_Factor": 1.001,
   "LK_ID": "09479"
  },
  "09561": {
@@ -6968,14 +4872,6 @@
   "Date": "2020-06-08",
   "Cases_Last_Week_Per_Million": 96.0,
   "Deaths_Last_Week_Per_Million": 0.0,
-  "fit_res_N0": 142.998,
-  "fit_res_T": 137.384,
-  "fit_used_x_range": [
-   -6,
-   0
-  ],
-  "Cases_Forecast_Tomorrow": 143.721,
-  "Cases_Forecast_Tomorrow_Factor": 1.012,
   "LK_ID": "09561"
  },
  "09562": {
@@ -7002,14 +4898,6 @@
   "Date": "2020-06-08",
   "Cases_Last_Week_Per_Million": 47.0,
   "Deaths_Last_Week_Per_Million": 0.0,
-  "fit_res_N0": 398.575,
-  "fit_res_T": 274.438,
-  "fit_used_x_range": [
-   -6,
-   0
-  ],
-  "Cases_Forecast_Tomorrow": 399.583,
-  "Cases_Forecast_Tomorrow_Factor": 1.004,
   "LK_ID": "09563"
  },
  "09564": {
@@ -7023,14 +4911,6 @@
   "Date": "2020-06-08",
   "Cases_Last_Week_Per_Million": 33.0,
   "Deaths_Last_Week_Per_Million": 0.0,
-  "fit_res_N0": 1069.543,
-  "fit_res_T": 459.095,
-  "fit_used_x_range": [
-   -6,
-   0
-  ],
-  "Cases_Forecast_Tomorrow": 1071.159,
-  "Cases_Forecast_Tomorrow_Factor": 1.0,
   "LK_ID": "09564"
  },
  "09565": {
@@ -7057,14 +4937,6 @@
   "Date": "2020-06-08",
   "Cases_Last_Week_Per_Million": 11.0,
   "Deaths_Last_Week_Per_Million": 0.0,
-  "fit_res_N0": 606.428,
-  "fit_res_T": 1469.995,
-  "fit_used_x_range": [
-   -6,
-   0
-  ],
-  "Cases_Forecast_Tomorrow": 606.714,
-  "Cases_Forecast_Tomorrow_Factor": 1.001,
   "LK_ID": "09571"
  },
  "09572": {
@@ -7078,14 +4950,6 @@
   "Date": "2020-06-08",
   "Cases_Last_Week_Per_Million": 7.0,
   "Deaths_Last_Week_Per_Million": 0.0,
-  "fit_res_N0": 246.178,
-  "fit_res_T": 1591.698,
-  "fit_used_x_range": [
-   -6,
-   0
-  ],
-  "Cases_Forecast_Tomorrow": 246.286,
-  "Cases_Forecast_Tomorrow_Factor": 1.001,
   "LK_ID": "09572"
  },
  "09573": {
@@ -7112,14 +4976,6 @@
   "Date": "2020-06-08",
   "Cases_Last_Week_Per_Million": 12.0,
   "Deaths_Last_Week_Per_Million": 0.0,
-  "fit_res_N0": 628.0,
-  "fit_res_T": 1521.459,
-  "fit_used_x_range": [
-   -6,
-   0
-  ],
-  "Cases_Forecast_Tomorrow": 628.286,
-  "Cases_Forecast_Tomorrow_Factor": 1.0,
   "LK_ID": "09574"
  },
  "09575": {
@@ -7159,14 +5015,6 @@
   "Date": "2020-06-08",
   "Cases_Last_Week_Per_Million": 11.0,
   "Deaths_Last_Week_Per_Million": 0.0,
-  "fit_res_N0": 331.25,
-  "fit_res_T": 1284.403,
-  "fit_used_x_range": [
-   -6,
-   0
-  ],
-  "Cases_Forecast_Tomorrow": 331.429,
-  "Cases_Forecast_Tomorrow_Factor": 1.001,
   "LK_ID": "09577"
  },
  "09661": {
@@ -7180,14 +5028,6 @@
   "Date": "2020-06-08",
   "Cases_Last_Week_Per_Million": 14.0,
   "Deaths_Last_Week_Per_Million": 0.0,
-  "fit_res_N0": 115.178,
-  "fit_res_T": 744.209,
-  "fit_used_x_range": [
-   -6,
-   0
-  ],
-  "Cases_Forecast_Tomorrow": 115.286,
-  "Cases_Forecast_Tomorrow_Factor": 1.002,
   "LK_ID": "09661"
  },
  "09662": {
@@ -7214,14 +5054,6 @@
   "Date": "2020-06-08",
   "Cases_Last_Week_Per_Million": 16.0,
   "Deaths_Last_Week_Per_Million": 0.0,
-  "fit_res_N0": 468.393,
-  "fit_res_T": 1008.529,
-  "fit_used_x_range": [
-   -6,
-   0
-  ],
-  "Cases_Forecast_Tomorrow": 468.715,
-  "Cases_Forecast_Tomorrow_Factor": 1.002,
   "LK_ID": "09663"
  },
  "09671": {
@@ -7248,14 +5080,6 @@
   "Date": "2020-06-08",
   "Cases_Last_Week_Per_Million": 10.0,
   "Deaths_Last_Week_Per_Million": 0.0,
-  "fit_res_N0": 258.178,
-  "fit_res_T": 1669.326,
-  "fit_used_x_range": [
-   -6,
-   0
-  ],
-  "Cases_Forecast_Tomorrow": 258.286,
-  "Cases_Forecast_Tomorrow_Factor": 1.001,
   "LK_ID": "09672"
  },
  "09673": {
@@ -7269,14 +5093,6 @@
   "Date": "2020-06-08",
   "Cases_Last_Week_Per_Million": 13.0,
   "Deaths_Last_Week_Per_Million": 0.0,
-  "fit_res_N0": 194.25,
-  "fit_res_T": 752.62,
-  "fit_used_x_range": [
-   -6,
-   0
-  ],
-  "Cases_Forecast_Tomorrow": 194.429,
-  "Cases_Forecast_Tomorrow_Factor": 1.002,
   "LK_ID": "09673"
  },
  "09674": {
@@ -7290,14 +5106,6 @@
   "Date": "2020-06-08",
   "Cases_Last_Week_Per_Million": 24.0,
   "Deaths_Last_Week_Per_Million": 0.0,
-  "fit_res_N0": 162.465,
-  "fit_res_T": 285.011,
-  "fit_used_x_range": [
-   -6,
-   0
-  ],
-  "Cases_Forecast_Tomorrow": 162.86,
-  "Cases_Forecast_Tomorrow_Factor": 1.005,
   "LK_ID": "09674"
  },
  "09675": {
@@ -7324,14 +5132,6 @@
   "Date": "2020-06-08",
   "Cases_Last_Week_Per_Million": 23.0,
   "Deaths_Last_Week_Per_Million": 0.0,
-  "fit_res_N0": 296.037,
-  "fit_res_T": 520.05,
-  "fit_used_x_range": [
-   -6,
-   0
-  ],
-  "Cases_Forecast_Tomorrow": 296.432,
-  "Cases_Forecast_Tomorrow_Factor": 1.001,
   "LK_ID": "09676"
  },
  "09677": {
@@ -7345,14 +5145,6 @@
   "Date": "2020-06-08",
   "Cases_Last_Week_Per_Million": 16.0,
   "Deaths_Last_Week_Per_Million": 0.0,
-  "fit_res_N0": 157.001,
-  "fit_res_T": 378.805,
-  "fit_used_x_range": [
-   -6,
-   0
-  ],
-  "Cases_Forecast_Tomorrow": 157.289,
-  "Cases_Forecast_Tomorrow_Factor": 1.002,
   "LK_ID": "09677"
  },
  "09678": {
@@ -7366,14 +5158,6 @@
   "Date": "2020-06-08",
   "Cases_Last_Week_Per_Million": 17.0,
   "Deaths_Last_Week_Per_Million": 0.0,
-  "fit_res_N0": 514.25,
-  "fit_res_T": 1994.736,
-  "fit_used_x_range": [
-   -6,
-   0
-  ],
-  "Cases_Forecast_Tomorrow": 514.429,
-  "Cases_Forecast_Tomorrow_Factor": 1.001,
   "LK_ID": "09678"
  },
  "09679": {
@@ -7387,14 +5171,6 @@
   "Date": "2020-06-08",
   "Cases_Last_Week_Per_Million": 25.0,
   "Deaths_Last_Week_Per_Million": 0.0,
-  "fit_res_N0": 414.468,
-  "fit_res_T": 347.69,
-  "fit_used_x_range": [
-   -6,
-   0
-  ],
-  "Cases_Forecast_Tomorrow": 415.295,
-  "Cases_Forecast_Tomorrow_Factor": 1.003,
   "LK_ID": "09679"
  },
  "09761": {
@@ -7408,14 +5184,6 @@
   "Date": "2020-06-08",
   "Cases_Last_Week_Per_Million": 10.0,
   "Deaths_Last_Week_Per_Million": 0.0,
-  "fit_res_N0": 410.965,
-  "fit_res_T": 611.729,
-  "fit_used_x_range": [
-   -6,
-   0
-  ],
-  "Cases_Forecast_Tomorrow": 411.431,
-  "Cases_Forecast_Tomorrow_Factor": 1.001,
   "LK_ID": "09761"
  },
  "09762": {
@@ -7468,14 +5236,6 @@
   "Date": "2020-06-08",
   "Cases_Last_Week_Per_Million": 142.0,
   "Deaths_Last_Week_Per_Million": 0.0,
-  "fit_res_N0": 313.73,
-  "fit_res_T": 62.717,
-  "fit_used_x_range": [
-   -6,
-   0
-  ],
-  "Cases_Forecast_Tomorrow": 317.216,
-  "Cases_Forecast_Tomorrow_Factor": 1.027,
   "LK_ID": "09771"
  },
  "09772": {
@@ -7489,14 +5249,6 @@
   "Date": "2020-06-08",
   "Cases_Last_Week_Per_Million": 4.0,
   "Deaths_Last_Week_Per_Million": 0.0,
-  "fit_res_N0": 387.214,
-  "fit_res_T": 1250.67,
-  "fit_used_x_range": [
-   -6,
-   0
-  ],
-  "Cases_Forecast_Tomorrow": 387.429,
-  "Cases_Forecast_Tomorrow_Factor": 1.001,
   "LK_ID": "09772"
  },
  "09773": {
@@ -7536,14 +5288,6 @@
   "Date": "2020-06-08",
   "Cases_Last_Week_Per_Million": 11.0,
   "Deaths_Last_Week_Per_Million": 0.0,
-  "fit_res_N0": 428.428,
-  "fit_res_T": 1038.16,
-  "fit_used_x_range": [
-   -6,
-   0
-  ],
-  "Cases_Forecast_Tomorrow": 428.714,
-  "Cases_Forecast_Tomorrow_Factor": 1.002,
   "LK_ID": "09775"
  },
  "09776": {
@@ -7609,14 +5353,6 @@
   "Date": "2020-06-08",
   "Cases_Last_Week_Per_Million": 6.0,
   "Deaths_Last_Week_Per_Million": 0.0,
-  "fit_res_N0": 183.072,
-  "fit_res_T": 589.869,
-  "fit_used_x_range": [
-   -6,
-   0
-  ],
-  "Cases_Forecast_Tomorrow": 183.288,
-  "Cases_Forecast_Tomorrow_Factor": 1.002,
   "LK_ID": "09780"
  }
 }
