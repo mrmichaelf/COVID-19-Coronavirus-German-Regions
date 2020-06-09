@@ -18,9 +18,7 @@
   "Cases_New_Per_Million": 0.49,
   "Deaths_New_Per_Million": 0.0,
   "Cases_Last_Week_Per_Million": 0.0,
-  "Deaths_Last_Week_Per_Million": 0.0,
-  "Cases_Doubling_Time": "",
-  "Deaths_Doubling_Time": ""
+  "Deaths_Last_Week_Per_Million": 0.0
  },
  {
   "Date": "2020-02-29",
@@ -41,9 +39,7 @@
   "Cases_New_Per_Million": null,
   "Deaths_New_Per_Million": 0.0,
   "Cases_Last_Week_Per_Million": 0.0,
-  "Deaths_Last_Week_Per_Million": 0.0,
-  "Cases_Doubling_Time": "",
-  "Deaths_Doubling_Time": ""
+  "Deaths_Last_Week_Per_Million": 0.0
  },
  {
   "Date": "2020-03-01",
@@ -64,9 +60,7 @@
   "Cases_New_Per_Million": 0.245,
   "Deaths_New_Per_Million": 0.0,
   "Cases_Last_Week_Per_Million": 0.0,
-  "Deaths_Last_Week_Per_Million": 0.0,
-  "Cases_Doubling_Time": "",
-  "Deaths_Doubling_Time": ""
+  "Deaths_Last_Week_Per_Million": 0.0
  },
  {
   "Date": "2020-03-02",
@@ -87,9 +81,7 @@
   "Cases_New_Per_Million": 0.0,
   "Deaths_New_Per_Million": 0.0,
   "Cases_Last_Week_Per_Million": 0.0,
-  "Deaths_Last_Week_Per_Million": 0.0,
-  "Cases_Doubling_Time": "",
-  "Deaths_Doubling_Time": ""
+  "Deaths_Last_Week_Per_Million": 0.0
  },
  {
   "Date": "2020-03-03",
@@ -110,9 +102,7 @@
   "Cases_New_Per_Million": 0.0,
   "Deaths_New_Per_Million": 0.0,
   "Cases_Last_Week_Per_Million": 0.0,
-  "Deaths_Last_Week_Per_Million": 0.0,
-  "Cases_Doubling_Time": "",
-  "Deaths_Doubling_Time": ""
+  "Deaths_Last_Week_Per_Million": 0.0
  },
  {
   "Date": "2020-03-04",
@@ -133,9 +123,7 @@
   "Cases_New_Per_Million": 1.224,
   "Deaths_New_Per_Million": 0.0,
   "Cases_Last_Week_Per_Million": 0.0,
-  "Deaths_Last_Week_Per_Million": 0.0,
-  "Cases_Doubling_Time": "",
-  "Deaths_Doubling_Time": ""
+  "Deaths_Last_Week_Per_Million": 0.0
  },
  {
   "Date": "2020-03-05",
@@ -156,9 +144,7 @@
   "Cases_New_Per_Million": 0.245,
   "Deaths_New_Per_Million": 0.0,
   "Cases_Last_Week_Per_Million": 0.0,
-  "Deaths_Last_Week_Per_Million": 0.0,
-  "Cases_Doubling_Time": "",
-  "Deaths_Doubling_Time": ""
+  "Deaths_Last_Week_Per_Million": 0.0
  },
  {
   "Date": "2020-03-06",
@@ -179,9 +165,7 @@
   "Cases_New_Per_Million": 0.49,
   "Deaths_New_Per_Million": 0.0,
   "Cases_Last_Week_Per_Million": 1.958,
-  "Deaths_Last_Week_Per_Million": 0.0,
-  "Cases_Doubling_Time": "",
-  "Deaths_Doubling_Time": ""
+  "Deaths_Last_Week_Per_Million": 0.0
  },
  {
   "Date": "2020-03-07",
@@ -202,9 +186,7 @@
   "Cases_New_Per_Million": 0.734,
   "Deaths_New_Per_Million": 0.0,
   "Cases_Last_Week_Per_Million": 2.938,
-  "Deaths_Last_Week_Per_Million": 0.0,
-  "Cases_Doubling_Time": "",
-  "Deaths_Doubling_Time": ""
+  "Deaths_Last_Week_Per_Million": 0.0
  },
  {
   "Date": "2020-03-08",
@@ -225,9 +207,7 @@
   "Cases_New_Per_Million": 1.469,
   "Deaths_New_Per_Million": 0.0,
   "Cases_Last_Week_Per_Million": 4.162,
-  "Deaths_Last_Week_Per_Million": 0.0,
-  "Cases_Doubling_Time": "",
-  "Deaths_Doubling_Time": ""
+  "Deaths_Last_Week_Per_Million": 0.0
  },
  {
   "Date": "2020-03-09",
@@ -248,9 +228,7 @@
   "Cases_New_Per_Million": null,
   "Deaths_New_Per_Million": 0.0,
   "Cases_Last_Week_Per_Million": 3.672,
-  "Deaths_Last_Week_Per_Million": 0.0,
-  "Cases_Doubling_Time": "",
-  "Deaths_Doubling_Time": ""
+  "Deaths_Last_Week_Per_Million": 0.0
  },
  {
   "Date": "2020-03-10",
@@ -271,9 +249,7 @@
   "Cases_New_Per_Million": 1.958,
   "Deaths_New_Per_Million": 0.0,
   "Cases_Last_Week_Per_Million": 5.631,
-  "Deaths_Last_Week_Per_Million": 0.0,
-  "Cases_Doubling_Time": "",
-  "Deaths_Doubling_Time": ""
+  "Deaths_Last_Week_Per_Million": 0.0
  },
  {
   "Date": "2020-03-11",
@@ -294,9 +270,7 @@
   "Cases_New_Per_Million": 0.0,
   "Deaths_New_Per_Million": 0.0,
   "Cases_Last_Week_Per_Million": 4.407,
-  "Deaths_Last_Week_Per_Million": 0.0,
-  "Cases_Doubling_Time": "",
-  "Deaths_Doubling_Time": ""
+  "Deaths_Last_Week_Per_Million": 0.0
  },
  {
   "Date": "2020-03-12",
@@ -317,9 +291,7 @@
   "Cases_New_Per_Million": 6.61,
   "Deaths_New_Per_Million": 0.0,
   "Cases_Last_Week_Per_Million": 10.772,
-  "Deaths_Last_Week_Per_Million": 0.0,
-  "Cases_Doubling_Time": "",
-  "Deaths_Doubling_Time": ""
+  "Deaths_Last_Week_Per_Million": 0.0
  },
  {
   "Date": "2020-03-13",
@@ -340,9 +312,7 @@
   "Cases_New_Per_Million": 12.241,
   "Deaths_New_Per_Million": 0.0,
   "Cases_Last_Week_Per_Million": 22.523,
-  "Deaths_Last_Week_Per_Million": 0.0,
-  "Cases_Doubling_Time": "",
-  "Deaths_Doubling_Time": ""
+  "Deaths_Last_Week_Per_Million": 0.0
  },
  {
   "Date": "2020-03-14",
@@ -363,9 +333,7 @@
   "Cases_New_Per_Million": 4.651,
   "Deaths_New_Per_Million": 0.0,
   "Cases_Last_Week_Per_Million": 26.439,
-  "Deaths_Last_Week_Per_Million": 0.0,
-  "Cases_Doubling_Time": "",
-  "Deaths_Doubling_Time": ""
+  "Deaths_Last_Week_Per_Million": 0.0
  },
  {
   "Date": "2020-03-15",
@@ -386,9 +354,7 @@
   "Cases_New_Per_Million": 11.506,
   "Deaths_New_Per_Million": 0.0,
   "Cases_Last_Week_Per_Million": 36.477,
-  "Deaths_Last_Week_Per_Million": 0.0,
-  "Cases_Doubling_Time": "",
-  "Deaths_Doubling_Time": ""
+  "Deaths_Last_Week_Per_Million": 0.0
  },
  {
   "Date": "2020-03-16",
@@ -409,9 +375,7 @@
   "Cases_New_Per_Million": 38.435,
   "Deaths_New_Per_Million": 0.0,
   "Cases_Last_Week_Per_Million": 75.401,
-  "Deaths_Last_Week_Per_Million": 0.0,
-  "Cases_Doubling_Time": "",
-  "Deaths_Doubling_Time": ""
+  "Deaths_Last_Week_Per_Million": 0.0
  },
  {
   "Date": "2020-03-17",
@@ -432,9 +396,7 @@
   "Cases_New_Per_Million": 28.643,
   "Deaths_New_Per_Million": 0.0,
   "Cases_Last_Week_Per_Million": 102.086,
-  "Deaths_Last_Week_Per_Million": 0.0,
-  "Cases_Doubling_Time": "",
-  "Deaths_Doubling_Time": ""
+  "Deaths_Last_Week_Per_Million": 0.0
  },
  {
   "Date": "2020-03-18",
@@ -455,9 +417,7 @@
   "Cases_New_Per_Million": 7.834,
   "Deaths_New_Per_Million": 0.0,
   "Cases_Last_Week_Per_Million": 109.92,
-  "Deaths_Last_Week_Per_Million": 0.0,
-  "Cases_Doubling_Time": "",
-  "Deaths_Doubling_Time": ""
+  "Deaths_Last_Week_Per_Million": 0.0
  },
  {
   "Date": "2020-03-19",
@@ -478,9 +438,7 @@
   "Cases_New_Per_Million": 39.904,
   "Deaths_New_Per_Million": 0.0,
   "Cases_Last_Week_Per_Million": 143.214,
-  "Deaths_Last_Week_Per_Million": 0.0,
-  "Cases_Doubling_Time": "",
-  "Deaths_Doubling_Time": ""
+  "Deaths_Last_Week_Per_Million": 0.0
  },
  {
   "Date": "2020-03-20",
@@ -501,9 +459,7 @@
   "Cases_New_Per_Million": 40.149,
   "Deaths_New_Per_Million": 0.245,
   "Cases_Last_Week_Per_Million": 171.122,
-  "Deaths_Last_Week_Per_Million": 0.245,
-  "Cases_Doubling_Time": "",
-  "Deaths_Doubling_Time": ""
+  "Deaths_Last_Week_Per_Million": 0.245
  },
  {
   "Date": "2020-03-21",
@@ -524,9 +480,7 @@
   "Cases_New_Per_Million": 33.539,
   "Deaths_New_Per_Million": 0.0,
   "Cases_Last_Week_Per_Million": 200.01,
-  "Deaths_Last_Week_Per_Million": 0.245,
-  "Cases_Doubling_Time": "",
-  "Deaths_Doubling_Time": ""
+  "Deaths_Last_Week_Per_Million": 0.245
  },
  {
   "Date": "2020-03-22",
@@ -547,9 +501,7 @@
   "Cases_New_Per_Million": 28.153,
   "Deaths_New_Per_Million": 0.245,
   "Cases_Last_Week_Per_Million": 216.657,
-  "Deaths_Last_Week_Per_Million": 0.49,
-  "Cases_Doubling_Time": "",
-  "Deaths_Doubling_Time": ""
+  "Deaths_Last_Week_Per_Million": 0.49
  },
  {
   "Date": "2020-03-23",
@@ -570,9 +522,7 @@
   "Cases_New_Per_Million": 30.356,
   "Deaths_New_Per_Million": 0.0,
   "Cases_Last_Week_Per_Million": 208.578,
-  "Deaths_Last_Week_Per_Million": 0.49,
-  "Cases_Doubling_Time": "",
-  "Deaths_Doubling_Time": ""
+  "Deaths_Last_Week_Per_Million": 0.49
  },
  {
   "Date": "2020-03-24",
@@ -593,9 +543,7 @@
   "Cases_New_Per_Million": 47.248,
   "Deaths_New_Per_Million": 0.734,
   "Cases_Last_Week_Per_Million": 227.184,
-  "Deaths_Last_Week_Per_Million": 1.224,
-  "Cases_Doubling_Time": "",
-  "Deaths_Doubling_Time": ""
+  "Deaths_Last_Week_Per_Million": 1.224
  },
  {
   "Date": "2020-03-25",
@@ -616,9 +564,7 @@
   "Cases_New_Per_Million": 54.103,
   "Deaths_New_Per_Million": 0.0,
   "Cases_Last_Week_Per_Million": 273.453,
-  "Deaths_Last_Week_Per_Million": 1.224,
-  "Cases_Doubling_Time": "",
-  "Deaths_Doubling_Time": ""
+  "Deaths_Last_Week_Per_Million": 1.224
  },
  {
   "Date": "2020-03-26",
@@ -639,9 +585,7 @@
   "Cases_New_Per_Million": 55.082,
   "Deaths_New_Per_Million": 0.245,
   "Cases_Last_Week_Per_Million": 288.631,
-  "Deaths_Last_Week_Per_Million": 1.469,
-  "Cases_Doubling_Time": "",
-  "Deaths_Doubling_Time": ""
+  "Deaths_Last_Week_Per_Million": 1.469
  },
  {
   "Date": "2020-03-27",
@@ -662,9 +606,7 @@
   "Cases_New_Per_Million": 37.946,
   "Deaths_New_Per_Million": 0.49,
   "Cases_Last_Week_Per_Million": 286.428,
-  "Deaths_Last_Week_Per_Million": 1.714,
-  "Cases_Doubling_Time": "",
-  "Deaths_Doubling_Time": ""
+  "Deaths_Last_Week_Per_Million": 1.714
  },
  {
   "Date": "2020-03-28",
@@ -685,9 +627,7 @@
   "Cases_New_Per_Million": 58.999,
   "Deaths_New_Per_Million": 0.734,
   "Cases_Last_Week_Per_Million": 311.888,
-  "Deaths_Last_Week_Per_Million": 2.448,
-  "Cases_Doubling_Time": "",
-  "Deaths_Doubling_Time": ""
+  "Deaths_Last_Week_Per_Million": 2.448
  },
  {
   "Date": "2020-03-29",
@@ -708,9 +648,7 @@
   "Cases_New_Per_Million": 45.045,
   "Deaths_New_Per_Million": 0.245,
   "Cases_Last_Week_Per_Million": 328.78,
-  "Deaths_Last_Week_Per_Million": 2.448,
-  "Cases_Doubling_Time": "",
-  "Deaths_Doubling_Time": ""
+  "Deaths_Last_Week_Per_Million": 2.448
  },
  {
   "Date": "2020-03-30",
@@ -731,9 +669,7 @@
   "Cases_New_Per_Million": 46.024,
   "Deaths_New_Per_Million": 1.469,
   "Cases_Last_Week_Per_Million": 344.448,
-  "Deaths_Last_Week_Per_Million": 3.917,
-  "Cases_Doubling_Time": "",
-  "Deaths_Doubling_Time": ""
+  "Deaths_Last_Week_Per_Million": 3.917
  },
  {
   "Date": "2020-03-31",
@@ -754,9 +690,7 @@
   "Cases_New_Per_Million": 34.763,
   "Deaths_New_Per_Million": 0.245,
   "Cases_Last_Week_Per_Million": 331.962,
-  "Deaths_Last_Week_Per_Million": 3.427,
-  "Cases_Doubling_Time": "",
-  "Deaths_Doubling_Time": ""
+  "Deaths_Last_Week_Per_Million": 3.427
  },
  {
   "Date": "2020-04-01",
@@ -777,9 +711,7 @@
   "Cases_New_Per_Million": 42.352,
   "Deaths_New_Per_Million": 0.979,
   "Cases_Last_Week_Per_Million": 320.212,
-  "Deaths_Last_Week_Per_Million": 4.407,
-  "Cases_Doubling_Time": "",
-  "Deaths_Doubling_Time": ""
+  "Deaths_Last_Week_Per_Million": 4.407
  },
  {
   "Date": "2020-04-02",
@@ -800,9 +732,7 @@
   "Cases_New_Per_Million": 57.041,
   "Deaths_New_Per_Million": 0.734,
   "Cases_Last_Week_Per_Million": 322.17,
-  "Deaths_Last_Week_Per_Million": 4.896,
-  "Cases_Doubling_Time": "",
-  "Deaths_Doubling_Time": ""
+  "Deaths_Last_Week_Per_Million": 4.896
  },
  {
   "Date": "2020-04-03",
@@ -823,9 +753,7 @@
   "Cases_New_Per_Million": 56.306,
   "Deaths_New_Per_Million": 0.0,
   "Cases_Last_Week_Per_Million": 340.531,
-  "Deaths_Last_Week_Per_Million": 4.407,
-  "Cases_Doubling_Time": "",
-  "Deaths_Doubling_Time": ""
+  "Deaths_Last_Week_Per_Million": 4.407
  },
  {
   "Date": "2020-04-04",
@@ -846,9 +774,7 @@
   "Cases_New_Per_Million": 34.763,
   "Deaths_New_Per_Million": 0.734,
   "Cases_Last_Week_Per_Million": 316.295,
-  "Deaths_Last_Week_Per_Million": 4.407,
-  "Cases_Doubling_Time": "",
-  "Deaths_Doubling_Time": ""
+  "Deaths_Last_Week_Per_Million": 4.407
  },
  {
   "Date": "2020-04-05",
@@ -869,9 +795,7 @@
   "Cases_New_Per_Million": 38.925,
   "Deaths_New_Per_Million": 0.734,
   "Cases_Last_Week_Per_Million": 310.174,
-  "Deaths_Last_Week_Per_Million": 4.896,
-  "Cases_Doubling_Time": "",
-  "Deaths_Doubling_Time": ""
+  "Deaths_Last_Week_Per_Million": 4.896
  },
  {
   "Date": "2020-04-06",
@@ -892,9 +816,7 @@
   "Cases_New_Per_Million": 53.613,
   "Deaths_New_Per_Million": 0.0,
   "Cases_Last_Week_Per_Million": 317.763,
-  "Deaths_Last_Week_Per_Million": 3.427,
-  "Cases_Doubling_Time": "",
-  "Deaths_Doubling_Time": ""
+  "Deaths_Last_Week_Per_Million": 3.427
  },
  {
   "Date": "2020-04-07",
@@ -915,9 +837,7 @@
   "Cases_New_Per_Million": 26.929,
   "Deaths_New_Per_Million": 0.49,
   "Cases_Last_Week_Per_Million": 309.929,
-  "Deaths_Last_Week_Per_Million": 3.672,
-  "Cases_Doubling_Time": "",
-  "Deaths_Doubling_Time": ""
+  "Deaths_Last_Week_Per_Million": 3.672
  },
  {
   "Date": "2020-04-08",
@@ -938,9 +858,7 @@
   "Cases_New_Per_Million": 38.19,
   "Deaths_New_Per_Million": 2.693,
   "Cases_Last_Week_Per_Million": 305.768,
-  "Deaths_Last_Week_Per_Million": 5.386,
-  "Cases_Doubling_Time": "",
-  "Deaths_Doubling_Time": ""
+  "Deaths_Last_Week_Per_Million": 5.386
  },
  {
   "Date": "2020-04-09",
@@ -961,9 +879,7 @@
   "Cases_New_Per_Million": 46.024,
   "Deaths_New_Per_Million": 1.224,
   "Cases_Last_Week_Per_Million": 294.751,
-  "Deaths_Last_Week_Per_Million": 5.875,
-  "Cases_Doubling_Time": "",
-  "Deaths_Doubling_Time": ""
+  "Deaths_Last_Week_Per_Million": 5.875
  },
  {
   "Date": "2020-04-10",
@@ -984,9 +900,7 @@
   "Cases_New_Per_Million": 25.46,
   "Deaths_New_Per_Million": 0.245,
   "Cases_Last_Week_Per_Million": 263.905,
-  "Deaths_Last_Week_Per_Million": 6.12,
-  "Cases_Doubling_Time": "",
-  "Deaths_Doubling_Time": ""
+  "Deaths_Last_Week_Per_Million": 6.12
  },
  {
   "Date": "2020-04-11",
@@ -1007,9 +921,7 @@
   "Cases_New_Per_Million": 44.555,
   "Deaths_New_Per_Million": 1.958,
   "Cases_Last_Week_Per_Million": 273.698,
-  "Deaths_Last_Week_Per_Million": 7.344,
-  "Cases_Doubling_Time": "",
-  "Deaths_Doubling_Time": ""
+  "Deaths_Last_Week_Per_Million": 7.344
  },
  {
   "Date": "2020-04-12",
@@ -1030,9 +942,7 @@
   "Cases_New_Per_Million": 27.419,
   "Deaths_New_Per_Million": 1.224,
   "Cases_Last_Week_Per_Million": 262.192,
-  "Deaths_Last_Week_Per_Million": 7.834,
-  "Cases_Doubling_Time": "",
-  "Deaths_Doubling_Time": ""
+  "Deaths_Last_Week_Per_Million": 7.834
  },
  {
   "Date": "2020-04-13",
@@ -1053,9 +963,7 @@
   "Cases_New_Per_Million": 18.606,
   "Deaths_New_Per_Million": 0.979,
   "Cases_Last_Week_Per_Million": 227.184,
-  "Deaths_Last_Week_Per_Million": 8.813,
-  "Cases_Doubling_Time": "",
-  "Deaths_Doubling_Time": ""
+  "Deaths_Last_Week_Per_Million": 8.813
  },
  {
   "Date": "2020-04-14",
@@ -1076,9 +984,7 @@
   "Cases_New_Per_Million": 17.137,
   "Deaths_New_Per_Million": 0.49,
   "Cases_Last_Week_Per_Million": 217.391,
-  "Deaths_Last_Week_Per_Million": 8.813,
-  "Cases_Doubling_Time": "",
-  "Deaths_Doubling_Time": ""
+  "Deaths_Last_Week_Per_Million": 8.813
  },
  {
   "Date": "2020-04-15",
@@ -1099,9 +1005,7 @@
   "Cases_New_Per_Million": 30.356,
   "Deaths_New_Per_Million": 1.714,
   "Cases_Last_Week_Per_Million": 209.557,
-  "Deaths_Last_Week_Per_Million": 7.834,
-  "Cases_Doubling_Time": "",
-  "Deaths_Doubling_Time": ""
+  "Deaths_Last_Week_Per_Million": 7.834
  },
  {
   "Date": "2020-04-16",
@@ -1122,9 +1026,7 @@
   "Cases_New_Per_Million": 20.319,
   "Deaths_New_Per_Million": 2.448,
   "Cases_Last_Week_Per_Million": 183.852,
-  "Deaths_Last_Week_Per_Million": 9.058,
-  "Cases_Doubling_Time": "",
-  "Deaths_Doubling_Time": ""
+  "Deaths_Last_Week_Per_Million": 9.058
  },
  {
   "Date": "2020-04-17",
@@ -1145,9 +1047,7 @@
   "Cases_New_Per_Million": 30.356,
   "Deaths_New_Per_Million": 1.224,
   "Cases_Last_Week_Per_Million": 188.749,
-  "Deaths_Last_Week_Per_Million": 10.037,
-  "Cases_Doubling_Time": "",
-  "Deaths_Doubling_Time": ""
+  "Deaths_Last_Week_Per_Million": 10.037
  },
  {
   "Date": "2020-04-18",
@@ -1168,9 +1068,7 @@
   "Cases_New_Per_Million": 27.664,
   "Deaths_New_Per_Million": 1.714,
   "Cases_Last_Week_Per_Million": 171.857,
-  "Deaths_Last_Week_Per_Million": 9.792,
-  "Cases_Doubling_Time": "",
-  "Deaths_Doubling_Time": ""
+  "Deaths_Last_Week_Per_Million": 9.792
  },
  {
   "Date": "2020-04-19",
@@ -1191,9 +1089,7 @@
   "Cases_New_Per_Million": 26.439,
   "Deaths_New_Per_Million": 1.714,
   "Cases_Last_Week_Per_Million": 170.877,
-  "Deaths_Last_Week_Per_Million": 10.282,
-  "Cases_Doubling_Time": "",
-  "Deaths_Doubling_Time": ""
+  "Deaths_Last_Week_Per_Million": 10.282
  },
  {
   "Date": "2020-04-20",
@@ -1214,9 +1110,7 @@
   "Cases_New_Per_Million": 22.278,
   "Deaths_New_Per_Million": 0.245,
   "Cases_Last_Week_Per_Million": 174.55,
-  "Deaths_Last_Week_Per_Million": 9.548,
-  "Cases_Doubling_Time": "",
-  "Deaths_Doubling_Time": ""
+  "Deaths_Last_Week_Per_Million": 9.548
  },
  {
   "Date": "2020-04-21",
@@ -1237,9 +1131,7 @@
   "Cases_New_Per_Million": 9.303,
   "Deaths_New_Per_Million": 2.203,
   "Cases_Last_Week_Per_Million": 166.716,
-  "Deaths_Last_Week_Per_Million": 11.261,
-  "Cases_Doubling_Time": "",
-  "Deaths_Doubling_Time": ""
+  "Deaths_Last_Week_Per_Million": 11.261
  },
  {
   "Date": "2020-04-22",
@@ -1260,9 +1152,7 @@
   "Cases_New_Per_Million": 7.834,
   "Deaths_New_Per_Million": 1.469,
   "Cases_Last_Week_Per_Million": 144.193,
-  "Deaths_Last_Week_Per_Million": 11.016,
-  "Cases_Doubling_Time": "",
-  "Deaths_Doubling_Time": ""
+  "Deaths_Last_Week_Per_Million": 11.016
  },
  {
   "Date": "2020-04-23",
@@ -1283,9 +1173,7 @@
   "Cases_New_Per_Million": 12.241,
   "Deaths_New_Per_Million": 2.203,
   "Cases_Last_Week_Per_Million": 136.114,
-  "Deaths_Last_Week_Per_Million": 10.772,
-  "Cases_Doubling_Time": "",
-  "Deaths_Doubling_Time": ""
+  "Deaths_Last_Week_Per_Million": 10.772
  },
  {
   "Date": "2020-04-24",
@@ -1306,9 +1194,7 @@
   "Cases_New_Per_Million": 21.543,
   "Deaths_New_Per_Million": 1.224,
   "Cases_Last_Week_Per_Million": 127.301,
-  "Deaths_Last_Week_Per_Million": 10.772,
-  "Cases_Doubling_Time": "",
-  "Deaths_Doubling_Time": ""
+  "Deaths_Last_Week_Per_Million": 10.772
  },
  {
   "Date": "2020-04-25",
@@ -1329,9 +1215,7 @@
   "Cases_New_Per_Million": 8.813,
   "Deaths_New_Per_Million": 0.49,
   "Cases_Last_Week_Per_Million": 108.451,
-  "Deaths_Last_Week_Per_Million": 9.548,
-  "Cases_Doubling_Time": "",
-  "Deaths_Doubling_Time": ""
+  "Deaths_Last_Week_Per_Million": 9.548
  },
  {
   "Date": "2020-04-26",
@@ -1352,9 +1236,7 @@
   "Cases_New_Per_Million": 16.647,
   "Deaths_New_Per_Million": 2.203,
   "Cases_Last_Week_Per_Million": 98.658,
-  "Deaths_Last_Week_Per_Million": 10.037,
-  "Cases_Doubling_Time": "",
-  "Deaths_Doubling_Time": ""
+  "Deaths_Last_Week_Per_Million": 10.037
  },
  {
   "Date": "2020-04-27",
@@ -1375,9 +1257,7 @@
   "Cases_New_Per_Million": 10.772,
   "Deaths_New_Per_Million": 1.224,
   "Cases_Last_Week_Per_Million": 87.152,
-  "Deaths_Last_Week_Per_Million": 11.016,
-  "Cases_Doubling_Time": "",
-  "Deaths_Doubling_Time": ""
+  "Deaths_Last_Week_Per_Million": 11.016
  },
  {
   "Date": "2020-04-28",
@@ -1398,9 +1278,7 @@
   "Cases_New_Per_Million": 11.996,
   "Deaths_New_Per_Million": 1.224,
   "Cases_Last_Week_Per_Million": 89.845,
-  "Deaths_Last_Week_Per_Million": 10.037,
-  "Cases_Doubling_Time": "",
-  "Deaths_Doubling_Time": ""
+  "Deaths_Last_Week_Per_Million": 10.037
  },
  {
   "Date": "2020-04-29",
@@ -1421,9 +1299,7 @@
   "Cases_New_Per_Million": 13.22,
   "Deaths_New_Per_Million": 0.979,
   "Cases_Last_Week_Per_Million": 95.231,
-  "Deaths_Last_Week_Per_Million": 9.548,
-  "Cases_Doubling_Time": "",
-  "Deaths_Doubling_Time": ""
+  "Deaths_Last_Week_Per_Million": 9.548
  },
  {
   "Date": "2020-04-30",
@@ -1444,9 +1320,7 @@
   "Cases_New_Per_Million": 11.506,
   "Deaths_New_Per_Million": 1.224,
   "Cases_Last_Week_Per_Million": 94.497,
-  "Deaths_Last_Week_Per_Million": 8.568,
-  "Cases_Doubling_Time": "",
-  "Deaths_Doubling_Time": ""
+  "Deaths_Last_Week_Per_Million": 8.568
  },
  {
   "Date": "2020-05-01",
@@ -1467,9 +1341,7 @@
   "Cases_New_Per_Million": 13.954,
   "Deaths_New_Per_Million": 1.469,
   "Cases_Last_Week_Per_Million": 86.908,
-  "Deaths_Last_Week_Per_Million": 8.813,
-  "Cases_Doubling_Time": "",
-  "Deaths_Doubling_Time": ""
+  "Deaths_Last_Week_Per_Million": 8.813
  },
  {
   "Date": "2020-05-02",
@@ -1490,9 +1362,7 @@
   "Cases_New_Per_Million": 3.183,
   "Deaths_New_Per_Million": 0.245,
   "Cases_Last_Week_Per_Million": 81.277,
-  "Deaths_Last_Week_Per_Million": 8.568,
-  "Cases_Doubling_Time": "",
-  "Deaths_Doubling_Time": ""
+  "Deaths_Last_Week_Per_Million": 8.568
  },
  {
   "Date": "2020-05-03",
@@ -1513,9 +1383,7 @@
   "Cases_New_Per_Million": 8.324,
   "Deaths_New_Per_Million": 0.734,
   "Cases_Last_Week_Per_Million": 72.953,
-  "Deaths_Last_Week_Per_Million": 7.099,
-  "Cases_Doubling_Time": "",
-  "Deaths_Doubling_Time": ""
+  "Deaths_Last_Week_Per_Million": 7.099
  },
  {
   "Date": "2020-05-04",
@@ -1536,9 +1404,7 @@
   "Cases_New_Per_Million": 4.162,
   "Deaths_New_Per_Million": 0.245,
   "Cases_Last_Week_Per_Million": 66.344,
-  "Deaths_Last_Week_Per_Million": 6.12,
-  "Cases_Doubling_Time": "",
-  "Deaths_Doubling_Time": ""
+  "Deaths_Last_Week_Per_Million": 6.12
  },
  {
   "Date": "2020-05-05",
@@ -1559,9 +1425,7 @@
   "Cases_New_Per_Million": 2.448,
   "Deaths_New_Per_Million": 1.224,
   "Cases_Last_Week_Per_Million": 56.796,
-  "Deaths_Last_Week_Per_Million": 6.12,
-  "Cases_Doubling_Time": "",
-  "Deaths_Doubling_Time": ""
+  "Deaths_Last_Week_Per_Million": 6.12
  },
  {
   "Date": "2020-05-06",
@@ -1582,9 +1446,7 @@
   "Cases_New_Per_Million": 7.589,
   "Deaths_New_Per_Million": 1.224,
   "Cases_Last_Week_Per_Million": 51.165,
-  "Deaths_Last_Week_Per_Million": 6.365,
-  "Cases_Doubling_Time": "",
-  "Deaths_Doubling_Time": ""
+  "Deaths_Last_Week_Per_Million": 6.365
  },
  {
   "Date": "2020-05-07",
@@ -1605,9 +1467,7 @@
   "Cases_New_Per_Million": 5.386,
   "Deaths_New_Per_Million": 0.49,
   "Cases_Last_Week_Per_Million": 45.045,
-  "Deaths_Last_Week_Per_Million": 5.631,
-  "Cases_Doubling_Time": "",
-  "Deaths_Doubling_Time": ""
+  "Deaths_Last_Week_Per_Million": 5.631
  },
  {
   "Date": "2020-05-08",
@@ -1628,9 +1488,7 @@
   "Cases_New_Per_Million": 6.855,
   "Deaths_New_Per_Million": 0.734,
   "Cases_Last_Week_Per_Million": 37.946,
-  "Deaths_Last_Week_Per_Million": 4.896,
-  "Cases_Doubling_Time": "",
-  "Deaths_Doubling_Time": ""
+  "Deaths_Last_Week_Per_Million": 4.896
  },
  {
   "Date": "2020-05-09",
@@ -1651,9 +1509,7 @@
   "Cases_New_Per_Million": 10.037,
   "Deaths_New_Per_Million": 0.734,
   "Cases_Last_Week_Per_Million": 44.8,
-  "Deaths_Last_Week_Per_Million": 5.386,
-  "Cases_Doubling_Time": "",
-  "Deaths_Doubling_Time": ""
+  "Deaths_Last_Week_Per_Million": 5.386
  },
  {
   "Date": "2020-05-10",
@@ -1674,9 +1530,7 @@
   "Cases_New_Per_Million": 2.203,
   "Deaths_New_Per_Million": 0.0,
   "Cases_Last_Week_Per_Million": 38.68,
-  "Deaths_Last_Week_Per_Million": 4.651,
-  "Cases_Doubling_Time": "",
-  "Deaths_Doubling_Time": ""
+  "Deaths_Last_Week_Per_Million": 4.651
  },
  {
   "Date": "2020-05-11",
@@ -1697,9 +1551,7 @@
   "Cases_New_Per_Million": 5.386,
   "Deaths_New_Per_Million": 0.0,
   "Cases_Last_Week_Per_Million": 39.904,
-  "Deaths_Last_Week_Per_Million": 4.407,
-  "Cases_Doubling_Time": "",
-  "Deaths_Doubling_Time": ""
+  "Deaths_Last_Week_Per_Million": 4.407
  },
  {
   "Date": "2020-05-12",
@@ -1720,9 +1572,7 @@
   "Cases_New_Per_Million": 10.282,
   "Deaths_New_Per_Million": 2.693,
   "Cases_Last_Week_Per_Million": 47.738,
-  "Deaths_Last_Week_Per_Million": 5.875,
-  "Cases_Doubling_Time": "",
-  "Deaths_Doubling_Time": ""
+  "Deaths_Last_Week_Per_Million": 5.875
  },
  {
   "Date": "2020-05-13",
@@ -1743,9 +1593,7 @@
   "Cases_New_Per_Million": 1.224,
   "Deaths_New_Per_Million": 0.245,
   "Cases_Last_Week_Per_Million": 41.373,
-  "Deaths_Last_Week_Per_Million": 4.896,
-  "Cases_Doubling_Time": "",
-  "Deaths_Doubling_Time": 46.4
+  "Deaths_Last_Week_Per_Million": 4.896
  },
  {
   "Date": "2020-05-14",
@@ -1766,9 +1614,7 @@
   "Cases_New_Per_Million": 5.386,
   "Deaths_New_Per_Million": 1.224,
   "Cases_Last_Week_Per_Million": 41.373,
-  "Deaths_Last_Week_Per_Million": 5.631,
-  "Cases_Doubling_Time": "",
-  "Deaths_Doubling_Time": 40.7
+  "Deaths_Last_Week_Per_Million": 5.631
  },
  {
   "Date": "2020-05-15",
@@ -1789,9 +1635,7 @@
   "Cases_New_Per_Million": 7.589,
   "Deaths_New_Per_Million": 0.245,
   "Cases_Last_Week_Per_Million": 42.107,
-  "Deaths_Last_Week_Per_Million": 5.141,
-  "Cases_Doubling_Time": "",
-  "Deaths_Doubling_Time": 39.4
+  "Deaths_Last_Week_Per_Million": 5.141
  },
  {
   "Date": "2020-05-16",
@@ -1812,9 +1656,7 @@
   "Cases_New_Per_Million": 8.813,
   "Deaths_New_Per_Million": 0.734,
   "Cases_Last_Week_Per_Million": 40.883,
-  "Deaths_Last_Week_Per_Million": 5.141,
-  "Cases_Doubling_Time": "",
-  "Deaths_Doubling_Time": 38.3
+  "Deaths_Last_Week_Per_Million": 5.141
  },
  {
   "Date": "2020-05-17",
@@ -1835,9 +1677,7 @@
   "Cases_New_Per_Million": 0.0,
   "Deaths_New_Per_Million": 0.0,
   "Cases_Last_Week_Per_Million": 38.68,
-  "Deaths_Last_Week_Per_Million": 5.141,
-  "Cases_Doubling_Time": "",
-  "Deaths_Doubling_Time": 46.1
+  "Deaths_Last_Week_Per_Million": 5.141
  },
  {
   "Date": "2020-05-18",
@@ -1858,9 +1698,7 @@
   "Cases_New_Per_Million": 10.037,
   "Deaths_New_Per_Million": 0.245,
   "Cases_Last_Week_Per_Million": 43.331,
-  "Deaths_Last_Week_Per_Million": 5.386,
-  "Cases_Doubling_Time": "",
-  "Deaths_Doubling_Time": 75.2
+  "Deaths_Last_Week_Per_Million": 5.386
  },
  {
   "Date": "2020-05-19",
@@ -1881,9 +1719,7 @@
   "Cases_New_Per_Million": 7.344,
   "Deaths_New_Per_Million": 1.224,
   "Cases_Last_Week_Per_Million": 40.394,
-  "Deaths_Last_Week_Per_Million": 3.917,
-  "Cases_Doubling_Time": "",
-  "Deaths_Doubling_Time": 71.9
+  "Deaths_Last_Week_Per_Million": 3.917
  },
  {
   "Date": "2020-05-20",
@@ -1904,9 +1740,7 @@
   "Cases_New_Per_Million": 2.203,
   "Deaths_New_Per_Million": 0.0,
   "Cases_Last_Week_Per_Million": 41.373,
-  "Deaths_Last_Week_Per_Million": 3.672,
-  "Cases_Doubling_Time": "",
-  "Deaths_Doubling_Time": 85.8
+  "Deaths_Last_Week_Per_Million": 3.672
  },
  {
   "Date": "2020-05-21",
@@ -1927,9 +1761,7 @@
   "Cases_New_Per_Million": 6.365,
   "Deaths_New_Per_Million": 0.49,
   "Cases_Last_Week_Per_Million": 42.352,
-  "Deaths_Last_Week_Per_Million": 2.938,
-  "Cases_Doubling_Time": "",
-  "Deaths_Doubling_Time": 83.1
+  "Deaths_Last_Week_Per_Million": 2.938
  },
  {
   "Date": "2020-05-22",
@@ -1950,9 +1782,7 @@
   "Cases_New_Per_Million": 2.693,
   "Deaths_New_Per_Million": 0.0,
   "Cases_Last_Week_Per_Million": 37.456,
-  "Deaths_Last_Week_Per_Million": 2.693,
-  "Cases_Doubling_Time": "",
-  "Deaths_Doubling_Time": 95.0
+  "Deaths_Last_Week_Per_Million": 2.693
  },
  {
   "Date": "2020-05-23",
@@ -1973,9 +1803,7 @@
   "Cases_New_Per_Million": 3.917,
   "Deaths_New_Per_Million": 0.49,
   "Cases_Last_Week_Per_Million": 32.56,
-  "Deaths_Last_Week_Per_Million": 2.448,
-  "Cases_Doubling_Time": "",
-  "Deaths_Doubling_Time": 93.7
+  "Deaths_Last_Week_Per_Million": 2.448
  },
  {
   "Date": "2020-05-24",
@@ -1996,9 +1824,7 @@
   "Cases_New_Per_Million": 1.958,
   "Deaths_New_Per_Million": 0.245,
   "Cases_Last_Week_Per_Million": 34.518,
-  "Deaths_Last_Week_Per_Million": 2.693,
-  "Cases_Doubling_Time": "",
-  "Deaths_Doubling_Time": ""
+  "Deaths_Last_Week_Per_Million": 2.693
  },
  {
   "Date": "2020-05-25",
@@ -2019,9 +1845,7 @@
   "Cases_New_Per_Million": 1.469,
   "Deaths_New_Per_Million": 0.245,
   "Cases_Last_Week_Per_Million": 25.95,
-  "Deaths_Last_Week_Per_Million": 2.693,
-  "Cases_Doubling_Time": "",
-  "Deaths_Doubling_Time": ""
+  "Deaths_Last_Week_Per_Million": 2.693
  },
  {
   "Date": "2020-05-26",
@@ -2042,9 +1866,7 @@
   "Cases_New_Per_Million": 0.979,
   "Deaths_New_Per_Million": 0.0,
   "Cases_Last_Week_Per_Million": 19.585,
-  "Deaths_Last_Week_Per_Million": 1.469,
-  "Cases_Doubling_Time": "",
-  "Deaths_Doubling_Time": ""
+  "Deaths_Last_Week_Per_Million": 1.469
  },
  {
   "Date": "2020-05-27",
@@ -2065,9 +1887,7 @@
   "Cases_New_Per_Million": 2.693,
   "Deaths_New_Per_Million": 0.245,
   "Cases_Last_Week_Per_Million": 20.074,
-  "Deaths_Last_Week_Per_Million": 1.714,
-  "Cases_Doubling_Time": "",
-  "Deaths_Doubling_Time": ""
+  "Deaths_Last_Week_Per_Million": 1.714
  },
  {
   "Date": "2020-05-28",
@@ -2088,9 +1908,7 @@
   "Cases_New_Per_Million": 10.037,
   "Deaths_New_Per_Million": 0.245,
   "Cases_Last_Week_Per_Million": 23.747,
-  "Deaths_Last_Week_Per_Million": 1.469,
-  "Cases_Doubling_Time": "",
-  "Deaths_Doubling_Time": ""
+  "Deaths_Last_Week_Per_Million": 1.469
  },
  {
   "Date": "2020-05-29",
@@ -2111,9 +1929,7 @@
   "Cases_New_Per_Million": 5.141,
   "Deaths_New_Per_Million": 0.0,
   "Cases_Last_Week_Per_Million": 26.195,
-  "Deaths_Last_Week_Per_Million": 1.469,
-  "Cases_Doubling_Time": "",
-  "Deaths_Doubling_Time": ""
+  "Deaths_Last_Week_Per_Million": 1.469
  },
  {
   "Date": "2020-05-30",
@@ -2134,9 +1950,7 @@
   "Cases_New_Per_Million": 5.386,
   "Deaths_New_Per_Million": 0.0,
   "Cases_Last_Week_Per_Million": 27.664,
-  "Deaths_Last_Week_Per_Million": 0.979,
-  "Cases_Doubling_Time": "",
-  "Deaths_Doubling_Time": ""
+  "Deaths_Last_Week_Per_Million": 0.979
  },
  {
   "Date": "2020-05-31",
@@ -2157,9 +1971,7 @@
   "Cases_New_Per_Million": null,
   "Deaths_New_Per_Million": 0.0,
   "Cases_Last_Week_Per_Million": 25.46,
-  "Deaths_Last_Week_Per_Million": 0.734,
-  "Cases_Doubling_Time": "",
-  "Deaths_Doubling_Time": ""
+  "Deaths_Last_Week_Per_Million": 0.734
  },
  {
   "Date": "2020-06-01",
@@ -2180,9 +1992,7 @@
   "Cases_New_Per_Million": 2.203,
   "Deaths_New_Per_Million": 0.0,
   "Cases_Last_Week_Per_Million": 26.195,
-  "Deaths_Last_Week_Per_Million": 0.49,
-  "Cases_Doubling_Time": "",
-  "Deaths_Doubling_Time": ""
+  "Deaths_Last_Week_Per_Million": 0.49
  },
  {
   "Date": "2020-06-02",
@@ -2203,9 +2013,7 @@
   "Cases_New_Per_Million": 0.245,
   "Deaths_New_Per_Million": 0.0,
   "Cases_Last_Week_Per_Million": 25.46,
-  "Deaths_Last_Week_Per_Million": 0.49,
-  "Cases_Doubling_Time": "",
-  "Deaths_Doubling_Time": ""
+  "Deaths_Last_Week_Per_Million": 0.49
  },
  {
   "Date": "2020-06-03",
@@ -2226,9 +2034,7 @@
   "Cases_New_Per_Million": 1.958,
   "Deaths_New_Per_Million": 0.0,
   "Cases_Last_Week_Per_Million": 24.726,
-  "Deaths_Last_Week_Per_Million": 0.245,
-  "Cases_Doubling_Time": "",
-  "Deaths_Doubling_Time": ""
+  "Deaths_Last_Week_Per_Million": 0.245
  },
  {
   "Date": "2020-06-04",
@@ -2249,9 +2055,7 @@
   "Cases_New_Per_Million": 1.714,
   "Deaths_New_Per_Million": 0.0,
   "Cases_Last_Week_Per_Million": 16.402,
-  "Deaths_Last_Week_Per_Million": 0.0,
-  "Cases_Doubling_Time": "",
-  "Deaths_Doubling_Time": ""
+  "Deaths_Last_Week_Per_Million": 0.0
  },
  {
   "Date": "2020-06-05",
@@ -2272,9 +2076,7 @@
   "Cases_New_Per_Million": 3.183,
   "Deaths_New_Per_Million": 0.0,
   "Cases_Last_Week_Per_Million": 14.444,
-  "Deaths_Last_Week_Per_Million": 0.0,
-  "Cases_Doubling_Time": "",
-  "Deaths_Doubling_Time": ""
+  "Deaths_Last_Week_Per_Million": 0.0
  },
  {
   "Date": "2020-06-06",
@@ -2295,9 +2097,7 @@
   "Cases_New_Per_Million": 7.099,
   "Deaths_New_Per_Million": 0.0,
   "Cases_Last_Week_Per_Million": 16.157,
-  "Deaths_Last_Week_Per_Million": 0.0,
-  "Cases_Doubling_Time": "",
-  "Deaths_Doubling_Time": ""
+  "Deaths_Last_Week_Per_Million": 0.0
  },
  {
   "Date": "2020-06-07",
@@ -2318,9 +2118,7 @@
   "Cases_New_Per_Million": 3.427,
   "Deaths_New_Per_Million": 0.0,
   "Cases_Last_Week_Per_Million": 19.83,
-  "Deaths_Last_Week_Per_Million": 0.0,
-  "Cases_Doubling_Time": "",
-  "Deaths_Doubling_Time": ""
+  "Deaths_Last_Week_Per_Million": 0.0
  },
  {
   "Date": "2020-06-08",
@@ -2341,9 +2139,7 @@
   "Cases_New_Per_Million": 1.469,
   "Deaths_New_Per_Million": 0.0,
   "Cases_Last_Week_Per_Million": 19.095,
-  "Deaths_Last_Week_Per_Million": 0.0,
-  "Cases_Doubling_Time": "",
-  "Deaths_Doubling_Time": ""
+  "Deaths_Last_Week_Per_Million": 0.0
  },
  {
   "Date": "2020-06-09",
@@ -2364,8 +2160,6 @@
   "Cases_New_Per_Million": 1.469,
   "Deaths_New_Per_Million": 0.0,
   "Cases_Last_Week_Per_Million": 20.319,
-  "Deaths_Last_Week_Per_Million": 0.0,
-  "Cases_Doubling_Time": "",
-  "Deaths_Doubling_Time": ""
+  "Deaths_Last_Week_Per_Million": 0.0
  }
 ]
