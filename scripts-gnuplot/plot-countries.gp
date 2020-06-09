@@ -56,6 +56,7 @@ set yrange [0:]
 deaths_per_million_of_IT = system ("grep Italy ../data/int/countries-latest-selected.tsv| tail -1 | cut -f7") + 0
 #print deaths_per_million_of_IT
 set ylabel "Duplications"
+# TODO
 set output '../plots-gnuplot/int/countries-duplications-until-IT-level-of-deaths.png'
 plot data using (log(deaths_per_million_of_IT/column("Deaths_Per_Million"))/log(2)):xticlabels(1) with boxes ls 11
 unset output
@@ -87,42 +88,43 @@ set xlabel "Days"
 set ytics nomirror
 set y2label "Duplication Time (Days)" tc ls 5 offset -2,0
 set y2tics tc ls 5
-set y2range [35:0]
+set y2range [14:0]
+
 
 
 # set lmargin 9
 
+# this is no longer updated daily, since the exponential growth has ended after 30.03.2020
 
-fit_data_file = "../data/int/countries-gnuplot-fit.tsv"
-set print fit_data_file
-print "Country\tCode\ta\tb\tDeaths\tDeaths_Doubling_Time\tFactor at t+1\tDeaths at t+1\tFactor at t+7\tDeaths at t+7"
-unset print
-set xtics 7 rotate by 0
-country_code = "AT" ; country_name = "Austria" ; load "plot-countries-sub1.gp"
-country_code = "BE" ; country_name = "Belgium" ; load "plot-countries-sub1.gp"
-country_code = "CA" ; country_name = "Canada" ; load "plot-countries-sub1.gp"
-country_code = "CZ" ; country_name = "Czechia" ; load "plot-countries-sub1.gp"
-country_code = "DK" ; country_name = "Denmark" ; load "plot-countries-sub1.gp"
-country_code = "FI" ; country_name = "Finland" ; load "plot-countries-sub1.gp"
-country_code = "FR" ; country_name = "France" ; load "plot-countries-sub1.gp"
-country_code = "DE" ; country_name = "Germany" ; load "plot-countries-sub1.gp"
-country_code = "GR" ; country_name = "Greece" ; load "plot-countries-sub1.gp"
-country_code = "HU" ; country_name = "Hungary" ; load "plot-countries-sub1.gp"
-country_code = "IR" ; country_name = "Iran" ; load "plot-countries-sub1.gp"
-country_code = "IT" ; country_name = "Italy" ; load "plot-countries-sub1.gp"
-country_code = "JP" ; country_name = "Japan" ; load "plot-countries-sub1.gp"
-country_code = "NL" ; country_name = "Netherlands" ; load "plot-countries-sub1.gp"
-country_code = "PT" ; country_name = "Portugal" ; load "plot-countries-sub1.gp"
-country_code = "KR" ; country_name = "South Korea" ; load "plot-countries-sub1.gp"
-country_code = "ES" ; country_name = "Spain" ; load "plot-countries-sub1.gp"
-country_code = "SE" ; country_name = "Sweden" ; load "plot-countries-sub1.gp"
-country_code = "CH" ; country_name = "Switzerland" ; load "plot-countries-sub1.gp"
-country_code = "TR" ; country_name = "Turkey" ; load "plot-countries-sub1.gp"
-country_code = "GB" ; country_name = "United Kingdom" ; load "plot-countries-sub1.gp"
-country_code = "US" ; country_name = "United States" ; load "plot-countries-sub1.gp"
-
-# delete fit logfile
-`rm fit.log`
+# fit_data_file = "../data/int/countries-gnuplot-fit.tsv"
+# set print fit_data_file
+# print "Country\tCode\ta\tb\tDeaths\tDeaths_Doubling_Time\tFactor at t+1\tDeaths at t+1\tFactor at t+7\tDeaths at t+7"
+# unset print
+# set xtics 7 rotate by 0
+# country_code = "AT" ; country_name = "Austria" ; load "plot-countries-sub1.gp"
+# country_code = "BE" ; country_name = "Belgium" ; load "plot-countries-sub1.gp"
+# country_code = "CA" ; country_name = "Canada" ; load "plot-countries-sub1.gp"
+# country_code = "CZ" ; country_name = "Czechia" ; load "plot-countries-sub1.gp"
+# country_code = "DK" ; country_name = "Denmark" ; load "plot-countries-sub1.gp"
+# country_code = "FI" ; country_name = "Finland" ; load "plot-countries-sub1.gp"
+# country_code = "FR" ; country_name = "France" ; load "plot-countries-sub1.gp"
+# country_code = "DE" ; country_name = "Germany" ; load "plot-countries-sub1.gp"
+# country_code = "GR" ; country_name = "Greece" ; load "plot-countries-sub1.gp"
+# country_code = "HU" ; country_name = "Hungary" ; load "plot-countries-sub1.gp"
+# country_code = "IR" ; country_name = "Iran" ; load "plot-countries-sub1.gp"
+# country_code = "IT" ; country_name = "Italy" ; load "plot-countries-sub1.gp"
+# country_code = "JP" ; country_name = "Japan" ; load "plot-countries-sub1.gp"
+# country_code = "NL" ; country_name = "Netherlands" ; load "plot-countries-sub1.gp"
+# country_code = "PT" ; country_name = "Portugal" ; load "plot-countries-sub1.gp"
+# country_code = "KR" ; country_name = "South Korea" ; load "plot-countries-sub1.gp"
+# country_code = "ES" ; country_name = "Spain" ; load "plot-countries-sub1.gp"
+# country_code = "SE" ; country_name = "Sweden" ; load "plot-countries-sub1.gp"
+# country_code = "CH" ; country_name = "Switzerland" ; load "plot-countries-sub1.gp"
+# country_code = "TR" ; country_name = "Turkey" ; load "plot-countries-sub1.gp"
+# country_code = "GB" ; country_name = "United Kingdom" ; load "plot-countries-sub1.gp"
+# country_code = "US" ; country_name = "United States" ; load "plot-countries-sub1.gp"
+# # delete fit logfile
+# `rm fit.log`
 
 unset xrange
 unset yrange
@@ -148,20 +150,19 @@ set boxwidth 0.75 relative
 set key off
 set yrange [0:21]
 # y_value_de = ( system("tail -1 " . fit_data_file . " | cut -f6") + 0)
-set output '../plots-gnuplot/int/countries-fit-deaths-doubling-time.png'
-plot fit_data_file using (column("Deaths_Doubling_Time")):xticlabels(1) with boxes ls 11
-#, y_value_de
-unset output
+# set output '../plots-gnuplot/int/countries-fit-deaths-doubling-time.png'
+# plot fit_data_file using (column("Deaths_Doubling_Time")):xticlabels(1) with boxes ls 11
+# unset output
 set yrange [0:*]
 set ytics autofreq format "%g%%" 
 set title "Fit Result: Increase of Deaths per Day"
 set ylabel "Increase Deaths per Day"
+# TODO
 # y_value_de = ( system("tail -1 " . fit_data_file . " | cut -f7") + 0)
 # y_value_de = (y_value_de-1)*100
-set output '../plots-gnuplot/int/countries-fit-deaths-increase-1-day.png'
-plot fit_data_file using ((column("Factor at t+1")-1)*100):xticlabels(1) with boxes ls 11
-# , y_value_de
-unset output
+# set output '../plots-gnuplot/int/countries-fit-deaths-increase-1-day.png'
+# plot fit_data_file using ((column("Factor at t+1")-1)*100):xticlabels(1) with boxes ls 11
+# unset output
 set ytics autofreq format "%g" 
 
 # combining the duplications until reaching IT level from countries-latest-selected.tsv and the duplication time from countries-gnuplot-fit.tsv
@@ -173,9 +174,10 @@ set ytics 0,7
 out = system ("cd .. ; python3 join-country-latest-and-fit-data.py ; cd scripts-gnuplot")
 print out
 data = '../data/int/countries-joined_selected_and_gnuplot_fit.tsv'
-set output '../plots-gnuplot/int/countries-days-until-IT-level-of-deaths.png'
-plot data u (column("Days till deaths/pop of Italy")):xticlabels(1) with boxes ls 11
-unset output
+# TODO
+# set output '../plots-gnuplot/int/countries-days-until-IT-level-of-deaths.png'
+# plot data u (column("Days till deaths/pop of Italy")):xticlabels(1) with boxes ls 11
+# unset output
 unset yrange
 set ytics autofreq
 # plot and fit time series

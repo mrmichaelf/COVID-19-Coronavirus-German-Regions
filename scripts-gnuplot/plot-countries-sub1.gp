@@ -39,13 +39,24 @@ unset print
 # fit f2(x) data using 1:col via a2
 # fit f3(x) data using 1:col via a3
 
-set xtic add (date_last 0) 
+# set xtic add (date_last 0) 
+
+unset xlabel
+set xtic add ("30.04.20" 0) center
+set xtic add ("" -7) center
+set xtic add ("16.04.20" -14) center
+set xtic add ("" -21) center
+set xtic add ("02.04.20" -28) center
+set xtic add ("" -35) center
+set xtic add ("19.03.20" -42) center
+set xtic add ("" -49) center
+set xtic add ("05.03.20" -56) center
 
 # print country_name
 
 # plot range filters != fit range filters 
 # set xrange [x_min:x_max+1]
-set xrange [-30:x_max+1]
+set xrange [-60:x_max+1]
 set yrange [0:] 
 # set ytics nomirror
 # set y2range [1:2]

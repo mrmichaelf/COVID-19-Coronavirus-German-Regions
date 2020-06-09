@@ -249,20 +249,20 @@ def fit_doubling_time():
             l_country_data[i] = entry
 
         # fit the doubling time each day
-        data = list(zip(data_t, data_cases))
-        fit_series_res_cases = helper.series_of_fits(
-            data, fit_range=7, max_days_past=28)
+        # data = list(zip(data_t, data_cases))
+        # fit_series_res_cases = helper.series_of_fits(
+        #     data, fit_range=7, max_days_past=28)
         data = list(zip(data_t, data_deaths))
         fit_series_res_deaths = helper.series_of_fits(
-            data, fit_range=7, max_days_past=28)
+            data, fit_range=7, max_days_past=60)
 
         for i in range(len(l_country_data)):
             entry = l_country_data[i]
             entry['Cases_Doubling_Time'] = ""
             entry['Deaths_Doubling_Time'] = ""
             this_DaysPast = entry['Days_Past']
-            if this_DaysPast in fit_series_res_cases:
-                entry['Cases_Doubling_Time'] = fit_series_res_cases[this_DaysPast]
+            # if this_DaysPast in fit_series_res_cases:
+            #     entry['Cases_Doubling_Time'] = fit_series_res_cases[this_DaysPast]
             if this_DaysPast in fit_series_res_deaths:
                 entry['Deaths_Doubling_Time'] = fit_series_res_deaths[this_DaysPast]
             l_country_data[i] = entry
@@ -403,7 +403,7 @@ d_countries_timeseries = read_json_data()
 check_for_further_interesting_countries()
 
 # TODO: depricated
-fit_doubling_time()
+# fit_doubling_time()
 
 extract_latest_date_data()
 

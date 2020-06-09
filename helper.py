@@ -317,7 +317,7 @@ def fit_routine(data: list, fit_range_x: list = (-np.inf, np.inf), fit_range_y: 
                 'forcast_y_delta_at_x+1': y_next_day_delta,
                 'factor_increase_x+1': factor_increase_next_day
             }
-        except (RuntimeError) as error:  # Exception, RuntimeWarning
+        except (RuntimeError, ValueError) as error:  # Exception, RuntimeWarning
             1
             print(error)
     return d

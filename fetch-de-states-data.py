@@ -142,42 +142,41 @@ def read_csv_to_dict() -> dict:
             # add per Million rows
             d = helper.add_per_million_via_lookup(d, d_states_ref, code)
 
-        # fit cases data
-        # Cases
-        dataCases = []
-        dataDeaths = []
-        for i in range(1, len(l_time_series)):
-            # x= day , y = cases
-            dataCases.append(
-                (
-                    l_time_series[i]['Days_Past'],
-                    l_time_series[i]['Cases']
-                )
-            )
-            dataDeaths.append(
-                (
-                    l_time_series[i]['Days_Past'],
-                    l_time_series[i]['Deaths']
-                )
-            )
+        # # fit cases data
+        # dataCases = []
+        # dataDeaths = []
+        # for i in range(1, len(l_time_series)):
+        #     # x= day , y = cases
+        #     dataCases.append(
+        #         (
+        #             l_time_series[i]['Days_Past'],
+        #             l_time_series[i]['Cases']
+        #         )
+        #     )
+        #     dataDeaths.append(
+        #         (
+        #             l_time_series[i]['Days_Past'],
+        #             l_time_series[i]['Deaths']
+        #         )
+        #     )
 
-        fit_series_res = helper.series_of_fits(
-            dataCases, fit_range=7, max_days_past=28)
-        for i in range(0, len(l_time_series)):
-            this_Doubling_Time = ""
-            this_days_past = l_time_series[i]['Days_Past']
-            if this_days_past in fit_series_res:
-                this_Doubling_Time = fit_series_res[this_days_past]
-            l_time_series[i]['Cases_Doubling_Time'] = this_Doubling_Time
+        # fit_series_res = helper.series_of_fits(
+        #     dataCases, fit_range=7, max_days_past=60)
+        # for i in range(0, len(l_time_series)):
+        #     this_Doubling_Time = ""
+        #     this_days_past = l_time_series[i]['Days_Past']
+        #     if this_days_past in fit_series_res:
+        #         this_Doubling_Time = fit_series_res[this_days_past]
+        #     l_time_series[i]['Cases_Doubling_Time'] = this_Doubling_Time
 
-        fit_series_res = helper.series_of_fits(
-            dataDeaths, fit_range=7, max_days_past=28)
-        for i in range(0, len(l_time_series)):
-            this_Doubling_Time = ""
-            this_days_past = l_time_series[i]['Days_Past']
-            if this_days_past in fit_series_res:
-                this_Doubling_Time = fit_series_res[this_days_past]
-            l_time_series[i]['Deaths_Doubling_Time'] = this_Doubling_Time
+        # fit_series_res = helper.series_of_fits(
+        #     dataDeaths, fit_range=7, max_days_past=60)
+        # for i in range(0, len(l_time_series)):
+        #     this_Doubling_Time = ""
+        #     this_days_past = l_time_series[i]['Days_Past']
+        #     if this_days_past in fit_series_res:
+        #         this_Doubling_Time = fit_series_res[this_days_past]
+        #     l_time_series[i]['Deaths_Doubling_Time'] = this_Doubling_Time
 
         d_states_data[code] = l_time_series
 

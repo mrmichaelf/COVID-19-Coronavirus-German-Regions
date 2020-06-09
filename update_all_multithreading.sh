@@ -6,12 +6,12 @@ echo === fetching index.html -> index-online.html
 wget -q -O index-online.html https://entorb.net/COVID-19-coronavirus/index.html 
 
 echo === fetching and generating new data
+# echo ==== de-districts
+python3 fetch-de-districts.py && echo gen-map-de-districts && python3 gen-map-de-districts.py &
 # echo ==== de-divi
 python3 fetch-de-divi-V2.py &
 # echo ==== de-states
 python3 fetch-de-states-data.py &
-# echo ==== de-districts
-python3 fetch-de-districts.py && python3 gen-map-de-districts.py &
 # echo ==== countries
 python3 fetch-int-country-data.py &
 
