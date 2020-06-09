@@ -8,6 +8,10 @@ Data is enriched by calculated values and exported
 """
 
 
+# TODO: modify cache to plot old data via
+# ,\n\s+\{[\n]\s+"date": "2020-4-1",[^\]]*\]
+# -> ]
+
 # Built-in/Generic Imports
 
 import time
@@ -398,6 +402,7 @@ d_countries_timeseries = read_json_data()
 
 check_for_further_interesting_countries()
 
+# TODO: depricated
 fit_doubling_time()
 
 extract_latest_date_data()
