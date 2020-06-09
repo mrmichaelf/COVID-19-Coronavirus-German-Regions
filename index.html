@@ -959,8 +959,7 @@
 	<h3>
 		<a id="Exp_Wachstum"></a> Untersuchung der exponentiellen Zunahme der Infektionen in Deutschland </h3>
 	<p>Dieses Kapitel ist nicht mehr relevant, da wir glücklicherweise den Bereich der exponentiellen Zunahme der
-		Neu-Infektionen verlassen
-		haben.</p>
+		Neu-Infektionen verlassen haben. Daher werden diese Grafiken nicht mehr aktualisiert.</p>
 
 	<p> Achtung: nun wird es etwas mathematisch...<br /> Zur Untersuchung der Zunahme der Infektionen habe ich die Daten
 		mit einer exponentiellen Wachstumsfunktion "gefittet" (angenähert über eine <a
@@ -1229,11 +1228,11 @@
 						alignEmptyValues: "bottom"
 					}, headerFilter: true, headerFilterPlaceholder: "filter >=", headerFilterFunc: ">="
 				},
-				{
-					title: "Deaths<br/>Doubling Time (Days)", field: "Deaths_Doubling_Time", sorter: "number", hozAlign: "right", sorterParams: {
-						alignEmptyValues: "bottom"
-					}, headerFilter: true, headerFilterPlaceholder: "filter >=", headerFilterFunc: ">="
-				},
+				// {
+				// 	title: "Deaths<br/>Doubling Time (Days)", field: "Deaths_Doubling_Time", sorter: "number", hozAlign: "right", sorterParams: {
+				// 		alignEmptyValues: "bottom"
+				// 	}, headerFilter: true, headerFilterPlaceholder: "filter >=", headerFilterFunc: ">="
+				// },
 			],
 			rowClick: function (e, row) {
 				var rowData = row.getData();
@@ -1274,9 +1273,9 @@
 			related to the hospital workload.</li>
 		<li><b>Per Million</b> means scaled per million population. These series should be used when comparing countries.
 		</li>
-		<li><b>Doubling Time</b> is in days. For each day it is calculated from the 7 previous days, for details see <a
+		<!-- <li><b>Doubling Time</b> is in days. For each day it is calculated from the 7 previous days, for details see <a
 				href="#CountriesDeathTimeSeries">below</a>. Higher value is better, of cause, therefore I inverted the y axis.
-		</li>
+		</li> -->
 		<li><b>New</b> means change with respect to the previous day.</li>
 		<li><b>Last Week</b> means change with respect to 7 days in the past (=rolling week). It is therefore is smoother
 			than the <b>New</b> series.</li>
@@ -1403,15 +1402,16 @@
 			"Deaths",
 			"Deaths_Last_Week",
 			"Deaths_New",
-			"Deaths_Doubling_Time",
 			"Cases_Per_Million",
 			"Cases_Last_Week_Per_Million",
 			"Cases_New_Per_Million",
 			"Cases",
 			"Cases_Last_Week",
 			"Cases_New",
-			"Cases_Doubling_Time"
 		];
+		// "Deaths_Doubling_Time",
+		// "Cases_Doubling_Time"
+
 		const options_yAxisProperty = [
 			"Deaths_Last_Week_Per_Million",
 			"Deaths_Per_Million",
@@ -1419,17 +1419,18 @@
 			"Deaths",
 			"Deaths_Last_Week",
 			"Deaths_New",
-			"Deaths_Doubling_Time",
 			"Cases_Last_Week_Per_Million",
 			"Cases_Per_Million",
 			"Cases_New_Per_Million",
 			"Cases",
 			"Cases_Last_Week",
 			"Cases_New",
-			"Cases_Doubling_Time",
 			"Deaths_Per_Cases",
 			"Deaths_Per_Cases_Last_Week",
 		];
+
+		// "Deaths_Doubling_Time",
+		// "Cases_Doubling_Time",
 
 		const options_xaxis_time_range = [
 			{ value: "12weeks", text: "12 weeks" },
@@ -1805,6 +1806,8 @@
 	<h3>
 		<a id="CountriesDeathTimeSeries"></a>Time series, Doubling time calculation and forecast for selected countries
 	</h3>
+	<p>As in all countries the exponentially increase of the death toll is stopped, this chapter is not relevant any more,
+		and will not be updated.</p>
 
 	<p> Now comes the math part... <br /> As we saw above, the death toll growths exponentially with time for most
 		countries. This can be "fitted" (=performing <a href="https://en.wikipedia.org/wiki/Regression_analysis"
