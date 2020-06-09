@@ -1631,3 +1631,19 @@ id,Country/Region,federalstate,infections,deaths,date,newinfections,newdeaths
 1619,Germany,Saxony-Anhalt,1720,56,2020-06-08,0,0
 1630,Germany,Schleswig-Holstein,3110,147,2020-06-08,1,0
 1623,Germany,Thuringia,3081,170,2020-06-08,4,0
+1633,Germany,Baden-Württemberg,34958,1795,2020-06-09,21,4
+1637,Germany,Bavaria,47423,2521,2020-06-09,52,16
+1634,Germany,Berlin,7042,205,2020-06-09,26,0
+1639,Germany,Brandenburg,3302,160,2020-06-09,-2,0
+1635,Germany,Bremen,1532,43,2020-06-09,1,-1
+1636,Germany,Hamburg,5117,254,2020-06-09,2,0
+1647,Germany,Hesse,10237,484,2020-06-09,30,0
+1641,Germany,Lower Saxony,12601,606,2020-06-09,92,1
+1638,Germany,Mecklenburg-Western Pomerania,780,20,2020-06-09,6,0
+1645,Germany,North Rhine-Westphalia,38743,1635,2020-06-09,83,12
+1648,Germany,Rhineland-Palatinate,6787,230,2020-06-09,6,0
+1644,Germany,Saarland,2754,167,2020-06-09,7,1
+1646,Germany,Saxony,5333,217,2020-06-09,3,3
+1643,Germany,Saxony-Anhalt,1720,56,2020-06-09,0,0
+1640,Germany,Schleswig-Holstein,3114,148,2020-06-09,4,1
+1642,Germany,Thuringia,3100,170,2020-06-09,19,0
