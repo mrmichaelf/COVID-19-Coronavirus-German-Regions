@@ -70,28 +70,29 @@ jobs:
         cd data
         tar cfz ../cache/data.tgz *
 
-    - name: Upload data artifact
-      uses: actions/upload-artifact@v1
-      with:
-        name: data
-        path: cache/data.tgz
+# not accessable anonymously
+#    - name: Upload data artifact
+#      uses: actions/upload-artifact@v1
+#      with:
+#        name: data
+#        path: cache/data.tgz
 
 # TODO:
-# https://github.com/marketplace/actions/deploy-nightly
 
 # https://github.com/actions/upload-artifact/issues/21
-#    - name: Upload data artifact via tip
-#      uses: eine/tip@master
-#      with:
-#        token: ${{ secrets.GITHUB_TOKEN }}
-#        files: |
-#          cache/data.tgz
+    - name: Upload data artifact via tip
+      uses: eine/tip@master
+      with:
+        token: ${{ secrets.GITHUB_TOKEN }}
+        files: |
+          cache/data.tgz
 
 #    - name: Test gnuplot
 #      run: |
 #        cd scripts-gnuplot
 #        gnuplot plot-de.gp
 
+# https://github.com/marketplace/actions/deploy-nightly
 #    - name: test
 #      uses: uses: WebFreak001/deploy-nightly@v1.0.3
 #      env:
