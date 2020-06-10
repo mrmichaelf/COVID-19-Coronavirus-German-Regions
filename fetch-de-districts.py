@@ -178,42 +178,8 @@ def fetch_ref_landkreise(readFromCache: bool = True) -> dict:
     file_cache = "cache/de-districts/de-districts.json"
 
     max_allowed_rows_to_fetch = 2000
-    url = 'https: // services7.arcgis.com/mOBPykOjAyBO2ZKk        # # fit cases data
-    # dataCases = []
-    # dataDeaths = []
-    # for i in range(1, len(l_time_series)):
-    #     # x= day , y = cases
-    #     dataCases.append(
-    #         (
-    #             l_time_series[i]['Days_Past'],
-    #             l_time_series[i]['Cases']
-    #         )
-    #     )
-    #     dataDeaths.append(
-    #         (
-    #             l_time_series[i]['Days_Past'],
-    #             l_time_series[i]['Deaths']
-    #         )
-    #     )
-
-    # fit_series_res = helper.series_of_fits(
-    #     dataCases, fit_range=7, max_days_past=60)
-    # for i in range(0, len(l_time_series)):
-    #     this_Doubling_Time = ""
-    #     this_days_past = l_time_series[i]['Days_Past']
-    #     if this_days_past in fit_series_res:
-    #         this_Doubling_Time = fit_series_res[this_days_past]
-    #     l_time_series[i]['Cases_Doubling_Time'] = this_Doubling_Time
-
-    # fit_series_res = helper.series_of_fits(
-    #     dataDeaths, fit_range=7, max_days_past=60)
-    # for i in range(0, len(l_time_series)):
-    #     this_Doubling_Time = ""
-    #     this_days_past = l_time_series[i]['Days_Past']
-    #     if this_days_past in fit_series_res:
-    #         this_Doubling_Time = fit_series_res[this_days_past]
-    #     l_time_series[i]['Deaths_Doubling_Time'] = this_Doubling_Time/arcgis/rest/services/RKI_Landkreisdaten/FeatureServer/0/query?f=json' +\
-    '&where=1%3D1' +\
+    url = 'https://services7.arcgis.com/mOBPykOjAyBO2ZKk/arcgis/rest/services/RKI_Landkreisdaten/FeatureServer/0/query?f=json' +\
+        '&where=1%3D1' +\
         '&outFields=*' +\
         '&orderByFields=BL_ID%2C+AGS' +\
         "&resultRecordCount=" + str(max_allowed_rows_to_fetch) + \
