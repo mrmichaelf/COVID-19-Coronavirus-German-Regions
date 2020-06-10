@@ -55,7 +55,9 @@ jobs:
 #        echo Add other actions to build,
 #        echo test, and deploy your project.
 
- 
+
+
+# updating data
     - name: Run fetch-de-states.py
       run: python3 fetch-de-states-data.py
       
@@ -70,24 +72,26 @@ jobs:
         cd data
         tar cfz ../cache/data.tgz *
 
-# not accessable anonymously
-#    - name: Upload data artifact
-#      uses: actions/upload-artifact@v1
-#      with:
-#        name: data
-#        path: cache/data.tgz
-
+# updating gnuplot charts
     - name: Gnuplot plotting
       run: |
         sudo apt-get install gnuplot
         cd scripts-gnuplot
-        gnuplot plot-de.gp
+        gnuplot all.gp
 
     - name: Zipping gnuplot plots
       run: |
         cd plots-gnuplot
         tar cfz ../cache/plots-gnuplot.tgz *
 
+# create pre-releases of tgz files
+
+# not accessable anonymously
+#    - name: Upload data artifact
+#      uses: actions/upload-artifact@v1
+#      with:
+#        name: data
+#        path: cache/data.tgz
 
 # https://github.com/actions/upload-artifact/issues/21
     - name: Upload data artifact via tip
@@ -114,8 +118,8 @@ jobs:
 ## find out this value by opening https://api.github.com/repos/<owner>/<repo>/releases in your browser and copy the full "upload_url" value including the {?name,label} part
 #        release_id: 27395320 # same as above (id can just be taken out the upload_url, it's used to find old releases)
 #        asset_path: cache/data.tgz # path to archive to upload
-#        asset_name: data.tgz.zip # name to upload the release as, use $$ to insert date (YYYYMMDD) and 6 letter commit hash
-#        asset_content_type: application/zip # required by GitHub API
+#        asset_name: data.tgz # name to upload the release as, use $$ to insert date (YYYYMMDD) and 6 letter commit hash
+#        asset_content_type: application/tgz # required by GitHub API
 ##        max_releases: 7 # optional, if there are more releases than this matching the asset_name, the oldest ones are going to be deleted      
 
     - name: Commit new data files
