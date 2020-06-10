@@ -1647,19 +1647,19 @@ id,Country/Region,federalstate,infections,deaths,date,newinfections,newdeaths
 1643,Germany,Saxony-Anhalt,1720,56,2020-06-09,0,0
 1640,Germany,Schleswig-Holstein,3114,148,2020-06-09,4,1
 1642,Germany,Thuringia,3100,170,2020-06-09,19,0
-1656,Germany,Baden-Württemberg,34958,1795,2020-06-10,0,0
-1653,Germany,Bavaria,47423,2521,2020-06-10,0,0
-1663,Germany,Berlin,7042,205,2020-06-10,0,0
-1650,Germany,Brandenburg,3302,160,2020-06-10,0,0
-1664,Germany,Bremen,1532,43,2020-06-10,0,0
-1662,Germany,Hamburg,5117,254,2020-06-10,0,0
-1651,Germany,Hesse,10237,484,2020-06-10,0,0
-1659,Germany,Lower Saxony,12601,606,2020-06-10,0,0
-1655,Germany,Mecklenburg-Western Pomerania,780,20,2020-06-10,0,0
-1657,Germany,North Rhine-Westphalia,38743,1635,2020-06-10,0,0
-1652,Germany,Rhineland-Palatinate,6787,230,2020-06-10,0,0
-1654,Germany,Saarland,2754,167,2020-06-10,0,0
-1658,Germany,Saxony,5333,217,2020-06-10,0,0
-1661,Germany,Saxony-Anhalt,1720,56,2020-06-10,0,0
-1649,Germany,Schleswig-Holstein,3114,148,2020-06-10,0,0
-1660,Germany,Thuringia,3100,170,2020-06-10,0,0
+1656,Germany,Baden-Württemberg,34965,1798,2020-06-10,7,3
+1653,Germany,Bavaria,47479,2531,2020-06-10,56,10
+1663,Germany,Berlin,7082,206,2020-06-10,40,1
+1650,Germany,Brandenburg,3309,160,2020-06-10,7,0
+1664,Germany,Bremen,1547,43,2020-06-10,15,0
+1662,Germany,Hamburg,5121,254,2020-06-10,4,0
+1651,Germany,Hesse,10256,485,2020-06-10,19,1
+1659,Germany,Lower Saxony,12626,607,2020-06-10,25,1
+1655,Germany,Mecklenburg-Western Pomerania,777,20,2020-06-10,-3,0
+1657,Germany,North Rhine-Westphalia,38845,1636,2020-06-10,102,1
+1652,Germany,Rhineland-Palatinate,6810,231,2020-06-10,23,1
+1654,Germany,Saarland,2763,167,2020-06-10,9,0
+1658,Germany,Saxony,5337,217,2020-06-10,4,0
+1661,Germany,Saxony-Anhalt,1721,56,2020-06-10,1,0
+1649,Germany,Schleswig-Holstein,3115,148,2020-06-10,1,0
+1660,Germany,Thuringia,3108,170,2020-06-10,8,0
