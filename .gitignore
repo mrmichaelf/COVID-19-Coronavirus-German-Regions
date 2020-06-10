@@ -1,6 +1,5 @@
 # dirs
 __pycache__/
-__pycache__/helper.cpython-38.pyc
 backup/
 cache/
 data/old/
@@ -17,4 +16,3 @@ test/
 ~$*.xlsx
 index-*.html
 .vstags
-cache/de-districts/de-districts.json

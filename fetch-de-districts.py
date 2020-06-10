@@ -461,7 +461,7 @@ def loop_over_all_LK():
         # 09562   SK Erlangen     111962
         # 09563   SK Fürth        127748
 
-        data = []
+        # data = []
         l_lk_time_series = fetch_and_prepare_lk_time_series(lk_id)
         # the following was used for multiple fitting to derive a time series of the doubling time
         # # l_lk_time_series = fetch_landkreis_time_series(lk_id, readFromCache=True)
