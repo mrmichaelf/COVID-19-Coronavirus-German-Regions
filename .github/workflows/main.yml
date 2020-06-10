@@ -56,6 +56,11 @@ jobs:
 #        echo Add other actions to build,
 #        echo test, and deploy your project.
 
+# Generate Maps
+    - name: Generate Maps
+      run: | 
+        sudo apt-get install imagemagick
+        gen-map-de-districts.py
 
 
 # Fetch new data
@@ -84,6 +89,7 @@ jobs:
       run: |
         cd plots-gnuplot
         tar cfz ../cache/plots-gnuplot.tgz *
+
 
 # Create pre-releases of tgz files
 
