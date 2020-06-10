@@ -14,15 +14,41 @@ on:
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
+  Install dependencies:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - name: Setup Python
+      uses: actions/setup-python@v2
+      with:
+        python-version: '3.8'
+    - name: Cache pip
+      uses: actions/cache@v2
+      with:
+        # This path is specific to Ubuntu
+        path: ~/.cache/pip
+        # Look to see if there is a cache hit for the corresponding requirements file
+        key: ${{ runner.os }}-pip-${{ hashFiles('py-requirements.txt') }}
+        restore-keys: |
+          ${{ runner.os }}-pip-
+          ${{ runner.os }}-
+    - name: Install dependencies
+      run: pip install -r py-requirements.txt
+  
+  
   # This workflow contains a single job called "updater1"
   updater1:
     # The type of runner that the job will run on
     runs-on: ubuntu-latest
-
+    
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
     # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
     - uses: actions/checkout@v2
+    - name: Setup Python
+      uses: actions/setup-python@v2
+      with:
+        python-version: '3.8'
 
 #    # Runs a single command using the runners shell
 #    - name: Run a one-line script
@@ -34,7 +60,7 @@ jobs:
 #        echo Add other actions to build,
 #        echo test, and deploy your project.
 
-    - name: Run fetch-de-states
+    - name: Run python --version
       run: python --version
       
 
@@ -43,6 +69,12 @@ jobs:
         python -m pip install --upgrade pip
         pip install -r py-requirements.txt
  
-    - name: Run fetch-de-states
+    - name: Run fetch-de-states.py
       run: python3 fetch-de-states-data.py
+      
+    - name: Run fetch-int-country-data.py
+      run: python3 fetch-int-country-data.py
+      
+    - name: Run fetch-de-districts.py
+      run: python3 fetch-de-districts.py
       
