@@ -24,6 +24,7 @@ jobs:
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
     # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
+      
     # Clone repository
     - uses: actions/checkout@v2
     
@@ -32,7 +33,7 @@ jobs:
       with:
         python-version: '3.8'
     
-    - name: Cache pip
+    - name: Cache Python pip
       uses: actions/cache@v2
       with:
         # This path is specific to Ubuntu
@@ -57,7 +58,7 @@ jobs:
 
 
 
-# updating data
+# Fetch new data
     - name: Run fetch-de-states.py
       run: python3 fetch-de-states-data.py
       
@@ -72,7 +73,7 @@ jobs:
         cd data
         tar cfz ../cache/data.tgz *
 
-# updating gnuplot charts
+# Gnuplot plotting
     - name: Gnuplot plotting
       run: |
         sudo apt-get install gnuplot
@@ -84,7 +85,7 @@ jobs:
         cd plots-gnuplot
         tar cfz ../cache/plots-gnuplot.tgz *
 
-# create pre-releases of tgz files
+# Create pre-releases of tgz files
 
 # not accessable anonymously
 #    - name: Upload data artifact
