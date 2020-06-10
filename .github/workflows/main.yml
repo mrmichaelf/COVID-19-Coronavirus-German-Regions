@@ -62,8 +62,8 @@ jobs:
     - name: Run fetch-int-country-data.py
       run: python3 fetch-int-country-data.py
       
-#    - name: Run fetch-de-districts.py
-#      run: python3 fetch-de-districts.py
+    - name: Run fetch-de-districts.py
+      run: python3 fetch-de-districts.py
 
     - name: Zipping data
       run: |
@@ -77,13 +77,16 @@ jobs:
 #        name: data
 #        path: cache/data.tgz
 
-# TODO: Gnuplot plotting
-
-    - name: Test gnuplot
+    - name: Gnuplot plotting
       run: |
         sudo apt-get install gnuplot
         cd scripts-gnuplot
         gnuplot plot-de.gp
+
+    - name: Zipping gnuplot plots
+      run: |
+        cd plots-gnuplot
+        tar cfz ../cache/plots-gnuplot.tgz *
 
 
 # https://github.com/actions/upload-artifact/issues/21
@@ -93,6 +96,13 @@ jobs:
         token: ${{ secrets.GITHUB_TOKEN }}
         files: |
           cache/data.tgz
+          
+    - name: Upload plots-gnuplot artifact via tip
+      uses: eine/tip@master
+      with:
+        token: ${{ secrets.GITHUB_TOKEN }}
+        files: |
+          cache/plots-gnuplot.tgz
 
 # https://github.com/marketplace/actions/deploy-nightly
 #    - name: Upload data artifact via deploy-nightly
