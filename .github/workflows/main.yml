@@ -7,9 +7,9 @@ name: Data Updater
 on:  
   schedule:
     - cron: "15 8,10,12 * * *"
-      
-#  push:
-#    branches: [ master ]
+# TODO      
+  push:
+    branches: [ master ]
 #  pull_request:
 #    branches: [ master ]
 
@@ -61,7 +61,19 @@ jobs:
       
     - name: Run fetch-de-districts.py
       run: python3 fetch-de-districts.py
-      
+
+    - name: Zipping data
+      run: |
+        cd data
+        tar cfz ../cache/data.tgz *
+
+    - name: Upload data artifact
+      uses: actions/upload-artifact@v1
+      with:
+        name: data
+        path: cache/data.tgz
+
+
     - name: Commit new data files
       run: |
         git config --local user.email "action@github.com"
