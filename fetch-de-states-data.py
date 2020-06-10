@@ -30,7 +30,7 @@ import csv
 import helper
 
 args = helper.read_command_line_parameters()
-download_file = 'data/download-de-federalstates-timeseries.csv'
+download_file = 'cache/download-de-federalstates-timeseries.csv'
 
 
 def download_new_data():

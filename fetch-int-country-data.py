@@ -36,7 +36,7 @@ __status__ = "Dev"
 __version__ = "0.1"
 
 args = helper.read_command_line_parameters()
-file_cache = 'data/download-countries-timeseries.json'
+file_cache = 'cache/download-countries-timeseries.json'
 
 
 def download_new_data():
