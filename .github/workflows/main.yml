@@ -8,8 +8,8 @@ on:
   schedule:
     - cron: "15 8,10,12 * * *"
 # TODO      
-  push:
-    branches: [ master ]
+#  push:
+#    branches: [ master ]
 #  pull_request:
 #    branches: [ master ]
 
