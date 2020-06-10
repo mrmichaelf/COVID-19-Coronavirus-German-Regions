@@ -8,8 +8,8 @@ name: Data Updater
 on:
   schedule:
     - cron: "15 8 * * *"
-#  push:
-#    branches: [ master ]
+  push:
+    branches: [ master ]
 #  pull_request:
 #    branches: [ master ]
 
