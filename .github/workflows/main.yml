@@ -76,12 +76,13 @@ jobs:
         name: data
         path: cache/data.tgz
 
-    - name: Upload data artifact via tip
-      uses: eine/tip@master
-      with:
-        token: ${{ secrets.GITHUB_TOKEN }}
-        files: |
-          cache/data.tgz
+# https://github.com/actions/upload-artifact/issues/21
+#    - name: Upload data artifact via tip
+#      uses: eine/tip@master
+#      with:
+#        token: ${{ secrets.GITHUB_TOKEN }}
+#        files: |
+#          cache/data.tgz
 
     - name: Test gnuplot
       run: |
