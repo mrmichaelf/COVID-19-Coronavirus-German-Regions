@@ -6,7 +6,7 @@ name: Data Updater
 # events but only for the master branch
 on:  
   schedule:
-    - cron: "15 8,10,12 * * *"
+    - cron: "15 4,6,8 * * *"
 # TODO      
   push:
     branches: [ master ]
@@ -25,7 +25,7 @@ jobs:
     steps:
     # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       
-    # Clone repository
+# Clone repository
     - uses: actions/checkout@v2
     
     - name: Setup Python
@@ -46,21 +46,6 @@ jobs:
     - name: Install dependencies
       run: pip install -r py-requirements.txt
 
-# examples
-#    # Runs a single command using the runners shell
-#    - name: Run a one-line script
-#      run: echo Hello, world!
-#    # Runs a set of commands using the runners shell
-#    - name: Run a multi-line script
-#      run: |
-#        echo Add other actions to build,
-#        echo test, and deploy your project.
-
-# Generate Maps
-    - name: Generate Maps
-      run: | 
-        python3 gen-map-de-districts.py
-
 
 # Fetch new data
     - name: Run fetch-de-states.py
@@ -77,10 +62,11 @@ jobs:
         cd data
         tar cfz ../cache/data.tgz *
 
+
 # Gnuplot plotting
     - name: Gnuplot plotting
       run: |
-        sudo apt-get install gnuplot
+        sudo apt-get install gnuplot > /dev/null
         cd scripts-gnuplot
         gnuplot all.gp
 
@@ -90,7 +76,20 @@ jobs:
         tar cfz ../cache/plots-gnuplot.tgz *
 
 
+# Generate maps
+    - name: Generate maps
+      run: | 
+        # sudo apt-get install imagemagick
+        python3 gen-map-de-districts.py
+
+    - name: Zip maps
+      run: |
+        cd maps
+        tar cfz ../cache/maps.tgz *.gif
+
+
 # Create pre-releases of tgz files
+
 
 # not accessable anonymously
 #    - name: Upload data artifact
@@ -106,13 +105,8 @@ jobs:
         token: ${{ secrets.GITHUB_TOKEN }}
         files: |
           cache/data.tgz
-          
-    - name: Upload plots-gnuplot artifact via tip
-      uses: eine/tip@master
-      with:
-        token: ${{ secrets.GITHUB_TOKEN }}
-        files: |
           cache/plots-gnuplot.tgz
+          cache/maps.tgz
 
 # https://github.com/marketplace/actions/deploy-nightly
 #    - name: Upload data artifact via deploy-nightly
@@ -127,6 +121,9 @@ jobs:
 #        asset_name: data.tgz # name to upload the release as, use $$ to insert date (YYYYMMDD) and 6 letter commit hash
 #        asset_content_type: application/tgz # required by GitHub API
 ##        max_releases: 7 # optional, if there are more releases than this matching the asset_name, the oldest ones are going to be deleted      
+
+
+# Commit and Push
 
     - name: Commit new data files
       run: |
