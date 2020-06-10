@@ -65,10 +65,10 @@ jobs:
 #     -> 3.8.3
       
 
-#    - name: Install Python Packages
-#      run: |
-#        python -m pip install --upgrade pip
-#        pip install -r py-requirements.txt
+    - name: Install Python Packages
+      run: |
+        python -m pip install --upgrade pip
+        pip install -r py-requirements.txt
  
     - name: Run fetch-de-states.py
       run: python3 fetch-de-states-data.py
