@@ -6,7 +6,7 @@ name: Data Updater
 # events but only for the master branch
 on:  
   schedule:
-    - cron: "15 4,6,8 * * *"
+    - cron: "15 4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20 * * *"
 # TODO      
   push:
     branches: [ master ]
@@ -75,17 +75,17 @@ jobs:
         cd plots-gnuplot
         tar cfz ../cache/plots-gnuplot.tgz *
 
-
-# Generate maps
-    - name: Generate maps
-      run: | 
-        # sudo apt-get install imagemagick
-        python3 gen-map-de-districts.py
-
-    - name: Zip maps
-      run: |
-        cd maps
-        tar cfz ../cache/maps.tgz *.gif
+# TODO: reactivate at in a separate job?
+## Generate maps
+#    - name: Generate maps
+#      run: | 
+#        # sudo apt-get install imagemagick
+#        python3 gen-map-de-districts.py
+#
+#    - name: Zip maps
+#      run: |
+#        cd maps
+#        tar cfz ../cache/maps.tgz *.gif
 
 
 # Create pre-releases of tgz files
