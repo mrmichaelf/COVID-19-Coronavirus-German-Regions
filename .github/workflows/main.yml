@@ -8,8 +8,8 @@ on:
   schedule:
     - cron: "15 8,10,12 * * *"
 # TODO      
-#  push:
-#    branches: [ master ]
+  push:
+    branches: [ master ]
 #  pull_request:
 #    branches: [ master ]
 
@@ -77,12 +77,13 @@ jobs:
 #        name: data
 #        path: cache/data.tgz
 
-# TODO:
+# TODO: Gnuplot plotting
 
-#    - name: Test gnuplot
-#      run: |
-#        cd scripts-gnuplot
-#        gnuplot plot-de.gp
+    - name: Test gnuplot
+      run: |
+        sudo apt-get install gnuplot
+        cd scripts-gnuplot
+        gnuplot plot-de.gp
 
 
 # https://github.com/actions/upload-artifact/issues/21
