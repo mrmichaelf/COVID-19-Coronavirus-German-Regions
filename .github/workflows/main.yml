@@ -78,3 +78,9 @@ jobs:
     - name: Run fetch-de-districts.py
       run: python3 fetch-de-districts.py
       
+    - name: Commit new data files
+      run: |
+        git config --local user.email "action@github.com"
+        git config --local user.name "GitHub Action"
+        git add data/*
+        git diff-index --quiet HEAD || git commit -m "update"  | grep -v rewrite
