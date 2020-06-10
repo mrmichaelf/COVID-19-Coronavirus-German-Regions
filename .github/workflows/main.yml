@@ -60,8 +60,9 @@ jobs:
 #        echo Add other actions to build,
 #        echo test, and deploy your project.
 
-    - name: Run python --version
-      run: python --version
+#    - name: Run python --version
+#      run: python --version
+#     -> 3.8.3
       
 
     - name: Install Python Packages
@@ -75,8 +76,8 @@ jobs:
     - name: Run fetch-int-country-data.py
       run: python3 fetch-int-country-data.py
       
-    - name: Run fetch-de-districts.py
-      run: python3 fetch-de-districts.py
+#    - name: Run fetch-de-districts.py
+#      run: python3 fetch-de-districts.py
       
     - name: Commit new data files
       run: |
