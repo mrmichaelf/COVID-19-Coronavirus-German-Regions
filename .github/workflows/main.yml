@@ -59,8 +59,7 @@ jobs:
 # Generate Maps
     - name: Generate Maps
       run: | 
-        sudo apt-get install imagemagick
-        gen-map-de-districts.py
+        python3 gen-map-de-districts.py
 
 
 # Fetch new data
