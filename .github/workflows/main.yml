@@ -56,6 +56,9 @@ jobs:
       
     - name: Run fetch-de-districts.py
       run: python3 fetch-de-districts.py
+      
+    - name: Run	fetch-de-divi-V2.py
+      run: python3 fetch-de-divi-V2.py
 
     - name: Zipping data
       run: |
