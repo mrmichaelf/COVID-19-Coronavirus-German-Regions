@@ -86,6 +86,7 @@ for f in glob.glob('data/de-districts/de-district_timeseries-*.json'):
     l = helper.read_json_file(f)
     for d in l:
         date = d['Date']
+        # skip old data points
         if date[0:7] == '2020-01' or date[0:7] == '2020-02':
             continue
         if not d['Date'] in d_all_date_data:
