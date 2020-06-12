@@ -174,7 +174,6 @@ def prepare_time_series(l_time_series: list) -> list:
             d['Cases_Last_Week'] = d['Cases'] - l_time_series[i-7]['Cases']
             d['Deaths_Last_Week'] = d['Deaths'] - \
                 l_time_series[i-7]['Deaths']
-
         # sometimes values are corrected, leading to negative values, which I drop
         if (d['Cases_Last_Week'] < 0):
             d['Cases_Last_Week'] = 0
