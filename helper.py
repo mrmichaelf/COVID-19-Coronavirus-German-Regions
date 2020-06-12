@@ -160,7 +160,7 @@ def prepare_time_series(l_time_series: list) -> list:
         # _New since yesterday
         d['Cases_New'] = d['Cases'] - last_cases
         d['Deaths_New'] = d['Deaths'] - last_deaths
-        # sometimes values are corrected, leading to negative values, which I drop
+        # sometimes values are corrected, leading to negative values, which I replace by 0
         if (d['Cases_New'] < 0):
             d['Cases_New'] = 0
         if (d['Deaths_New'] < 0):
@@ -174,7 +174,7 @@ def prepare_time_series(l_time_series: list) -> list:
             d['Cases_Last_Week'] = d['Cases'] - l_time_series[i-7]['Cases']
             d['Deaths_Last_Week'] = d['Deaths'] - \
                 l_time_series[i-7]['Deaths']
-        # sometimes values are corrected, leading to negative values, which I drop
+        # sometimes values are corrected, leading to negative values, which I replace by 0
         if (d['Cases_Last_Week'] < 0):
             d['Cases_Last_Week'] = 0
         if (d['Deaths_Last_Week'] < 0):
@@ -196,7 +196,7 @@ def prepare_time_series(l_time_series: list) -> list:
             d['Deaths_Per_Cases'] = round(d['Deaths'] / d['Cases'], 3)
         # Deaths_Per_Cases_Last_Week
         d['Deaths_Per_Cases_Last_Week'] = None
-        if i >= 7 and d['Cases_Last_Week'] > 0 and d['Deaths_Last_Week'] > 0:
+        if i >= 7 and d['Cases_Last_Week'] and d['Deaths_Last_Week'] and d['Cases_Last_Week'] > 0 and d['Deaths_Last_Week'] > 0:
             d['Deaths_Per_Cases_Last_Week'] = round(
                 d['Deaths_Last_Week'] / d['Cases_Last_Week'], 3)
 
