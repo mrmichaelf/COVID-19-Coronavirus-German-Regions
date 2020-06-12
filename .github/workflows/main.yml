@@ -6,7 +6,7 @@ name: Data Updater
 # events but only for the master branch
 on:  
   schedule:
-    - cron: "15 4,6,8,10,12,14,16,18,20 * * *"
+    - cron: "15 0,1,2,3,4,5,6 * * *"
 # TODO      
 #  push:
 #    branches: [ master ]
@@ -60,6 +60,9 @@ jobs:
     - name: Run	fetch-de-divi-V2.py
       run: python3 fetch-de-divi-V2.py
 
+    - name: Run	show_data_dates.sh
+      run: bash show_data_dates.sh
+
     - name: Zipping data
       run: |
         cd data
@@ -79,16 +82,16 @@ jobs:
         tar cfz ../cache/plots-gnuplot.tgz *
 
 # TODO: reactivate at in a separate job?
-## Generate maps
-#    - name: Generate maps
-#      run: | 
-#        # sudo apt-get install imagemagick
-#        python3 gen-map-de-districts.py
-#
-#    - name: Zip maps
-#      run: |
-#        cd maps
-#        tar cfz ../cache/maps.tgz *.gif
+# Generate maps
+    - name: Generate maps
+      run: | 
+        # sudo apt-get install imagemagick
+        python3 gen-map-de-districts.py
+
+    - name: Zip maps
+      run: |
+        cd maps
+        tar cfz ../cache/maps.tgz *.gif
 
 
 # Create pre-releases of tgz files
