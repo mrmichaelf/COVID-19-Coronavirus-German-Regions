@@ -80,20 +80,27 @@ d_color_scales = {
 }
 
 d_all_date_data = {}
-
+l_month = []
+count = 0
 for f in glob.glob('data/de-districts/de-district_timeseries-*.json'):
+    count += 1
     lk_id = int(re.search('^.*de-district_timeseries\-(\d+)\.json$', f).group(1))
     l = helper.read_json_file(f)
     for d in l:
         date = d['Date']
+        thisMonth = date[0:7]
         # skip old data points
-        if date[0:7] == '2020-01' or date[0:7] == '2020-02':
+        if thisMonth in ('2020-01', '2020-02'):
             continue
+        # add to list of months for later creations of 1 gif per month
+        if count == 1:
+            if thisMonth not in l_month:
+                l_month.append(thisMonth)
         if not d['Date'] in d_all_date_data:
             d_all_date_data[d['Date']] = {}
         del d['Timestamp'], d['Date'], d['Days_Past'], d['Days_Since_2nd_Death'], d['Cases_Change_Factor'], d['Deaths_Change_Factor']
         d_all_date_data[date][lk_id] = d
-del f, d, l
+del f, d, l, count
 
 # check if last date has as many values as the 2nd last, of not drop it
 dates = sorted(d_all_date_data.keys())
@@ -199,7 +206,7 @@ for property_to_plot in ('Cases_Last_Week_Per_Million', 'Deaths_Last_Week_Per_Mi
         # break
     l_subprocesses = []
     # months are processed in to gifs in parallel and later joined
-    for month in ('2020-03', '2020-04', '2020-05', '2020-06'):
+    for month in l_month:
         # convert -size 480x maps/out/de-districts/Cases_Last_Week_Per_Million-2020-03*.svg -resize 480x -coalesce -fuzz 2% +dither -layers Optimize maps/out/de-districts/Cases_Last_Week_Per_Million-2020-03.gif
         l_imagemagick_parameters = [
             '-size', '480x', f'maps/out/de-districts/{property_to_plot}-{month}*.svg', '-resize', '480x', '-coalesce', '-fuzz', '2%', '+dither', '-layers', 'Optimize', f'maps/out/de-districts/{property_to_plot}-{month}.gif']
