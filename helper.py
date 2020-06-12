@@ -174,16 +174,21 @@ def prepare_time_series(l_time_series: list) -> list:
             d['Cases_Last_Week'] = d['Cases'] - l_time_series[i-7]['Cases']
             d['Deaths_Last_Week'] = d['Deaths'] - \
                 l_time_series[i-7]['Deaths']
+        # sometimes values are corrected, leading to negative values, which I drop
+        if (d['Cases_Last_Week'] < 0):
+            d['Cases_Last_Week'] = None
+        if (d['Deaths_Last_Week'] < 0):
+            d['Deaths_Last_Week'] = None
 
         # Change Factors
-        d['Cases_Change_Factor'] = None
-        if last_cases >= 100:
-            d['Cases_Change_Factor'] = round(
-                d['Cases']/last_cases, 3)
-        d['Deaths_Change_Factor'] = None
-        if last_deaths >= 10:
-            d['Deaths_Change_Factor'] = round(
-                d['Deaths']/last_deaths, 3)
+        # d['Cases_Change_Factor'] = None
+        # if last_cases >= 100:
+        #     d['Cases_Change_Factor'] = round(
+        #         d['Cases']/last_cases, 3)
+        # d['Deaths_Change_Factor'] = None
+        # if last_deaths >= 10:
+        #     d['Deaths_Change_Factor'] = round(
+        #         d['Deaths']/last_deaths, 3)
 
         # Deaths_Per_Cases
         d['Deaths_Per_Cases'] = None
