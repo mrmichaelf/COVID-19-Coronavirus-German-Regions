@@ -1,5 +1,11 @@
 import sqlite3
 
+
+# TODO
+# columns to add
+# frequency of sending: 1, 7, 30, threshhold
+# date created
+
 # TODO: move away from web dir
 pathToDb = 'alerter/covid-19-alert.db'
 con = sqlite3.connect(pathToDb)
@@ -16,9 +22,9 @@ def create_table():
 
 
 def test_insert():
-    myTuple = ("test@entorb.net", 1, "<hash>", 250,
-               "09562,09572,09563,09564,03353,02000,14612")
-    cur.execute(f"INSERT INTO alerts VALUES (?,?,?,?,?)", myTuple)
+    cur.execute(f"INSERT INTO alerts(mail, activated, hash, threshhold, regions) VALUES (?,?,?,?,?)",
+                ("test@entorb.net", 1, "<hash>", 250,
+                 "09562,09572,09563,09564,03353,02000,14612"))
     con.commit()
 
 
