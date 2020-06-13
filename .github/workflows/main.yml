@@ -6,7 +6,7 @@ name: Data Updater
 # events but only for the master branch
 on:  
   schedule:
-    - cron: "14 0,1,2,3,4,5,6,7 * * *"
+    - cron: "55 0,1,2,3,4,5,6,7 * * *"
 # TODO      
 #  push:
 #    branches: [ master ]
@@ -54,8 +54,8 @@ jobs:
     - name: Run fetch-int-country-data.py
       run: python3 fetch-int-country-data.py
       
-    - name: Run fetch-de-districts.py
-      run: python3 fetch-de-districts.py
+#    - name: Run fetch-de-districts.py
+#      run: python3 fetch-de-districts.py
       
     - name: Run	fetch-de-divi-V2.py
       run: python3 fetch-de-divi-V2.py
@@ -83,15 +83,15 @@ jobs:
 
 # TODO: reactivate at in a separate job?
 # Generate maps
-    - name: Generate maps
-      run: | 
-        # sudo apt-get install imagemagick
-        python3 gen-map-de-districts.py
-
-    - name: Zip maps
-      run: |
-        cd maps
-        tar cfz ../cache/maps.tgz *.gif
+#    - name: Generate maps
+#      run: | 
+#        # sudo apt-get install imagemagick
+#        python3 gen-map-de-districts.py
+#
+#    - name: Zip maps
+#      run: |
+#        cd maps
+#        tar cfz ../cache/maps.tgz *.gif
 
 
 # Create pre-releases of tgz files
