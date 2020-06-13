@@ -482,7 +482,9 @@ def loop_over_all_LK():
             'Deaths': last_entry['Deaths'],
             'Deaths_Per_Million': last_entry['Deaths_Per_Million'],
             'Date': last_entry['Date'],
+            'Cases_Last_Week': last_entry['Cases_Last_Week'],
             'Cases_Last_Week_Per_Million': last_entry['Cases_Last_Week_Per_Million'],
+            'Deaths_Last_Week': last_entry['Deaths_Last_Week'],
             'Deaths_Last_Week_Per_Million': last_entry['Deaths_Last_Week_Per_Million']
         }
         # if d_fit_results != {}:
