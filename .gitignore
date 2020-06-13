@@ -11,6 +11,7 @@ test/
 .vscode/
 
 # files
+alerter/*.db
 **/.~lock.*.xlsx#
 .DS_Store
 ~$*.xlsx
