@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-	<title>COVID-19 Coronavirus Disease Spread Time Series in German Regions and Selected Countries</title>
+	<title>COVID-19 Coronavirus Disease Spread Time Series in German Regions and the World</title>
 	<meta charset="utf-8">
 	<meta name="author" content="Dr. Torben Menke">
 	<link rel="stylesheet" href="/style.css" />
@@ -20,124 +20,7 @@
 			g.type = 'text/javascript'; g.async = true; g.defer = true; g.src = u + 'matomo.js'; s.parentNode.insertBefore(g, s);
 		})();
 	</script>
-	<!-- von AF -->
-	<style>
-		.af_gallery_container {
-			display: flex;
-			flex-flow: row nowrap;
-		}
 
-		/* #filter {
-			box-sizing: border-box;
-			background-position: 14px 12px;
-			background-repeat: no-repeat;
-			font-size: 16px;
-			padding: 14px 20px 12px;
-			border: none;
-			border-bottom: 1px solid #ddd;
-			width: 100%;
-		}
-
-		#filter:focus {
-			outline: 3px solid #ddd;
-		} */
-		.af_gallery_select {
-			position: relative;
-			display: inline-block;
-			background-color: #f6f6f6;
-			min-width: 60px;
-			overflow: auto;
-			border: 1px solid #ddd;
-			z-index: 1;
-		}
-
-		.af_gallery_select a {
-			color: black;
-			padding: 6px 16px;
-			text-decoration: none;
-			display: block;
-			text-align: center;
-		}
-
-		.af_gallery_select p {
-			color: black;
-			padding: 0px 5px;
-			text-decoration: none;
-			display: block;
-			text-align: center;
-		}
-
-		.af_gallery_results {
-			margin-left: 20px;
-		}
-	</style>
-	<!-- von AF -->
-	<script>
-		document.addEventListener("DOMContentLoaded", function () {
-			af_gallery_hideAll("results_DE_states_fit");
-			af_gallery_hideAll("results_int_countries_fit");
-
-			var dropdown = document.getElementById("dropdown_DE_states_fit");
-			var element = dropdown.getElementsByTagName("a");
-			// add click event listener -> show (hash)
-			for (i = 0; i < element.length; i++) {
-				element[i].addEventListener("click", function (event) {
-					af_gallery_show("results_DE_states_fit", event.srcElement.hash)
-				})
-			}
-			var dropdown = document.getElementById("dropdown_int_countries_fit");
-			var element = dropdown.getElementsByTagName("a");
-			// add click event listener -> show (hash)
-			for (i = 0; i < element.length; i++) {
-				element[i].addEventListener("click", function (event) {
-					af_gallery_show("results_int_countries_fit", event.srcElement.hash)
-				})
-			}
-
-		});
-
-		function af_gallery_hideAll(results_div) {
-			var results = document.getElementById(results_div);
-			var element = results.getElementsByTagName("article");
-
-			for (i = 1; i < element.length; i++) {
-				element[i].style.display = "none";
-			}
-		}
-
-		function af_gallery_show(results_div, hash) {
-			var results = document.getElementById(results_div);
-			var element = results.getElementsByTagName("article");
-
-			for (i = 0; i < element.length; i++) {
-				if (hash === element[i].id) {
-					element[i].style.display = ""
-				} else {
-					element[i].style.display = "none";
-				}
-			}
-		}
-
-		// function filter() {
-		// 	var input, filter, ul, li, a, i;
-		// 	input = document.getElementById("filter");
-		// 	filter = input.value.toUpperCase();
-		// 	div = document.getElementById("dropdown");
-		// 	element = div.getElementsByTagName("a");
-		// 	for (i = 0; i < element.length; i++) {
-		// 		textValue = element[i].textContent || element[i].innerText;
-		// 		if (textValue.toUpperCase().indexOf(filter) > -1) {
-		// 			element[i].style.display = "";
-		// 		} else {
-		// 			element[i].style.display = "none";
-		// 		}
-		// 	}
-		// }
-
-
-
-
-	</script>
 	<!-- Polyfiles for IE, suggested by Tabulator : http://tabulator.info/docs/4.6/browsers#ie -->
 	<link href="./tabulator/tabulator.min.css" rel="stylesheet">
 	<script src="./tabulator/polyfill.min.js"></script>
@@ -163,7 +46,7 @@
 		}
 	</script>
 
-	<h1>COVID-19 Disease Spread Time Series in German Regions and Selected Countries</h1>
+	<h1>COVID-19 Coronavirus Disease Spread Time Series in German Regions and the World</h1>
 
 	<p> In early 2020 the SARS-CoV-2 virus (colloquially known as the coronavirus) spread across the globe and caused a
 		pandemic of COVID-19 disease. This page displays a collection of daily updated charts of disease spread in German
@@ -237,7 +120,7 @@
 			<ul>
 				<li>
 					<a href="#DE_shift_deaths_to_cases">Um wieviele Tage läuft die Opferzahl der Zahl der Infizierten
-						hinterher?</a><b> (new)</b>
+						hinterher?</a>
 				</li>
 				<li>
 					<a href="#DE_calc-cases-from-deaths-DE-total">Abschätzung der Dunkelziffer der Infizierten</a>
@@ -253,18 +136,12 @@
 					<a href="#DE_cases_new_time_series-per-million">Zeitverlauf der Neu-Infektionen in den Bundesländern, skaliert
 						auf deren Einwohnerzahlen</a>
 				</li>
-				<!-- <li>
-					<a href="#cases-de-states-latest-per-million">Ist-Stand der Infektionen in den Bundesländern, skaliert auf
-						deren Einwohnerzahlen</a> 
-					</li>-->
+			</ul>
+			<li>Archiv</li>
+			<ul>
 				<li>
-					<a href="#Exp_Wachstum">Untersuchung der exponentiellen Zunahme der Infektionen in Deutschland</a>
-				</li>
-				<!-- <li>
-				<a href="results-de-districts.html">Übersicht über alle DE Landkreise</a><b> (new)</b>
-			</li> -->
-				<li>
-					<a href="#cases-de-fit-results">Vergleich der Ergebnisse</a>
+					<a href="expGrowth.html#Exp_Wachstum">Untersuchung der exponentiellen Zunahme der Infektionen in
+						Deutschland</a>
 				</li>
 			</ul>
 		</ul>
@@ -288,28 +165,23 @@
 				<a href="#RefDeathCauses">Reference data: deaths by other causes</a>
 			</li>
 			<li>
-				<a href="#countries-fit-results">Death toll regression analyses results for selected countries</a>
-			</li>
-			<li>
-				<a href="#CountriesDeathTimeSeries">Time series, Doubling time calculation and forecast for selected
-					countries</a>
-			</li>
-			<li>
-				<a href="#DuplicationsUntilIT">Duplications until hitting Italy's deaths per capita</a>
-			</li>
-			<!-- <li>
-				<a href="#DaysUntilIT">Estimated days until hitting Italy's deaths per capita</a>
-			</li> -->
-			<li>
 				<a href="#Countries_Mortality">Investigating the Calculated Case Mortality: Deaths per Reported Infections</a>
 			</li>
+			<li>Archive</li>
+			<ul>
+				<li>
+					<a href="expGrowth.html#countries-fit-results">Death toll regression analyses results for selected
+						countries</a>
+				</li>
+			</ul>
 		</ul>
 	</ul>
 
 	<h2>Further good information sources</h2>
 	<ul>
 		<li>
-			<a href="https://www.rki.de/DE/Content/InfAZ/N/Neuartiges_Coronavirus/Fallzahlen.html" target="_blank">Robert Koch
+			<a href="https://www.rki.de/DE/Content/InfAZ/N/Neuartiges_Coronavirus/Fallzahlen.html" target="_blank">Robert
+				Koch
 				Institut</a>: German data and situation reports </li>
 		<li>
 			<a href="https://covid19.who.int/" target="_blank">WHO Dashboard</a>
@@ -425,12 +297,14 @@
 
 	<h4><a id="DeDistrictTable"></a>Landkreistabelle</h4>
 
-	<p>Ein Klick auf einer Zeile fügt diesen Landkreis in die <a href="#DeDistrictChart">interaktive Landkreis-Grafik</a>
+	<p>Ein Klick auf einer Zeile fügt diesen Landkreis in die <a href="#DeDistrictChart">interaktive
+			Landkreis-Grafik</a>
 		hinzu.</p>
 
 	<p> 06.05.2020: In Deutschland wurde als Richtwert für die Verschärfung von Maßnahmen der Grenzwert von <a
 			href="https://www.tagesschau.de/inland/lockerungen-bund-laender-101.html" target="_blank">500 Neuinfektionen pro
-			1.000.000 Einwohnern in sieben Tagen in einem Stadt-/Landkreis</a> festgelegt. Daher habe ich die Landkreistabelle
+			1.000.000 Einwohnern in sieben Tagen in einem Stadt-/Landkreis</a> festgelegt. Daher habe ich die
+		Landkreistabelle
 		nun nach diesem Wert in der Spalte "Infizierte pro Millionen Einwohner pro Woche" sortiert. </p>
 	<div id="table-de-districts"></div>
 	<!-- <script type="text/javascript" src="tabulator/tabulator.min.js"></script> -->
@@ -673,8 +547,10 @@
 		<a id="DeStates"></a>Bundesländer</h3>
 
 	<p>Darstellungen des Zeitverlaufs an COVID-19 Erkrankungen in den deutschen Bundesländern. Die Zahlen habe ich
-		skaliert auf die Bevölkerung der Bundesländer, damit man diese miteinander vergleichen kann. Da die täglichen Zahlen
-		stark schwanken und Wochenenden einen deutlichen Effekt auf diese Schwankungen haben, habe ich in den Darstellungen
+		skaliert auf die Bevölkerung der Bundesländer, damit man diese miteinander vergleichen kann. Da die täglichen
+		Zahlen
+		stark schwanken und Wochenenden einen deutlichen Effekt auf diese Schwankungen haben, habe ich in den
+		Darstellungen
 		der Veränderung zum Vortrag 7-Tagesdifferenzen verwendet.</p>
 
 	<h4>
@@ -696,11 +572,14 @@
 		<a id="DeStatesDeaths"></a>Bundesländer - Opfer</h4>
 
 	<p> In den Darstellungen der Opferzahlen habe ich auf der rechten Seite Referenzwerte zu anderen Todesursachen
-		angegeben, Quellen dazu siehe <a href="#RefDeathCauses">diese Tabelle</a> unten. Hinweis: die Todeszahlen laufen den
+		angegeben, Quellen dazu siehe <a href="#RefDeathCauses">diese Tabelle</a> unten. Hinweis: die Todeszahlen laufen
+		den
 		Infektionszahlen um ca. 3 Wochen hinterher. Im Median sterben Patienten <a
-			href="https://www.worldometers.info/coronavirus/coronavirus-death-rate/#days" target="_blank">14 Tage</a> nach den
+			href="https://www.worldometers.info/coronavirus/coronavirus-death-rate/#days" target="_blank">14 Tage</a> nach
+		den
 		ersten Symptomen, die wiederrum etwa <a
-			href="https://www.worldometers.info/coronavirus/coronavirus-incubation-period/" target="_blank">3-5 Tage</a> nach
+			href="https://www.worldometers.info/coronavirus/coronavirus-incubation-period/" target="_blank">3-5 Tage</a>
+		nach
 		der Infektion auftreten.</p>
 
 	<h5><a id="DeStatesDeathsLastWeek"></a>Neu-Verstorbene pro 7 Tage</h5>
@@ -732,15 +611,18 @@
 		<a id="DeAnalyses"></a>Weitere Auswertungen</h3>
 
 	<h3>
-		<a id="DE_shift_deaths_to_cases"></a> Um wieviele Tage läuft die Opferzahl der Zahl der Infizierten hinterher?</h3>
+		<a id="DE_shift_deaths_to_cases"></a> Um wieviele Tage läuft die Opferzahl der Zahl der Infizierten hinterher?
+	</h3>
 
 	<p>In der folgenden Abbildung habe ich für Deutschland die Neu-Infizierten und die Neu-Verstorbenen aufgetragen. Die
-		Kurve der Neu-Verstorbenen habe ich dann zeitlich verschoben um heraus zu finden, um wie viele Tage die Verstorbenen
+		Kurve der Neu-Verstorbenen habe ich dann zeitlich verschoben um heraus zu finden, um wie viele Tage die
+		Verstorbenen
 		"nachlaufen". Anstatt von Tagessummen wurde die 7-Tage-Differenz verwendet um Wochenendeffekte auszuschließen.</p>
 	<img src="plots-gnuplot/de-states/shift-deaths-to-match-cases_DE_last-week.png"
 		alt="shift-deaths-to-match-cases_DE_last-week.png" width="640" height="480">
 
-	<p>Ergebnis vom 27.04.2020: 14 Tage passen ziemlich gut. Somit ist anzunehmen, dass die Opferzahlen noch mindestens 14
+	<p>Ergebnis vom 27.04.2020: 14 Tage passen ziemlich gut. Somit ist anzunehmen, dass die Opferzahlen noch mindestens
+		14
 		Tage lang abnehmen werden. Für die Zeit von Infektion bis positiv getestet vergehen vermutlich nochmal 7 Tage, so
 		dass wohl 3 Wochen zwischen Beginn einer Maßnahme und Sichtbarkeit dieser in den Opferzahlen liegen wird. Für die
 		beste Übereinstimmung der Kurven habe ich die rechte Achse der Verstorbenen auf 4.2% der linken Achse skaliert.
@@ -767,10 +649,12 @@
 		<a id="DE_calc-cases-from-deaths-DE-total"></a> Wie hoch ist die Dunkelziffer der Infizierten im Vergleich zu den
 		offiziellen Fallzahlen? </h3>
 
-	<p> 04.04.2020: In der letzten Woche habe ich immer mehr Stimmen gehört und gelesen, die den offiziellen Zahlen nicht
+	<p> 04.04.2020: In der letzten Woche habe ich immer mehr Stimmen gehört und gelesen, die den offiziellen Zahlen
+		nicht
 		trauen. Höhepunkt war, dass ein Dresdner Freund, der positiv auf COVID-19 getestet wurde, berichtete, dass von
 		seinen Kontakten der letzten 2 Wochen (vor der Ausgangssperre) keiner einen Test bewilligt bekam. Dies ist
-		vermutlich in der ausgereizten Testkapazität der Labore begründet. Daher habe ich mal versucht eine Abschätzung der
+		vermutlich in der ausgereizten Testkapazität der Labore begründet. Daher habe ich mal versucht eine Abschätzung
+		der
 		Dunkelziffer (=Differenz zwischen der Gesamtzahl der Infizierten und den positiv getesteten Personen) zu treffen.
 	</p>
 
@@ -785,7 +669,8 @@
 	</ul>
 
 	<p>Damit lässt sich die Gesamtzahl der Infizierten vor 2 Wochen rückwärts berechnen aus 100x (Kehrwert von 1%) die
-		Zahl der heute Verstorbenen. Diese Rechnung lässt such nun für jeden Tag X durchführen: Zahl der Toten am Tag X mal
+		Zahl der heute Verstorbenen. Diese Rechnung lässt such nun für jeden Tag X durchführen: Zahl der Toten am Tag X
+		mal
 		100 zugeordnet zum Tag X-14. Daraus lässt sich auf die Gesamtzahl der <u>heute</u> infizierten Personen über eine
 		Regressionsanalyse/Fit der Daten (mehr dazu <a href="#Exp_Wachstum">unten</a>) extrapolieren. Graphisch sieht dies
 		wie folgt aus: </p>
@@ -806,45 +691,59 @@
 	<p> Update vom 18.04.2020: Spiegel Online zitiert in <a
 			href="https://www.spiegel.de/wissenschaft/medizin/coronavirus-wie-antikoerpertests-dabei-helfen-die-pandemie-zu-verstehen-a-2258edcd-a304-4ee0-83cc-76a24f340c45"
 			target="_blank">diesem Artikel</a> Thomas Fenner mit der Schätzung, dass 1,9% der Deutschen Bevölkerung bereits
-		von Covid-19 infiziert waren. Meine grobe Abschätzung lieferte an diesem Tag 1.5%, was überraschend dicht dran ist.
+		von Covid-19 infiziert waren. Meine grobe Abschätzung lieferte an diesem Tag 1.5%, was überraschend dicht dran
+		ist.
 		(Am 04.05.2020 ist diese meine Abschätzung auf 1.1% gesunken. Ursache ist die starke Reduktion des exponentiellen
 		Wachstums, durch die erfolgreichen Lockdown Maßnahmen in der Zwischenzeit.</p>
 
 	<p> Mein persönliches Fazit aus dieser sehr groben Abschätzung ist, dass die Dunkelziffer recht groß zu sein scheint
 		und aufgrund der beschränkten Testkapazität in Zukunft wohl weiter zunehmen wird. Dies bewirkt in den Grafiken und
-		Auswertungen eine stärkere Zunahme der berechneten Verdopplungszeit als es in der Realität der Fall sein sollte. Die
-		wirkliche Verdopplungszeit ist daher vermutlich kürzer als von mir <a href="#Exp_Wachstum">unten</a> pro Bundesland
+		Auswertungen eine stärkere Zunahme der berechneten Verdopplungszeit als es in der Realität der Fall sein sollte.
+		Die
+		wirkliche Verdopplungszeit ist daher vermutlich kürzer als von mir <a href="#Exp_Wachstum">unten</a> pro
+		Bundesland
 		ermittelt. Für meine <a href="#Countries">internationalen Vergleiche</a> habe ich mich ausschließlich auf die
-		Opferzahlen gestützt, diese halte ich weiterhin für belastbar. Die folgenden Kapitel belasse ich trotzdem online, so
+		Opferzahlen gestützt, diese halte ich weiterhin für belastbar. Die folgenden Kapitel belasse ich trotzdem online,
+		so
 		kann jeder Leser selber entscheiden welche Schlüsse er aus den Daten zieht. </p>
 
 	<p> Nun folgen noch drei Beispiele die die Idee hinter meiner groben Abschätzung verdeutlichen sollen, da es
 		berechtigte Kritik an der ersten Fassung dieses Abschnitts gab.</p>
 
-	<p> Beispiel 1: Eine Insel mit 1000 Einwohnern von denen bisher keiner infiziert war. <br /> Wenn alle 1000 Einwohner
+	<p> Beispiel 1: Eine Insel mit 1000 Einwohnern von denen bisher keiner infiziert war. <br /> Wenn alle 1000
+		Einwohner
 		am gleichen Tag, zB 1.1.2020 infiziert, sollten nach 14 Tagen (15.01.2020) unter den obigen Annahmen statistisch
-		gemittelt 10 Personen verstorben sein. Werden auf dieser Insel keine Tests durchgeführt, so ist die Zahl der positiv
+		gemittelt 10 Personen verstorben sein. Werden auf dieser Insel keine Tests durchgeführt, so ist die Zahl der
+		positiv
 		getesteten Personen = 0 und die Dunkelziffer = Gesamtzahl = 1000. 14 Tage später (15.01.2020) sind nun 10 Menschen
-		tot. Wendet man obiges einfaches Model auf die Zahl der 10 Verstorben an: Multiplikation der Anzahl mit dem Kehrwert
-		von 1% und verschieben um 14 Tage in die Vergangenheit, so ergibt sich rückwärts die Gesamtzahl von 1000 Infizierten
-		für den 01.01.2020. Die Zahl der bekannten Infizierten (Hellfeld) war die ganze Zeit = 0. Die Zahl der Verstorbenen
-		ist bis zum 14.01. = 0, dann steigt sie auf 10 und bleibt bei diesem Wert, da die Pandemie auf der Insel vorbei ist.
+		tot. Wendet man obiges einfaches Model auf die Zahl der 10 Verstorben an: Multiplikation der Anzahl mit dem
+		Kehrwert
+		von 1% und verschieben um 14 Tage in die Vergangenheit, so ergibt sich rückwärts die Gesamtzahl von 1000
+		Infizierten
+		für den 01.01.2020. Die Zahl der bekannten Infizierten (Hellfeld) war die ganze Zeit = 0. Die Zahl der
+		Verstorbenen
+		ist bis zum 14.01. = 0, dann steigt sie auf 10 und bleibt bei diesem Wert, da die Pandemie auf der Insel vorbei
+		ist.
 	</p>
 
 	<p> Beispiel 2: Eine Insel mit 1000 Einwohnern von denen bisher keiner infiziert war, auf der aber getestet
-		wird.<br /> Ergebnis ist das gleiche, mit dem Unterschied, dass die Zahl der positiv getesteten Personen ungleich 0
+		wird.<br /> Ergebnis ist das gleiche, mit dem Unterschied, dass die Zahl der positiv getesteten Personen ungleich
+		0
 		ist, was aber nicht die Abschätzung einfließt. </p>
 
 	<p> Beispiel 3: Eine Insel mit 16000 Einwohnern von denen bisher keiner infiziert war.<br /> Werden nun 1000 am
-		01.01.2020 infiziert, so werden am 15.01. immer noch 10 sterben. Am 15.01. lässt sich daher wie oben beschrieben auf
+		01.01.2020 infiziert, so werden am 15.01. immer noch 10 sterben. Am 15.01. lässt sich daher wie oben beschrieben
+		auf
 		die Gesamtzahl von 1000 am 01.01. schließen. Allerdings werden weiter Menschen infiziert. Nehmen wir z.B.
 		exemplarisch eine Verdopplungszeit von 7 Tagen an, so ist am 8.01. eine Gesamtzahl von 2000 Personen infiziert, am
-		15.01. dann 4000. Somit ist die Gesamtzahl der Infizierten am 15.01. größer als 1000, was zur Folge hat, dass an den
+		15.01. dann 4000. Somit ist die Gesamtzahl der Infizierten am 15.01. größer als 1000, was zur Folge hat, dass an
+		den
 		Folgetagen weitere Menschen sterben werden. Am 15.01. sind 4000 infiziert (Verstorbene mitgezählt) aber nur 10
 		verstorben. Würde man am 15.01. großangelegte Tests durchführen, so würde man im Idealfall alle 4000 infizierten
 		Personen bestimmen und die Dunkelziffer wäre 0. Bestimmt man an diesem Tag die Sterblichkeit, so würde man am
 		15.01.2020 10 Tote auf 4000 Infizierte = 0.25% finden, was der Eingangsgröße/Annahme widerspricht. Wartet man
-		allerdings weiteren 2 Verdopplungszeiten ab, so sind am 29.01. alle 16000 Einwohner infiziert. Wartet man nochmal 2
+		allerdings weiteren 2 Verdopplungszeiten ab, so sind am 29.01. alle 16000 Einwohner infiziert. Wartet man nochmal
+		2
 		Wochen, bis die unglücklichen schweren Fälle verstorben sind, so findet man dann dass von den 16000 Einwohnern 160
 		verstorben sind, und die Sterblichkeit ist wie erwartet 1%. Dies verdeutlicht, dass die Sterblichkeit erst korrekt
 		ermittelt werden kann, wenn das exponentielle Wachstum vorbei ist. </p>
@@ -853,8 +752,9 @@
 		<a id="DE_cases_time_series-absolute"></a> Zeitverlauf der Ausbreitung in den Bundesländern </h3>
 
 	<p> Update vom 04.04.2020: Wie <a href="#DE_calc-cases-from-deaths-DE-total">hier</a> beschrieben, halte ich es
-		mittlerweile für riskant allzuviel in die Daten der positiv getesteten Fälle hinhein zu interpretieren. Für meine <a
-			href="#Countries">internationalen Vergleiche</a> habe ich mich ausschließlich auf die Opferzahlen gestützt, diese
+		mittlerweile für riskant allzuviel in die Daten der positiv getesteten Fälle hinhein zu interpretieren. Für meine
+		<a href="#Countries">internationalen Vergleiche</a> habe ich mich ausschließlich auf die Opferzahlen gestützt,
+		diese
 		halte ich für belastbarer. Die folgenden Kapitel belasse ich trotzdem online. </p>
 
 	<p> Die erste Grafik die ich erstellt habe, zeigt den Zeitverlauf der offiziell gemeldeten positiv getesteten
@@ -880,7 +780,8 @@
 		<a id="DE_cases_time_series-per-million"></a> Zeitverlauf der Ausbreitung in den Bundesländern, skaliert auf deren
 		Einwohnerzahlen </h3>
 
-	<p> Ich halte es für irreführend die Absolutzahlen der Infektionen der unterschiedlich stark bevölkerten Bundesländer
+	<p> Ich halte es für irreführend die Absolutzahlen der Infektionen der unterschiedlich stark bevölkerten
+		Bundesländer
 		miteinander zu vergleichen. Stattdessen bevorzuge ich eine Skalierung pro Einwohner der Bundesländer. Die Daten im
 		Folgenden sind auf "pro 1 Millionen Einwohner" skaliert, abermals zuerst mit linearer und anschließend mit
 		logarithmischer Y-Achse. </p>
@@ -898,7 +799,8 @@
 	<p><small><a href="#ToC">Back to top</a></small></p>
 
 	<h3>
-		<a id="DE_cases_new_time_series-per-million"></a> Zeitverlauf der Neu-Infektionen in den Bundesländern, skaliert auf
+		<a id="DE_cases_new_time_series-per-million"></a> Zeitverlauf der Neu-Infektionen in den Bundesländern, skaliert
+		auf
 		deren Einwohnerzahlen </h3>
 
 	<p> Nun eine ähnliche Darstellung, allerdings der täglich neuen Fälle anstatt der Summe. Diese Daten habe ich (mit
@@ -943,13 +845,16 @@
 
 	<p>Erkenntnisse</p>
 	<ul>
-		<li>Skaliert man die offiziell gemeldeten positiv getesteten Fälle mit der Bevölkerung des jeweiligen Bundeslandes,
+		<li>Skaliert man die offiziell gemeldeten positiv getesteten Fälle mit der Bevölkerung des jeweiligen
+			Bundeslandes,
 			so ergibt sich ein ganz anderes Bild als in den üblichen Darstellungen.</li>
 		<!-- <li>Die graue Linie zeigt den DE Mittelwert</li> -->
 		<li>15.03.2020: Hamburg ist trauriger Spitzenreiter mit 88 Infektionen pro 1 Millionen Einwohner. Dies ist in
-			absoluten Zahlen immer noch wenig, aber viel mehr als Wirkstoff homöopathischen "Medikamenten" (88x so viel wie in
+			absoluten Zahlen immer noch wenig, aber viel mehr als Wirkstoff homöopathischen "Medikamenten" (88x so viel wie
+			in
 			D6) </li>
-		<li>22.03.2020: Hamburg hat nun eine doppelt so hohe offizielle Infektionsdichte in der Bevölkerung wie NRW. Es ist
+		<li>22.03.2020: Hamburg hat nun eine doppelt so hohe offizielle Infektionsdichte in der Bevölkerung wie NRW. Es
+			ist
 			knapp 1 von 2000 Einwohnern positiv getestet.</li>
 	</ul>
 
@@ -957,179 +862,9 @@
 
 	<h3>
 		<a id="Exp_Wachstum"></a> Untersuchung der exponentiellen Zunahme der Infektionen in Deutschland </h3>
-
 	<p>Dieses Kapitel ist nicht mehr relevant, da wir glücklicherweise den Bereich der exponentiellen Zunahme der
-		Neu-Infektionen verlassen haben. Daher werden diese Grafiken nicht mehr aktualisiert.</p>
+		Neu-Infektionen verlassen haben. Daher habe ich es <a href="expGrowth.html#Exp_Wachstum">archiviert</a>.</p>
 
-	<p> Achtung: nun wird es etwas mathematisch...<br /> Zur Untersuchung der Zunahme der Infektionen habe ich die Daten
-		mit einer exponentiellen Wachstumsfunktion "gefittet" (angenähert über eine <a
-			href="https://de.wikipedia.org/wiki/Regressionsanalyse" target="_blank">Regressionsanalyse</a>). Dabei werden 2
-		Parameter so ermittelt, dass die Wachstumsfunktion zu einer optimalen Übereinstimmung mit den Daten kommt. Aus den
-		so ermittelten Werten der Parameter lassen sich dann Aussagen zum Wachstum treffen. Dabei verwende ich für den Fit
-		nur die Daten der letzten 7 Tage um die ergriffenen Maßnahmen besser zu berücksichtigen. </p>
-
-	<p> Exponentielle Wachstumsfunktion:<br /> f(x) = a &middot; exp(b &middot; x)<br /> mit a: Skalierungsfaktor/Wert zum
-		Zeitpunkt (x = 0 = heute)<br /> und b: Parameter der das Wachstum beschreibt </p>
-
-	<p> Daraus lässt sich nun die "Verdopplungszeit" T berechnet über: <br /> f(T) = 2 &middot; f(x=0) <br /> &rarr; a
-		&middot; exp (b &middot; T) = 2 &middot; a <br /> &rarr; T = ln (2) &divide; b <br> Anmerkung: Die Verdopplungszeit
-		t ist unabhängig vom Skalierungsfaktor a. Daher ist es für die Bestimmung der Verdopplungszeit nicht notwendig die
-		Daten auf die Bevölkerung zu skalieren. </p>
-
-	<p> Diese Prozedur habe ich für jeder Tag auf der x-Achse wiederholt um einen Zeitverlauf der Verdopplungszeit zu
-		bestimmen. </p>
-
-	<p> So, genug der Theorie, nun zu den Ergebnissen. Zunächst für die Infektionsfälle in Deutschland, weiter unten pro
-		Bundesland. </p>
-	<a id="cases-de-fit-DE-total"></a>
-	<img src="plots-gnuplot/de-states/cases-de-fit-DE-total.png" alt="cases-de-fit-DE-total.png" width="640" height="480">
-	<img src="plots-gnuplot/de-states/cases-de-fit-DE-total-log.png" alt="cases-de-fit-DE-total-log.png" width="640"
-		height="480"><br />
-	<small>generated via Gnuplot <a
-			href="https://github.com/entorb/COVID-19-Coronavirus-German-Regions/tree/master/scripts-gnuplot"
-			target="_blank">plot-de.gp</a>, raw data can be found in <a
-			href="https://github.com/entorb/COVID-19-Coronavirus-German-Regions/blob/master/data/de-state-DE-total.tsv"
-			target="_blank">de-state-DE-total.tsv</a>
-	</small>
-
-	<p>Erkenntnisse</p>
-	<ul>
-		<li>Sehr gute Übereinstimmung mit dem einfachem Modell eines exponentiellen Wachstums</li>
-		<li>15.03.2020: Meine 1-Tages Extrapolation/Prognose vom 14.03. war nur 1% von der offiziellen Zahl des Tages
-			entfernt. Sehr erschreckend, hoffentlich greifen die Maßnahmen bald.</li>
-		<li>26.03.2020: Es ist deutlich ein Abflachen der Infektionszahlen pro Woche zu erkennen. Die Verdopplungszeit hat
-			sich auf 4.4 Tage erhöht. Dies deutet sehr darauf hin, dass die Maßnahmen greifen. (Sofern denn die Zahlen der
-			Realität entsprechen und die Dunkelziffer nicht deutlich höher ist.) </li>
-	</ul>
-
-	<p><small><a href="#ToC">Back to top</a></small></p>
-	<a id="cases-de-fit-results"></a>
-
-	<h4>Vergleich der Bundesländer</h4>
-
-	<p>Die im vorherigen Abschnitt beschriebene Methode habe ich auf die Infektionsdaten der einzelnen Bundesländer
-		angewandt und möchte zunächst das Ergebnis der Fits/Regressionsanalyse vorwegnehmen.</p>
-	<img src="plots-gnuplot/de-states/cases-de-fit-increase-1-day.png" alt="cases-de-fit-increase-1-day.png" width="640"
-		height="480">
-	<img src="plots-gnuplot/de-states/cases-de-fit-doubling-time.png" alt="cases-de-fit-doubling-time.png" width="640"
-		height="480"><br />
-	<small>generated via Gnuplot <a
-			href="https://github.com/entorb/COVID-19-Coronavirus-German-Regions/tree/master/scripts-gnuplot"
-			target="_blank">plot-de.gp</a>, raw data can be found in <a
-			href="https://github.com/entorb/COVID-19-Coronavirus-German-Regions/blob/master/data/cases-de-gnuplot-fit.tsv"
-			target="_blank">cases-de-gnuplot-fit.tsv</a>
-	</small>
-
-	<h4>Detailauswertung pro Bundesland </h4>
-
-	<p> Im Folgenden habe ich aus Platzgründen auf die lineare Darstellung der Daten verzichten und zeige nur die
-		logarithmisch skalierten Daten pro Bundesland. </p>
-	<div class="af_gallery_container">
-		<div class="af_gallery_select" id="dropdown_DE_states_fit">
-			<!-- <input type="text" placeholder="Filter.." id="filter" onkeyup="filter()"> -->
-
-			<p><b>Auswahl</b></p>
-			<a href="#cases-de-fit-BW">BW</a>
-			<a href="#cases-de-fit-BY">BY</a>
-			<a href="#cases-de-fit-BE">BE</a>
-			<a href="#cases-de-fit-BB">BB</a>
-			<a href="#cases-de-fit-HB">HB</a>
-			<a href="#cases-de-fit-HH">HH</a>
-			<a href="#cases-de-fit-HE">HE</a>
-			<a href="#cases-de-fit-MV">MV</a>
-			<a href="#cases-de-fit-NI">NI</a>
-			<a href="#cases-de-fit-NW">NW</a>
-			<a href="#cases-de-fit-RP">RP</a>
-			<a href="#cases-de-fit-SL">SL</a>
-			<a href="#cases-de-fit-SN">SN</a>
-			<a href="#cases-de-fit-ST">ST</a>
-			<a href="#cases-de-fit-SH">SH</a>
-			<a href="#cases-de-fit-TH">TH</a>
-			<a href="#cases-de-fit-DE">DE</a>
-		</div>
-		<div class="af_gallery_results" id="results_DE_states_fit" style="display: flex;flex-flow:column">
-			<div class="af_gallery_results_plot" id="results_DE_states_plot">
-				<article id="#cases-de-fit-BW">
-					<img src="plots-gnuplot/de-states/cases-de-fit-BW-log.png" alt="cases-de-fit-BW-log.png" width="640"
-						height="480" />
-				</article>
-				<article id="#cases-de-fit-BY">
-					<img src="plots-gnuplot/de-states/cases-de-fit-BY-log.png" alt="cases-de-fit-BY-log.png" width="640"
-						height="480" />
-				</article>
-				<article id="#cases-de-fit-BE">
-					<img src="plots-gnuplot/de-states/cases-de-fit-BE-log.png" alt="cases-de-fit-BE-log.png" width="640"
-						height="480" />
-				</article>
-				<article id="#cases-de-fit-BB">
-					<img src="plots-gnuplot/de-states/cases-de-fit-BB-log.png" alt="cases-de-fit-BB-log.png" width="640"
-						height="480" />
-				</article>
-				<article id="#cases-de-fit-HB">
-					<img src="plots-gnuplot/de-states/cases-de-fit-HB-log.png" alt="cases-de-fit-HB-log.png" width="640"
-						height="480" />
-				</article>
-				<article id="#cases-de-fit-HH">
-					<img src="plots-gnuplot/de-states/cases-de-fit-HH-log.png" alt="cases-de-fit-HH-log.png" width="640"
-						height="480" />
-				</article>
-				<article id="#cases-de-fit-HE">
-					<img src="plots-gnuplot/de-states/cases-de-fit-HE-log.png" alt="cases-de-fit-HE-log.png" width="640"
-						height="480" />
-				</article>
-				<article id="#cases-de-fit-MV">
-					<img src="plots-gnuplot/de-states/cases-de-fit-MV-log.png" alt="cases-de-fit-MV-log.png" width="640"
-						height="480" />
-				</article>
-				<article id="#cases-de-fit-NI">
-					<img src="plots-gnuplot/de-states/cases-de-fit-NI-log.png" alt="cases-de-fit-NI-log.png" width="640"
-						height="480" />
-				</article>
-				<article id="#cases-de-fit-NW">
-					<img src="plots-gnuplot/de-states/cases-de-fit-NW-log.png" alt="cases-de-fit-NW-log.png" width="640"
-						height="480" />
-				</article>
-				<article id="#cases-de-fit-RP">
-					<img src="plots-gnuplot/de-states/cases-de-fit-RP-log.png" alt="cases-de-fit-RP-log.png" width="640"
-						height="480" />
-				</article>
-				<article id="#cases-de-fit-SL">
-					<img src="plots-gnuplot/de-states/cases-de-fit-SL-log.png" alt="cases-de-fit-SL-log.png" width="640"
-						height="480" />
-				</article>
-				<article id="#cases-de-fit-SN">
-					<img src="plots-gnuplot/de-states/cases-de-fit-SN-log.png" alt="cases-de-fit-SN-log.png" width="640"
-						height="480" />
-				</article>
-				<article id="#cases-de-fit-ST">
-					<img src="plots-gnuplot/de-states/cases-de-fit-ST-log.png" alt="cases-de-fit-ST-log.png" width="640"
-						height="480" />
-				</article>
-				<article id="#cases-de-fit-SH">
-					<img src="plots-gnuplot/de-states/cases-de-fit-SH-log.png" alt="cases-de-fit-SH-log.png" width="640"
-						height="480" />
-				</article>
-				<article id="#cases-de-fit-TH">
-					<img src="plots-gnuplot/de-states/cases-de-fit-TH-log.png" alt="cases-de-fit-TH-log.png" width="640"
-						height="480" />
-				</article>
-				<article id="#cases-de-fit-DE">
-					<img src="plots-gnuplot/de-states/cases-de-fit-DE-total-log.png" alt="cases-de-fit-DE-total-log.png"
-						width="640" height="480" />
-				</article>
-			</div>
-			<div class="af_gallery_results_footer" id="results_DE_states_footer">
-				<small> generated via Gnuplot <a
-						href="https://github.com/entorb/COVID-19-Coronavirus-German-Regions/tree/master/scripts-gnuplot"
-						target="_blank">plot-de.gp</a>, raw data can be found in <a
-						href="https://github.com/entorb/COVID-19-Coronavirus-German-Regions/blob/master/data/de-state/"
-						target="_blank">de-state-XX.tsv</a>
-					<br /> Many thanks to Alex for writing this gallery feature!</small>
-			</div>
-		</div>
-	</div>
-
-	<p><small><a href="#ToC">Back to top</a></small></p>
 
 	<h2>
 		<a id="Countries"></a>Comparing Countries</h2>
@@ -1254,7 +989,7 @@
 
 	<p><small><a href="#ToC">Back to top</a></small></p>
 
-	<h3><a id="CountriesCustomChart"></a>Country comparison custom chart</h3>
+	<h3>Country comparison custom chart</h3>
 
 	<p>Usage hints</p>
 	<ul>
@@ -1347,7 +1082,7 @@
 		End Form 
 		-->
 
-	<h4>3. Chart</h4>
+	<h4><a id="CountriesCustomChart"></a>3. Chart</h4>
 	<div id="eChartsCountryContainer" style="height: 600px; width:1000px; background-color: white;"></div>
 	<small> generated via <a href="https://echarts.apache.org" target="_blank">eCharts</a>, raw data can be found in <a
 			href="https://github.com/entorb/COVID-19-Coronavirus-German-Regions/blob/master/data/int/"
@@ -1630,8 +1365,10 @@
 		width="800" height="800">
 	<br />
 
-	<p> Now a similar chart, but using new deaths per million population as y-axes. I decided to use the delta of the last
-		7 days (rolling week) instead of daily values, since there are strong weekend and other effects present, leading to
+	<p> Now a similar chart, but using new deaths per million population as y-axes. I decided to use the delta of the
+		last
+		7 days (rolling week) instead of daily values, since there are strong weekend and other effects present, leading
+		to
 		wrong conclusions. The 7 days delta data is much more reliable.
 		<!-- Note: for here the data is smoothed using a Bézier curve. -->
 	</p>
@@ -1674,7 +1411,8 @@
 		</tr>
 		<tr>
 			<td>
-				<a href="https://www.rki.de/DE/Content/Service/Presse/Pressemitteilungen/2019/13_2019.html" target="_blank"> DE:
+				<a href="https://www.rki.de/DE/Content/Service/Presse/Pressemitteilungen/2019/13_2019.html" target="_blank">
+					DE:
 					HIV deaths 2018</a></td>
 			<td style="text-align: right">440</td>
 			<td style="text-align: right">5</td>
@@ -1688,7 +1426,8 @@
 		</tr>
 		<tr>
 			<td>
-				<a href="https://www.destatis.de/DE/Presse/Pressemitteilungen/2019/02/PD19_069_46241.html" target="_blank"> DE:
+				<a href="https://www.destatis.de/DE/Presse/Pressemitteilungen/2019/02/PD19_069_46241.html" target="_blank">
+					DE:
 					traffic deaths 2018</a></td>
 			<td style="text-align: right">3265</td>
 			<td style="text-align: right">39</td>
@@ -1702,7 +1441,8 @@
 		</tr>
 		<tr>
 			<td>
-				<a href="https://edoc.rki.de/bitstream/handle/176904/6253/RKI_Influenzabericht_2018-19.pdf" target="_blank"> DE:
+				<a href="https://edoc.rki.de/bitstream/handle/176904/6253/RKI_Influenzabericht_2018-19.pdf" target="_blank">
+					DE:
 					flu 2017/18 (estimated)</a></td>
 			<td style="text-align: right">25100</td>
 			<td style="text-align: right">302</td>
@@ -1716,7 +1456,8 @@
 		</tr>
 		<tr>
 			<td>
-				<a href="https://de.wikipedia.org/wiki/Demografie_Deutschlands#Demographie_seit_1900" target="_blank">DE: total
+				<a href="https://de.wikipedia.org/wiki/Demografie_Deutschlands#Demographie_seit_1900" target="_blank">DE:
+					total
 					death rate 2018</a></td>
 			<td style="text-align: right">954874</td>
 			<td style="text-align: right">11502</td>
@@ -1743,7 +1484,8 @@
 		</tr>
 		<tr>
 			<td>
-				<a href="https://en.wikipedia.org/wiki/Motor_vehicle_fatality_rate_in_U.S._by_year" target="_blank"> US: traffic
+				<a href="https://en.wikipedia.org/wiki/Motor_vehicle_fatality_rate_in_U.S._by_year" target="_blank"> US:
+					traffic
 					deaths 2018</a></td>
 			<td style="text-align: right">36560</td>
 			<td style="text-align: right">111</td>
@@ -1779,253 +1521,19 @@
 
 	<p><small>
 			<a href="#ToC">Back to top</a></small></p>
-	<!--
-		 <h3>
-		<a id="countries-fit-results"></a>Death toll increase for selected countries</h3>
 
-	<p> Before diving into the math of exponential growth functions, let's start by showing the results. </p>
-	<img src="plots-gnuplot/int/countries-fit-deaths-increase-1-day.png" alt="countries-fit-deaths-increase-1-day.png"
-		width="640" height="480">
-	<img src="plots-gnuplot/int/countries-fit-deaths-doubling-time.png" alt="countries-fit-deaths-doubling-time.png"
-		width="640" height="480">
-	<br />
-	<small> generated via Gnuplot <a
-			href="https://github.com/entorb/COVID-19-Coronavirus-German-Regions/tree/master/scripts-gnuplot"
-			target="_blank">plot-countries.gp</a>, raw data can be found in <a
-			href="https://github.com/entorb/COVID-19-Coronavirus-German-Regions/blob/master/data/countries-gnuplot-fit.tsv"
-			target="_blank">countries-gnuplot-fit.tsv</a>
-	</small>
 
-	<p><small>
-			<a href="#ToC">Back to top</a></small></p> 
-		-->
-
-	<h3>
-		<a id="CountriesDeathTimeSeries"></a>Time series, Doubling time calculation and forecast for selected countries
-	</h3>
-
-	<p>As in all countries the exponentially increase of the death toll is stopped, this chapter is not relevant any more,
-		and will not be updated.</p>
-
-	<p> Now comes the math part... <br /> As we saw above, the death toll growths exponentially with time for most
-		countries. This can be "fitted" (=performing <a href="https://en.wikipedia.org/wiki/Regression_analysis"
-			target="_blank">regression analysis</a>) by scaling a model function for exponential growth to fit the data. From
-		this fitting/scaling we can obtain information about the growth rate. I restricted the fit to data of the last 7
-		days to take recent actions into account and to obtain a more reliable forecast.<br />
-	</p>
-
-	<p> Model used for fitting of data:<br /> f(x) = a &middot; exp(b &middot; x)<br /> where a is the value at x=0 (here
-		I chose 0 to be the date of the latest reported data) <br />and b defines the rate of increase. </p>
-
-	<p> From b we can derive the time it take to reach a duplication of the value as x=0, the so called the doubling time
-		T:<br /> f(T) = 2 &middot; f(x=0) <br /> &rarr; a &middot; exp (b &middot; T) = 2 &middot; a <br /> &rarr; T = ln
-		(2) &divide; b <br> Note: the doubling time T is independant of the scaling factor a. Therefore, it is save to use
-		data of absolute numbers in the fitting without the need to re-scale by the population. </p>
-
-	<p> I repeated this procedure for each day on the x-axis to derive a trend for the doubling time. </p>
-	<div class="af_gallery_container">
-		<div class="af_gallery_select" id="dropdown_int_countries_fit">
-			<!-- <input type="text" placeholder="Filter.." id="filter" onkeyup="filter()"> -->
-
-			<p><b>Select</b></p>
-			<a href="#deaths-AT-fit">AT</a>
-			<a href="#deaths-BE-fit">BE</a>
-			<a href="#deaths-CA-fit">CA</a>
-			<a href="#deaths-CZ-fit">CZ</a>
-			<a href="#deaths-DK-fit">DK</a>
-			<a href="#deaths-FI-fit">FI</a>
-			<a href="#deaths-FR-fit">FR</a>
-			<a href="#deaths-DE-fit">DE</a>
-			<a href="#deaths-GB-fit">GB</a>
-			<a href="#deaths-GR-fit">GR</a>
-			<a href="#deaths-HU-fit">HU</a>
-			<a href="#deaths-IR-fit">IR</a>
-			<a href="#deaths-IT-fit">IT</a>
-			<a href="#deaths-JP-fit">JP</a>
-			<a href="#deaths-KR-fit">KR</a>
-			<a href="#deaths-NL-fit">NL</a>
-			<a href="#deaths-PT-fit">PT</a>
-			<a href="#deaths-ES-fit">ES</a>
-			<a href="#deaths-SE-fit">SE</a>
-			<a href="#deaths-CH-fit">CH</a>
-			<a href="#deaths-TR-fit">TR</a>
-			<a href="#deaths-US-fit">US</a>
-		</div>
-		<div class="af_gallery_results" id="results_int_countries_fit" style="display: flex;flex-flow:column">
-			<div class="af_gallery_results_plot" id="results_int_countries_plot">
-				<article id="#deaths-AT-fit">
-					<img src="plots-gnuplot/int/deaths-AT-fit.png" alt="deaths-AT-fit.png" width="640" height="480" />
-					<img src="plots-gnuplot/int/deaths-AT-fit-log.png" alt="deaths-AT-fit-log.png" width="640" height="480" />
-				</article>
-				<article id="#deaths-BE-fit">
-					<img src="plots-gnuplot/int/deaths-BE-fit.png" alt="deaths-BE-fit.png" width="640" height="480" />
-					<img src="plots-gnuplot/int/deaths-BE-fit-log.png" alt="deaths-BE-fit-log.png" width="640" height="480" />
-				</article>
-				<article id="#deaths-CA-fit">
-					<img src="plots-gnuplot/int/deaths-CA-fit.png" alt="deaths-CA-fit.png" width="640" height="480" />
-					<img src="plots-gnuplot/int/deaths-CA-fit-log.png" alt="deaths-CA-fit-log.png" width="640" height="480" />
-				</article>
-				<article id="#deaths-CZ-fit">
-					<img src="plots-gnuplot/int/deaths-CZ-fit.png" alt="deaths-CZ-fit.png" width="640" height="480" />
-					<img src="plots-gnuplot/int/deaths-CZ-fit-log.png" alt="deaths-CZ-fit-log.png" width="640" height="480" />
-				</article>
-				<article id="#deaths-DK-fit">
-					<img src="plots-gnuplot/int/deaths-DK-fit.png" alt="deaths-DK-fit.png" width="640" height="480" />
-					<img src="plots-gnuplot/int/deaths-DK-fit-log.png" alt="deaths-DK-fit-log.png" width="640" height="480" />
-				</article>
-				<article id="#deaths-FI-fit">
-					<img src="plots-gnuplot/int/deaths-FI-fit.png" alt="deaths-FI-fit.png" width="640" height="480" />
-					<img src="plots-gnuplot/int/deaths-FI-fit-log.png" alt="deaths-FI-fit-log.png" width="640" height="480" />
-				</article>
-				<article id="#deaths-FR-fit">
-					<img src="plots-gnuplot/int/deaths-FR-fit.png" alt="deaths-FR-fit.png" width="640" height="480" />
-					<img src="plots-gnuplot/int/deaths-FR-fit-log.png" alt="deaths-FR-fit-log.png" width="640" height="480" />
-				</article>
-				<article id="#deaths-DE-fit">
-					<img src="plots-gnuplot/int/deaths-DE-fit.png" alt="deaths-DE-fit.png" width="640" height="480" />
-					<img src="plots-gnuplot/int/deaths-DE-fit-log.png" alt="deaths-DE-fit-log.png" width="640" height="480" />
-				</article>
-				<article id="#deaths-GB-fit">
-					<img src="plots-gnuplot/int/deaths-GB-fit.png" alt="deaths-GB-fit.png" width="640" height="480" />
-					<img src="plots-gnuplot/int/deaths-GB-fit-log.png" alt="deaths-GB-fit-log.png" width="640" height="480" />
-				</article>
-				<article id="#deaths-GR-fit">
-					<img src="plots-gnuplot/int/deaths-GR-fit.png" alt="deaths-GR-fit.png" width="640" height="480" />
-					<img src="plots-gnuplot/int/deaths-GR-fit-log.png" alt="deaths-GR-fit-log.png" width="640" height="480" />
-				</article>
-				<article id="#deaths-HU-fit">
-					<img src="plots-gnuplot/int/deaths-HU-fit.png" alt="deaths-HU-fit.png" width="640" height="480" />
-					<img src="plots-gnuplot/int/deaths-HU-fit-log.png" alt="deaths-HU-fit-log.png" width="640" height="480" />
-				</article>
-				<article id="#deaths-IR-fit">
-					<img src="plots-gnuplot/int/deaths-IR-fit.png" alt="deaths-IR-fit.png" width="640" height="480" />
-					<img src="plots-gnuplot/int/deaths-IR-fit-log.png" alt="deaths-IR-fit-log.png" width="640" height="480" />
-				</article>
-				<article id="#deaths-IT-fit">
-					<img src="plots-gnuplot/int/deaths-IT-fit.png" alt="deaths-IT-fit.png" width="640" height="480" />
-					<img src="plots-gnuplot/int/deaths-IT-fit-log.png" alt="deaths-IT-fit-log.png" width="640" height="480" />
-				</article>
-				<article id="#deaths-JP-fit">
-					<img src="plots-gnuplot/int/deaths-JP-fit.png" alt="deaths-JP-fit.png" width="640" height="480" />
-					<img src="plots-gnuplot/int/deaths-JP-fit-log.png" alt="deaths-JP-fit-log.png" width="640" height="480" />
-				</article>
-				<article id="#deaths-KR-fit">
-					<img src="plots-gnuplot/int/deaths-KR-fit.png" alt="deaths-KR-fit.png" width="640" height="480" />
-					<img src="plots-gnuplot/int/deaths-KR-fit-log.png" alt="deaths-KR-fit-log.png" width="640" height="480" />
-				</article>
-				<article id="#deaths-NL-fit">
-					<img src="plots-gnuplot/int/deaths-NL-fit.png" alt="deaths-NL-fit.png" width="640" height="480" />
-					<img src="plots-gnuplot/int/deaths-NL-fit-log.png" alt="deaths-NL-fit-log.png" width="640" height="480" />
-				</article>
-				<article id="#deaths-PT-fit">
-					<img src="plots-gnuplot/int/deaths-PT-fit.png" alt="deaths-PT-fit.png" width="640" height="480" />
-					<img src="plots-gnuplot/int/deaths-PT-fit-log.png" alt="deaths-PT-fit-log.png" width="640" height="480" />
-				</article>
-				<article id="#deaths-ES-fit">
-					<img src="plots-gnuplot/int/deaths-ES-fit.png" alt="deaths-ES-fit.png" width="640" height="480" />
-					<img src="plots-gnuplot/int/deaths-ES-fit-log.png" alt="deaths-ES-fit-log.png" width="640" height="480" />
-				</article>
-				<article id="#deaths-SE-fit">
-					<img src="plots-gnuplot/int/deaths-SE-fit.png" alt="deaths-SE-fit.png" width="640" height="480" />
-					<img src="plots-gnuplot/int/deaths-SE-fit-log.png" alt="deaths-SE-fit-log.png" width="640" height="480" />
-				</article>
-				<article id="#deaths-CH-fit">
-					<img src="plots-gnuplot/int/deaths-CH-fit.png" alt="deaths-CH-fit.png" width="640" height="480" />
-					<img src="plots-gnuplot/int/deaths-CH-fit-log.png" alt="deaths-CH-fit-log.png" width="640" height="480" />
-				</article>
-				<article id="#deaths-TR-fit">
-					<img src="plots-gnuplot/int/deaths-TR-fit.png" alt="deaths-TR-fit.png" width="640" height="480" />
-					<img src="plots-gnuplot/int/deaths-TR-fit-log.png" alt="deaths-TR-fit-log.png" width="640" height="480" />
-				</article>
-				<article id="#deaths-US-fit">
-					<img src="plots-gnuplot/int/deaths-US-fit.png" alt="deaths-US-fit.png" width="640" height="480" />
-					<img src="plots-gnuplot/int/deaths-US-fit-log.png" alt="deaths-US-fit-log.png" width="640" height="480" />
-				</article>
-			</div>
-			<div class="af_gallery_results_footer" id="results_int_countries_footer">
-				<small> generated via Gnuplot <a
-						href="https://github.com/entorb/COVID-19-Coronavirus-German-Regions/tree/master/scripts-gnuplot"
-						target="_blank">plot-countries.gp</a>, raw data can be found in <a
-						href="https://github.com/entorb/COVID-19-Coronavirus-German-Regions/blob/master/data/int/"
-						target="_blank">countries-timeseries-XX.tsv</a>
-					<br /> Many thanks to Alex for writing this gallery feature!</small>
-			</div>
-		</div>
-	</div>
-	<!-- <p>Findings</p>
-	<ul>
-		<li>In Italy at around 06.03.2020 the slope decreased from around a doubling time of 2 days to 3
-			days</li>
-		<li>17.03.2020: the increase of deaths in Italy is quite similar to the slope of infections in
-			Germany,
-			both having a doubling time of 3 days.</li>
-		<li>22.03.2020: Italy today has 50% more casualties than China</li>
-	</ul> -->
-
-	<p><small>
-			<a href="#ToC">Back to top</a></small></p>
-
-	<h3>
-		<a id="DuplicationsUntilIT"></a>Duplications until hitting Italy's deaths per capita</h3>
-
-	<p> As Italy is very badly hit, I decided to calculate how many duplications of deaths tool other countries are "away"
-		from their situation. The result is a kind of time scale, showing if you have much or little time to prepare. </p>
-	<img src="plots-gnuplot/int/countries-duplications-until-IT-level-of-deaths.png"
-		alt="countries-duplications-until-IT-level-of-deaths.png" width="640" height="480"><br />
-	<small> generated via Gnuplot <a
-			href="https://github.com/entorb/COVID-19-Coronavirus-German-Regions/tree/master/scripts-gnuplot"
-			target="_blank">plot-countries.gp</a>, raw data can be found in <a
-			href="https://github.com/entorb/COVID-19-Coronavirus-German-Regions/blob/master/data/countries-latest-selected.tsv"
-			target="_blank">countries-latest-selected.tsv</a>
-	</small>
-
-	<p> Findings</p>
-	<ul>
-		<li>Using deaths per capita instead of absolute number to be able to compare small and big countries</li>
-		<li>Less is worse, of course</li>
-		<li>18.03.2020: Very scary plot. In most countries currently the number deaths double every 2 till 3 days (see other
-			plots). This allows for an estimation of when we will get hit by Corona as hard as Italy is today... </li>
-		<li>18.03.2020: Spain is only 2 duplications (probably equaling 4-6 days) behind Italy's current situation. Germany
-			is 7 duplications (probably 2-3 weeks) behind Italy's current situation. </li>
-	</ul>
-
-	<p><small>
-			<a href="#ToC">Back to top</a></small></p>
-	<!-- 
-		<h3>
-		<a id="DaysUntilIT"></a>Estimated days until hitting Italy's deaths per capita</h3>
-
-	<p> This plot combines the fit result for the deaths doubling time and the number of duplications until hitting
-		Italy's deaths per capita. It therefore is a rough estimation. Nevertheless in my opinion other country's
-		inhabitants should check how Italy is doing today and via social distancing buy their hospitals as much time as
-		possible for preparation. </p>
-	<img src="plots-gnuplot/int/countries-days-until-IT-level-of-deaths.png"
-		alt="countries-days-until-IT-level-of-deaths.png" width="640" height="480"><br />
-	<small>generated via Gnuplot <a
-			href="https://github.com/entorb/COVID-19-Coronavirus-German-Regions/tree/master/scripts-gnuplot"
-			target="_blank">plot-countries.gp</a>, raw data can be found in <a
-			href="https://github.com/entorb/COVID-19-Coronavirus-German-Regions/blob/master/data/countries-joined_selected_and_gnuplot_fit.tsv"
-			target="_blank">countries-joined_selected_and_gnuplot_fit.tsv</a>
-	</small>
-
-	<p>Findings</p>
-	<ul>
-		<li>22.03.2020: &lt;1 week away are: Belgium, France, Netherlands, Portugal, Spain, Switzerland<br /> &lt;2 weeks
-			away are: Germany, Hungary, Iran, Sweden, UK <br /> Japan and South Korea seem to have slowed down the virus
-			spread successfully.</li>
-	</ul>
-
-	<p><small>
-			<a href="#ToC">Back to top</a></small></p> 
-		-->
 
 	<h3>
 		<a id="Countries_Mortality"></a>Investigating the Calculated Case Mortality: Deaths per Reported Infections</h3>
 
-	<p>Different countries put different effort in testing the population for COVID-19. Hence, some have rather high death
+	<p>Different countries put different effort in testing the population for COVID-19. Hence, some have rather high
+		death
 		toll despite a rather low reported cases. The ratio between the two will be called "calculated case mortality" in
-		the following. The calculated case mortality is of cause highly related to the test effort: more testing results in
-		more reported cases and hence a lower calculated mortality. If on the other hand the clinics are overrun, this will
+		the following. The calculated case mortality is of cause highly related to the test effort: more testing results
+		in
+		more reported cases and hence a lower calculated mortality. If on the other hand the clinics are overrun, this
+		will
 		result in an increase in mortality, as the docs are unable to heal all patients. Countries that show a strongly
 		exponentially increasing death toll (short doubling time) will have a lower calculated mortality than the true
 		value. Here a plots of this value for different countries. </p>
@@ -2067,6 +1575,14 @@
 	<!-- asf -->
 	<hr>
 	<a href="/">Home</a> - <a href="/contact.php?origin=COVID-19">Contact</a> - <a href="/impressum.php">Impressum</a>
+
+	<h3>
+		<a id="CountriesDeathTimeSeries"></a>Time series, Doubling time calculation and forecast for selected countries
+	</h3>
+
+	<p>As in all countries the exponentially increase of the death toll is stopped, this chapter has been <a
+			href="expGrowth.html#CountriesDeathTimeSeries">archived</a>.</p>
+
 </body>
 
 </html>
