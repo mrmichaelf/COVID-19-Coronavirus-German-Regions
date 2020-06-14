@@ -1,0 +1,4 @@
+#!/bin/bash
+rsync ../cache/newsletter.db entorb@entorb.net:data-web-pages/covid-19/
+rsync ../newsletter.py entorb@entorb.net:data-web-pages/covid-19/
+rsync ../helper.py entorb@entorb.net:data-web-pages/covid-19/
