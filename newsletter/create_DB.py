@@ -13,6 +13,8 @@ if os.path.isdir("/home/entorb/data-web-pages/covid-19"):
 else:
     pathToDb = 'cache/newsletter.db'
 
+if os.path.isfile(pathToDb):
+    os.remove(pathToDb)
 
 con = sqlite3.connect(pathToDb)
 # con = sqlite3.connect(":memory:")
