@@ -1,11 +1,15 @@
+import os
 import sqlite3
 
 # my helper modules
 import helper
 
+# check I runnung on entorb.net webserver
+if os.path.isdir("/home/entorb/data-web-pages/covid-19"):
+    pathToDb = '/home/entorb/data-web-pages/covid-19/newsletter.db'
+else:
+    pathToDb = 'cache/newsletter.db'
 
-# TODO: ensure when deploying to webserver, that DB is outside of html dir
-pathToDb = 'alerter/covid-19-alert.db'
 con = sqlite3.connect(pathToDb)
 con.row_factory = sqlite3.Row  # allows for access via row["name"]
 cur = con.cursor()
@@ -15,8 +19,8 @@ d_districts_latest = helper.read_json_file(
     "data/de-districts/de-districts-results.json")
 
 # loop over subscriptions
-for row in cur.execute("SELECT mail, threshhold, regions FROM alerts WHERE activated = 1"):
-    s_this_mail = row["mail"]
+for row in cur.execute("SELECT email, threshhold, regions FROM newsletter WHERE activated = 1"):
+    s_this_email = row["email"]
     s_this_threshhold = row["threshhold"]
     s_this_regions = row["regions"]
     l_this_regions = row["regions"].split(',')
