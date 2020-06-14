@@ -30,15 +30,15 @@ def sendmail(to: str, body: str, subject: str = "[COVID-19 Newsletter]", sender:
 
 def updateHash(email) -> str:
     s = email + str(random.random())
-    h = gen_MD5_string(s)
+    h = gen_SHA256_string(s)
     sql = "UPDATE newsletter SET hash = ? WHERE email = ?"
     cur.execute(sql, (h, email))
     con.commit()
     return h
 
 
-def gen_MD5_string(s: str) -> str:
-    m = hashlib.md5()
+def gen_SHA256_string(s: str) -> str:
+    m = hashlib.sha256()
     m.update(s.encode('ascii'))
     return m.hexdigest()
 

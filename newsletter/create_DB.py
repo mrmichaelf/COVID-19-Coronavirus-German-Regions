@@ -1,6 +1,7 @@
 import os
 import sqlite3
 import hashlib
+# import bcrypt
 import random
 
 # TODO
@@ -28,15 +29,15 @@ def create_table():
                 )
 
 
-def gen_MD5_string(s: str) -> str:
-    m = hashlib.md5()
+def gen_SHA256_string(s: str) -> str:
+    m = hashlib.sha256()
     m.update(s.encode('ascii'))
     return m.hexdigest()
 
 
 def test_insert(email: str):
     s = email + str(random.random())
-    h = gen_MD5_string(s)
+    h = gen_SHA256_string(s)
     cur.execute(f"INSERT INTO newsletter(email, verified, hash, threshhold, regions) VALUES (?,?,?,?,?)",
                 (email, 1, h, 250,
                  "09562,09572,09563,09564,03353,02000,14612"))
