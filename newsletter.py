@@ -10,11 +10,36 @@ import random
 SENDMAIL = "/usr/lib/sendmail"
 
 
+##########################
+# Copy of common functions
+##########################
 def checkRunningOnServer() -> bool:
     if os.path.isdir("/home/entorb/data-web-pages/covid-19"):
         return True
     else:
         return False
+
+
+def genHash(email: str) -> str:
+    s = email + str(random.random())
+    return gen_SHA256_string(s)
+
+
+def updateHash(email) -> str:
+    h = genHash(email)
+    sql = "UPDATE newsletter SET hash = ? WHERE email = ?"
+    cur.execute(sql, (h, email))
+    con.commit()
+    return h
+
+
+def gen_SHA256_string(s: str) -> str:
+    m = hashlib.sha256()
+    m.update(s.encode('ascii'))
+    return m.hexdigest()
+
+
+##########################
 
 
 def sendmail(to: str, body: str, subject: str = "[COVID-19 Newsletter]", sender: str = 'no-reply@entorb.net'):
@@ -26,21 +51,6 @@ def sendmail(to: str, body: str, subject: str = "[COVID-19 Newsletter]", sender:
         p.close()
     else:
         print(mail)
-
-
-def updateHash(email) -> str:
-    s = email + str(random.random())
-    h = gen_SHA256_string(s)
-    sql = "UPDATE newsletter SET hash = ? WHERE email = ?"
-    cur.execute(sql, (h, email))
-    con.commit()
-    return h
-
-
-def gen_SHA256_string(s: str) -> str:
-    m = hashlib.sha256()
-    m.update(s.encode('ascii'))
-    return m.hexdigest()
 
 
 # set path variables

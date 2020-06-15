@@ -1,4 +1,5 @@
 import os
+import re
 import sqlite3
 import hashlib
 # import bcrypt
@@ -10,11 +11,53 @@ import random
 # date created
 
 
+##########################
+# Copy of common functions
+##########################
 def checkRunningOnServer() -> bool:
     if os.path.isdir("/home/entorb/data-web-pages/covid-19"):
         return True
     else:
         return False
+
+
+def genHash(email: str) -> str:
+    s = email + str(random.random())
+    return gen_SHA256_string(s)
+
+
+def updateHash(email) -> str:
+    h = genHash(email)
+    sql = "UPDATE newsletter SET hash = ? WHERE email = ?"
+    cur.execute(sql, (h, email))
+    con.commit()
+    return h
+
+
+def gen_SHA256_string(s: str) -> str:
+    m = hashlib.sha256()
+    m.update(s.encode('ascii'))
+    return m.hexdigest()
+
+
+def insertNewEMail(email: str):
+    email = email.lower()  # ensure mail in lower case
+    checkValidEMail(email)
+    h = genHash(email)
+    cur.execute(f"INSERT INTO newsletter(email, verified, hash) VALUES (?,?,?)",
+                (email, 1, h))
+    con.commit()
+    return h
+
+
+def checkValidEMail(email: str) -> bool:
+    # from https://stackoverflow.com/posts/719543/timeline bottom edit
+    if not re.fullmatch(r"^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$", email):
+        print("Error: invalid email")
+        quit()
+    return True
+
+##########################
 
 
 def deleteDB():
@@ -27,21 +70,6 @@ def create_table():
       CREATE TABLE newsletter (email text, verified int, hash text, threshhold int, regions text)
       """
                 )
-
-
-def gen_SHA256_string(s: str) -> str:
-    m = hashlib.sha256()
-    m.update(s.encode('ascii'))
-    return m.hexdigest()
-
-
-def test_insert(email: str):
-    s = email + str(random.random())
-    h = gen_SHA256_string(s)
-    cur.execute(f"INSERT INTO newsletter(email, verified, hash, threshhold, regions) VALUES (?,?,?,?,?)",
-                (email, 1, h, 250,
-                 "09562,09572,09563,09564,03353,02000,14612"))
-    con.commit()
 
 
 def test_select():
