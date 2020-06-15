@@ -7,8 +7,6 @@ import random
 # my helper modules
 # import helper
 
-SENDMAIL = "/usr/lib/sendmail"
-
 
 ##########################
 # Copy of common functions
@@ -25,7 +23,25 @@ def genHash(email: str) -> str:
     return gen_SHA256_string(s)
 
 
-def updateHash(email) -> str:
+def gen_SHA256_string(s: str) -> str:
+    m = hashlib.sha256()
+    m.update(s.encode('ascii'))
+    return m.hexdigest()
+
+
+def db_connect():
+    # check I running on entorb.net webserver
+    if os.path.isdir("/home/entorb/data-web-pages/covid-19"):
+        pathToDb = '/home/entorb/data-web-pages/covid-19/newsletter.db'
+    else:
+        pathToDb = 'cache/newsletter.db'
+    con = sqlite3.connect(pathToDb)
+    con.row_factory = sqlite3.Row  # allows for access via row["name"]
+    cur = con.cursor()
+    return con, cur
+
+
+def db_updateHash(email) -> str:
     h = genHash(email)
     sql = "UPDATE newsletter SET hash = ? WHERE email = ?"
     cur.execute(sql, (h, email))
@@ -33,13 +49,7 @@ def updateHash(email) -> str:
     return h
 
 
-def gen_SHA256_string(s: str) -> str:
-    m = hashlib.sha256()
-    m.update(s.encode('ascii'))
-    return m.hexdigest()
-
-
-##########################
+SENDMAIL = "/usr/lib/sendmail"
 
 
 def sendmail(to: str, body: str, subject: str = "[COVID-19 Newsletter]", sender: str = 'no-reply@entorb.net'):
@@ -53,18 +63,17 @@ def sendmail(to: str, body: str, subject: str = "[COVID-19 Newsletter]", sender:
         print(mail)
 
 
+##########################
+
+
 # set path variables
 if checkRunningOnServer():
-    pathToDb = '/home/entorb/data-web-pages/covid-19/newsletter.db'
     pathToData = '/home/entorb/html/COVID-19-coronavirus/data/de-districts/de-districts-results.json'
 else:
-    pathToDb = 'cache/newsletter.db'
     pathToData = 'data/de-districts/de-districts-results.json'
 
 # connect to DB
-con = sqlite3.connect(pathToDb)
-con.row_factory = sqlite3.Row  # allows for access via row["name"]
-cur = con.cursor()
+con, cur = db_connect()
 
 # load latest data
 d_districts_latest = {}
@@ -73,14 +82,13 @@ with open(pathToData, mode='r', encoding='utf-8') as fh:
 dataDate = d_districts_latest["02000"]["Date"]
 
 # loop over subscriptions
-for row in cur.execute("SELECT email, threshhold, regions FROM newsletter WHERE verified = 1"):
+for row in cur.execute("SELECT email, verified, hash, threshold, regions, frequency FROM newsletter WHERE verified = 1"):
     mailBody = "entorb's COVID-19 Landkreis Newsletter\n\n"
     mailTo = row["email"]
-    s_this_threshhold = row["threshhold"]
     s_this_regions = row["regions"]
     l_this_regions = row["regions"].split(',')
 
-    # TODO: check if notification is due, based on threshhold and date
+    # TODO: check if notification is due, based on threshold and frequency
     toSend = True
 
     if toSend:
@@ -101,9 +109,9 @@ for row in cur.execute("SELECT email, threshhold, regions FROM newsletter WHERE 
         mailBody += "\n* Neu-Infektionen letzte Woche pro Millionen Einwohner und Neu-Infektionen letzte Woche absolut\n"
         mailBody += f"\nCustom Chart: https://entorb.net/COVID-19-coronavirus/?yAxis=Cases_Last_Week_Per_Million&DeDistricts={s_this_regions}#DeDistrictChart\n"
         # TODO: Include Link with Hash for unsubscribe / admin
-        h = updateHash(mailTo)
+        h = db_updateHash(mailTo)
 
-        mailBody += f"\nAbmelden/Einstellungen ändern: https://entorb.net/COVID-19-coronavirus/TODO.py?hash={h}\n"
+        mailBody += f"\nAbmelden/Einstellungen ändern: https://entorb.net/COVID-19-coronavirus/newsletter-admin.py?action=list&hash={h}\n"
 
         sendmail(to=mailTo, body=mailBody)
 

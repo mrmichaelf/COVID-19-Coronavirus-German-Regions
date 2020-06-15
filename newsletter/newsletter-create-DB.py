@@ -66,8 +66,23 @@ def deleteDB():
 
 
 def create_table():
+    """
+    email: text
+    verified: unverified -> 0 , verified -> 1
+    hash: secred used for admin of that row, updated upon sending of mail
+    threshold: value for alter
+    regions: list of lk_ids
+    frequency: sending frequency, 1= daily, 7=weekly on Sunday
+    """
     cur.execute("""
-      CREATE TABLE newsletter (email text, verified int, hash text, threshhold int, regions text)
+      CREATE TABLE newsletter (
+          email text,
+          verified int,
+          hash text,
+          threshold int,
+          regions text,
+          frequency int
+          )
       """
                 )
 
@@ -79,7 +94,7 @@ def test_select():
           cur.execute("SELECT count(*) FROM newsletter").fetchone()[0])
 
 
-# check I runnung on entorb.net webserver
+# check I running on entorb.net webserver
 if checkRunningOnServer():
     pathToDb = '/home/entorb/data-web-pages/covid-19/newsletter.db'
 else:
@@ -92,7 +107,16 @@ con = sqlite3.connect(pathToDb)
 cur = con.cursor()
 
 create_table()
-test_insert("test@entorb.net")
+cur.execute("INSERT INTO newsletter(email, verified, hash, threshold, regions, frequency) VALUES (?,?,?,?,?,?)",
+            (
+                "test@entorb.net",
+                1,
+                "36c83758b4174d96dc5b2006d40964c8dd1a39d1a3f4e49885c0af5598936631",
+                300,
+                "09562,09572,09563,09564,03353,02000,14612",
+                1
+            ))
+con.commit()
 test_select()
 
 
