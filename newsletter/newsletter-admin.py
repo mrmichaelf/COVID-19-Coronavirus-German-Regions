@@ -1,4 +1,5 @@
 #!/usr/local/bin/python3.6
+# -*- coding: utf-8 -*-
 
 import os
 import re
@@ -7,6 +8,14 @@ import random
 import hashlib
 import cgi
 import cgitb
+
+
+# errors and debugging info to browser
+cgitb.enable()
+
+# Print necessary headers.
+print("Content-Type: text/html")
+print()
 
 
 # TODO
@@ -21,7 +30,7 @@ subscribe
 https://entorb.net/COVID-19-coronavirus/newsletter-admin.py?action=subscribe&email=test2@entorb.net
 
 unsubscribe
-https://entorb.net/COVID-19-coronavirus/newsletter-admin.py?action=unsubscribe&hash=822a384fdc5757f2020a886caa9db5f11686e41d895e33c56167c0d9a19a1c34
+https://entorb.net/COVID-19-coronavirus/newsletter-admin.py?action=unsubscribe&hash=0ba755f79f5eef466feca4f52bf0f22b60545fb910621ffeb088d23f5fa1cbf4
 
 verify
 https://entorb.net/COVID-19-coronavirus/newsletter-admin.py?action=verify&hash=822a384fdc5757f2020a886caa9db5f11686e41d895e33c56167c0d9a19a1c34
@@ -101,7 +110,7 @@ def db_updateHash(email) -> str:
 SENDMAIL = "/usr/lib/sendmail"
 
 
-def sendmail(to: str, body: str, subject: str = "[COVID-19 Newsletter]", sender: str = 'no-reply@entorb.net'):
+def sendmail(to: str, body: str, subject: str = "[COVID-19 Newsletter]", sender: str = "no-reply@entorb.net"):
     mail = f"To: {to}\nSubject: {subject}\nFrom: {sender}\nContent-Type: text/plain; charset=\"utf-8\"\n\n{body}"
     if checkRunningOnServer():
         p = os.popen(f"{SENDMAIL} -t -i", "w")
@@ -114,9 +123,11 @@ def sendmail(to: str, body: str, subject: str = "[COVID-19 Newsletter]", sender:
 ##########################
 
 
-def send_email_register(email: str, h: str, subject="[COVID-19 Newsletter] - Anmeldung"):
-    body = f"Bitte dies Link öffnen um die Anmeldung abzuschließen und die Einstellungen vorzunehmen:\n https://entorb.net/COVID-19-coronavirus/newsletter-admin.py?action=verify&hash={h}"
-    sendmail(to=email, body=body)
+def send_email_register(email: str, h: str):
+    body = f"Bitte diesen Link öffnen um die Anmeldung abzuschließen und die Einstellungen vorzunehmen:\n https://entorb.net/COVID-19-coronavirus/newsletter-admin.py?action=verify&hash={h}"
+    # TODO: BUG: Umlaute funktioniere hier nicht
+    body = f" https://entorb.net/COVID-19-coronavirus/newsletter-admin.py?action=verify&hash={h}"
+    sendmail(to=email, body=body, subject="[COVID-19 Newsletter] - Anmeldung")
 
 
 def get_form_parameter(para: str) -> str:
@@ -182,14 +193,6 @@ def db_insertNewEMail(email: str):
                 (email, 0, h))
     con.commit()
     return h
-
-
-# errors and debugging info to browser
-cgitb.enable()
-
-# Print necessary headers.
-print("Content-Type: text/html")
-print()
 
 
 con, cur = db_connect()
@@ -332,4 +335,4 @@ elif action == "list":
 #     print("</tr>")
 # print("</table>")
 
-print("<p>Ende</p>")
+# print("<p>Ende</p>")
