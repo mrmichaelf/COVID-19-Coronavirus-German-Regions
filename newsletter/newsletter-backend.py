@@ -20,7 +20,7 @@ print()
 
 
 # TODO
-# assert failure -> response via try catch
+
 
 """
 Features
@@ -198,148 +198,151 @@ def db_insertNewEMail(email: str):
     return h
 
 
-con, cur = db_connect()
+try:
 
-# ensure that this script is accessed using url parameters
-assert os.environ.get('QUERY_STRING') != "", "Error: no parameters given"
+    con, cur = db_connect()
 
-# Create instance of FieldStorage
-form = cgi.FieldStorage()
+    # ensure that this script is accessed using url parameters
+    assert os.environ.get('QUERY_STRING') != "", "Error: no parameters given"
 
-action = get_form_parameter("action")
-response['action'] = action
+    # Create instance of FieldStorage
+    form = cgi.FieldStorage()
 
-# for all actions except subscribe the parameter hash needs to be set and present in the db
-if action != "subscribe":
-    h = get_form_parameter("hash")
-    db_assert_hash_exists(h)
+    action = get_form_parameter("action")
+    response['action'] = action
 
-if action == "subscribe":
-    email = get_form_parameter("email")
-    email = email.lower()
-    assert_valid_email_format(email)
-    emailVerifyStatus = db_check_email_is_verified(email)
-    if emailVerifyStatus == 1:
-        response["message"] = f"Warn: {email} already registered and verified"
-    elif emailVerifyStatus == 0:
-        sql = "SELECT hash FROM newsletter WHERE email = ? LIMIT 1"
-        row = cur.execute(sql, (email,)).fetchone()
-        h = row["hash"]
-        send_email_register(email=email, h=h)
-        response["message"] = f"{email} re-subscribed"
-    elif emailVerifyStatus == -1:
-        h = db_insertNewEMail(email)
-        send_email_register(email=email, h=h)
-        response["hash"] = h
-        response["message"] = f"{email} added"
+    # for all actions except subscribe the parameter hash needs to be set and present in the db
+    if action != "subscribe":
+        h = get_form_parameter("hash")
+        db_assert_hash_exists(h)
 
-elif action == "unsubscribe":
-    email, emailVerifyStatus = db_check_hash_is_verified(h=h)
-    if emailVerifyStatus == 0 or emailVerifyStatus == 1:
-        sql = "DELETE FROM newsletter WHERE email = ? AND hash = ?"
-        cur.execute(sql, (email, h))
+    if action == "subscribe":
+        email = get_form_parameter("email")
+        email = email.lower()
+        assert_valid_email_format(email)
+        emailVerifyStatus = db_check_email_is_verified(email)
+        if emailVerifyStatus == 1:
+            response["message"] = f"Warn: {email} already registered and verified"
+        elif emailVerifyStatus == 0:
+            sql = "SELECT hash FROM newsletter WHERE email = ? LIMIT 1"
+            row = cur.execute(sql, (email,)).fetchone()
+            h = row["hash"]
+            send_email_register(email=email, h=h)
+            response["message"] = f"{email} re-subscribed"
+        elif emailVerifyStatus == -1:
+            h = db_insertNewEMail(email)
+            send_email_register(email=email, h=h)
+            response["hash"] = h
+            response["message"] = f"{email} added"
+
+    elif action == "unsubscribe":
+        email, emailVerifyStatus = db_check_hash_is_verified(h=h)
+        if emailVerifyStatus == 0 or emailVerifyStatus == 1:
+            sql = "DELETE FROM newsletter WHERE email = ? AND hash = ?"
+            cur.execute(sql, (email, h))
+            con.commit()
+            response["message"] = f"{email} unsubscribed"
+
+    elif action == "verify":
+        email, emailVerifyStatus = db_check_hash_is_verified(h=h)
+        if emailVerifyStatus == 0:
+            sql = "UPDATE newsletter SET verified = 1 WHERE hash = ?"
+            cur.execute(sql, (h,))
+            con.commit()
+            response["message"] = f"{email} verified"
+
+    elif action == "setThreshold":
+        threshold = int(get_form_parameter("threshold"))
+        assert threshold > 0
+        assert threshold < 1000
+        sql = "UPDATE newsletter SET threshold = ? WHERE hash = ?"
+        cur.execute(sql, (threshold, h))
         con.commit()
-        response["message"] = f"{email} unsubscribed"
+        response["message"] = f"threshold set to {threshold}"
 
-
-elif action == "verify":
-    email, emailVerifyStatus = db_check_hash_is_verified(h=h)
-    if emailVerifyStatus == 0:
-        sql = "UPDATE newsletter SET verified = 1 WHERE hash = ?"
-        cur.execute(sql, (h,))
+    elif action == "setFrequency":
+        frequency = int(get_form_parameter("frequency"))
+        assert frequency in (0, 1, 7)
+        sql = "UPDATE newsletter SET frequency = ? WHERE hash = ?"
+        cur.execute(sql, (frequency, h))
         con.commit()
-        response["message"] = f"{email} verified"
+        response["message"] = f"frequency set to {threshold}"
 
-elif action == "setThreshold":
-    threshold = int(get_form_parameter("threshold"))
-    assert threshold > 0
-    assert threshold < 1000
-    sql = "UPDATE newsletter SET threshold = ? WHERE hash = ?"
-    cur.execute(sql, (threshold, h))
-    con.commit()
-    response["message"] = f"threshold set to {threshold}"
-
-elif action == "setFrequency":
-    frequency = int(get_form_parameter("frequency"))
-    assert frequency in (0, 1, 7)
-    sql = "UPDATE newsletter SET frequency = ? WHERE hash = ?"
-    cur.execute(sql, (frequency, h))
-    con.commit()
-    response["message"] = f"frequency set to {threshold}"
-
-
-elif action == "setRegions":
-    regions = get_form_parameter("regions")
-    l_regions = regions.split(',')
-    # ensure all regions are numeric
-    for r in l_regions:
-        assert r.isnumeric()
-        assert len(r) == 5
-    sql = "UPDATE newsletter SET regions = ? WHERE hash = ?"
-    cur.execute(sql, (regions, h))
-    con.commit()
-    response["message"] = f"regions set to {regions}"
-
-elif action == "addRegion":
-    region = get_form_parameter("region")
-    assert region.isnumeric()
-    assert len(region) == 5
-    sql = "SELECT regions FROM newsletter WHERE hash = ? LIMIT 1"
-    row = cur.execute(sql, (h,)).fetchone()
-    if row["regions"]:
-        l_regions = row["regions"].split(',')
-    else:
-        l_regions = []
-    if region not in l_regions:
-        l_regions.append(region)
-        l_regions = sorted(l_regions)
-        regions = ",".join(l_regions)
+    elif action == "setRegions":
+        regions = get_form_parameter("regions")
+        l_regions = regions.split(',')
+        # ensure all regions are numeric
+        for r in l_regions:
+            assert r.isnumeric()
+            assert len(r) == 5
         sql = "UPDATE newsletter SET regions = ? WHERE hash = ?"
         cur.execute(sql, (regions, h))
         con.commit()
-        response["message"] = f"region {region} added"
+        response["message"] = f"regions set to {regions}"
 
-elif action == "removeRegion":
-    region = get_form_parameter("region")
-    assert region.isnumeric()
-    assert len(region) == 5
-    sql = "SELECT regions FROM newsletter WHERE hash = ? LIMIT 1"
-    row = cur.execute(sql, (h,)).fetchone()
-    if row["regions"]:
-        l_regions = row["regions"].split(',')
-        if region in l_regions:
-            l_regions.remove(region)
-            if len(l_regions) > 0:
-                regions = ",".join(l_regions)
-            else:
-                regions = None
+    elif action == "addRegion":
+        region = get_form_parameter("region")
+        assert region.isnumeric()
+        assert len(region) == 5
+        sql = "SELECT regions FROM newsletter WHERE hash = ? LIMIT 1"
+        row = cur.execute(sql, (h,)).fetchone()
+        if row["regions"]:
+            l_regions = row["regions"].split(',')
+        else:
+            l_regions = []
+        if region not in l_regions:
+            l_regions.append(region)
+            l_regions = sorted(l_regions)
+            regions = ",".join(l_regions)
             sql = "UPDATE newsletter SET regions = ? WHERE hash = ?"
             cur.execute(sql, (regions, h))
             con.commit()
-            response["message"] = f"region {region} removed"
+            response["message"] = f"region {region} added"
 
+    elif action == "removeRegion":
+        region = get_form_parameter("region")
+        assert region.isnumeric()
+        assert len(region) == 5
+        sql = "SELECT regions FROM newsletter WHERE hash = ? LIMIT 1"
+        row = cur.execute(sql, (h,)).fetchone()
+        if row["regions"]:
+            l_regions = row["regions"].split(',')
+            if region in l_regions:
+                l_regions.remove(region)
+                if len(l_regions) > 0:
+                    regions = ",".join(l_regions)
+                else:
+                    regions = None
+                sql = "UPDATE newsletter SET regions = ? WHERE hash = ?"
+                cur.execute(sql, (regions, h))
+                con.commit()
+                response["message"] = f"region {region} removed"
 
-elif action == "list":
-    h = get_form_parameter("hash")
+    elif action == "list":
+        h = get_form_parameter("hash")
 
-    sql = "SELECT email, verified, hash, threshold, regions, frequency FROM newsletter WHERE hash = ? LIMIT 1"
-    row = cur.execute(sql, (h,)).fetchone()
-    userdata = {
-        "email": row['email'],
-        "verified": row['verified'],
-        "threshold": row['threshold'],
-        "regions": row['regions'],
-        "frequency": row['frequency']
-    }
-    response["userdata"] = userdata
+        sql = "SELECT email, verified, hash, threshold, regions, frequency FROM newsletter WHERE hash = ? LIMIT 1"
+        row = cur.execute(sql, (h,)).fetchone()
+        userdata = {
+            "email": row['email'],
+            "verified": row['verified'],
+            "threshold": row['threshold'],
+            "regions": row['regions'],
+            "frequency": row['frequency']
+        }
+        response["userdata"] = userdata
 
-else:
+    else:
+        response['status'] = "error"
+        response["message"] = f"unknown action {action}"
+
+except Exception as e:
     response['status'] = "error"
-    response["message"] = f"unknown action {action}"
+    d = {"type": str(type(e)), "text": str(e)}
+    response["exception"] = d
 
-
-response_json = json.dumps(response)
-print(response_json)
-
-cur.close()
-con.close()
+finally:
+    response_json = json.dumps(response)
+    print(response_json)
+    cur.close()
+    con.close()
