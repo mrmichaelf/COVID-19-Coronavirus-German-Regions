@@ -6,11 +6,43 @@
   <meta charset="utf-8">
   <meta name="author" content="Dr. Torben Menke">
   <link rel="stylesheet" href="/style.css" />
+  <script src="./eCharts/jquery-3.5.0.min.js"></script>
 </head>
 
 <body>
 
   <h1>COVID-19 Landkreis Newsletter Anmeldung</h1>
+  <form> E-Mail: <input type="email" id="email" name="email">
+  </form>
+  <script>
+
+    var input_email = document.getElementById("email");
+    //input_email.value = "test@entorb.net";
+
+    input_email.addEventListener("keydown", function (e) {
+      // Enter is pressed
+      if (e.keyCode === 13) {
+        event.preventDefault();
+        submitFunction();
+      }
+    }, false);
+
+    function submitFunction() {
+      // alert(input_email.value);
+      $.get("https://entorb.net/COVID-19-coronavirus/newsletter-backend.py", { action: "subscribe", email: input_email.value },
+        function (response) {
+          console.log("reply:")
+          console.log(response);
+          if (response.status = "ok") {
+            alert("Bestätigungs E-Mail ist auf dem Weg und enthält den Link zur Konfigurationsseite.")
+          }
+        }
+      );
+
+
+
+    }
+  </script>
   <!-- asf -->
   <hr>
   <a href="/">Home</a> - <a href="/contact.php?origin=COVID-19">Contact</a> - <a href="/impressum.php">Impressum</a>
