@@ -6,9 +6,6 @@ import hashlib
 import random
 
 # TODO
-# columns to add
-# frequency of sending: 1, 7, 30, threshhold
-# date created
 
 
 ##########################

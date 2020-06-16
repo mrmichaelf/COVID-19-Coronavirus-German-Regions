@@ -1,12 +1,11 @@
+#!/usr/local/bin/python3.6
+
 import os
 import sqlite3
 import json
 import hashlib
 import random
 from datetime import date
-
-# my helper modules
-# import helper
 
 
 ##########################

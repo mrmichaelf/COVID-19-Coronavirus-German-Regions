@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="de">
+
+<head>
+  <title>COVID-19 Newsletter Konfiguration</title>
+  <meta charset="utf-8">
+  <meta name="author" content="Dr. Torben Menke">
+  <link rel="stylesheet" href="/style.css" />
+  <!-- Matomo -->
+  <script>
+    var _paq = window._paq || [];
+    /* tracker methods like "setCustomDimension" should be called before "trackPageView" */
+    _paq.push(['trackPageView']);
+    _paq.push(['enableLinkTracking']);
+    (function () {
+      var u = "https://entorb.net/stats/matomo/";
+      _paq.push(['setTrackerUrl', u + 'matomo.php']);
+      _paq.push(['setSiteId', '1']);
+      var d = document, g = d.createElement('script'), s = d.getElementsByTagName('script')[0];
+      g.type = 'text/javascript'; g.async = true; g.defer = true; g.src = u + 'matomo.js'; s.parentNode.insertBefore(g, s);
+    })();
+  </script>
+
+
+</head>
+
+<body>
+  <!-- Matomo noscript-->
+  <noscript>
+    <img src="https://entorb.net/stats/matomo/matomo.php?idsite=1&amp;rec=1" style="border:0;" alt="" />
+  </noscript>
+
+
+
+  <h1>COVID-19 Newsletter Konfiguration</h1>
+
+  <script>
+
+
+    // from https://stackoverflow.com/questions/4297765/make-a-javascript-array-from-url 
+    // needed as 
+    // const urlParams = new URLSearchParams(window.location.search); 
+    // is not available in Edge and IE :-(
+    function URLToParameterArray(url) {
+      var request = {};
+      var pairs = url.substring(url.indexOf('?') + 1).split('&');
+      for (var i = 0; i < pairs.length; i++) {
+        if (!pairs[i])
+          continue;
+        var pair = pairs[i].split('=');
+        request[decodeURIComponent(pair[0])] = decodeURIComponent(pair[1]);
+      }
+      return request;
+    }
+
+
+    // This dirty workaround is needed for Edge and IE :-(
+    var urlParams = [];
+    if ('search' in window.location) {
+      urlParams = URLToParameterArray(window.location.search);
+    } else {
+      alert("Error: Hash Parameter fehlt!");
+    }
+
+    if ('hash' in urlParams) {
+      document.write("hash: " + urlParams.hash)
+    } else {
+      alert("Error: Hash Parameter fehlt!");
+    }
+
+  </script>
+
+
+  <!-- asf -->
+  <hr>
+  <a href="/">Home</a> - <a href="/contact.php?origin=COVID-19">Contact</a> - <a href="/impressum.php">Impressum</a>
+</body>
+
+</html>
