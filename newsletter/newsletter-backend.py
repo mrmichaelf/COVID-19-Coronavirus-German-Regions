@@ -14,14 +14,13 @@ import json
 cgitb.enable()
 
 # Print necessary headers.
-print("Content-Type: text/html")
+print("Content-type: application/json")
 print()
+# see https://stackoverflow.com/questions/4315900/how-can-i-send-a-json-object-from-a-python-script-to-jquery/4315936
 
 
 # TODO
-# replace response from html by json, see https://stackoverflow.com/questions/4315900/how-can-i-send-a-json-object-from-a-python-script-to-jquery/4315936
-# print "Content-type: application/json"
-# print json.dumps(['Price',{'Cost':'99'}])
+# assert failure -> response via try catch
 
 """
 Features
@@ -58,6 +57,9 @@ https://entorb.net/COVID-19-coronavirus/newsletter-backend.py?action=setRegions&
 ##########################
 # Copy of common functions
 ##########################
+
+response = {}
+response['status'] = "ok"
 
 
 def checkRunningOnServer() -> bool:
@@ -205,6 +207,7 @@ assert os.environ.get('QUERY_STRING') != "", "Error: no parameters given"
 form = cgi.FieldStorage()
 
 action = get_form_parameter("action")
+response['action'] = action
 
 # for all actions except subscribe the parameter hash needs to be set and present in the db
 if action != "subscribe":
@@ -217,15 +220,18 @@ if action == "subscribe":
     assert_valid_email_format(email)
     emailVerifyStatus = db_check_email_is_verified(email)
     if emailVerifyStatus == 1:
-        print("Warn: email already registered")
+        response["message"] = f"Warn: {email} already registered and verified"
     elif emailVerifyStatus == 0:
-        print("Warn: re-registering unverified email")
-        h = db_updateHash(email)
+        sql = "SELECT hash FROM newsletter WHERE email = ? LIMIT 1"
+        row = cur.execute(sql, (email,)).fetchone()
+        h = row["hash"]
         send_email_register(email=email, h=h)
+        response["message"] = f"{email} re-subscribed"
     elif emailVerifyStatus == -1:
-        print("Info: adding email")
         h = db_insertNewEMail(email)
         send_email_register(email=email, h=h)
+        response["hash"] = h
+        response["message"] = f"{email} added"
 
 elif action == "unsubscribe":
     email, emailVerifyStatus = db_check_hash_is_verified(h=h)
@@ -233,6 +239,7 @@ elif action == "unsubscribe":
         sql = "DELETE FROM newsletter WHERE email = ? AND hash = ?"
         cur.execute(sql, (email, h))
         con.commit()
+        response["message"] = f"{email} unsubscribed"
 
 
 elif action == "verify":
@@ -241,6 +248,7 @@ elif action == "verify":
         sql = "UPDATE newsletter SET verified = 1 WHERE hash = ?"
         cur.execute(sql, (h,))
         con.commit()
+        response["message"] = f"{email} verified"
 
 elif action == "setThreshold":
     threshold = int(get_form_parameter("threshold"))
@@ -249,6 +257,7 @@ elif action == "setThreshold":
     sql = "UPDATE newsletter SET threshold = ? WHERE hash = ?"
     cur.execute(sql, (threshold, h))
     con.commit()
+    response["message"] = f"threshold set to {threshold}"
 
 elif action == "setFrequency":
     frequency = int(get_form_parameter("frequency"))
@@ -256,6 +265,7 @@ elif action == "setFrequency":
     sql = "UPDATE newsletter SET frequency = ? WHERE hash = ?"
     cur.execute(sql, (frequency, h))
     con.commit()
+    response["message"] = f"frequency set to {threshold}"
 
 
 elif action == "setRegions":
@@ -268,6 +278,7 @@ elif action == "setRegions":
     sql = "UPDATE newsletter SET regions = ? WHERE hash = ?"
     cur.execute(sql, (regions, h))
     con.commit()
+    response["message"] = f"regions set to {regions}"
 
 elif action == "addRegion":
     region = get_form_parameter("region")
@@ -286,6 +297,7 @@ elif action == "addRegion":
         sql = "UPDATE newsletter SET regions = ? WHERE hash = ?"
         cur.execute(sql, (regions, h))
         con.commit()
+        response["message"] = f"region {region} added"
 
 elif action == "removeRegion":
     region = get_form_parameter("region")
@@ -304,26 +316,30 @@ elif action == "removeRegion":
             sql = "UPDATE newsletter SET regions = ? WHERE hash = ?"
             cur.execute(sql, (regions, h))
             con.commit()
+            response["message"] = f"region {region} removed"
 
 
 elif action == "list":
     h = get_form_parameter("hash")
 
-    print("<table border 1>")
     sql = "SELECT email, verified, hash, threshold, regions, frequency FROM newsletter WHERE hash = ? LIMIT 1"
     row = cur.execute(sql, (h,)).fetchone()
-    print(f"""
-    <tr><td>email</td><td>{row['email']}</td></tr>
-    <tr><td>verified</td><td>{row['verified']}</td></tr>
-    <tr><td>hash</td><td>{row['hash']}</td></tr>
-    <tr><td>threshold</td><td>{row['threshold']}</td></tr>
-    <tr><td>regions</td><td>{row['regions']}</td></tr>
-    <tr><td>frequency</td><td>{row['frequency']}</td></tr>
-    """)
-    print("</table>")
+    userdata = {
+        "email": row['email'],
+        "verified": row['verified'],
+        "threshold": row['threshold'],
+        "regions": row['regions'],
+        "frequency": row['frequency']
+    }
+    response["userdata"] = userdata
+
+else:
+    response['status'] = "error"
+    response["message"] = f"unknown action {action}"
 
 
-# print("<p>Ende</p>")
+response_json = json.dumps(response)
+print(response_json)
 
 cur.close()
 con.close()
