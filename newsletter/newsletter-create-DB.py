@@ -41,8 +41,8 @@ def insertNewEMail(email: str):
     email = email.lower()  # ensure mail in lower case
     checkValidEMail(email)
     h = genHash(email)
-    cur.execute(f"INSERT INTO newsletter(email, verified, hash) VALUES (?,?,?)",
-                (email, 1, h))
+    cur.execute(f"INSERT INTO newsletter(email, verified, hash, threshold, frequency) VALUES (?,?,?)",
+                (email, 1, h, 300, 7))
     con.commit()
     return h
 

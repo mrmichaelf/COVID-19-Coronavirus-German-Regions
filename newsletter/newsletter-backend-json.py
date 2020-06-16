@@ -8,55 +8,57 @@ import random
 import hashlib
 import cgi
 import cgitb
-
+import json
 
 # errors and debugging info to browser
 cgitb.enable()
 
 # Print necessary headers.
-print("Content-Type: text/html")
+print("Content-type: application/json")
 print()
 
 
 # TODO
-# proper HTML code
-# admin page including a form
+# replace response from html by json, see https://stackoverflow.com/questions/4315900/how-can-i-send-a-json-object-from-a-python-script-to-jquery/4315936
 
 """
 Features
 
 
 subscribe
-https://entorb.net/COVID-19-coronavirus/newsletter-admin.py?action=subscribe&email=test2@entorb.net
+https://entorb.net/COVID-19-coronavirus/newsletter-backend-json.py?action=subscribe&email=test2@entorb.net
 
 unsubscribe
-https://entorb.net/COVID-19-coronavirus/newsletter-admin.py?action=unsubscribe&hash=2c73929451c7e6e062594d114f081c79658313939694ff0348ba0ff05988e644
+https://entorb.net/COVID-19-coronavirus/newsletter-backend-json.py?action=unsubscribe&hash=2c73929451c7e6e062594d114f081c79658313939694ff0348ba0ff05988e644
 
 verify
-https://entorb.net/COVID-19-coronavirus/newsletter-admin.py?action=verify&hash=822a384fdc5757f2020a886caa9db5f11686e41d895e33c56167c0d9a19a1c34
+https://entorb.net/COVID-19-coronavirus/newsletter-backend-json.py?action=verify&hash=822a384fdc5757f2020a886caa9db5f11686e41d895e33c56167c0d9a19a1c34
 
 list
-https://entorb.net/COVID-19-coronavirus/newsletter-admin.py?action=list&hash=822a384fdc5757f2020a886caa9db5f11686e41d895e33c56167c0d9a19a1c34
+https://entorb.net/COVID-19-coronavirus/newsletter-backend-json.py?action=list&hash=822a384fdc5757f2020a886caa9db5f11686e41d895e33c56167c0d9a19a1c34
 
 setThreshold
-https://entorb.net/COVID-19-coronavirus/newsletter-admin.py?action=setThreshold&threshold=20&hash=178d6ad95bc5cf0e8bb200c723b5aaf28bfe840c6a759c449e09b669eb13dc50
+https://entorb.net/COVID-19-coronavirus/newsletter-backend-json.py?action=setThreshold&threshold=20&hash=178d6ad95bc5cf0e8bb200c723b5aaf28bfe840c6a759c449e09b669eb13dc50
 
 setFrequency
-https://entorb.net/COVID-19-coronavirus/newsletter-admin.py?action=setFrequency&frequency=7&hash=178d6ad95bc5cf0e8bb200c723b5aaf28bfe840c6a759c449e09b669eb13dc50
+https://entorb.net/COVID-19-coronavirus/newsletter-backend-json.py?action=setFrequency&frequency=7&hash=178d6ad95bc5cf0e8bb200c723b5aaf28bfe840c6a759c449e09b669eb13dc50
 
 addRegion
-https://entorb.net/COVID-19-coronavirus/newsletter-admin.py?action=addRegion&region=02000&hash=822a384fdc5757f2020a886caa9db5f11686e41d895e33c56167c0d9a19a1c34
+https://entorb.net/COVID-19-coronavirus/newsletter-backend-json.py?action=addRegion&region=02000&hash=822a384fdc5757f2020a886caa9db5f11686e41d895e33c56167c0d9a19a1c34
 
 removeRegion
-https://entorb.net/COVID-19-coronavirus/newsletter-admin.py?action=removeRegion&region=02000&hash=822a384fdc5757f2020a886caa9db5f11686e41d895e33c56167c0d9a19a1c34
+https://entorb.net/COVID-19-coronavirus/newsletter-backend-json.py?action=removeRegion&region=02000&hash=822a384fdc5757f2020a886caa9db5f11686e41d895e33c56167c0d9a19a1c34
 
 setRegions
-https://entorb.net/COVID-19-coronavirus/newsletter-admin.py?action=setRegions&region=09562,02000&hash=822a384fdc5757f2020a886caa9db5f11686e41d895e33c56167c0d9a19a1c34
+https://entorb.net/COVID-19-coronavirus/newsletter-backend-json.py?action=setRegions&region=09562,02000&hash=822a384fdc5757f2020a886caa9db5f11686e41d895e33c56167c0d9a19a1c34
 """
 
 ##########################
 # Copy of common functions
 ##########################
+
+response = {}
+response['status'] = "ok"
 
 
 def checkRunningOnServer() -> bool:
@@ -124,9 +126,9 @@ def sendmail(to: str, body: str, subject: str = "[COVID-19 Newsletter]", sender:
 
 
 def send_email_register(email: str, h: str):
-    body = f"Bitte diesen Link öffnen um die Anmeldung abzuschließen und die Einstellungen vorzunehmen:\n https://entorb.net/COVID-19-coronavirus/newsletter-admin.py?action=verify&hash={h}"
+    body = f"Bitte diesen Link öffnen um die Anmeldung abzuschließen und die Einstellungen vorzunehmen:\n https://entorb.net/COVID-19-coronavirus/newsletter-backend-json.py?action=verify&hash={h}"
     # TODO: BUG: Umlaute funktioniere hier nicht
-    body = f" https://entorb.net/COVID-19-coronavirus/newsletter-admin.py?action=verify&hash={h}"
+    body = f" https://entorb.net/COVID-19-coronavirus/newsletter-backend-json.py?action=verify&hash={h}"
     sendmail(to=email, body=body, subject="[COVID-19 Newsletter] - Anmeldung")
 
 
@@ -204,6 +206,7 @@ assert os.environ.get('QUERY_STRING') != "", "Error: no parameters given"
 form = cgi.FieldStorage()
 
 action = get_form_parameter("action")
+response['action'] = action
 
 # for all actions except subscribe the parameter hash needs to be set and present in the db
 if action != "subscribe":
@@ -216,13 +219,16 @@ if action == "subscribe":
     assert_valid_email_format(email)
     emailVerifyStatus = db_check_email_is_verified(email)
     if emailVerifyStatus == 1:
-        print("Warn: email already registered")
+        response["message"] = "Warn: email already registered"
     elif emailVerifyStatus == 0:
-        print("Warn: re-registering unverified email")
-        h = db_updateHash(email)
+        response["message"] = "Warn: re-registering unverified email"
+        # h = db_updateHash(email)
+        sql = "SELECT hash FROM newsletter WHERE email = ? LIMIT 1"
+        row = cur.execute(sql, (email,)).fetchone()
+        h = row["hash"]
         send_email_register(email=email, h=h)
     elif emailVerifyStatus == -1:
-        print("Info: adding email")
+        response["message"] = "Info: adding email"
         h = db_insertNewEMail(email)
         send_email_register(email=email, h=h)
 
@@ -308,31 +314,19 @@ elif action == "removeRegion":
 elif action == "list":
     h = get_form_parameter("hash")
 
-    print("<table border 1>")
     sql = "SELECT email, verified, hash, threshold, regions, frequency FROM newsletter WHERE hash = ? LIMIT 1"
     row = cur.execute(sql, (h,)).fetchone()
-    print(f"""
-    <tr><td>email</td><td>{row['email']}</td></tr>
-    <tr><td>verified</td><td>{row['verified']}</td></tr>
-    <tr><td>hash</td><td>{row['hash']}</td></tr>
-    <tr><td>threshold</td><td>{row['threshold']}</td></tr>
-    <tr><td>regions</td><td>{row['regions']}</td></tr>
-    <tr><td>frequency</td><td>{row['frequency']}</td></tr>
-    """)
-    print("</table>")
+    userdata = {
+        "email": row['email'],
+        "verified": row['verified'],
+        "threshold": row['threshold'],
+        "regions": row['regions'],
+        "frequency": row['frequency']
+    }
+    response["userdata"] = userdata
 
+response_json = json.dumps(response)
+print(response_json)
 
-# print("<h3>Dump:</h3>")
-# print("<table border 1>")
-# for row in cur.execute("SELECT email, verified, hash, threshold, regions, frequency FROM newsletter ORDER BY email"):
-#     print("<tr>")
-#     print(f"<td>{row['email']}</td>")
-#     print(f"<td>{row['verified']}</td>")
-#     print(f"<td>{row['hash']}</td>")
-#     print(f"<td>{row['threshold']}</td>")
-#     print(f"<td>{row['regions']}</td>")
-#     print(f"<td>{row['frequency']}</td>")
-#     print("</tr>")
-# print("</table>")
-
-# print("<p>Ende</p>")
+cur.close()
+con.close()

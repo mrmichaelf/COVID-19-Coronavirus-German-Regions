@@ -7,10 +7,14 @@ import hashlib
 import random
 from datetime import date
 
+# TODO
+# handling of regions = None
 
 ##########################
 # Copy of common functions
 ##########################
+
+
 def checkRunningOnServer() -> bool:
     if os.path.isdir("/home/entorb/data-web-pages/covid-19"):
         return True
