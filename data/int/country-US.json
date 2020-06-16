@@ -2586,21 +2586,21 @@
  {
   "Date": "2020-06-06",
   "Cases": 1926538,
-  "Deaths": 110123,
+  "Deaths": 110124,
   "Days_Past": -8,
   "Days_Since_2nd_Death": 96,
   "Cases_New": 22684,
-  "Deaths_New": 674,
+  "Deaths_New": 675,
   "Cases_Last_Week": 147545,
-  "Deaths_Last_Week": 6069,
+  "Deaths_Last_Week": 6070,
   "Deaths_Per_Cases": 0.057,
   "Deaths_Per_Cases_Last_Week": 0.041,
   "Cases_Per_Million": 5888.538,
-  "Deaths_Per_Million": 336.595,
+  "Deaths_Per_Million": 336.598,
   "Cases_New_Per_Million": 69.335,
-  "Deaths_New_Per_Million": 2.06,
+  "Deaths_New_Per_Million": 2.063,
   "Cases_Last_Week_Per_Million": 450.977,
-  "Deaths_Last_Week_Per_Million": 18.55
+  "Deaths_Last_Week_Per_Million": 18.553
  },
  {
   "Date": "2020-06-07",
@@ -2609,7 +2609,7 @@
   "Days_Past": -7,
   "Days_Since_2nd_Death": 97,
   "Cases_New": 17771,
-  "Deaths_New": 452,
+  "Deaths_New": 451,
   "Cases_Last_Week": 145187,
   "Deaths_Last_Week": 5916,
   "Deaths_Per_Cases": 0.057,
@@ -2617,7 +2617,7 @@
   "Cases_Per_Million": 5942.856,
   "Deaths_Per_Million": 337.977,
   "Cases_New_Per_Million": 54.318,
-  "Deaths_New_Per_Million": 1.382,
+  "Deaths_New_Per_Million": 1.378,
   "Cases_Last_Week_Per_Million": 443.77,
   "Deaths_Last_Week_Per_Million": 18.082
  },
@@ -2725,7 +2725,7 @@
   "Cases_New": 25540,
   "Deaths_New": 767,
   "Cases_Last_Week": 147988,
-  "Deaths_Last_Week": 5313,
+  "Deaths_Last_Week": 5312,
   "Deaths_Per_Cases": 0.056,
   "Deaths_Per_Cases_Last_Week": 0.036,
   "Cases_Per_Million": 6340.869,
@@ -2733,7 +2733,7 @@
   "Cases_New_Per_Million": 78.064,
   "Deaths_New_Per_Million": 2.344,
   "Cases_Last_Week_Per_Million": 452.331,
-  "Deaths_Last_Week_Per_Million": 16.239
+  "Deaths_Last_Week_Per_Million": 16.236
  },
  {
   "Date": "2020-06-14",
