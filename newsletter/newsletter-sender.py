@@ -3,6 +3,7 @@ import sqlite3
 import json
 import hashlib
 import random
+from datetime import date
 
 # my helper modules
 # import helper
@@ -81,6 +82,7 @@ with open(pathToData, mode='r', encoding='utf-8') as fh:
     d_districts_latest = json.load(fh)
 dataDate = d_districts_latest["02000"]["Date"]
 
+
 # loop over subscriptions
 for row in cur.execute("SELECT email, verified, hash, threshold, regions, frequency FROM newsletter WHERE verified = 1"):
     mailBody = "entorb's COVID-19 Landkreis Newsletter\n\n"
@@ -88,14 +90,23 @@ for row in cur.execute("SELECT email, verified, hash, threshold, regions, freque
     s_this_regions = row["regions"]
     l_this_regions = row["regions"].split(',')
 
+    # for sorting by value
+    d_this_regions_cases_PM = {}
+    for id in l_this_regions:
+        d_this_regions_cases_PM[id] = d_districts_latest[id]["Cases_Last_Week_Per_Million"]
+
+    toSend = False
     # TODO: check if notification is due, based on threshold and frequency
-    toSend = True
+    # daily sending
+    if row["frequency"] == 1:
+        toSend = True
+    # sunday sending
+    elif row["frequency"] == 7 and date.today().isoweekday() == 7:
+        toSend = True
+    elif row["threshold"] <= max(d_this_regions_cases_PM.values()):
+        toSend = True
 
     if toSend:
-        # for sorting by value
-        d_this_regions_cases_PM = {}
-        for id in l_this_regions:
-            d_this_regions_cases_PM[id] = d_districts_latest[id]["Cases_Last_Week_Per_Million"]
 
         # table header
         mailBody += "Infektionen* : Landkreis\n"

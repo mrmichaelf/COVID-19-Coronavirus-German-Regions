@@ -30,7 +30,7 @@ subscribe
 https://entorb.net/COVID-19-coronavirus/newsletter-admin.py?action=subscribe&email=test2@entorb.net
 
 unsubscribe
-https://entorb.net/COVID-19-coronavirus/newsletter-admin.py?action=unsubscribe&hash=0ba755f79f5eef466feca4f52bf0f22b60545fb910621ffeb088d23f5fa1cbf4
+https://entorb.net/COVID-19-coronavirus/newsletter-admin.py?action=unsubscribe&hash=2c73929451c7e6e062594d114f081c79658313939694ff0348ba0ff05988e644
 
 verify
 https://entorb.net/COVID-19-coronavirus/newsletter-admin.py?action=verify&hash=822a384fdc5757f2020a886caa9db5f11686e41d895e33c56167c0d9a19a1c34
@@ -39,10 +39,10 @@ list
 https://entorb.net/COVID-19-coronavirus/newsletter-admin.py?action=list&hash=822a384fdc5757f2020a886caa9db5f11686e41d895e33c56167c0d9a19a1c34
 
 setThreshold
-https://entorb.net/COVID-19-coronavirus/newsletter-admin.py?action=setThreshold&threshold=123&hash=822a384fdc5757f2020a886caa9db5f11686e41d895e33c56167c0d9a19a1c34
+https://entorb.net/COVID-19-coronavirus/newsletter-admin.py?action=setThreshold&threshold=20&hash=178d6ad95bc5cf0e8bb200c723b5aaf28bfe840c6a759c449e09b669eb13dc50
 
 setFrequency
-https://entorb.net/COVID-19-coronavirus/newsletter-admin.py?action=setFrequency&frequency=7&hash=822a384fdc5757f2020a886caa9db5f11686e41d895e33c56167c0d9a19a1c34
+https://entorb.net/COVID-19-coronavirus/newsletter-admin.py?action=setFrequency&frequency=7&hash=178d6ad95bc5cf0e8bb200c723b5aaf28bfe840c6a759c449e09b669eb13dc50
 
 addRegion
 https://entorb.net/COVID-19-coronavirus/newsletter-admin.py?action=addRegion&region=02000&hash=822a384fdc5757f2020a886caa9db5f11686e41d895e33c56167c0d9a19a1c34
