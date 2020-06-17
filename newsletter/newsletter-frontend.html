@@ -2,7 +2,7 @@
 <html lang="de">
 
 <head>
-  <title>COVID-19 Newsletter Konfiguration</title>
+  <title>COVID-19 Landkreis Newsletter - Konfiguration</title>
   <meta charset="utf-8">
   <meta name="author" content="Dr. Torben Menke">
   <link rel="stylesheet" href="/style.css" />
@@ -55,11 +55,11 @@
     ensureHashIsValid()
   </script>
 
-  <h1>COVID-19 Newsletter Konfiguration</h1>
+  <h1>COVID-19 Landkreis Newsletter - Konfiguration</h1>
   <table>
     <tr>
       <th>E-Mail</th>
-      <th>verified</th>
+      <!-- <th>verified</th> -->
       <th>Sende-<br />Häufigkeit</th>
       <th>Schwellwert<br /><small>Enter zum Speichern</small></th>
       <!-- <th>Landkreise</th> -->
@@ -67,10 +67,10 @@
     </tr>
     <tr>
       <td><input type="email" id="email" name="email" readonly></td>
-      <td><input type="checkbox" id="verified" name="verified" value="verified" disabled readonly></td>
+      <!-- <td><input type="checkbox" id="verified" name="verified" value="verified" disabled readonly></td> -->
       <td>
         <select id="frequency" name="frequency" onchange="setFrequency()">
-          <option value="0">Grenzwertüberschreitung</option>
+          <option value="0">Schwellwertüberschreitung</option>
           <option value="1">täglich</option>
           <option value="7">wöchentlich (Sonntags)</option>
         </select>
@@ -92,7 +92,7 @@
 
 
     var input_email = document.getElementById("email");
-    var input_verified = document.getElementById("verified");
+    // var input_verified = document.getElementById("verified");
     var input_frequency = document.getElementById("frequency");
     var input_threshold = document.getElementById("threshold");
     // var input_regions = document.getElementById("regions");
@@ -115,9 +115,9 @@
           console.log(response);
           if (response.status = "ok") {
             input_email.value = response.userdata.email;
-            if (response.userdata.verified = 1) {
-              input_verified.checked = true;
-            }
+            // if (response.userdata.verified = 1) {
+            //   input_verified.checked = true;
+            // }
             input_frequency.value = response.userdata.frequency;
             input_threshold.value = response.userdata.threshold;
             //input_regions.value = response.userdata.regions;

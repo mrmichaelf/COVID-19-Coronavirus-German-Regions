@@ -6,6 +6,7 @@ import re
 import sqlite3
 import random
 import hashlib
+import datetime
 import cgi
 import cgitb
 import json
@@ -113,7 +114,7 @@ def db_updateHash(email) -> str:
 SENDMAIL = "/usr/lib/sendmail"
 
 
-def sendmail(to: str, body: str, subject: str = "[COVID-19 Newsletter]", sender: str = "no-reply@entorb.net"):
+def sendmail(to: str, body: str, subject: str = "[COVID-19 Landkreis Newsletter]", sender: str = "no-reply@entorb.net"):
     mail = f"To: {to}\nSubject: {subject}\nFrom: {sender}\nContent-Type: text/plain; charset=\"utf-8\"\n\n{body}"
     if checkRunningOnServer():
         p = os.popen(f"{SENDMAIL} -t -i", "w")
@@ -127,10 +128,11 @@ def sendmail(to: str, body: str, subject: str = "[COVID-19 Newsletter]", sender:
 
 
 def send_email_register(email: str, h: str):
-    body = f"Bitte diesen Link öffnen um die Anmeldung abzuschließen und die Einstellungen vorzunehmen:\n https://entorb.net/COVID-19-coronavirus/newsletter-backend.py?action=verify&hash={h}"
+    # body = f"Bitte diesen Link öffnen um die Anmeldung abzuschließen und die Einstellungen vorzunehmen:\n ... "
     # TODO: BUG: Umlaute funktioniere hier nicht
-    body = f"Open this Link to finalize the registration and set settings https://entorb.net/COVID-19-coronavirus/newsletter-frontend.html?action=verify&hash={h}"
-    sendmail(to=email, body=body, subject="[COVID-19 Newsletter] - Anmeldung")
+    body = f"Bitte diesen Link oeffnen um die Anmeldung abzuschliessen und die Einstellungen vorzunehmen:\n https://entorb.net/COVID-19-coronavirus/newsletter-frontend.html?action=verify&hash={h}"
+    sendmail(to=email, body=body,
+             subject="[COVID-19 Landkreis Newsletter] - Anmeldung")
 
 
 def get_form_parameter(para: str) -> str:
@@ -192,8 +194,8 @@ def db_insertNewEMail(email: str):
     email = email.lower()  # ensure mail in lower case
     assert_valid_email_format(email)
     h = genHash(email)
-    cur.execute(f"INSERT INTO newsletter(email, verified, hash, threshold, frequency) VALUES (?,?,?,?,?)",
-                (email, 0, h, 300, 1))
+    cur.execute(f"INSERT INTO newsletter(email, verified, hash, threshold, frequency, date_registered) VALUES (?,?,?,?,?,?)",
+                (email, 0, h, 300, 1, datetime.date.today()))
     con.commit()
     return h
 
@@ -222,6 +224,10 @@ try:
         assert_valid_email_format(email)
         emailVerifyStatus = db_check_email_is_verified(email)
         if emailVerifyStatus == 1:
+            sql = "SELECT hash FROM newsletter WHERE email = ? LIMIT 1"
+            row = cur.execute(sql, (email,)).fetchone()
+            h = row["hash"]
+            send_email_register(email=email, h=h)
             response["message"] = f"Warn: {email} already registered and verified"
         elif emailVerifyStatus == 0:
             sql = "SELECT hash FROM newsletter WHERE email = ? LIMIT 1"

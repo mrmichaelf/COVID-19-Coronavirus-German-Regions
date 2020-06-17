@@ -8,7 +8,6 @@ import random
 from datetime import date
 
 # TODO
-# handling of regions = None
 
 ##########################
 # Copy of common functions
@@ -56,7 +55,7 @@ def db_updateHash(email) -> str:
 SENDMAIL = "/usr/lib/sendmail"
 
 
-def sendmail(to: str, body: str, subject: str = "[COVID-19 Newsletter]", sender: str = 'no-reply@entorb.net'):
+def sendmail(to: str, body: str, subject: str = "[COVID-19 Landkreis Newsletter]", sender: str = 'no-reply@entorb.net'):
     mail = f"To: {to}\nSubject: {subject}\nFrom: {sender}\nContent-Type: text/plain; charset=\"utf-8\"\n\n{body}"
     if checkRunningOnServer():
         p = os.popen(f"{SENDMAIL} -t -i", "w")
@@ -87,7 +86,7 @@ dataDate = d_districts_latest["02000"]["Date"]
 
 
 # loop over subscriptions
-for row in cur.execute("SELECT email, verified, hash, threshold, regions, frequency FROM newsletter WHERE verified = 1"):
+for row in cur.execute("SELECT email, verified, hash, threshold, regions, frequency FROM newsletter WHERE verified = 1 AND regions IS NOT NULL"):
     mailBody = "entorb's COVID-19 Landkreis Newsletter\n\n"
     mailTo = row["email"]
     s_this_regions = row["regions"]
@@ -95,11 +94,11 @@ for row in cur.execute("SELECT email, verified, hash, threshold, regions, freque
 
     # for sorting by value
     d_this_regions_cases_PM = {}
-    for id in l_this_regions:
-        d_this_regions_cases_PM[id] = d_districts_latest[id]["Cases_Last_Week_Per_Million"]
+    for lk_id in l_this_regions:
+        d_this_regions_cases_PM[lk_id] = d_districts_latest[lk_id]["Cases_Last_Week_Per_Million"]
 
     toSend = False
-    # TODO: check if notification is due, based on threshold and frequency
+    # check if notification is due, based on threshold and frequency
     # daily sending
     if row["frequency"] == 1:
         toSend = True
@@ -110,24 +109,21 @@ for row in cur.execute("SELECT email, verified, hash, threshold, regions, freque
         toSend = True
 
     if toSend:
-
         # table header
         mailBody += "Infektionen* : Landkreis\n"
         # table body
-        for id, value in sorted(d_this_regions_cases_PM.items(), key=lambda item: item[1], reverse=True):
-            d = d_districts_latest[id]
+        for lk_id, value in sorted(d_this_regions_cases_PM.items(), key=lambda item: item[1], reverse=True):
+            d = d_districts_latest[lk_id]
             mailBody += "%3d (%3d)    : %s\n" % (
                 d["Cases_Last_Week_Per_Million"], d["Cases_Last_Week"], d["Landkreis"])
         # table footer
         mailBody += f"Datenstand: {dataDate}\n"
         mailBody += "\n* Neu-Infektionen letzte Woche pro Millionen Einwohner und Neu-Infektionen letzte Woche absolut\n"
         mailBody += f"\nCustom Chart: https://entorb.net/COVID-19-coronavirus/?yAxis=Cases_Last_Week_Per_Million&DeDistricts={s_this_regions}#DeDistrictChart\n"
-        # TODO: Include Link with Hash for unsubscribe / admin
-        h = db_updateHash(mailTo)
 
+        # create a new hash
+        # add management link including new hash
+        h = db_updateHash(mailTo)
         mailBody += f"\nAbmelden/Einstellungen ändern: https://entorb.net/COVID-19-coronavirus/newsletter-frontend.html?hash={h}\n"
 
         sendmail(to=mailTo, body=mailBody)
-
-# for row in cur.execute("SELECT email, hash FROM newsletter"):
-#     print(row["email"] + " : " + row["hash"])

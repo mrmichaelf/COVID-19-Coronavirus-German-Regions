@@ -1,8 +1,8 @@
 #!/usr/local/bin/python3.6
 
 import os
-import re
 import sqlite3
+# import datetime
 
 
 ##########################
@@ -32,14 +32,20 @@ def db_connect():
 
 con, cur = db_connect()
 
+# cur.execute("ALTER TABLE newsletter ADD date_registered date")
+# cur.execute("UPDATE newsletter set date_registered  = ?",
+#             (datetime.date.today(),))
+# con.commit()
+
 print("DB Dump")
-print("%16s %1s %64s %3s %45s %1s" %
+print("%20s %1s %64s %3s %45s %1s" %
       ('email', 'v', 'hash', 't', 'regions', 'f')
       )
-for row in cur.execute("SELECT email, verified, hash, threshold, regions, frequency FROM newsletter ORDER BY email"):
+for row in cur.execute("SELECT email, verified, hash, threshold, regions, frequency, date_registered FROM newsletter ORDER BY email"):
 
-    print("%16s %1s %64s %3s %45s %1s" % (
-        row['email'], row['verified'], row['hash'], row['threshold'], row['regions'], row['frequency']))
+    print("%20s %1s %64s %3s %45s %1s %s" % (
+        row['email'], row['verified'], row['hash'], row['threshold'], row['regions'], row['frequency'], row['date_registered']))
+
 
 cur.close()
 con.close()
