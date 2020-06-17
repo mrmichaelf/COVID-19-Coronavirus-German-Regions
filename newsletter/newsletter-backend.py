@@ -129,7 +129,7 @@ def sendmail(to: str, body: str, subject: str = "[COVID-19 Newsletter]", sender:
 def send_email_register(email: str, h: str):
     body = f"Bitte diesen Link öffnen um die Anmeldung abzuschließen und die Einstellungen vorzunehmen:\n https://entorb.net/COVID-19-coronavirus/newsletter-backend.py?action=verify&hash={h}"
     # TODO: BUG: Umlaute funktioniere hier nicht
-    body = f" https://entorb.net/COVID-19-coronavirus/newsletter-backend.py?action=verify&hash={h}"
+    body = f"Open this Link to finalize the registration and set settings https://entorb.net/COVID-19-coronavirus/newsletter-frontend.html?action=verify&hash={h}"
     sendmail(to=email, body=body, subject="[COVID-19 Newsletter] - Anmeldung")
 
 
@@ -192,8 +192,8 @@ def db_insertNewEMail(email: str):
     email = email.lower()  # ensure mail in lower case
     assert_valid_email_format(email)
     h = genHash(email)
-    cur.execute(f"INSERT INTO newsletter(email, verified, hash) VALUES (?,?,?)",
-                (email, 0, h))
+    cur.execute(f"INSERT INTO newsletter(email, verified, hash, threshold, frequency) VALUES (?,?,?,?,?)",
+                (email, 0, h, 300, 1))
     con.commit()
     return h
 
@@ -250,6 +250,8 @@ try:
             cur.execute(sql, (h,))
             con.commit()
             response["message"] = f"{email} verified"
+        elif emailVerifyStatus == 1:
+            response["message"] = f"{email} was already verified"
 
     elif action == "setThreshold":
         threshold = int(get_form_parameter("threshold"))
@@ -266,7 +268,7 @@ try:
         sql = "UPDATE newsletter SET frequency = ? WHERE hash = ?"
         cur.execute(sql, (frequency, h))
         con.commit()
-        response["message"] = f"frequency set to {threshold}"
+        response["message"] = f"frequency set to {frequency}"
 
     elif action == "setRegions":
         regions = get_form_parameter("regions")

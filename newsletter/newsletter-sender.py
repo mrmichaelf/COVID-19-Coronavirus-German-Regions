@@ -125,7 +125,7 @@ for row in cur.execute("SELECT email, verified, hash, threshold, regions, freque
         # TODO: Include Link with Hash for unsubscribe / admin
         h = db_updateHash(mailTo)
 
-        mailBody += f"\nAbmelden/Einstellungen ändern: https://entorb.net/COVID-19-coronavirus/newsletter-admin.py?action=list&hash={h}\n"
+        mailBody += f"\nAbmelden/Einstellungen ändern: https://entorb.net/COVID-19-coronavirus/newsletter-frontend.html?hash={h}\n"
 
         sendmail(to=mailTo, body=mailBody)
 
