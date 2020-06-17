@@ -8,10 +8,10 @@
   <link rel="stylesheet" href="/style.css" />
   <script src="./eCharts/jquery-3.5.0.min.js"></script>
   <!-- Polyfiles for IE, suggested by Tabulator : http://tabulator.info/docs/4.6/browsers#ie -->
-  <link href="./tabulator/tabulator.min.css" rel="stylesheet">
   <script src="./tabulator/polyfill.min.js"></script>
   <script src="./tabulator/fetch.umd.js"></script>
   <!-- Tabulator -->
+  <link href="./tabulator/tabulator.min.css" rel="stylesheet">
   <script src="./tabulator/tabulator-4.6.min.js"></script>
   <script>
 
@@ -67,7 +67,6 @@
     </tr>
     <tr>
       <td><input type="email" id="email" name="email" readonly></td>
-      <!-- <td><input type="checkbox" id="verified" name="verified" value="verified" disabled readonly></td> -->
       <td>
         <select id="frequency" name="frequency" onchange="setFrequency()">
           <option value="0">Schwellwertüberschreitung</option>
@@ -76,28 +75,22 @@
         </select>
       </td>
       <td><input type="number" id="threshold" name="threshold" min="50" max="500" step="1" value="300"></td>
+      <!-- <td><input type="checkbox" id="verified" name="verified" value="verified" disabled readonly></td> -->
       <!-- <td><input type="text" id="regions" name="regions" readonly></td> -->
       <td><button onclick="refresh()">Reload</button> </td>
     </tr>
   </table>
   <script>
 
-
-
-
-
-
-    // array of promises for async fetching, used for eCharts plots
+    // array of promises for async fetching
     const promises = [];
-
+    var l_my_regions;
 
     var input_email = document.getElementById("email");
-    // var input_verified = document.getElementById("verified");
     var input_frequency = document.getElementById("frequency");
-    var input_threshold = document.getElementById("threshold");
+    // var input_verified = document.getElementById("verified");
     // var input_regions = document.getElementById("regions");
-
-    var l_my_regions;
+    var input_threshold = document.getElementById("threshold");
     input_threshold.addEventListener("keydown", function (e) {
       // Enter is pressed
       if (e.keyCode === 13) {
@@ -105,7 +98,6 @@
         setThreshold();
       }
     }, false);
-
 
     function fetchAllDataFromBackend() {
       const url = "https://entorb.net/COVID-19-coronavirus/newsletter-backend.py";
@@ -129,9 +121,6 @@
           }
         });
     }
-
-
-
 
     function callBackend(param) {
       console.log("Request:");
@@ -177,8 +166,6 @@
     if ('action' in urlParams && urlParams.action == "verify") {
       setVerified();
     }
-
-
 
   </script>
 
@@ -273,7 +260,7 @@
 
       // Wait for all async promises to be done (all data is fetched)
       Promise.all(promises).then(function () {
-        // run code after table has been successfuly updated
+        // run code after table has been successfully updated
         // select selected regions
         var rows = table.getRows();
         for (var i = 0; i < rows.length; i++) {
@@ -294,8 +281,6 @@
       { column: "Bundesland", dir: "asc" },
       { column: "Cases_Last_Week_Per_Million", dir: "desc" }, //sort by this first
     ]);
-
-
 
   </script>
 
