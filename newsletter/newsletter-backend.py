@@ -8,11 +8,11 @@ import random
 import hashlib
 import datetime
 import cgi
-import cgitb
 import json
-
 # errors and debugging info to browser
-cgitb.enable()
+# import cgitb
+# cgitb.enable()
+
 
 # Print necessary headers.
 print("Content-type: application/json")
@@ -143,6 +143,26 @@ def get_form_parameter(para: str) -> str:
     return value
 
 
+def get_userdata():
+    sql = "SELECT email, verified, hash, threshold, regions, frequency, date_registered FROM newsletter WHERE hash = ? LIMIT 1"
+    row = cur.execute(sql, (h,)).fetchone()
+    userdata = {
+        "email": row['email'],
+        "verified": row['verified'],
+        "threshold": row['threshold'],
+        "regions": row['regions'],
+        "frequency": row['frequency'],
+        "date_registered": row['date_registered']
+    }
+    response["userdata"] = userdata
+
+
+def assert_region_valid(region: str):
+    assert region.isnumeric()
+    assert len(region) == 5
+    assert region in d_district_ids
+
+
 def db_check_email_is_verified(email: str) -> int:
     """
     returns verified column if found
@@ -201,6 +221,14 @@ def db_insertNewEMail(email: str):
 
 
 try:
+
+    # fetch ref list of regions/district ids
+    if checkRunningOnServer():
+        pathToData = '/home/entorb/html/COVID-19-coronavirus/data/de-districts/de-districts-results.json'
+    else:
+        pathToData = 'data/de-districts/de-districts-results.json'
+    with open(pathToData, mode='r', encoding='utf-8') as fh:
+        d_district_ids = list(json.load(fh).keys())
 
     con, cur = db_connect()
 
@@ -262,7 +290,8 @@ try:
     elif action == "setThreshold":
         threshold = int(get_form_parameter("threshold"))
         assert threshold > 0
-        assert threshold < 1000
+        if threshold > 1000:
+            threshold = 1000
         sql = "UPDATE newsletter SET threshold = ? WHERE hash = ?"
         cur.execute(sql, (threshold, h))
         con.commit()
@@ -280,9 +309,8 @@ try:
         regions = get_form_parameter("regions")
         l_regions = regions.split(',')
         # ensure all regions are numeric
-        for r in l_regions:
-            assert r.isnumeric()
-            assert len(r) == 5
+        for region in l_regions:
+            assert_region_valid(region)
         sql = "UPDATE newsletter SET regions = ? WHERE hash = ?"
         cur.execute(sql, (regions, h))
         con.commit()
@@ -290,8 +318,7 @@ try:
 
     elif action == "addRegion":
         region = get_form_parameter("region")
-        assert region.isnumeric()
-        assert len(region) == 5
+        assert_region_valid(region)
         sql = "SELECT regions FROM newsletter WHERE hash = ? LIMIT 1"
         row = cur.execute(sql, (h,)).fetchone()
         if row["regions"]:
@@ -309,8 +336,7 @@ try:
 
     elif action == "removeRegion":
         region = get_form_parameter("region")
-        assert region.isnumeric()
-        assert len(region) == 5
+        assert_region_valid(region)
         sql = "SELECT regions FROM newsletter WHERE hash = ? LIMIT 1"
         row = cur.execute(sql, (h,)).fetchone()
         if row["regions"]:
@@ -326,23 +352,17 @@ try:
                 con.commit()
                 response["message"] = f"region {region} removed"
 
-    elif action == "list":
-        h = get_form_parameter("hash")
-
-        sql = "SELECT email, verified, hash, threshold, regions, frequency FROM newsletter WHERE hash = ? LIMIT 1"
-        row = cur.execute(sql, (h,)).fetchone()
-        userdata = {
-            "email": row['email'],
-            "verified": row['verified'],
-            "threshold": row['threshold'],
-            "regions": row['regions'],
-            "frequency": row['frequency']
-        }
-        response["userdata"] = userdata
+    elif action == "getUserdata":
+        get_userdata()
 
     else:
         response['status'] = "error"
         response["message"] = f"unknown action {action}"
+
+    # for most actions we want to return the userdata
+    if action not in ("subscribe", "unsubscribe", "getUserdata"):
+        get_userdata()
+
 
 except Exception as e:
     response['status'] = "error"

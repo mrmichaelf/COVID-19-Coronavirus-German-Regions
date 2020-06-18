@@ -34,7 +34,7 @@
   </script>
 </head>
 
-<body onload="refresh()">
+<body onload="refresh_userdata()">
   <script>
 
     var urlParams = [];
@@ -61,7 +61,7 @@
       <th>E-Mail</th>
       <!-- <th>verified</th> -->
       <th>Sende-<br />Häufigkeit</th>
-      <th>Schwellwert<br /><small>Enter zum Speichern</small></th>
+      <th>Schwellwert*</th>
       <!-- <th>Landkreise</th> -->
       <th>&nbsp;</th>
     </tr>
@@ -77,15 +77,17 @@
       <td><input type="number" id="threshold" name="threshold" min="50" max="500" step="1" value="300"></td>
       <!-- <td><input type="checkbox" id="verified" name="verified" value="verified" disabled readonly></td> -->
       <!-- <td><input type="text" id="regions" name="regions" readonly></td> -->
-      <td><button onclick="refresh()">Reload</button> </td>
+      <td><button onclick="refresh_userdata()">Reload</button> </td>
     </tr>
   </table>
+  <small>*Schwellwert bezieht sich auf Neu-Infizierte letzte Woche pro Mill.EW.; Enter zum Speichern</small>
   <script>
 
-    // array of promises for async fetching
-    const promises = [];
+    // variables
+    const promises = []; // array of promises for async fetching
     var l_my_regions;
 
+    // html elements
     var input_email = document.getElementById("email");
     var input_frequency = document.getElementById("frequency");
     // var input_verified = document.getElementById("verified");
@@ -99,63 +101,71 @@
       }
     }, false);
 
-    function fetchAllDataFromBackend() {
+
+    function fetch_userdata() {
       const url = "https://entorb.net/COVID-19-coronavirus/newsletter-backend.py";
-      return $.get(url, { action: "list", hash: hash }, function (response) {
+      return $.get(url, { action: "getUserdata", hash: hash }, function (response) {
       })
         .done(function (response) {
           console.log(response);
-          if (response.status = "ok") {
-            input_email.value = response.userdata.email;
-            // if (response.userdata.verified = 1) {
-            //   input_verified.checked = true;
-            // }
-            input_frequency.value = response.userdata.frequency;
-            input_threshold.value = response.userdata.threshold;
-            //input_regions.value = response.userdata.regions;
-            if (response.userdata.regions === null) {
-              l_my_regions = []
-            } else {
-              l_my_regions = response.userdata.regions.split(",");
-            }
+          if (response.status == "ok") {
+            refresh_form(response);
           }
         });
     }
 
-    function callBackend(param) {
+    function refresh_form(response) {
+      if (response.userdata.regions === null) {
+        l_my_regions = []
+      } else {
+        l_my_regions = response.userdata.regions.split(",");
+      }
+      input_email.value = response.userdata.email;
+      input_frequency.value = response.userdata.frequency;
+      input_threshold.value = response.userdata.threshold;
+      // if (response.userdata.verified = 1) {
+      //   input_verified.checked = true;
+      // }
+      //input_regions.value = response.userdata.regions;
+    }
+
+    function write_to_backend(param) {
       console.log("Request:");
       console.log(param);
       $.get("https://entorb.net/COVID-19-coronavirus/newsletter-backend.py", param,
         function (response) {
           console.log("Response:");
           console.log(response);
+          if (response.status == "ok") {
+            refresh_form(response);
+          }
         }
       );
     }
     function setVerified() {
       param = { action: "verify", hash: hash };
-      callBackend(param);
+      write_to_backend(param);
     }
     function setFrequency() {
       param = { action: "setFrequency", hash: hash, frequency: input_frequency.value };
-      callBackend(param);
+      write_to_backend(param);
     }
     function setThreshold() {
       param = { action: "setThreshold", hash: hash, threshold: input_threshold.value };
-      callBackend(param);
+      write_to_backend(param);
     }
     // Landkreise
     function addRegion(region_id) {
       param = { action: "addRegion", hash: hash, region: region_id };
-      callBackend(param);
+      write_to_backend(param);
     }
     function removeRegion(region_id) {
       param = { action: "removeRegion", hash: hash, region: region_id };
-      callBackend(param);
+      write_to_backend(param);
     }
     function unsubscribe() {
       param = { action: "unsubscribe", hash: hash };
-      response = callBackend(param);
+      response = write_to_backend(param);
       input_email.value = "";
       hash = "";
       alert("Abgemeldet, bitte diese Seite nun schließen.")
@@ -252,35 +262,47 @@
       },
     });
 
-
-    function refresh() {
-      promises.push(fetchAllDataFromBackend());
-
-      promises.push(table.setData("https://entorb.net/COVID-19-coronavirus/data/de-districts/de-districts-results-V2.json", {}, "get"));
-
-      // Wait for all async promises to be done (all data is fetched)
-      Promise.all(promises).then(function () {
-        // run code after table has been successfully updated
-        // select selected regions
-        var rows = table.getRows();
-        for (var i = 0; i < rows.length; i++) {
-          var row = rows[i];
-          var rowData = row.getData();
-          var lk_id = rowData["LK_ID"];
-          // this landkreis_id in selection fetched from Backend?
-          if (l_my_regions.indexOf(lk_id) > -1) {
-            row.select();
-          }
-        }
-      }
-      );
-    }
-
     table.setSort([
       { column: "Landkreis", dir: "asc" },
       { column: "Bundesland", dir: "asc" },
       { column: "Cases_Last_Week_Per_Million", dir: "desc" }, //sort by this first
     ]);
+
+    function fetch_table_data() {
+      table.setData("https://entorb.net/COVID-19-coronavirus/data/de-districts/de-districts-results-V2.json", {}, "get")
+    }
+
+    promises.push(fetch_table_data());
+
+
+    function refresh_table_selections() {
+      var rows = table.getRows();
+      for (var i = 0; i < rows.length; i++) {
+        var row = rows[i];
+        var rowData = row.getData();
+        var lk_id = rowData["LK_ID"];
+        // this landkreis_id in selection fetched from Backend?
+        if (l_my_regions.indexOf(lk_id) > -1) {
+          row.select();
+        } else {
+          row.deselect();
+        }
+      }
+    }
+
+    function refresh_userdata() {
+      promises.push(fetch_userdata());
+
+      // Wait for all async promises to be done (all data is fetched)
+      Promise.all(promises).then(function () {
+        // run code after table has been successfully updated
+        refresh_table_selections();
+      }
+      );
+    }
+
+
+
 
   </script>
 
