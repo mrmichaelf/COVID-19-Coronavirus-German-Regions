@@ -126,4 +126,6 @@ for row in cur.execute("SELECT email, verified, hash, threshold, regions, freque
         h = db_updateHash(mailTo)
         mailBody += f"\nAbmelden/Einstellungen ändern: https://entorb.net/COVID-19-coronavirus/newsletter-frontend.html?hash={h}\n"
 
+        mailBody += "Neu anmelden: https://entorb.net/COVID-19-coronavirus/newsletter-register.html\n"
+
         sendmail(to=mailTo, body=mailBody)

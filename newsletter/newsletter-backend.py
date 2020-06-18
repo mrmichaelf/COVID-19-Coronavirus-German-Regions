@@ -214,8 +214,8 @@ def db_insertNewEMail(email: str):
     email = email.lower()  # ensure mail in lower case
     assert_valid_email_format(email)
     h = genHash(email)
-    cur.execute(f"INSERT INTO newsletter(email, verified, hash, threshold, frequency, date_registered) VALUES (?,?,?,?,?,?)",
-                (email, 0, h, 300, 1, datetime.date.today()))
+    sql = "INSERT INTO newsletter(email, verified, hash, threshold, frequency, date_registered) VALUES (?,?,?,?,?,?)"
+    cur.execute(sql, (email, 0, h, 300, 1, datetime.date.today()))
     con.commit()
     return h
 
