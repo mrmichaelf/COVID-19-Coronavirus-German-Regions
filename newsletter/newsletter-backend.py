@@ -104,9 +104,10 @@ def db_connect():
 
 def db_updateHash(email) -> str:
     "in DB: update hash of email. returns hash"
+    curUpdate = con.cursor()
     h = genHash(email)
     sql = "UPDATE newsletter SET hash = ? WHERE email = ?"
-    cur.execute(sql, (h, email))
+    curUpdate.execute(sql, (h, email))
     con.commit()
     return h
 

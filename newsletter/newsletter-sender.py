@@ -45,9 +45,11 @@ def db_connect():
 
 
 def db_updateHash(email) -> str:
+    "in DB: update hash of email. returns hash"
+    curUpdate = con.cursor()
     h = genHash(email)
     sql = "UPDATE newsletter SET hash = ? WHERE email = ?"
-    cur.execute(sql, (h, email))
+    curUpdate.execute(sql, (h, email))
     con.commit()
     return h
 
@@ -86,7 +88,7 @@ dataDate = d_districts_latest["02000"]["Date"]
 
 
 # loop over subscriptions
-for row in cur.execute("SELECT email, verified, hash, threshold, regions, frequency FROM newsletter WHERE verified = 1 AND regions IS NOT NULL"):
+for row in cur.execute("SELECT email, verified, hash, threshold, regions, frequency, date_registered FROM newsletter WHERE verified = 1 AND regions IS NOT NULL"):
     mailBody = "entorb's COVID-19 Landkreis Newsletter\n\n"
     mailTo = row["email"]
     s_this_regions = row["regions"]

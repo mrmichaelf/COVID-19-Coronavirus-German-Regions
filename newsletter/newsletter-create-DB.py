@@ -4,6 +4,7 @@ import sqlite3
 import hashlib
 # import bcrypt
 import random
+import datetime
 
 # TODO
 
@@ -78,7 +79,8 @@ def create_table():
           hash text,
           threshold int,
           regions text,
-          frequency int
+          frequency int,
+          date_registered date
           )
       """
                 )
@@ -104,15 +106,39 @@ con = sqlite3.connect(pathToDb)
 cur = con.cursor()
 
 create_table()
-cur.execute("INSERT INTO newsletter(email, verified, hash, threshold, regions, frequency) VALUES (?,?,?,?,?,?)",
+cur.execute("INSERT INTO newsletter(email, verified, hash, threshold, regions, frequency, date_registered) VALUES (?,?,?,?,?,?,?)",
             (
-                "test@entorb.net",
+                "2tokes@web.de",
                 1,
                 "36c83758b4174d96dc5b2006d40964c8dd1a39d1a3f4e49885c0af5598936631",
                 300,
                 "09562,09572,09563,09564,03353,02000,14612",
-                1
+                1,
+                datetime.date.today()
             ))
+
+cur.execute("INSERT INTO newsletter(email, verified, hash, threshold, regions, frequency, date_registered) VALUES (?,?,?,?,?,?,?)",
+            (
+                "t@entorb.net",
+                1,
+                "36c83758b4174d96dc5b2006d40964c8dd1a39d1a3f4e49885c0af5598936631",
+                300,
+                "09562,09572,09563,09564,03353,02000,14612",
+                1,
+                datetime.date.today()
+            ))
+
+cur.execute("INSERT INTO newsletter(email, verified, hash, threshold, regions, frequency, date_registered) VALUES (?,?,?,?,?,?,?)",
+            (
+                "tokes@web.de",
+                1,
+                "36c83758b4174d96dc5b2006d40964c8dd1a39d1a3f4e49885c0af5598936631",
+                300,
+                "09562,09572,09563,09564,03353,02000,14612",
+                1,
+                datetime.date.today()
+            ))
+
 con.commit()
 test_select()
 
