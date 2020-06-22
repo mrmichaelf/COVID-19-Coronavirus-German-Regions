@@ -151,32 +151,32 @@ function defineTable() {
             // 		alignEmptyValues: "bottom"
             // 	}, headerFilter: true
             // },
-            {
-                title: "Einwohner<br/>&nbsp;<br/>&nbsp;", field: "LK_Einwohner", sorter: "number", width: 130, hozAlign: "right", sorterParams: {
-                    alignEmptyValues: "bottom"
-                }, headerFilter: true, headerFilterPlaceholder: "filter >=", headerFilterFunc: ">="
-            },
+            // {
+            //     title: "Einwohner<br/>&nbsp;<br/>&nbsp;", field: "LK_Einwohner", sorter: "number", width: 130, hozAlign: "right", sorterParams: {
+            //         alignEmptyValues: "bottom"
+            //     }, headerFilter: true, headerFilterPlaceholder: "filter >=", headerFilterFunc: ">="
+            // },
             // { title: "Date", field: "Date", sorter: "date", sorterParams: { format: "YYYY-MM-DD" }, hozAlign: "center", headerFilter: true },
+            // {
+            //     title: "Infizierte<br/>&nbsp;<br/>&nbsp;", field: "Cases", sorter: "number", width: 120, hozAlign: "right", sorterParams: {
+            //         alignEmptyValues: "bottom"
+            //     }, headerFilter: true, headerFilterPlaceholder: "filter >=", headerFilterFunc: ">="
+            // },
+            // {
+            //     title: "Tote<br/>&nbsp;<br/>&nbsp;", field: "Deaths", sorter: "number", width: 75, hozAlign: "right", sorterParams: {
+            //         alignEmptyValues: "bottom"
+            //     }, headerFilter: true, headerFilterPlaceholder: "filter >=", headerFilterFunc: ">="
+            // },
             {
-                title: "Infizierte<br/>&nbsp;<br/>&nbsp;", field: "Cases", sorter: "number", width: 120, hozAlign: "right", sorterParams: {
+                title: "Infizierte<br/>gesamt<br/>pro Mill.EW.", field: "Cases_Per_Million", sorter: "number", width: 135, hozAlign: "right", sorterParams: {
                     alignEmptyValues: "bottom"
                 }, headerFilter: true, headerFilterPlaceholder: "filter >=", headerFilterFunc: ">="
             },
-            {
-                title: "Tote<br/>&nbsp;<br/>&nbsp;", field: "Deaths", sorter: "number", width: 75, hozAlign: "right", sorterParams: {
-                    alignEmptyValues: "bottom"
-                }, headerFilter: true, headerFilterPlaceholder: "filter >=", headerFilterFunc: ">="
-            },
-            {
-                title: "Infizierte<br/>pro Mill.EW.<br/>&nbsp;", field: "Cases_Per_Million", sorter: "number", width: 135, hozAlign: "right", sorterParams: {
-                    alignEmptyValues: "bottom"
-                }, headerFilter: true, headerFilterPlaceholder: "filter >=", headerFilterFunc: ">="
-            },
-            {
-                title: "Tote<br/>pro Mill.EW.<br/>&nbsp;", field: "Deaths_Per_Million", sorter: "number", width: 135, hozAlign: "right", sorterParams: {
-                    alignEmptyValues: "bottom"
-                }, headerFilter: true, headerFilterPlaceholder: "filter >=", headerFilterFunc: ">="
-            },
+            // {
+            //     title: "Tote<br/>pro Mill.EW.<br/>&nbsp;", field: "Deaths_Per_Million", sorter: "number", width: 135, hozAlign: "right", sorterParams: {
+            //         alignEmptyValues: "bottom"
+            //     }, headerFilter: true, headerFilterPlaceholder: "filter >=", headerFilterFunc: ">="
+            // },
             {
                 title: "Infizierte<br/>letzte Woche<br/>&nbsp;", field: "Cases_Last_Week", sorter: "number", width: 135, hozAlign: "right", sorterParams: {
                     alignEmptyValues: "bottom"
