@@ -57,7 +57,7 @@ def db_updateHash(email) -> str:
 SENDMAIL = "/usr/lib/sendmail"
 
 
-def sendmail(to: str, body: str, subject: str = "[COVID-19 Landkreis Newsletter]", sender: str = 'no-reply@entorb.net'):
+def sendmail(to: str, body: str, subject: str, sender: str = 'no-reply@entorb.net'):
     mail = f"To: {to}\nSubject: {subject}\nFrom: {sender}\nContent-Type: text/plain; charset=\"utf-8\"\n\n{body}"
     if checkRunningOnServer():
         p = os.popen(f"{SENDMAIL} -t -i", "w")
@@ -86,10 +86,15 @@ with open(pathToData, mode='r', encoding='utf-8') as fh:
     d_districts_latest = json.load(fh)
 dataDate = d_districts_latest["02000"]["Date"]
 
+cases_DE_last_week = 0
+for lk_id, d in d_districts_latest.items():
+    cases_DE_last_week += d["Cases_Last_Week"]
+cases_DE_last_week_PM = cases_DE_last_week / 83.019200
 
 # loop over subscriptions
 for row in cur.execute("SELECT email, verified, hash, threshold, regions, frequency, date_registered FROM newsletter WHERE verified = 1 AND regions IS NOT NULL"):
-    mailBody = "entorb's COVID-19 Landkreis Newsletter\n\n"
+    mailBody = ""
+    # mailBody += "entorb's COVID-19 Landkreis Newsletter\n\n"
     mailTo = row["email"]
     s_this_regions = row["regions"]
     l_this_regions = row["regions"].split(',')
@@ -100,17 +105,21 @@ for row in cur.execute("SELECT email, verified, hash, threshold, regions, freque
         d_this_regions_cases_PM[lk_id] = d_districts_latest[lk_id]["Cases_Last_Week_Per_Million"]
 
     toSend = False
+    reason_for_sending = ""
     # check if notification is due, based on threshold and frequency
     # daily sending
-    if row["frequency"] == 1:
+    if row["threshold"] <= max(d_this_regions_cases_PM.values()):
         toSend = True
-    # sunday sending
+        reason_for_sending = "Grenzwert überschritten"
+    elif row["frequency"] == 1:
+        toSend = True
+        reason_for_sending = "Täglicher Versand"
     elif row["frequency"] == 7 and date.today().isoweekday() == 7:
         toSend = True
-    elif row["threshold"] <= max(d_this_regions_cases_PM.values()):
-        toSend = True
+        reason_for_sending = "Sonntäglicher Versand"
 
     if toSend:
+        #        mailBody += f"Versandgrund: \n\n"
         # table header
         mailBody += "Infektionen* : Landkreis\n"
         # table body
@@ -118,6 +127,8 @@ for row in cur.execute("SELECT email, verified, hash, threshold, regions, freque
             d = d_districts_latest[lk_id]
             mailBody += "%3d (%3d)    : %s\n" % (
                 d["Cases_Last_Week_Per_Million"], d["Cases_Last_Week"], d["Landkreis"])
+        mailBody += "%3d          : %s\n" % (
+            cases_DE_last_week_PM, "Deutschland gesamt")
         # table footer
         mailBody += f"Datenstand: {dataDate}\n"
         mailBody += "\n* Neu-Infektionen letzte Woche pro Millionen Einwohner und Neu-Infektionen letzte Woche absolut\n"
@@ -128,6 +139,7 @@ for row in cur.execute("SELECT email, verified, hash, threshold, regions, freque
         h = db_updateHash(mailTo)
         mailBody += f"\nAbmelden/Einstellungen ändern: https://entorb.net/COVID-19-coronavirus/newsletter-frontend.html?hash={h}\n"
 
-        mailBody += "Neu anmelden: https://entorb.net/COVID-19-coronavirus/newsletter-register.html\n"
+        mailBody += "\nNeu anmelden: https://entorb.net/COVID-19-coronavirus/newsletter-register.html\n"
 
-        sendmail(to=mailTo, body=mailBody)
+        sendmail(to=mailTo, body=mailBody,
+                 subject=f"[COVID-19 Landkreis Newsletter] - {reason_for_sending}")
