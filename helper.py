@@ -105,14 +105,13 @@ def read_ref_data_de_states() -> dict:
 
 def prepare_time_series(l_time_series: list) -> list:
     """
-    assumes items in l_time_series are dicts haveing the following keys: Date, Cases, Deaths
+    assumes items in l_time_series are dicts having the following keys: Date, Cases, Deaths
     sorts l_time_series by Date
     if cases at last entry equals 2nd last entry, than remove last entry, as sometime the source has a problem.
     loops over l_time_series and calculates the 
       Days_Past
       _New values per item/day    
       _Last_Week
-    TODO: add fitted Cases_New_Slope_14 and Deaths_New_Slope_14
     """
     # some checks
     d = l_time_series[0]
@@ -207,6 +206,21 @@ def prepare_time_series(l_time_series: list) -> list:
 
     return l_time_series
 
+# TODO: add fitted Cases_New_Slope_14 and Deaths_New_Slope_14
+
+
+def TODO_fit_slope(l_time_series: list) -> dict:
+    d_res = {}
+    data_cases_new_pm = []
+    data_deaths_new_pm = []
+    for i in range(len(l_time_series)):
+        d = l_time_series[i]
+        data_cases_new_pm.append((d['Days_Past'], d['Cases_New_Per_Million']))
+        data_deaths_new_pm.append(
+            (d['Days_Past'], d['Deaths_New_Per_Million']))
+    d_res_cases_new_pm = fit_routine(data=data_cases_new_pm,
+                                     mode="lin", fit_range_x=(-6, 0))["fit_res"]
+
 
 def add_per_million_via_lookup(d: dict, d_ref: dict, code: str) -> dict:
     pop_in_million = d_ref[code]['Population'] / 1000000
@@ -269,7 +283,7 @@ def extract_data_according_to_fit_ranges(data: list, fit_range_x: list, fit_rang
     return (data_x_for_fit, data_y_for_fit)
 
 
-# Fit function with coefficients as parameters
+# Fit functions with coefficients as parameters
 def fit_function_exp_growth(t, N0, T):
     """
     N0 = values at t = 0
@@ -279,13 +293,31 @@ def fit_function_exp_growth(t, N0, T):
     return N0 * np.exp(t * math.log(2)/T)
 
 
-def fit_routine(data: list, fit_range_x: list = (-np.inf, np.inf), fit_range_y: list = (-np.inf, np.inf)) -> list:
+def fit_function_linear(t, N0, m):
+    """
+    y  = N0 + m * t
+    N0 : offset / value at t=0 (today)
+    m  : slope
+    """
+    return m * t + N0
+
+
+def fit_routine(data: list, mode: str = "exp", fit_range_x: list = (-np.inf, np.inf), fit_range_y: list = (-np.inf, np.inf)) -> dict:
     """
     data: list of x,y pairs
     """
     assert len(data) >= 2
+    assert mode in ("exp", "lin")
     (data_x_for_fit, data_y_for_fit) = extract_data_according_to_fit_ranges(
         data, fit_range_x, fit_range_y)
+    if mode == "lin":
+        fit_function = fit_function_linear
+        bounds_lower = (1, -np.inf)      # low(N0), low(para2)
+        bounds_upper = (np.inf, np.inf)  # up (N0), up (para2)
+    else:  # mode == "exp"
+        fit_function = fit_function_exp_growth
+        bounds_lower = (1, 0.1)
+        bounds_upper = (np.inf, np.inf)
 
     d = {}
     # min 3 values in list
@@ -295,13 +327,11 @@ def fit_routine(data: list, fit_range_x: list = (-np.inf, np.inf), fit_range_y: 
         p0 = [float(data_y_for_fit[-1]), 5.0]  # initial guess of parameters
         try:
             fit_res, fit_res_cov = curve_fit(
-                fit_function_exp_growth,
+                fit_function,
                 data_x_for_fit,
                 data_y_for_fit,
                 p0,
-                bounds=(
-                    (1, 0.1), (np.inf, np.inf)
-                )
+                bounds=(bounds_lower, bounds_upper)
             )
             # bounds: ( min of all parameters) , (max of all parameters) )
 
@@ -335,6 +365,7 @@ def series_of_fits(data: list, fit_range: int = 7, max_days_past=14) -> list:
     max_days_past: how far in the past shall we go
     = (fitted in range [x-6, x])
     returns dict: day -> doubling_time
+    # TODO: this currently uses fit mode=exp hard coded
     """
     fit_series_res = {}
     # remove y=0 values from start until first non-null
@@ -344,7 +375,7 @@ def series_of_fits(data: list, fit_range: int = 7, max_days_past=14) -> list:
         # range(0, -7, -1): does not include -7, it has only 0,-1,..-6 = 7 values
         for last_day_for_fit in range(0, -max_days_past, -1):
             d = fit_routine(
-                data, (last_day_for_fit-fit_range+0.1, last_day_for_fit+0.1))  # +0.1 to ensure that last day is included and that lastday - 7 is not included, so 7 days!
+                data=data, mode="exp", fit_range_x=(last_day_for_fit-fit_range+0.1, last_day_for_fit+0.1))  # +0.1 to ensure that last day is included and that lastday - 7 is not included, so 7 days!
             # d is empty if fit fails
             if len(d) != 0:
                 # doubling_time -> dict
@@ -382,5 +413,5 @@ def series_of_fits_multi_threading(data: list, fit_range: int = 7, max_days_past
 def series_of_fits_worker_thread(data: list, fit_range: int, last_day_for_fit: int):
     # print(threading.currentThread().getName(), 'Starting')
     d = fit_routine(
-        data, (last_day_for_fit-fit_range, last_day_for_fit))
+        data=data, mode="exp", fit_range_x=(last_day_for_fit-fit_range, last_day_for_fit))
     return d

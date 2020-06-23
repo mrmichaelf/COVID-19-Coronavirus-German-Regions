@@ -322,33 +322,30 @@ def fetch_and_prepare_lk_time_series(lk_id: str) -> list:
 
     l_time_series = helper.prepare_time_series(l_time_series)
 
-    # add and convert some data fields
-    data_t = []
-    data_cases = []
-    data_deaths = []
-
     for i in range(len(l_time_series)):
         d = l_time_series[i]
         # _Per_Million
         d = helper.add_per_million_via_lookup(d, d_ref_landkreise, lk_id)
 
-        data_t.append(d['Days_Past'])
-        data_cases.append(d['Cases'])
-        data_deaths.append(d['Deaths'])
+    #     data_t.append(d['Days_Past'])
+    #     data_cases.append(d['Cases'])
+    #     data_deaths.append(d['Deaths'])
+    #     data_cases_new.append((d['Days_Past'], d['Cases_New']))
+    #     data_deaths_new.append((d['Days_Past'], d['Deaths_New']))
 
-    # perform fit for last 7 days to obtain doubling time
-    data = list(zip(data_t, data_cases))
-    fit_series_res = helper.series_of_fits(
-        data, fit_range=7, max_days_past=14)
+    # # perform fit for last 7 days to obtain doubling time
+    # data = list(zip(data_t, data_cases))
+    # fit_series_res = helper.series_of_fits(
+    #     data, fit_range=7, max_days_past=14)
 
-    for i in range(len(l_time_series)):
-        entry = l_time_series[i]
-        this_doubling_time = ""
-        this_days_past = entry['Days_Past']
-        if this_days_past in fit_series_res:
-            this_doubling_time = fit_series_res[this_days_past]
-        entry['Cases_Doubling_Time'] = this_doubling_time
-        l_time_series[i] = entry
+    # for i in range(len(l_time_series)):
+    #     entry = l_time_series[i]
+    #     this_doubling_time = ""
+    #     this_days_past = entry['Days_Past']
+    #     if this_days_past in fit_series_res:
+    #         this_doubling_time = fit_series_res[this_days_past]
+    #     entry['Cases_Doubling_Time'] = this_doubling_time
+    #     l_time_series[i] = entry
 
     # Export data as JSON
     with open(file_out+'.json', mode='w', encoding='utf-8', newline='\n') as fh:
@@ -363,7 +360,7 @@ def fetch_and_prepare_lk_time_series(lk_id: str) -> list:
             'Cases_Per_Million', 'Deaths_Per_Million',
             'Cases_New_Per_Million', 'Deaths_New_Per_Million',
             'Cases_Last_Week_Per_Million', 'Deaths_Last_Week_Per_Million',
-            'Cases_Doubling_Time', 'Deaths_Doubling_Time',
+            # 'Cases_Doubling_Time', 'Deaths_Doubling_Time',
         ]
         )
         csvwriter.writeheader()
@@ -471,7 +468,7 @@ def loop_over_all_LK():
 
         last_entry = l_lk_time_series[-1]
 
-        # d_fit_results = helper.fit_routine(data, fit_range_x=(-6, 0))
+        # d_fit_results = helper.fit_routine(data, mode="exp", fit_range_x=(-6, 0))
 
         d = {
             'Bundesland': d_ref_landkreise[lk_id]['BL_Name'],  # Bundesland
