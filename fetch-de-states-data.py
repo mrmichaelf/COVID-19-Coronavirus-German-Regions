@@ -44,9 +44,8 @@ def download_new_data():
 def read_csv_to_dict() -> dict:
     """
     read and convert the source csv file, containing: federalstate,infections,deaths,date,newinfections,newdeaths
-    re-calc _New
-    add _Per_Million
-    add Fitted Doubling time
+    re-calc _New via helper.prepare_time_series
+    add _Per_Million via helper.add_per_million_via_lookup
     """
 
     global d_states_ref
@@ -102,8 +101,7 @@ def read_csv_to_dict() -> dict:
             elif row["federalstate"] == 'Thuringia':
                 d_states_data['TH'].append(d)
             else:
-                print("ERROR: unknown state")
-                quit()
+                assert 1 == 2, f"ERROR: unknown state: {row['federalstate']}"
 
             # add to German sum
             if d['Date'] not in d_german_sums:
@@ -117,14 +115,14 @@ def read_csv_to_dict() -> dict:
             d_german_sums[d['Date']] = d2
             del d2
 
-    # for German sum -> same dict
+    # German sum -> same dict
     for datum in d_german_sums.keys():
         d = d_german_sums[datum]
         d['Date'] = datum  # add date field
         d_states_data['DE-total'].append(d)
     del d_german_sums, d
 
-    # check if DE sum of lastdate and per-last date has changed, if so: remove last date
+    # check if DE-total of today and yesterday are equal, if so: remove last date
     if d_states_data['DE-total'][-1]['Cases'] == d_states_data['DE-total'][-2]['Cases']:
         print("WARNING: DE cases sum is unchanged")
         for code in d_states_data:
@@ -134,9 +132,9 @@ def read_csv_to_dict() -> dict:
     for code in d_states_data.keys():
         l_time_series = d_states_data[code]
 
+        # add days past, _New, _Last_Week, etc
         l_time_series = helper.prepare_time_series(l_time_series)
 
-        # add days past and per million
         for i in range(len(l_time_series)):
             d = l_time_series[i]
             # add per Million rows
@@ -180,9 +178,6 @@ def read_csv_to_dict() -> dict:
 
         d_states_data[code] = l_time_series
 
-        if args["sleep"]:
-            time.sleep(1)
-
     return d_states_data
 
 
@@ -204,7 +199,7 @@ def export_data(d_states_data: dict):
                 'Cases_Per_Million', 'Deaths_Per_Million',
                 'Cases_New_Per_Million', 'Deaths_New_Per_Million',
                 'Cases_Last_Week_Per_Million', 'Deaths_Last_Week_Per_Million',
-                'Cases_Doubling_Time', 'Deaths_Doubling_Time',
+                'Cases_Doubling_Time', 'Deaths_Doubling_Time'
             ]
             )
             csvwriter.writeheader()
@@ -212,15 +207,28 @@ def export_data(d_states_data: dict):
                 csvwriter.writerow(d)
 
 
-def export_latest_data(d_states_data: dict):
-    d_states_latest = dict(d_states_ref)
-    for code in d_states_latest.keys():
-        assert code in d_states_data.keys()
-        l_state = d_states_data[code]
-        d_latest = l_state[-1]
-        d_states_latest[code]['Date_Latest'] = d_latest['Date']
+def extract_latest_data(d_ref_data: dict, d_data_all: dict) -> dict:
+    d_data_latest = dict(d_ref_data)
+    for code, l_time_series in d_data_all .items():
+        assert code in d_data_latest.keys()
+        d = l_time_series[-1]
+        d_data_latest[code]['Date_Latest'] = d['Date']
         for key in ('Cases', 'Deaths', 'Cases_New', 'Deaths_New', 'Cases_Per_Million', 'Deaths_Per_Million'):
-            d_states_latest[code][key] = d_latest[key]
+            d_data_latest[code][key] = d[key]
+    return d_data_latest
+
+
+def export_latest_data(d_states_data: dict):
+    d_states_latest = extract_latest_data(d_states_ref, d_states_data)
+
+    # # d_states_latest = dict(d_states_ref)
+    # for code in d_states_latest.keys():
+    #     assert code in d_states_data.keys()
+    #     l_state = d_states_data[code]
+    #     d_latest = l_state[-1]
+    #     d_states_latest[code]['Date_Latest'] = d_latest['Date']
+    #     for key in ('Cases', 'Deaths', 'Cases_New', 'Deaths_New', 'Cases_Per_Million', 'Deaths_Per_Million'):
+    #         d_states_latest[code][key] = d_latest[key]
     with open('data/de-states/de-states-latest.tsv', mode='w', encoding='utf-8', newline='\n') as fh:
         csvwriter = csv.DictWriter(fh, delimiter='\t', extrasaction='ignore',
                                    fieldnames=('State', 'Code', 'Population', 'Pop Density',
