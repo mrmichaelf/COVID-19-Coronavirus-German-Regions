@@ -209,6 +209,17 @@ def prepare_time_series(l_time_series: list) -> list:
 # TODO: add fitted Cases_New_Slope_14 and Deaths_New_Slope_14
 
 
+def extract_latest_data(d_ref_data: dict, d_data_all: dict) -> dict:
+    d_data_latest = dict(d_ref_data)
+    for code, l_time_series in d_data_all .items():
+        assert code in d_data_latest.keys()
+        d = l_time_series[-1]
+        d_data_latest[code]['Date_Latest'] = d['Date']
+        for key in ('Cases', 'Deaths', 'Cases_New', 'Deaths_New', 'Cases_Per_Million', 'Deaths_Per_Million'):
+            d_data_latest[code][key] = d[key]
+    return d_data_latest
+
+
 def TODO_fit_slope(l_time_series: list) -> dict:
     d_res = {}
     data_cases_new_pm = []
@@ -232,7 +243,7 @@ def add_per_million(d: dict, pop_in_million: float) -> dict:
         perMillion = None
         if key in d and d[key] is not None:
             if pop_in_million:
-                perMillion = round(d[key]/pop_in_million, 3)
+                perMillion = int(round(d[key]/pop_in_million, 0))
             # else:
             #     perMillion = 0  # if pop is unknown
         d[key+'_Per_Million'] = perMillion

@@ -326,6 +326,7 @@ def fetch_and_prepare_lk_time_series(lk_id: str) -> list:
         d = l_time_series[i]
         # _Per_Million
         d = helper.add_per_million_via_lookup(d, d_ref_landkreise, lk_id)
+        l_time_series[i] = d
 
     #     data_t.append(d['Days_Past'])
     #     data_cases.append(d['Cases'])
@@ -442,10 +443,8 @@ def fetch_and_prepare_lk_time_series(lk_id: str) -> list:
 #     # fetch_fit_and_plot_lk('LK Harburg')
 
 
-def loop_over_all_LK():
-
-    d_results_for_json_export = {}
-    l_for_export_V2 = []
+def download_all_data():
+    d_districts_data = {}
 
     # l2 = ('16068',)
     # for lk_id in d_ref_landkreise.keys():
@@ -466,54 +465,68 @@ def loop_over_all_LK():
         #     # choose columns for fitting
         #     data.append((entry['Days_Past'], entry['Cases']))
 
-        last_entry = l_lk_time_series[-1]
+        d_districts_data[lk_id] = l_lk_time_series
 
-        # d_fit_results = helper.fit_routine(data, mode="exp", fit_range_x=(-6, 0))
+    return d_districts_data
 
-        d = {
-            'Bundesland': d_ref_landkreise[lk_id]['BL_Name'],  # Bundesland
-            'Landkreis': lk_name,
-            'LK_Einwohner': d_ref_landkreise[lk_id]['Population'],  # Einwohner
-            'Cases': last_entry['Cases'],
-            'Cases_Per_Million': last_entry['Cases_Per_Million'],
-            'Deaths': last_entry['Deaths'],
-            'Deaths_Per_Million': last_entry['Deaths_Per_Million'],
-            'Date': last_entry['Date'],
-            'Cases_Last_Week': last_entry['Cases_Last_Week'],
-            'Cases_Last_Week_Per_Million': last_entry['Cases_Last_Week_Per_Million'],
-            'Deaths_Last_Week': last_entry['Deaths_Last_Week'],
-            'Deaths_Last_Week_Per_Million': last_entry['Deaths_Last_Week_Per_Million']
-        }
-        # if d_fit_results != {}:
-        #     d['fit_res_N0'] = round(d_fit_results['fit_res'][0], 3)
-        #     d['fit_res_T'] = round(d_fit_results['fit_res'][1], 3)
-        #     d['fit_used_x_range'] = d_fit_results['fit_used_x_range']
-        #     d['Cases_Forecast_Tomorrow'] = round(
-        #         d_fit_results['forcast_y_at_x+1'], 3)
-        #     d['Cases_Forecast_Tomorrow_Factor'] = round(
-        #         d_fit_results['factor_increase_x+1'], 3)
 
-        d_results_for_json_export[lk_id] = d
+# def weg():
+#     if 1 == 2:
+#         # d_fit_results = helper.fit_routine(data, mode="exp", fit_range_x=(-6, 0))
+#         d = {
+#             'Bundesland': d_ref_landkreise[lk_id]['BL_Name'],  # Bundesland
+#             'Landkreis': lk_name,
+#             'LK_Einwohner': d_ref_landkreise[lk_id]['Population'],  # Einwohner
+#             'Cases': last_entry['Cases'],
+#             'Cases_Per_Million': last_entry['Cases_Per_Million'],
+#             'Deaths': last_entry['Deaths'],
+#             'Deaths_Per_Million': last_entry['Deaths_Per_Million'],
+#             'Date': last_entry['Date'],
+#             'Cases_Last_Week': last_entry['Cases_Last_Week'],
+#             'Cases_Last_Week_Per_Million': last_entry['Cases_Last_Week_Per_Million'],
+#             'Deaths_Last_Week': last_entry['Deaths_Last_Week'],
+#             'Deaths_Last_Week_Per_Million': last_entry['Deaths_Last_Week_Per_Million']
+#         }
+    # if d_fit_results != {}:
+    #     d['fit_res_N0'] = round(d_fit_results['fit_res'][0], 3)
+    #     d['fit_res_T'] = round(d_fit_results['fit_res'][1], 3)
+    #     d['fit_used_x_range'] = d_fit_results['fit_used_x_range']
+    #     d['Cases_Forecast_Tomorrow'] = round(
+    #         d_fit_results['forcast_y_at_x+1'], 3)
+    #     d['Cases_Forecast_Tomorrow_Factor'] = round(
+    #         d_fit_results['factor_increase_x+1'], 3)
 
+    # d_for_export_V2 = d
+    # for key in ('Cases_Per_Million', 'Deaths_Per_Million', 'Cases_Last_Week_Per_Million', 'Deaths_Last_Week_Per_Million'):
+    #     if d_for_export_V2[key]:
+    #         d_for_export_V2[key] = round(d[key], 0)
+
+    # TODO:
+    # plot_lk_fit(lk_id, data, d_fit_results)
+    # break
+
+
+def export_latest_data(d_districts_data: dict):
+    d_districts_latest = helper.extract_latest_data(
+        d_ref_landkreise, d_districts_data)
+    d_for_export_V1 = d_districts_latest
+    l_for_export_V2 = []
+    for lk_id, d in d_districts_latest.items():
+        # V1: dict (lk_id) -> dict
+        # V2: list of ficts
+        # d_for_export_V1[lk_id] = d
         d_for_export_V2 = d
-        for key in ('Cases_Per_Million', 'Deaths_Per_Million', 'Cases_Last_Week_Per_Million', 'Deaths_Last_Week_Per_Million'):
-            if d_for_export_V2[key]:
-                d_for_export_V2[key] = round(d[key], 0)
         d_for_export_V2['LK_ID'] = lk_id
         l_for_export_V2.append(d_for_export_V2)
 
-        # TODO:
-        # plot_lk_fit(lk_id, data, d_fit_results)
-        # break
-
-    # Export fit data as JSON
+    # Export as JSON
     helper.write_json('data/de-districts/de-districts-results.json',
-                      d_results_for_json_export)
+                      d_for_export_V1, sort_keys=True)
 
     helper.write_json(
-        filename='data/de-districts/de-districts-results-V2.json', d=l_for_export_V2, sort_keys=False)
+        filename='data/de-districts/de-districts-results-V2.json', d=l_for_export_V2, sort_keys=True)
 
-    # Export latest data as CSV
+    # Export as CSV
     with open('data/de-districts/de-districts-results.tsv', mode='w', encoding='utf-8', newline='\n') as fh_csv:
         csvwriter = csv.DictWriter(fh_csv, delimiter='\t', extrasaction='ignore', fieldnames=[
             'Landkreis',   'Bundesland', 'Population', 'Cases', 'Deaths',
@@ -522,46 +535,35 @@ def loop_over_all_LK():
 
         csvwriter.writeheader()
 
-        for lk_id, d in d_results_for_json_export.items():
-            d2 = d
-            d2['Population'] = d['LK_Einwohner']
+        for lk_id, d in d_for_export_V1.items():
+            d["Landkreis"] = get_lk_name_from_lk_id(lk_id)
+            d["Bundesland"] = d["BL_Name"]
+            csvwriter.writerow(d)
+            # d2 = d
+            # # d2['Population'] = d['LK_Einwohner']
 
-            # this_Cases_Forecast_Tomorrow_Factor = None
-            # if 'Cases_Forecast_Tomorrow_Factor' in d2:
-            #     d2['Forecase Cases Tomorrow (%)'] = round(
-            #         100 * (d2['Cases_Forecast_Tomorrow_Factor'] - 1), 1)
-            if d2['Cases_Per_Million']:
-                d2['Cases_Per_Million'] = round(
-                    d2['Cases_Per_Million'], 0)
-            if d2['Deaths_Per_Million']:
-                d2['Deaths_Per_Million'] = round(
-                    d2['Deaths_Per_Million'], 0)
-
-            csvwriter.writerow(d2)
+            # # this_Cases_Forecast_Tomorrow_Factor = None
+            # # if 'Cases_Forecast_Tomorrow_Factor' in d2:
+            # #     d2['Forecase Cases Tomorrow (%)'] = round(
+            # #         100 * (d2['Cases_Forecast_Tomorrow_Factor'] - 1), 1)
+            # if d2['Cases_Per_Million']:
+            #     d2['Cases_Per_Million'] = round(
+            #         d2['Cases_Per_Million'], 0)
+            # if d2['Deaths_Per_Million']:
+            #     d2['Deaths_Per_Million'] = round(
+            #         d2['Deaths_Per_Million'], 0)
 
 
 d_ref_landkreise = fetch_and_prepare_ref_landkreise()
 # generate and export a mapping table
 gen_mapping_BL2LK_json()
 
-loop_over_all_LK()
+d_districts_data = download_all_data()
+# export_data(d_districts_data)
+export_latest_data(d_districts_data)
 
 # fetch_ref_landkreise(readFromCache=True)
 
-# d_ref_landkreise[lk_id]['EWZ']    # = Einwohnerzahl: int
-# d_ref_landkreise[lk_id]['county'] # zB 'SK Flensburg'
-# d_ref_landkreise[lk_id]['BL']     # zB 'Schleswig-Holstein'
-# d_ref_landkreise[lk_id]['BL_ID']  # zB '1'
-# d_ref_landkreise[lk_id]['BEZ']    # zB 'Kreisfreie Stadt'
-# d_ref_landkreise[lk_id]['last_update'] # zB '29.03.2020 00:00'
-
 # TODO: sort by Bundesland, Landkreis
-
-
-# Fit Cases für alle LK
-# 16068 machte Probleme
-
-# for i in tqdm(range(10000)):
-
 
 # TODO: Bundeslandsummen

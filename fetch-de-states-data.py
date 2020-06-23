@@ -48,7 +48,7 @@ def read_csv_to_dict() -> dict:
     add _Per_Million via helper.add_per_million_via_lookup
     """
 
-    global d_states_ref
+    global d_ref_states
     # Preparations
     d_states_data = {'BW': [], 'BY': [], 'BE': [], 'BB': [], 'HB': [], 'HH': [], 'HE': [], 'MV': [
     ], 'NI': [], 'NW': [], 'RP': [], 'SL': [], 'SN': [], 'ST': [], 'SH': [], 'TH': []}
@@ -138,7 +138,7 @@ def read_csv_to_dict() -> dict:
         for i in range(len(l_time_series)):
             d = l_time_series[i]
             # add per Million rows
-            d = helper.add_per_million_via_lookup(d, d_states_ref, code)
+            d = helper.add_per_million_via_lookup(d, d_ref_states, code)
 
         # # fit cases data
         # dataCases = []
@@ -207,21 +207,10 @@ def export_data(d_states_data: dict):
                 csvwriter.writerow(d)
 
 
-def extract_latest_data(d_ref_data: dict, d_data_all: dict) -> dict:
-    d_data_latest = dict(d_ref_data)
-    for code, l_time_series in d_data_all .items():
-        assert code in d_data_latest.keys()
-        d = l_time_series[-1]
-        d_data_latest[code]['Date_Latest'] = d['Date']
-        for key in ('Cases', 'Deaths', 'Cases_New', 'Deaths_New', 'Cases_Per_Million', 'Deaths_Per_Million'):
-            d_data_latest[code][key] = d[key]
-    return d_data_latest
+def export_latest_data(d_ref_states, d_states_data: dict):
+    d_states_latest = helper.extract_latest_data(d_ref_states, d_states_data)
 
-
-def export_latest_data(d_states_data: dict):
-    d_states_latest = extract_latest_data(d_states_ref, d_states_data)
-
-    # # d_states_latest = dict(d_states_ref)
+    # # d_states_latest = dict(d_ref_states)
     # for code in d_states_latest.keys():
     #     assert code in d_states_data.keys()
     #     l_state = d_states_data[code]
@@ -255,13 +244,13 @@ def export_latest_data(d_states_data: dict):
         del d_de
 
 
-d_states_ref = helper.read_ref_data_de_states()
+d_ref_states = helper.read_ref_data_de_states()
 
 
 download_new_data()
 d_states_data = read_csv_to_dict()
 
 export_data(d_states_data)
-export_latest_data(d_states_data)
+export_latest_data(d_ref_states, d_states_data)
 
 # 1
