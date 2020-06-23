@@ -54,7 +54,7 @@ def read_json_file(filename: str):
         return json.load(fh)
 
 
-def write_json(filename: str, d: dict, sort_keys: bool = False, indent: int = 1):
+def write_json(filename: str, d: dict, sort_keys: bool = True, indent: int = 1):
     with open(filename, mode='w', encoding='utf-8', newline='\n') as fh:
         json.dump(d, fh, ensure_ascii=False,
                   sort_keys=sort_keys, indent=indent)
@@ -199,7 +199,7 @@ def extract_latest_data(d_ref_data: dict, d_data_all: dict) -> dict:
         assert code in d_data_latest.keys()
         d = l_time_series[-1]
         d_data_latest[code]['Date_Latest'] = d['Date']
-        for key in ('Cases', 'Deaths', 'Cases_New', 'Deaths_New', 'Cases_Per_Million', 'Deaths_Per_Million'):
+        for key in ('Cases', 'Deaths', 'Cases_New', 'Deaths_New', 'Cases_Per_Million', 'Deaths_Per_Million', 'Cases_Last_Week', 'Deaths_Last_Week', 'Cases_Last_Week_Per_Million', 'Deaths_Last_Week_Per_Million'):
             d_data_latest[code][key] = d[key]
     return d_data_latest
 

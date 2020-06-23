@@ -78,10 +78,18 @@ def read_json_data() -> dict:
         d_json_downloaded[country_name_new] = d_json_downloaded[country_name_old]
         del d_json_downloaded[country_name_old]
 
+    # remove the not needed ones from the ref list
+    l_to_del_from_ref = []
+    for country in d_countries_ref.keys():
+        if country not in d_json_downloaded.keys():
+            l_to_del_from_ref.append(country)
+    for country in l_to_del_from_ref:
+        del d_countries_ref[country]
+
     d_countries = {}
     # re-format date using my date_format(y,m,d) function
-    for country in d_json_downloaded.keys():
-        country_data = d_json_downloaded[country]
+    for country, country_data in d_json_downloaded.items():
+        assert country in d_countries_ref, "E: Country missing in ref list d_countries_ref"
         l_time_series = []
 
         pop = read_population(country)
@@ -107,6 +115,7 @@ def read_json_data() -> dict:
 
             # _Per_Million
             d = helper.add_per_million(d, pop_in_million)
+            l_time_series[i] = d
 
         d_countries[country] = l_time_series
 
@@ -141,6 +150,10 @@ def extract_latest_date_data():
     for all countries in json: extract latest entry
     write to data/int/countries-latest-all.tsv and data/int/countries-latest-all.json
     """
+
+    d_countries_latest = helper.extract_latest_data(
+        d_countries_ref, d_countries_timeseries)
+
     l_for_export = []
     with open('data/int/countries-latest-all.tsv', mode='w', encoding='utf-8', newline='\n') as fh:
         csvwriter = csv.DictWriter(fh, delimiter='\t', extrasaction='ignore', fieldnames=[
@@ -150,16 +163,16 @@ def extract_latest_date_data():
         ])
         csvwriter.writeheader()
 
-        for country in sorted(d_countries_timeseries.keys(), key=str.casefold):
-            l_time_series = d_countries_timeseries[country]
-            d = l_time_series[-1]  # last entry (=>latest date)
-            pop = read_population(country)
+        for country in sorted(d_countries_latest.keys(), key=str.casefold):
+            # l_time_series = d_countries_timeseries[country]
+            # d = l_time_series[-1]  # last entry (=>latest date)
+            # pop = read_population(country)
 
-            d2 = d
+            d2 = d_countries_latest[country]
             d2['Country'] = country
-            d2['Code'] = read_country_code(d2['Country'])
-            d2['Continent'] = read_continent(d2['Country'])
-            d2['Population'] = pop
+            # d2['Code'] = read_country_code(d2['Country'])
+            # d2['Continent'] = read_continent(d2['Country'])
+            # d2['Population'] = pop
             # if d2['Cases_Per_Million']:
             #     d2['Cases_Per_Million'] = round(
             #         d['Cases_Per_Million'], 0)
@@ -177,7 +190,7 @@ def extract_latest_date_data():
 
     # JSON export
     helper.write_json(
-        filename='data/int/countries-latest-all.json', d=l_for_export, sort_keys=False)
+        filename='data/int/countries-latest-all.json', d=l_for_export)
 
     # for selected countries write to separate file, for Gnuplot plotting
     with open('data/int/countries-latest-selected.tsv', mode='w', encoding='utf-8', newline='\n') as fh:
@@ -192,6 +205,7 @@ def extract_latest_date_data():
             l_time_series = d_countries_timeseries[country]
             d = l_time_series[-1]  # last entry for this country
             d2 = d
+            d2["Country"] = country
             d2['Population'] = d_selected_countries[country]['Population']
             csvwriter.writerow(d2)
 
@@ -352,27 +366,6 @@ def read_population(country_name: str, verbose: bool = False) -> int:
 
 def read_continent(country_name: str) -> str:
     continent = d_countries_ref[country_name]["Continent"]
-    # move Turkey from Asia to Europe
-    if country_name == 'Turkey':
-        continent = 'EU'
-
-    if continent != None:
-        if continent == 'AF':
-            continent = 'Africa'
-        elif continent == 'AN':
-            continent = 'Antarctica'
-        elif continent == 'AS':
-            continent = 'Asia'
-        elif continent == 'EU':
-            continent = 'Europe'
-        elif continent == 'NA':
-            continent = 'North America'
-        elif continent == 'SA':
-            continent = 'South America'
-        elif continent == 'OC':
-            continent = 'Oceania'
-        else:
-            assert 1 == 2, f"E: continent missing for {country_name}"
     return continent
 
 
@@ -401,26 +394,27 @@ def read_ref_data_countries() -> dict:
         if pop == 0:
             pop = None
         continent = d['Continent']
-        # # move Turkey from Asia to Europe
-        # if name == 'Turkey':
-        #     continent = 'EU'
-        # # renaming the contintets
-        # if continent == 'AF':
-        #     continent = 'Africa'
-        # elif continent == 'AN':
-        #     continent = 'Antarctica'
-        # elif continent == 'AS':
-        #     continent = 'Asia'
-        # elif continent == 'EU':
-        #     continent = 'Europe'
-        # elif continent == 'NA':
-        #     continent = 'North America'
-        # elif continent == 'SA':
-        #     continent = 'South America'
-        # elif continent == 'OC':
-        #     continent = 'Oceania'
-        # else:
-        #     assert 1 == 2, f"E: continent missing for {name}"
+        # move Turkey from Asia to Europe
+        if name == 'Turkey':
+            continent = 'EU'
+
+        if continent != None:
+            if continent == 'AF':
+                continent = 'Africa'
+            elif continent == 'AN':
+                continent = 'Antarctica'
+            elif continent == 'AS':
+                continent = 'Asia'
+            elif continent == 'EU':
+                continent = 'Europe'
+            elif continent == 'NA':
+                continent = 'North America'
+            elif continent == 'SA':
+                continent = 'South America'
+            elif continent == 'OC':
+                continent = 'Oceania'
+            else:
+                assert 1 == 2, f"E: continent missing for {country_name}"
 
         d2["Code"] = code
         d2['Continent'] = continent
@@ -431,7 +425,6 @@ def read_ref_data_countries() -> dict:
 
 
 d_countries_ref = read_ref_data_countries()
-test = d_countries_ref['Congo (Brazzaville)']
 
 
 # d_ref_country_database = helper.read_json_file(
