@@ -84,7 +84,7 @@ con, cur = db_connect()
 d_districts_latest = {}
 with open(pathToData, mode='r', encoding='utf-8') as fh:
     d_districts_latest = json.load(fh)
-dataDate = d_districts_latest["02000"]["Date"]
+dataDate = d_districts_latest["02000"]["Date_Latest"]
 
 cases_DE_last_week = 0
 for lk_id, d in d_districts_latest.items():
@@ -121,17 +121,29 @@ for row in cur.execute("SELECT email, verified, hash, threshold, regions, freque
     if toSend:
         #        mailBody += f"Versandgrund: \n\n"
         # table header
-        mailBody += "Infektionen* : Landkreis\n"
+        mailBody += "Infektionen*  : Landkreis\n"
         # table body
         for lk_id, value in sorted(d_this_regions_cases_PM.items(), key=lambda item: item[1], reverse=True):
             d = d_districts_latest[lk_id]
-            mailBody += "%3d (%3d)    : %s\n" % (
-                d["Cases_Last_Week_Per_Million"], d["Cases_Last_Week"], d["Landkreis"])
-        mailBody += "%3d          : %s\n" % (
+            slope = d["Slope_Cases_New_Per_Million"]
+            if slope > 1:
+                slope_arrow = "↑"
+            elif slope > 0.5:
+                slope_arrow = "↗"
+            elif slope >= -0.5:
+                slope_arrow = "→"
+            elif slope >= -1:
+                slope_arrow = "↘"
+            else:
+                slope_arrow = "↓"
+
+            mailBody += "%3d / %3d %s   : %s\n" % (
+                d["Cases_Last_Week_Per_Million"], d["Cases_Last_Week"], slope_arrow, d["Landkreis"])
+        mailBody += "%3d           : %s\n" % (
             cases_DE_last_week_PM, "Deutschland gesamt")
         # table footer
         mailBody += f"Datenstand: {dataDate}\n"
-        mailBody += "\n* Neu-Infektionen letzte Woche pro Millionen Einwohner und Neu-Infektionen letzte Woche absolut\n"
+        mailBody += "\n* Neu-Infektionen letzte Woche: pro Millionen Einwohner / Absolut\n"
         mailBody += f"\nCustom Chart: https://entorb.net/COVID-19-coronavirus/?yAxis=Cases_Last_Week_Per_Million&DeDistricts={s_this_regions}#DeDistrictChart\n"
 
         # create a new hash

@@ -17,7 +17,9 @@
   "LK_Name": "Flensburg",
   "LK_Typ": "Kreisfreie Stadt",
   "Landkreis": "Flensburg (Kreisfreie Stadt)",
-  "Population": 89504
+  "Population": 89504,
+  "Slope_Cases_New_Per_Million": -0.02,
+  "Slope_Deaths_New_Per_Million": 0
  },
  {
   "BL_Code": "SH",
@@ -37,7 +39,9 @@
   "LK_Name": "Kiel",
   "LK_Typ": "Kreisfreie Stadt",
   "Landkreis": "Kiel (Kreisfreie Stadt)",
-  "Population": 247548
+  "Population": 247548,
+  "Slope_Cases_New_Per_Million": -0.11,
+  "Slope_Deaths_New_Per_Million": 0
  },
  {
   "BL_Code": "SH",
@@ -57,7 +61,9 @@
   "LK_Name": "Lübeck",
   "LK_Typ": "Kreisfreie Stadt",
   "Landkreis": "Lübeck (Kreisfreie Stadt)",
-  "Population": 217198
+  "Population": 217198,
+  "Slope_Cases_New_Per_Million": 0.22,
+  "Slope_Deaths_New_Per_Million": 0
  },
  {
   "BL_Code": "SH",
@@ -77,7 +83,9 @@
   "LK_Name": "Neumünster",
   "LK_Typ": "Kreisfreie Stadt",
   "Landkreis": "Neumünster (Kreisfreie Stadt)",
-  "Population": 79487
+  "Population": 79487,
+  "Slope_Cases_New_Per_Million": 0,
+  "Slope_Deaths_New_Per_Million": 0
  },
  {
   "BL_Code": "SH",
@@ -97,7 +105,9 @@
   "LK_Name": "Dithmarschen",
   "LK_Typ": "Kreis",
   "Landkreis": "Dithmarschen (Kreis)",
-  "Population": 133210
+  "Population": 133210,
+  "Slope_Cases_New_Per_Million": 0.2,
+  "Slope_Deaths_New_Per_Million": -0.1
  },
  {
   "BL_Code": "SH",
@@ -117,7 +127,9 @@
   "LK_Name": "Herzogtum Lauenburg",
   "LK_Typ": "Kreis",
   "Landkreis": "Herzogtum Lauenburg (Kreis)",
-  "Population": 197264
+  "Population": 197264,
+  "Slope_Cases_New_Per_Million": 0.05,
+  "Slope_Deaths_New_Per_Million": 0
  },
  {
   "BL_Code": "SH",
@@ -137,7 +149,9 @@
   "LK_Name": "Nordfriesland",
   "LK_Typ": "Kreis",
   "Landkreis": "Nordfriesland (Kreis)",
-  "Population": 165507
+  "Population": 165507,
+  "Slope_Cases_New_Per_Million": 0.12,
+  "Slope_Deaths_New_Per_Million": 0
  },
  {
   "BL_Code": "SH",
@@ -157,7 +171,9 @@
   "LK_Name": "Ostholstein",
   "LK_Typ": "Kreis",
   "Landkreis": "Ostholstein (Kreis)",
-  "Population": 200581
+  "Population": 200581,
+  "Slope_Cases_New_Per_Million": 0,
+  "Slope_Deaths_New_Per_Million": 0
  },
  {
   "BL_Code": "SH",
@@ -177,7 +193,9 @@
   "LK_Name": "Pinneberg",
   "LK_Typ": "Kreis",
   "Landkreis": "Pinneberg (Kreis)",
-  "Population": 314391
+  "Population": 314391,
+  "Slope_Cases_New_Per_Million": 0,
+  "Slope_Deaths_New_Per_Million": 0
  },
  {
   "BL_Code": "SH",
@@ -197,7 +215,9 @@
   "LK_Name": "Plön",
   "LK_Typ": "Kreis",
   "Landkreis": "Plön (Kreis)",
-  "Population": 128647
+  "Population": 128647,
+  "Slope_Cases_New_Per_Million": 0,
+  "Slope_Deaths_New_Per_Million": 0
  },
  {
   "BL_Code": "SH",
@@ -217,7 +237,9 @@
   "LK_Name": "Rendsburg-Eckernförde",
   "LK_Typ": "Kreis",
   "Landkreis": "Rendsburg-Eckernförde (Kreis)",
-  "Population": 272775
+  "Population": 272775,
+  "Slope_Cases_New_Per_Million": 0,
+  "Slope_Deaths_New_Per_Million": 0
  },
  {
   "BL_Code": "SH",
@@ -237,7 +259,9 @@
   "LK_Name": "Schleswig-Flensburg",
   "LK_Typ": "Kreis",
   "Landkreis": "Schleswig-Flensburg (Kreis)",
-  "Population": 200025
+  "Population": 200025,
+  "Slope_Cases_New_Per_Million": -0.08,
+  "Slope_Deaths_New_Per_Million": 0
  },
  {
   "BL_Code": "SH",
@@ -257,7 +281,9 @@
   "LK_Name": "Segeberg",
   "LK_Typ": "Kreis",
   "Landkreis": "Segeberg (Kreis)",
-  "Population": 276032
+  "Population": 276032,
+  "Slope_Cases_New_Per_Million": 0.06,
+  "Slope_Deaths_New_Per_Million": 0
  },
  {
   "BL_Code": "SH",
@@ -277,7 +303,9 @@
   "LK_Name": "Steinburg",
   "LK_Typ": "Kreis",
   "Landkreis": "Steinburg (Kreis)",
-  "Population": 131347
+  "Population": 131347,
+  "Slope_Cases_New_Per_Million": -0.05,
+  "Slope_Deaths_New_Per_Million": 0
  },
  {
   "BL_Code": "SH",
@@ -297,7 +325,9 @@
   "LK_Name": "Stormarn",
   "LK_Typ": "Kreis",
   "Landkreis": "Stormarn (Kreis)",
-  "Population": 243196
+  "Population": 243196,
+  "Slope_Cases_New_Per_Million": -0.01,
+  "Slope_Deaths_New_Per_Million": 0
  },
  {
   "BL_Code": "SL",
@@ -317,7 +347,9 @@
   "LK_Name": "Regionalverband Saarbrücken",
   "LK_Typ": "Landkreis",
   "Landkreis": "Regionalverband Saarbrücken (Landkreis)",
-  "Population": 329708
+  "Population": 329708,
+  "Slope_Cases_New_Per_Million": -0.03,
+  "Slope_Deaths_New_Per_Million": 0
  },
  {
   "BL_Code": "SL",
@@ -337,7 +369,9 @@
   "LK_Name": "Merzig-Wadern",
   "LK_Typ": "Landkreis",
   "Landkreis": "Merzig-Wadern (Landkreis)",
-  "Population": 103366
+  "Population": 103366,
+  "Slope_Cases_New_Per_Million": -0.5,
+  "Slope_Deaths_New_Per_Million": 0
  },
  {
   "BL_Code": "SL",
@@ -357,7 +391,9 @@
   "LK_Name": "Neunkirchen",
   "LK_Typ": "Landkreis",
   "Landkreis": "Neunkirchen (Landkreis)",
-  "Population": 132206
+  "Population": 132206,
+  "Slope_Cases_New_Per_Million": -0.47,
+  "Slope_Deaths_New_Per_Million": 0
  },
  {
   "BL_Code": "SL",
@@ -377,7 +413,9 @@
   "LK_Name": "Saarlouis",
   "LK_Typ": "Landkreis",
   "Landkreis": "Saarlouis (Landkreis)",
-  "Population": 195201
+  "Population": 195201,
+  "Slope_Cases_New_Per_Million": -0.25,
+  "Slope_Deaths_New_Per_Million": 0
  },
  {
   "BL_Code": "SL",
@@ -397,7 +435,9 @@
   "LK_Name": "Saarpfalz-Kreis",
   "LK_Typ": "Landkreis",
   "Landkreis": "Saarpfalz-Kreis (Landkreis)",
-  "Population": 142631
+  "Population": 142631,
+  "Slope_Cases_New_Per_Million": -0.22,
+  "Slope_Deaths_New_Per_Million": 0
  },
  {
   "BL_Code": "SL",
@@ -417,7 +457,9 @@
   "LK_Name": "St. Wendel",
   "LK_Typ": "Landkreis",
   "Landkreis": "St. Wendel (Landkreis)",
-  "Population": 87397
+  "Population": 87397,
+  "Slope_Cases_New_Per_Million": 0.07,
+  "Slope_Deaths_New_Per_Million": 0
  },
  {
   "BL_Code": "BE",
@@ -437,7 +479,9 @@
   "LK_Name": "Berlin Reinickendorf",
   "LK_Typ": "Bezirk",
   "Landkreis": "Berlin Reinickendorf (Bezirk)",
-  "Population": 265225
+  "Population": 265225,
+  "Slope_Cases_New_Per_Million": -0.33,
+  "Slope_Deaths_New_Per_Million": 0
  },
  {
   "BL_Code": "BE",
@@ -457,7 +501,9 @@
   "LK_Name": "Berlin Charlottenburg-Wilmersdorf",
   "LK_Typ": "Bezirk",
   "Landkreis": "Berlin Charlottenburg-Wilmersdorf (Bezirk)",
-  "Population": 342332
+  "Population": 342332,
+  "Slope_Cases_New_Per_Million": 0.38,
+  "Slope_Deaths_New_Per_Million": 0
  },
  {
   "BL_Code": "BE",
@@ -477,7 +523,9 @@
   "LK_Name": "Berlin Treptow-Köpenick",
   "LK_Typ": "Bezirk",
   "Landkreis": "Berlin Treptow-Köpenick (Bezirk)",
-  "Population": 271153
+  "Population": 271153,
+  "Slope_Cases_New_Per_Million": 0.7,
+  "Slope_Deaths_New_Per_Million": 0
  },
  {
   "BL_Code": "BE",
@@ -497,7 +545,9 @@
   "LK_Name": "Berlin Pankow",
   "LK_Typ": "Bezirk",
   "Landkreis": "Berlin Pankow (Bezirk)",
-  "Population": 407765
+  "Population": 407765,
+  "Slope_Cases_New_Per_Million": -0.09,
+  "Slope_Deaths_New_Per_Million": 0
  },
  {
   "BL_Code": "BE",
@@ -517,7 +567,9 @@
   "LK_Name": "Berlin Neukölln",
   "LK_Typ": "Bezirk",
   "Landkreis": "Berlin Neukölln (Bezirk)",
-  "Population": 329691
+  "Population": 329691,
+  "Slope_Cases_New_Per_Million": -1.54,
+  "Slope_Deaths_New_Per_Million": 0
  },
  {
   "BL_Code": "BE",
@@ -537,7 +589,9 @@
   "LK_Name": "Berlin Lichtenberg",
   "LK_Typ": "Bezirk",
   "Landkreis": "Berlin Lichtenberg (Bezirk)",
-  "Population": 291452
+  "Population": 291452,
+  "Slope_Cases_New_Per_Million": -0.16,
+  "Slope_Deaths_New_Per_Million": 0
  },
  {
   "BL_Code": "BE",
@@ -557,7 +611,9 @@
   "LK_Name": "Berlin Marzahn-Hellersdorf",
   "LK_Typ": "Bezirk",
   "Landkreis": "Berlin Marzahn-Hellersdorf (Bezirk)",
-  "Population": 268548
+  "Population": 268548,
+  "Slope_Cases_New_Per_Million": 1.46,
+  "Slope_Deaths_New_Per_Million": 0
  },
  {
   "BL_Code": "BE",
@@ -577,7 +633,9 @@
   "LK_Name": "Berlin Spandau",
   "LK_Typ": "Bezirk",
   "Landkreis": "Berlin Spandau (Bezirk)",
-  "Population": 243977
+  "Population": 243977,
+  "Slope_Cases_New_Per_Million": 0.03,
+  "Slope_Deaths_New_Per_Million": 0
  },
  {
   "BL_Code": "BE",
@@ -597,7 +655,9 @@
   "LK_Name": "Berlin Steglitz-Zehlendorf",
   "LK_Typ": "Bezirk",
   "Landkreis": "Berlin Steglitz-Zehlendorf (Bezirk)",
-  "Population": 308697
+  "Population": 308697,
+  "Slope_Cases_New_Per_Million": 0.08,
+  "Slope_Deaths_New_Per_Million": 0
  },
  {
   "BL_Code": "BE",
@@ -617,7 +677,9 @@
   "LK_Name": "Berlin Mitte",
   "LK_Typ": "Bezirk",
   "Landkreis": "Berlin Mitte (Bezirk)",
-  "Population": 384172
+  "Population": 384172,
+  "Slope_Cases_New_Per_Million": 0.19,
+  "Slope_Deaths_New_Per_Million": 0
  },
  {
   "BL_Code": "BE",
@@ -637,7 +699,9 @@
   "LK_Name": "Berlin Friedrichshain-Kreuzberg",
   "LK_Typ": "Bezirk",
   "Landkreis": "Berlin Friedrichshain-Kreuzberg (Bezirk)",
-  "Population": 289762
+  "Population": 289762,
+  "Slope_Cases_New_Per_Million": 1.92,
+  "Slope_Deaths_New_Per_Million": 0
  },
  {
   "BL_Code": "BE",
@@ -657,7 +721,9 @@
   "LK_Name": "Berlin Tempelhof-Schöneberg",
   "LK_Typ": "Bezirk",
   "Landkreis": "Berlin Tempelhof-Schöneberg (Bezirk)",
-  "Population": 351644
+  "Population": 351644,
+  "Slope_Cases_New_Per_Million": -0.07,
+  "Slope_Deaths_New_Per_Million": -0.04
  },
  {
   "BL_Code": "BB",
@@ -677,7 +743,9 @@
   "LK_Name": "Brandenburg an der Havel",
   "LK_Typ": "Kreisfreie Stadt",
   "Landkreis": "Brandenburg an der Havel (Kreisfreie Stadt)",
-  "Population": 72124
+  "Population": 72124,
+  "Slope_Cases_New_Per_Million": -0.65,
+  "Slope_Deaths_New_Per_Million": 0
  },
  {
   "BL_Code": "BB",
@@ -697,7 +765,9 @@
   "LK_Name": "Cottbus",
   "LK_Typ": "Kreisfreie Stadt",
   "Landkreis": "Cottbus (Kreisfreie Stadt)",
-  "Population": 100219
+  "Population": 100219,
+  "Slope_Cases_New_Per_Million": 0,
+  "Slope_Deaths_New_Per_Million": 0
  },
  {
   "BL_Code": "BB",
@@ -717,7 +787,9 @@
   "LK_Name": "Frankfurt (Oder)",
   "LK_Typ": "Kreisfreie Stadt",
   "Landkreis": "Frankfurt (Oder) (Kreisfreie Stadt)",
-  "Population": 57873
+  "Population": 57873,
+  "Slope_Cases_New_Per_Million": 0.19,
+  "Slope_Deaths_New_Per_Million": 0
  },
  {
   "BL_Code": "BB",
@@ -737,7 +809,9 @@
   "LK_Name": "Potsdam",
   "LK_Typ": "Kreisfreie Stadt",
   "Landkreis": "Potsdam (Kreisfreie Stadt)",
-  "Population": 178089
+  "Population": 178089,
+  "Slope_Cases_New_Per_Million": 0.21,
+  "Slope_Deaths_New_Per_Million": 0
  },
  {
   "BL_Code": "BB",
@@ -757,7 +831,9 @@
   "LK_Name": "Barnim",
   "LK_Typ": "Landkreis",
   "Landkreis": "Barnim (Landkreis)",
-  "Population": 182760
+  "Population": 182760,
+  "Slope_Cases_New_Per_Million": 0.07,
+  "Slope_Deaths_New_Per_Million": 0
  },
  {
   "BL_Code": "BB",
@@ -777,7 +853,9 @@
   "LK_Name": "Dahme-Spreewald",
   "LK_Typ": "Landkreis",
   "Landkreis": "Dahme-Spreewald (Landkreis)",
-  "Population": 169067
+  "Population": 169067,
+  "Slope_Cases_New_Per_Million": -0.0,
+  "Slope_Deaths_New_Per_Million": 0
  },
  {
   "BL_Code": "BB",
@@ -797,7 +875,9 @@
   "LK_Name": "Elbe-Elster",
   "LK_Typ": "Landkreis",
   "Landkreis": "Elbe-Elster (Landkreis)",
-  "Population": 102638
+  "Population": 102638,
+  "Slope_Cases_New_Per_Million": -0.22,
+  "Slope_Deaths_New_Per_Million": 0
  },
  {
   "BL_Code": "BB",
@@ -817,7 +897,9 @@
   "LK_Name": "Havelland",
   "LK_Typ": "Landkreis",
   "Landkreis": "Havelland (Landkreis)",
-  "Population": 161909
+  "Population": 161909,
+  "Slope_Cases_New_Per_Million": 0.69,
+  "Slope_Deaths_New_Per_Million": 0
  },
  {
   "BL_Code": "BB",
@@ -837,7 +919,9 @@
   "LK_Name": "Märkisch-Oderland",
   "LK_Typ": "Landkreis",
   "Landkreis": "Märkisch-Oderland (Landkreis)",
-  "Population": 194328
+  "Population": 194328,
+  "Slope_Cases_New_Per_Million": -0.79,
+  "Slope_Deaths_New_Per_Million": 0
  },
  {
   "BL_Code": "BB",
@@ -857,7 +941,9 @@
   "LK_Name": "Oberhavel",
   "LK_Typ": "Landkreis",
   "Landkreis": "Oberhavel (Landkreis)",
-  "Population": 211249
+  "Population": 211249,
+  "Slope_Cases_New_Per_Million": -0.36,
+  "Slope_Deaths_New_Per_Million": 0
  },
  {
   "BL_Code": "BB",
@@ -877,7 +963,9 @@
   "LK_Name": "Oberspreewald-Lausitz",
   "LK_Typ": "Landkreis",
   "Landkreis": "Oberspreewald-Lausitz (Landkreis)",
-  "Population": 110476
+  "Population": 110476,
+  "Slope_Cases_New_Per_Million": -0.13,
+  "Slope_Deaths_New_Per_Million": 0
  },
  {
   "BL_Code": "BB",
@@ -897,7 +985,9 @@
   "LK_Name": "Oder-Spree",
   "LK_Typ": "Landkreis",
   "Landkreis": "Oder-Spree (Landkreis)",
-  "Population": 178658
+  "Population": 178658,
+  "Slope_Cases_New_Per_Million": -0.45,
+  "Slope_Deaths_New_Per_Million": 0
  },
  {
   "BL_Code": "BB",
@@ -917,7 +1007,9 @@
   "LK_Name": "Ostprignitz-Ruppin",
   "LK_Typ": "Landkreis",
   "Landkreis": "Ostprignitz-Ruppin (Landkreis)",
-  "Population": 99078
+  "Population": 99078,
+  "Slope_Cases_New_Per_Million": 0.11,
+  "Slope_Deaths_New_Per_Million": 0
  },
  {
   "BL_Code": "BB",
@@ -937,7 +1029,9 @@
   "LK_Name": "Potsdam-Mittelmark",
   "LK_Typ": "Landkreis",
   "Landkreis": "Potsdam-Mittelmark (Landkreis)",
-  "Population": 214664
+  "Population": 214664,
+  "Slope_Cases_New_Per_Million": -0.07,
+  "Slope_Deaths_New_Per_Million": 0
  },
  {
   "BL_Code": "BB",
@@ -957,7 +1051,9 @@
   "LK_Name": "Prignitz",
   "LK_Typ": "Landkreis",
   "Landkreis": "Prignitz (Landkreis)",
-  "Population": 76508
+  "Population": 76508,
+  "Slope_Cases_New_Per_Million": -0.06,
+  "Slope_Deaths_New_Per_Million": 0
  },
  {
   "BL_Code": "BB",
@@ -977,7 +1073,9 @@
   "LK_Name": "Spree-Neiße",
   "LK_Typ": "Landkreis",
   "Landkreis": "Spree-Neiße (Landkreis)",
-  "Population": 114429
+  "Population": 114429,
+  "Slope_Cases_New_Per_Million": 0.28,
+  "Slope_Deaths_New_Per_Million": 0
  },
  {
   "BL_Code": "BB",
@@ -997,7 +1095,9 @@
   "LK_Name": "Teltow-Fläming",
   "LK_Typ": "Landkreis",
   "Landkreis": "Teltow-Fläming (Landkreis)",
-  "Population": 168296
+  "Population": 168296,
+  "Slope_Cases_New_Per_Million": 1.2,
+  "Slope_Deaths_New_Per_Million": 0
  },
  {
   "BL_Code": "BB",
@@ -1017,7 +1117,9 @@
   "LK_Name": "Uckermark",
   "LK_Typ": "Landkreis",
   "Landkreis": "Uckermark (Landkreis)",
-  "Population": 119552
+  "Population": 119552,
+  "Slope_Cases_New_Per_Million": 0.2,
+  "Slope_Deaths_New_Per_Million": 0
  },
  {
   "BL_Code": "MV",
@@ -1037,7 +1139,9 @@
   "LK_Name": "Rostock",
   "LK_Typ": "Kreisfreie Stadt",
   "Landkreis": "Rostock (Kreisfreie Stadt)",
-  "Population": 208886
+  "Population": 208886,
+  "Slope_Cases_New_Per_Million": -0.16,
+  "Slope_Deaths_New_Per_Million": 0
  },
  {
   "BL_Code": "MV",
@@ -1057,7 +1161,9 @@
   "LK_Name": "Schwerin",
   "LK_Typ": "Kreisfreie Stadt",
   "Landkreis": "Schwerin (Kreisfreie Stadt)",
-  "Population": 95818
+  "Population": 95818,
+  "Slope_Cases_New_Per_Million": 0,
+  "Slope_Deaths_New_Per_Million": 0
  },
  {
   "BL_Code": "MV",
@@ -1077,7 +1183,9 @@
   "LK_Name": "Mecklenburgische Seenplatte",
   "LK_Typ": "Landkreis",
   "Landkreis": "Mecklenburgische Seenplatte (Landkreis)",
-  "Population": 259130
+  "Population": 259130,
+  "Slope_Cases_New_Per_Million": 0,
+  "Slope_Deaths_New_Per_Million": 0
  },
  {
   "BL_Code": "MV",
@@ -1097,7 +1205,9 @@
   "LK_Name": "Rostock",
   "LK_Typ": "Landkreis",
   "Landkreis": "Rostock (Landkreis)",
-  "Population": 215113
+  "Population": 215113,
+  "Slope_Cases_New_Per_Million": -0.08,
+  "Slope_Deaths_New_Per_Million": 0
  },
  {
   "BL_Code": "MV",
@@ -1117,7 +1227,9 @@
   "LK_Name": "Vorpommern-Rügen",
   "LK_Typ": "Landkreis",
   "Landkreis": "Vorpommern-Rügen (Landkreis)",
-  "Population": 224684
+  "Population": 224684,
+  "Slope_Cases_New_Per_Million": -0.21,
+  "Slope_Deaths_New_Per_Million": 0
  },
  {
   "BL_Code": "MV",
@@ -1137,7 +1249,9 @@
   "LK_Name": "Nordwestmecklenburg",
   "LK_Typ": "Landkreis",
   "Landkreis": "Nordwestmecklenburg (Landkreis)",
-  "Population": 156729
+  "Population": 156729,
+  "Slope_Cases_New_Per_Million": 0,
+  "Slope_Deaths_New_Per_Million": 0
  },
  {
   "BL_Code": "MV",
@@ -1157,7 +1271,9 @@
   "LK_Name": "Vorpommern-Greifswald",
   "LK_Typ": "Landkreis",
   "Landkreis": "Vorpommern-Greifswald (Landkreis)",
-  "Population": 236697
+  "Population": 236697,
+  "Slope_Cases_New_Per_Million": -0.01,
+  "Slope_Deaths_New_Per_Million": 0
  },
  {
   "BL_Code": "MV",
@@ -1177,7 +1293,9 @@
   "LK_Name": "Ludwigslust-Parchim",
   "LK_Typ": "Landkreis",
   "Landkreis": "Ludwigslust-Parchim (Landkreis)",
-  "Population": 212618
+  "Population": 212618,
+  "Slope_Cases_New_Per_Million": -0.11,
+  "Slope_Deaths_New_Per_Million": 0
  },
  {
   "BL_Code": "SN",
@@ -1197,7 +1315,9 @@
   "LK_Name": "Chemnitz",
   "LK_Typ": "Kreisfreie Stadt",
   "Landkreis": "Chemnitz (Kreisfreie Stadt)",
-  "Population": 247237
+  "Population": 247237,
+  "Slope_Cases_New_Per_Million": 0.03,
+  "Slope_Deaths_New_Per_Million": 0
  },
  {
   "BL_Code": "SN",
@@ -1217,7 +1337,9 @@
   "LK_Name": "Erzgebirgskreis",
   "LK_Typ": "Landkreis",
   "Landkreis": "Erzgebirgskreis (Landkreis)",
-  "Population": 337696
+  "Population": 337696,
+  "Slope_Cases_New_Per_Million": 0.06,
+  "Slope_Deaths_New_Per_Million": 0
  },
  {
   "BL_Code": "SN",
@@ -1237,7 +1359,9 @@
   "LK_Name": "Mittelsachsen",
   "LK_Typ": "Landkreis",
   "Landkreis": "Mittelsachsen (Landkreis)",
-  "Population": 306185
+  "Population": 306185,
+  "Slope_Cases_New_Per_Million": 0.55,
+  "Slope_Deaths_New_Per_Million": 0
  },
  {
   "BL_Code": "SN",
@@ -1257,7 +1381,9 @@
   "LK_Name": "Vogtlandkreis",
   "LK_Typ": "Landkreis",
   "Landkreis": "Vogtlandkreis (Landkreis)",
-  "Population": 227796
+  "Population": 227796,
+  "Slope_Cases_New_Per_Million": 0.17,
+  "Slope_Deaths_New_Per_Million": 0
  },
  {
   "BL_Code": "SN",
@@ -1277,7 +1403,9 @@
   "LK_Name": "Zwickau",
   "LK_Typ": "Landkreis",
   "Landkreis": "Zwickau (Landkreis)",
-  "Population": 317531
+  "Population": 317531,
+  "Slope_Cases_New_Per_Million": -0.16,
+  "Slope_Deaths_New_Per_Million": 0
  },
  {
   "BL_Code": "SN",
@@ -1297,7 +1425,9 @@
   "LK_Name": "Dresden",
   "LK_Typ": "Kreisfreie Stadt",
   "Landkreis": "Dresden (Kreisfreie Stadt)",
-  "Population": 554649
+  "Population": 554649,
+  "Slope_Cases_New_Per_Million": -0.02,
+  "Slope_Deaths_New_Per_Million": 0
  },
  {
   "BL_Code": "SN",
@@ -1317,7 +1447,9 @@
   "LK_Name": "Bautzen",
   "LK_Typ": "Landkreis",
   "Landkreis": "Bautzen (Landkreis)",
-  "Population": 300880
+  "Population": 300880,
+  "Slope_Cases_New_Per_Million": -0.03,
+  "Slope_Deaths_New_Per_Million": 0
  },
  {
   "BL_Code": "SN",
@@ -1337,7 +1469,9 @@
   "LK_Name": "Görlitz",
   "LK_Typ": "Landkreis",
   "Landkreis": "Görlitz (Landkreis)",
-  "Population": 254894
+  "Population": 254894,
+  "Slope_Cases_New_Per_Million": 0,
+  "Slope_Deaths_New_Per_Million": 0
  },
  {
   "BL_Code": "SN",
@@ -1357,7 +1491,9 @@
   "LK_Name": "Meißen",
   "LK_Typ": "Landkreis",
   "Landkreis": "Meißen (Landkreis)",
-  "Population": 242165
+  "Population": 242165,
+  "Slope_Cases_New_Per_Million": -0.24,
+  "Slope_Deaths_New_Per_Million": 0
  },
  {
   "BL_Code": "SN",
@@ -1377,7 +1513,9 @@
   "LK_Name": "Sächsische Schweiz-Osterzgebirge",
   "LK_Typ": "Landkreis",
   "Landkreis": "Sächsische Schweiz-Osterzgebirge (Landkreis)",
-  "Population": 245611
+  "Population": 245611,
+  "Slope_Cases_New_Per_Million": -0.1,
+  "Slope_Deaths_New_Per_Million": 0
  },
  {
   "BL_Code": "SN",
@@ -1397,7 +1535,9 @@
   "LK_Name": "Leipzig",
   "LK_Typ": "Kreisfreie Stadt",
   "Landkreis": "Leipzig (Kreisfreie Stadt)",
-  "Population": 587857
+  "Population": 587857,
+  "Slope_Cases_New_Per_Million": 0.24,
+  "Slope_Deaths_New_Per_Million": 0
  },
  {
   "BL_Code": "SN",
@@ -1417,7 +1557,9 @@
   "LK_Name": "Leipzig",
   "LK_Typ": "Landkreis",
   "Landkreis": "Leipzig (Landkreis)",
-  "Population": 257763
+  "Population": 257763,
+  "Slope_Cases_New_Per_Million": -0.12,
+  "Slope_Deaths_New_Per_Million": 0
  },
  {
   "BL_Code": "SN",
@@ -1437,7 +1579,9 @@
   "LK_Name": "Nordsachsen",
   "LK_Typ": "Landkreis",
   "Landkreis": "Nordsachsen (Landkreis)",
-  "Population": 197673
+  "Population": 197673,
+  "Slope_Cases_New_Per_Million": 0,
+  "Slope_Deaths_New_Per_Million": 0
  },
  {
   "BL_Code": "ST",
@@ -1457,7 +1601,9 @@
   "LK_Name": "Dessau-Roßlau",
   "LK_Typ": "Kreisfreie Stadt",
   "Landkreis": "Dessau-Roßlau (Kreisfreie Stadt)",
-  "Population": 81237
+  "Population": 81237,
+  "Slope_Cases_New_Per_Million": 0,
+  "Slope_Deaths_New_Per_Million": 0
  },
  {
   "BL_Code": "ST",
@@ -1477,7 +1623,9 @@
   "LK_Name": "Halle (Saale)",
   "LK_Typ": "Kreisfreie Stadt",
   "Landkreis": "Halle (Saale) (Kreisfreie Stadt)",
-  "Population": 239257
+  "Population": 239257,
+  "Slope_Cases_New_Per_Million": -0.17,
+  "Slope_Deaths_New_Per_Million": 0
  },
  {
   "BL_Code": "ST",
@@ -1497,7 +1645,9 @@
   "LK_Name": "Magdeburg",
   "LK_Typ": "Kreisfreie Stadt",
   "Landkreis": "Magdeburg (Kreisfreie Stadt)",
-  "Population": 238697
+  "Population": 238697,
+  "Slope_Cases_New_Per_Million": 0.42,
+  "Slope_Deaths_New_Per_Million": -0.05
  },
  {
   "BL_Code": "ST",
@@ -1517,7 +1667,9 @@
   "LK_Name": "Altmarkkreis Salzwedel",
   "LK_Typ": "Landkreis",
   "Landkreis": "Altmarkkreis Salzwedel (Landkreis)",
-  "Population": 83765
+  "Population": 83765,
+  "Slope_Cases_New_Per_Million": -0.15,
+  "Slope_Deaths_New_Per_Million": 0
  },
  {
   "BL_Code": "ST",
@@ -1537,7 +1689,9 @@
   "LK_Name": "Anhalt-Bitterfeld",
   "LK_Typ": "Landkreis",
   "Landkreis": "Anhalt-Bitterfeld (Landkreis)",
-  "Population": 159854
+  "Population": 159854,
+  "Slope_Cases_New_Per_Million": 0,
+  "Slope_Deaths_New_Per_Million": 0
  },
  {
   "BL_Code": "ST",
@@ -1557,7 +1711,9 @@
   "LK_Name": "Börde",
   "LK_Typ": "Landkreis",
   "Landkreis": "Börde (Landkreis)",
-  "Population": 171734
+  "Population": 171734,
+  "Slope_Cases_New_Per_Million": 0.04,
+  "Slope_Deaths_New_Per_Million": 0
  },
  {
   "BL_Code": "ST",
@@ -1577,7 +1733,9 @@
   "LK_Name": "Burgenlandkreis",
   "LK_Typ": "Landkreis",
   "Landkreis": "Burgenlandkreis (Landkreis)",
-  "Population": 180190
+  "Population": 180190,
+  "Slope_Cases_New_Per_Million": -0.07,
+  "Slope_Deaths_New_Per_Million": 0
  },
  {
   "BL_Code": "ST",
@@ -1597,7 +1755,9 @@
   "LK_Name": "Harz",
   "LK_Typ": "Landkreis",
   "Landkreis": "Harz (Landkreis)",
-  "Population": 214446
+  "Population": 214446,
+  "Slope_Cases_New_Per_Million": 0,
+  "Slope_Deaths_New_Per_Million": 0
  },
  {
   "BL_Code": "ST",
@@ -1617,7 +1777,9 @@
   "LK_Name": "Jerichower Land",
   "LK_Typ": "Landkreis",
   "Landkreis": "Jerichower Land (Landkreis)",
-  "Population": 89928
+  "Population": 89928,
+  "Slope_Cases_New_Per_Million": 0,
+  "Slope_Deaths_New_Per_Million": 0
  },
  {
   "BL_Code": "ST",
@@ -1637,7 +1799,9 @@
   "LK_Name": "Mansfeld-Südharz",
   "LK_Typ": "Landkreis",
   "Landkreis": "Mansfeld-Südharz (Landkreis)",
-  "Population": 136249
+  "Population": 136249,
+  "Slope_Cases_New_Per_Million": -0.08,
+  "Slope_Deaths_New_Per_Million": 0
  },
  {
   "BL_Code": "ST",
@@ -1657,7 +1821,9 @@
   "LK_Name": "Saalekreis",
   "LK_Typ": "Landkreis",
   "Landkreis": "Saalekreis (Landkreis)",
-  "Population": 184582
+  "Population": 184582,
+  "Slope_Cases_New_Per_Million": 0.33,
+  "Slope_Deaths_New_Per_Million": 0
  },
  {
   "BL_Code": "ST",
@@ -1677,7 +1843,9 @@
   "LK_Name": "Salzlandkreis",
   "LK_Typ": "Landkreis",
   "Landkreis": "Salzlandkreis (Landkreis)",
-  "Population": 190560
+  "Population": 190560,
+  "Slope_Cases_New_Per_Million": 0,
+  "Slope_Deaths_New_Per_Million": 0
  },
  {
   "BL_Code": "ST",
@@ -1697,7 +1865,9 @@
   "LK_Name": "Stendal",
   "LK_Typ": "Landkreis",
   "Landkreis": "Stendal (Landkreis)",
-  "Population": 111982
+  "Population": 111982,
+  "Slope_Cases_New_Per_Million": 0,
+  "Slope_Deaths_New_Per_Million": 0
  },
  {
   "BL_Code": "ST",
@@ -1717,7 +1887,9 @@
   "LK_Name": "Wittenberg",
   "LK_Typ": "Landkreis",
   "Landkreis": "Wittenberg (Landkreis)",
-  "Population": 125840
+  "Population": 125840,
+  "Slope_Cases_New_Per_Million": 0.18,
+  "Slope_Deaths_New_Per_Million": 0
  },
  {
   "BL_Code": "TH",
@@ -1737,7 +1909,9 @@
   "LK_Name": "Erfurt",
   "LK_Typ": "Kreisfreie Stadt",
   "Landkreis": "Erfurt (Kreisfreie Stadt)",
-  "Population": 213699
+  "Population": 213699,
+  "Slope_Cases_New_Per_Million": -0.01,
+  "Slope_Deaths_New_Per_Million": 0
  },
  {
   "BL_Code": "TH",
@@ -1757,7 +1931,9 @@
   "LK_Name": "Gera",
   "LK_Typ": "Kreisfreie Stadt",
   "Landkreis": "Gera (Kreisfreie Stadt)",
-  "Population": 94152
+  "Population": 94152,
+  "Slope_Cases_New_Per_Million": 0.02,
+  "Slope_Deaths_New_Per_Million": 0
  },
  {
   "BL_Code": "TH",
@@ -1777,7 +1953,9 @@
   "LK_Name": "Jena",
   "LK_Typ": "Kreisfreie Stadt",
   "Landkreis": "Jena (Kreisfreie Stadt)",
-  "Population": 111407
+  "Population": 111407,
+  "Slope_Cases_New_Per_Million": -0.11,
+  "Slope_Deaths_New_Per_Million": 0
  },
  {
   "BL_Code": "TH",
@@ -1797,7 +1975,9 @@
   "LK_Name": "Suhl",
   "LK_Typ": "Kreisfreie Stadt",
   "Landkreis": "Suhl (Kreisfreie Stadt)",
-  "Population": 34835
+  "Population": 34835,
+  "Slope_Cases_New_Per_Million": -0.42,
+  "Slope_Deaths_New_Per_Million": 0
  },
  {
   "BL_Code": "TH",
@@ -1817,7 +1997,9 @@
   "LK_Name": "Weimar",
   "LK_Typ": "Kreisfreie Stadt",
   "Landkreis": "Weimar (Kreisfreie Stadt)",
-  "Population": 65090
+  "Population": 65090,
+  "Slope_Cases_New_Per_Million": -0.22,
+  "Slope_Deaths_New_Per_Million": 0
  },
  {
   "BL_Code": "TH",
@@ -1837,7 +2019,9 @@
   "LK_Name": "Eisenach",
   "LK_Typ": "Kreisfreie Stadt",
   "Landkreis": "Eisenach (Kreisfreie Stadt)",
-  "Population": 42370
+  "Population": 42370,
+  "Slope_Cases_New_Per_Million": 0.37,
+  "Slope_Deaths_New_Per_Million": 0
  },
  {
   "BL_Code": "TH",
@@ -1857,7 +2041,9 @@
   "LK_Name": "Eichsfeld",
   "LK_Typ": "Landkreis",
   "Landkreis": "Eichsfeld (Landkreis)",
-  "Population": 100380
+  "Population": 100380,
+  "Slope_Cases_New_Per_Million": -0.29,
+  "Slope_Deaths_New_Per_Million": 0
  },
  {
   "BL_Code": "TH",
@@ -1877,7 +2063,9 @@
   "LK_Name": "Nordhausen",
   "LK_Typ": "Landkreis",
   "Landkreis": "Nordhausen (Landkreis)",
-  "Population": 83822
+  "Population": 83822,
+  "Slope_Cases_New_Per_Million": -0.16,
+  "Slope_Deaths_New_Per_Million": 0
  },
  {
   "BL_Code": "TH",
@@ -1897,7 +2085,9 @@
   "LK_Name": "Wartburgkreis",
   "LK_Typ": "Landkreis",
   "Landkreis": "Wartburgkreis (Landkreis)",
-  "Population": 123025
+  "Population": 123025,
+  "Slope_Cases_New_Per_Million": -0.76,
+  "Slope_Deaths_New_Per_Million": 0
  },
  {
   "BL_Code": "TH",
@@ -1917,7 +2107,9 @@
   "LK_Name": "Unstrut-Hainich-Kreis",
   "LK_Typ": "Landkreis",
   "Landkreis": "Unstrut-Hainich-Kreis (Landkreis)",
-  "Population": 102912
+  "Population": 102912,
+  "Slope_Cases_New_Per_Million": -0.72,
+  "Slope_Deaths_New_Per_Million": 0
  },
  {
   "BL_Code": "TH",
@@ -1937,7 +2129,9 @@
   "LK_Name": "Kyffhäuserkreis",
   "LK_Typ": "Landkreis",
   "Landkreis": "Kyffhäuserkreis (Landkreis)",
-  "Population": 75009
+  "Population": 75009,
+  "Slope_Cases_New_Per_Million": 0.28,
+  "Slope_Deaths_New_Per_Million": 0
  },
  {
   "BL_Code": "TH",
@@ -1957,7 +2151,9 @@
   "LK_Name": "Schmalkalden-Meiningen",
   "LK_Typ": "Landkreis",
   "Landkreis": "Schmalkalden-Meiningen (Landkreis)",
-  "Population": 122347
+  "Population": 122347,
+  "Slope_Cases_New_Per_Million": -0.21,
+  "Slope_Deaths_New_Per_Million": 0
  },
  {
   "BL_Code": "TH",
@@ -1977,7 +2173,9 @@
   "LK_Name": "Gotha",
   "LK_Typ": "Landkreis",
   "Landkreis": "Gotha (Landkreis)",
-  "Population": 135452
+  "Population": 135452,
+  "Slope_Cases_New_Per_Million": -0.02,
+  "Slope_Deaths_New_Per_Million": 0
  },
  {
   "BL_Code": "TH",
@@ -1997,7 +2195,9 @@
   "LK_Name": "Sömmerda",
   "LK_Typ": "Landkreis",
   "Landkreis": "Sömmerda (Landkreis)",
-  "Population": 69655
+  "Population": 69655,
+  "Slope_Cases_New_Per_Million": 0,
+  "Slope_Deaths_New_Per_Million": 0
  },
  {
   "BL_Code": "TH",
@@ -2017,7 +2217,9 @@
   "LK_Name": "Hildburghausen",
   "LK_Typ": "Landkreis",
   "Landkreis": "Hildburghausen (Landkreis)",
-  "Population": 63553
+  "Population": 63553,
+  "Slope_Cases_New_Per_Million": -0.58,
+  "Slope_Deaths_New_Per_Million": 0
  },
  {
   "BL_Code": "TH",
@@ -2037,7 +2239,9 @@
   "LK_Name": "Ilm-Kreis",
   "LK_Typ": "Landkreis",
   "Landkreis": "Ilm-Kreis (Landkreis)",
-  "Population": 108742
+  "Population": 108742,
+  "Slope_Cases_New_Per_Million": 0,
+  "Slope_Deaths_New_Per_Million": 0
  },
  {
   "BL_Code": "TH",
@@ -2057,7 +2261,9 @@
   "LK_Name": "Weimarer Land",
   "LK_Typ": "Landkreis",
   "Landkreis": "Weimarer Land (Landkreis)",
-  "Population": 81947
+  "Population": 81947,
+  "Slope_Cases_New_Per_Million": 0,
+  "Slope_Deaths_New_Per_Million": 0
  },
  {
   "BL_Code": "TH",
@@ -2077,7 +2283,9 @@
   "LK_Name": "Sonneberg",
   "LK_Typ": "Landkreis",
   "Landkreis": "Sonneberg (Landkreis)",
-  "Population": 56196
+  "Population": 56196,
+  "Slope_Cases_New_Per_Million": -1.92,
+  "Slope_Deaths_New_Per_Million": 0
  },
  {
   "BL_Code": "TH",
@@ -2097,7 +2305,9 @@
   "LK_Name": "Saalfeld-Rudolstadt",
   "LK_Typ": "Landkreis",
   "Landkreis": "Saalfeld-Rudolstadt (Landkreis)",
-  "Population": 106356
+  "Population": 106356,
+  "Slope_Cases_New_Per_Million": 0.26,
+  "Slope_Deaths_New_Per_Million": 0
  },
  {
   "BL_Code": "TH",
@@ -2117,7 +2327,9 @@
   "LK_Name": "Saale-Holzland-Kreis",
   "LK_Typ": "Landkreis",
   "Landkreis": "Saale-Holzland-Kreis (Landkreis)",
-  "Population": 83051
+  "Population": 83051,
+  "Slope_Cases_New_Per_Million": -0.18,
+  "Slope_Deaths_New_Per_Million": 0
  },
  {
   "BL_Code": "TH",
@@ -2137,7 +2349,9 @@
   "LK_Name": "Saale-Orla-Kreis",
   "LK_Typ": "Landkreis",
   "Landkreis": "Saale-Orla-Kreis (Landkreis)",
-  "Population": 80868
+  "Population": 80868,
+  "Slope_Cases_New_Per_Million": 0,
+  "Slope_Deaths_New_Per_Million": 0
  },
  {
   "BL_Code": "TH",
@@ -2157,7 +2371,9 @@
   "LK_Name": "Greiz",
   "LK_Typ": "Landkreis",
   "Landkreis": "Greiz (Landkreis)",
-  "Population": 98159
+  "Population": 98159,
+  "Slope_Cases_New_Per_Million": -4.49,
+  "Slope_Deaths_New_Per_Million": -0.15
  },
  {
   "BL_Code": "TH",
@@ -2177,7 +2393,9 @@
   "LK_Name": "Altenburger Land",
   "LK_Typ": "Landkreis",
   "Landkreis": "Altenburger Land (Landkreis)",
-  "Population": 90118
+  "Population": 90118,
+  "Slope_Cases_New_Per_Million": -0.52,
+  "Slope_Deaths_New_Per_Million": 0
  },
  {
   "BL_Code": "HH",
@@ -2197,7 +2415,9 @@
   "LK_Name": "Hamburg",
   "LK_Typ": "Kreisfreie Stadt",
   "Landkreis": "Hamburg (Kreisfreie Stadt)",
-  "Population": 1841179
+  "Population": 1841179,
+  "Slope_Cases_New_Per_Million": -0.1,
+  "Slope_Deaths_New_Per_Million": 0
  },
  {
   "BL_Code": "NI",
@@ -2217,7 +2437,9 @@
   "LK_Name": "Braunschweig",
   "LK_Typ": "Kreisfreie Stadt",
   "Landkreis": "Braunschweig (Kreisfreie Stadt)",
-  "Population": 248292
+  "Population": 248292,
+  "Slope_Cases_New_Per_Million": 0.12,
+  "Slope_Deaths_New_Per_Million": 0
  },
  {
   "BL_Code": "NI",
@@ -2237,7 +2459,9 @@
   "LK_Name": "Salzgitter",
   "LK_Typ": "Kreisfreie Stadt",
   "Landkreis": "Salzgitter (Kreisfreie Stadt)",
-  "Population": 104948
+  "Population": 104948,
+  "Slope_Cases_New_Per_Million": 0.91,
+  "Slope_Deaths_New_Per_Million": 0
  },
  {
   "BL_Code": "NI",
@@ -2257,7 +2481,9 @@
   "LK_Name": "Wolfsburg",
   "LK_Typ": "Kreisfreie Stadt",
   "Landkreis": "Wolfsburg (Kreisfreie Stadt)",
-  "Population": 124151
+  "Population": 124151,
+  "Slope_Cases_New_Per_Million": -1.36,
+  "Slope_Deaths_New_Per_Million": 0
  },
  {
   "BL_Code": "NI",
@@ -2277,7 +2503,9 @@
   "LK_Name": "Gifhorn",
   "LK_Typ": "Landkreis",
   "Landkreis": "Gifhorn (Landkreis)",
-  "Population": 175920
+  "Population": 175920,
+  "Slope_Cases_New_Per_Million": -0.15,
+  "Slope_Deaths_New_Per_Million": 0
  },
  {
   "BL_Code": "NI",
@@ -2297,7 +2525,9 @@
   "LK_Name": "Goslar",
   "LK_Typ": "Landkreis",
   "Landkreis": "Goslar (Landkreis)",
-  "Population": 137014
+  "Population": 137014,
+  "Slope_Cases_New_Per_Million": 0.11,
+  "Slope_Deaths_New_Per_Million": 0
  },
  {
   "BL_Code": "NI",
@@ -2317,7 +2547,9 @@
   "LK_Name": "Helmstedt",
   "LK_Typ": "Landkreis",
   "Landkreis": "Helmstedt (Landkreis)",
-  "Population": 91307
+  "Population": 91307,
+  "Slope_Cases_New_Per_Million": 0,
+  "Slope_Deaths_New_Per_Million": 0
  },
  {
   "BL_Code": "NI",
@@ -2337,7 +2569,9 @@
   "LK_Name": "Northeim",
   "LK_Typ": "Landkreis",
   "Landkreis": "Northeim (Landkreis)",
-  "Population": 132765
+  "Population": 132765,
+  "Slope_Cases_New_Per_Million": 0.66,
+  "Slope_Deaths_New_Per_Million": 0
  },
  {
   "BL_Code": "NI",
@@ -2357,7 +2591,9 @@
   "LK_Name": "Peine",
   "LK_Typ": "Landkreis",
   "Landkreis": "Peine (Landkreis)",
-  "Population": 133965
+  "Population": 133965,
+  "Slope_Cases_New_Per_Million": -0.81,
+  "Slope_Deaths_New_Per_Million": 0
  },
  {
   "BL_Code": "NI",
@@ -2377,7 +2613,9 @@
   "LK_Name": "Wolfenbüttel",
   "LK_Typ": "Landkreis",
   "Landkreis": "Wolfenbüttel (Landkreis)",
-  "Population": 119960
+  "Population": 119960,
+  "Slope_Cases_New_Per_Million": 0,
+  "Slope_Deaths_New_Per_Million": 0
  },
  {
   "BL_Code": "NI",
@@ -2397,7 +2635,9 @@
   "LK_Name": "Göttingen",
   "LK_Typ": "Landkreis",
   "Landkreis": "Göttingen (Landkreis)",
-  "Population": 328074
+  "Population": 328074,
+  "Slope_Cases_New_Per_Million": 4.51,
+  "Slope_Deaths_New_Per_Million": 0
  },
  {
   "BL_Code": "NI",
@@ -2417,7 +2657,9 @@
   "LK_Name": "Region Hannover",
   "LK_Typ": "Landkreis",
   "Landkreis": "Region Hannover (Landkreis)",
-  "Population": 1157624
+  "Population": 1157624,
+  "Slope_Cases_New_Per_Million": -1.33,
+  "Slope_Deaths_New_Per_Million": 0
  },
  {
   "BL_Code": "NI",
@@ -2437,7 +2679,9 @@
   "LK_Name": "Diepholz",
   "LK_Typ": "Landkreis",
   "Landkreis": "Diepholz (Landkreis)",
-  "Population": 216886
+  "Population": 216886,
+  "Slope_Cases_New_Per_Million": -0.08,
+  "Slope_Deaths_New_Per_Million": 0
  },
  {
   "BL_Code": "NI",
@@ -2457,7 +2701,9 @@
   "LK_Name": "Hameln-Pyrmont",
   "LK_Typ": "Landkreis",
   "Landkreis": "Hameln-Pyrmont (Landkreis)",
-  "Population": 148559
+  "Population": 148559,
+  "Slope_Cases_New_Per_Million": 0.04,
+  "Slope_Deaths_New_Per_Million": 0
  },
  {
   "BL_Code": "NI",
@@ -2477,7 +2723,9 @@
   "LK_Name": "Hildesheim",
   "LK_Typ": "Landkreis",
   "Landkreis": "Hildesheim (Landkreis)",
-  "Population": 276594
+  "Population": 276594,
+  "Slope_Cases_New_Per_Million": 0.13,
+  "Slope_Deaths_New_Per_Million": 0
  },
  {
   "BL_Code": "NI",
@@ -2497,7 +2745,9 @@
   "LK_Name": "Holzminden",
   "LK_Typ": "Landkreis",
   "Landkreis": "Holzminden (Landkreis)",
-  "Population": 70975
+  "Population": 70975,
+  "Slope_Cases_New_Per_Million": 0,
+  "Slope_Deaths_New_Per_Million": 0
  },
  {
   "BL_Code": "NI",
@@ -2517,7 +2767,9 @@
   "LK_Name": "Nienburg (Weser)",
   "LK_Typ": "Landkreis",
   "Landkreis": "Nienburg (Weser) (Landkreis)",
-  "Population": 121386
+  "Population": 121386,
+  "Slope_Cases_New_Per_Million": 0.05,
+  "Slope_Deaths_New_Per_Million": 0
  },
  {
   "BL_Code": "NI",
@@ -2537,7 +2789,9 @@
   "LK_Name": "Schaumburg",
   "LK_Typ": "Landkreis",
   "Landkreis": "Schaumburg (Landkreis)",
-  "Population": 157781
+  "Population": 157781,
+  "Slope_Cases_New_Per_Million": -0.21,
+  "Slope_Deaths_New_Per_Million": 0
  },
  {
   "BL_Code": "NI",
@@ -2557,7 +2811,9 @@
   "LK_Name": "Celle",
   "LK_Typ": "Landkreis",
   "Landkreis": "Celle (Landkreis)",
-  "Population": 178936
+  "Population": 178936,
+  "Slope_Cases_New_Per_Million": -0.45,
+  "Slope_Deaths_New_Per_Million": -0.07
  },
  {
   "BL_Code": "NI",
@@ -2577,7 +2833,9 @@
   "LK_Name": "Cuxhaven",
   "LK_Typ": "Landkreis",
   "Landkreis": "Cuxhaven (Landkreis)",
-  "Population": 198213
+  "Population": 198213,
+  "Slope_Cases_New_Per_Million": -3.23,
+  "Slope_Deaths_New_Per_Million": 0
  },
  {
   "BL_Code": "NI",
@@ -2597,7 +2855,9 @@
   "LK_Name": "Harburg",
   "LK_Typ": "Landkreis",
   "Landkreis": "Harburg (Landkreis)",
-  "Population": 252776
+  "Population": 252776,
+  "Slope_Cases_New_Per_Million": -0.6,
+  "Slope_Deaths_New_Per_Million": 0
  },
  {
   "BL_Code": "NI",
@@ -2617,7 +2877,9 @@
   "LK_Name": "Lüchow-Dannenberg",
   "LK_Typ": "Landkreis",
   "Landkreis": "Lüchow-Dannenberg (Landkreis)",
-  "Population": 48424
+  "Population": 48424,
+  "Slope_Cases_New_Per_Million": -0.46,
+  "Slope_Deaths_New_Per_Million": 0
  },
  {
   "BL_Code": "NI",
@@ -2637,7 +2899,9 @@
   "LK_Name": "Lüneburg",
   "LK_Typ": "Landkreis",
   "Landkreis": "Lüneburg (Landkreis)",
-  "Population": 183372
+  "Population": 183372,
+  "Slope_Cases_New_Per_Million": -0.06,
+  "Slope_Deaths_New_Per_Million": 0
  },
  {
   "BL_Code": "NI",
@@ -2657,7 +2921,9 @@
   "LK_Name": "Osterholz",
   "LK_Typ": "Landkreis",
   "Landkreis": "Osterholz (Landkreis)",
-  "Population": 113517
+  "Population": 113517,
+  "Slope_Cases_New_Per_Million": -0.53,
+  "Slope_Deaths_New_Per_Million": 0
  },
  {
   "BL_Code": "NI",
@@ -2677,7 +2943,9 @@
   "LK_Name": "Rotenburg (Wümme)",
   "LK_Typ": "Landkreis",
   "Landkreis": "Rotenburg (Wümme) (Landkreis)",
-  "Population": 163455
+  "Population": 163455,
+  "Slope_Cases_New_Per_Million": -0.08,
+  "Slope_Deaths_New_Per_Million": 0
  },
  {
   "BL_Code": "NI",
@@ -2697,7 +2965,9 @@
   "LK_Name": "Heidekreis",
   "LK_Typ": "Landkreis",
   "Landkreis": "Heidekreis (Landkreis)",
-  "Population": 139755
+  "Population": 139755,
+  "Slope_Cases_New_Per_Million": 0.05,
+  "Slope_Deaths_New_Per_Million": 0
  },
  {
   "BL_Code": "NI",
@@ -2717,7 +2987,9 @@
   "LK_Name": "Stade",
   "LK_Typ": "Landkreis",
   "Landkreis": "Stade (Landkreis)",
-  "Population": 203102
+  "Population": 203102,
+  "Slope_Cases_New_Per_Million": -0.05,
+  "Slope_Deaths_New_Per_Million": 0
  },
  {
   "BL_Code": "NI",
@@ -2737,7 +3009,9 @@
   "LK_Name": "Uelzen",
   "LK_Typ": "Landkreis",
   "Landkreis": "Uelzen (Landkreis)",
-  "Population": 92572
+  "Population": 92572,
+  "Slope_Cases_New_Per_Million": 0,
+  "Slope_Deaths_New_Per_Million": 0
  },
  {
   "BL_Code": "NI",
@@ -2757,7 +3031,9 @@
   "LK_Name": "Verden",
   "LK_Typ": "Landkreis",
   "Landkreis": "Verden (Landkreis)",
-  "Population": 136792
+  "Population": 136792,
+  "Slope_Cases_New_Per_Million": -3.58,
+  "Slope_Deaths_New_Per_Million": -0.09
  },
  {
   "BL_Code": "NI",
@@ -2777,7 +3053,9 @@
   "LK_Name": "Delmenhorst",
   "LK_Typ": "Kreisfreie Stadt",
   "Landkreis": "Delmenhorst (Kreisfreie Stadt)",
-  "Population": 77607
+  "Population": 77607,
+  "Slope_Cases_New_Per_Million": -0.14,
+  "Slope_Deaths_New_Per_Million": 0
  },
  {
   "BL_Code": "NI",
@@ -2797,7 +3075,9 @@
   "LK_Name": "Emden",
   "LK_Typ": "Kreisfreie Stadt",
   "Landkreis": "Emden (Kreisfreie Stadt)",
-  "Population": 50195
+  "Population": 50195,
+  "Slope_Cases_New_Per_Million": 0,
+  "Slope_Deaths_New_Per_Million": 0
  },
  {
   "BL_Code": "NI",
@@ -2817,7 +3097,9 @@
   "LK_Name": "Oldenburg (Oldb)",
   "LK_Typ": "Kreisfreie Stadt",
   "Landkreis": "Oldenburg (Oldb) (Kreisfreie Stadt)",
-  "Population": 168210
+  "Population": 168210,
+  "Slope_Cases_New_Per_Million": 0,
+  "Slope_Deaths_New_Per_Million": 0
  },
  {
   "BL_Code": "NI",
@@ -2837,7 +3119,9 @@
   "LK_Name": "Osnabrück",
   "LK_Typ": "Kreisfreie Stadt",
   "Landkreis": "Osnabrück (Kreisfreie Stadt)",
-  "Population": 164748
+  "Population": 164748,
+  "Slope_Cases_New_Per_Million": -0.29,
+  "Slope_Deaths_New_Per_Million": 0
  },
  {
   "BL_Code": "NI",
@@ -2857,7 +3141,9 @@
   "LK_Name": "Wilhelmshaven",
   "LK_Typ": "Kreisfreie Stadt",
   "Landkreis": "Wilhelmshaven (Kreisfreie Stadt)",
-  "Population": 76278
+  "Population": 76278,
+  "Slope_Cases_New_Per_Million": 0,
+  "Slope_Deaths_New_Per_Million": 0
  },
  {
   "BL_Code": "NI",
@@ -2877,7 +3163,9 @@
   "LK_Name": "Ammerland",
   "LK_Typ": "Landkreis",
   "Landkreis": "Ammerland (Landkreis)",
-  "Population": 124071
+  "Population": 124071,
+  "Slope_Cases_New_Per_Million": 0,
+  "Slope_Deaths_New_Per_Million": 0
  },
  {
   "BL_Code": "NI",
@@ -2897,7 +3185,9 @@
   "LK_Name": "Aurich",
   "LK_Typ": "Landkreis",
   "Landkreis": "Aurich (Landkreis)",
-  "Population": 189848
+  "Population": 189848,
+  "Slope_Cases_New_Per_Million": -0.17,
+  "Slope_Deaths_New_Per_Million": 0
  },
  {
   "BL_Code": "NI",
@@ -2917,7 +3207,9 @@
   "LK_Name": "Cloppenburg",
   "LK_Typ": "Landkreis",
   "Landkreis": "Cloppenburg (Landkreis)",
-  "Population": 169348
+  "Population": 169348,
+  "Slope_Cases_New_Per_Million": 0,
+  "Slope_Deaths_New_Per_Million": 0
  },
  {
   "BL_Code": "NI",
@@ -2937,7 +3229,9 @@
   "LK_Name": "Emsland",
   "LK_Typ": "Landkreis",
   "Landkreis": "Emsland (Landkreis)",
-  "Population": 325657
+  "Population": 325657,
+  "Slope_Cases_New_Per_Million": -0.09,
+  "Slope_Deaths_New_Per_Million": 0
  },
  {
   "BL_Code": "NI",
@@ -2957,7 +3251,9 @@
   "LK_Name": "Friesland",
   "LK_Typ": "Landkreis",
   "Landkreis": "Friesland (Landkreis)",
-  "Population": 98460
+  "Population": 98460,
+  "Slope_Cases_New_Per_Million": 0.15,
+  "Slope_Deaths_New_Per_Million": 0
  },
  {
   "BL_Code": "NI",
@@ -2977,7 +3273,9 @@
   "LK_Name": "Grafschaft Bentheim",
   "LK_Typ": "Landkreis",
   "Landkreis": "Grafschaft Bentheim (Landkreis)",
-  "Population": 136511
+  "Population": 136511,
+  "Slope_Cases_New_Per_Million": -0.11,
+  "Slope_Deaths_New_Per_Million": 0
  },
  {
   "BL_Code": "NI",
@@ -2997,7 +3295,9 @@
   "LK_Name": "Leer",
   "LK_Typ": "Landkreis",
   "Landkreis": "Leer (Landkreis)",
-  "Population": 169809
+  "Population": 169809,
+  "Slope_Cases_New_Per_Million": -0.3,
+  "Slope_Deaths_New_Per_Million": 0
  },
  {
   "BL_Code": "NI",
@@ -3017,7 +3317,9 @@
   "LK_Name": "Oldenburg",
   "LK_Typ": "Landkreis",
   "Landkreis": "Oldenburg (Landkreis)",
-  "Population": 130144
+  "Population": 130144,
+  "Slope_Cases_New_Per_Million": 0.28,
+  "Slope_Deaths_New_Per_Million": 0
  },
  {
   "BL_Code": "NI",
@@ -3037,7 +3339,9 @@
   "LK_Name": "Osnabrück",
   "LK_Typ": "Landkreis",
   "Landkreis": "Osnabrück (Landkreis)",
-  "Population": 357343
+  "Population": 357343,
+  "Slope_Cases_New_Per_Million": -0.29,
+  "Slope_Deaths_New_Per_Million": 0
  },
  {
   "BL_Code": "NI",
@@ -3057,7 +3361,9 @@
   "LK_Name": "Vechta",
   "LK_Typ": "Landkreis",
   "Landkreis": "Vechta (Landkreis)",
-  "Population": 141598
+  "Population": 141598,
+  "Slope_Cases_New_Per_Million": -1.15,
+  "Slope_Deaths_New_Per_Million": 0
  },
  {
   "BL_Code": "NI",
@@ -3077,7 +3383,9 @@
   "LK_Name": "Wesermarsch",
   "LK_Typ": "Landkreis",
   "Landkreis": "Wesermarsch (Landkreis)",
-  "Population": 88624
+  "Population": 88624,
+  "Slope_Cases_New_Per_Million": 0.12,
+  "Slope_Deaths_New_Per_Million": 0
  },
  {
   "BL_Code": "NI",
@@ -3097,7 +3405,9 @@
   "LK_Name": "Wittmund",
   "LK_Typ": "Landkreis",
   "Landkreis": "Wittmund (Landkreis)",
-  "Population": 56882
+  "Population": 56882,
+  "Slope_Cases_New_Per_Million": 0,
+  "Slope_Deaths_New_Per_Million": 0
  },
  {
   "BL_Code": "HB",
@@ -3117,7 +3427,9 @@
   "LK_Name": "Bremen",
   "LK_Typ": "Kreisfreie Stadt",
   "Landkreis": "Bremen (Kreisfreie Stadt)",
-  "Population": 569352
+  "Population": 569352,
+  "Slope_Cases_New_Per_Million": -0.81,
+  "Slope_Deaths_New_Per_Million": 0
  },
  {
   "BL_Code": "HB",
@@ -3137,7 +3449,9 @@
   "LK_Name": "Bremerhaven",
   "LK_Typ": "Kreisfreie Stadt",
   "Landkreis": "Bremerhaven (Kreisfreie Stadt)",
-  "Population": 113634
+  "Population": 113634,
+  "Slope_Cases_New_Per_Million": 0.06,
+  "Slope_Deaths_New_Per_Million": -0.06
  },
  {
   "BL_Code": "NW",
@@ -3157,7 +3471,9 @@
   "LK_Name": "Düsseldorf",
   "LK_Typ": "Kreisfreie Stadt",
   "Landkreis": "Düsseldorf (Kreisfreie Stadt)",
-  "Population": 619294
+  "Population": 619294,
+  "Slope_Cases_New_Per_Million": 0.62,
+  "Slope_Deaths_New_Per_Million": 0
  },
  {
   "BL_Code": "NW",
@@ -3177,7 +3493,9 @@
   "LK_Name": "Duisburg",
   "LK_Typ": "Kreisfreie Stadt",
   "Landkreis": "Duisburg (Kreisfreie Stadt)",
-  "Population": 498590
+  "Population": 498590,
+  "Slope_Cases_New_Per_Million": -0.62,
+  "Slope_Deaths_New_Per_Million": 0
  },
  {
   "BL_Code": "NW",
@@ -3197,7 +3515,9 @@
   "LK_Name": "Essen",
   "LK_Typ": "Kreisfreie Stadt",
   "Landkreis": "Essen (Kreisfreie Stadt)",
-  "Population": 583109
+  "Population": 583109,
+  "Slope_Cases_New_Per_Million": 0.68,
+  "Slope_Deaths_New_Per_Million": 0
  },
  {
   "BL_Code": "NW",
@@ -3217,7 +3537,9 @@
   "LK_Name": "Krefeld",
   "LK_Typ": "Kreisfreie Stadt",
   "Landkreis": "Krefeld (Kreisfreie Stadt)",
-  "Population": 227020
+  "Population": 227020,
+  "Slope_Cases_New_Per_Million": 0.13,
+  "Slope_Deaths_New_Per_Million": 0
  },
  {
   "BL_Code": "NW",
@@ -3237,7 +3559,9 @@
   "LK_Name": "Mönchengladbach",
   "LK_Typ": "Kreisfreie Stadt",
   "Landkreis": "Mönchengladbach (Kreisfreie Stadt)",
-  "Population": 261454
+  "Population": 261454,
+  "Slope_Cases_New_Per_Million": 0.05,
+  "Slope_Deaths_New_Per_Million": 0
  },
  {
   "BL_Code": "NW",
@@ -3257,7 +3581,9 @@
   "LK_Name": "Mülheim an der Ruhr",
   "LK_Typ": "Kreisfreie Stadt",
   "Landkreis": "Mülheim an der Ruhr (Kreisfreie Stadt)",
-  "Population": 170880
+  "Population": 170880,
+  "Slope_Cases_New_Per_Million": 0.8,
+  "Slope_Deaths_New_Per_Million": 0
  },
  {
   "BL_Code": "NW",
@@ -3277,7 +3603,9 @@
   "LK_Name": "Oberhausen",
   "LK_Typ": "Kreisfreie Stadt",
   "Landkreis": "Oberhausen (Kreisfreie Stadt)",
-  "Population": 210829
+  "Population": 210829,
+  "Slope_Cases_New_Per_Million": 0.16,
+  "Slope_Deaths_New_Per_Million": 0
  },
  {
   "BL_Code": "NW",
@@ -3297,7 +3625,9 @@
   "LK_Name": "Remscheid",
   "LK_Typ": "Kreisfreie Stadt",
   "Landkreis": "Remscheid (Kreisfreie Stadt)",
-  "Population": 110994
+  "Population": 110994,
+  "Slope_Cases_New_Per_Million": 0.06,
+  "Slope_Deaths_New_Per_Million": 0
  },
  {
   "BL_Code": "NW",
@@ -3317,7 +3647,9 @@
   "LK_Name": "Solingen",
   "LK_Typ": "Kreisfreie Stadt",
   "Landkreis": "Solingen (Kreisfreie Stadt)",
-  "Population": 159360
+  "Population": 159360,
+  "Slope_Cases_New_Per_Million": 0.44,
+  "Slope_Deaths_New_Per_Million": 0
  },
  {
   "BL_Code": "NW",
@@ -3337,7 +3669,9 @@
   "LK_Name": "Wuppertal",
   "LK_Typ": "Kreisfreie Stadt",
   "Landkreis": "Wuppertal (Kreisfreie Stadt)",
-  "Population": 354382
+  "Population": 354382,
+  "Slope_Cases_New_Per_Million": 0.0,
+  "Slope_Deaths_New_Per_Million": 0
  },
  {
   "BL_Code": "NW",
@@ -3357,7 +3691,9 @@
   "LK_Name": "Kleve",
   "LK_Typ": "Kreis",
   "Landkreis": "Kleve (Kreis)",
-  "Population": 310974
+  "Population": 310974,
+  "Slope_Cases_New_Per_Million": -1.5,
+  "Slope_Deaths_New_Per_Million": 0
  },
  {
   "BL_Code": "NW",
@@ -3377,7 +3713,9 @@
   "LK_Name": "Mettmann",
   "LK_Typ": "Kreis",
   "Landkreis": "Mettmann (Kreis)",
-  "Population": 485684
+  "Population": 485684,
+  "Slope_Cases_New_Per_Million": 0.11,
+  "Slope_Deaths_New_Per_Million": 0
  },
  {
   "BL_Code": "NW",
@@ -3397,7 +3735,9 @@
   "LK_Name": "Rhein-Kreis Neuss",
   "LK_Typ": "Kreis",
   "Landkreis": "Rhein-Kreis Neuss (Kreis)",
-  "Population": 451007
+  "Population": 451007,
+  "Slope_Cases_New_Per_Million": 0.12,
+  "Slope_Deaths_New_Per_Million": 0
  },
  {
   "BL_Code": "NW",
@@ -3417,7 +3757,9 @@
   "LK_Name": "Viersen",
   "LK_Typ": "Kreis",
   "Landkreis": "Viersen (Kreis)",
-  "Population": 298935
+  "Population": 298935,
+  "Slope_Cases_New_Per_Million": 0.19,
+  "Slope_Deaths_New_Per_Million": 0
  },
  {
   "BL_Code": "NW",
@@ -3437,7 +3779,9 @@
   "LK_Name": "Wesel",
   "LK_Typ": "Kreis",
   "Landkreis": "Wesel (Kreis)",
-  "Population": 459809
+  "Population": 459809,
+  "Slope_Cases_New_Per_Million": -0.11,
+  "Slope_Deaths_New_Per_Million": 0
  },
  {
   "BL_Code": "NW",
@@ -3457,7 +3801,9 @@
   "LK_Name": "Bonn",
   "LK_Typ": "Kreisfreie Stadt",
   "Landkreis": "Bonn (Kreisfreie Stadt)",
-  "Population": 327258
+  "Population": 327258,
+  "Slope_Cases_New_Per_Million": 0.03,
+  "Slope_Deaths_New_Per_Million": 0
  },
  {
   "BL_Code": "NW",
@@ -3477,7 +3823,9 @@
   "LK_Name": "Köln",
   "LK_Typ": "Kreisfreie Stadt",
   "Landkreis": "Köln (Kreisfreie Stadt)",
-  "Population": 1085664
+  "Population": 1085664,
+  "Slope_Cases_New_Per_Million": -0.16,
+  "Slope_Deaths_New_Per_Million": -0.02
  },
  {
   "BL_Code": "NW",
@@ -3497,7 +3845,9 @@
   "LK_Name": "Leverkusen",
   "LK_Typ": "Kreisfreie Stadt",
   "Landkreis": "Leverkusen (Kreisfreie Stadt)",
-  "Population": 163838
+  "Population": 163838,
+  "Slope_Cases_New_Per_Million": -0.48,
+  "Slope_Deaths_New_Per_Million": 0
  },
  {
   "BL_Code": "NW",
@@ -3517,7 +3867,9 @@
   "LK_Name": "Städteregion Aachen",
   "LK_Typ": "Kreis",
   "Landkreis": "Städteregion Aachen (Kreis)",
-  "Population": 555465
+  "Population": 555465,
+  "Slope_Cases_New_Per_Million": 0.14,
+  "Slope_Deaths_New_Per_Million": 0
  },
  {
   "BL_Code": "NW",
@@ -3537,7 +3889,9 @@
   "LK_Name": "Düren",
   "LK_Typ": "Kreis",
   "Landkreis": "Düren (Kreis)",
-  "Population": 263722
+  "Population": 263722,
+  "Slope_Cases_New_Per_Million": -0.19,
+  "Slope_Deaths_New_Per_Million": 0
  },
  {
   "BL_Code": "NW",
@@ -3557,7 +3911,9 @@
   "LK_Name": "Rhein-Erft-Kreis",
   "LK_Typ": "Kreis",
   "Landkreis": "Rhein-Erft-Kreis (Kreis)",
-  "Population": 470089
+  "Population": 470089,
+  "Slope_Cases_New_Per_Million": -0.0,
+  "Slope_Deaths_New_Per_Million": 0
  },
  {
   "BL_Code": "NW",
@@ -3577,7 +3933,9 @@
   "LK_Name": "Euskirchen",
   "LK_Typ": "Kreis",
   "Landkreis": "Euskirchen (Kreis)",
-  "Population": 192840
+  "Population": 192840,
+  "Slope_Cases_New_Per_Million": 0.0,
+  "Slope_Deaths_New_Per_Million": 0
  },
  {
   "BL_Code": "NW",
@@ -3597,7 +3955,9 @@
   "LK_Name": "Heinsberg",
   "LK_Typ": "Kreis",
   "Landkreis": "Heinsberg (Kreis)",
-  "Population": 254322
+  "Population": 254322,
+  "Slope_Cases_New_Per_Million": 0.82,
+  "Slope_Deaths_New_Per_Million": 0
  },
  {
   "BL_Code": "NW",
@@ -3617,7 +3977,9 @@
   "LK_Name": "Oberbergischer Kreis",
   "LK_Typ": "Kreis",
   "Landkreis": "Oberbergischer Kreis (Kreis)",
-  "Population": 272471
+  "Population": 272471,
+  "Slope_Cases_New_Per_Million": 0.11,
+  "Slope_Deaths_New_Per_Million": 0
  },
  {
   "BL_Code": "NW",
@@ -3637,7 +3999,9 @@
   "LK_Name": "Rheinisch-Bergischer Kreis",
   "LK_Typ": "Kreis",
   "Landkreis": "Rheinisch-Bergischer Kreis (Kreis)",
-  "Population": 283455
+  "Population": 283455,
+  "Slope_Cases_New_Per_Million": -0.09,
+  "Slope_Deaths_New_Per_Million": 0
  },
  {
   "BL_Code": "NW",
@@ -3657,7 +4021,9 @@
   "LK_Name": "Rhein-Sieg-Kreis",
   "LK_Typ": "Kreis",
   "Landkreis": "Rhein-Sieg-Kreis (Kreis)",
-  "Population": 599780
+  "Population": 599780,
+  "Slope_Cases_New_Per_Million": -0.08,
+  "Slope_Deaths_New_Per_Million": 0
  },
  {
   "BL_Code": "NW",
@@ -3677,7 +4043,9 @@
   "LK_Name": "Bottrop",
   "LK_Typ": "Kreisfreie Stadt",
   "Landkreis": "Bottrop (Kreisfreie Stadt)",
-  "Population": 117383
+  "Population": 117383,
+  "Slope_Cases_New_Per_Million": -0.5,
+  "Slope_Deaths_New_Per_Million": 0
  },
  {
   "BL_Code": "NW",
@@ -3697,7 +4065,9 @@
   "LK_Name": "Gelsenkirchen",
   "LK_Typ": "Kreisfreie Stadt",
   "Landkreis": "Gelsenkirchen (Kreisfreie Stadt)",
-  "Population": 260654
+  "Population": 260654,
+  "Slope_Cases_New_Per_Million": 0.88,
+  "Slope_Deaths_New_Per_Million": 0
  },
  {
   "BL_Code": "NW",
@@ -3717,7 +4087,9 @@
   "LK_Name": "Münster",
   "LK_Typ": "Kreisfreie Stadt",
   "Landkreis": "Münster (Kreisfreie Stadt)",
-  "Population": 314319
+  "Population": 314319,
+  "Slope_Cases_New_Per_Million": -0.07,
+  "Slope_Deaths_New_Per_Million": 0
  },
  {
   "BL_Code": "NW",
@@ -3737,7 +4109,9 @@
   "LK_Name": "Borken",
   "LK_Typ": "Kreis",
   "Landkreis": "Borken (Kreis)",
-  "Population": 370676
+  "Population": 370676,
+  "Slope_Cases_New_Per_Million": 0.03,
+  "Slope_Deaths_New_Per_Million": 0
  },
  {
   "BL_Code": "NW",
@@ -3757,7 +4131,9 @@
   "LK_Name": "Coesfeld",
   "LK_Typ": "Kreis",
   "Landkreis": "Coesfeld (Kreis)",
-  "Population": 219929
+  "Population": 219929,
+  "Slope_Cases_New_Per_Million": -0.12,
+  "Slope_Deaths_New_Per_Million": 0
  },
  {
   "BL_Code": "NW",
@@ -3777,7 +4153,9 @@
   "LK_Name": "Recklinghausen",
   "LK_Typ": "Kreis",
   "Landkreis": "Recklinghausen (Kreis)",
-  "Population": 615261
+  "Population": 615261,
+  "Slope_Cases_New_Per_Million": 0.36,
+  "Slope_Deaths_New_Per_Million": -0.03
  },
  {
   "BL_Code": "NW",
@@ -3797,7 +4175,9 @@
   "LK_Name": "Steinfurt",
   "LK_Typ": "Kreis",
   "Landkreis": "Steinfurt (Kreis)",
-  "Population": 447614
+  "Population": 447614,
+  "Slope_Cases_New_Per_Million": -0.32,
+  "Slope_Deaths_New_Per_Million": 0
  },
  {
   "BL_Code": "NW",
@@ -3817,7 +4197,9 @@
   "LK_Name": "Warendorf",
   "LK_Typ": "Kreis",
   "Landkreis": "Warendorf (Kreis)",
-  "Population": 277783
+  "Population": 277783,
+  "Slope_Cases_New_Per_Million": 7.84,
+  "Slope_Deaths_New_Per_Million": 0
  },
  {
   "BL_Code": "NW",
@@ -3837,7 +4219,9 @@
   "LK_Name": "Bielefeld",
   "LK_Typ": "Kreisfreie Stadt",
   "Landkreis": "Bielefeld (Kreisfreie Stadt)",
-  "Population": 333786
+  "Population": 333786,
+  "Slope_Cases_New_Per_Million": 0.64,
+  "Slope_Deaths_New_Per_Million": 0
  },
  {
   "BL_Code": "NW",
@@ -3857,7 +4241,9 @@
   "LK_Name": "Gütersloh",
   "LK_Typ": "Kreis",
   "Landkreis": "Gütersloh (Kreis)",
-  "Population": 364083
+  "Population": 364083,
+  "Slope_Cases_New_Per_Million": 25.74,
+  "Slope_Deaths_New_Per_Million": 0
  },
  {
   "BL_Code": "NW",
@@ -3877,7 +4263,9 @@
   "LK_Name": "Herford",
   "LK_Typ": "Kreis",
   "Landkreis": "Herford (Kreis)",
-  "Population": 250783
+  "Population": 250783,
+  "Slope_Cases_New_Per_Million": 0.76,
+  "Slope_Deaths_New_Per_Million": 0
  },
  {
   "BL_Code": "NW",
@@ -3897,7 +4285,9 @@
   "LK_Name": "Höxter",
   "LK_Typ": "Kreis",
   "Landkreis": "Höxter (Kreis)",
-  "Population": 140667
+  "Population": 140667,
+  "Slope_Cases_New_Per_Million": -0.18,
+  "Slope_Deaths_New_Per_Million": 0.02
  },
  {
   "BL_Code": "NW",
@@ -3917,7 +4307,9 @@
   "LK_Name": "Lippe",
   "LK_Typ": "Kreis",
   "Landkreis": "Lippe (Kreis)",
-  "Population": 348391
+  "Population": 348391,
+  "Slope_Cases_New_Per_Million": -0.19,
+  "Slope_Deaths_New_Per_Million": 0
  },
  {
   "BL_Code": "NW",
@@ -3937,7 +4329,9 @@
   "LK_Name": "Minden-Lübbecke",
   "LK_Typ": "Kreis",
   "Landkreis": "Minden-Lübbecke (Kreis)",
-  "Population": 310710
+  "Population": 310710,
+  "Slope_Cases_New_Per_Million": 0.12,
+  "Slope_Deaths_New_Per_Million": 0
  },
  {
   "BL_Code": "NW",
@@ -3957,7 +4351,9 @@
   "LK_Name": "Paderborn",
   "LK_Typ": "Kreis",
   "Landkreis": "Paderborn (Kreis)",
-  "Population": 306890
+  "Population": 306890,
+  "Slope_Cases_New_Per_Million": 0.56,
+  "Slope_Deaths_New_Per_Million": 0
  },
  {
   "BL_Code": "NW",
@@ -3977,7 +4373,9 @@
   "LK_Name": "Bochum",
   "LK_Typ": "Kreisfreie Stadt",
   "Landkreis": "Bochum (Kreisfreie Stadt)",
-  "Population": 364628
+  "Population": 364628,
+  "Slope_Cases_New_Per_Million": -0.02,
+  "Slope_Deaths_New_Per_Million": 0
  },
  {
   "BL_Code": "NW",
@@ -3997,7 +4395,9 @@
   "LK_Name": "Dortmund",
   "LK_Typ": "Kreisfreie Stadt",
   "Landkreis": "Dortmund (Kreisfreie Stadt)",
-  "Population": 587010
+  "Population": 587010,
+  "Slope_Cases_New_Per_Million": 0.2,
+  "Slope_Deaths_New_Per_Million": 0
  },
  {
   "BL_Code": "NW",
@@ -4017,7 +4417,9 @@
   "LK_Name": "Hagen",
   "LK_Typ": "Kreisfreie Stadt",
   "Landkreis": "Hagen (Kreisfreie Stadt)",
-  "Population": 188814
+  "Population": 188814,
+  "Slope_Cases_New_Per_Million": 0.44,
+  "Slope_Deaths_New_Per_Million": 0
  },
  {
   "BL_Code": "NW",
@@ -4037,7 +4439,9 @@
   "LK_Name": "Hamm",
   "LK_Typ": "Kreisfreie Stadt",
   "Landkreis": "Hamm (Kreisfreie Stadt)",
-  "Population": 179111
+  "Population": 179111,
+  "Slope_Cases_New_Per_Million": 3.31,
+  "Slope_Deaths_New_Per_Million": 0
  },
  {
   "BL_Code": "NW",
@@ -4057,7 +4461,9 @@
   "LK_Name": "Herne",
   "LK_Typ": "Kreisfreie Stadt",
   "Landkreis": "Herne (Kreisfreie Stadt)",
-  "Population": 156374
+  "Population": 156374,
+  "Slope_Cases_New_Per_Million": 1.4,
+  "Slope_Deaths_New_Per_Million": 0
  },
  {
   "BL_Code": "NW",
@@ -4077,7 +4483,9 @@
   "LK_Name": "Ennepe-Ruhr-Kreis",
   "LK_Typ": "Kreis",
   "Landkreis": "Ennepe-Ruhr-Kreis (Kreis)",
-  "Population": 324296
+  "Population": 324296,
+  "Slope_Cases_New_Per_Million": -0.44,
+  "Slope_Deaths_New_Per_Million": 0
  },
  {
   "BL_Code": "NW",
@@ -4097,7 +4505,9 @@
   "LK_Name": "Hochsauerlandkreis",
   "LK_Typ": "Kreis",
   "Landkreis": "Hochsauerlandkreis (Kreis)",
-  "Population": 260475
+  "Population": 260475,
+  "Slope_Cases_New_Per_Million": 0.17,
+  "Slope_Deaths_New_Per_Million": 0
  },
  {
   "BL_Code": "NW",
@@ -4117,7 +4527,9 @@
   "LK_Name": "Märkischer Kreis",
   "LK_Typ": "Kreis",
   "Landkreis": "Märkischer Kreis (Kreis)",
-  "Population": 412120
+  "Population": 412120,
+  "Slope_Cases_New_Per_Million": -0.05,
+  "Slope_Deaths_New_Per_Million": 0
  },
  {
   "BL_Code": "NW",
@@ -4137,7 +4549,9 @@
   "LK_Name": "Olpe",
   "LK_Typ": "Kreis",
   "Landkreis": "Olpe (Kreis)",
-  "Population": 134775
+  "Population": 134775,
+  "Slope_Cases_New_Per_Million": 0.4,
+  "Slope_Deaths_New_Per_Million": 0
  },
  {
   "BL_Code": "NW",
@@ -4157,7 +4571,9 @@
   "LK_Name": "Siegen-Wittgenstein",
   "LK_Typ": "Kreis",
   "Landkreis": "Siegen-Wittgenstein (Kreis)",
-  "Population": 278210
+  "Population": 278210,
+  "Slope_Cases_New_Per_Million": 0.04,
+  "Slope_Deaths_New_Per_Million": 0
  },
  {
   "BL_Code": "NW",
@@ -4177,7 +4593,9 @@
   "LK_Name": "Soest",
   "LK_Typ": "Kreis",
   "Landkreis": "Soest (Kreis)",
-  "Population": 301902
+  "Population": 301902,
+  "Slope_Cases_New_Per_Million": -0.04,
+  "Slope_Deaths_New_Per_Million": 0
  },
  {
   "BL_Code": "NW",
@@ -4197,7 +4615,9 @@
   "LK_Name": "Unna",
   "LK_Typ": "Kreis",
   "Landkreis": "Unna (Kreis)",
-  "Population": 394782
+  "Population": 394782,
+  "Slope_Cases_New_Per_Million": 0.11,
+  "Slope_Deaths_New_Per_Million": 0
  },
  {
   "BL_Code": "HE",
@@ -4217,7 +4637,9 @@
   "LK_Name": "Darmstadt",
   "LK_Typ": "Kreisfreie Stadt",
   "Landkreis": "Darmstadt (Kreisfreie Stadt)",
-  "Population": 159207
+  "Population": 159207,
+  "Slope_Cases_New_Per_Million": 0.12,
+  "Slope_Deaths_New_Per_Million": 0
  },
  {
   "BL_Code": "HE",
@@ -4237,7 +4659,9 @@
   "LK_Name": "Frankfurt am Main",
   "LK_Typ": "Kreisfreie Stadt",
   "Landkreis": "Frankfurt am Main (Kreisfreie Stadt)",
-  "Population": 753056
+  "Population": 753056,
+  "Slope_Cases_New_Per_Million": 0.19,
+  "Slope_Deaths_New_Per_Million": 0.02
  },
  {
   "BL_Code": "HE",
@@ -4257,7 +4681,9 @@
   "LK_Name": "Offenbach am Main",
   "LK_Typ": "Kreisfreie Stadt",
   "Landkreis": "Offenbach am Main (Kreisfreie Stadt)",
-  "Population": 128744
+  "Population": 128744,
+  "Slope_Cases_New_Per_Million": 0.68,
+  "Slope_Deaths_New_Per_Million": 0
  },
  {
   "BL_Code": "HE",
@@ -4277,7 +4703,9 @@
   "LK_Name": "Wiesbaden",
   "LK_Typ": "Kreisfreie Stadt",
   "Landkreis": "Wiesbaden (Kreisfreie Stadt)",
-  "Population": 278342
+  "Population": 278342,
+  "Slope_Cases_New_Per_Million": -0.44,
+  "Slope_Deaths_New_Per_Million": 0
  },
  {
   "BL_Code": "HE",
@@ -4297,7 +4725,9 @@
   "LK_Name": "Bergstraße",
   "LK_Typ": "Landkreis",
   "Landkreis": "Bergstraße (Landkreis)",
-  "Population": 269694
+  "Population": 269694,
+  "Slope_Cases_New_Per_Million": 0.28,
+  "Slope_Deaths_New_Per_Million": 0
  },
  {
   "BL_Code": "HE",
@@ -4317,7 +4747,9 @@
   "LK_Name": "Darmstadt-Dieburg",
   "LK_Typ": "Landkreis",
   "Landkreis": "Darmstadt-Dieburg (Landkreis)",
-  "Population": 297399
+  "Population": 297399,
+  "Slope_Cases_New_Per_Million": 0.13,
+  "Slope_Deaths_New_Per_Million": 0
  },
  {
   "BL_Code": "HE",
@@ -4337,7 +4769,9 @@
   "LK_Name": "Groß-Gerau",
   "LK_Typ": "Landkreis",
   "Landkreis": "Groß-Gerau (Landkreis)",
-  "Population": 274526
+  "Population": 274526,
+  "Slope_Cases_New_Per_Million": 0.52,
+  "Slope_Deaths_New_Per_Million": 0
  },
  {
   "BL_Code": "HE",
@@ -4357,7 +4791,9 @@
   "LK_Name": "Hochtaunuskreis",
   "LK_Typ": "Landkreis",
   "Landkreis": "Hochtaunuskreis (Landkreis)",
-  "Population": 236564
+  "Population": 236564,
+  "Slope_Cases_New_Per_Million": 0.09,
+  "Slope_Deaths_New_Per_Million": 0
  },
  {
   "BL_Code": "HE",
@@ -4377,7 +4813,9 @@
   "LK_Name": "Main-Kinzig-Kreis",
   "LK_Typ": "Landkreis",
   "Landkreis": "Main-Kinzig-Kreis (Landkreis)",
-  "Population": 418950
+  "Population": 418950,
+  "Slope_Cases_New_Per_Million": -0.01,
+  "Slope_Deaths_New_Per_Million": 0
  },
  {
   "BL_Code": "HE",
@@ -4397,7 +4835,9 @@
   "LK_Name": "Main-Taunus-Kreis",
   "LK_Typ": "Landkreis",
   "Landkreis": "Main-Taunus-Kreis (Landkreis)",
-  "Population": 237735
+  "Population": 237735,
+  "Slope_Cases_New_Per_Million": -0.05,
+  "Slope_Deaths_New_Per_Million": 0
  },
  {
   "BL_Code": "HE",
@@ -4417,7 +4857,9 @@
   "LK_Name": "Odenwaldkreis",
   "LK_Typ": "Landkreis",
   "Landkreis": "Odenwaldkreis (Landkreis)",
-  "Population": 96798
+  "Population": 96798,
+  "Slope_Cases_New_Per_Million": 0.13,
+  "Slope_Deaths_New_Per_Million": 0
  },
  {
   "BL_Code": "HE",
@@ -4437,7 +4879,9 @@
   "LK_Name": "Offenbach",
   "LK_Typ": "Landkreis",
   "Landkreis": "Offenbach (Landkreis)",
-  "Population": 354092
+  "Population": 354092,
+  "Slope_Cases_New_Per_Million": 0.19,
+  "Slope_Deaths_New_Per_Million": 0
  },
  {
   "BL_Code": "HE",
@@ -4457,7 +4901,9 @@
   "LK_Name": "Rheingau-Taunus-Kreis",
   "LK_Typ": "Landkreis",
   "Landkreis": "Rheingau-Taunus-Kreis (Landkreis)",
-  "Population": 187157
+  "Population": 187157,
+  "Slope_Cases_New_Per_Million": -0.23,
+  "Slope_Deaths_New_Per_Million": 0
  },
  {
   "BL_Code": "HE",
@@ -4477,7 +4923,9 @@
   "LK_Name": "Wetteraukreis",
   "LK_Typ": "Landkreis",
   "Landkreis": "Wetteraukreis (Landkreis)",
-  "Population": 306460
+  "Population": 306460,
+  "Slope_Cases_New_Per_Million": -0.31,
+  "Slope_Deaths_New_Per_Million": -0.04
  },
  {
   "BL_Code": "HE",
@@ -4497,7 +4945,9 @@
   "LK_Name": "Gießen",
   "LK_Typ": "Landkreis",
   "Landkreis": "Gießen (Landkreis)",
-  "Population": 268876
+  "Population": 268876,
+  "Slope_Cases_New_Per_Million": 0.07,
+  "Slope_Deaths_New_Per_Million": 0
  },
  {
   "BL_Code": "HE",
@@ -4517,7 +4967,9 @@
   "LK_Name": "Lahn-Dill-Kreis",
   "LK_Typ": "Landkreis",
   "Landkreis": "Lahn-Dill-Kreis (Landkreis)",
-  "Population": 253777
+  "Population": 253777,
+  "Slope_Cases_New_Per_Million": -0.05,
+  "Slope_Deaths_New_Per_Million": 0
  },
  {
   "BL_Code": "HE",
@@ -4537,7 +4989,9 @@
   "LK_Name": "Limburg-Weilburg",
   "LK_Typ": "Landkreis",
   "Landkreis": "Limburg-Weilburg (Landkreis)",
-  "Population": 172083
+  "Population": 172083,
+  "Slope_Cases_New_Per_Million": -0.17,
+  "Slope_Deaths_New_Per_Million": 0
  },
  {
   "BL_Code": "HE",
@@ -4557,7 +5011,9 @@
   "LK_Name": "Marburg-Biedenkopf",
   "LK_Typ": "Landkreis",
   "Landkreis": "Marburg-Biedenkopf (Landkreis)",
-  "Population": 246648
+  "Population": 246648,
+  "Slope_Cases_New_Per_Million": -0.04,
+  "Slope_Deaths_New_Per_Million": 0
  },
  {
   "BL_Code": "HE",
@@ -4577,7 +5033,9 @@
   "LK_Name": "Vogelsbergkreis",
   "LK_Typ": "Landkreis",
   "Landkreis": "Vogelsbergkreis (Landkreis)",
-  "Population": 105878
+  "Population": 105878,
+  "Slope_Cases_New_Per_Million": 0,
+  "Slope_Deaths_New_Per_Million": 0
  },
  {
   "BL_Code": "HE",
@@ -4597,7 +5055,9 @@
   "LK_Name": "Kassel",
   "LK_Typ": "Kreisfreie Stadt",
   "Landkreis": "Kassel (Kreisfreie Stadt)",
-  "Population": 201585
+  "Population": 201585,
+  "Slope_Cases_New_Per_Million": 0.69,
+  "Slope_Deaths_New_Per_Million": 0
  },
  {
   "BL_Code": "HE",
@@ -4617,7 +5077,9 @@
   "LK_Name": "Fulda",
   "LK_Typ": "Landkreis",
   "Landkreis": "Fulda (Landkreis)",
-  "Population": 222584
+  "Population": 222584,
+  "Slope_Cases_New_Per_Million": 0.22,
+  "Slope_Deaths_New_Per_Million": 0
  },
  {
   "BL_Code": "HE",
@@ -4637,7 +5099,9 @@
   "LK_Name": "Hersfeld-Rotenburg",
   "LK_Typ": "Landkreis",
   "Landkreis": "Hersfeld-Rotenburg (Landkreis)",
-  "Population": 120829
+  "Population": 120829,
+  "Slope_Cases_New_Per_Million": 0.04,
+  "Slope_Deaths_New_Per_Million": 0
  },
  {
   "BL_Code": "HE",
@@ -4657,7 +5121,9 @@
   "LK_Name": "Kassel",
   "LK_Typ": "Landkreis",
   "Landkreis": "Kassel (Landkreis)",
-  "Population": 236633
+  "Population": 236633,
+  "Slope_Cases_New_Per_Million": 0.03,
+  "Slope_Deaths_New_Per_Million": 0
  },
  {
   "BL_Code": "HE",
@@ -4677,7 +5143,9 @@
   "LK_Name": "Schwalm-Eder-Kreis",
   "LK_Typ": "Landkreis",
   "Landkreis": "Schwalm-Eder-Kreis (Landkreis)",
-  "Population": 180222
+  "Population": 180222,
+  "Slope_Cases_New_Per_Million": 0.21,
+  "Slope_Deaths_New_Per_Million": 0
  },
  {
   "BL_Code": "HE",
@@ -4697,7 +5165,9 @@
   "LK_Name": "Waldeck-Frankenberg",
   "LK_Typ": "Landkreis",
   "Landkreis": "Waldeck-Frankenberg (Landkreis)",
-  "Population": 156953
+  "Population": 156953,
+  "Slope_Cases_New_Per_Million": 0.01,
+  "Slope_Deaths_New_Per_Million": 0
  },
  {
   "BL_Code": "HE",
@@ -4717,7 +5187,9 @@
   "LK_Name": "Werra-Meißner-Kreis",
   "LK_Typ": "Landkreis",
   "Landkreis": "Werra-Meißner-Kreis (Landkreis)",
-  "Population": 101017
+  "Population": 101017,
+  "Slope_Cases_New_Per_Million": 0.44,
+  "Slope_Deaths_New_Per_Million": 0
  },
  {
   "BL_Code": "RP",
@@ -4737,7 +5209,9 @@
   "LK_Name": "Koblenz",
   "LK_Typ": "Kreisfreie Stadt",
   "Landkreis": "Koblenz (Kreisfreie Stadt)",
-  "Population": 114024
+  "Population": 114024,
+  "Slope_Cases_New_Per_Million": -0.12,
+  "Slope_Deaths_New_Per_Million": 0
  },
  {
   "BL_Code": "RP",
@@ -4757,7 +5231,9 @@
   "LK_Name": "Ahrweiler",
   "LK_Typ": "Landkreis",
   "Landkreis": "Ahrweiler (Landkreis)",
-  "Population": 129727
+  "Population": 129727,
+  "Slope_Cases_New_Per_Million": -0.1,
+  "Slope_Deaths_New_Per_Million": 0
  },
  {
   "BL_Code": "RP",
@@ -4777,7 +5253,9 @@
   "LK_Name": "Altenkirchen (Westerwald)",
   "LK_Typ": "Landkreis",
   "Landkreis": "Altenkirchen (Westerwald) (Landkreis)",
-  "Population": 128705
+  "Population": 128705,
+  "Slope_Cases_New_Per_Million": 0.46,
+  "Slope_Deaths_New_Per_Million": 0
  },
  {
   "BL_Code": "RP",
@@ -4797,7 +5275,9 @@
   "LK_Name": "Bad Kreuznach",
   "LK_Typ": "Landkreis",
   "Landkreis": "Bad Kreuznach (Landkreis)",
-  "Population": 158080
+  "Population": 158080,
+  "Slope_Cases_New_Per_Million": 0.05,
+  "Slope_Deaths_New_Per_Million": 0
  },
  {
   "BL_Code": "RP",
@@ -4817,7 +5297,9 @@
   "LK_Name": "Birkenfeld",
   "LK_Typ": "Landkreis",
   "Landkreis": "Birkenfeld (Landkreis)",
-  "Population": 80720
+  "Population": 80720,
+  "Slope_Cases_New_Per_Million": 0,
+  "Slope_Deaths_New_Per_Million": 0
  },
  {
   "BL_Code": "RP",
@@ -4837,7 +5319,9 @@
   "LK_Name": "Cochem-Zell",
   "LK_Typ": "Landkreis",
   "Landkreis": "Cochem-Zell (Landkreis)",
-  "Population": 61587
+  "Population": 61587,
+  "Slope_Cases_New_Per_Million": -0.84,
+  "Slope_Deaths_New_Per_Million": 0
  },
  {
   "BL_Code": "RP",
@@ -4857,7 +5341,9 @@
   "LK_Name": "Mayen-Koblenz",
   "LK_Typ": "Landkreis",
   "Landkreis": "Mayen-Koblenz (Landkreis)",
-  "Population": 214259
+  "Population": 214259,
+  "Slope_Cases_New_Per_Million": 0.22,
+  "Slope_Deaths_New_Per_Million": 0
  },
  {
   "BL_Code": "RP",
@@ -4877,7 +5363,9 @@
   "LK_Name": "Neuwied",
   "LK_Typ": "Landkreis",
   "Landkreis": "Neuwied (Landkreis)",
-  "Population": 181941
+  "Population": 181941,
+  "Slope_Cases_New_Per_Million": -0.06,
+  "Slope_Deaths_New_Per_Million": 0
  },
  {
   "BL_Code": "RP",
@@ -4897,7 +5385,9 @@
   "LK_Name": "Rhein-Hunsrück-Kreis",
   "LK_Typ": "Landkreis",
   "Landkreis": "Rhein-Hunsrück-Kreis (Landkreis)",
-  "Population": 102937
+  "Population": 102937,
+  "Slope_Cases_New_Per_Million": 0,
+  "Slope_Deaths_New_Per_Million": 0
  },
  {
   "BL_Code": "RP",
@@ -4917,7 +5407,9 @@
   "LK_Name": "Rhein-Lahn-Kreis",
   "LK_Typ": "Landkreis",
   "Landkreis": "Rhein-Lahn-Kreis (Landkreis)",
-  "Population": 122308
+  "Population": 122308,
+  "Slope_Cases_New_Per_Million": 0,
+  "Slope_Deaths_New_Per_Million": 0
  },
  {
   "BL_Code": "RP",
@@ -4937,7 +5429,9 @@
   "LK_Name": "Westerwaldkreis",
   "LK_Typ": "Landkreis",
   "Landkreis": "Westerwaldkreis (Landkreis)",
-  "Population": 201597
+  "Population": 201597,
+  "Slope_Cases_New_Per_Million": 0.43,
+  "Slope_Deaths_New_Per_Million": 0
  },
  {
   "BL_Code": "RP",
@@ -4957,7 +5451,9 @@
   "LK_Name": "Trier",
   "LK_Typ": "Kreisfreie Stadt",
   "Landkreis": "Trier (Kreisfreie Stadt)",
-  "Population": 110636
+  "Population": 110636,
+  "Slope_Cases_New_Per_Million": 0.06,
+  "Slope_Deaths_New_Per_Million": 0
  },
  {
   "BL_Code": "RP",
@@ -4977,7 +5473,9 @@
   "LK_Name": "Bernkastel-Wittlich",
   "LK_Typ": "Landkreis",
   "Landkreis": "Bernkastel-Wittlich (Landkreis)",
-  "Population": 112262
+  "Population": 112262,
+  "Slope_Cases_New_Per_Million": 0.42,
+  "Slope_Deaths_New_Per_Million": 0
  },
  {
   "BL_Code": "RP",
@@ -4997,7 +5495,9 @@
   "LK_Name": "Eifelkreis Bitburg-Prüm",
   "LK_Typ": "Landkreis",
   "Landkreis": "Eifelkreis Bitburg-Prüm (Landkreis)",
-  "Population": 98561
+  "Population": 98561,
+  "Slope_Cases_New_Per_Million": 0.29,
+  "Slope_Deaths_New_Per_Million": 0
  },
  {
   "BL_Code": "RP",
@@ -5017,7 +5517,9 @@
   "LK_Name": "Vulkaneifel",
   "LK_Typ": "Landkreis",
   "Landkreis": "Vulkaneifel (Landkreis)",
-  "Population": 60603
+  "Population": 60603,
+  "Slope_Cases_New_Per_Million": 0.11,
+  "Slope_Deaths_New_Per_Million": 0
  },
  {
   "BL_Code": "RP",
@@ -5037,7 +5539,9 @@
   "LK_Name": "Trier-Saarburg",
   "LK_Typ": "Landkreis",
   "Landkreis": "Trier-Saarburg (Landkreis)",
-  "Population": 148945
+  "Population": 148945,
+  "Slope_Cases_New_Per_Million": -0.15,
+  "Slope_Deaths_New_Per_Million": 0
  },
  {
   "BL_Code": "RP",
@@ -5057,7 +5561,9 @@
   "LK_Name": "Frankenthal (Pfalz)",
   "LK_Typ": "Kreisfreie Stadt",
   "Landkreis": "Frankenthal (Pfalz) (Kreisfreie Stadt)",
-  "Population": 48561
+  "Population": 48561,
+  "Slope_Cases_New_Per_Million": 0.41,
+  "Slope_Deaths_New_Per_Million": 0
  },
  {
   "BL_Code": "RP",
@@ -5077,7 +5583,9 @@
   "LK_Name": "Kaiserslautern",
   "LK_Typ": "Kreisfreie Stadt",
   "Landkreis": "Kaiserslautern (Kreisfreie Stadt)",
-  "Population": 99845
+  "Population": 99845,
+  "Slope_Cases_New_Per_Million": -0.28,
+  "Slope_Deaths_New_Per_Million": 0
  },
  {
   "BL_Code": "RP",
@@ -5097,7 +5605,9 @@
   "LK_Name": "Landau in der Pfalz",
   "LK_Typ": "Kreisfreie Stadt",
   "Landkreis": "Landau in der Pfalz (Kreisfreie Stadt)",
-  "Population": 46677
+  "Population": 46677,
+  "Slope_Cases_New_Per_Million": 0,
+  "Slope_Deaths_New_Per_Million": 0
  },
  {
   "BL_Code": "RP",
@@ -5117,7 +5627,9 @@
   "LK_Name": "Ludwigshafen am Rhein",
   "LK_Typ": "Kreisfreie Stadt",
   "Landkreis": "Ludwigshafen am Rhein (Kreisfreie Stadt)",
-  "Population": 171061
+  "Population": 171061,
+  "Slope_Cases_New_Per_Million": -0.14,
+  "Slope_Deaths_New_Per_Million": 0
  },
  {
   "BL_Code": "RP",
@@ -5137,7 +5649,9 @@
   "LK_Name": "Mainz",
   "LK_Typ": "Kreisfreie Stadt",
   "Landkreis": "Mainz (Kreisfreie Stadt)",
-  "Population": 217118
+  "Population": 217118,
+  "Slope_Cases_New_Per_Million": -0.94,
+  "Slope_Deaths_New_Per_Million": 0
  },
  {
   "BL_Code": "RP",
@@ -5157,7 +5671,9 @@
   "LK_Name": "Neustadt an der Weinstraße",
   "LK_Typ": "Kreisfreie Stadt",
   "Landkreis": "Neustadt an der Weinstraße (Kreisfreie Stadt)",
-  "Population": 53148
+  "Population": 53148,
+  "Slope_Cases_New_Per_Million": 0,
+  "Slope_Deaths_New_Per_Million": 0
  },
  {
   "BL_Code": "RP",
@@ -5177,7 +5693,9 @@
   "LK_Name": "Pirmasens",
   "LK_Typ": "Kreisfreie Stadt",
   "Landkreis": "Pirmasens (Kreisfreie Stadt)",
-  "Population": 40403
+  "Population": 40403,
+  "Slope_Cases_New_Per_Million": 0,
+  "Slope_Deaths_New_Per_Million": 0
  },
  {
   "BL_Code": "RP",
@@ -5197,7 +5715,9 @@
   "LK_Name": "Speyer",
   "LK_Typ": "Kreisfreie Stadt",
   "Landkreis": "Speyer (Kreisfreie Stadt)",
-  "Population": 50378
+  "Population": 50378,
+  "Slope_Cases_New_Per_Million": -1.45,
+  "Slope_Deaths_New_Per_Million": 0
  },
  {
   "BL_Code": "RP",
@@ -5217,7 +5737,9 @@
   "LK_Name": "Worms",
   "LK_Typ": "Kreisfreie Stadt",
   "Landkreis": "Worms (Kreisfreie Stadt)",
-  "Population": 83330
+  "Population": 83330,
+  "Slope_Cases_New_Per_Million": -0.34,
+  "Slope_Deaths_New_Per_Million": 0
  },
  {
   "BL_Code": "RP",
@@ -5237,7 +5759,9 @@
   "LK_Name": "Zweibrücken",
   "LK_Typ": "Kreisfreie Stadt",
   "Landkreis": "Zweibrücken (Kreisfreie Stadt)",
-  "Population": 34209
+  "Population": 34209,
+  "Slope_Cases_New_Per_Million": 1.21,
+  "Slope_Deaths_New_Per_Million": 0
  },
  {
   "BL_Code": "RP",
@@ -5257,7 +5781,9 @@
   "LK_Name": "Alzey-Worms",
   "LK_Typ": "Landkreis",
   "Landkreis": "Alzey-Worms (Landkreis)",
-  "Population": 129244
+  "Population": 129244,
+  "Slope_Cases_New_Per_Million": -0.04,
+  "Slope_Deaths_New_Per_Million": 0
  },
  {
   "BL_Code": "RP",
@@ -5277,7 +5803,9 @@
   "LK_Name": "Bad Dürkheim",
   "LK_Typ": "Landkreis",
   "Landkreis": "Bad Dürkheim (Landkreis)",
-  "Population": 132660
+  "Population": 132660,
+  "Slope_Cases_New_Per_Million": -0.21,
+  "Slope_Deaths_New_Per_Million": 0
  },
  {
   "BL_Code": "RP",
@@ -5297,7 +5825,9 @@
   "LK_Name": "Donnersbergkreis",
   "LK_Typ": "Landkreis",
   "Landkreis": "Donnersbergkreis (Landkreis)",
-  "Population": 75101
+  "Population": 75101,
+  "Slope_Cases_New_Per_Million": 0,
+  "Slope_Deaths_New_Per_Million": 0
  },
  {
   "BL_Code": "RP",
@@ -5317,7 +5847,9 @@
   "LK_Name": "Germersheim",
   "LK_Typ": "Landkreis",
   "Landkreis": "Germersheim (Landkreis)",
-  "Population": 129075
+  "Population": 129075,
+  "Slope_Cases_New_Per_Million": 0.19,
+  "Slope_Deaths_New_Per_Million": 0
  },
  {
   "BL_Code": "RP",
@@ -5337,7 +5869,9 @@
   "LK_Name": "Kaiserslautern",
   "LK_Typ": "Landkreis",
   "Landkreis": "Kaiserslautern (Landkreis)",
-  "Population": 106057
+  "Population": 106057,
+  "Slope_Cases_New_Per_Million": 0,
+  "Slope_Deaths_New_Per_Million": 0
  },
  {
   "BL_Code": "RP",
@@ -5357,7 +5891,9 @@
   "LK_Name": "Kusel",
   "LK_Typ": "Landkreis",
   "Landkreis": "Kusel (Landkreis)",
-  "Population": 70526
+  "Population": 70526,
+  "Slope_Cases_New_Per_Million": 0,
+  "Slope_Deaths_New_Per_Million": 0
  },
  {
   "BL_Code": "RP",
@@ -5377,7 +5913,9 @@
   "LK_Name": "Südliche Weinstraße",
   "LK_Typ": "Landkreis",
   "Landkreis": "Südliche Weinstraße (Landkreis)",
-  "Population": 110356
+  "Population": 110356,
+  "Slope_Cases_New_Per_Million": 0.34,
+  "Slope_Deaths_New_Per_Million": 0
  },
  {
   "BL_Code": "RP",
@@ -5397,7 +5935,9 @@
   "LK_Name": "Rhein-Pfalz-Kreis",
   "LK_Typ": "Landkreis",
   "Landkreis": "Rhein-Pfalz-Kreis (Landkreis)",
-  "Population": 154201
+  "Population": 154201,
+  "Slope_Cases_New_Per_Million": 0.15,
+  "Slope_Deaths_New_Per_Million": 0
  },
  {
   "BL_Code": "RP",
@@ -5417,7 +5957,9 @@
   "LK_Name": "Mainz-Bingen",
   "LK_Typ": "Landkreis",
   "Landkreis": "Mainz-Bingen (Landkreis)",
-  "Population": 210889
+  "Population": 210889,
+  "Slope_Cases_New_Per_Million": -0.03,
+  "Slope_Deaths_New_Per_Million": 0
  },
  {
   "BL_Code": "RP",
@@ -5437,7 +5979,9 @@
   "LK_Name": "Südwestpfalz",
   "LK_Typ": "Landkreis",
   "Landkreis": "Südwestpfalz (Landkreis)",
-  "Population": 95113
+  "Population": 95113,
+  "Slope_Cases_New_Per_Million": 0,
+  "Slope_Deaths_New_Per_Million": 0
  },
  {
   "BL_Code": "BW",
@@ -5457,7 +6001,9 @@
   "LK_Name": "Stuttgart",
   "LK_Typ": "Stadtkreis",
   "Landkreis": "Stuttgart (Stadtkreis)",
-  "Population": 634830
+  "Population": 634830,
+  "Slope_Cases_New_Per_Million": 0.17,
+  "Slope_Deaths_New_Per_Million": 0
  },
  {
   "BL_Code": "BW",
@@ -5477,7 +6023,9 @@
   "LK_Name": "Böblingen",
   "LK_Typ": "Landkreis",
   "Landkreis": "Böblingen (Landkreis)",
-  "Population": 391640
+  "Population": 391640,
+  "Slope_Cases_New_Per_Million": -0.03,
+  "Slope_Deaths_New_Per_Million": 0
  },
  {
   "BL_Code": "BW",
@@ -5497,7 +6045,9 @@
   "LK_Name": "Esslingen",
   "LK_Typ": "Landkreis",
   "Landkreis": "Esslingen (Landkreis)",
-  "Population": 533859
+  "Population": 533859,
+  "Slope_Cases_New_Per_Million": -0.13,
+  "Slope_Deaths_New_Per_Million": 0
  },
  {
   "BL_Code": "BW",
@@ -5517,7 +6067,9 @@
   "LK_Name": "Göppingen",
   "LK_Typ": "Landkreis",
   "Landkreis": "Göppingen (Landkreis)",
-  "Population": 257253
+  "Population": 257253,
+  "Slope_Cases_New_Per_Million": -0.09,
+  "Slope_Deaths_New_Per_Million": 0
  },
  {
   "BL_Code": "BW",
@@ -5537,7 +6089,9 @@
   "LK_Name": "Ludwigsburg",
   "LK_Typ": "Landkreis",
   "Landkreis": "Ludwigsburg (Landkreis)",
-  "Population": 543984
+  "Population": 543984,
+  "Slope_Cases_New_Per_Million": -0.4,
+  "Slope_Deaths_New_Per_Million": 0
  },
  {
   "BL_Code": "BW",
@@ -5557,7 +6111,9 @@
   "LK_Name": "Rems-Murr-Kreis",
   "LK_Typ": "Landkreis",
   "Landkreis": "Rems-Murr-Kreis (Landkreis)",
-  "Population": 426158
+  "Population": 426158,
+  "Slope_Cases_New_Per_Million": -0.45,
+  "Slope_Deaths_New_Per_Million": 0
  },
  {
   "BL_Code": "BW",
@@ -5577,7 +6133,9 @@
   "LK_Name": "Heilbronn",
   "LK_Typ": "Stadtkreis",
   "Landkreis": "Heilbronn (Stadtkreis)",
-  "Population": 125960
+  "Population": 125960,
+  "Slope_Cases_New_Per_Million": -0.87,
+  "Slope_Deaths_New_Per_Million": 0
  },
  {
   "BL_Code": "BW",
@@ -5597,7 +6155,9 @@
   "LK_Name": "Heilbronn",
   "LK_Typ": "Landkreis",
   "Landkreis": "Heilbronn (Landkreis)",
-  "Population": 343068
+  "Population": 343068,
+  "Slope_Cases_New_Per_Million": -0.24,
+  "Slope_Deaths_New_Per_Million": 0
  },
  {
   "BL_Code": "BW",
@@ -5617,7 +6177,9 @@
   "LK_Name": "Hohenlohekreis",
   "LK_Typ": "Landkreis",
   "Landkreis": "Hohenlohekreis (Landkreis)",
-  "Population": 112010
+  "Population": 112010,
+  "Slope_Cases_New_Per_Million": 0.51,
+  "Slope_Deaths_New_Per_Million": 0
  },
  {
   "BL_Code": "BW",
@@ -5637,7 +6199,9 @@
   "LK_Name": "Schwäbisch Hall",
   "LK_Typ": "Landkreis",
   "Landkreis": "Schwäbisch Hall (Landkreis)",
-  "Population": 195861
+  "Population": 195861,
+  "Slope_Cases_New_Per_Million": 0.2,
+  "Slope_Deaths_New_Per_Million": 0
  },
  {
   "BL_Code": "BW",
@@ -5657,7 +6221,9 @@
   "LK_Name": "Main-Tauber-Kreis",
   "LK_Typ": "Landkreis",
   "Landkreis": "Main-Tauber-Kreis (Landkreis)",
-  "Population": 132321
+  "Population": 132321,
+  "Slope_Cases_New_Per_Million": -0.11,
+  "Slope_Deaths_New_Per_Million": 0
  },
  {
   "BL_Code": "BW",
@@ -5677,7 +6243,9 @@
   "LK_Name": "Heidenheim",
   "LK_Typ": "Landkreis",
   "Landkreis": "Heidenheim (Landkreis)",
-  "Population": 132472
+  "Population": 132472,
+  "Slope_Cases_New_Per_Million": 0,
+  "Slope_Deaths_New_Per_Million": 0
  },
  {
   "BL_Code": "BW",
@@ -5697,7 +6265,9 @@
   "LK_Name": "Ostalbkreis",
   "LK_Typ": "Landkreis",
   "Landkreis": "Ostalbkreis (Landkreis)",
-  "Population": 314002
+  "Population": 314002,
+  "Slope_Cases_New_Per_Million": -0.04,
+  "Slope_Deaths_New_Per_Million": 0
  },
  {
   "BL_Code": "BW",
@@ -5717,7 +6287,9 @@
   "LK_Name": "Baden-Baden",
   "LK_Typ": "Stadtkreis",
   "Landkreis": "Baden-Baden (Stadtkreis)",
-  "Population": 55123
+  "Population": 55123,
+  "Slope_Cases_New_Per_Million": 0,
+  "Slope_Deaths_New_Per_Million": 0
  },
  {
   "BL_Code": "BW",
@@ -5737,7 +6309,9 @@
   "LK_Name": "Karlsruhe",
   "LK_Typ": "Stadtkreis",
   "Landkreis": "Karlsruhe (Stadtkreis)",
-  "Population": 313092
+  "Population": 313092,
+  "Slope_Cases_New_Per_Million": 0.08,
+  "Slope_Deaths_New_Per_Million": 0
  },
  {
   "BL_Code": "BW",
@@ -5757,7 +6331,9 @@
   "LK_Name": "Karlsruhe",
   "LK_Typ": "Landkreis",
   "Landkreis": "Karlsruhe (Landkreis)",
-  "Population": 444232
+  "Population": 444232,
+  "Slope_Cases_New_Per_Million": -0.28,
+  "Slope_Deaths_New_Per_Million": 0
  },
  {
   "BL_Code": "BW",
@@ -5777,7 +6353,9 @@
   "LK_Name": "Rastatt",
   "LK_Typ": "Landkreis",
   "Landkreis": "Rastatt (Landkreis)",
-  "Population": 231018
+  "Population": 231018,
+  "Slope_Cases_New_Per_Million": -0.25,
+  "Slope_Deaths_New_Per_Million": 0
  },
  {
   "BL_Code": "BW",
@@ -5797,7 +6375,9 @@
   "LK_Name": "Heidelberg",
   "LK_Typ": "Stadtkreis",
   "Landkreis": "Heidelberg (Stadtkreis)",
-  "Population": 160355
+  "Population": 160355,
+  "Slope_Cases_New_Per_Million": -0.51,
+  "Slope_Deaths_New_Per_Million": 0
  },
  {
   "BL_Code": "BW",
@@ -5817,7 +6397,9 @@
   "LK_Name": "Mannheim",
   "LK_Typ": "Stadtkreis",
   "Landkreis": "Mannheim (Stadtkreis)",
-  "Population": 309370
+  "Population": 309370,
+  "Slope_Cases_New_Per_Million": -0.11,
+  "Slope_Deaths_New_Per_Million": 0
  },
  {
   "BL_Code": "BW",
@@ -5837,7 +6419,9 @@
   "LK_Name": "Neckar-Odenwald-Kreis",
   "LK_Typ": "Landkreis",
   "Landkreis": "Neckar-Odenwald-Kreis (Landkreis)",
-  "Population": 143535
+  "Population": 143535,
+  "Slope_Cases_New_Per_Million": -0.34,
+  "Slope_Deaths_New_Per_Million": 0
  },
  {
   "BL_Code": "BW",
@@ -5857,7 +6441,9 @@
   "LK_Name": "Rhein-Neckar-Kreis",
   "LK_Typ": "Landkreis",
   "Landkreis": "Rhein-Neckar-Kreis (Landkreis)",
-  "Population": 547625
+  "Population": 547625,
+  "Slope_Cases_New_Per_Million": 0.02,
+  "Slope_Deaths_New_Per_Million": 0
  },
  {
   "BL_Code": "BW",
@@ -5877,7 +6463,9 @@
   "LK_Name": "Pforzheim",
   "LK_Typ": "Stadtkreis",
   "Landkreis": "Pforzheim (Stadtkreis)",
-  "Population": 125542
+  "Population": 125542,
+  "Slope_Cases_New_Per_Million": -0.27,
+  "Slope_Deaths_New_Per_Million": 0
  },
  {
   "BL_Code": "BW",
@@ -5897,7 +6485,9 @@
   "LK_Name": "Calw",
   "LK_Typ": "Landkreis",
   "Landkreis": "Calw (Landkreis)",
-  "Population": 158397
+  "Population": 158397,
+  "Slope_Cases_New_Per_Million": 0.09,
+  "Slope_Deaths_New_Per_Million": 0
  },
  {
   "BL_Code": "BW",
@@ -5917,7 +6507,9 @@
   "LK_Name": "Enzkreis",
   "LK_Typ": "Landkreis",
   "Landkreis": "Enzkreis (Landkreis)",
-  "Population": 198905
+  "Population": 198905,
+  "Slope_Cases_New_Per_Million": 0.19,
+  "Slope_Deaths_New_Per_Million": 0
  },
  {
   "BL_Code": "BW",
@@ -5937,7 +6529,9 @@
   "LK_Name": "Freudenstadt",
   "LK_Typ": "Landkreis",
   "Landkreis": "Freudenstadt (Landkreis)",
-  "Population": 117935
+  "Population": 117935,
+  "Slope_Cases_New_Per_Million": 0,
+  "Slope_Deaths_New_Per_Million": 0
  },
  {
   "BL_Code": "BW",
@@ -5957,7 +6551,9 @@
   "LK_Name": "Freiburg im Breisgau",
   "LK_Typ": "Stadtkreis",
   "Landkreis": "Freiburg im Breisgau (Stadtkreis)",
-  "Population": 230241
+  "Population": 230241,
+  "Slope_Cases_New_Per_Million": 0.18,
+  "Slope_Deaths_New_Per_Million": 0
  },
  {
   "BL_Code": "BW",
@@ -5977,7 +6573,9 @@
   "LK_Name": "Breisgau-Hochschwarzwald",
   "LK_Typ": "Landkreis",
   "Landkreis": "Breisgau-Hochschwarzwald (Landkreis)",
-  "Population": 262795
+  "Population": 262795,
+  "Slope_Cases_New_Per_Million": -0.12,
+  "Slope_Deaths_New_Per_Million": 0
  },
  {
   "BL_Code": "BW",
@@ -5997,7 +6595,9 @@
   "LK_Name": "Emmendingen",
   "LK_Typ": "Landkreis",
   "Landkreis": "Emmendingen (Landkreis)",
-  "Population": 165383
+  "Population": 165383,
+  "Slope_Cases_New_Per_Million": 0.51,
+  "Slope_Deaths_New_Per_Million": 0
  },
  {
   "BL_Code": "BW",
@@ -6017,7 +6617,9 @@
   "LK_Name": "Ortenaukreis",
   "LK_Typ": "Landkreis",
   "Landkreis": "Ortenaukreis (Landkreis)",
-  "Population": 429479
+  "Population": 429479,
+  "Slope_Cases_New_Per_Million": -0.03,
+  "Slope_Deaths_New_Per_Million": 0
  },
  {
   "BL_Code": "BW",
@@ -6037,7 +6639,9 @@
   "LK_Name": "Rottweil",
   "LK_Typ": "Landkreis",
   "Landkreis": "Rottweil (Landkreis)",
-  "Population": 139455
+  "Population": 139455,
+  "Slope_Cases_New_Per_Million": -0.0,
+  "Slope_Deaths_New_Per_Million": 0
  },
  {
   "BL_Code": "BW",
@@ -6057,7 +6661,9 @@
   "LK_Name": "Schwarzwald-Baar-Kreis",
   "LK_Typ": "Landkreis",
   "Landkreis": "Schwarzwald-Baar-Kreis (Landkreis)",
-  "Population": 212381
+  "Population": 212381,
+  "Slope_Cases_New_Per_Million": 0.52,
+  "Slope_Deaths_New_Per_Million": 0
  },
  {
   "BL_Code": "BW",
@@ -6077,7 +6683,9 @@
   "LK_Name": "Tuttlingen",
   "LK_Typ": "Landkreis",
   "Landkreis": "Tuttlingen (Landkreis)",
-  "Population": 140152
+  "Population": 140152,
+  "Slope_Cases_New_Per_Million": 0.03,
+  "Slope_Deaths_New_Per_Million": 0
  },
  {
   "BL_Code": "BW",
@@ -6097,7 +6705,9 @@
   "LK_Name": "Konstanz",
   "LK_Typ": "Landkreis",
   "Landkreis": "Konstanz (Landkreis)",
-  "Population": 285325
+  "Population": 285325,
+  "Slope_Cases_New_Per_Million": -0.06,
+  "Slope_Deaths_New_Per_Million": 0
  },
  {
   "BL_Code": "BW",
@@ -6117,7 +6727,9 @@
   "LK_Name": "Lörrach",
   "LK_Typ": "Landkreis",
   "Landkreis": "Lörrach (Landkreis)",
-  "Population": 228639
+  "Population": 228639,
+  "Slope_Cases_New_Per_Million": -0.09,
+  "Slope_Deaths_New_Per_Million": 0
  },
  {
   "BL_Code": "BW",
@@ -6137,7 +6749,9 @@
   "LK_Name": "Waldshut",
   "LK_Typ": "Landkreis",
   "Landkreis": "Waldshut (Landkreis)",
-  "Population": 170619
+  "Population": 170619,
+  "Slope_Cases_New_Per_Million": -0.07,
+  "Slope_Deaths_New_Per_Million": 0
  },
  {
   "BL_Code": "BW",
@@ -6157,7 +6771,9 @@
   "LK_Name": "Reutlingen",
   "LK_Typ": "Landkreis",
   "Landkreis": "Reutlingen (Landkreis)",
-  "Population": 286748
+  "Population": 286748,
+  "Slope_Cases_New_Per_Million": 0.24,
+  "Slope_Deaths_New_Per_Million": 0
  },
  {
   "BL_Code": "BW",
@@ -6177,7 +6793,9 @@
   "LK_Name": "Tübingen",
   "LK_Typ": "Landkreis",
   "Landkreis": "Tübingen (Landkreis)",
-  "Population": 227331
+  "Population": 227331,
+  "Slope_Cases_New_Per_Million": -0.1,
+  "Slope_Deaths_New_Per_Million": 0
  },
  {
   "BL_Code": "BW",
@@ -6197,7 +6815,9 @@
   "LK_Name": "Zollernalbkreis",
   "LK_Typ": "Landkreis",
   "Landkreis": "Zollernalbkreis (Landkreis)",
-  "Population": 188935
+  "Population": 188935,
+  "Slope_Cases_New_Per_Million": -0.06,
+  "Slope_Deaths_New_Per_Million": 0
  },
  {
   "BL_Code": "BW",
@@ -6217,7 +6837,9 @@
   "LK_Name": "Ulm",
   "LK_Typ": "Stadtkreis",
   "Landkreis": "Ulm (Stadtkreis)",
-  "Population": 126329
+  "Population": 126329,
+  "Slope_Cases_New_Per_Million": -0.76,
+  "Slope_Deaths_New_Per_Million": 0
  },
  {
   "BL_Code": "BW",
@@ -6237,7 +6859,9 @@
   "LK_Name": "Alb-Donau-Kreis",
   "LK_Typ": "Landkreis",
   "Landkreis": "Alb-Donau-Kreis (Landkreis)",
-  "Population": 196047
+  "Population": 196047,
+  "Slope_Cases_New_Per_Million": -0.04,
+  "Slope_Deaths_New_Per_Million": 0
  },
  {
   "BL_Code": "BW",
@@ -6257,7 +6881,9 @@
   "LK_Name": "Biberach",
   "LK_Typ": "Landkreis",
   "Landkreis": "Biberach (Landkreis)",
-  "Population": 199742
+  "Population": 199742,
+  "Slope_Cases_New_Per_Million": 0.07,
+  "Slope_Deaths_New_Per_Million": 0
  },
  {
   "BL_Code": "BW",
@@ -6277,7 +6903,9 @@
   "LK_Name": "Bodenseekreis",
   "LK_Typ": "Landkreis",
   "Landkreis": "Bodenseekreis (Landkreis)",
-  "Population": 216227
+  "Population": 216227,
+  "Slope_Cases_New_Per_Million": -0.06,
+  "Slope_Deaths_New_Per_Million": 0
  },
  {
   "BL_Code": "BW",
@@ -6297,7 +6925,9 @@
   "LK_Name": "Ravensburg",
   "LK_Typ": "Landkreis",
   "Landkreis": "Ravensburg (Landkreis)",
-  "Population": 284285
+  "Population": 284285,
+  "Slope_Cases_New_Per_Million": -0.11,
+  "Slope_Deaths_New_Per_Million": 0
  },
  {
   "BL_Code": "BW",
@@ -6317,7 +6947,9 @@
   "LK_Name": "Sigmaringen",
   "LK_Typ": "Landkreis",
   "Landkreis": "Sigmaringen (Landkreis)",
-  "Population": 130873
+  "Population": 130873,
+  "Slope_Cases_New_Per_Million": 0.05,
+  "Slope_Deaths_New_Per_Million": 0
  },
  {
   "BL_Code": "BY",
@@ -6337,7 +6969,9 @@
   "LK_Name": "Ingolstadt",
   "LK_Typ": "Kreisfreie Stadt",
   "Landkreis": "Ingolstadt (Kreisfreie Stadt)",
-  "Population": 136981
+  "Population": 136981,
+  "Slope_Cases_New_Per_Million": 0.62,
+  "Slope_Deaths_New_Per_Million": 0
  },
  {
   "BL_Code": "BY",
@@ -6357,7 +6991,9 @@
   "LK_Name": "München",
   "LK_Typ": "Kreisfreie Stadt",
   "Landkreis": "München (Kreisfreie Stadt)",
-  "Population": 1471508
+  "Population": 1471508,
+  "Slope_Cases_New_Per_Million": 0.32,
+  "Slope_Deaths_New_Per_Million": 0
  },
  {
   "BL_Code": "BY",
@@ -6377,7 +7013,9 @@
   "LK_Name": "Rosenheim",
   "LK_Typ": "Kreisfreie Stadt",
   "Landkreis": "Rosenheim (Kreisfreie Stadt)",
-  "Population": 63324
+  "Population": 63324,
+  "Slope_Cases_New_Per_Million": -0.07,
+  "Slope_Deaths_New_Per_Million": 0
  },
  {
   "BL_Code": "BY",
@@ -6397,7 +7035,9 @@
   "LK_Name": "Altötting",
   "LK_Typ": "Landkreis",
   "Landkreis": "Altötting (Landkreis)",
-  "Population": 111210
+  "Population": 111210,
+  "Slope_Cases_New_Per_Million": 0,
+  "Slope_Deaths_New_Per_Million": 0
  },
  {
   "BL_Code": "BY",
@@ -6417,7 +7057,9 @@
   "LK_Name": "Berchtesgadener Land",
   "LK_Typ": "Landkreis",
   "Landkreis": "Berchtesgadener Land (Landkreis)",
-  "Population": 105722
+  "Population": 105722,
+  "Slope_Cases_New_Per_Million": 0.6,
+  "Slope_Deaths_New_Per_Million": 0
  },
  {
   "BL_Code": "BY",
@@ -6437,7 +7079,9 @@
   "LK_Name": "Bad Tölz-Wolfratshausen",
   "LK_Typ": "Landkreis",
   "Landkreis": "Bad Tölz-Wolfratshausen (Landkreis)",
-  "Population": 127227
+  "Population": 127227,
+  "Slope_Cases_New_Per_Million": 0.12,
+  "Slope_Deaths_New_Per_Million": 0
  },
  {
   "BL_Code": "BY",
@@ -6457,7 +7101,9 @@
   "LK_Name": "Dachau",
   "LK_Typ": "Landkreis",
   "Landkreis": "Dachau (Landkreis)",
-  "Population": 153884
+  "Population": 153884,
+  "Slope_Cases_New_Per_Million": 0.34,
+  "Slope_Deaths_New_Per_Million": 0
  },
  {
   "BL_Code": "BY",
@@ -6477,7 +7123,9 @@
   "LK_Name": "Ebersberg",
   "LK_Typ": "Landkreis",
   "Landkreis": "Ebersberg (Landkreis)",
-  "Population": 142142
+  "Population": 142142,
+  "Slope_Cases_New_Per_Million": -0.09,
+  "Slope_Deaths_New_Per_Million": 0
  },
  {
   "BL_Code": "BY",
@@ -6497,7 +7145,9 @@
   "LK_Name": "Eichstätt",
   "LK_Typ": "Landkreis",
   "Landkreis": "Eichstätt (Landkreis)",
-  "Population": 132341
+  "Population": 132341,
+  "Slope_Cases_New_Per_Million": -1.0,
+  "Slope_Deaths_New_Per_Million": 0
  },
  {
   "BL_Code": "BY",
@@ -6517,7 +7167,9 @@
   "LK_Name": "Erding",
   "LK_Typ": "Landkreis",
   "Landkreis": "Erding (Landkreis)",
-  "Population": 137660
+  "Population": 137660,
+  "Slope_Cases_New_Per_Million": 0.85,
+  "Slope_Deaths_New_Per_Million": 0
  },
  {
   "BL_Code": "BY",
@@ -6537,7 +7189,9 @@
   "LK_Name": "Freising",
   "LK_Typ": "Landkreis",
   "Landkreis": "Freising (Landkreis)",
-  "Population": 179116
+  "Population": 179116,
+  "Slope_Cases_New_Per_Million": 0.86,
+  "Slope_Deaths_New_Per_Million": 0
  },
  {
   "BL_Code": "BY",
@@ -6557,7 +7211,9 @@
   "LK_Name": "Fürstenfeldbruck",
   "LK_Typ": "Landkreis",
   "Landkreis": "Fürstenfeldbruck (Landkreis)",
-  "Population": 219320
+  "Population": 219320,
+  "Slope_Cases_New_Per_Million": -0.22,
+  "Slope_Deaths_New_Per_Million": 0
  },
  {
   "BL_Code": "BY",
@@ -6577,7 +7233,9 @@
   "LK_Name": "Garmisch-Partenkirchen",
   "LK_Typ": "Landkreis",
   "Landkreis": "Garmisch-Partenkirchen (Landkreis)",
-  "Population": 88467
+  "Population": 88467,
+  "Slope_Cases_New_Per_Million": 0,
+  "Slope_Deaths_New_Per_Million": 0
  },
  {
   "BL_Code": "BY",
@@ -6597,7 +7255,9 @@
   "LK_Name": "Landsberg am Lech",
   "LK_Typ": "Landkreis",
   "Landkreis": "Landsberg am Lech (Landkreis)",
-  "Population": 120071
+  "Population": 120071,
+  "Slope_Cases_New_Per_Million": 0.16,
+  "Slope_Deaths_New_Per_Million": 0
  },
  {
   "BL_Code": "BY",
@@ -6617,7 +7277,9 @@
   "LK_Name": "Miesbach",
   "LK_Typ": "Landkreis",
   "Landkreis": "Miesbach (Landkreis)",
-  "Population": 99726
+  "Population": 99726,
+  "Slope_Cases_New_Per_Million": 0,
+  "Slope_Deaths_New_Per_Million": 0
  },
  {
   "BL_Code": "BY",
@@ -6637,7 +7299,9 @@
   "LK_Name": "Mühldorf a. Inn",
   "LK_Typ": "Landkreis",
   "Landkreis": "Mühldorf a. Inn (Landkreis)",
-  "Population": 115250
+  "Population": 115250,
+  "Slope_Cases_New_Per_Million": -0.13,
+  "Slope_Deaths_New_Per_Million": 0
  },
  {
   "BL_Code": "BY",
@@ -6657,7 +7321,9 @@
   "LK_Name": "München",
   "LK_Typ": "Landkreis",
   "Landkreis": "München (Landkreis)",
-  "Population": 348871
+  "Population": 348871,
+  "Slope_Cases_New_Per_Million": -0.12,
+  "Slope_Deaths_New_Per_Million": 0
  },
  {
   "BL_Code": "BY",
@@ -6677,7 +7343,9 @@
   "LK_Name": "Neuburg-Schrobenhausen",
   "LK_Typ": "Landkreis",
   "Landkreis": "Neuburg-Schrobenhausen (Landkreis)",
-  "Population": 96680
+  "Population": 96680,
+  "Slope_Cases_New_Per_Million": -0.15,
+  "Slope_Deaths_New_Per_Million": 0
  },
  {
   "BL_Code": "BY",
@@ -6697,7 +7365,9 @@
   "LK_Name": "Pfaffenhofen a.d. Ilm",
   "LK_Typ": "Landkreis",
   "Landkreis": "Pfaffenhofen a.d. Ilm (Landkreis)",
-  "Population": 127151
+  "Population": 127151,
+  "Slope_Cases_New_Per_Million": 0.94,
+  "Slope_Deaths_New_Per_Million": 0
  },
  {
   "BL_Code": "BY",
@@ -6717,7 +7387,9 @@
   "LK_Name": "Rosenheim",
   "LK_Typ": "Landkreis",
   "Landkreis": "Rosenheim (Landkreis)",
-  "Population": 260983
+  "Population": 260983,
+  "Slope_Cases_New_Per_Million": -0.03,
+  "Slope_Deaths_New_Per_Million": 0
  },
  {
   "BL_Code": "BY",
@@ -6737,7 +7409,9 @@
   "LK_Name": "Starnberg",
   "LK_Typ": "Landkreis",
   "Landkreis": "Starnberg (Landkreis)",
-  "Population": 136092
+  "Population": 136092,
+  "Slope_Cases_New_Per_Million": 0.05,
+  "Slope_Deaths_New_Per_Million": 0
  },
  {
   "BL_Code": "BY",
@@ -6757,7 +7431,9 @@
   "LK_Name": "Traunstein",
   "LK_Typ": "Landkreis",
   "Landkreis": "Traunstein (Landkreis)",
-  "Population": 177089
+  "Population": 177089,
+  "Slope_Cases_New_Per_Million": -0.22,
+  "Slope_Deaths_New_Per_Million": 0
  },
  {
   "BL_Code": "BY",
@@ -6777,7 +7453,9 @@
   "LK_Name": "Weilheim-Schongau",
   "LK_Typ": "Landkreis",
   "Landkreis": "Weilheim-Schongau (Landkreis)",
-  "Population": 135348
+  "Population": 135348,
+  "Slope_Cases_New_Per_Million": 0.18,
+  "Slope_Deaths_New_Per_Million": 0
  },
  {
   "BL_Code": "BY",
@@ -6797,7 +7475,9 @@
   "LK_Name": "Landshut",
   "LK_Typ": "Kreisfreie Stadt",
   "Landkreis": "Landshut (Kreisfreie Stadt)",
-  "Population": 72404
+  "Population": 72404,
+  "Slope_Cases_New_Per_Million": 0,
+  "Slope_Deaths_New_Per_Million": 0
  },
  {
   "BL_Code": "BY",
@@ -6817,7 +7497,9 @@
   "LK_Name": "Passau",
   "LK_Typ": "Kreisfreie Stadt",
   "Landkreis": "Passau (Kreisfreie Stadt)",
-  "Population": 52469
+  "Population": 52469,
+  "Slope_Cases_New_Per_Million": -0.21,
+  "Slope_Deaths_New_Per_Million": 0
  },
  {
   "BL_Code": "BY",
@@ -6837,7 +7519,9 @@
   "LK_Name": "Straubing",
   "LK_Typ": "Kreisfreie Stadt",
   "Landkreis": "Straubing (Kreisfreie Stadt)",
-  "Population": 47794
+  "Population": 47794,
+  "Slope_Cases_New_Per_Million": 0.55,
+  "Slope_Deaths_New_Per_Million": 0
  },
  {
   "BL_Code": "BY",
@@ -6857,7 +7541,9 @@
   "LK_Name": "Deggendorf",
   "LK_Typ": "Landkreis",
   "Landkreis": "Deggendorf (Landkreis)",
-  "Population": 119326
+  "Population": 119326,
+  "Slope_Cases_New_Per_Million": 0,
+  "Slope_Deaths_New_Per_Million": 0
  },
  {
   "BL_Code": "BY",
@@ -6877,7 +7563,9 @@
   "LK_Name": "Freyung-Grafenau",
   "LK_Typ": "Landkreis",
   "Landkreis": "Freyung-Grafenau (Landkreis)",
-  "Population": 78355
+  "Population": 78355,
+  "Slope_Cases_New_Per_Million": 0.14,
+  "Slope_Deaths_New_Per_Million": 0
  },
  {
   "BL_Code": "BY",
@@ -6897,7 +7585,9 @@
   "LK_Name": "Kelheim",
   "LK_Typ": "Landkreis",
   "Landkreis": "Kelheim (Landkreis)",
-  "Population": 122258
+  "Population": 122258,
+  "Slope_Cases_New_Per_Million": 0.25,
+  "Slope_Deaths_New_Per_Million": 0
  },
  {
   "BL_Code": "BY",
@@ -6917,7 +7607,9 @@
   "LK_Name": "Landshut",
   "LK_Typ": "Landkreis",
   "Landkreis": "Landshut (Landkreis)",
-  "Population": 158698
+  "Population": 158698,
+  "Slope_Cases_New_Per_Million": -0.05,
+  "Slope_Deaths_New_Per_Million": 0
  },
  {
   "BL_Code": "BY",
@@ -6937,7 +7629,9 @@
   "LK_Name": "Passau",
   "LK_Typ": "Landkreis",
   "Landkreis": "Passau (Landkreis)",
-  "Population": 192043
+  "Population": 192043,
+  "Slope_Cases_New_Per_Million": 0.08,
+  "Slope_Deaths_New_Per_Million": 0
  },
  {
   "BL_Code": "BY",
@@ -6957,7 +7651,9 @@
   "LK_Name": "Regen",
   "LK_Typ": "Landkreis",
   "Landkreis": "Regen (Landkreis)",
-  "Population": 77656
+  "Population": 77656,
+  "Slope_Cases_New_Per_Million": 0,
+  "Slope_Deaths_New_Per_Million": 0
  },
  {
   "BL_Code": "BY",
@@ -6977,7 +7673,9 @@
   "LK_Name": "Rottal-Inn",
   "LK_Typ": "Landkreis",
   "Landkreis": "Rottal-Inn (Landkreis)",
-  "Population": 120659
+  "Population": 120659,
+  "Slope_Cases_New_Per_Million": 0,
+  "Slope_Deaths_New_Per_Million": 0
  },
  {
   "BL_Code": "BY",
@@ -6997,7 +7695,9 @@
   "LK_Name": "Straubing-Bogen",
   "LK_Typ": "Landkreis",
   "Landkreis": "Straubing-Bogen (Landkreis)",
-  "Population": 100649
+  "Population": 100649,
+  "Slope_Cases_New_Per_Million": 0.07,
+  "Slope_Deaths_New_Per_Million": 0
  },
  {
   "BL_Code": "BY",
@@ -7017,7 +7717,9 @@
   "LK_Name": "Dingolfing-Landau",
   "LK_Typ": "Landkreis",
   "Landkreis": "Dingolfing-Landau (Landkreis)",
-  "Population": 96217
+  "Population": 96217,
+  "Slope_Cases_New_Per_Million": -0.31,
+  "Slope_Deaths_New_Per_Million": 0
  },
  {
   "BL_Code": "BY",
@@ -7037,7 +7739,9 @@
   "LK_Name": "Amberg",
   "LK_Typ": "Kreisfreie Stadt",
   "Landkreis": "Amberg (Kreisfreie Stadt)",
-  "Population": 41970
+  "Population": 41970,
+  "Slope_Cases_New_Per_Million": -0.79,
+  "Slope_Deaths_New_Per_Million": 0
  },
  {
   "BL_Code": "BY",
@@ -7057,7 +7761,9 @@
   "LK_Name": "Regensburg",
   "LK_Typ": "Kreisfreie Stadt",
   "Landkreis": "Regensburg (Kreisfreie Stadt)",
-  "Population": 152610
+  "Population": 152610,
+  "Slope_Cases_New_Per_Million": 0.5,
+  "Slope_Deaths_New_Per_Million": 0
  },
  {
   "BL_Code": "BY",
@@ -7077,7 +7783,9 @@
   "LK_Name": "Weiden i.d. OPf.",
   "LK_Typ": "Kreisfreie Stadt",
   "Landkreis": "Weiden i.d. OPf. (Kreisfreie Stadt)",
-  "Population": 42520
+  "Population": 42520,
+  "Slope_Cases_New_Per_Million": -2.23,
+  "Slope_Deaths_New_Per_Million": 0
  },
  {
   "BL_Code": "BY",
@@ -7097,7 +7805,9 @@
   "LK_Name": "Amberg-Sulzbach",
   "LK_Typ": "Landkreis",
   "Landkreis": "Amberg-Sulzbach (Landkreis)",
-  "Population": 103109
+  "Population": 103109,
+  "Slope_Cases_New_Per_Million": 0,
+  "Slope_Deaths_New_Per_Million": 0
  },
  {
   "BL_Code": "BY",
@@ -7117,7 +7827,9 @@
   "LK_Name": "Cham",
   "LK_Typ": "Landkreis",
   "Landkreis": "Cham (Landkreis)",
-  "Population": 127882
+  "Population": 127882,
+  "Slope_Cases_New_Per_Million": 0,
+  "Slope_Deaths_New_Per_Million": 0
  },
  {
   "BL_Code": "BY",
@@ -7137,7 +7849,9 @@
   "LK_Name": "Neumarkt i.d. OPf.",
   "LK_Typ": "Landkreis",
   "Landkreis": "Neumarkt i.d. OPf. (Landkreis)",
-  "Population": 133561
+  "Population": 133561,
+  "Slope_Cases_New_Per_Million": 0.11,
+  "Slope_Deaths_New_Per_Million": 0
  },
  {
   "BL_Code": "BY",
@@ -7157,7 +7871,9 @@
   "LK_Name": "Neustadt a.d. Waldnaab",
   "LK_Typ": "Landkreis",
   "Landkreis": "Neustadt a.d. Waldnaab (Landkreis)",
-  "Population": 94352
+  "Population": 94352,
+  "Slope_Cases_New_Per_Million": -0.73,
+  "Slope_Deaths_New_Per_Million": 0
  },
  {
   "BL_Code": "BY",
@@ -7177,7 +7893,9 @@
   "LK_Name": "Regensburg",
   "LK_Typ": "Landkreis",
   "Landkreis": "Regensburg (Landkreis)",
-  "Population": 193572
+  "Population": 193572,
+  "Slope_Cases_New_Per_Million": -0.08,
+  "Slope_Deaths_New_Per_Million": 0
  },
  {
   "BL_Code": "BY",
@@ -7197,7 +7915,9 @@
   "LK_Name": "Schwandorf",
   "LK_Typ": "Landkreis",
   "Landkreis": "Schwandorf (Landkreis)",
-  "Population": 147189
+  "Population": 147189,
+  "Slope_Cases_New_Per_Million": 0,
+  "Slope_Deaths_New_Per_Million": 0
  },
  {
   "BL_Code": "BY",
@@ -7217,7 +7937,9 @@
   "LK_Name": "Tirschenreuth",
   "LK_Typ": "Landkreis",
   "Landkreis": "Tirschenreuth (Landkreis)",
-  "Population": 72504
+  "Population": 72504,
+  "Slope_Cases_New_Per_Million": -0.55,
+  "Slope_Deaths_New_Per_Million": 0
  },
  {
   "BL_Code": "BY",
@@ -7237,7 +7959,9 @@
   "LK_Name": "Bamberg",
   "LK_Typ": "Kreisfreie Stadt",
   "Landkreis": "Bamberg (Kreisfreie Stadt)",
-  "Population": 77592
+  "Population": 77592,
+  "Slope_Cases_New_Per_Million": 0.06,
+  "Slope_Deaths_New_Per_Million": 0
  },
  {
   "BL_Code": "BY",
@@ -7257,7 +7981,9 @@
   "LK_Name": "Bayreuth",
   "LK_Typ": "Kreisfreie Stadt",
   "Landkreis": "Bayreuth (Kreisfreie Stadt)",
-  "Population": 74657
+  "Population": 74657,
+  "Slope_Cases_New_Per_Million": 0.8,
+  "Slope_Deaths_New_Per_Million": 0
  },
  {
   "BL_Code": "BY",
@@ -7277,7 +8003,9 @@
   "LK_Name": "Coburg",
   "LK_Typ": "Kreisfreie Stadt",
   "Landkreis": "Coburg (Kreisfreie Stadt)",
-  "Population": 41249
+  "Population": 41249,
+  "Slope_Cases_New_Per_Million": -0.73,
+  "Slope_Deaths_New_Per_Million": 0
  },
  {
   "BL_Code": "BY",
@@ -7297,7 +8025,9 @@
   "LK_Name": "Hof",
   "LK_Typ": "Kreisfreie Stadt",
   "Landkreis": "Hof (Kreisfreie Stadt)",
-  "Population": 45930
+  "Population": 45930,
+  "Slope_Cases_New_Per_Million": 0,
+  "Slope_Deaths_New_Per_Million": 0
  },
  {
   "BL_Code": "BY",
@@ -7317,7 +8047,9 @@
   "LK_Name": "Bamberg",
   "LK_Typ": "Landkreis",
   "Landkreis": "Bamberg (Landkreis)",
-  "Population": 147086
+  "Population": 147086,
+  "Slope_Cases_New_Per_Million": -0.08,
+  "Slope_Deaths_New_Per_Million": 0
  },
  {
   "BL_Code": "BY",
@@ -7337,7 +8069,9 @@
   "LK_Name": "Bayreuth",
   "LK_Typ": "Landkreis",
   "Landkreis": "Bayreuth (Landkreis)",
-  "Population": 103656
+  "Population": 103656,
+  "Slope_Cases_New_Per_Million": 0,
+  "Slope_Deaths_New_Per_Million": 0
  },
  {
   "BL_Code": "BY",
@@ -7357,7 +8091,9 @@
   "LK_Name": "Coburg",
   "LK_Typ": "Landkreis",
   "Landkreis": "Coburg (Landkreis)",
-  "Population": 86906
+  "Population": 86906,
+  "Slope_Cases_New_Per_Million": -1.27,
+  "Slope_Deaths_New_Per_Million": 0
  },
  {
   "BL_Code": "BY",
@@ -7377,7 +8113,9 @@
   "LK_Name": "Forchheim",
   "LK_Typ": "Landkreis",
   "Landkreis": "Forchheim (Landkreis)",
-  "Population": 116099
+  "Population": 116099,
+  "Slope_Cases_New_Per_Million": 0,
+  "Slope_Deaths_New_Per_Million": 0
  },
  {
   "BL_Code": "BY",
@@ -7397,7 +8135,9 @@
   "LK_Name": "Hof",
   "LK_Typ": "Landkreis",
   "Landkreis": "Hof (Landkreis)",
-  "Population": 95311
+  "Population": 95311,
+  "Slope_Cases_New_Per_Million": 0,
+  "Slope_Deaths_New_Per_Million": 0
  },
  {
   "BL_Code": "BY",
@@ -7417,7 +8157,9 @@
   "LK_Name": "Kronach",
   "LK_Typ": "Landkreis",
   "Landkreis": "Kronach (Landkreis)",
-  "Population": 67135
+  "Population": 67135,
+  "Slope_Cases_New_Per_Million": -0.26,
+  "Slope_Deaths_New_Per_Million": 0
  },
  {
   "BL_Code": "BY",
@@ -7437,7 +8179,9 @@
   "LK_Name": "Kulmbach",
   "LK_Typ": "Landkreis",
   "Landkreis": "Kulmbach (Landkreis)",
-  "Population": 71845
+  "Population": 71845,
+  "Slope_Cases_New_Per_Million": -0.22,
+  "Slope_Deaths_New_Per_Million": 0
  },
  {
   "BL_Code": "BY",
@@ -7457,7 +8201,9 @@
   "LK_Name": "Lichtenfels",
   "LK_Typ": "Landkreis",
   "Landkreis": "Lichtenfels (Landkreis)",
-  "Population": 66838
+  "Population": 66838,
+  "Slope_Cases_New_Per_Million": 0.59,
+  "Slope_Deaths_New_Per_Million": 0.03
  },
  {
   "BL_Code": "BY",
@@ -7477,7 +8223,9 @@
   "LK_Name": "Wunsiedel i. Fichtelgebirge",
   "LK_Typ": "Landkreis",
   "Landkreis": "Wunsiedel i. Fichtelgebirge (Landkreis)",
-  "Population": 73178
+  "Population": 73178,
+  "Slope_Cases_New_Per_Million": 0.4,
+  "Slope_Deaths_New_Per_Million": 0
  },
  {
   "BL_Code": "BY",
@@ -7497,7 +8245,9 @@
   "LK_Name": "Ansbach",
   "LK_Typ": "Kreisfreie Stadt",
   "Landkreis": "Ansbach (Kreisfreie Stadt)",
-  "Population": 41847
+  "Population": 41847,
+  "Slope_Cases_New_Per_Million": 0,
+  "Slope_Deaths_New_Per_Million": 0
  },
  {
   "BL_Code": "BY",
@@ -7517,7 +8267,9 @@
   "LK_Name": "Erlangen",
   "LK_Typ": "Kreisfreie Stadt",
   "Landkreis": "Erlangen (Kreisfreie Stadt)",
-  "Population": 111962
+  "Population": 111962,
+  "Slope_Cases_New_Per_Million": 0,
+  "Slope_Deaths_New_Per_Million": 0
  },
  {
   "BL_Code": "BY",
@@ -7537,7 +8289,9 @@
   "LK_Name": "Fürth",
   "LK_Typ": "Kreisfreie Stadt",
   "Landkreis": "Fürth (Kreisfreie Stadt)",
-  "Population": 127748
+  "Population": 127748,
+  "Slope_Cases_New_Per_Million": 0.07,
+  "Slope_Deaths_New_Per_Million": 0
  },
  {
   "BL_Code": "BY",
@@ -7557,7 +8311,9 @@
   "LK_Name": "Nürnberg",
   "LK_Typ": "Kreisfreie Stadt",
   "Landkreis": "Nürnberg (Kreisfreie Stadt)",
-  "Population": 518365
+  "Population": 518365,
+  "Slope_Cases_New_Per_Million": 0.27,
+  "Slope_Deaths_New_Per_Million": 0.07
  },
  {
   "BL_Code": "BY",
@@ -7577,7 +8333,9 @@
   "LK_Name": "Schwabach",
   "LK_Typ": "Kreisfreie Stadt",
   "Landkreis": "Schwabach (Kreisfreie Stadt)",
-  "Population": 40792
+  "Population": 40792,
+  "Slope_Cases_New_Per_Million": 0,
+  "Slope_Deaths_New_Per_Million": 0
  },
  {
   "BL_Code": "BY",
@@ -7597,7 +8355,9 @@
   "LK_Name": "Ansbach",
   "LK_Typ": "Landkreis",
   "Landkreis": "Ansbach (Landkreis)",
-  "Population": 183949
+  "Population": 183949,
+  "Slope_Cases_New_Per_Million": 0,
+  "Slope_Deaths_New_Per_Million": 0
  },
  {
   "BL_Code": "BY",
@@ -7617,7 +8377,9 @@
   "LK_Name": "Erlangen-Höchstadt",
   "LK_Typ": "Landkreis",
   "Landkreis": "Erlangen-Höchstadt (Landkreis)",
-  "Population": 136271
+  "Population": 136271,
+  "Slope_Cases_New_Per_Million": -0.09,
+  "Slope_Deaths_New_Per_Million": -0.09
  },
  {
   "BL_Code": "BY",
@@ -7637,7 +8399,9 @@
   "LK_Name": "Fürth",
   "LK_Typ": "Landkreis",
   "Landkreis": "Fürth (Landkreis)",
-  "Population": 117387
+  "Population": 117387,
+  "Slope_Cases_New_Per_Million": 0,
+  "Slope_Deaths_New_Per_Million": 0
  },
  {
   "BL_Code": "BY",
@@ -7657,7 +8421,9 @@
   "LK_Name": "Nürnberger Land",
   "LK_Typ": "Landkreis",
   "Landkreis": "Nürnberger Land (Landkreis)",
-  "Population": 170365
+  "Population": 170365,
+  "Slope_Cases_New_Per_Million": 0.05,
+  "Slope_Deaths_New_Per_Million": 0
  },
  {
   "BL_Code": "BY",
@@ -7677,7 +8443,9 @@
   "LK_Name": "Neustadt a.d. Aisch-Bad Windsheim",
   "LK_Typ": "Landkreis",
   "Landkreis": "Neustadt a.d. Aisch-Bad Windsheim (Landkreis)",
-  "Population": 100364
+  "Population": 100364,
+  "Slope_Cases_New_Per_Million": 0,
+  "Slope_Deaths_New_Per_Million": 0
  },
  {
   "BL_Code": "BY",
@@ -7697,7 +8465,9 @@
   "LK_Name": "Roth",
   "LK_Typ": "Landkreis",
   "Landkreis": "Roth (Landkreis)",
-  "Population": 126958
+  "Population": 126958,
+  "Slope_Cases_New_Per_Million": 0.09,
+  "Slope_Deaths_New_Per_Million": 0
  },
  {
   "BL_Code": "BY",
@@ -7717,7 +8487,9 @@
   "LK_Name": "Weißenburg-Gunzenhausen",
   "LK_Typ": "Landkreis",
   "Landkreis": "Weißenburg-Gunzenhausen (Landkreis)",
-  "Population": 94393
+  "Population": 94393,
+  "Slope_Cases_New_Per_Million": -0.12,
+  "Slope_Deaths_New_Per_Million": 0
  },
  {
   "BL_Code": "BY",
@@ -7737,7 +8509,9 @@
   "LK_Name": "Aschaffenburg",
   "LK_Typ": "Kreisfreie Stadt",
   "Landkreis": "Aschaffenburg (Kreisfreie Stadt)",
-  "Population": 70527
+  "Population": 70527,
+  "Slope_Cases_New_Per_Million": 0,
+  "Slope_Deaths_New_Per_Million": 0
  },
  {
   "BL_Code": "BY",
@@ -7757,7 +8531,9 @@
   "LK_Name": "Schweinfurt",
   "LK_Typ": "Kreisfreie Stadt",
   "Landkreis": "Schweinfurt (Kreisfreie Stadt)",
-  "Population": 54032
+  "Population": 54032,
+  "Slope_Cases_New_Per_Million": 0.5,
+  "Slope_Deaths_New_Per_Million": 0
  },
  {
   "BL_Code": "BY",
@@ -7777,7 +8553,9 @@
   "LK_Name": "Würzburg",
   "LK_Typ": "Kreisfreie Stadt",
   "Landkreis": "Würzburg (Kreisfreie Stadt)",
-  "Population": 127880
+  "Population": 127880,
+  "Slope_Cases_New_Per_Million": 0.04,
+  "Slope_Deaths_New_Per_Million": 0
  },
  {
   "BL_Code": "BY",
@@ -7797,7 +8575,9 @@
   "LK_Name": "Aschaffenburg",
   "LK_Typ": "Landkreis",
   "Landkreis": "Aschaffenburg (Landkreis)",
-  "Population": 174208
+  "Population": 174208,
+  "Slope_Cases_New_Per_Million": 0.07,
+  "Slope_Deaths_New_Per_Million": 0
  },
  {
   "BL_Code": "BY",
@@ -7817,7 +8597,9 @@
   "LK_Name": "Bad Kissingen",
   "LK_Typ": "Landkreis",
   "Landkreis": "Bad Kissingen (Landkreis)",
-  "Population": 103218
+  "Population": 103218,
+  "Slope_Cases_New_Per_Million": -0.12,
+  "Slope_Deaths_New_Per_Million": 0
  },
  {
   "BL_Code": "BY",
@@ -7837,7 +8619,9 @@
   "LK_Name": "Rhön-Grabfeld",
   "LK_Typ": "Landkreis",
   "Landkreis": "Rhön-Grabfeld (Landkreis)",
-  "Population": 79690
+  "Population": 79690,
+  "Slope_Cases_New_Per_Million": -0.17,
+  "Slope_Deaths_New_Per_Million": 0
  },
  {
   "BL_Code": "BY",
@@ -7857,7 +8641,9 @@
   "LK_Name": "Haßberge",
   "LK_Typ": "Landkreis",
   "Landkreis": "Haßberge (Landkreis)",
-  "Population": 84599
+  "Population": 84599,
+  "Slope_Cases_New_Per_Million": 0.16,
+  "Slope_Deaths_New_Per_Million": 0
  },
  {
   "BL_Code": "BY",
@@ -7877,7 +8663,9 @@
   "LK_Name": "Kitzingen",
   "LK_Typ": "Landkreis",
   "Landkreis": "Kitzingen (Landkreis)",
-  "Population": 90909
+  "Population": 90909,
+  "Slope_Cases_New_Per_Million": 0,
+  "Slope_Deaths_New_Per_Million": 0
  },
  {
   "BL_Code": "BY",
@@ -7897,7 +8685,9 @@
   "LK_Name": "Miltenberg",
   "LK_Typ": "Landkreis",
   "Landkreis": "Miltenberg (Landkreis)",
-  "Population": 128756
+  "Population": 128756,
+  "Slope_Cases_New_Per_Million": -0.33,
+  "Slope_Deaths_New_Per_Million": 0
  },
  {
   "BL_Code": "BY",
@@ -7917,7 +8707,9 @@
   "LK_Name": "Main-Spessart",
   "LK_Typ": "Landkreis",
   "Landkreis": "Main-Spessart (Landkreis)",
-  "Population": 126365
+  "Population": 126365,
+  "Slope_Cases_New_Per_Million": 0,
+  "Slope_Deaths_New_Per_Million": 0
  },
  {
   "BL_Code": "BY",
@@ -7937,7 +8729,9 @@
   "LK_Name": "Schweinfurt",
   "LK_Typ": "Landkreis",
   "Landkreis": "Schweinfurt (Landkreis)",
-  "Population": 115106
+  "Population": 115106,
+  "Slope_Cases_New_Per_Million": 0.19,
+  "Slope_Deaths_New_Per_Million": 0
  },
  {
   "BL_Code": "BY",
@@ -7957,7 +8751,9 @@
   "LK_Name": "Würzburg",
   "LK_Typ": "Landkreis",
   "Landkreis": "Würzburg (Landkreis)",
-  "Population": 161834
+  "Population": 161834,
+  "Slope_Cases_New_Per_Million": -0.07,
+  "Slope_Deaths_New_Per_Million": 0
  },
  {
   "BL_Code": "BY",
@@ -7977,7 +8773,9 @@
   "LK_Name": "Augsburg",
   "LK_Typ": "Kreisfreie Stadt",
   "Landkreis": "Augsburg (Kreisfreie Stadt)",
-  "Population": 295135
+  "Population": 295135,
+  "Slope_Cases_New_Per_Million": -0.38,
+  "Slope_Deaths_New_Per_Million": 0
  },
  {
   "BL_Code": "BY",
@@ -7997,7 +8795,9 @@
   "LK_Name": "Kaufbeuren",
   "LK_Typ": "Kreisfreie Stadt",
   "Landkreis": "Kaufbeuren (Kreisfreie Stadt)",
-  "Population": 43893
+  "Population": 43893,
+  "Slope_Cases_New_Per_Million": 0,
+  "Slope_Deaths_New_Per_Million": 0
  },
  {
   "BL_Code": "BY",
@@ -8017,7 +8817,9 @@
   "LK_Name": "Kempten (Allgäu)",
   "LK_Typ": "Kreisfreie Stadt",
   "Landkreis": "Kempten (Allgäu) (Kreisfreie Stadt)",
-  "Population": 68907
+  "Population": 68907,
+  "Slope_Cases_New_Per_Million": 0,
+  "Slope_Deaths_New_Per_Million": 0
  },
  {
   "BL_Code": "BY",
@@ -8037,7 +8839,9 @@
   "LK_Name": "Memmingen",
   "LK_Typ": "Kreisfreie Stadt",
   "Landkreis": "Memmingen (Kreisfreie Stadt)",
-  "Population": 43837
+  "Population": 43837,
+  "Slope_Cases_New_Per_Million": 0,
+  "Slope_Deaths_New_Per_Million": 0
  },
  {
   "BL_Code": "BY",
@@ -8057,7 +8861,9 @@
   "LK_Name": "Aichach-Friedberg",
   "LK_Typ": "Landkreis",
   "Landkreis": "Aichach-Friedberg (Landkreis)",
-  "Population": 133596
+  "Population": 133596,
+  "Slope_Cases_New_Per_Million": -8.23,
+  "Slope_Deaths_New_Per_Million": 0
  },
  {
   "BL_Code": "BY",
@@ -8077,7 +8883,9 @@
   "LK_Name": "Augsburg",
   "LK_Typ": "Landkreis",
   "Landkreis": "Augsburg (Landkreis)",
-  "Population": 251534
+  "Population": 251534,
+  "Slope_Cases_New_Per_Million": -0.05,
+  "Slope_Deaths_New_Per_Million": 0
  },
  {
   "BL_Code": "BY",
@@ -8097,7 +8905,9 @@
   "LK_Name": "Dillingen a.d. Donau",
   "LK_Typ": "Landkreis",
   "Landkreis": "Dillingen a.d. Donau (Landkreis)",
-  "Population": 96021
+  "Population": 96021,
+  "Slope_Cases_New_Per_Million": 0,
+  "Slope_Deaths_New_Per_Million": 0
  },
  {
   "BL_Code": "BY",
@@ -8117,7 +8927,9 @@
   "LK_Name": "Günzburg",
   "LK_Typ": "Landkreis",
   "Landkreis": "Günzburg (Landkreis)",
-  "Population": 125747
+  "Population": 125747,
+  "Slope_Cases_New_Per_Million": 0,
+  "Slope_Deaths_New_Per_Million": 0
  },
  {
   "BL_Code": "BY",
@@ -8137,7 +8949,9 @@
   "LK_Name": "Neu-Ulm",
   "LK_Typ": "Landkreis",
   "Landkreis": "Neu-Ulm (Landkreis)",
-  "Population": 174200
+  "Population": 174200,
+  "Slope_Cases_New_Per_Million": 0.26,
+  "Slope_Deaths_New_Per_Million": 0
  },
  {
   "BL_Code": "BY",
@@ -8157,7 +8971,9 @@
   "LK_Name": "Lindau (Bodensee)",
   "LK_Typ": "Landkreis",
   "Landkreis": "Lindau (Bodensee) (Landkreis)",
-  "Population": 81669
+  "Population": 81669,
+  "Slope_Cases_New_Per_Million": 0,
+  "Slope_Deaths_New_Per_Million": 0
  },
  {
   "BL_Code": "BY",
@@ -8177,7 +8993,9 @@
   "LK_Name": "Ostallgäu",
   "LK_Typ": "Landkreis",
   "Landkreis": "Ostallgäu (Landkreis)",
-  "Population": 140316
+  "Population": 140316,
+  "Slope_Cases_New_Per_Million": 0,
+  "Slope_Deaths_New_Per_Million": 0
  },
  {
   "BL_Code": "BY",
@@ -8197,7 +9015,9 @@
   "LK_Name": "Unterallgäu",
   "LK_Typ": "Landkreis",
   "Landkreis": "Unterallgäu (Landkreis)",
-  "Population": 144041
+  "Population": 144041,
+  "Slope_Cases_New_Per_Million": 0,
+  "Slope_Deaths_New_Per_Million": 0
  },
  {
   "BL_Code": "BY",
@@ -8217,7 +9037,9 @@
   "LK_Name": "Donau-Ries",
   "LK_Typ": "Landkreis",
   "Landkreis": "Donau-Ries (Landkreis)",
-  "Population": 133496
+  "Population": 133496,
+  "Slope_Cases_New_Per_Million": 0,
+  "Slope_Deaths_New_Per_Million": 0
  },
  {
   "BL_Code": "BY",
@@ -8237,6 +9059,8 @@
   "LK_Name": "Oberallgäu",
   "LK_Typ": "Landkreis",
   "Landkreis": "Oberallgäu (Landkreis)",
-  "Population": 155362
+  "Population": 155362,
+  "Slope_Cases_New_Per_Million": 0.4,
+  "Slope_Deaths_New_Per_Million": 0
  }
 ]

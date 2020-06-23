@@ -360,6 +360,11 @@
 						alignEmptyValues: "bottom"
 					}, headerFilter: true, headerFilterPlaceholder: "filter >=", headerFilterFunc: ">="
 				},
+				{
+					title: "Infizierte<br/>Trend<br/>Index", field: "Slope_Cases_New_Per_Million", sorter: "number", hozAlign: "right", sorterParams: {
+						alignEmptyValues: "bottom"
+					}, headerFilter: true, headerFilterPlaceholder: "filter >=", headerFilterFunc: ">="
+				},
 			],
 			rowClick: function (e, row) {
 				var rowData = row.getData();
@@ -925,6 +930,11 @@
 				},
 				{
 					title: "Deaths Last Week<br/>per Million", field: "Deaths_Last_Week_Per_Million", sorter: "number", hozAlign: "right", sorterParams: {
+						alignEmptyValues: "bottom"
+					}, headerFilter: true, headerFilterPlaceholder: "filter >=", headerFilterFunc: ">="
+				},
+				{
+					title: "Cases<br/>Trend Index", field: "Slope_Cases_New_Per_Million", sorter: "number", width: 100, hozAlign: "right", sorterParams: {
 						alignEmptyValues: "bottom"
 					}, headerFilter: true, headerFilterPlaceholder: "filter >=", headerFilterFunc: ">="
 				},

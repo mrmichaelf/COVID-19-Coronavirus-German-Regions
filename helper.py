@@ -190,8 +190,6 @@ def prepare_time_series(l_time_series: list) -> list:
 
     return l_time_series
 
-# TODO: add fitted Cases_New_Slope_14 and Deaths_New_Slope_14
-
 
 def extract_latest_data(d_ref_data: dict, d_data_all: dict) -> dict:
     d_data_latest = dict(d_ref_data)
@@ -201,20 +199,41 @@ def extract_latest_data(d_ref_data: dict, d_data_all: dict) -> dict:
         d_data_latest[code]['Date_Latest'] = d['Date']
         for key in ('Cases', 'Deaths', 'Cases_New', 'Deaths_New', 'Cases_Per_Million', 'Deaths_Per_Million', 'Cases_Last_Week', 'Deaths_Last_Week', 'Cases_Last_Week_Per_Million', 'Deaths_Last_Week_Per_Million'):
             d_data_latest[code][key] = d[key]
+        d_slopes = fit_slopes(l_time_series)
+        for key, value in d_slopes.items():
+            d_data_latest[code][key] = value
     return d_data_latest
 
 
-def TODO_fit_slope(l_time_series: list) -> dict:
-    d_res = {}
+def fit_slopes(l_time_series: list) -> dict:
+    """
+    fit data of last 14 days via linear regression: y=m*x+b , b = last value
+    """
+    d_slopes = {}
     data_cases_new_pm = []
     data_deaths_new_pm = []
-    for i in range(len(l_time_series)):
+    # for i in range(len(l_time_series)):
+    for i in range(-14, 0):  # TM: checked: this is correct and results in the last 7 entries
         d = l_time_series[i]
         data_cases_new_pm.append((d['Days_Past'], d['Cases_New_Per_Million']))
         data_deaths_new_pm.append(
             (d['Days_Past'], d['Deaths_New_Per_Million']))
-    d_res_cases_new_pm = fit_routine(data=data_cases_new_pm,
-                                     mode="lin", fit_range_x=(-6, 0))["fit_res"]
+
+    N0, m = 0, 0
+    d_res = fit_routine(data=data_cases_new_pm,
+                        mode="lin")
+    if "fit_res" in d_res:
+        N0, m = d_res["fit_res"]
+    d_slopes["Slope_Cases_New_Per_Million"] = round(m, 2)
+
+    N0, m = 0, 0
+    d_res = fit_routine(data=data_deaths_new_pm,
+                        mode="lin")
+    if "fit_res" in d_res:
+        N0, m = d_res["fit_res"]
+    d_slopes["Slope_Deaths_New_Per_Million"] = round(m, 2)
+
+    return d_slopes
 
 
 def add_per_million_via_lookup(d: dict, d_ref: dict, code: str) -> dict:
@@ -307,7 +326,7 @@ def fit_routine(data: list, mode: str = "exp", fit_range_x: list = (-np.inf, np.
         data, fit_range_x, fit_range_y)
     if mode == "lin":
         fit_function = fit_function_linear
-        bounds_lower = (1, -np.inf)      # low(N0), low(para2)
+        bounds_lower = (0, -np.inf)      # low(N0), low(para2)
         bounds_upper = (np.inf, np.inf)  # up (N0), up (para2)
     else:  # mode == "exp"
         fit_function = fit_function_exp_growth
@@ -330,7 +349,7 @@ def fit_routine(data: list, mode: str = "exp", fit_range_x: list = (-np.inf, np.
             )
             # bounds: ( min of all parameters) , (max of all parameters) )
 
-            y_next_day = fit_function_exp_growth(1, fit_res[0], fit_res[1])
+            y_next_day = fit_function(1, fit_res[0], fit_res[1])
             y_next_day_delta = y_next_day - data_y_for_fit[-1]
             factor_increase_next_day = ""
             if data_y_for_fit[-1] > 0:
@@ -348,7 +367,6 @@ def fit_routine(data: list, mode: str = "exp", fit_range_x: list = (-np.inf, np.
                 'factor_increase_x+1': factor_increase_next_day
             }
         except (RuntimeError, ValueError) as error:  # Exception, RuntimeWarning
-            1
             print(error)
     return d
 
