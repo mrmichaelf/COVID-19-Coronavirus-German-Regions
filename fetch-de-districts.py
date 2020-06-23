@@ -515,6 +515,9 @@ def export_latest_data(d_districts_data: dict):
         # V1: dict (lk_id) -> dict
         # V2: list of ficts
         # d_for_export_V1[lk_id] = d
+        d["Landkreis"] = get_lk_name_from_lk_id(lk_id)
+        d["Bundesland"] = d["BL_Name"]
+        del d["BL_Name"]
         d_for_export_V2 = d
         d_for_export_V2['LK_ID'] = lk_id
         l_for_export_V2.append(d_for_export_V2)
@@ -536,8 +539,6 @@ def export_latest_data(d_districts_data: dict):
         csvwriter.writeheader()
 
         for lk_id, d in d_for_export_V1.items():
-            d["Landkreis"] = get_lk_name_from_lk_id(lk_id)
-            d["Bundesland"] = d["BL_Name"]
             csvwriter.writerow(d)
             # d2 = d
             # # d2['Population'] = d['LK_Einwohner']
