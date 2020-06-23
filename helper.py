@@ -246,7 +246,13 @@ def add_per_million(d: dict, pop_in_million: float) -> dict:
         perMillion = None
         if key in d and d[key] is not None:
             if pop_in_million:
-                perMillion = int(round(d[key]/pop_in_million, 0))
+                perMillion = d[key]/pop_in_million
+                if key in ('Deaths_New', ):
+                    perMillion = round(perMillion, 3)
+                elif key in ('Deaths_Last_Week', ):
+                    perMillion = round(perMillion, 2)
+                else:
+                    perMillion = int(round(perMillion, 3))
             # else:
             #     perMillion = 0  # if pop is unknown
         d[key+'_Per_Million'] = perMillion
