@@ -60,6 +60,9 @@ def read_json_data() -> dict:
     returns as a dict
     """
     d_json_downloaded = helper.read_json_file(file_cache)
+    del d_json_downloaded['Diamond Princess']
+    del d_json_downloaded['MS Zaandam']
+    # del d_json_downloaded['Diamond Princess']
 
     # rename some countries
     d_countries_to_rename = {}
@@ -113,7 +116,7 @@ def read_json_data() -> dict:
 def read_ref_selected_countries() -> dict:
     """
     reads data for selected countries from tsv file and returns it as dict
-    the population value of this field is no longer used, since I switche to using d_ref_country_database instead
+    the population value of this field is no longer used, since I switched to using d_ref_country_database instead
     """
     d_selected_countries = {}
     with open('data/ref_selected_countries.tsv', mode='r', encoding='utf-8') as f:
@@ -157,18 +160,18 @@ def extract_latest_date_data():
             d2['Code'] = read_country_code(d2['Country'])
             d2['Continent'] = read_continent(d2['Country'])
             d2['Population'] = pop
-            if d2['Cases_Per_Million']:
-                d2['Cases_Per_Million'] = round(
-                    d['Cases_Per_Million'], 0)
-            if d2['Deaths_Per_Million']:
-                d2['Deaths_Per_Million'] = round(
-                    d['Deaths_Per_Million'], 0)
-            if d2['Cases_Last_Week_Per_Million']:
-                d2['Cases_Last_Week_Per_Million'] = round(
-                    d['Cases_Last_Week_Per_Million'], 0)
-            if d2['Deaths_Last_Week_Per_Million']:
-                d2['Deaths_Last_Week_Per_Million'] = round(
-                    d['Deaths_Last_Week_Per_Million'], 0)
+            # if d2['Cases_Per_Million']:
+            #     d2['Cases_Per_Million'] = round(
+            #         d['Cases_Per_Million'], 0)
+            # if d2['Deaths_Per_Million']:
+            #     d2['Deaths_Per_Million'] = round(
+            #         d['Deaths_Per_Million'], 0)
+            # if d2['Cases_Last_Week_Per_Million']:
+            #     d2['Cases_Last_Week_Per_Million'] = round(
+            #         d['Cases_Last_Week_Per_Million'], 0)
+            # if d2['Deaths_Last_Week_Per_Million']:
+            #     d2['Deaths_Last_Week_Per_Million'] = round(
+            #         d['Deaths_Last_Week_Per_Million'], 0)
             csvwriter.writerow(d2)
             l_for_export.append(d2)
 
@@ -325,41 +328,30 @@ def export_time_series_all_countries():
     # helper.write_json('TODO.json', d_countries, sort_keys=True)
 
 
-def get_ref_country_dict(country_name: str) -> dict:
-    global d_ref_country_database
-    d = {}
-    if country_name == 'Congo (Brazzaville)':
-        d = d_ref_country_database['Republic of the Congo']
-    elif country_name == 'Congo (Kinshasa)':
-        d = d_ref_country_database['Democratic Republic of the Congo']
-    else:
-        for ref_country_name in d_ref_country_database.keys():
-            if country_name == ref_country_name:
-                d = d_ref_country_database[country_name]
-                break
-    return d
+# def get_ref_country_dict(country_name: str) -> dict:
+#     global d_ref_country_database
+#     d = {}
+#     if country_name == 'Congo (Brazzaville)':
+#         d = d_ref_country_database['Republic of the Congo']
+#     elif country_name == 'Congo (Kinshasa)':
+#         d = d_ref_country_database['Democratic Republic of the Congo']
+#     else:
+#         for ref_country_name in d_ref_country_database.keys():
+#             if country_name == ref_country_name:
+#                 d = d_ref_country_database[country_name]
+#                 break
+#     return d
 
 
 def read_population(country_name: str, verbose: bool = False) -> int:
-    pop = None
-    d = get_ref_country_dict(country_name)
-    if d != {}:
-        pop = d['Population']
-
-    if pop != None:
-        pop = int(pop)
-    if pop == 0:
-        pop = None
+    pop = d_countries_ref[country_name]["Population"]
     if verbose and pop == None:
         print(f"No Population found for {country_name}")
     return pop
 
 
 def read_continent(country_name: str) -> str:
-    continent = None
-    d = get_ref_country_dict(country_name)
-    if d != {}:
-        continent = d['Continent']
+    continent = d_countries_ref[country_name]["Continent"]
     # move Turkey from Asia to Europe
     if country_name == 'Turkey':
         continent = 'EU'
@@ -379,19 +371,72 @@ def read_continent(country_name: str) -> str:
             continent = 'South America'
         elif continent == 'OC':
             continent = 'Oceania'
+        else:
+            assert 1 == 2, f"E: continent missing for {country_name}"
     return continent
 
 
 def read_country_code(country_name: str) -> str:
     code = None
-    d = get_ref_country_dict(country_name)
-    if d != {}:
-        code = d['ISO']
+    if country_name in d_countries_ref:
+        code = d_countries_ref[country_name]["Code"]
     return code
 
 
-d_ref_country_database = helper.read_json_file(
-    'data/ref_country_database.json')
+def read_ref_data_countries() -> dict:
+    d_countries_ref = {}
+    d_ref_country_database = helper.read_json_file(
+        'data/ref_country_database.json')
+    for key, d in d_ref_country_database.items():
+        d2 = {}
+        code = d["ISO"]
+        name = key
+        if name == 'Republic of the Congo':
+            name = 'Congo (Brazzaville)'
+        elif name == 'Democratic Republic of the Congo':
+            name = 'Congo (Kinshasa)'
+        pop = d['Population']
+        if pop != None:
+            pop = int(pop)
+        if pop == 0:
+            pop = None
+        continent = d['Continent']
+        # # move Turkey from Asia to Europe
+        # if name == 'Turkey':
+        #     continent = 'EU'
+        # # renaming the contintets
+        # if continent == 'AF':
+        #     continent = 'Africa'
+        # elif continent == 'AN':
+        #     continent = 'Antarctica'
+        # elif continent == 'AS':
+        #     continent = 'Asia'
+        # elif continent == 'EU':
+        #     continent = 'Europe'
+        # elif continent == 'NA':
+        #     continent = 'North America'
+        # elif continent == 'SA':
+        #     continent = 'South America'
+        # elif continent == 'OC':
+        #     continent = 'Oceania'
+        # else:
+        #     assert 1 == 2, f"E: continent missing for {name}"
+
+        d2["Code"] = code
+        d2['Continent'] = continent
+        d2["Population"] = pop
+        d_countries_ref[name] = d2
+
+    return d_countries_ref
+
+
+d_countries_ref = read_ref_data_countries()
+test = d_countries_ref['Congo (Brazzaville)']
+
+
+# d_ref_country_database = helper.read_json_file(
+#     'data/ref_country_database.json')
+
 
 d_selected_countries = read_ref_selected_countries()
 
