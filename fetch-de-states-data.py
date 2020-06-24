@@ -33,22 +33,6 @@ args = helper.read_command_line_parameters()
 download_file = 'cache/download-de-federalstates-timeseries.csv'
 
 
-def read_ref_data_de_states() -> dict:
-    """
-    read pop etc from ref table and returns it as dict of dict
-    """
-    d_states_ref = {}
-    with open('data/ref_de-states.tsv', mode='r', encoding='utf-8') as f:
-        csv_reader = csv.DictReader(f, delimiter="\t")
-        for row in csv_reader:
-            d = {}
-            d['State'] = row['State']
-            d['Population'] = int(row['Population'])
-            d['Pop Density'] = float(row['Pop Density'])
-            d_states_ref[row["Code"]] = d
-    return d_states_ref
-
-
 def download_new_data():
     url = "https://covid19publicdata.blob.core.windows.net/rki/covid19-germany-federalstates.csv"
     filedata = urllib.request.urlopen(url)
@@ -260,7 +244,7 @@ def export_latest_data(d_ref_states, d_states_data: dict):
         del d_de
 
 
-d_ref_states = read_ref_data_de_states()
+d_ref_states = helper.read_ref_data_de_states()
 
 
 download_new_data()

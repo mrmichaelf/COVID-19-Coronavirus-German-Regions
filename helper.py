@@ -434,3 +434,19 @@ def series_of_fits_worker_thread(data: list, fit_range: int, last_day_for_fit: i
     d = fit_routine(
         data=data, mode="exp", fit_range_x=(last_day_for_fit-fit_range, last_day_for_fit))
     return d
+
+
+def read_ref_data_de_states() -> dict:
+    """
+    read pop etc from ref table and returns it as dict of dict
+    """
+    d_states_ref = {}
+    with open('data/ref_de-states.tsv', mode='r', encoding='utf-8') as f:
+        csv_reader = csv.DictReader(f, delimiter="\t")
+        for row in csv_reader:
+            d = {}
+            d['State'] = row['State']
+            d['Population'] = int(row['Population'])
+            d['Pop Density'] = float(row['Pop Density'])
+            d_states_ref[row["Code"]] = d
+    return d_states_ref
