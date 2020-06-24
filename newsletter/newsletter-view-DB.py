@@ -2,6 +2,7 @@
 
 import os
 import sqlite3
+import json
 # import datetime
 
 
@@ -30,6 +31,17 @@ def db_connect():
 ##########################
 
 
+# set path variables
+if checkRunningOnServer():
+    pathToData = '/home/entorb/html/COVID-19-coronavirus/data/de-districts/de-districts-results.json'
+else:
+    pathToData = 'data/de-districts/de-districts-results.json'
+
+# load latest data
+d_districts_latest = {}
+with open(pathToData, mode='r', encoding='utf-8') as fh:
+    d_districts_latest = json.load(fh)
+
 con, cur = db_connect()
 
 # cur.execute("ALTER TABLE newsletter ADD date_registered date")
@@ -41,11 +53,25 @@ print("DB Dump")
 print("%20s %1s %64s %3s %45s %1s" %
       ('email', 'v', 'hash', 't', 'regions', 'f')
       )
-for row in cur.execute("SELECT email, verified, hash, threshold, regions, frequency, date_registered FROM newsletter ORDER BY date_registered DESC"):
-
+sql = "SELECT email, verified, hash, threshold, regions, frequency, date_registered FROM newsletter ORDER BY date_registered DESC"
+d_region_counter = {}
+count_rows = 0
+for row in cur.execute(sql):
     print("%20s %1s %64s %3s %45s %1s %s" % (
         row['email'], row['verified'], row['hash'], row['threshold'], row['regions'], row['frequency'], row['date_registered']))
+    if row['verified'] == 1 and row['regions'] != None:
+        count_rows += 1
+        l_this_regions = row["regions"].split(',')
+        for region in l_this_regions:
+            if region not in d_region_counter:
+                d_region_counter[region] = 1
+            else:
+                d_region_counter[region] += 1
+for id, value in sorted(d_region_counter.items(), key=lambda item: item[1], reverse=True):
+    if value <= 2:
+        break
+    print(f"{id} : %3d : {d_districts_latest[id]['Landkreis']}" % value)
 
-
+print(f"{count_rows} Abonnenten")
 cur.close()
 con.close()
