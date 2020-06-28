@@ -68,6 +68,28 @@ def sendmail(to: str, body: str, subject: str, sender: str = 'no-reply@entorb.ne
         print(mail)
 
 
+def format_line(cases_lw_pm: str, cases_lw: str, location: str, slope_arrow: str) -> str:
+    return "%4d / %4d %s   : %s\n" % (
+        cases_lw_pm, cases_lw, slope_arrow, location)
+
+
+def format_line2(cases_lw_pm: str, location: str) -> str:
+    return "%4d            : %s\n" % (cases_lw_pm, location)
+
+
+def get_slope_arrow(slope: float) -> str:
+    if slope > 1:
+        slope_arrow = "↑"
+    elif slope > 0.5:
+        slope_arrow = "↗"
+    elif slope >= -0.5:
+        slope_arrow = "→"
+    elif slope >= -1:
+        slope_arrow = "↘"
+    else:
+        slope_arrow = "↓"
+    return slope_arrow
+
 ##########################
 
 
@@ -86,10 +108,35 @@ with open(pathToData, mode='r', encoding='utf-8') as fh:
     d_districts_latest = json.load(fh)
 dataDate = d_districts_latest["02000"]["Date_Latest"]
 
+d_id_cases_lw_pm = {}
+# sum up German values
 cases_DE_last_week = 0
 for lk_id, d in d_districts_latest.items():
     cases_DE_last_week += d["Cases_Last_Week"]
+    d_id_cases_lw_pm[lk_id] = d["Cases_Last_Week_Per_Million"]
+    d["Slope_Cases_Arrow"] = get_slope_arrow(d["Slope_Cases_New_Per_Million"])
 cases_DE_last_week_PM = cases_DE_last_week / 83.019200
+
+# find worst districts
+l_worst_lk_ids = []
+for lk_id, value in sorted(d_id_cases_lw_pm.items(), key=lambda item: item[1], reverse=True):
+    l_worst_lk_ids.append(lk_id)
+del d_id_cases_lw_pm, lk_id
+s_worst_lk = ""
+number_worst = 5
+count = 0
+for lk_id in l_worst_lk_ids:
+    count += 1
+    d = d_districts_latest[lk_id]
+    s_worst_lk += format_line(
+        cases_lw_pm=d["Cases_Last_Week_Per_Million"],
+        cases_lw=d["Cases_Last_Week"],
+        location=d["Landkreis"],
+        slope_arrow=d["Slope_Cases_Arrow"]
+    )
+    if count == number_worst:
+        break
+del lk_id, count
 
 # loop over subscriptions
 for row in cur.execute("SELECT email, verified, hash, threshold, regions, frequency, date_registered FROM newsletter WHERE verified = 1 AND regions IS NOT NULL"):
@@ -121,26 +168,20 @@ for row in cur.execute("SELECT email, verified, hash, threshold, regions, freque
     if toSend:
         #        mailBody += f"Versandgrund: \n\n"
         # table header
-        mailBody += "Infektionen*  : Landkreis\n"
+        mailBody += "Infektionen*    : Landkreis\n"
         # table body
         for lk_id, value in sorted(d_this_regions_cases_PM.items(), key=lambda item: item[1], reverse=True):
             d = d_districts_latest[lk_id]
-            slope = d["Slope_Cases_New_Per_Million"]
-            if slope > 1:
-                slope_arrow = "↑"
-            elif slope > 0.5:
-                slope_arrow = "↗"
-            elif slope >= -0.5:
-                slope_arrow = "→"
-            elif slope >= -1:
-                slope_arrow = "↘"
-            else:
-                slope_arrow = "↓"
+            mailBody += format_line(
+                cases_lw_pm=d["Cases_Last_Week_Per_Million"],
+                cases_lw=d["Cases_Last_Week"],
+                location=d["Landkreis"],
+                slope_arrow=d["Slope_Cases_Arrow"]
+            )
+        mailBody += format_line2(cases_DE_last_week_PM, "Deutschland gesamt")
+        # flop 10
+        mailBody += "Top 5\n" + s_worst_lk
 
-            mailBody += "%3d / %3d %s   : %s\n" % (
-                d["Cases_Last_Week_Per_Million"], d["Cases_Last_Week"], slope_arrow, d["Landkreis"])
-        mailBody += "%3d           : %s\n" % (
-            cases_DE_last_week_PM, "Deutschland gesamt")
         # table footer
         mailBody += f"Datenstand: {dataDate}\n"
         mailBody += "\n* Neu-Infektionen letzte Woche: pro Millionen Einwohner / Absolut\n"
