@@ -29,14 +29,17 @@ from scipy.optimize import curve_fit
 # General Helpers
 #
 
-def read_url_or_cachefile(url: str, cachefile: str, cache_max_age: int = 15, verbose: bool = True) -> str:
+def read_url_or_cachefile(url: str, cachefile: str, request_type: str = 'get', payload: dict = {}, cache_max_age: int = 15, verbose: bool = True) -> str:
     b_cache_is_recent = check_cache_file_available_and_recent(
         fname=cachefile, max_age=cache_max_age, verbose=verbose)
     if not b_cache_is_recent:
         headers = {
             'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:75.0) Gecko/20100101 Firefox/75.0 ',
         }
-        cont = requests.get(url, headers=headers).content
+        if request_type == 'get':
+            cont = requests.get(url, headers=headers).content
+        elif request_type == 'post':
+            cont = requests.post(url, headers=headers, data=payload).content
         with open(cachefile, mode='wb') as fh:
             fh.write(cont)
         cont = cont.decode('utf-8')
