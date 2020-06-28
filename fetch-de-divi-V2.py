@@ -3,6 +3,9 @@
 
 """
 Source: https://www.intensivregister.de/#/intensivregister
+
+primary data store is in data/de-divi/de-divi-V2.json. from there the tsv files are re-created at every run
+
 """
 
 import sys
@@ -13,12 +16,14 @@ import re
 # my helper modules
 import helper
 
-
 filename = 'data/de-divi/de-divi-V2'
 
 datestr = datetime.now().strftime("%Y-%m-%d")
 
 d_data_all = helper.read_json_file(filename+'.json')
+
+del d_data_all['Deutschland']  # this is re-calculated at each run
+
 
 # check if date is already in data set
 if d_data_all['Bayern'][-1]['Date'] == datestr:
