@@ -1121,11 +1121,11 @@
   "Slope_Deaths_New_Per_Million": 0.0
  },
  {
-  "Cases": 199473,
-  "Cases_Last_Week": 2749,
-  "Cases_Last_Week_Per_Million": 41,
+  "Cases": 200195,
+  "Cases_Last_Week": 2843,
+  "Cases_Last_Week_Per_Million": 42,
   "Cases_New": 0,
-  "Cases_Per_Million": 2977,
+  "Cases_Per_Million": 2988,
   "Code": "FR",
   "Continent": "Europe",
   "Country": "France",
@@ -1136,7 +1136,7 @@
   "Deaths_New": 0,
   "Deaths_Per_Million": 444,
   "Population": 66987244,
-  "Slope_Cases_New_Per_Million": 0.2,
+  "Slope_Cases_New_Per_Million": 0.11,
   "Slope_Deaths_New_Per_Million": -0.03
  },
  {
