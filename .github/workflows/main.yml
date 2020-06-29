@@ -7,9 +7,9 @@ name: Data Updater
 on:  
   schedule:
     - cron: "15 5,6 * * *"
-# TODO      
-#  push:
-#    branches: [ master ]
+# TODO       
+  push:
+    branches: [ master ]
 #  pull_request:
 #    branches: [ master ]
 
