@@ -54,11 +54,13 @@ jobs:
     - name: Run fetch-int-country-data.py
       run: python3 fetch-int-country-data.py
       
-    - name: Run fetch-de-districts.py
-      run: python3 fetch-de-districts.py
+#    - name: Run fetch-de-districts.py
+#      run: python3 fetch-de-districts.py
       
     - name: Run	fetch-de-divi-V2.py
-      run: python3 fetch-de-divi-V2.py
+      run: |
+        python3 fetch-de-divi-V2.py
+        python3 fetch-de-divi-V3.py
 
     - name: Run	show_data_dates.sh
       run: bash show_data_dates.sh
@@ -83,12 +85,12 @@ jobs:
 
 # TODO: reactivate at in a separate job?
 # Generate maps
-    - name: Generate + zip maps
-      run: | 
-        # sudo apt-get install imagemagick
-        python3 gen-map-de-districts.py
-        cd maps
-        tar cfz ../cache/maps.tgz *.gif
+#    - name: Generate + zip maps
+#      run: | 
+#        # sudo apt-get install imagemagick
+#        python3 gen-map-de-districts.py
+#        cd maps
+#        tar cfz ../cache/maps.tgz *.gif
 
 # Create pre-releases of tgz files
 
