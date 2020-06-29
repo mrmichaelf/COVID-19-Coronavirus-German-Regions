@@ -8,9 +8,7 @@ on:
   schedule:
     - cron: "15 5,6 * * *"
 # TODO       
-  push:
-    branches: [ master ]
-#  pull_request:
+#  push:
 #    branches: [ master ]
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
@@ -54,10 +52,10 @@ jobs:
     - name: Run fetch-int-country-data.py
       run: python3 fetch-int-country-data.py
       
-#    - name: Run fetch-de-districts.py
-#      run: python3 fetch-de-districts.py
+    - name: Run fetch-de-districts.py
+      run: python3 fetch-de-districts.py
       
-    - name: Run	fetch-de-divi-V2.py
+    - name: Run	fetch-de-divi
       run: |
         python3 fetch-de-divi-V2.py
         python3 fetch-de-divi-V3.py
@@ -85,12 +83,12 @@ jobs:
 
 # TODO: reactivate at in a separate job?
 # Generate maps
-#    - name: Generate + zip maps
-#      run: | 
-#        # sudo apt-get install imagemagick
-#        python3 gen-map-de-districts.py
-#        cd maps
-#        tar cfz ../cache/maps.tgz *.gif
+    - name: Generate + zip maps
+      run: | 
+        # sudo apt-get install imagemagick
+        python3 gen-map-de-districts.py
+        cd maps
+        tar cfz ../cache/maps.tgz *.gif
 
 # Create pre-releases of tgz files
 
