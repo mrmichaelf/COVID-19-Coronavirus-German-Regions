@@ -536,6 +536,14 @@
    "Int COVID-19 Patienten": 62,
    "Prozent Int COVID-19 Patienten": 1.7,
    "Prozent Int Betten belegt": 61.5
+  },
+  {
+   "Date": "2020-06-29",
+   "Int Betten belegt": 2210,
+   "Int Betten gesamt": 3648,
+   "Int COVID-19 Patienten": 59,
+   "Prozent Int COVID-19 Patienten": 1.6,
+   "Prozent Int Betten belegt": 60.6
   }
  ],
  "Bayern": [
@@ -1075,6 +1083,14 @@
    "Int COVID-19 Patienten": 46,
    "Prozent Int COVID-19 Patienten": 1.0,
    "Prozent Int Betten belegt": 66.5
+  },
+  {
+   "Date": "2020-06-29",
+   "Int Betten belegt": 2829,
+   "Int Betten gesamt": 4275,
+   "Int COVID-19 Patienten": 36,
+   "Prozent Int COVID-19 Patienten": 0.8,
+   "Prozent Int Betten belegt": 66.2
   }
  ],
  "Berlin": [
@@ -1614,6 +1630,14 @@
    "Int COVID-19 Patienten": 33,
    "Prozent Int COVID-19 Patienten": 2.4,
    "Prozent Int Betten belegt": 76.6
+  },
+  {
+   "Date": "2020-06-29",
+   "Int Betten belegt": 1061,
+   "Int Betten gesamt": 1450,
+   "Int COVID-19 Patienten": 32,
+   "Prozent Int COVID-19 Patienten": 2.2,
+   "Prozent Int Betten belegt": 73.2
   }
  ],
  "Brandenburg": [
@@ -2153,6 +2177,14 @@
    "Int COVID-19 Patienten": 3,
    "Prozent Int COVID-19 Patienten": 0.3,
    "Prozent Int Betten belegt": 56.7
+  },
+  {
+   "Date": "2020-06-29",
+   "Int Betten belegt": 588,
+   "Int Betten gesamt": 1071,
+   "Int COVID-19 Patienten": 5,
+   "Prozent Int COVID-19 Patienten": 0.5,
+   "Prozent Int Betten belegt": 54.9
   }
  ],
  "Bremen": [
@@ -2692,6 +2724,14 @@
    "Int COVID-19 Patienten": 6,
    "Prozent Int COVID-19 Patienten": 3.0,
    "Prozent Int Betten belegt": 55.4
+  },
+  {
+   "Date": "2020-06-29",
+   "Int Betten belegt": 109,
+   "Int Betten gesamt": 192,
+   "Int COVID-19 Patienten": 6,
+   "Prozent Int COVID-19 Patienten": 3.1,
+   "Prozent Int Betten belegt": 56.8
   }
  ],
  "Hamburg": [
@@ -3231,6 +3271,14 @@
    "Int COVID-19 Patienten": 8,
    "Prozent Int COVID-19 Patienten": 0.8,
    "Prozent Int Betten belegt": 60.4
+  },
+  {
+   "Date": "2020-06-29",
+   "Int Betten belegt": 548,
+   "Int Betten gesamt": 913,
+   "Int COVID-19 Patienten": 8,
+   "Prozent Int COVID-19 Patienten": 0.9,
+   "Prozent Int Betten belegt": 60.0
   }
  ],
  "Hessen": [
@@ -3770,6 +3818,14 @@
    "Int COVID-19 Patienten": 28,
    "Prozent Int COVID-19 Patienten": 1.1,
    "Prozent Int Betten belegt": 69.9
+  },
+  {
+   "Date": "2020-06-29",
+   "Int Betten belegt": 1643,
+   "Int Betten gesamt": 2431,
+   "Int COVID-19 Patienten": 26,
+   "Prozent Int COVID-19 Patienten": 1.1,
+   "Prozent Int Betten belegt": 67.6
   }
  ],
  "Mecklenburg-Vorpommern": [
@@ -4309,6 +4365,14 @@
    "Int COVID-19 Patienten": 2,
    "Prozent Int COVID-19 Patienten": 0.2,
    "Prozent Int Betten belegt": 73.6
+  },
+  {
+   "Date": "2020-06-29",
+   "Int Betten belegt": 612,
+   "Int Betten gesamt": 875,
+   "Int COVID-19 Patienten": 2,
+   "Prozent Int COVID-19 Patienten": 0.2,
+   "Prozent Int Betten belegt": 69.9
   }
  ],
  "Niedersachsen": [
@@ -4848,6 +4912,14 @@
    "Int COVID-19 Patienten": 20,
    "Prozent Int COVID-19 Patienten": 0.7,
    "Prozent Int Betten belegt": 59.8
+  },
+  {
+   "Date": "2020-06-29",
+   "Int Betten belegt": 1606,
+   "Int Betten gesamt": 2764,
+   "Int COVID-19 Patienten": 20,
+   "Prozent Int COVID-19 Patienten": 0.7,
+   "Prozent Int Betten belegt": 58.1
   }
  ],
  "Nordrhein-Westfalen": [
@@ -5387,6 +5459,14 @@
    "Int COVID-19 Patienten": 79,
    "Prozent Int COVID-19 Patienten": 1.1,
    "Prozent Int Betten belegt": 67.9
+  },
+  {
+   "Date": "2020-06-29",
+   "Int Betten belegt": 4692,
+   "Int Betten gesamt": 7041,
+   "Int COVID-19 Patienten": 79,
+   "Prozent Int COVID-19 Patienten": 1.1,
+   "Prozent Int Betten belegt": 66.6
   }
  ],
  "Rheinland-Pfalz": [
@@ -5926,6 +6006,14 @@
    "Int COVID-19 Patienten": 9,
    "Prozent Int COVID-19 Patienten": 0.6,
    "Prozent Int Betten belegt": 56.9
+  },
+  {
+   "Date": "2020-06-29",
+   "Int Betten belegt": 814,
+   "Int Betten gesamt": 1458,
+   "Int COVID-19 Patienten": 8,
+   "Prozent Int COVID-19 Patienten": 0.5,
+   "Prozent Int Betten belegt": 55.8
   }
  ],
  "Saarland": [
@@ -6465,6 +6553,14 @@
    "Int COVID-19 Patienten": 4,
    "Prozent Int COVID-19 Patienten": 0.6,
    "Prozent Int Betten belegt": 62.2
+  },
+  {
+   "Date": "2020-06-29",
+   "Int Betten belegt": 389,
+   "Int Betten gesamt": 655,
+   "Int COVID-19 Patienten": 3,
+   "Prozent Int COVID-19 Patienten": 0.5,
+   "Prozent Int Betten belegt": 59.4
   }
  ],
  "Sachsen": [
@@ -7004,6 +7100,14 @@
    "Int COVID-19 Patienten": 36,
    "Prozent Int COVID-19 Patienten": 2.1,
    "Prozent Int Betten belegt": 66.9
+  },
+  {
+   "Date": "2020-06-29",
+   "Int Betten belegt": 1105,
+   "Int Betten gesamt": 1727,
+   "Int COVID-19 Patienten": 35,
+   "Prozent Int COVID-19 Patienten": 2.0,
+   "Prozent Int Betten belegt": 64.0
   }
  ],
  "Sachsen-Anhalt": [
@@ -7543,6 +7647,14 @@
    "Int COVID-19 Patienten": 4,
    "Prozent Int COVID-19 Patienten": 0.4,
    "Prozent Int Betten belegt": 63.5
+  },
+  {
+   "Date": "2020-06-29",
+   "Int Betten belegt": 672,
+   "Int Betten gesamt": 1067,
+   "Int COVID-19 Patienten": 4,
+   "Prozent Int COVID-19 Patienten": 0.4,
+   "Prozent Int Betten belegt": 63.0
   }
  ],
  "Schleswig-Holstein": [
@@ -8082,6 +8194,14 @@
    "Int COVID-19 Patienten": 0,
    "Prozent Int COVID-19 Patienten": 0.0,
    "Prozent Int Betten belegt": 53.3
+  },
+  {
+   "Date": "2020-06-29",
+   "Int Betten belegt": 620,
+   "Int Betten gesamt": 1143,
+   "Int COVID-19 Patienten": 0,
+   "Prozent Int COVID-19 Patienten": 0.0,
+   "Prozent Int Betten belegt": 54.2
   }
  ],
  "Thüringen": [
@@ -8621,6 +8741,14 @@
    "Int COVID-19 Patienten": 6,
    "Prozent Int COVID-19 Patienten": 0.6,
    "Prozent Int Betten belegt": 60.3
+  },
+  {
+   "Date": "2020-06-29",
+   "Int Betten belegt": 572,
+   "Int Betten gesamt": 1000,
+   "Int COVID-19 Patienten": 5,
+   "Prozent Int COVID-19 Patienten": 0.5,
+   "Prozent Int Betten belegt": 57.2
   }
  ],
  "Deutschland": [
@@ -9160,6 +9288,14 @@
    "Prozent Int COVID-19 Patienten": 1.1,
    "Prozent Int Betten belegt": 64.7,
    "Date": "2020-06-28"
+  },
+  {
+   "Int Betten belegt": 20070,
+   "Int Betten gesamt": 31710,
+   "Int COVID-19 Patienten": 328,
+   "Date": "2020-06-29",
+   "Prozent Int COVID-19 Patienten": 1.0,
+   "Prozent Int Betten belegt": 63.3
   }
  ]
 }
