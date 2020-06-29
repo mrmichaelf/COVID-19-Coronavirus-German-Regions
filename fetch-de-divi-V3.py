@@ -12,6 +12,10 @@ import csv
 # my helper modules
 import helper
 
+"""
+lk_id sind https://de.wikipedia.org/wiki/Amtlicher_Gemeindeschl%C3%BCssel
+"""
+
 
 def extractLinkList(cont: str) -> list:
     myPattern = '<a href="(/divi-intensivregister-tagesreport-archiv-csv/divi-intensivregister-[^"]+/download)"'
