@@ -113,12 +113,14 @@ del dates
 # property_to_plot = 'Deaths_Last_Week_Per_Million'
 l_subprocesses = []
 d_latest_svg_file = {}  # store the last generated file per property
-for property_to_plot in ('Cases_Last_Week_Per_Million', 'Cases_Per_Million'):
+for property_to_plot in ('Cases_Last_Week_Per_Million', 'Cases_Per_Million', 'DIVI_Intensivstationen_Covid_Prozent'):
 
     if property_to_plot == 'Cases_Last_Week_Per_Million':
         meta = {"colour": d_color_scales['blue']}
     elif property_to_plot == 'Cases_Per_Million':
         meta = {"colour": d_color_scales['red']}
+    elif property_to_plot == 'DIVI_Intensivstationen_Covid_Prozent':
+        meta = {"colour": d_color_scales['template']}
 
     values = []
     # collect all values for autoscaling
