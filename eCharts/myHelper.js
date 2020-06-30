@@ -11,6 +11,13 @@ function removeAllOptionsFromSelect(select) {
   }
 }
 
+// Formats value "Something_Is_HERE" to "Something Is Here"
+function capitalize_words(str, separator) {
+  const allLowerCaseValue = str.split(separator).join(" ").toLowerCase();
+  return allLowerCaseValue.replace(/\w\S*/g, function (txt) { return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase(); });
+}
+
+
 // Formats value "Something_Is_HERE" to "Something is here" like sentence
 // value: The value to format
 // separator: the separator string between words
@@ -79,7 +86,7 @@ function setOptionsToSelect(select, optionsArray, placeholdertext) {
       option.innerText = optionsArray[i].text;
     } else {
       option.value = optionsArray[i];
-      option.innerText = formatValueToSentenceLike(optionsArray[i], "_");
+      option.innerText = capitalize_words(optionsArray[i], "_");
     }
     select.add(option);
   }
@@ -408,7 +415,7 @@ function refreshCountryChart(
 
   option = {
     title: {
-      text: "COVID-19: " + formatValueToSentenceLike(select_yAxisProperty.value, "_"),
+      text: "COVID-19: " + capitalize_words(select_yAxisProperty.value, "_"),
       left: 'center',
       subtext: "by Torben https://entorb.net based on JHU data",
       sublink: "https://entorb.net/COVID-19-coronavirus/",
@@ -432,7 +439,7 @@ function refreshCountryChart(
       axisTick: { inside: true },
       axisLabel: { show: true },
       // for x only
-      name: formatValueToSentenceLike(select_xAxisProperty.value, "_"),
+      name: capitalize_words(select_xAxisProperty.value, "_"),
       nameLocation: 'end',
     },
     // in type log : setting min is required
@@ -448,7 +455,7 @@ function refreshCountryChart(
       axisTick: { inside: true },
       axisLabel: { show: true },
       // for y only
-      name: formatValueToSentenceLike(select_yAxisProperty.value, "_"),
+      name: capitalize_words(select_yAxisProperty.value, "_"),
       nameLocation: 'center',
       nameGap: 60,
     },
@@ -771,7 +778,7 @@ function refreshDeDistrictsChart(
   option = {
     title: {
       // text: "COVID-19: Landkreisvergleich 7-Tages-Neuinfektionen",
-      text: "COVID-19: Landkreisvergleich " + formatValueToSentenceLike(select_yAxisProperty.value, "_"),
+      text: "COVID-19: Landkreisvergleich " + capitalize_words(select_yAxisProperty.value, "_"),
       left: 'center',
       subtext: "by Torben https://entorb.net based on RKI data",
       sublink: "https://entorb.net/COVID-19-coronavirus/",
@@ -817,7 +824,7 @@ function refreshDeDistrictsChart(
       axisTick: { inside: true },
       axisLabel: { show: true },
       // for y only
-      name: formatValueToSentenceLike(select_yAxisProperty.value, "_"),
+      name: capitalize_words(select_yAxisProperty.value, "_"),
       nameLocation: 'center',
       nameGap: 60,
     },
@@ -874,6 +881,11 @@ function refreshDeDistrictsChart(
       ]
     }
   }
+  else if (select_yAxisProperty.value.indexOf("DIVI_") == 0) {
+    option.title.subtext = "by Torben https://entorb.net based on DIVI data";
+
+  }
+
 
   chart.clear(); // needed as setOption does not reliable remove all old data, see https://github.com/apache/incubator-echarts/issues/6202#issuecomment-460322781
   chart.setOption(option, true);
