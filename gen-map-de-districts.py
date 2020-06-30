@@ -112,12 +112,13 @@ del dates
 
 # property_to_plot = 'Deaths_Last_Week_Per_Million'
 l_subprocesses = []
-for property_to_plot in ('Cases_Last_Week_Per_Million', 'Deaths_Last_Week_Per_Million'):
+d_latest_svg_file = {}  # store the last generated file per property
+for property_to_plot in ('Cases_Last_Week_Per_Million', 'Cases_Per_Million'):
 
     if property_to_plot == 'Cases_Last_Week_Per_Million':
         meta = {"colour": d_color_scales['blue']}
-    elif property_to_plot == 'Deaths_Last_Week_Per_Million':
-        meta = {"colour": d_color_scales['red']}
+    elif property_to_plot == 'Cases_Per_Million':
+        meta = {"colour": d_color_scales['template']}
 
     values = []
     # collect all values for autoscaling
@@ -148,6 +149,8 @@ for property_to_plot in ('Cases_Last_Week_Per_Million', 'Deaths_Last_Week_Per_Mi
                 main[area] = {'pcapita': pcapita}
 
             outfile = f'maps/out/de-districts/{property_to_plot}-{date_str}.svg'
+            # overwrittin per date, until it holds the latest file
+            d_latest_svg_file[property_to_plot] = outfile
 
             # skip svg generation if I have not cleaned up, for faster gif generation debugging
             if os.path.isfile(outfile):
@@ -205,7 +208,7 @@ for property_to_plot in ('Cases_Last_Week_Per_Million', 'Deaths_Last_Week_Per_Mi
                             file_out.write(row)
         # break
     l_subprocesses = []
-    # months are processed in to gifs in parallel and later joined
+    # months are processed to gifs in parallel and later joined
     for month in l_month:
         # convert -size 480x maps/out/de-districts/Cases_Last_Week_Per_Million-2020-03*.svg -resize 480x -coalesce -fuzz 2% +dither -layers Optimize maps/out/de-districts/Cases_Last_Week_Per_Million-2020-03.gif
         l_imagemagick_parameters = [
@@ -230,9 +233,9 @@ for property_to_plot in ('Cases_Last_Week_Per_Million', 'Deaths_Last_Week_Per_Mi
     ]
     run_imagemagick_convert(l_imagemagick_parameters)
 
-    # set delay of 0.5s for all frames
+    # set delay of 0.25s for all frames
     l_imagemagick_parameters = [
-        outfile, '-delay', '500x1000', outfile
+        outfile, '-delay', '250x1000', outfile
     ]
     run_imagemagick_convert(l_imagemagick_parameters)
 
@@ -242,23 +245,30 @@ for property_to_plot in ('Cases_Last_Week_Per_Million', 'Deaths_Last_Week_Per_Mi
     ]
     run_imagemagick_convert(l_imagemagick_parameters)
 
-    # create copies with shorter and longer delay
-    delay_variants = (100, 250, 500)
-    for delay in delay_variants:
-        outfileDelay = f'maps/de-districts-{property_to_plot}-{delay}.gif'
-        run_imagemagick_convert([
-            outfile, '-delay', f'{delay}x1000', outfileDelay
-        ])
-        run_imagemagick_convert([
-            outfileDelay, '(', '-clone', '-1', '-set', 'delay', '2000x1000', ')', outfileDelay
-        ])
+    # # create copies with shorter and longer delay
+    # # this does not work: all have the same speed :-(
+    # delay_variants = (100, 250, 500)
+    # for delay in delay_variants:
+    #     outfileDelay = f'maps/de-districts-{property_to_plot}-{delay}.gif'
+    #     run_imagemagick_convert([
+    #         outfile, '-delay', f'{delay}x1000', outfileDelay
+    #     ])
+    #     run_imagemagick_convert([
+    #         outfileDelay, '(', '-clone', '-1', '-set', 'delay', '2000x1000', ')', outfileDelay
+    #     ])
+
+    # generate a static image for the latest date
+    l_imagemagick_parameters = [
+        f'{d_latest_svg_file[property_to_plot]}', '-resize', '480x', '-coalesce', '-fuzz', '2%', '+dither', '-layers', 'Optimize', f'maps/de-districts-{property_to_plot}-latest.gif'
+    ]
+    run_imagemagick_convert(l_imagemagick_parameters)
 
 
-# cleanup
-for f in glob.glob('maps/out/de-districts/*.gif'):
-    os.remove(f)
-    pass
+# # cleanup
+# for f in glob.glob('maps/out/de-districts/*.gif'):
+#     os.remove(f)
+#     pass
 
-for f in glob.glob('maps/out/de-districts/*.svg'):
-    os.remove(f)
-    pass
+# for f in glob.glob('maps/out/de-districts/*.svg'):
+#     os.remove(f)
+#     pass
