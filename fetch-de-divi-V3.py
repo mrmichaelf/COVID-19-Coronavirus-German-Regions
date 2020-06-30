@@ -18,9 +18,11 @@ lk_id sind https://de.wikipedia.org/wiki/Amtlicher_Gemeindeschl%C3%BCssel
 
 
 def extractLinkList(cont: str) -> list:
-    myPattern = '<a href="(/divi-intensivregister-tagesreport-archiv-csv/divi-intensivregister-[^"]+/download)"'
+    # myPattern = '<a href="(/divi-intensivregister-tagesreport-archiv-csv/divi-intensivregister-[^"]+/download)"'
+    myPattern = '<a href="(/divi-intensivregister-tagesreport-archiv-csv/divi-intensivregister-[^"]+/viewdocument[^"]*)"'
     myRegExp = re.compile(myPattern)
     myMatches = myRegExp.findall(cont)
+    assert len(myMatches) > 10, "Error: no csv download links found"
     return myMatches
 
 
@@ -56,19 +58,20 @@ def fetch_latest_csvs():
     for url in l_csv_urls:
         url = f"https://www.divi.de{url}"
         filename = re.search(
-            '/divi-intensivregister-tagesreport-archiv-csv/divi-intensivregister-(\d{4}\-\d{2}\-\d{2})[^/]+/download$', url).group(1)
+            '/divi-intensivregister-tagesreport-archiv-csv/divi-intensivregister-(\d{4}\-\d{2}\-\d{2})[^/]+/viewdocument', url).group(1)
         d_csvs_to_fetch[filename] = url
     del l_csv_urls
 
+    assert len(d_csvs_to_fetch) > 0, "Error: no files to fetch"
     for filename, url in d_csvs_to_fetch.items():
-        cachefile = f"data/de-divi/csv/{filename}.csv"
+        cachefile = f"data/de-divi/downloaded/{filename}.csv"
         cont = helper.read_url_or_cachefile(
             url=url, cachefile=cachefile, request_type='get', payload={}, cache_max_age=900, verbose=True)
 
 
 def generate_database() -> dict:
     d_database = {}
-    for csv_file in glob.glob('data/de-divi/csv/*.csv'):
+    for csv_file in glob.glob('data/de-divi/downloaded/*.csv'):
         (filepath, fileName) = os.path.split(csv_file)
         (fileBaseName, fileExtension) = os.path.splitext(fileName)
         date = fileBaseName
@@ -83,6 +86,7 @@ def generate_database() -> dict:
 # file 2020-06-28.csv
 # bundesland,gemeindeschluessel,anzahl_meldebereiche,faelle_covid_aktuell,faelle_covid_aktuell_beatmet,anzahl_standorte,betten_frei,betten_belegt,daten_stand
 
+
 # -> skipping file 2020-04-24.csv and 2020-04-25.csv
         if date in ('2020-04-24', '2020-04-25'):
             continue
@@ -90,6 +94,7 @@ def generate_database() -> dict:
         with open(csv_file, mode='r', encoding='utf-8') as f:
             csv_reader = csv.DictReader(f, delimiter=",")
             for row in csv_reader:
+                assert len(row) >= 8, "Error: too few rows found"
                 bl_id = row["bundesland"]
                 lk_id = row["gemeindeschluessel"]
                 d = {
@@ -151,7 +156,7 @@ def export_tsv(d_database):
     pass
 
 
-# fetch_latest_csvs()
+fetch_latest_csvs()
 d_database = generate_database()
 export_tsv(d_database)
 
