@@ -264,11 +264,11 @@ for property_to_plot in ('Cases_Last_Week_Per_Million', 'Cases_Per_Million'):
     run_imagemagick_convert(l_imagemagick_parameters)
 
 
-# # cleanup
-# for f in glob.glob('maps/out/de-districts/*.gif'):
-#     os.remove(f)
-#     pass
+# cleanup
+for f in glob.glob('maps/out/de-districts/*.gif'):
+    os.remove(f)
+    pass
 
-# for f in glob.glob('maps/out/de-districts/*.svg'):
-#     os.remove(f)
-#     pass
+for f in glob.glob('maps/out/de-districts/*.svg'):
+    os.remove(f)
+    pass
