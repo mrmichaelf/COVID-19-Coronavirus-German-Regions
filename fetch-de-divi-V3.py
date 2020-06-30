@@ -127,7 +127,7 @@ def generate_database() -> dict:
                     d_database[lk_id] = []
                 d_database[lk_id].append(d)
 
-    helper.write_json('data/de-divi/de-divi-V3.json',
+    helper.write_json('cache/de-divi/de-divi-V3.json',
                       d_database, sort_keys=True, indent=1)
     return d_database
 

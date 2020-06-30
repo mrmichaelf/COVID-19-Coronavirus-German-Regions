@@ -483,7 +483,7 @@ def download_all_data():
     # break
 
 def join_with_divi_data(d_districts_data: dict) -> dict:
-    d_divi_data = helper.read_json_file('data/de-divi/de-divi-V3.json')
+    d_divi_data = helper.read_json_file('cache/de-divi/de-divi-V3.json')
     for lk_id, l_lk_time_series in d_districts_data.items():
         # all Berlin Districts are in divi at 11000
         if lk_id[0:2] == '11':
