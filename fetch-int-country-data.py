@@ -414,7 +414,7 @@ def read_ref_data_countries() -> dict:
             elif continent == 'OC':
                 continent = 'Oceania'
             else:
-                assert 1 == 2, f"E: continent missing for {country_name}"
+                assert 1 == 2, f"E: continent missing for {name}"
 
         d2["Code"] = code
         d2['Continent'] = continent
@@ -433,7 +433,7 @@ d_countries_ref = read_ref_data_countries()
 
 d_selected_countries = read_ref_selected_countries()
 
-if not helper.check_cache_file_available_and_recent(fname=file_cache, max_age=900, verbose=True):
+if not helper.check_cache_file_available_and_recent(fname=file_cache, max_age=1800, verbose=True):
     download_new_data()
 
 d_countries_timeseries = read_json_data()

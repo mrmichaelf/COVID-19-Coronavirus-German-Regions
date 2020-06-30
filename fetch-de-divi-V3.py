@@ -40,7 +40,7 @@ def fetch_latest_csvs():
     # "cid[]": "0", "category_id": "54", "task": "", "8ba87835776d29f4e379a261512319f1": "1"
 
     cont = helper.read_url_or_cachefile(
-        url=url, cachefile=cachefile, request_type='post', payload=payload, cache_max_age=900, verbose=True)
+        url=url, cachefile=cachefile, request_type='post', payload=payload, cache_max_age=3600, verbose=True)
 
     # extract link of from <a href="/divi-intensivregister-tagesreport-archiv-csv/divi-intensivregister-2020-06-28-12-15/download"
 
@@ -66,7 +66,7 @@ def fetch_latest_csvs():
     for filename, url in d_csvs_to_fetch.items():
         cachefile = f"data/de-divi/downloaded/{filename}.csv"
         cont = helper.read_url_or_cachefile(
-            url=url, cachefile=cachefile, request_type='get', payload={}, cache_max_age=900, verbose=True)
+            url=url, cachefile=cachefile, request_type='get', payload={}, cache_max_age=3600, verbose=True)
 
 
 def generate_database() -> dict:

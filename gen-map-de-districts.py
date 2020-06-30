@@ -76,6 +76,10 @@ d_color_scales = {
         '#ff4d4d',
         '#ff1a1a',
         '#cc0000'
+    ],
+    'green':
+    [
+        '',
     ]
 }
 

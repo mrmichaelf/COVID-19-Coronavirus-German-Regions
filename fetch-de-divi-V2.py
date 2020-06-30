@@ -96,7 +96,7 @@ def extractBundeslandKeyValueData(s1: str) -> list:
 def fetch_betten():
     # fetch data per bundesland, having many duplicates
     cont = helper.read_url_or_cachefile(
-        url="https://diviexchange.z6.web.core.windows.net/gmap_betten.htm", cachefile='cache/de-divi/de-divi-betten.html', cache_max_age=15, verbose=True)
+        url="https://diviexchange.z6.web.core.windows.net/gmap_betten.htm", cachefile='cache/de-divi/de-divi-betten.html', cache_max_age=3600, verbose=True)
     myMatches = extractAreaTagTitleData(cont)
     # example
     # 'Schleswig-Holstein\rFreie Betten: 507\rBelegte Betten: 536\rAnteil freier Betten an Gesamtzahl: 48.6%'
@@ -119,7 +119,7 @@ def fetch_betten():
 def fetch_covid():
     # fetch data per bundesland, having many duplicates
     cont = helper.read_url_or_cachefile(
-        url="https://diviexchange.z6.web.core.windows.net/gmap_covid.htm", cachefile='cache/de-divi/de-divi-covid.html', cache_max_age=15, verbose=True)
+        url="https://diviexchange.z6.web.core.windows.net/gmap_covid.htm", cachefile='cache/de-divi/de-divi-covid.html', cache_max_age=3600, verbose=True)
     myMatches = extractAreaTagTitleData(cont)
     # 'Baden-Württemberg\rAnzahl COVID-19 Patienten/innen in intensivmedizinischer Behandlung: 456\rAnteil COVID-19 Patienten/innen pro Intensivbett: 11,9%'
 
