@@ -55,31 +55,61 @@ def run_imagemagick_convert(l_imagemagick_parameters: list, wait_for_finish: boo
     return process
 
 
-# https://www.w3schools.com/colors/colors_picker.asp
+# from https://htmlcolorcodes.com/
+# alternative: https://www.w3schools.com/colors/colors_picker.asp
 d_color_scales = {
     'template': [
-        "#fee5d9", "#fcbba1", "#fc9272", "#fb6a4a", "#de2d26", "#a50f15"
+        '#aed6f1',
+        '#85c1e9',
+        '#5dade2',
+        '#3498db',
+        '#2e86c1',
+        '#2874a6',
+        '#21618c',
+        '#1b4f72'
     ],
     'blue': [
-        '#e6e6ff',
-        '#b3b3ff',
-        '#8080ff',
-        '#4d4dff',
-        '#1a1aff',
-        '#0000e6'
+        '#aed6f1',
+        '#85c1e9',
+        '#5dade2',
+        '#3498db',
+        '#2e86c1',
+        '#2874a6',
+        '#21618c',
+        '#1b4f72'
     ],
     'red':
     [
-        '#ffe6e6',
-        '#ffb3b3',
-        '#ff8080',
-        '#ff4d4d',
-        '#ff1a1a',
-        '#cc0000'
+        '#e6b0aa',
+        '#d98880',
+        '#cd6155',
+        '#c0392b',
+        '#a93226',
+        '#922b21',
+        '#7b241c',
+        '#641e16'
+    ],
+    'purple':
+    [
+        '#d2b4de',
+        '#bb8fce',
+        '#a569bd',
+        '#8e44ad',
+        '#7d3c98',
+        '#6c3483',
+        '#5b2c6f',
+        '#4a235a'
     ],
     'green':
     [
-        '',
+        '#a9dfbf',
+        '#7dcea0',
+        '#52be80',
+        '#27ae60',
+        '#229954',
+        '#1e8449',
+        '#196f3d',
+        '#145a32'
     ]
 }
 
@@ -117,30 +147,77 @@ del dates
 # property_to_plot = 'Deaths_Last_Week_Per_Million'
 l_subprocesses = []
 d_latest_svg_file = {}  # store the last generated file per property
-for property_to_plot in ('Cases_Last_Week_Per_Million', 'Cases_Per_Million', 'DIVI_Intensivstationen_Covid_Prozent'):
+# for property_to_plot in ('Cases_Per_Million',):
+for property_to_plot in ('Cases_Last_Week_Per_Million', 'Cases_Per_Million', 'DIVI_Intensivstationen_Betten_belegt_Prozent', 'DIVI_Intensivstationen_Covid_Prozent'):
 
     if property_to_plot == 'Cases_Last_Week_Per_Million':
         meta = {"colour": d_color_scales['blue']}
     elif property_to_plot == 'Cases_Per_Million':
         meta = {"colour": d_color_scales['red']}
     elif property_to_plot == 'DIVI_Intensivstationen_Covid_Prozent':
-        meta = {"colour": d_color_scales['template']}
+        meta = {"colour": d_color_scales['purple']}
+    elif property_to_plot == 'DIVI_Intensivstationen_Betten_belegt_Prozent':
+        meta = {"colour": d_color_scales['green']}
+    else:
+        assert 1 == 2, f"Error: color for {property_to_plot} is undefined"
 
     values = []
     # collect all values for autoscaling
-    # TODO filter here on selecten month as well?
+    # TODO filter here on selected month as well?
     for date_str, l_districts in d_all_date_data.items():
         for lk_id, d in l_districts.items():
-            values.append(d[property_to_plot])
+            if property_to_plot in d and d[property_to_plot] != None and d[property_to_plot] > 0:
+                values.append(d[property_to_plot])
     del d, l_districts, lk_id
 
     # generate color scale range
-    q = statistics.quantiles(values, n=100, method="inclusive")
-    step = math.sqrt(statistics.mean(values) - q[0]) / 3
-    threshold = [0, 0, 0, 0, 0, 0]
-    for i in range(1, 6):
-        threshold[i] = math.pow(i * step, 2) + q[0]
-    del q, step, i
+    threshold = [0, 0, 0, 0, 0, 0, 0]
+    print(f"{property_to_plot} min={min(values)} max={max(values)}")
+    # V1 taken from template
+    # q = statistics.quantiles(values, n=100, method="inclusive")
+    # step = math.sqrt(statistics.mean(values) - q[0]) / 3
+    # for i in range(1, 7):
+    #     threshold[i] = math.pow(i * step, 2) + q[0]
+    # del q, step, i
+
+    # V2
+    # threshold = statistics.quantiles(values, n=7+1, method="exclusive")
+
+    # V3: linear distribution: very simple, but nice for % values
+    data_min = min(values)
+    data_max = max(values)
+    span = data_max-data_min
+    if property_to_plot in ('DIVI_Intensivstationen_Covid_Prozent', 'DIVI_Intensivstationen_Betten_belegt_Prozent'):
+        step = span / 8
+        for i in range(7):
+            threshold[i] = data_min+(1+i)*step
+    # V4: exponential distribution: step to the power of i
+    else:
+        # if property_to_plot in ('Cases_Last_Week_Per_Million', 'Cases_Per_Million'):
+        step = span ** (1.0/8)
+        for i in range(7):
+            threshold[i] = data_min + step**(1+i)
+
+    # rounding of thresholds
+    for i in range(7):
+        if threshold[i] > 1000000:
+            threshold[i] = int(round(threshold[i], -5))
+        elif threshold[i] > 100000:
+            threshold[i] = int(round(threshold[i], -4))
+        elif threshold[i] > 10000:
+            threshold[i] = int(round(threshold[i], -3))
+        elif threshold[i] > 1000:
+            threshold[i] = int(round(threshold[i], -2))
+        elif threshold[i] > 100:
+            threshold[i] = int(round(threshold[i], -1))
+        elif threshold[i] > 10:
+            threshold[i] = int(round(threshold[i], 0))
+        elif threshold[i] > 1:
+            threshold[i] = int(round(threshold[i], 1))
+
+    print(threshold)
+
+    # assert 1 == 2
 
     with open('maps/template_de-districts.svg', mode="r", newline="", encoding="utf-8") as file_in:
         # plot loop for each date
@@ -149,10 +226,19 @@ for property_to_plot in ('Cases_Last_Week_Per_Million', 'Cases_Per_Million', 'DI
         for date_str, l_districts in d_all_date_data.items():
             file_in.seek(0, 0)  # reset file pointer
             main = {}
+            at_least_one_value_found = False
             for lk_id, d in l_districts.items():
                 area = lk_id
-                pcapita = d[property_to_plot]
+                if property_to_plot in d and d[property_to_plot] != None:
+                    pcapita = d[property_to_plot]
+                    at_least_one_value_found = True
+                else:
+                    pcapita = -1
                 main[area] = {'pcapita': pcapita}
+
+            # do not create an svg if not areas with data for property_to_plot are available
+            if not at_least_one_value_found:
+                continue
 
             outfile = f'maps/out/de-districts/{property_to_plot}-{date_str}.svg'
             # overwrittin per date, until it holds the latest file
@@ -163,55 +249,81 @@ for property_to_plot in ('Cases_Last_Week_Per_Million', 'Cases_Per_Million', 'DI
                 continue
 
             with open(outfile, mode="w", newline="", encoding="utf-8") as file_out:
-                if threshold[5] >= 10000:
-                    num = "{:_.0f}"
-                elif threshold[1] >= 10:
-                    num = "{:.0f}"
+                # decide on the digits for the legend
+                if property_to_plot == 'DIVI_Intensivstationen_Covid_Prozent':
+                    num = "{:.0f}%"
+                elif property_to_plot == 'DIVI_Intensivstationen_Betten_belegt_Prozent':
+                    num = "{:.0f}%"
+                # elif threshold[7-1] >= 10000:
+                #     num = "{:.0f}"
+                # elif threshold[1] >= 10:
+                #     num = "{:.0f}"
                 else:
-                    num = "{:.2f}"
+                    num = "{:.0f}"
 
                 for row in file_in:
                     written = False
+                    # 1. check if the row contains any of the known area codes (lk_id)
                     for area in main:
                         if row.find('id="{}"'.format(area)) > -1:
-                            i = 0
-                            while i < 5:
-                                if main[area]["pcapita"] >= threshold[i + 1]:
-                                    i += 1
-                                else:
-                                    break
-                            file_out.write(row.replace('id="{}"'.format(
-                                area), 'style="fill:{}"'.format(meta["colour"][i])))
+                            # paint white if we have no value
+                            if main[area]["pcapita"] == -1:
+                                file_out.write(row.replace('id="{}"'.format(
+                                    area), 'style="fill:{}"'.format("#ffffff")))
+                            # else paint it in the correct color
+                            else:
+                                i = 0
+                                while i <= 7-1:
+                                    if main[area]["pcapita"] >= threshold[i]:
+                                        i += 1
+                                    else:
+                                        break
+                                file_out.write(row.replace('id="{}"'.format(
+                                    area), 'style="fill:{}"'.format(meta["colour"][i])))
                             written = True
                             break
                     if written == False:
-                        if row.find('>Date') > -1:
+                        # 2. check if row contains Date placeholder
+                        if row.find('>!!!Date!!!') > -1:
                             file_out.write(row.replace(
-                                'Date', date_str))
-                        elif row.find('>level') > -1:
-                            for i in range(6):
-                                if row.find('level{}'.format(i)) > -1:
+                                '!!!Date!!!', date_str))
+                        # 3. check if row contains Label placeholder
+                        elif row.find('>!!!Level') > -1:
+                            for i in range(7+1):
+                                if row.find('!!!Level{}'.format(i)) > -1:
                                     if i == 0:
-                                        file_out.write(row.replace('level{}'.format(
-                                            i), "&lt; " + num.format(threshold[1]).replace("_", "&#8201;")))
+                                        file_out.write(row.replace('!!!Level{}'.format(
+                                            i), "&lt; " + num.format(threshold[i]).replace("_", "&#8201;")))
                                     else:
-                                        file_out.write(row.replace('level{}'.format(
-                                            i), "≥ " + num.format(threshold[i]).replace("_", "&#8201;")))
+                                        file_out.write(row.replace('!!!Level{}'.format(
+                                            i), "≥ " + num.format(threshold[i-1]).replace("_", "&#8201;")))
+                        # 4. check if row contains legend color box
                         elif row.find('<path fill="#') > -1:
                             s = row
-                            for i in range(6):
+                            for i in range(7+1):
                                 s = s.replace(
                                     d_color_scales["template"][i], meta["colour"][i])
                             file_out.write(s)
-                        # elif row.find('!!!TYPE!!!') > -1:
-                        #     if property_to_plot == 'Cases_Last_Week_Per_Million':
-                        #         file_out.write(row.replace(
-                        #             '!!!TYPE!!!', 'Infizierte'))
-                        #     elif property_to_plot == 'Deaths_Last_Week_Per_Million':
-                        #         file_out.write(row.replace(
-                        #             '!!!TYPE!!!', 'Verstorbene'))
+                        # 5. check if row contains Title
+                        elif row.find('!!!TITLE!!!') > -1:
+                            if property_to_plot == 'Cases_Last_Week_Per_Million':
+                                file_out.write(row.replace(
+                                    '!!!TITLE!!!', 'Neu-Infizierte 7 Tage pro Millionen EW'))
+                            elif property_to_plot == 'Cases_Per_Million':
+                                file_out.write(row.replace(
+                                    '!!!TITLE!!!', 'Infizierte pro Millionen EW.'))
+                            elif property_to_plot == 'DIVI_Intensivstationen_Covid_Prozent':
+                                file_out.write(row.replace(
+                                    '!!!TITLE!!!', 'Intensivstationen: COVID-19 Patienten'))
+                            elif property_to_plot == 'DIVI_Intensivstationen_Betten_belegt_Prozent':
+                                file_out.write(row.replace(
+                                    '!!!TITLE!!!', 'Intensivstationen: Betten belegt'))
+                            else:
+                                file_out.write(row.replace(
+                                    '!!!TITLE!!!', property_to_plot.replace("_", " ")))
                         else:
                             file_out.write(row)
+        #     break
         # break
     l_subprocesses = []
     # months are processed to gifs in parallel and later joined
