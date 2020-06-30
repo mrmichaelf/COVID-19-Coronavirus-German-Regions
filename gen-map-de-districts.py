@@ -118,7 +118,7 @@ for property_to_plot in ('Cases_Last_Week_Per_Million', 'Cases_Per_Million'):
     if property_to_plot == 'Cases_Last_Week_Per_Million':
         meta = {"colour": d_color_scales['blue']}
     elif property_to_plot == 'Cases_Per_Million':
-        meta = {"colour": d_color_scales['template']}
+        meta = {"colour": d_color_scales['red']}
 
     values = []
     # collect all values for autoscaling
