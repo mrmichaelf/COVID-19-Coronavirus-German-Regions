@@ -145,8 +145,7 @@ def helper_read_from_cache_or_fetch_from_url(url: str, file_cache: str, readFrom
     """
     if readFromCache:
         readFromCache = helper.check_cache_file_available_and_recent(
-            fname=file_cache, max_age=3600, verbose=False)
-        # TODO
+            fname=file_cache, max_age=1800, verbose=False)
 
     json_cont = []
     if readFromCache == True:  # read from cache
