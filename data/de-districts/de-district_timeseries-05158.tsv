@@ -1,4 +1,4 @@
-Days_Past	Date	Cases	Deaths	Cases_New	Deaths_New	Cases_Last_Week	Deaths_Last_Week	Cases_Per_Million	Deaths_Per_Million	Cases_New_Per_Million	Deaths_New_Per_Million	Cases_Last_Week_Per_Million	Deaths_Last_Week_Per_Million	DIVI_Intensivstationen_Covid_%	DIVI_Intensivstationen_Betten_belegt_%
+Days_Past	Date	Cases	Deaths	Cases_New	Deaths_New	Cases_Last_Week	Deaths_Last_Week	Cases_Per_Million	Deaths_Per_Million	Cases_New_Per_Million	Deaths_New_Per_Million	Cases_Last_Week_Per_Million	Deaths_Last_Week_Per_Million	DIVI_Intensivstationen_Covid_Prozent	DIVI_Intensivstationen_Betten_belegt_Prozent
 -153	2020-01-28	0	0	0	0	0	0	0	0	0	0.0	0	0.0		
 -152	2020-01-29	0	0	0	0	0	0	0	0	0	0.0	0	0.0		
 -151	2020-01-30	0	0	0	0	0	0	0	0	0	0.0	0	0.0		
@@ -152,4 +152,4 @@ Days_Past	Date	Cases	Deaths	Cases_New	Deaths_New	Cases_Last_Week	Deaths_Last_Wee
 -3	2020-06-26	1021	79	13	0	38	0	2102	162	26	0.0	78	0.0	0.0	38.4
 -2	2020-06-27	1023	79	2	0	35	0	2106	162	4	0.0	72	0.0	1.2	43.4
 -1	2020-06-28	1026	79	3	0	38	0	2112	162	6	0.0	78	0.0	0.0	40.0
-0	2020-06-29	1030	79	4	0	41	0	2120	162	8	0.0	84	0.0		
+0	2020-06-29	1030	79	4	0	41	0	2120	162	8	0.0	84	0.0	0.0	53.1

@@ -500,10 +500,10 @@ def join_with_divi_data(d_districts_data: dict) -> dict:
         for d in l_lk_time_series:
             if d['Date'] not in d_divi_time_series:
                 continue
-            d['DIVI_Intensivstationen_Covid_%'] = d_divi_time_series[d['Date']
-                                                                     ]['faelle_covid_aktuell_proz']
-            d['DIVI_Intensivstationen_Betten_belegt_%'] = d_divi_time_series[d['Date']
-                                                                             ]['betten_belegt_proz']
+            d['DIVI_Intensivstationen_Covid_Prozent'] = d_divi_time_series[d['Date']
+                                                                           ]['faelle_covid_aktuell_proz']
+            d['DIVI_Intensivstationen_Betten_belegt_Prozent'] = d_divi_time_series[d['Date']
+                                                                                   ]['betten_belegt_proz']
 
         d_districts_data[lk_id] = l_lk_time_series
 
@@ -527,8 +527,8 @@ def export_data(d_districts_data: dict):
                 'Cases_New_Per_Million', 'Deaths_New_Per_Million',
                 'Cases_Last_Week_Per_Million', 'Deaths_Last_Week_Per_Million',
                 # 'Cases_Doubling_Time', 'Deaths_Doubling_Time',
-                'DIVI_Intensivstationen_Covid_%',
-                'DIVI_Intensivstationen_Betten_belegt_%'
+                'DIVI_Intensivstationen_Covid_Prozent',
+                'DIVI_Intensivstationen_Betten_belegt_Prozent'
             ]
             )
             csvwriter.writeheader()
@@ -549,12 +549,12 @@ def export_latest_data(d_districts_data: dict):
         d["Bundesland"] = d["BL_Name"]
         del d["BL_Name"]
         # divi data is not returned by helper.extract_latest_data and mostly not available at latest day, so using the date of the previous day instead
-        if 'DIVI_Intensivstationen_Covid_%' in d_districts_data[lk_id][-1]:
-            d['DIVI_Intensivstationen_Covid_%'] = d_districts_data[lk_id][-1]['DIVI_Intensivstationen_Covid_%']
-            d['DIVI_Intensivstationen_Betten_belegt_%'] = d_districts_data[lk_id][-1]['DIVI_Intensivstationen_Betten_belegt_%']
-        elif 'DIVI_Intensivstationen_Covid_%' in d_districts_data[lk_id][-2]:
-            d['DIVI_Intensivstationen_Covid_%'] = d_districts_data[lk_id][-2]['DIVI_Intensivstationen_Covid_%']
-            d['DIVI_Intensivstationen_Betten_belegt_%'] = d_districts_data[lk_id][-2]['DIVI_Intensivstationen_Betten_belegt_%']
+        if 'DIVI_Intensivstationen_Covid_Prozent' in d_districts_data[lk_id][-1]:
+            d['DIVI_Intensivstationen_Covid_Prozent'] = d_districts_data[lk_id][-1]['DIVI_Intensivstationen_Covid_Prozent']
+            d['DIVI_Intensivstationen_Betten_belegt_Prozent'] = d_districts_data[lk_id][-1]['DIVI_Intensivstationen_Betten_belegt_Prozent']
+        elif 'DIVI_Intensivstationen_Covid_Prozent' in d_districts_data[lk_id][-2]:
+            d['DIVI_Intensivstationen_Covid_Prozent'] = d_districts_data[lk_id][-2]['DIVI_Intensivstationen_Covid_Prozent']
+            d['DIVI_Intensivstationen_Betten_belegt_Prozent'] = d_districts_data[lk_id][-2]['DIVI_Intensivstationen_Betten_belegt_Prozent']
         d_for_export_V2 = d
         d_for_export_V2['LK_ID'] = lk_id
         l_for_export_V2.append(d_for_export_V2)
@@ -571,7 +571,7 @@ def export_latest_data(d_districts_data: dict):
         csvwriter = csv.DictWriter(fh_csv, delimiter='\t', extrasaction='ignore', fieldnames=[
             'Landkreis',   'Bundesland', 'Population', 'Cases', 'Deaths',
             'Cases_Per_Million', 'Deaths_Per_Million',
-            'DIVI_Intensivstationen_Covid_%', 'DIVI_Intensivstationen_Betten_belegt_%'
+            'DIVI_Intensivstationen_Covid_Prozent', 'DIVI_Intensivstationen_Betten_belegt_Prozent'
         ])
 
         csvwriter.writeheader()

@@ -368,7 +368,7 @@ function refreshCountryChart(
 ) {
 
   // update/modify the URL
-  window.history.pushState("object or string", "Title", "https://entorb.net/COVID-19-coronavirus/index.html?yAxis=" + select_yAxisProperty.value + "&countries=" + countryCodes.toString() + "#CountriesCustomChart");
+  window.history.pushState("object or string", "Title", "https://entorb.net/COVID-19-coronavirus/?yAxis=" + select_yAxisProperty.value + "&countries=" + countryCodes.toString() + "#CountriesCustomChart");
 
 
   // disable time selection for non-time series 
@@ -765,7 +765,7 @@ function refreshDeDistrictsChart(
   select_sorting
 ) {
   // update/modify the URL
-  window.history.pushState("object or string", "Title", "https://entorb.net/COVID-19-coronavirus/index.html?yAxis=" + select_yAxisProperty_DeDistricts.value + "&DeDistricts=" + deDistrictCodes.toString() + "#DeDistrictChart");
+  window.history.pushState("object or string", "Title", "https://entorb.net/COVID-19-coronavirus/?yAxis=" + select_yAxisProperty_DeDistricts.value + "&DeDistricts=" + deDistrictCodes.toString() + "#DeDistrictChart");
   // console.log("codes");
   // console.log(codes);
   option = {

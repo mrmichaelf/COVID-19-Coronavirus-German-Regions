@@ -80,10 +80,13 @@
 						<a href="#DeDistrictAni">Animation der Ausbreitung in den Landkreisen</a>
 					</li>
 					<li>
-						<a href="#DeDistrictTable">Landkreistabelle</a><b> (new)</b>
+						<a href="#DeDistrictTable">Landkreistabelle</a>
 					</li>
 					<li>
-						<a href="#DeDistrictChart">Interaktiver Landkreis Vergleich </a><b> (new)</b>
+						<a href="#DeDistrictChart">Interaktiver Landkreis Vergleich </a>
+					</li>
+					<li>
+						<a href="https://entorb.net/COVID-19-coronavirus/newsletter-register.html">Landkreis E-Mail Benachrichtigung</a><b> (new)</b>
 					</li>
 				</ul>
 				<li>
@@ -133,10 +136,10 @@
 				<a href="#Countries">Comparing Countries</a>
 			</li>
 			<li>
-				<a href="#CountryTable">Table of all countries' current situation</a><b> (new)</b>
+				<a href="#CountryTable">Table of all countries' current situation</a>
 			</li>
 			<li>
-				<a href="#CountriesCustomChart">Country comparison custom chart</a><b> (new)</b>
+				<a href="#CountriesCustomChart">Country comparison custom chart</a>
 			</li>
 			<li>
 				<a href="#countries-timeshifted">How did the death toll develop in different countries?</a>
@@ -255,7 +258,7 @@
 
 	<h4><a id="DeDistrictTable"></a>Landkreistabelle</h4>
 
-	<p>Ein Klick auf einer Zeile fügt diesen Landkreis in die <a href="#DeDistrictChart">interaktive Landkreis-Grafik</a> hinzu.</p>
+	<p>Ein Klick auf eine Zeile fügt diesen Landkreis in die <a href="#DeDistrictChart">interaktive Landkreis-Grafik</a> hinzu. Siehe auch meine <a href="https://entorb.net/COVID-19-coronavirus/newsletter-register.html">Landkreis E-Mail Benachrichtigung</a> für konfigurierbare E-Mail Benachrichtigung, basierend auf den Daten dieser Tabelle. </p>
 
 	<p> 06.05.2020: In Deutschland wurde als Richtwert für die Verschärfung von Maßnahmen der Grenzwert von <a href="https://www.tagesschau.de/inland/lockerungen-bund-laender-101.html" target="_blank">500 Neuinfektionen pro 1.000.000 Einwohnern in sieben Tagen in einem Stadt-/Landkreis</a> festgelegt. Daher habe ich die Landkreistabelle nun nach diesem Wert in der Spalte "Infizierte pro Millionen Einwohner pro Woche" sortiert. </p>
 	<div id="table-de-districts"></div>
@@ -318,6 +321,16 @@
 				},
 				{
 					title: "Infizierte<br/>Trend<br/>Index", field: "Slope_Cases_New_Per_Million", sorter: "number", hozAlign: "right", sorterParams: {
+						alignEmptyValues: "bottom"
+					}, headerFilter: true, headerFilterPlaceholder: "filter >=", headerFilterFunc: ">="
+				},
+				{
+					title: "Intensivstationen<br/>% COVID-19<br/>&nbsp;", field: "DIVI_Intensivstationen_Covid_Prozent", sorter: "number", hozAlign: "right", sorterParams: {
+						alignEmptyValues: "bottom"
+					}, headerFilter: true, headerFilterPlaceholder: "filter >=", headerFilterFunc: ">="
+				},
+				{
+					title: "Intensivstationen<br/>% belegt<br/>&nbsp;", field: "DIVI_Intensivstationen_Betten_belegt_Prozent", sorter: "number", hozAlign: "right", sorterParams: {
 						alignEmptyValues: "bottom"
 					}, headerFilter: true, headerFilterPlaceholder: "filter >=", headerFilterFunc: ">="
 				},
