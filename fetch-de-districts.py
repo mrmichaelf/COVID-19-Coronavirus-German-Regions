@@ -145,7 +145,8 @@ def helper_read_from_cache_or_fetch_from_url(url: str, file_cache: str, readFrom
     """
     if readFromCache:
         readFromCache = helper.check_cache_file_available_and_recent(
-            fname=file_cache, max_age=900, verbose=False)
+            fname=file_cache, max_age=3600, verbose=False)
+        # TODO
 
     json_cont = []
     if readFromCache == True:  # read from cache
@@ -296,7 +297,6 @@ def fetch_and_prepare_lk_time_series(lk_id: str) -> list:
     returns list
     writes json and tsv to filesystem
     """
-    file_out = f'data/de-districts/de-district_timeseries-{lk_id}'
     l_time_series_fetched = fetch_landkreis_time_series(
         lk_id=lk_id, readFromCache=True)
 
@@ -347,28 +347,6 @@ def fetch_and_prepare_lk_time_series(lk_id: str) -> list:
     #         this_doubling_time = fit_series_res[this_days_past]
     #     entry['Cases_Doubling_Time'] = this_doubling_time
     #     l_time_series[i] = entry
-
-    # Export data as JSON
-    with open(file_out+'.json', mode='w', encoding='utf-8', newline='\n') as fh:
-        json.dump(l_time_series, fh, ensure_ascii=False)
-
-    with open(file_out+'.tsv', mode='w', encoding='utf-8', newline='\n') as fh_csv:
-        csvwriter = csv.DictWriter(fh_csv, delimiter='\t', extrasaction='ignore', fieldnames=[
-            'Days_Past', 'Date',
-            'Cases', 'Deaths',
-            'Cases_New', 'Deaths_New',
-            'Cases_Last_Week', 'Deaths_Last_Week',
-            'Cases_Per_Million', 'Deaths_Per_Million',
-            'Cases_New_Per_Million', 'Deaths_New_Per_Million',
-            'Cases_Last_Week_Per_Million', 'Deaths_Last_Week_Per_Million',
-            # 'Cases_Doubling_Time', 'Deaths_Doubling_Time',
-        ]
-        )
-        csvwriter.writeheader()
-        for d in l_time_series:
-            csvwriter.writerow(d)
-    if args["sleep"]:
-        time.sleep(1)
 
     return l_time_series
 
@@ -505,6 +483,59 @@ def download_all_data():
     # plot_lk_fit(lk_id, data, d_fit_results)
     # break
 
+def join_with_divi_data(d_districts_data: dict) -> dict:
+    d_divi_data = helper.read_json_file('data/de-divi/de-divi-V3.json')
+    for lk_id, l_lk_time_series in d_districts_data.items():
+        # all Berlin Districts are in divi at 11000
+        if lk_id[0:2] == '11':
+            l_divi_time_series = d_divi_data["11000"]
+        elif lk_id not in d_divi_data:
+            continue
+#        assert lk_id in d_divi_data, f"Error: LK {lk_id} missing in DIVI data"
+        if lk_id[0:2] != '11':
+            l_divi_time_series = d_divi_data[lk_id]
+        d_divi_time_series = {}
+        for d in l_divi_time_series:
+            d_divi_time_series[d['Date']] = d
+
+        for d in l_lk_time_series:
+            if d['Date'] not in d_divi_time_series:
+                continue
+            d['DIVI_Intensivstationen_Covid_%'] = d_divi_time_series[d['Date']
+                                                                     ]['faelle_covid_aktuell_proz']
+            d['DIVI_Intensivstationen_Betten_belegt_%'] = d_divi_time_series[d['Date']
+                                                                             ]['betten_belegt_proz']
+
+        d_districts_data[lk_id] = l_lk_time_series
+
+    return d_districts_data
+
+
+def export_data(d_districts_data: dict):
+    for lk_id, l_time_series in d_districts_data.items():
+        file_out = f'data/de-districts/de-district_timeseries-{lk_id}'
+        # Export data as JSON
+        with open(file_out+'.json', mode='w', encoding='utf-8', newline='\n') as fh:
+            json.dump(l_time_series, fh, ensure_ascii=False)
+
+        with open(file_out+'.tsv', mode='w', encoding='utf-8', newline='\n') as fh_csv:
+            csvwriter = csv.DictWriter(fh_csv, delimiter='\t', extrasaction='ignore', fieldnames=[
+                'Days_Past', 'Date',
+                'Cases', 'Deaths',
+                'Cases_New', 'Deaths_New',
+                'Cases_Last_Week', 'Deaths_Last_Week',
+                'Cases_Per_Million', 'Deaths_Per_Million',
+                'Cases_New_Per_Million', 'Deaths_New_Per_Million',
+                'Cases_Last_Week_Per_Million', 'Deaths_Last_Week_Per_Million',
+                # 'Cases_Doubling_Time', 'Deaths_Doubling_Time',
+                'DIVI_Intensivstationen_Covid_%',
+                'DIVI_Intensivstationen_Betten_belegt_%'
+            ]
+            )
+            csvwriter.writeheader()
+            for d in l_time_series:
+                csvwriter.writerow(d)
+
 
 def export_latest_data(d_districts_data: dict):
     d_districts_latest = helper.extract_latest_data(
@@ -518,6 +549,13 @@ def export_latest_data(d_districts_data: dict):
         d["Landkreis"] = get_lk_name_from_lk_id(lk_id)
         d["Bundesland"] = d["BL_Name"]
         del d["BL_Name"]
+        # divi data is not returned by helper.extract_latest_data and mostly not available at latest day, so using the date of the previous day instead
+        if 'DIVI_Intensivstationen_Covid_%' in d_districts_data[lk_id][-1]:
+            d['DIVI_Intensivstationen_Covid_%'] = d_districts_data[lk_id][-1]['DIVI_Intensivstationen_Covid_%']
+            d['DIVI_Intensivstationen_Betten_belegt_%'] = d_districts_data[lk_id][-1]['DIVI_Intensivstationen_Betten_belegt_%']
+        elif 'DIVI_Intensivstationen_Covid_%' in d_districts_data[lk_id][-2]:
+            d['DIVI_Intensivstationen_Covid_%'] = d_districts_data[lk_id][-2]['DIVI_Intensivstationen_Covid_%']
+            d['DIVI_Intensivstationen_Betten_belegt_%'] = d_districts_data[lk_id][-2]['DIVI_Intensivstationen_Betten_belegt_%']
         d_for_export_V2 = d
         d_for_export_V2['LK_ID'] = lk_id
         l_for_export_V2.append(d_for_export_V2)
@@ -533,7 +571,8 @@ def export_latest_data(d_districts_data: dict):
     with open('data/de-districts/de-districts-results.tsv', mode='w', encoding='utf-8', newline='\n') as fh_csv:
         csvwriter = csv.DictWriter(fh_csv, delimiter='\t', extrasaction='ignore', fieldnames=[
             'Landkreis',   'Bundesland', 'Population', 'Cases', 'Deaths',
-            'Cases_Per_Million', 'Deaths_Per_Million'
+            'Cases_Per_Million', 'Deaths_Per_Million',
+            'DIVI_Intensivstationen_Covid_%', 'DIVI_Intensivstationen_Betten_belegt_%'
         ])
 
         csvwriter.writeheader()
@@ -560,7 +599,10 @@ d_ref_landkreise = fetch_and_prepare_ref_landkreise()
 gen_mapping_BL2LK_json()
 
 d_districts_data = download_all_data()
-# export_data(d_districts_data)
+
+d_districts_data = join_with_divi_data(d_districts_data)
+
+export_data(d_districts_data)
 export_latest_data(d_districts_data)
 
 # fetch_ref_landkreise(readFromCache=True)

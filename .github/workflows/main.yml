@@ -46,6 +46,11 @@ jobs:
 
 
 # Fetch new data
+    - name: Run	fetch-de-divi
+      run: |
+        python3 fetch-de-divi-V2.py
+        python3 fetch-de-divi-V3.py
+
     - name: Run fetch-de-states.py
       run: python3 fetch-de-states-data.py
       
@@ -55,11 +60,6 @@ jobs:
     - name: Run fetch-de-districts.py
       run: python3 fetch-de-districts.py
       
-    - name: Run	fetch-de-divi
-      run: |
-        python3 fetch-de-divi-V2.py
-        python3 fetch-de-divi-V3.py
-
     - name: Run	show_data_dates.sh
       run: bash show_data_dates.sh
 
