@@ -115,7 +115,7 @@ def db_updateHash(email) -> str:
 SENDMAIL = "/usr/lib/sendmail"
 
 
-def sendmail(to: str, body: str, subject: str = "[COVID-19 Landkreis Newsletter]", sender: str = "no-reply@entorb.net"):
+def sendmail(to: str, body: str, subject: str = "[COVID-19 Landkreis Benachrichtigung]", sender: str = "no-reply@entorb.net"):
     mail = f"To: {to}\nSubject: {subject}\nFrom: {sender}\nContent-Type: text/plain; charset=\"utf-8\"\n\n{body}"
     if checkRunningOnServer():
         p = os.popen(f"{SENDMAIL} -t -i", "w")
@@ -133,7 +133,7 @@ def send_email_register(email: str, h: str):
     # TODO: BUG: Umlaute funktioniere hier nicht
     body = f"Bitte diesen Link oeffnen um die Anmeldung abzuschliessen und die Einstellungen vorzunehmen:\n https://entorb.net/COVID-19-coronavirus/newsletter-frontend.html?action=verify&hash={h}"
     sendmail(to=email, body=body,
-             subject="[COVID-19 Landkreis Newsletter] - Anmeldung")
+             subject="[COVID-19 Landkreis Benachrichtigung] - Anmeldung")
 
 
 def get_form_parameter(para: str) -> str:

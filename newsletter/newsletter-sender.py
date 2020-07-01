@@ -141,7 +141,6 @@ del lk_id, count
 # loop over subscriptions
 for row in cur.execute("SELECT email, verified, hash, threshold, regions, frequency, date_registered FROM newsletter WHERE verified = 1 AND regions IS NOT NULL"):
     mailBody = ""
-    # mailBody += "entorb's COVID-19 Landkreis Newsletter\n\n"
     mailTo = row["email"]
     s_this_regions = row["regions"]
     l_this_regions = row["regions"].split(',')
@@ -195,4 +194,4 @@ for row in cur.execute("SELECT email, verified, hash, threshold, regions, freque
         mailBody += "\nNeu anmelden: https://entorb.net/COVID-19-coronavirus/newsletter-register.html\n"
 
         sendmail(to=mailTo, body=mailBody,
-                 subject=f"[COVID-19 Landkreis Newsletter] - {reason_for_sending}")
+                 subject=f"[COVID-19 Landkreis Benachrichtigung] - {reason_for_sending}")
