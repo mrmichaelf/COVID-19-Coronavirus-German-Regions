@@ -3344,23 +3344,23 @@
   "Slope_Deaths_New_Per_Million": -0.07
  },
  {
-  "Cases": 2635417,
-  "Cases_Last_Week": 287926,
+  "Cases": 2635603,
+  "Cases_Last_Week": 288112,
   "Cases_Last_Week_Per_Million": 880,
-  "Cases_New": 44766,
+  "Cases_New": 45425,
   "Cases_Per_Million": 8055,
   "Code": "US",
   "Continent": "North America",
   "Country": "United States",
   "Date_Latest": "2020-06-30",
   "Deaths": 127417,
-  "Deaths_Last_Week": 6186,
-  "Deaths_Last_Week_Per_Million": 18.91,
-  "Deaths_New": 1277,
+  "Deaths_Last_Week": 5583,
+  "Deaths_Last_Week_Per_Million": 17.06,
+  "Deaths_New": 719,
   "Deaths_Per_Million": 389,
   "Population": 327167434,
   "Slope_Cases_New_Per_Million": 4.42,
-  "Slope_Deaths_New_Per_Million": 0.04
+  "Slope_Deaths_New_Per_Million": -0.01
  },
  {
   "Cases": 936,
