@@ -7256,7 +7256,7 @@
   "LK_Typ": "Landkreis",
   "Landkreis": "Landsberg am Lech (Landkreis)",
   "Population": 120071,
-  "Slope_Cases_New_Per_Million": -0.0,
+  "Slope_Cases_New_Per_Million": 0.0,
   "Slope_Deaths_New_Per_Million": 0
  },
  {
@@ -8268,7 +8268,7 @@
   "LK_Typ": "Kreisfreie Stadt",
   "Landkreis": "Erlangen (Kreisfreie Stadt)",
   "Population": 111962,
-  "Slope_Cases_New_Per_Million": 0.0,
+  "Slope_Cases_New_Per_Million": -0.0,
   "Slope_Deaths_New_Per_Million": 0
  },
  {
