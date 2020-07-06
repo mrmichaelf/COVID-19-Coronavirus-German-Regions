@@ -47,12 +47,13 @@ def fetch_latest_csvs():
     l_csv_urls = extractLinkList(cont=cont)
 
     # reduce list to the 5 latest files
-    while len(l_csv_urls) > 5:
-        l_csv_urls.pop()
+    # commented out, since at 07.07.2020 at the source the table sourting was strange, so that the new files where not on top of the list
+    # while len(l_csv_urls) > 5:
+    #     l_csv_urls.pop()
 
     d_csvs_to_fetch = {}
 
-    # loop over urls to replaces outdated files by latest file per day
+    # loop over urls to replace outdated files by latest file per day
     # '/divi-intensivregister-tagesreport-archiv-csv/divi-intensivregister-2020-06-25-12-15/download'
     # '/divi-intensivregister-tagesreport-archiv-csv/divi-intensivregister-2020-06-25-12-15-2/download'
     for url in l_csv_urls:
