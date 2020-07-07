@@ -5180,7 +5180,7 @@
   "LK_Typ": "Landkreis",
   "Landkreis": "Darmstadt-Dieburg (Landkreis)",
   "Population": 297399,
-  "Slope_Cases_New_Per_Million": -0.0,
+  "Slope_Cases_New_Per_Million": 0.0,
   "Slope_Deaths_New_Per_Million": 0
  },
  {
@@ -8844,7 +8844,7 @@
   "LK_Typ": "Landkreis",
   "Landkreis": "Forchheim (Landkreis)",
   "Population": 116099,
-  "Slope_Cases_New_Per_Million": -0.0,
+  "Slope_Cases_New_Per_Million": 0.0,
   "Slope_Deaths_New_Per_Million": 0
  },
  {
