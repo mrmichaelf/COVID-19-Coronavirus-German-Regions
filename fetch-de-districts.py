@@ -593,7 +593,7 @@ def export_latest_data(d_districts_data: dict):
             #         d2['Deaths_Per_Million'], 0)
 
 
-def calc_zero_cases_last_week(d_districts_data):
+def count_zero_cases_last_week(d_districts_data):
     # calc number of districts with Cases_Last_Week == 0
     d_count_districts_with_zero_cases_last_week_per_date = {}
     for lk_id, l_time_series in d_districts_data.items():
@@ -601,13 +601,13 @@ def calc_zero_cases_last_week(d_districts_data):
             date = d["Date"]
             if date not in d_count_districts_with_zero_cases_last_week_per_date:
                 d_count_districts_with_zero_cases_last_week_per_date[date] = 0
-            if d["Cases_Last_Week"] == 0:
+            if d["Cases_Last_Week"] != 0:
                 d_count_districts_with_zero_cases_last_week_per_date[date] += 1
     # Export as CSV
     with open('data/de-districts/de-districts-zero_cases_last_week.tsv', mode='w', encoding='utf-8', newline='\n') as fh_csv:
         csvwriter = csv.writer(fh_csv, delimiter='\t')
         csvwriter.writerow(
-            ("Date", "Landkreise ohne Neu-Infektionen in 7 Tagen"))
+            ("Date", "Landkreise mit Neu-Infektionen in 7 Tagen"))
         for date in sorted(d_count_districts_with_zero_cases_last_week_per_date.keys()):
             csvwriter.writerow(
                 (date, d_count_districts_with_zero_cases_last_week_per_date[date]))
@@ -621,7 +621,7 @@ d_districts_data = download_all_data()
 
 d_districts_data = join_with_divi_data(d_districts_data)
 
-calc_zero_cases_last_week(d_districts_data)
+count_zero_cases_last_week(d_districts_data)
 export_data(d_districts_data)
 export_latest_data(d_districts_data)
 

@@ -9,7 +9,7 @@ data = "../data/de-districts/de-districts-zero_cases_last_week.tsv"
 set style data lines
 set style increment user # important!!! switch between linetypes (default) and userdefined linestyles
 
-# set xlabel "Wochen"
+set ylabel "Anzahl der Landkreise"
 
 set xdata time
 set timefmt "%Y-%m-%d"
@@ -23,9 +23,9 @@ set y2tics (0, 20, 40, 60, 80, 100) nomirror format "%g%%"
 unset grid
 set grid xtics y2tics
 
-set title "Anzahl der DE Landkreise ohne COVID-19 Neu-Infektion in 7 Tagen"
+set title "Anzahl der Landkreise mit COVID-19 Neu-Infektion in der letzten Woche"
 
 set output "../plots-gnuplot/de-districts/zero_cases_last_week.png"
-plot data u 1:2 axis x1y1 with lines dt 1 
+plot data u 1:2 axis x1y1 with lines dt 1 lc "blue"
 
 unset output
