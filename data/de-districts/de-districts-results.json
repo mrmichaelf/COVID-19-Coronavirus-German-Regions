@@ -4338,7 +4338,7 @@
   "LK_Typ": "Landkreis",
   "Landkreis": "Esslingen (Landkreis)",
   "Population": 533859,
-  "Slope_Cases_New_Per_Million": 0.0,
+  "Slope_Cases_New_Per_Million": -0.0,
   "Slope_Deaths_New_Per_Million": 0
  },
  "08117": {
@@ -5680,7 +5680,7 @@
   "LK_Typ": "Landkreis",
   "Landkreis": "Miesbach (Landkreis)",
   "Population": 99726,
-  "Slope_Cases_New_Per_Million": 0.0,
+  "Slope_Cases_New_Per_Million": -0.0,
   "Slope_Deaths_New_Per_Million": 0
  },
  "09183": {
