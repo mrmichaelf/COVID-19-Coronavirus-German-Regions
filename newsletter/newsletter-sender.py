@@ -167,7 +167,7 @@ for row in cur.execute("SELECT email, verified, hash, threshold, regions, freque
     if toSend:
         #        mailBody += f"Versandgrund: \n\n"
         # table header
-        mailBody += "Infektionen*    : Landkreis\n"
+        mailBody += "Infektionen*/**  : Landkreis\n"
         # table body
         for lk_id, value in sorted(d_this_regions_cases_PM.items(), key=lambda item: item[1], reverse=True):
             d = d_districts_latest[lk_id]
@@ -177,14 +177,14 @@ for row in cur.execute("SELECT email, verified, hash, threshold, regions, freque
                 location=d["Landkreis"],
                 slope_arrow=d["Slope_Cases_Arrow"]
             )
-        mailBody += format_line2(cases_DE_last_week_PM, "Deutschland gesamt")
+        mailBody += format_line2(cases_DE_last_week_PM, "Deutschland")
         # flop 10
         mailBody += "Top 5\n" + s_worst_lk
 
         # table footer
         mailBody += f"Datenstand: {dataDate}\n"
-        mailBody += "\n* Neu-Infektionen letzte Woche: pro Millionen Einwohner / Absolut\n"
-        mailBody += f"\nCustom Chart: https://entorb.net/COVID-19-coronavirus/?yAxis=Cases_Last_Week_Per_Million&DeDistricts={s_this_regions}#DeDistrictChart\n"
+        mailBody += "\n* Neu-Infektionen letzte Woche: *pro Millionen Einwohner / **Absolut\n"
+        mailBody += f"\nZeitverlauf Deiner ausgewählten Landkreise: https://entorb.net/COVID-19-coronavirus/?yAxis=Cases_Last_Week_Per_Million&DeDistricts={s_this_regions}#DeDistrictChart\n"
 
         # create a new hash
         # add management link including new hash
@@ -192,6 +192,8 @@ for row in cur.execute("SELECT email, verified, hash, threshold, regions, freque
         mailBody += f"\nAbmelden/Einstellungen ändern: https://entorb.net/COVID-19-coronavirus/newsletter-frontend.html?hash={h}\n"
 
         mailBody += "\nNeu anmelden: https://entorb.net/COVID-19-coronavirus/newsletter-register.html\n"
+
+        mailBody += f"\nentorb's Coronavirus Auswertungen: https://entorb.net/COVID-19-coronavirus/\n"
 
         sendmail(to=mailTo, body=mailBody,
                  subject=f"[COVID-19 Landkreis Benachrichtigung] - {reason_for_sending}")
