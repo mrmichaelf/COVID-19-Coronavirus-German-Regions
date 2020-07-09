@@ -753,7 +753,28 @@ function refreshCountryChart(
       ]
     }
   }
-
+  else if (select_yAxisProperty.value == "Cases_Last_Week_Per_Million") {
+    option.series[0].markLine = {
+      symbol: 'none',
+      silent: true,
+      animation: false,
+      lineStyle: {
+        color: "#0000ff"
+        //type: 'solid'
+      },
+      data: [
+        {
+          yAxis: 500,
+          name: '500',
+          // value: 'value',
+          label: {
+            position: 'insideStartTop',
+            formatter: '{b}' // b -> name        
+          },
+        },
+      ]
+    }
+  }
 
   chart.clear(); // needed as setOption does not reliable remove all old data, see https://github.com/apache/incubator-echarts/issues/6202#issuecomment-460322781
   chart.setOption(option, true);
