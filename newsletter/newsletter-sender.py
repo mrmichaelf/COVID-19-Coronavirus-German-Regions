@@ -140,10 +140,11 @@ del lk_id, count
 
 # loop over subscriptions
 for row in cur.execute("SELECT email, verified, hash, threshold, regions, frequency, date_registered FROM newsletter WHERE verified = 1 AND regions IS NOT NULL"):
+    mailBody = ""
     # for debugging: only send to me
     # if row["email"] != "my-email-address":
     #     continue
-    # mailBody = "HINWEIS: Dies ist ein Nachversand, da mir ein Fehler unterlaufen ist, der dazu führte, dass die heutige E-Mail veraltete Daten (Datenstand: 2020-07-06) enthielt. Ich bitte die Umstände zu entschuldigen. \nLG Torben\n\n\n"
+    # mailBody += "HINWEIS: Dies ist ein Nachversand, da mir ein Fehler unterlaufen ist, der dazu führte, dass die heutige E-Mail veraltete Daten (Datenstand: 2020-07-06) enthielt. Ich bitte die Umstände zu entschuldigen. \nLG Torben\n\n\n"
 
     mailTo = row["email"]
     s_this_regions = row["regions"]
