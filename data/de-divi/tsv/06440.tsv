@@ -1,6 +1,7 @@
 Date	betten_ges	betten_belegt	betten_belegt_proz	faelle_covid_aktuell	faelle_covid_aktuell_proz	faelle_covid_aktuell_beatmet	faelle_covid_aktuell_beatmet_proz
 2020-07-10	95	72	75.8	3	3.2	2	66.7
 2020-05-24	131	75	57.3	1	0.8	0	0.0
+2020-07-12	93	70	75.3	0	0.0	0	0
 2020-06-17	129	72	55.8	1	0.8	0	0.0
 2020-06-28	109	67	61.5	2	1.8	0	0.0
 2020-06-18	122	65	53.3	1	0.8	0	0.0
