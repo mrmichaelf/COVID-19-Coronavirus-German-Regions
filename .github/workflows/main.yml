@@ -72,7 +72,7 @@ jobs:
 # Gnuplot plotting
     - name: Gnuplot plotting
       run: |
-        sudo apt-get update /dev/null
+        sudo apt-get update > /dev/null
         sudo apt-get install gnuplot > /dev/null
         cd scripts-gnuplot
         gnuplot all.gp
