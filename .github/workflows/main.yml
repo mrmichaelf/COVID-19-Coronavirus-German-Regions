@@ -8,8 +8,8 @@ on:
   schedule:
     - cron: "15 5,6,11 * * *"
 # TODO       
-#  push:
-#    branches: [ master ]
+  push:
+    branches: [ master ]
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
@@ -72,6 +72,7 @@ jobs:
 # Gnuplot plotting
     - name: Gnuplot plotting
       run: |
+        sudo apt-get update /dev/null
         sudo apt-get install gnuplot > /dev/null
         cd scripts-gnuplot
         gnuplot all.gp
