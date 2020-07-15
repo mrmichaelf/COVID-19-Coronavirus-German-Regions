@@ -69,12 +69,12 @@ def sendmail(to: str, body: str, subject: str, sender: str = 'no-reply@entorb.ne
 
 
 def format_line(cases_lw_pm: str, cases_lw: str, location: str, slope_arrow: str) -> str:
-    return "%4d / %4d %s   : %s\n" % (
-        cases_lw_pm, cases_lw, slope_arrow, location)
+    return "%5.1f / %4d %s   : %s\n" % (
+        round(cases_lw_pm/10, 1), cases_lw, slope_arrow, location)
 
 
 def format_line2(cases_lw_pm: str, location: str) -> str:
-    return "%4d            : %s\n" % (cases_lw_pm, location)
+    return "%5.1f            : %s\n" % (round(cases_lw_pm/10, 1), location)
 
 
 def get_slope_arrow(slope: float) -> str:
@@ -172,7 +172,8 @@ for row in cur.execute("SELECT email, verified, hash, threshold, regions, freque
     if toSend:
         #        mailBody += f"Versandgrund: \n\n"
         # table header
-        mailBody += "Infektionen*/**  : Landkreis\n"
+        mailBody += "Infektionen      : Landkreis\n"
+        mailBody += "Rel.¹ / Absolut²\n"
         # table body
         for lk_id, value in sorted(d_this_regions_cases_PM.items(), key=lambda item: item[1], reverse=True):
             d = d_districts_latest[lk_id]
@@ -188,7 +189,7 @@ for row in cur.execute("SELECT email, verified, hash, threshold, regions, freque
 
         # table footer
         mailBody += f"Datenstand: {dataDate}\n"
-        mailBody += "\n* Neu-Infektionen letzte Woche: *pro Millionen Einwohner / **Absolut\n"
+        mailBody += "Einheiten: Neu-Infektionen letzte Woche, ¹relativ pro 100.000 Einwohner / ²Absolut\n"
         mailBody += f"\nZeitverlauf Deiner ausgewählten Landkreise: https://entorb.net/COVID-19-coronavirus/?yAxis=Cases_Last_Week_Per_Million&DeDistricts={s_this_regions}#DeDistrictChart\n"
 
         # create a new hash
