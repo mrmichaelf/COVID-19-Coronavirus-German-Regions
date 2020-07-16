@@ -13,32 +13,32 @@ on:
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
   job_0_clone_repo:
+# Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v2
-# Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
+    - name: Checkout Repositiry
+      uses: actions/checkout@v2
 
-
-#  job_0_setup_python:
-#    runs-on: ubuntu-latest
-#    steps:
-#    - name: Setup Python
-#      uses: actions/setup-python@v2
-#      with:
-#        python-version: '3.8'
-#    
-#    - name: Cache Python pip
-#      uses: actions/cache@v2
-#      with:
-#        # This path is specific to Ubuntu
-#        path: ~/.cache/pip
-#        # Look to see if there is a cache hit for the corresponding requirements file
-#        key: ${{ runner.os }}-pip-${{ hashFiles('py-requirements.txt') }}
-#        restore-keys: |
-#          ${{ runner.os }}-pip-
-#          ${{ runner.os }}-
-#    - name: Install dependencies
-#      run: pip install -r py-requirements.txt
+  job_0_setup_python:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Setup Python
+      uses: actions/setup-python@v2
+      with:
+        python-version: '3.8'
+    
+    - name: Cache Python pip
+      uses: actions/cache@v2
+      with:
+        # This path is specific to Ubuntu
+        path: ~/.cache/pip
+        # Look to see if there is a cache hit for the corresponding requirements file
+        key: ${{ runner.os }}-pip-${{ hashFiles('py-requirements.txt') }}
+        restore-keys: |
+          ${{ runner.os }}-pip-
+          ${{ runner.os }}-
+    - name: Install dependencies
+      run: pip install -r py-requirements.txt
 
 
 #  job_0_install_gnuplot:
