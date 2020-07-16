@@ -54,6 +54,4 @@ jobs:
       with:
         token: ${{ secrets.GITHUB_TOKEN }}
         files: |
-          cache/data.tgz
-          cache/plots-gnuplot.tgz
           cache/maps.tgz
