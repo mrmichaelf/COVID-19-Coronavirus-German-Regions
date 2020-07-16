@@ -12,17 +12,13 @@ on:
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
-  job_0_clone_repo:
+  job_1:
 # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
     runs-on: ubuntu-latest
     steps:
     - name: Checkout Repositiry
       uses: actions/checkout@v2
 
-  job_0_setup_python:
-    needs: [job_0_clone_repo]
-    runs-on: ubuntu-latest
-    steps:
     - name: Setup Python
       uses: actions/setup-python@v2
       with:
@@ -41,84 +37,71 @@ jobs:
     - name: Install dependencies
       run: pip install -r py-requirements.txt
 
+# Fetch new data
+    - name: Run	fetch-de-divi
+      run: |
+        python3 fetch-de-divi-V2.py
+        python3 fetch-de-divi-V3.py
 
-  job_0_install_gnuplot:
-    runs-on: ubuntu-latest
-    steps:
+    - name: Run fetch-de-states.py
+      run: python3 fetch-de-states-data.py
+      
+    - name: Run fetch-int-country-data.py
+      run: python3 fetch-int-country-data.py
+      
+    - name: Run fetch-de-districts.py
+      run: python3 fetch-de-districts.py
+      
+    - name: Run	show_data_dates.sh
+      run: bash show_data_dates.sh
+
+    - name: Commit new data files
+      run: |
+        git config --local user.email "action@github.com"
+        git config --local user.name "GitHub Action"
+        git add data/*
+        git diff-index --quiet HEAD || git commit -m "auto update"  | grep -v rewrite
+
+    - name: Push changes
+      uses: ad-m/github-push-action@master
+      with:
+        github_token: ${{ secrets.GITHUB_TOKEN }}
+        directory: data
+
+    - name: Zipping data
+      run: |
+        cd data
+        tar cfz ../cache/data.tgz *
+ 
+    - name: Upload data artifact via tip
+      uses: eine/tip@master
+      with:
+        token: ${{ secrets.GITHUB_TOKEN }}
+        files: |
+          cache/data.tgz
+
+# Gnuplot plotting
     - name: Install Gnuplot
       run: |
         sudo apt-get update > /dev/null
         sudo apt-get install gnuplot > /dev/null
 
+    - name: Gnuplot plotting
+      run: |
+        cd scripts-gnuplot
+        gnuplot all.gp
 
-#  job_1_update_data:
-#    needs: [job_0_clone_repo, job_0_setup_python]
-#    runs-on: ubuntu-latest
-#    steps:
-## Fetch new data
-#    - name: Run	fetch-de-divi
-#      run: |
-#        python3 fetch-de-divi-V2.py
-#        python3 fetch-de-divi-V3.py
-#
-#    - name: Run fetch-de-states.py
-#      run: python3 fetch-de-states-data.py
-#      
-#    - name: Run fetch-int-country-data.py
-#      run: python3 fetch-int-country-data.py
-#      
-#    - name: Run fetch-de-districts.py
-#      run: python3 fetch-de-districts.py
-#      
-#    - name: Run	show_data_dates.sh
-#      run: bash show_data_dates.sh
-#
-#    - name: Commit new data files
-#      run: |
-#        git config --local user.email "action@github.com"
-#        git config --local user.name "GitHub Action"
-#        git add data/*
-#        git diff-index --quiet HEAD || git commit -m "auto update"  | grep -v rewrite
-#
-#    - name: Push changes
-#      uses: ad-m/github-push-action@master
-#      with:
-#        github_token: ${{ secrets.GITHUB_TOKEN }}
-#        directory: data
-#
-#    - name: Zipping data
-#      run: |
-#        cd data
-#        tar cfz ../cache/data.tgz *
-#
-#    - name: Upload data artifact via tip
-#      uses: eine/tip@master
-#      with:
-#        token: ${{ secrets.GITHUB_TOKEN }}
-#        files: |
-#          cache/data.tgz
+    - name: Zipping gnuplot plots
+      run: |
+        cd plots-gnuplot
+        tar cfz ../cache/plots-gnuplot.tgz *
 
-#  job_1_gnuplotting_data:
-#    needs: [job_0_install_gnuplot,job_1_update_data]
-#    runs-on: ubuntu-latest
-#    steps:
-## Gnuplot plotting
-#    - name: Gnuplot plotting
-#      run: |
-#        cd scripts-gnuplot
-#        gnuplot all.gp
-#
-#    - name: Zipping gnuplot plots
-#      run: |
-#        cd plots-gnuplot
-#        tar cfz ../cache/plots-gnuplot.tgz *
-#
-#    - name: Upload data artifact via tip
-#      uses: eine/tip@master
-#      with:
-#        token: ${{ secrets.GITHUB_TOKEN }}
-#        files: |
-#          cache/plots-gnuplot.tgz
+    - name: Upload data artifact via tip
+      uses: eine/tip@master
+      with:
+        token: ${{ secrets.GITHUB_TOKEN }}
+        files: |
+          cache/plots-gnuplot.tgz
 
 # moved as a separate action, as it takes quite long
 # Generate maps
@@ -129,6 +112,8 @@ jobs:
 #        python3 gen-map-de-districts.py
 #        cd maps
 #        tar cfz ../cache/maps.tgz *.gif
+
+# old stuff
 
 # Create pre-releases of tgz files
 
