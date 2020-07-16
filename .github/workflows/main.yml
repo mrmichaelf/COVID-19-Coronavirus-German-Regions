@@ -99,27 +99,27 @@ jobs:
         files: |
           cache/data.tgz
 
-  job_1_gnuplotting_data:
-    needs: [job_0_install_gnuplot,job_1_update_data]
-    runs-on: ubuntu-latest
-    steps:
-# Gnuplot plotting
-    - name: Gnuplot plotting
-      run: |
-        cd scripts-gnuplot
-        gnuplot all.gp
-
-    - name: Zipping gnuplot plots
-      run: |
-        cd plots-gnuplot
-        tar cfz ../cache/plots-gnuplot.tgz *
-
-    - name: Upload data artifact via tip
-      uses: eine/tip@master
-      with:
-        token: ${{ secrets.GITHUB_TOKEN }}
-        files: |
-          cache/plots-gnuplot.tgz
+#  job_1_gnuplotting_data:
+#    needs: [job_0_install_gnuplot,job_1_update_data]
+#    runs-on: ubuntu-latest
+#    steps:
+## Gnuplot plotting
+#    - name: Gnuplot plotting
+#      run: |
+#        cd scripts-gnuplot
+#        gnuplot all.gp
+#
+#    - name: Zipping gnuplot plots
+#      run: |
+#        cd plots-gnuplot
+#        tar cfz ../cache/plots-gnuplot.tgz *
+#
+#    - name: Upload data artifact via tip
+#      uses: eine/tip@master
+#      with:
+#        token: ${{ secrets.GITHUB_TOKEN }}
+#        files: |
+#          cache/plots-gnuplot.tgz
 
 # moved as a separate action, as it takes quite long
 # Generate maps
