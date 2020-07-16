@@ -14,7 +14,7 @@ on:
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
   
-  # This workflow contains a single job called "updater1"
+  # This workflow contains a single job
   job1:
     # The type of runner that the job will run on
     runs-on: ubuntu-latest
@@ -82,15 +82,15 @@ jobs:
         cd plots-gnuplot
         tar cfz ../cache/plots-gnuplot.tgz *
 
-# TODO: reactivate at in a separate job?
+# moved as a separate action, as it takes quite long
 # Generate maps
-    - name: Generate + zip maps
-      run: | 
-        # sudo apt-get update > /dev/null
-        # sudo apt-get install imagemagick > /dev/null
-        python3 gen-map-de-districts.py
-        cd maps
-        tar cfz ../cache/maps.tgz *.gif
+#    - name: Generate + zip maps
+#      run: | 
+#        # sudo apt-get update > /dev/null
+#        # sudo apt-get install imagemagick > /dev/null
+#        python3 gen-map-de-districts.py
+#        cd maps
+#        tar cfz ../cache/maps.tgz *.gif
 
 # Create pre-releases of tgz files
 
@@ -110,7 +110,7 @@ jobs:
         files: |
           cache/data.tgz
           cache/plots-gnuplot.tgz
-          cache/maps.tgz
+#          cache/maps.tgz
 
 # https://github.com/marketplace/actions/deploy-nightly
 #    - name: Upload data artifact via deploy-nightly
