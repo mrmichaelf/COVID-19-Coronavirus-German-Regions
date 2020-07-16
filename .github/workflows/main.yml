@@ -15,7 +15,7 @@ on:
 jobs:
   
   # This workflow contains a single job called "updater1"
-  updater1:
+  job1:
     # The type of runner that the job will run on
     runs-on: ubuntu-latest
     
@@ -86,7 +86,8 @@ jobs:
 # Generate maps
     - name: Generate + zip maps
       run: | 
-        # sudo apt-get install imagemagick
+        # sudo apt-get update > /dev/null
+        # sudo apt-get install imagemagick > /dev/null
         python3 gen-map-de-districts.py
         cd maps
         tar cfz ../cache/maps.tgz *.gif
