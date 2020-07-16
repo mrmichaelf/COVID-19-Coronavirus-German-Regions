@@ -87,17 +87,17 @@ jobs:
         github_token: ${{ secrets.GITHUB_TOKEN }}
         directory: data
 
-    - name: Zipping data
-      run: |
-        cd data
-        tar cfz ../cache/data.tgz *
+#    - name: Zipping data
+#      run: |
+#        cd data
+#        tar cfz ../cache/data.tgz *
 
-    - name: Upload data artifact via tip
-      uses: eine/tip@master
-      with:
-        token: ${{ secrets.GITHUB_TOKEN }}
-        files: |
-          cache/data.tgz
+#    - name: Upload data artifact via tip
+#      uses: eine/tip@master
+#      with:
+#        token: ${{ secrets.GITHUB_TOKEN }}
+#        files: |
+#          cache/data.tgz
 
 #  job_1_gnuplotting_data:
 #    needs: [job_0_install_gnuplot,job_1_update_data]
