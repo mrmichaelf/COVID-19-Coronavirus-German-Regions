@@ -5,6 +5,9 @@ name: Update Maps
 on:  
   schedule:
     - cron: "58 6 * * *"
+# TODO       
+  push:
+    branches: [ master ]
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
