@@ -19,12 +19,12 @@ jobs:
     - name: Checkout Repositiry
       uses: actions/checkout@v2
 
-    - name: Setup Python
+    - name: Python Setup
       uses: actions/setup-python@v2
       with:
         python-version: '3.8'
     
-    - name: Cache Python pip
+    - name: Python Cached pip
       uses: actions/cache@v2
       with:
         # This path is specific to Ubuntu
@@ -34,46 +34,47 @@ jobs:
         restore-keys: |
           ${{ runner.os }}-pip-
           ${{ runner.os }}-
-    - name: Install dependencies
+          
+    - name: Python Install requirements
       run: pip install -r py-requirements.txt
 
 # Fetch new data
-    - name: Run	fetch-de-divi
+    - name: fetch-de-divi
       run: |
         python3 fetch-de-divi-V2.py
         python3 fetch-de-divi-V3.py
 
-    - name: Run fetch-de-states.py
+    - name: fetch-de-states
       run: python3 fetch-de-states-data.py
       
-    - name: Run fetch-int-country-data.py
+    - name: fetch-int-country-data
       run: python3 fetch-int-country-data.py
       
-    - name: Run fetch-de-districts.py
+    - name: fetch-de-districts
       run: python3 fetch-de-districts.py
       
-    - name: Run	show_data_dates.sh
+    - name: data show dates
       run: bash show_data_dates.sh
 
-    - name: Commit new data files
+    - name: data commit new files
       run: |
         git config --local user.email "action@github.com"
         git config --local user.name "GitHub Action"
         git add data/*
         git diff-index --quiet HEAD || git commit -m "auto update"  | grep -v rewrite
 
-    - name: Push changes
+    - name: data push changes
       uses: ad-m/github-push-action@master
       with:
         github_token: ${{ secrets.GITHUB_TOKEN }}
         directory: data
 
-    - name: Zipping data
+    - name: data zipping
       run: |
         cd data
         tar cfz ../cache/data.tgz *
  
-    - name: Upload data artifact via tip
+    - name: data upload data artifact via tip
       uses: eine/tip@master
       with:
         token: ${{ secrets.GITHUB_TOKEN }}
@@ -81,7 +82,7 @@ jobs:
           cache/data.tgz
 
 # Gnuplot plotting
-    - name: Install Gnuplot
+    - name: Gnuplot Install 
       run: |
         sudo apt-get update > /dev/null
         sudo apt-get install gnuplot > /dev/null
@@ -91,12 +92,12 @@ jobs:
         cd scripts-gnuplot
         gnuplot all.gp
 
-    - name: Zipping gnuplot plots
+    - name: Gnuplot zipping plots
       run: |
         cd plots-gnuplot
         tar cfz ../cache/plots-gnuplot.tgz *
 
-    - name: Upload data artifact via tip
+    - name: Gnuplot upload artifact via tip
       uses: eine/tip@master
       with:
         token: ${{ secrets.GITHUB_TOKEN }}
