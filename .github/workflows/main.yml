@@ -15,10 +15,8 @@ jobs:
   job_0_clone_repo:
     runs-on: ubuntu-latest
     steps:
-    - name: Clone repository
-# Clone repository
-# Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
     - uses: actions/checkout@v2
+# Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
 
 
 #  job_0_setup_python:
