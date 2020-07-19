@@ -1028,7 +1028,7 @@
   "LK_Typ": "Landkreis",
   "Landkreis": "Oberhavel (Landkreis)",
   "Population": 211249,
-  "Slope_Cases_New_Per_Million": -0.0,
+  "Slope_Cases_New_Per_Million": 0.0,
   "Slope_Deaths_New_Per_Million": 0
  },
  {
@@ -2132,7 +2132,7 @@
   "LK_Typ": "Kreisfreie Stadt",
   "Landkreis": "Jena (Kreisfreie Stadt)",
   "Population": 111407,
-  "Slope_Cases_New_Per_Million": 0.0,
+  "Slope_Cases_New_Per_Million": -0.0,
   "Slope_Deaths_New_Per_Million": 0
  },
  {
