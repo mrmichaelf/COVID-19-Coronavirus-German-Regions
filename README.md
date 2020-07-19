@@ -4,9 +4,10 @@ Scripts for daily
 * fetching of updated data
 * converting data to common format
 * calculating new entities from data
-* plotting charts and uploading them to my report https://entorb.net/COVID-19-coronavirus/
-* empowering an [interactive country comparison chart](https://entorb.net/COVID-19-coronavirus/#CountriesCustomChart) for the data
+* plotting charts and uploading them to my analyis and report https://entorb.net/COVID-19-coronavirus/
+* empowering an [interactive country comparison chart](https://entorb.net/COVID-19-coronavirus/#CountriesCustomChart) 
 * empowering https://covid19-trends.de
+* empowering https://github.com/pschwede/covid19plots
 
 Resulting data in JSON and CSV/TSV format can be browsed [here at GitHub](https://github.com/entorb/COVID-19-Coronavirus-German-Regions/tree/master/data). 
 
@@ -38,3 +39,5 @@ Nomenclature of data fields
 * Last_Week = Difference to 7 days past
 * Per_Million = Scaled by 1 Million Population
 * Doubling_Time = Derived by fitting data with exp. growth function
+
+For German districts (Landkreise) I additionally fetch and provide a time series of the DIVI Intensivregister hospital occupation.
