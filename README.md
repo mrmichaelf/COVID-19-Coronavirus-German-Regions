@@ -1,18 +1,22 @@
 # COVID-19 Coronavirus Disease Spread Time Series Analyses for German Regions and Selected Countries
 
-Scripts for daily 
+Here are fetching scripts and resulting data for all charts and reports presented at https://entorb.net/COVID-19-coronavirus/
+
+Scripts
 * fetching of updated data
 * converting data to common format
 * calculating new entities from data
-* plotting charts and uploading them to my report https://entorb.net/COVID-19-coronavirus/
-* empowering an [interactive country comparison chart](https://entorb.net/COVID-19-coronavirus/#CountriesCustomChart) for the data
+* plotting charts and uploading them to my analyis and report https://entorb.net/COVID-19-coronavirus/
+* empowering an [interactive country comparison chart](https://entorb.net/COVID-19-coronavirus/#CountriesCustomChart) 
 * empowering https://covid19-trends.de
+* empowering https://github.com/pschwede/covid19plots
 
 Resulting data in JSON and CSV/TSV format can be browsed [here at GitHub](https://github.com/entorb/COVID-19-Coronavirus-German-Regions/tree/master/data). 
 
 Sources
 * [German states data](https://github.com/entorb/COVID-19-Coronavirus-German-Regions/tree/master/data/de-states) is from [Robert Koch Institut](https://www.rki.de/DE/Content/InfAZ/N/Neuartiges_Coronavirus/Fallzahlen.html) obtaind via [swildermann/COVID-19](https://github.com/swildermann/COVID-19)
 * [German districts data](https://github.com/entorb/COVID-19-Coronavirus-German-Regions/tree/master/data/de-districts) is from [ArcGIS Covid19_RKI_Sums](https://services7.arcgis.com/mOBPykOjAyBO2ZKk/ArcGIS/rest/services/Covid19_RKI_Sums/FeatureServer/0/)
+* German hospital data is from [https://www.divi.de/register/tagesreport](DIVI-Intensivregister). (Thanks to Mr. Parvu for granting usage permission!) 
 * [International data](https://github.com/entorb/COVID-19-Coronavirus-German-Regions/tree/master/data/int) is from Johns Hopkins University Center for Systems Science and Engineering (JHU CSSE)  obtained via [pomber/covid19](https://github.com/pomber/covid19)
 
 List of provided/generated data fields
@@ -38,3 +42,5 @@ Nomenclature of data fields
 * Last_Week = Difference to 7 days past
 * Per_Million = Scaled by 1 Million Population
 * Doubling_Time = Derived by fitting data with exp. growth function
+
+For German districts (Landkreise) I additionally fetch and provide a time series of the DIVI Intensivregister hospital occupation.
