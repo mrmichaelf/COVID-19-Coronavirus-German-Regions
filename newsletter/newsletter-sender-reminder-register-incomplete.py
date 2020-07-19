@@ -6,8 +6,7 @@ import json
 import hashlib
 import random
 from datetime import date
-
-# TODO
+from datetime import datetime
 
 ##########################
 # Copy of common functions
@@ -59,19 +58,29 @@ else:
 # connect to DB
 con, cur = db_connect()
 
-
 # loop over subscriptions
-for row in cur.execute("SELECT email, verified, hash, threshold, regions, frequency, date_registered FROM newsletter WHERE verified = 0 AND regions IS NOT NULL"):
-    # for row in cur.execute("SELECT email, verified, hash, threshold, regions, frequency, date_registered FROM newsletter WHERE verified = 1 AND regions IS NULL"):
-    mailBody = ""
+date_now = datetime.now()
+for row in cur.execute("SELECT email, verified, hash, threshold, regions, frequency, date_registered FROM newsletter WHERE (verified = 0) or (verified = 1 AND regions IS NULL) ORDER BY date_registered DESC"):
+    # skip recent subscriptions
+    date_registered = datetime.strptime(row["date_registered"], '%Y-%m-%d')
+    days_since = (date_now - date_registered).days
+    if (days_since < 3):
+        continue
 
-    mailTo = row["email"]
+    reason_for_sending = "Erinnerung die Anmeldung abzuschließen"
+    h = row["hash"]
+    print(row["email"], row["verified"],
+          row["regions"], row["date_registered"])
 
-    print(mailTo)
+    mailBody = f"Hallo {row['email']},\n\ndies ist eine Erinnerung daran, dass Du Dich für meine COVID-19 Landkreisbenachrichtigung eingetragen hast, diese Anmeldung aber noch nicht abgeschlossen ist. Du hast nun folgende Möglichkeiten:\n"
 
-    mailBody += "\nNeu anmelden: https://entorb.net/COVID-19-coronavirus/newsletter-register.html\n"
+    mailBody += f"\n1. Anmeldung abschließen und interessante Landkreise auswählen: https://entorb.net/COVID-19-coronavirus/newsletter-frontend.html?action=verify&hash={h}\n"
 
-    mailBody += f"\nentorb's Coronavirus Auswertungen: https://entorb.net/COVID-19-coronavirus/\n"
+    mailBody += f"\n2. Abmelden: https://entorb.net/COVID-19-coronavirus/newsletter-frontend.html?action=unsubscribe&hash={h}\n"
 
-    # sendmail(to=mailTo, body=mailBody,
-    #             subject=f"[COVID-19 Landkreis Benachrichtigung] - {reason_for_sending}")
+    mailBody += f"\n3. Diese E-Mail ignorieren und in einer Woche eine erneute Erinnerung zu bekommen ;-)\n"
+
+    mailBody += f"\nBleib gesund\nTorben"
+
+    sendmail(to=row["email"], body=mailBody,
+             subject=f"[COVID-19 Landkreis Benachrichtigung] - {reason_for_sending}")

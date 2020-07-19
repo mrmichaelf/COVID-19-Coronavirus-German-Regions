@@ -93,6 +93,10 @@
     if ('action' in urlParams && urlParams.action == "verify") {
       setVerified();
     }
+    // handling of action=verify
+    else if ('action' in urlParams && urlParams.action == "unsubscribe") {
+      unsubscribe();
+    }
 
     // define and populate table
     var table = defineTable();
