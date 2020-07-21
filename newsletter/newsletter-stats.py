@@ -42,7 +42,7 @@ print("""<!doctype html>
 <html lang="de">
 
 <head>
-  <title>COVID-19 Landkreis Benachrichtigung - Status</title>
+  <title>COVID-19 Landkreis Benachrichtigung - Stats</title>
   <meta charset="utf-8">
   <meta name="author" content="Dr. Torben Menke">
   <link rel="stylesheet" href="/style.css" />
