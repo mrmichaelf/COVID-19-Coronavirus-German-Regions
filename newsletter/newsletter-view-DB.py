@@ -49,16 +49,16 @@ con, cur = db_connect()
 #             (datetime.date.today(),))
 # con.commit()
 
-print("DB Dump")
-print("%20s %1s %64s %3s %45s %1s" %
-      ('email', 'v', 'hash', 't', 'regions', 'f')
+print("=== List of Users ===")
+print("%-20s %1s %3s %1s" %
+      ('email', 'v', 't', 'f')
       )
-sql = "SELECT email, verified, hash, threshold, regions, frequency, date_registered FROM newsletter ORDER BY date_registered DESC"
+sql = "SELECT email, verified, hash, threshold, regions, frequency, date_registered FROM newsletter ORDER BY date_registered ASC"
 d_region_counter = {}
 count_rows = 0
 for row in cur.execute(sql):
-    print("%20s %1s %64s %3s %45s %1s %s" % (
-        row['email'], row['verified'], row['hash'], row['threshold'], row['regions'], row['frequency'], row['date_registered']))
+    print("%-20s %1s %3s %1s %s\n %-45s\n %-64s" % (
+        row['email'], row['verified'], row['threshold'], row['frequency'], row['date_registered'], row['regions'], row['hash']))
     if row['verified'] == 1 and row['regions'] != None:
         count_rows += 1
         l_this_regions = row["regions"].split(',')
@@ -67,6 +67,10 @@ for row in cur.execute(sql):
                 d_region_counter[region] = 1
             else:
                 d_region_counter[region] += 1
+
+print("")
+print("=== Landkreis-Ranking ===")
+print("id    : Anz : Landkreis")
 for id, value in sorted(d_region_counter.items(), key=lambda item: item[1], reverse=True):
     if value <= 2:
         break
