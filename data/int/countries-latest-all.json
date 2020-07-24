@@ -646,23 +646,23 @@
   "Slope_Deaths_New_Per_Million": -0.0
  },
  {
-  "Cases": 334683,
-  "Cases_Last_Week": 13478,
-  "Cases_Last_Week_Per_Million": 719,
-  "Cases_New": 0,
-  "Cases_Per_Million": 17869,
+  "Cases": 336402,
+  "Cases_Last_Week": 15197,
+  "Cases_Last_Week_Per_Million": 811,
+  "Cases_New": 1719,
+  "Cases_Per_Million": 17961,
   "Code": "CL",
   "Continent": "South America",
   "Country": "Chile",
   "Date_Latest": "2020-07-22",
-  "Deaths": 8677,
-  "Deaths_Last_Week": 1491,
-  "Deaths_Last_Week_Per_Million": 79.61,
-  "Deaths_New": 0,
-  "Deaths_Per_Million": 463,
+  "Deaths": 8722,
+  "Deaths_Last_Week": 1536,
+  "Deaths_Last_Week_Per_Million": 82.01,
+  "Deaths_New": 45,
+  "Deaths_Per_Million": 465,
   "Population": 18729160,
-  "Slope_Cases_New_Per_Million": -7.74,
-  "Slope_Deaths_New_Per_Million": 0.15
+  "Slope_Cases_New_Per_Million": -5.14,
+  "Slope_Deaths_New_Per_Million": 0.22
  },
  {
   "Cases": 85906,
@@ -3344,11 +3344,11 @@
   "Slope_Deaths_New_Per_Million": -0.02
  },
  {
-  "Cases": 3970906,
-  "Cases_Last_Week": 472004,
-  "Cases_Last_Week_Per_Million": 1442,
-  "Cases_New": 71695,
-  "Cases_Per_Million": 12137,
+  "Cases": 3970085,
+  "Cases_Last_Week": 471183,
+  "Cases_Last_Week_Per_Million": 1440,
+  "Cases_New": 70874,
+  "Cases_Per_Million": 12134,
   "Code": "US",
   "Continent": "North America",
   "Country": "United States",
@@ -3359,7 +3359,7 @@
   "Deaths_New": 1195,
   "Deaths_Per_Million": 437,
   "Population": 327167434,
-  "Slope_Cases_New_Per_Million": 1.02,
+  "Slope_Cases_New_Per_Million": 0.93,
   "Slope_Deaths_New_Per_Million": 0.04
  },
  {

@@ -3458,12 +3458,12 @@
   "Deaths_Per_Million": 434
  },
  {
-  "Cases": 3970906,
-  "Cases_Last_Week": 472004,
-  "Cases_Last_Week_Per_Million": 1442,
-  "Cases_New": 71695,
-  "Cases_New_Per_Million": 219,
-  "Cases_Per_Million": 12137,
+  "Cases": 3970085,
+  "Cases_Last_Week": 471183,
+  "Cases_Last_Week_Per_Million": 1440,
+  "Cases_New": 70874,
+  "Cases_New_Per_Million": 216,
+  "Cases_Per_Million": 12134,
   "Country": "United States",
   "Date": "2020-07-22",
   "Days_Past": 0,
