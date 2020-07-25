@@ -452,7 +452,7 @@
   "LK_Typ": "Landkreis",
   "Landkreis": "Saarlouis (Landkreis)",
   "Population": 195201,
-  "Slope_Cases_New_Per_Million": -0.0,
+  "Slope_Cases_New_Per_Million": 0.0,
   "Slope_Deaths_New_Per_Million": 0
  },
  {
