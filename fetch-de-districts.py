@@ -195,9 +195,13 @@ def fetch_ref_landkreise(readFromCache: bool = True) -> dict:
 
 
 def fetch_and_prepare_ref_landkreise() -> dict:
-    file_out = 'data/de-districts/ref-de-districts.json'
+    file_out = 'data/de-districts/ref-de-districts'
     l_landkreise = fetch_ref_landkreise(readFromCache=True)
     d_landkreise = {}
+
+    # with open(file_out+'.tsv', mode='w', encoding='utf-8', newline='\n') as fh_csv:
+    #     csvwriter = csv.DictWriter(fh_csv, delimiter='\t', extrasaction='ignore', fieldnames=[
+    #         'ID', 'Date']
 
     # convert list to dict, using lk_id as key
     for d_this_landkreis in l_landkreise:
@@ -214,7 +218,7 @@ def fetch_and_prepare_ref_landkreise() -> dict:
         d['LK_Name'] = d_this_landkreis['GEN']
         d['LK_Typ'] = d_this_landkreis['BEZ']
         d_landkreise[lk_id] = d
-    with open(file_out, mode='w', encoding='utf-8', newline='\n') as fh:
+    with open(file_out+'.json', mode='w', encoding='utf-8', newline='\n') as fh:
         json.dump(d_landkreise, fh, ensure_ascii=False)
 
     del d_this_landkreis
