@@ -437,11 +437,11 @@
   "Slope_Deaths_New_Per_Million": 0
  },
  {
-  "Cases": 2287475,
-  "Cases_Last_Week": 241147,
-  "Cases_Last_Week_Per_Million": 1151,
-  "Cases_New": 0,
-  "Cases_Per_Million": 10920,
+  "Cases": 2343366,
+  "Cases_Last_Week": 297038,
+  "Cases_Last_Week_Per_Million": 1418,
+  "Cases_New": 55891,
+  "Cases_Per_Million": 11187,
   "Code": "BR",
   "Continent": "South America",
   "Country": "Brazil",
@@ -452,7 +452,7 @@
   "Deaths_New": 1156,
   "Deaths_Per_Million": 406,
   "Population": 209469333,
-  "Slope_Cases_New_Per_Million": 1.4,
+  "Slope_Cases_New_Per_Million": 9.0,
   "Slope_Deaths_New_Per_Million": 0.09
  },
  {
@@ -3353,9 +3353,9 @@
   "Continent": "North America",
   "Country": "United States",
   "Date_Latest": "2020-07-24",
-  "Deaths": 145546,
-  "Deaths_Last_Week": 6280,
-  "Deaths_Last_Week_Per_Million": 19.2,
+  "Deaths": 145560,
+  "Deaths_Last_Week": 6294,
+  "Deaths_Last_Week_Per_Million": 19.24,
   "Deaths_New": 1130,
   "Deaths_Per_Million": 444,
   "Population": 327167434,
