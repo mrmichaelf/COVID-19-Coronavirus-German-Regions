@@ -1,413 +1,413 @@
-ID	BL_Name	LK_Name	LK_Typ
-01001	Schleswig-Holstein	Flensburg	Kreisfreie Stadt
-01002	Schleswig-Holstein	Kiel	Kreisfreie Stadt
-01003	Schleswig-Holstein	Lübeck	Kreisfreie Stadt
-01004	Schleswig-Holstein	Neumünster	Kreisfreie Stadt
-01051	Schleswig-Holstein	Dithmarschen	Kreis
-01053	Schleswig-Holstein	Herzogtum Lauenburg	Kreis
-01054	Schleswig-Holstein	Nordfriesland	Kreis
-01055	Schleswig-Holstein	Ostholstein	Kreis
-01056	Schleswig-Holstein	Pinneberg	Kreis
-01057	Schleswig-Holstein	Plön	Kreis
-01058	Schleswig-Holstein	Rendsburg-Eckernförde	Kreis
-01059	Schleswig-Holstein	Schleswig-Flensburg	Kreis
-01060	Schleswig-Holstein	Segeberg	Kreis
-01061	Schleswig-Holstein	Steinburg	Kreis
-01062	Schleswig-Holstein	Stormarn	Kreis
-10041	Saarland	Regionalverband Saarbrücken	Landkreis
-10042	Saarland	Merzig-Wadern	Landkreis
-10043	Saarland	Neunkirchen	Landkreis
-10044	Saarland	Saarlouis	Landkreis
-10045	Saarland	Saarpfalz-Kreis	Landkreis
-10046	Saarland	St. Wendel	Landkreis
-11012	Berlin	Berlin Reinickendorf	Bezirk
-11004	Berlin	Berlin Charlottenburg-Wilmersdorf	Bezirk
-11009	Berlin	Berlin Treptow-Köpenick	Bezirk
-11003	Berlin	Berlin Pankow	Bezirk
-11008	Berlin	Berlin Neukölln	Bezirk
-11011	Berlin	Berlin Lichtenberg	Bezirk
-11010	Berlin	Berlin Marzahn-Hellersdorf	Bezirk
-11005	Berlin	Berlin Spandau	Bezirk
-11006	Berlin	Berlin Steglitz-Zehlendorf	Bezirk
-11001	Berlin	Berlin Mitte	Bezirk
-11002	Berlin	Berlin Friedrichshain-Kreuzberg	Bezirk
-11007	Berlin	Berlin Tempelhof-Schöneberg	Bezirk
-12051	Brandenburg	Brandenburg an der Havel	Kreisfreie Stadt
-12052	Brandenburg	Cottbus	Kreisfreie Stadt
-12053	Brandenburg	Frankfurt (Oder)	Kreisfreie Stadt
-12054	Brandenburg	Potsdam	Kreisfreie Stadt
-12060	Brandenburg	Barnim	Landkreis
-12061	Brandenburg	Dahme-Spreewald	Landkreis
-12062	Brandenburg	Elbe-Elster	Landkreis
-12063	Brandenburg	Havelland	Landkreis
-12064	Brandenburg	Märkisch-Oderland	Landkreis
-12065	Brandenburg	Oberhavel	Landkreis
-12066	Brandenburg	Oberspreewald-Lausitz	Landkreis
-12067	Brandenburg	Oder-Spree	Landkreis
-12068	Brandenburg	Ostprignitz-Ruppin	Landkreis
-12069	Brandenburg	Potsdam-Mittelmark	Landkreis
-12070	Brandenburg	Prignitz	Landkreis
-12071	Brandenburg	Spree-Neiße	Landkreis
-12072	Brandenburg	Teltow-Fläming	Landkreis
-12073	Brandenburg	Uckermark	Landkreis
-13003	Mecklenburg-Vorpommern	Rostock	Kreisfreie Stadt
-13004	Mecklenburg-Vorpommern	Schwerin	Kreisfreie Stadt
-13071	Mecklenburg-Vorpommern	Mecklenburgische Seenplatte	Landkreis
-13072	Mecklenburg-Vorpommern	Rostock	Landkreis
-13073	Mecklenburg-Vorpommern	Vorpommern-Rügen	Landkreis
-13074	Mecklenburg-Vorpommern	Nordwestmecklenburg	Landkreis
-13075	Mecklenburg-Vorpommern	Vorpommern-Greifswald	Landkreis
-13076	Mecklenburg-Vorpommern	Ludwigslust-Parchim	Landkreis
-14511	Sachsen	Chemnitz	Kreisfreie Stadt
-14521	Sachsen	Erzgebirgskreis	Landkreis
-14522	Sachsen	Mittelsachsen	Landkreis
-14523	Sachsen	Vogtlandkreis	Landkreis
-14524	Sachsen	Zwickau	Landkreis
-14612	Sachsen	Dresden	Kreisfreie Stadt
-14625	Sachsen	Bautzen	Landkreis
-14626	Sachsen	Görlitz	Landkreis
-14627	Sachsen	Meißen	Landkreis
-14628	Sachsen	Sächsische Schweiz-Osterzgebirge	Landkreis
-14713	Sachsen	Leipzig	Kreisfreie Stadt
-14729	Sachsen	Leipzig	Landkreis
-14730	Sachsen	Nordsachsen	Landkreis
-15001	Sachsen-Anhalt	Dessau-Roßlau	Kreisfreie Stadt
-15002	Sachsen-Anhalt	Halle (Saale)	Kreisfreie Stadt
-15003	Sachsen-Anhalt	Magdeburg	Kreisfreie Stadt
-15081	Sachsen-Anhalt	Altmarkkreis Salzwedel	Landkreis
-15082	Sachsen-Anhalt	Anhalt-Bitterfeld	Landkreis
-15083	Sachsen-Anhalt	Börde	Landkreis
-15084	Sachsen-Anhalt	Burgenlandkreis	Landkreis
-15085	Sachsen-Anhalt	Harz	Landkreis
-15086	Sachsen-Anhalt	Jerichower Land	Landkreis
-15087	Sachsen-Anhalt	Mansfeld-Südharz	Landkreis
-15088	Sachsen-Anhalt	Saalekreis	Landkreis
-15089	Sachsen-Anhalt	Salzlandkreis	Landkreis
-15090	Sachsen-Anhalt	Stendal	Landkreis
-15091	Sachsen-Anhalt	Wittenberg	Landkreis
-16051	Thüringen	Erfurt	Kreisfreie Stadt
-16052	Thüringen	Gera	Kreisfreie Stadt
-16053	Thüringen	Jena	Kreisfreie Stadt
-16054	Thüringen	Suhl	Kreisfreie Stadt
-16055	Thüringen	Weimar	Kreisfreie Stadt
-16056	Thüringen	Eisenach	Kreisfreie Stadt
-16061	Thüringen	Eichsfeld	Landkreis
-16062	Thüringen	Nordhausen	Landkreis
-16063	Thüringen	Wartburgkreis	Landkreis
-16064	Thüringen	Unstrut-Hainich-Kreis	Landkreis
-16065	Thüringen	Kyffhäuserkreis	Landkreis
-16066	Thüringen	Schmalkalden-Meiningen	Landkreis
-16067	Thüringen	Gotha	Landkreis
-16068	Thüringen	Sömmerda	Landkreis
-16069	Thüringen	Hildburghausen	Landkreis
-16070	Thüringen	Ilm-Kreis	Landkreis
-16071	Thüringen	Weimarer Land	Landkreis
-16072	Thüringen	Sonneberg	Landkreis
-16073	Thüringen	Saalfeld-Rudolstadt	Landkreis
-16074	Thüringen	Saale-Holzland-Kreis	Landkreis
-16075	Thüringen	Saale-Orla-Kreis	Landkreis
-16076	Thüringen	Greiz	Landkreis
-16077	Thüringen	Altenburger Land	Landkreis
-02000	Hamburg	Hamburg	Kreisfreie Stadt
-03101	Niedersachsen	Braunschweig	Kreisfreie Stadt
-03102	Niedersachsen	Salzgitter	Kreisfreie Stadt
-03103	Niedersachsen	Wolfsburg	Kreisfreie Stadt
-03151	Niedersachsen	Gifhorn	Landkreis
-03153	Niedersachsen	Goslar	Landkreis
-03154	Niedersachsen	Helmstedt	Landkreis
-03155	Niedersachsen	Northeim	Landkreis
-03157	Niedersachsen	Peine	Landkreis
-03158	Niedersachsen	Wolfenbüttel	Landkreis
-03159	Niedersachsen	Göttingen	Landkreis
-03241	Niedersachsen	Region Hannover	Landkreis
-03251	Niedersachsen	Diepholz	Landkreis
-03252	Niedersachsen	Hameln-Pyrmont	Landkreis
-03254	Niedersachsen	Hildesheim	Landkreis
-03255	Niedersachsen	Holzminden	Landkreis
-03256	Niedersachsen	Nienburg (Weser)	Landkreis
-03257	Niedersachsen	Schaumburg	Landkreis
-03351	Niedersachsen	Celle	Landkreis
-03352	Niedersachsen	Cuxhaven	Landkreis
-03353	Niedersachsen	Harburg	Landkreis
-03354	Niedersachsen	Lüchow-Dannenberg	Landkreis
-03355	Niedersachsen	Lüneburg	Landkreis
-03356	Niedersachsen	Osterholz	Landkreis
-03357	Niedersachsen	Rotenburg (Wümme)	Landkreis
-03358	Niedersachsen	Heidekreis	Landkreis
-03359	Niedersachsen	Stade	Landkreis
-03360	Niedersachsen	Uelzen	Landkreis
-03361	Niedersachsen	Verden	Landkreis
-03401	Niedersachsen	Delmenhorst	Kreisfreie Stadt
-03402	Niedersachsen	Emden	Kreisfreie Stadt
-03403	Niedersachsen	Oldenburg (Oldb)	Kreisfreie Stadt
-03404	Niedersachsen	Osnabrück	Kreisfreie Stadt
-03405	Niedersachsen	Wilhelmshaven	Kreisfreie Stadt
-03451	Niedersachsen	Ammerland	Landkreis
-03452	Niedersachsen	Aurich	Landkreis
-03453	Niedersachsen	Cloppenburg	Landkreis
-03454	Niedersachsen	Emsland	Landkreis
-03455	Niedersachsen	Friesland	Landkreis
-03456	Niedersachsen	Grafschaft Bentheim	Landkreis
-03457	Niedersachsen	Leer	Landkreis
-03458	Niedersachsen	Oldenburg	Landkreis
-03459	Niedersachsen	Osnabrück	Landkreis
-03460	Niedersachsen	Vechta	Landkreis
-03461	Niedersachsen	Wesermarsch	Landkreis
-03462	Niedersachsen	Wittmund	Landkreis
-04011	Bremen	Bremen	Kreisfreie Stadt
-04012	Bremen	Bremerhaven	Kreisfreie Stadt
-05111	Nordrhein-Westfalen	Düsseldorf	Kreisfreie Stadt
-05112	Nordrhein-Westfalen	Duisburg	Kreisfreie Stadt
-05113	Nordrhein-Westfalen	Essen	Kreisfreie Stadt
-05114	Nordrhein-Westfalen	Krefeld	Kreisfreie Stadt
-05116	Nordrhein-Westfalen	Mönchengladbach	Kreisfreie Stadt
-05117	Nordrhein-Westfalen	Mülheim an der Ruhr	Kreisfreie Stadt
-05119	Nordrhein-Westfalen	Oberhausen	Kreisfreie Stadt
-05120	Nordrhein-Westfalen	Remscheid	Kreisfreie Stadt
-05122	Nordrhein-Westfalen	Solingen	Kreisfreie Stadt
-05124	Nordrhein-Westfalen	Wuppertal	Kreisfreie Stadt
-05154	Nordrhein-Westfalen	Kleve	Kreis
-05158	Nordrhein-Westfalen	Mettmann	Kreis
-05162	Nordrhein-Westfalen	Rhein-Kreis Neuss	Kreis
-05166	Nordrhein-Westfalen	Viersen	Kreis
-05170	Nordrhein-Westfalen	Wesel	Kreis
-05314	Nordrhein-Westfalen	Bonn	Kreisfreie Stadt
-05315	Nordrhein-Westfalen	Köln	Kreisfreie Stadt
-05316	Nordrhein-Westfalen	Leverkusen	Kreisfreie Stadt
-05334	Nordrhein-Westfalen	Städteregion Aachen	Kreis
-05358	Nordrhein-Westfalen	Düren	Kreis
-05362	Nordrhein-Westfalen	Rhein-Erft-Kreis	Kreis
-05366	Nordrhein-Westfalen	Euskirchen	Kreis
-05370	Nordrhein-Westfalen	Heinsberg	Kreis
-05374	Nordrhein-Westfalen	Oberbergischer Kreis	Kreis
-05378	Nordrhein-Westfalen	Rheinisch-Bergischer Kreis	Kreis
-05382	Nordrhein-Westfalen	Rhein-Sieg-Kreis	Kreis
-05512	Nordrhein-Westfalen	Bottrop	Kreisfreie Stadt
-05513	Nordrhein-Westfalen	Gelsenkirchen	Kreisfreie Stadt
-05515	Nordrhein-Westfalen	Münster	Kreisfreie Stadt
-05554	Nordrhein-Westfalen	Borken	Kreis
-05558	Nordrhein-Westfalen	Coesfeld	Kreis
-05562	Nordrhein-Westfalen	Recklinghausen	Kreis
-05566	Nordrhein-Westfalen	Steinfurt	Kreis
-05570	Nordrhein-Westfalen	Warendorf	Kreis
-05711	Nordrhein-Westfalen	Bielefeld	Kreisfreie Stadt
-05754	Nordrhein-Westfalen	Gütersloh	Kreis
-05758	Nordrhein-Westfalen	Herford	Kreis
-05762	Nordrhein-Westfalen	Höxter	Kreis
-05766	Nordrhein-Westfalen	Lippe	Kreis
-05770	Nordrhein-Westfalen	Minden-Lübbecke	Kreis
-05774	Nordrhein-Westfalen	Paderborn	Kreis
-05911	Nordrhein-Westfalen	Bochum	Kreisfreie Stadt
-05913	Nordrhein-Westfalen	Dortmund	Kreisfreie Stadt
-05914	Nordrhein-Westfalen	Hagen	Kreisfreie Stadt
-05915	Nordrhein-Westfalen	Hamm	Kreisfreie Stadt
-05916	Nordrhein-Westfalen	Herne	Kreisfreie Stadt
-05954	Nordrhein-Westfalen	Ennepe-Ruhr-Kreis	Kreis
-05958	Nordrhein-Westfalen	Hochsauerlandkreis	Kreis
-05962	Nordrhein-Westfalen	Märkischer Kreis	Kreis
-05966	Nordrhein-Westfalen	Olpe	Kreis
-05970	Nordrhein-Westfalen	Siegen-Wittgenstein	Kreis
-05974	Nordrhein-Westfalen	Soest	Kreis
-05978	Nordrhein-Westfalen	Unna	Kreis
-06411	Hessen	Darmstadt	Kreisfreie Stadt
-06412	Hessen	Frankfurt am Main	Kreisfreie Stadt
-06413	Hessen	Offenbach am Main	Kreisfreie Stadt
-06414	Hessen	Wiesbaden	Kreisfreie Stadt
-06431	Hessen	Bergstraße	Landkreis
-06432	Hessen	Darmstadt-Dieburg	Landkreis
-06433	Hessen	Groß-Gerau	Landkreis
-06434	Hessen	Hochtaunuskreis	Landkreis
-06435	Hessen	Main-Kinzig-Kreis	Landkreis
-06436	Hessen	Main-Taunus-Kreis	Landkreis
-06437	Hessen	Odenwaldkreis	Landkreis
-06438	Hessen	Offenbach	Landkreis
-06439	Hessen	Rheingau-Taunus-Kreis	Landkreis
-06440	Hessen	Wetteraukreis	Landkreis
-06531	Hessen	Gießen	Landkreis
-06532	Hessen	Lahn-Dill-Kreis	Landkreis
-06533	Hessen	Limburg-Weilburg	Landkreis
-06534	Hessen	Marburg-Biedenkopf	Landkreis
-06535	Hessen	Vogelsbergkreis	Landkreis
-06611	Hessen	Kassel	Kreisfreie Stadt
-06631	Hessen	Fulda	Landkreis
-06632	Hessen	Hersfeld-Rotenburg	Landkreis
-06633	Hessen	Kassel	Landkreis
-06634	Hessen	Schwalm-Eder-Kreis	Landkreis
-06635	Hessen	Waldeck-Frankenberg	Landkreis
-06636	Hessen	Werra-Meißner-Kreis	Landkreis
-07111	Rheinland-Pfalz	Koblenz	Kreisfreie Stadt
-07131	Rheinland-Pfalz	Ahrweiler	Landkreis
-07132	Rheinland-Pfalz	Altenkirchen (Westerwald)	Landkreis
-07133	Rheinland-Pfalz	Bad Kreuznach	Landkreis
-07134	Rheinland-Pfalz	Birkenfeld	Landkreis
-07135	Rheinland-Pfalz	Cochem-Zell	Landkreis
-07137	Rheinland-Pfalz	Mayen-Koblenz	Landkreis
-07138	Rheinland-Pfalz	Neuwied	Landkreis
-07140	Rheinland-Pfalz	Rhein-Hunsrück-Kreis	Landkreis
-07141	Rheinland-Pfalz	Rhein-Lahn-Kreis	Landkreis
-07143	Rheinland-Pfalz	Westerwaldkreis	Landkreis
-07211	Rheinland-Pfalz	Trier	Kreisfreie Stadt
-07231	Rheinland-Pfalz	Bernkastel-Wittlich	Landkreis
-07232	Rheinland-Pfalz	Eifelkreis Bitburg-Prüm	Landkreis
-07233	Rheinland-Pfalz	Vulkaneifel	Landkreis
-07235	Rheinland-Pfalz	Trier-Saarburg	Landkreis
-07311	Rheinland-Pfalz	Frankenthal (Pfalz)	Kreisfreie Stadt
-07312	Rheinland-Pfalz	Kaiserslautern	Kreisfreie Stadt
-07313	Rheinland-Pfalz	Landau in der Pfalz	Kreisfreie Stadt
-07314	Rheinland-Pfalz	Ludwigshafen am Rhein	Kreisfreie Stadt
-07315	Rheinland-Pfalz	Mainz	Kreisfreie Stadt
-07316	Rheinland-Pfalz	Neustadt an der Weinstraße	Kreisfreie Stadt
-07317	Rheinland-Pfalz	Pirmasens	Kreisfreie Stadt
-07318	Rheinland-Pfalz	Speyer	Kreisfreie Stadt
-07319	Rheinland-Pfalz	Worms	Kreisfreie Stadt
-07320	Rheinland-Pfalz	Zweibrücken	Kreisfreie Stadt
-07331	Rheinland-Pfalz	Alzey-Worms	Landkreis
-07332	Rheinland-Pfalz	Bad Dürkheim	Landkreis
-07333	Rheinland-Pfalz	Donnersbergkreis	Landkreis
-07334	Rheinland-Pfalz	Germersheim	Landkreis
-07335	Rheinland-Pfalz	Kaiserslautern	Landkreis
-07336	Rheinland-Pfalz	Kusel	Landkreis
-07337	Rheinland-Pfalz	Südliche Weinstraße	Landkreis
-07338	Rheinland-Pfalz	Rhein-Pfalz-Kreis	Landkreis
-07339	Rheinland-Pfalz	Mainz-Bingen	Landkreis
-07340	Rheinland-Pfalz	Südwestpfalz	Landkreis
-08111	Baden-Württemberg	Stuttgart	Stadtkreis
-08115	Baden-Württemberg	Böblingen	Landkreis
-08116	Baden-Württemberg	Esslingen	Landkreis
-08117	Baden-Württemberg	Göppingen	Landkreis
-08118	Baden-Württemberg	Ludwigsburg	Landkreis
-08119	Baden-Württemberg	Rems-Murr-Kreis	Landkreis
-08121	Baden-Württemberg	Heilbronn	Stadtkreis
-08125	Baden-Württemberg	Heilbronn	Landkreis
-08126	Baden-Württemberg	Hohenlohekreis	Landkreis
-08127	Baden-Württemberg	Schwäbisch Hall	Landkreis
-08128	Baden-Württemberg	Main-Tauber-Kreis	Landkreis
-08135	Baden-Württemberg	Heidenheim	Landkreis
-08136	Baden-Württemberg	Ostalbkreis	Landkreis
-08211	Baden-Württemberg	Baden-Baden	Stadtkreis
-08212	Baden-Württemberg	Karlsruhe	Stadtkreis
-08215	Baden-Württemberg	Karlsruhe	Landkreis
-08216	Baden-Württemberg	Rastatt	Landkreis
-08221	Baden-Württemberg	Heidelberg	Stadtkreis
-08222	Baden-Württemberg	Mannheim	Stadtkreis
-08225	Baden-Württemberg	Neckar-Odenwald-Kreis	Landkreis
-08226	Baden-Württemberg	Rhein-Neckar-Kreis	Landkreis
-08231	Baden-Württemberg	Pforzheim	Stadtkreis
-08235	Baden-Württemberg	Calw	Landkreis
-08236	Baden-Württemberg	Enzkreis	Landkreis
-08237	Baden-Württemberg	Freudenstadt	Landkreis
-08311	Baden-Württemberg	Freiburg im Breisgau	Stadtkreis
-08315	Baden-Württemberg	Breisgau-Hochschwarzwald	Landkreis
-08316	Baden-Württemberg	Emmendingen	Landkreis
-08317	Baden-Württemberg	Ortenaukreis	Landkreis
-08325	Baden-Württemberg	Rottweil	Landkreis
-08326	Baden-Württemberg	Schwarzwald-Baar-Kreis	Landkreis
-08327	Baden-Württemberg	Tuttlingen	Landkreis
-08335	Baden-Württemberg	Konstanz	Landkreis
-08336	Baden-Württemberg	Lörrach	Landkreis
-08337	Baden-Württemberg	Waldshut	Landkreis
-08415	Baden-Württemberg	Reutlingen	Landkreis
-08416	Baden-Württemberg	Tübingen	Landkreis
-08417	Baden-Württemberg	Zollernalbkreis	Landkreis
-08421	Baden-Württemberg	Ulm	Stadtkreis
-08425	Baden-Württemberg	Alb-Donau-Kreis	Landkreis
-08426	Baden-Württemberg	Biberach	Landkreis
-08435	Baden-Württemberg	Bodenseekreis	Landkreis
-08436	Baden-Württemberg	Ravensburg	Landkreis
-08437	Baden-Württemberg	Sigmaringen	Landkreis
-09161	Bayern	Ingolstadt	Kreisfreie Stadt
-09162	Bayern	München	Kreisfreie Stadt
-09163	Bayern	Rosenheim	Kreisfreie Stadt
-09171	Bayern	Altötting	Landkreis
-09172	Bayern	Berchtesgadener Land	Landkreis
-09173	Bayern	Bad Tölz-Wolfratshausen	Landkreis
-09174	Bayern	Dachau	Landkreis
-09175	Bayern	Ebersberg	Landkreis
-09176	Bayern	Eichstätt	Landkreis
-09177	Bayern	Erding	Landkreis
-09178	Bayern	Freising	Landkreis
-09179	Bayern	Fürstenfeldbruck	Landkreis
-09180	Bayern	Garmisch-Partenkirchen	Landkreis
-09181	Bayern	Landsberg am Lech	Landkreis
-09182	Bayern	Miesbach	Landkreis
-09183	Bayern	Mühldorf a. Inn	Landkreis
-09184	Bayern	München	Landkreis
-09185	Bayern	Neuburg-Schrobenhausen	Landkreis
-09186	Bayern	Pfaffenhofen a.d. Ilm	Landkreis
-09187	Bayern	Rosenheim	Landkreis
-09188	Bayern	Starnberg	Landkreis
-09189	Bayern	Traunstein	Landkreis
-09190	Bayern	Weilheim-Schongau	Landkreis
-09261	Bayern	Landshut	Kreisfreie Stadt
-09262	Bayern	Passau	Kreisfreie Stadt
-09263	Bayern	Straubing	Kreisfreie Stadt
-09271	Bayern	Deggendorf	Landkreis
-09272	Bayern	Freyung-Grafenau	Landkreis
-09273	Bayern	Kelheim	Landkreis
-09274	Bayern	Landshut	Landkreis
-09275	Bayern	Passau	Landkreis
-09276	Bayern	Regen	Landkreis
-09277	Bayern	Rottal-Inn	Landkreis
-09278	Bayern	Straubing-Bogen	Landkreis
-09279	Bayern	Dingolfing-Landau	Landkreis
-09361	Bayern	Amberg	Kreisfreie Stadt
-09362	Bayern	Regensburg	Kreisfreie Stadt
-09363	Bayern	Weiden i.d. OPf.	Kreisfreie Stadt
-09371	Bayern	Amberg-Sulzbach	Landkreis
-09372	Bayern	Cham	Landkreis
-09373	Bayern	Neumarkt i.d. OPf.	Landkreis
-09374	Bayern	Neustadt a.d. Waldnaab	Landkreis
-09375	Bayern	Regensburg	Landkreis
-09376	Bayern	Schwandorf	Landkreis
-09377	Bayern	Tirschenreuth	Landkreis
-09461	Bayern	Bamberg	Kreisfreie Stadt
-09462	Bayern	Bayreuth	Kreisfreie Stadt
-09463	Bayern	Coburg	Kreisfreie Stadt
-09464	Bayern	Hof	Kreisfreie Stadt
-09471	Bayern	Bamberg	Landkreis
-09472	Bayern	Bayreuth	Landkreis
-09473	Bayern	Coburg	Landkreis
-09474	Bayern	Forchheim	Landkreis
-09475	Bayern	Hof	Landkreis
-09476	Bayern	Kronach	Landkreis
-09477	Bayern	Kulmbach	Landkreis
-09478	Bayern	Lichtenfels	Landkreis
-09479	Bayern	Wunsiedel i. Fichtelgebirge	Landkreis
-09561	Bayern	Ansbach	Kreisfreie Stadt
-09562	Bayern	Erlangen	Kreisfreie Stadt
-09563	Bayern	Fürth	Kreisfreie Stadt
-09564	Bayern	Nürnberg	Kreisfreie Stadt
-09565	Bayern	Schwabach	Kreisfreie Stadt
-09571	Bayern	Ansbach	Landkreis
-09572	Bayern	Erlangen-Höchstadt	Landkreis
-09573	Bayern	Fürth	Landkreis
-09574	Bayern	Nürnberger Land	Landkreis
-09575	Bayern	Neustadt a.d. Aisch-Bad Windsheim	Landkreis
-09576	Bayern	Roth	Landkreis
-09577	Bayern	Weißenburg-Gunzenhausen	Landkreis
-09661	Bayern	Aschaffenburg	Kreisfreie Stadt
-09662	Bayern	Schweinfurt	Kreisfreie Stadt
-09663	Bayern	Würzburg	Kreisfreie Stadt
-09671	Bayern	Aschaffenburg	Landkreis
-09672	Bayern	Bad Kissingen	Landkreis
-09673	Bayern	Rhön-Grabfeld	Landkreis
-09674	Bayern	Haßberge	Landkreis
-09675	Bayern	Kitzingen	Landkreis
-09676	Bayern	Miltenberg	Landkreis
-09677	Bayern	Main-Spessart	Landkreis
-09678	Bayern	Schweinfurt	Landkreis
-09679	Bayern	Würzburg	Landkreis
-09761	Bayern	Augsburg	Kreisfreie Stadt
-09762	Bayern	Kaufbeuren	Kreisfreie Stadt
-09763	Bayern	Kempten (Allgäu)	Kreisfreie Stadt
-09764	Bayern	Memmingen	Kreisfreie Stadt
-09771	Bayern	Aichach-Friedberg	Landkreis
-09772	Bayern	Augsburg	Landkreis
-09773	Bayern	Dillingen a.d. Donau	Landkreis
-09774	Bayern	Günzburg	Landkreis
-09775	Bayern	Neu-Ulm	Landkreis
-09776	Bayern	Lindau (Bodensee)	Landkreis
-09777	Bayern	Ostallgäu	Landkreis
-09778	Bayern	Unterallgäu	Landkreis
-09779	Bayern	Donau-Ries	Landkreis
-09780	Bayern	Oberallgäu	Landkreis
+LK_ID	LK_Name	LK_Typ	Population	BL_Code	BL_Name
+01001	Flensburg	Kreisfreie Stadt	89504	SH	Schleswig-Holstein
+01002	Kiel	Kreisfreie Stadt	247548	SH	Schleswig-Holstein
+01003	Lübeck	Kreisfreie Stadt	217198	SH	Schleswig-Holstein
+01004	Neumünster	Kreisfreie Stadt	79487	SH	Schleswig-Holstein
+01051	Dithmarschen	Kreis	133210	SH	Schleswig-Holstein
+01053	Herzogtum Lauenburg	Kreis	197264	SH	Schleswig-Holstein
+01054	Nordfriesland	Kreis	165507	SH	Schleswig-Holstein
+01055	Ostholstein	Kreis	200581	SH	Schleswig-Holstein
+01056	Pinneberg	Kreis	314391	SH	Schleswig-Holstein
+01057	Plön	Kreis	128647	SH	Schleswig-Holstein
+01058	Rendsburg-Eckernförde	Kreis	272775	SH	Schleswig-Holstein
+01059	Schleswig-Flensburg	Kreis	200025	SH	Schleswig-Holstein
+01060	Segeberg	Kreis	276032	SH	Schleswig-Holstein
+01061	Steinburg	Kreis	131347	SH	Schleswig-Holstein
+01062	Stormarn	Kreis	243196	SH	Schleswig-Holstein
+02000	Hamburg	Kreisfreie Stadt	1841179	HH	Hamburg
+03101	Braunschweig	Kreisfreie Stadt	248292	NI	Niedersachsen
+03102	Salzgitter	Kreisfreie Stadt	104948	NI	Niedersachsen
+03103	Wolfsburg	Kreisfreie Stadt	124151	NI	Niedersachsen
+03151	Gifhorn	Landkreis	175920	NI	Niedersachsen
+03153	Goslar	Landkreis	137014	NI	Niedersachsen
+03154	Helmstedt	Landkreis	91307	NI	Niedersachsen
+03155	Northeim	Landkreis	132765	NI	Niedersachsen
+03157	Peine	Landkreis	133965	NI	Niedersachsen
+03158	Wolfenbüttel	Landkreis	119960	NI	Niedersachsen
+03159	Göttingen	Landkreis	328074	NI	Niedersachsen
+03241	Region Hannover	Landkreis	1157624	NI	Niedersachsen
+03251	Diepholz	Landkreis	216886	NI	Niedersachsen
+03252	Hameln-Pyrmont	Landkreis	148559	NI	Niedersachsen
+03254	Hildesheim	Landkreis	276594	NI	Niedersachsen
+03255	Holzminden	Landkreis	70975	NI	Niedersachsen
+03256	Nienburg (Weser)	Landkreis	121386	NI	Niedersachsen
+03257	Schaumburg	Landkreis	157781	NI	Niedersachsen
+03351	Celle	Landkreis	178936	NI	Niedersachsen
+03352	Cuxhaven	Landkreis	198213	NI	Niedersachsen
+03353	Harburg	Landkreis	252776	NI	Niedersachsen
+03354	Lüchow-Dannenberg	Landkreis	48424	NI	Niedersachsen
+03355	Lüneburg	Landkreis	183372	NI	Niedersachsen
+03356	Osterholz	Landkreis	113517	NI	Niedersachsen
+03357	Rotenburg (Wümme)	Landkreis	163455	NI	Niedersachsen
+03358	Heidekreis	Landkreis	139755	NI	Niedersachsen
+03359	Stade	Landkreis	203102	NI	Niedersachsen
+03360	Uelzen	Landkreis	92572	NI	Niedersachsen
+03361	Verden	Landkreis	136792	NI	Niedersachsen
+03401	Delmenhorst	Kreisfreie Stadt	77607	NI	Niedersachsen
+03402	Emden	Kreisfreie Stadt	50195	NI	Niedersachsen
+03403	Oldenburg (Oldb)	Kreisfreie Stadt	168210	NI	Niedersachsen
+03404	Osnabrück	Kreisfreie Stadt	164748	NI	Niedersachsen
+03405	Wilhelmshaven	Kreisfreie Stadt	76278	NI	Niedersachsen
+03451	Ammerland	Landkreis	124071	NI	Niedersachsen
+03452	Aurich	Landkreis	189848	NI	Niedersachsen
+03453	Cloppenburg	Landkreis	169348	NI	Niedersachsen
+03454	Emsland	Landkreis	325657	NI	Niedersachsen
+03455	Friesland	Landkreis	98460	NI	Niedersachsen
+03456	Grafschaft Bentheim	Landkreis	136511	NI	Niedersachsen
+03457	Leer	Landkreis	169809	NI	Niedersachsen
+03458	Oldenburg	Landkreis	130144	NI	Niedersachsen
+03459	Osnabrück	Landkreis	357343	NI	Niedersachsen
+03460	Vechta	Landkreis	141598	NI	Niedersachsen
+03461	Wesermarsch	Landkreis	88624	NI	Niedersachsen
+03462	Wittmund	Landkreis	56882	NI	Niedersachsen
+04011	Bremen	Kreisfreie Stadt	569352	HB	Bremen
+04012	Bremerhaven	Kreisfreie Stadt	113634	HB	Bremen
+05111	Düsseldorf	Kreisfreie Stadt	619294	NW	Nordrhein-Westfalen
+05112	Duisburg	Kreisfreie Stadt	498590	NW	Nordrhein-Westfalen
+05113	Essen	Kreisfreie Stadt	583109	NW	Nordrhein-Westfalen
+05114	Krefeld	Kreisfreie Stadt	227020	NW	Nordrhein-Westfalen
+05116	Mönchengladbach	Kreisfreie Stadt	261454	NW	Nordrhein-Westfalen
+05117	Mülheim an der Ruhr	Kreisfreie Stadt	170880	NW	Nordrhein-Westfalen
+05119	Oberhausen	Kreisfreie Stadt	210829	NW	Nordrhein-Westfalen
+05120	Remscheid	Kreisfreie Stadt	110994	NW	Nordrhein-Westfalen
+05122	Solingen	Kreisfreie Stadt	159360	NW	Nordrhein-Westfalen
+05124	Wuppertal	Kreisfreie Stadt	354382	NW	Nordrhein-Westfalen
+05154	Kleve	Kreis	310974	NW	Nordrhein-Westfalen
+05158	Mettmann	Kreis	485684	NW	Nordrhein-Westfalen
+05162	Rhein-Kreis Neuss	Kreis	451007	NW	Nordrhein-Westfalen
+05166	Viersen	Kreis	298935	NW	Nordrhein-Westfalen
+05170	Wesel	Kreis	459809	NW	Nordrhein-Westfalen
+05314	Bonn	Kreisfreie Stadt	327258	NW	Nordrhein-Westfalen
+05315	Köln	Kreisfreie Stadt	1085664	NW	Nordrhein-Westfalen
+05316	Leverkusen	Kreisfreie Stadt	163838	NW	Nordrhein-Westfalen
+05334	Städteregion Aachen	Kreis	555465	NW	Nordrhein-Westfalen
+05358	Düren	Kreis	263722	NW	Nordrhein-Westfalen
+05362	Rhein-Erft-Kreis	Kreis	470089	NW	Nordrhein-Westfalen
+05366	Euskirchen	Kreis	192840	NW	Nordrhein-Westfalen
+05370	Heinsberg	Kreis	254322	NW	Nordrhein-Westfalen
+05374	Oberbergischer Kreis	Kreis	272471	NW	Nordrhein-Westfalen
+05378	Rheinisch-Bergischer Kreis	Kreis	283455	NW	Nordrhein-Westfalen
+05382	Rhein-Sieg-Kreis	Kreis	599780	NW	Nordrhein-Westfalen
+05512	Bottrop	Kreisfreie Stadt	117383	NW	Nordrhein-Westfalen
+05513	Gelsenkirchen	Kreisfreie Stadt	260654	NW	Nordrhein-Westfalen
+05515	Münster	Kreisfreie Stadt	314319	NW	Nordrhein-Westfalen
+05554	Borken	Kreis	370676	NW	Nordrhein-Westfalen
+05558	Coesfeld	Kreis	219929	NW	Nordrhein-Westfalen
+05562	Recklinghausen	Kreis	615261	NW	Nordrhein-Westfalen
+05566	Steinfurt	Kreis	447614	NW	Nordrhein-Westfalen
+05570	Warendorf	Kreis	277783	NW	Nordrhein-Westfalen
+05711	Bielefeld	Kreisfreie Stadt	333786	NW	Nordrhein-Westfalen
+05754	Gütersloh	Kreis	364083	NW	Nordrhein-Westfalen
+05758	Herford	Kreis	250783	NW	Nordrhein-Westfalen
+05762	Höxter	Kreis	140667	NW	Nordrhein-Westfalen
+05766	Lippe	Kreis	348391	NW	Nordrhein-Westfalen
+05770	Minden-Lübbecke	Kreis	310710	NW	Nordrhein-Westfalen
+05774	Paderborn	Kreis	306890	NW	Nordrhein-Westfalen
+05911	Bochum	Kreisfreie Stadt	364628	NW	Nordrhein-Westfalen
+05913	Dortmund	Kreisfreie Stadt	587010	NW	Nordrhein-Westfalen
+05914	Hagen	Kreisfreie Stadt	188814	NW	Nordrhein-Westfalen
+05915	Hamm	Kreisfreie Stadt	179111	NW	Nordrhein-Westfalen
+05916	Herne	Kreisfreie Stadt	156374	NW	Nordrhein-Westfalen
+05954	Ennepe-Ruhr-Kreis	Kreis	324296	NW	Nordrhein-Westfalen
+05958	Hochsauerlandkreis	Kreis	260475	NW	Nordrhein-Westfalen
+05962	Märkischer Kreis	Kreis	412120	NW	Nordrhein-Westfalen
+05966	Olpe	Kreis	134775	NW	Nordrhein-Westfalen
+05970	Siegen-Wittgenstein	Kreis	278210	NW	Nordrhein-Westfalen
+05974	Soest	Kreis	301902	NW	Nordrhein-Westfalen
+05978	Unna	Kreis	394782	NW	Nordrhein-Westfalen
+06411	Darmstadt	Kreisfreie Stadt	159207	HE	Hessen
+06412	Frankfurt am Main	Kreisfreie Stadt	753056	HE	Hessen
+06413	Offenbach am Main	Kreisfreie Stadt	128744	HE	Hessen
+06414	Wiesbaden	Kreisfreie Stadt	278342	HE	Hessen
+06431	Bergstraße	Landkreis	269694	HE	Hessen
+06432	Darmstadt-Dieburg	Landkreis	297399	HE	Hessen
+06433	Groß-Gerau	Landkreis	274526	HE	Hessen
+06434	Hochtaunuskreis	Landkreis	236564	HE	Hessen
+06435	Main-Kinzig-Kreis	Landkreis	418950	HE	Hessen
+06436	Main-Taunus-Kreis	Landkreis	237735	HE	Hessen
+06437	Odenwaldkreis	Landkreis	96798	HE	Hessen
+06438	Offenbach	Landkreis	354092	HE	Hessen
+06439	Rheingau-Taunus-Kreis	Landkreis	187157	HE	Hessen
+06440	Wetteraukreis	Landkreis	306460	HE	Hessen
+06531	Gießen	Landkreis	268876	HE	Hessen
+06532	Lahn-Dill-Kreis	Landkreis	253777	HE	Hessen
+06533	Limburg-Weilburg	Landkreis	172083	HE	Hessen
+06534	Marburg-Biedenkopf	Landkreis	246648	HE	Hessen
+06535	Vogelsbergkreis	Landkreis	105878	HE	Hessen
+06611	Kassel	Kreisfreie Stadt	201585	HE	Hessen
+06631	Fulda	Landkreis	222584	HE	Hessen
+06632	Hersfeld-Rotenburg	Landkreis	120829	HE	Hessen
+06633	Kassel	Landkreis	236633	HE	Hessen
+06634	Schwalm-Eder-Kreis	Landkreis	180222	HE	Hessen
+06635	Waldeck-Frankenberg	Landkreis	156953	HE	Hessen
+06636	Werra-Meißner-Kreis	Landkreis	101017	HE	Hessen
+07111	Koblenz	Kreisfreie Stadt	114024	RP	Rheinland-Pfalz
+07131	Ahrweiler	Landkreis	129727	RP	Rheinland-Pfalz
+07132	Altenkirchen (Westerwald)	Landkreis	128705	RP	Rheinland-Pfalz
+07133	Bad Kreuznach	Landkreis	158080	RP	Rheinland-Pfalz
+07134	Birkenfeld	Landkreis	80720	RP	Rheinland-Pfalz
+07135	Cochem-Zell	Landkreis	61587	RP	Rheinland-Pfalz
+07137	Mayen-Koblenz	Landkreis	214259	RP	Rheinland-Pfalz
+07138	Neuwied	Landkreis	181941	RP	Rheinland-Pfalz
+07140	Rhein-Hunsrück-Kreis	Landkreis	102937	RP	Rheinland-Pfalz
+07141	Rhein-Lahn-Kreis	Landkreis	122308	RP	Rheinland-Pfalz
+07143	Westerwaldkreis	Landkreis	201597	RP	Rheinland-Pfalz
+07211	Trier	Kreisfreie Stadt	110636	RP	Rheinland-Pfalz
+07231	Bernkastel-Wittlich	Landkreis	112262	RP	Rheinland-Pfalz
+07232	Eifelkreis Bitburg-Prüm	Landkreis	98561	RP	Rheinland-Pfalz
+07233	Vulkaneifel	Landkreis	60603	RP	Rheinland-Pfalz
+07235	Trier-Saarburg	Landkreis	148945	RP	Rheinland-Pfalz
+07311	Frankenthal (Pfalz)	Kreisfreie Stadt	48561	RP	Rheinland-Pfalz
+07312	Kaiserslautern	Kreisfreie Stadt	99845	RP	Rheinland-Pfalz
+07313	Landau in der Pfalz	Kreisfreie Stadt	46677	RP	Rheinland-Pfalz
+07314	Ludwigshafen am Rhein	Kreisfreie Stadt	171061	RP	Rheinland-Pfalz
+07315	Mainz	Kreisfreie Stadt	217118	RP	Rheinland-Pfalz
+07316	Neustadt an der Weinstraße	Kreisfreie Stadt	53148	RP	Rheinland-Pfalz
+07317	Pirmasens	Kreisfreie Stadt	40403	RP	Rheinland-Pfalz
+07318	Speyer	Kreisfreie Stadt	50378	RP	Rheinland-Pfalz
+07319	Worms	Kreisfreie Stadt	83330	RP	Rheinland-Pfalz
+07320	Zweibrücken	Kreisfreie Stadt	34209	RP	Rheinland-Pfalz
+07331	Alzey-Worms	Landkreis	129244	RP	Rheinland-Pfalz
+07332	Bad Dürkheim	Landkreis	132660	RP	Rheinland-Pfalz
+07333	Donnersbergkreis	Landkreis	75101	RP	Rheinland-Pfalz
+07334	Germersheim	Landkreis	129075	RP	Rheinland-Pfalz
+07335	Kaiserslautern	Landkreis	106057	RP	Rheinland-Pfalz
+07336	Kusel	Landkreis	70526	RP	Rheinland-Pfalz
+07337	Südliche Weinstraße	Landkreis	110356	RP	Rheinland-Pfalz
+07338	Rhein-Pfalz-Kreis	Landkreis	154201	RP	Rheinland-Pfalz
+07339	Mainz-Bingen	Landkreis	210889	RP	Rheinland-Pfalz
+07340	Südwestpfalz	Landkreis	95113	RP	Rheinland-Pfalz
+08111	Stuttgart	Stadtkreis	634830	BW	Baden-Württemberg
+08115	Böblingen	Landkreis	391640	BW	Baden-Württemberg
+08116	Esslingen	Landkreis	533859	BW	Baden-Württemberg
+08117	Göppingen	Landkreis	257253	BW	Baden-Württemberg
+08118	Ludwigsburg	Landkreis	543984	BW	Baden-Württemberg
+08119	Rems-Murr-Kreis	Landkreis	426158	BW	Baden-Württemberg
+08121	Heilbronn	Stadtkreis	125960	BW	Baden-Württemberg
+08125	Heilbronn	Landkreis	343068	BW	Baden-Württemberg
+08126	Hohenlohekreis	Landkreis	112010	BW	Baden-Württemberg
+08127	Schwäbisch Hall	Landkreis	195861	BW	Baden-Württemberg
+08128	Main-Tauber-Kreis	Landkreis	132321	BW	Baden-Württemberg
+08135	Heidenheim	Landkreis	132472	BW	Baden-Württemberg
+08136	Ostalbkreis	Landkreis	314002	BW	Baden-Württemberg
+08211	Baden-Baden	Stadtkreis	55123	BW	Baden-Württemberg
+08212	Karlsruhe	Stadtkreis	313092	BW	Baden-Württemberg
+08215	Karlsruhe	Landkreis	444232	BW	Baden-Württemberg
+08216	Rastatt	Landkreis	231018	BW	Baden-Württemberg
+08221	Heidelberg	Stadtkreis	160355	BW	Baden-Württemberg
+08222	Mannheim	Stadtkreis	309370	BW	Baden-Württemberg
+08225	Neckar-Odenwald-Kreis	Landkreis	143535	BW	Baden-Württemberg
+08226	Rhein-Neckar-Kreis	Landkreis	547625	BW	Baden-Württemberg
+08231	Pforzheim	Stadtkreis	125542	BW	Baden-Württemberg
+08235	Calw	Landkreis	158397	BW	Baden-Württemberg
+08236	Enzkreis	Landkreis	198905	BW	Baden-Württemberg
+08237	Freudenstadt	Landkreis	117935	BW	Baden-Württemberg
+08311	Freiburg im Breisgau	Stadtkreis	230241	BW	Baden-Württemberg
+08315	Breisgau-Hochschwarzwald	Landkreis	262795	BW	Baden-Württemberg
+08316	Emmendingen	Landkreis	165383	BW	Baden-Württemberg
+08317	Ortenaukreis	Landkreis	429479	BW	Baden-Württemberg
+08325	Rottweil	Landkreis	139455	BW	Baden-Württemberg
+08326	Schwarzwald-Baar-Kreis	Landkreis	212381	BW	Baden-Württemberg
+08327	Tuttlingen	Landkreis	140152	BW	Baden-Württemberg
+08335	Konstanz	Landkreis	285325	BW	Baden-Württemberg
+08336	Lörrach	Landkreis	228639	BW	Baden-Württemberg
+08337	Waldshut	Landkreis	170619	BW	Baden-Württemberg
+08415	Reutlingen	Landkreis	286748	BW	Baden-Württemberg
+08416	Tübingen	Landkreis	227331	BW	Baden-Württemberg
+08417	Zollernalbkreis	Landkreis	188935	BW	Baden-Württemberg
+08421	Ulm	Stadtkreis	126329	BW	Baden-Württemberg
+08425	Alb-Donau-Kreis	Landkreis	196047	BW	Baden-Württemberg
+08426	Biberach	Landkreis	199742	BW	Baden-Württemberg
+08435	Bodenseekreis	Landkreis	216227	BW	Baden-Württemberg
+08436	Ravensburg	Landkreis	284285	BW	Baden-Württemberg
+08437	Sigmaringen	Landkreis	130873	BW	Baden-Württemberg
+09161	Ingolstadt	Kreisfreie Stadt	136981	BY	Bayern
+09162	München	Kreisfreie Stadt	1471508	BY	Bayern
+09163	Rosenheim	Kreisfreie Stadt	63324	BY	Bayern
+09171	Altötting	Landkreis	111210	BY	Bayern
+09172	Berchtesgadener Land	Landkreis	105722	BY	Bayern
+09173	Bad Tölz-Wolfratshausen	Landkreis	127227	BY	Bayern
+09174	Dachau	Landkreis	153884	BY	Bayern
+09175	Ebersberg	Landkreis	142142	BY	Bayern
+09176	Eichstätt	Landkreis	132341	BY	Bayern
+09177	Erding	Landkreis	137660	BY	Bayern
+09178	Freising	Landkreis	179116	BY	Bayern
+09179	Fürstenfeldbruck	Landkreis	219320	BY	Bayern
+09180	Garmisch-Partenkirchen	Landkreis	88467	BY	Bayern
+09181	Landsberg am Lech	Landkreis	120071	BY	Bayern
+09182	Miesbach	Landkreis	99726	BY	Bayern
+09183	Mühldorf a. Inn	Landkreis	115250	BY	Bayern
+09184	München	Landkreis	348871	BY	Bayern
+09185	Neuburg-Schrobenhausen	Landkreis	96680	BY	Bayern
+09186	Pfaffenhofen a.d. Ilm	Landkreis	127151	BY	Bayern
+09187	Rosenheim	Landkreis	260983	BY	Bayern
+09188	Starnberg	Landkreis	136092	BY	Bayern
+09189	Traunstein	Landkreis	177089	BY	Bayern
+09190	Weilheim-Schongau	Landkreis	135348	BY	Bayern
+09261	Landshut	Kreisfreie Stadt	72404	BY	Bayern
+09262	Passau	Kreisfreie Stadt	52469	BY	Bayern
+09263	Straubing	Kreisfreie Stadt	47794	BY	Bayern
+09271	Deggendorf	Landkreis	119326	BY	Bayern
+09272	Freyung-Grafenau	Landkreis	78355	BY	Bayern
+09273	Kelheim	Landkreis	122258	BY	Bayern
+09274	Landshut	Landkreis	158698	BY	Bayern
+09275	Passau	Landkreis	192043	BY	Bayern
+09276	Regen	Landkreis	77656	BY	Bayern
+09277	Rottal-Inn	Landkreis	120659	BY	Bayern
+09278	Straubing-Bogen	Landkreis	100649	BY	Bayern
+09279	Dingolfing-Landau	Landkreis	96217	BY	Bayern
+09361	Amberg	Kreisfreie Stadt	41970	BY	Bayern
+09362	Regensburg	Kreisfreie Stadt	152610	BY	Bayern
+09363	Weiden i.d. OPf.	Kreisfreie Stadt	42520	BY	Bayern
+09371	Amberg-Sulzbach	Landkreis	103109	BY	Bayern
+09372	Cham	Landkreis	127882	BY	Bayern
+09373	Neumarkt i.d. OPf.	Landkreis	133561	BY	Bayern
+09374	Neustadt a.d. Waldnaab	Landkreis	94352	BY	Bayern
+09375	Regensburg	Landkreis	193572	BY	Bayern
+09376	Schwandorf	Landkreis	147189	BY	Bayern
+09377	Tirschenreuth	Landkreis	72504	BY	Bayern
+09461	Bamberg	Kreisfreie Stadt	77592	BY	Bayern
+09462	Bayreuth	Kreisfreie Stadt	74657	BY	Bayern
+09463	Coburg	Kreisfreie Stadt	41249	BY	Bayern
+09464	Hof	Kreisfreie Stadt	45930	BY	Bayern
+09471	Bamberg	Landkreis	147086	BY	Bayern
+09472	Bayreuth	Landkreis	103656	BY	Bayern
+09473	Coburg	Landkreis	86906	BY	Bayern
+09474	Forchheim	Landkreis	116099	BY	Bayern
+09475	Hof	Landkreis	95311	BY	Bayern
+09476	Kronach	Landkreis	67135	BY	Bayern
+09477	Kulmbach	Landkreis	71845	BY	Bayern
+09478	Lichtenfels	Landkreis	66838	BY	Bayern
+09479	Wunsiedel i. Fichtelgebirge	Landkreis	73178	BY	Bayern
+09561	Ansbach	Kreisfreie Stadt	41847	BY	Bayern
+09562	Erlangen	Kreisfreie Stadt	111962	BY	Bayern
+09563	Fürth	Kreisfreie Stadt	127748	BY	Bayern
+09564	Nürnberg	Kreisfreie Stadt	518365	BY	Bayern
+09565	Schwabach	Kreisfreie Stadt	40792	BY	Bayern
+09571	Ansbach	Landkreis	183949	BY	Bayern
+09572	Erlangen-Höchstadt	Landkreis	136271	BY	Bayern
+09573	Fürth	Landkreis	117387	BY	Bayern
+09574	Nürnberger Land	Landkreis	170365	BY	Bayern
+09575	Neustadt a.d. Aisch-Bad Windsheim	Landkreis	100364	BY	Bayern
+09576	Roth	Landkreis	126958	BY	Bayern
+09577	Weißenburg-Gunzenhausen	Landkreis	94393	BY	Bayern
+09661	Aschaffenburg	Kreisfreie Stadt	70527	BY	Bayern
+09662	Schweinfurt	Kreisfreie Stadt	54032	BY	Bayern
+09663	Würzburg	Kreisfreie Stadt	127880	BY	Bayern
+09671	Aschaffenburg	Landkreis	174208	BY	Bayern
+09672	Bad Kissingen	Landkreis	103218	BY	Bayern
+09673	Rhön-Grabfeld	Landkreis	79690	BY	Bayern
+09674	Haßberge	Landkreis	84599	BY	Bayern
+09675	Kitzingen	Landkreis	90909	BY	Bayern
+09676	Miltenberg	Landkreis	128756	BY	Bayern
+09677	Main-Spessart	Landkreis	126365	BY	Bayern
+09678	Schweinfurt	Landkreis	115106	BY	Bayern
+09679	Würzburg	Landkreis	161834	BY	Bayern
+09761	Augsburg	Kreisfreie Stadt	295135	BY	Bayern
+09762	Kaufbeuren	Kreisfreie Stadt	43893	BY	Bayern
+09763	Kempten (Allgäu)	Kreisfreie Stadt	68907	BY	Bayern
+09764	Memmingen	Kreisfreie Stadt	43837	BY	Bayern
+09771	Aichach-Friedberg	Landkreis	133596	BY	Bayern
+09772	Augsburg	Landkreis	251534	BY	Bayern
+09773	Dillingen a.d. Donau	Landkreis	96021	BY	Bayern
+09774	Günzburg	Landkreis	125747	BY	Bayern
+09775	Neu-Ulm	Landkreis	174200	BY	Bayern
+09776	Lindau (Bodensee)	Landkreis	81669	BY	Bayern
+09777	Ostallgäu	Landkreis	140316	BY	Bayern
+09778	Unterallgäu	Landkreis	144041	BY	Bayern
+09779	Donau-Ries	Landkreis	133496	BY	Bayern
+09780	Oberallgäu	Landkreis	155362	BY	Bayern
+10041	Regionalverband Saarbrücken	Landkreis	329708	SL	Saarland
+10042	Merzig-Wadern	Landkreis	103366	SL	Saarland
+10043	Neunkirchen	Landkreis	132206	SL	Saarland
+10044	Saarlouis	Landkreis	195201	SL	Saarland
+10045	Saarpfalz-Kreis	Landkreis	142631	SL	Saarland
+10046	St. Wendel	Landkreis	87397	SL	Saarland
+11001	Berlin Mitte	Bezirk	384172	BE	Berlin
+11002	Berlin Friedrichshain-Kreuzberg	Bezirk	289762	BE	Berlin
+11003	Berlin Pankow	Bezirk	407765	BE	Berlin
+11004	Berlin Charlottenburg-Wilmersdorf	Bezirk	342332	BE	Berlin
+11005	Berlin Spandau	Bezirk	243977	BE	Berlin
+11006	Berlin Steglitz-Zehlendorf	Bezirk	308697	BE	Berlin
+11007	Berlin Tempelhof-Schöneberg	Bezirk	351644	BE	Berlin
+11008	Berlin Neukölln	Bezirk	329691	BE	Berlin
+11009	Berlin Treptow-Köpenick	Bezirk	271153	BE	Berlin
+11010	Berlin Marzahn-Hellersdorf	Bezirk	268548	BE	Berlin
+11011	Berlin Lichtenberg	Bezirk	291452	BE	Berlin
+11012	Berlin Reinickendorf	Bezirk	265225	BE	Berlin
+12051	Brandenburg an der Havel	Kreisfreie Stadt	72124	BB	Brandenburg
+12052	Cottbus	Kreisfreie Stadt	100219	BB	Brandenburg
+12053	Frankfurt (Oder)	Kreisfreie Stadt	57873	BB	Brandenburg
+12054	Potsdam	Kreisfreie Stadt	178089	BB	Brandenburg
+12060	Barnim	Landkreis	182760	BB	Brandenburg
+12061	Dahme-Spreewald	Landkreis	169067	BB	Brandenburg
+12062	Elbe-Elster	Landkreis	102638	BB	Brandenburg
+12063	Havelland	Landkreis	161909	BB	Brandenburg
+12064	Märkisch-Oderland	Landkreis	194328	BB	Brandenburg
+12065	Oberhavel	Landkreis	211249	BB	Brandenburg
+12066	Oberspreewald-Lausitz	Landkreis	110476	BB	Brandenburg
+12067	Oder-Spree	Landkreis	178658	BB	Brandenburg
+12068	Ostprignitz-Ruppin	Landkreis	99078	BB	Brandenburg
+12069	Potsdam-Mittelmark	Landkreis	214664	BB	Brandenburg
+12070	Prignitz	Landkreis	76508	BB	Brandenburg
+12071	Spree-Neiße	Landkreis	114429	BB	Brandenburg
+12072	Teltow-Fläming	Landkreis	168296	BB	Brandenburg
+12073	Uckermark	Landkreis	119552	BB	Brandenburg
+13003	Rostock	Kreisfreie Stadt	208886	MV	Mecklenburg-Vorpommern
+13004	Schwerin	Kreisfreie Stadt	95818	MV	Mecklenburg-Vorpommern
+13071	Mecklenburgische Seenplatte	Landkreis	259130	MV	Mecklenburg-Vorpommern
+13072	Rostock	Landkreis	215113	MV	Mecklenburg-Vorpommern
+13073	Vorpommern-Rügen	Landkreis	224684	MV	Mecklenburg-Vorpommern
+13074	Nordwestmecklenburg	Landkreis	156729	MV	Mecklenburg-Vorpommern
+13075	Vorpommern-Greifswald	Landkreis	236697	MV	Mecklenburg-Vorpommern
+13076	Ludwigslust-Parchim	Landkreis	212618	MV	Mecklenburg-Vorpommern
+14511	Chemnitz	Kreisfreie Stadt	247237	SN	Sachsen
+14521	Erzgebirgskreis	Landkreis	337696	SN	Sachsen
+14522	Mittelsachsen	Landkreis	306185	SN	Sachsen
+14523	Vogtlandkreis	Landkreis	227796	SN	Sachsen
+14524	Zwickau	Landkreis	317531	SN	Sachsen
+14612	Dresden	Kreisfreie Stadt	554649	SN	Sachsen
+14625	Bautzen	Landkreis	300880	SN	Sachsen
+14626	Görlitz	Landkreis	254894	SN	Sachsen
+14627	Meißen	Landkreis	242165	SN	Sachsen
+14628	Sächsische Schweiz-Osterzgebirge	Landkreis	245611	SN	Sachsen
+14713	Leipzig	Kreisfreie Stadt	587857	SN	Sachsen
+14729	Leipzig	Landkreis	257763	SN	Sachsen
+14730	Nordsachsen	Landkreis	197673	SN	Sachsen
+15001	Dessau-Roßlau	Kreisfreie Stadt	81237	ST	Sachsen-Anhalt
+15002	Halle (Saale)	Kreisfreie Stadt	239257	ST	Sachsen-Anhalt
+15003	Magdeburg	Kreisfreie Stadt	238697	ST	Sachsen-Anhalt
+15081	Altmarkkreis Salzwedel	Landkreis	83765	ST	Sachsen-Anhalt
+15082	Anhalt-Bitterfeld	Landkreis	159854	ST	Sachsen-Anhalt
+15083	Börde	Landkreis	171734	ST	Sachsen-Anhalt
+15084	Burgenlandkreis	Landkreis	180190	ST	Sachsen-Anhalt
+15085	Harz	Landkreis	214446	ST	Sachsen-Anhalt
+15086	Jerichower Land	Landkreis	89928	ST	Sachsen-Anhalt
+15087	Mansfeld-Südharz	Landkreis	136249	ST	Sachsen-Anhalt
+15088	Saalekreis	Landkreis	184582	ST	Sachsen-Anhalt
+15089	Salzlandkreis	Landkreis	190560	ST	Sachsen-Anhalt
+15090	Stendal	Landkreis	111982	ST	Sachsen-Anhalt
+15091	Wittenberg	Landkreis	125840	ST	Sachsen-Anhalt
+16051	Erfurt	Kreisfreie Stadt	213699	TH	Thüringen
+16052	Gera	Kreisfreie Stadt	94152	TH	Thüringen
+16053	Jena	Kreisfreie Stadt	111407	TH	Thüringen
+16054	Suhl	Kreisfreie Stadt	34835	TH	Thüringen
+16055	Weimar	Kreisfreie Stadt	65090	TH	Thüringen
+16056	Eisenach	Kreisfreie Stadt	42370	TH	Thüringen
+16061	Eichsfeld	Landkreis	100380	TH	Thüringen
+16062	Nordhausen	Landkreis	83822	TH	Thüringen
+16063	Wartburgkreis	Landkreis	123025	TH	Thüringen
+16064	Unstrut-Hainich-Kreis	Landkreis	102912	TH	Thüringen
+16065	Kyffhäuserkreis	Landkreis	75009	TH	Thüringen
+16066	Schmalkalden-Meiningen	Landkreis	122347	TH	Thüringen
+16067	Gotha	Landkreis	135452	TH	Thüringen
+16068	Sömmerda	Landkreis	69655	TH	Thüringen
+16069	Hildburghausen	Landkreis	63553	TH	Thüringen
+16070	Ilm-Kreis	Landkreis	108742	TH	Thüringen
+16071	Weimarer Land	Landkreis	81947	TH	Thüringen
+16072	Sonneberg	Landkreis	56196	TH	Thüringen
+16073	Saalfeld-Rudolstadt	Landkreis	106356	TH	Thüringen
+16074	Saale-Holzland-Kreis	Landkreis	83051	TH	Thüringen
+16075	Saale-Orla-Kreis	Landkreis	80868	TH	Thüringen
+16076	Greiz	Landkreis	98159	TH	Thüringen
+16077	Altenburger Land	Landkreis	90118	TH	Thüringen

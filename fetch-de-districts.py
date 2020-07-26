@@ -222,14 +222,17 @@ def fetch_and_prepare_ref_landkreise() -> dict:
 
     with open(file_out+'.tsv', mode='w', encoding='utf-8', newline='\n') as fh_csv:
         csvwriter = csv.DictWriter(fh_csv, delimiter='\t', extrasaction='ignore', fieldnames=[
-            'ID',
-            'BL_Name',
+            'LK_ID',
             'LK_Name',
-            'LK_Typ'
+            'LK_Typ',
+            'Population',
+            'BL_Code',
+            'BL_Name'
         ])
         csvwriter.writeheader()
-        for lk_id, d in d_landkreise.items():
-            d['ID'] = lk_id
+        for lk_id in sorted(d_landkreise.keys()):
+            d = d_landkreise[lk_id]
+            d['LK_ID'] = lk_id
             csvwriter.writerow(d)
         del lk_id, d
 
@@ -638,9 +641,3 @@ d_districts_data = join_with_divi_data(d_districts_data)
 count_zero_cases_last_week(d_districts_data)
 export_data(d_districts_data)
 export_latest_data(d_districts_data)
-
-# fetch_ref_landkreise(readFromCache=True)
-
-# TODO: sort by Bundesland, Landkreis
-
-# TODO: Bundeslandsummen
