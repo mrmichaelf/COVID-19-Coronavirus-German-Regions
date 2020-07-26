@@ -199,10 +199,6 @@ def fetch_and_prepare_ref_landkreise() -> dict:
     l_landkreise = fetch_ref_landkreise(readFromCache=True)
     d_landkreise = {}
 
-    # with open(file_out+'.tsv', mode='w', encoding='utf-8', newline='\n') as fh_csv:
-    #     csvwriter = csv.DictWriter(fh_csv, delimiter='\t', extrasaction='ignore', fieldnames=[
-    #         'ID', 'Date']
-
     # convert list to dict, using lk_id as key
     for d_this_landkreis in l_landkreise:
         lk_id = d_this_landkreis['RS']  # RS = LK_ID ; county = LK_Name
@@ -218,10 +214,24 @@ def fetch_and_prepare_ref_landkreise() -> dict:
         d['LK_Name'] = d_this_landkreis['GEN']
         d['LK_Typ'] = d_this_landkreis['BEZ']
         d_landkreise[lk_id] = d
+
+    del d_this_landkreis
+
     with open(file_out+'.json', mode='w', encoding='utf-8', newline='\n') as fh:
         json.dump(d_landkreise, fh, ensure_ascii=False)
 
-    del d_this_landkreis
+    with open(file_out+'.tsv', mode='w', encoding='utf-8', newline='\n') as fh_csv:
+        csvwriter = csv.DictWriter(fh_csv, delimiter='\t', extrasaction='ignore', fieldnames=[
+            'ID',
+            'BL_Name',
+            'LK_Name',
+            'LK_Typ'
+        ])
+        csvwriter.writeheader()
+        for lk_id, d in d_landkreise.items():
+            d['ID'] = lk_id
+            csvwriter.writerow(d)
+        del lk_id, d
 
     # assure we did not loose any
     assert len(l_landkreise) == len(d_landkreise)
