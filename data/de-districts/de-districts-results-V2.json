@@ -8032,7 +8032,7 @@
   "LK_Typ": "Landkreis",
   "Landkreis": "Pfaffenhofen a.d. Ilm (Landkreis)",
   "Population": 127151,
-  "Slope_Cases_New_Per_Million": -0.0,
+  "Slope_Cases_New_Per_Million": 0.0,
   "Slope_Deaths_New_Per_Million": 0
  },
  {
@@ -9034,7 +9034,7 @@
   "LK_Typ": "Kreisfreie Stadt",
   "Landkreis": "Fürth (Kreisfreie Stadt)",
   "Population": 127748,
-  "Slope_Cases_New_Per_Million": 0.0,
+  "Slope_Cases_New_Per_Million": -0.0,
   "Slope_Deaths_New_Per_Million": 0
  },
  {
@@ -9296,7 +9296,7 @@
   "LK_Typ": "Kreisfreie Stadt",
   "Landkreis": "Schweinfurt (Kreisfreie Stadt)",
   "Population": 54032,
-  "Slope_Cases_New_Per_Million": -0.0,
+  "Slope_Cases_New_Per_Million": 0.0,
   "Slope_Deaths_New_Per_Million": 0
  },
  {
