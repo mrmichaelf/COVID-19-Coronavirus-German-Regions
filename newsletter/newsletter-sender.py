@@ -131,7 +131,7 @@ for lk_id in l_worst_lk_ids:
     s_worst_lk += format_line(
         cases_lw_pm=d["Cases_Last_Week_Per_Million"],
         cases_lw=d["Cases_Last_Week"],
-        location=d["Landkreis"],
+        location=f"{d['LK_Name']} ({d['LK_Typ']} in {d['BL_Code']})",
         slope_arrow=d["Slope_Cases_Arrow"]
     )
     if count == number_worst:
@@ -180,7 +180,7 @@ for row in cur.execute("SELECT email, verified, hash, threshold, regions, freque
             mailBody += format_line(
                 cases_lw_pm=d["Cases_Last_Week_Per_Million"],
                 cases_lw=d["Cases_Last_Week"],
-                location=d["Landkreis"],
+                location=f"{d['LK_Name']} ({d['LK_Typ']} in {d['BL_Code']})",
                 slope_arrow=d["Slope_Cases_Arrow"]
             )
         mailBody += format_line2(cases_DE_last_week_PM, "Deutschland")
