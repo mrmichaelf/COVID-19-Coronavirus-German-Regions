@@ -3572,22 +3572,22 @@
   "Deaths_Per_Million": 575
  },
  {
-  "Cases": 389717,
-  "Cases_Last_Week": 27630,
-  "Cases_Last_Week_Per_Million": 863,
-  "Cases_New": 0,
-  "Cases_New_Per_Million": 0,
-  "Cases_Per_Million": 12182,
+  "Cases": 395005,
+  "Cases_Last_Week": 32918,
+  "Cases_Last_Week_Per_Million": 1029,
+  "Cases_New": 5288,
+  "Cases_New_Per_Million": 165,
+  "Cases_Per_Million": 12348,
   "Date": "2020-07-28",
   "Days_Past": 0,
   "Days_Since_2nd_Death": 130,
-  "Deaths": 18418,
-  "Deaths_Last_Week": 4839,
-  "Deaths_Last_Week_Per_Million": 151.27,
-  "Deaths_New": 0,
-  "Deaths_New_Per_Million": 0.0,
+  "Deaths": 18612,
+  "Deaths_Last_Week": 5033,
+  "Deaths_Last_Week_Per_Million": 157.33,
+  "Deaths_New": 194,
+  "Deaths_New_Per_Million": 6.065,
   "Deaths_Per_Cases": 0.047,
-  "Deaths_Per_Cases_Last_Week": 0.175,
-  "Deaths_Per_Million": 575
+  "Deaths_Per_Cases_Last_Week": 0.153,
+  "Deaths_Per_Million": 581
  }
 ]
