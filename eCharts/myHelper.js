@@ -143,12 +143,24 @@ function getSeries(codes, dataObject, map_id_name, xAxis, yAxis, sorting) {
 
   let sortmap = [];
   const codes_ordered = [];
-  // sort codes by last value
-  if (sorting == "Sort_by_value") {
+  // sort legend by name
+  if (sorting == "Sort_by_name") {
     for (let i = 0; i < codes.length; i++) {
-      const yValues = dataObject[codes[i]]; //[key][yAxis];
-      const values = yValues[yValues.length - 1][yAxis]
-      sortmap.push([codes[i], values]);
+      sortmap.push([codes[i], map_id_name[codes[i]]]);
+    }
+    sortmap.sort(function (a, b) {
+      return a[1] > b[1];
+    });
+    for (let i = 0; i < codes.length; i++) {
+      codes_ordered.push(sortmap[i][0]);
+    }
+  }
+  // sort legend by last value
+  else if (sorting == "Sort_by_last_value") {
+    for (let i = 0; i < codes.length; i++) {
+      const values = dataObject[codes[i]]; //[key][yAxis];
+      const value = values[values.length - 1][yAxis]
+      sortmap.push([codes[i], value]);
     }
     sortmap.sort(function (a, b) {
       return a[1] - b[1];
@@ -161,20 +173,32 @@ function getSeries(codes, dataObject, map_id_name, xAxis, yAxis, sorting) {
     if (yAxis != "Cases_Doubling_Time" && yAxis != "Deaths_Doubling_Time") {
       codes_ordered.reverse();
     }
-
   }
-  // sort codes by name
-  else if (sorting == "Sort_by_name") {
+  // sort by max value
+  else if (sorting == "Sort_by_max_value") {
     for (let i = 0; i < codes.length; i++) {
-      sortmap.push([codes[i], map_id_name[codes[i]]]);
+      let max_value = 0;
+      let values = dataObject[codes[i]];
+      for (let j = 0; j < values.length; j++) {
+        if (values[j][yAxis] > max_value) {
+          max_value = values[j][yAxis];
+        }
+      }
+      sortmap.push([codes[i], max_value]);
     }
     sortmap.sort(function (a, b) {
-      return a[1] > b[1];
+      return a[1] - b[1];
     });
+
     for (let i = 0; i < codes.length; i++) {
       codes_ordered.push(sortmap[i][0]);
     }
+    codes_ordered.reverse();
   }
+
+
+
+
   codes = codes_ordered;
 
   for (let i = 0; i < codes.length; i++) {
@@ -213,7 +237,7 @@ function new_country_selected(countryCodes, country_code_to_add) { // , select_c
     }
 
     // start fetching / download of data
-    promises.push(fetchData('Country', country_code_to_add, countriesDataObject))
+    promises.push(fetchData('Country', country_code_to_add, data_object_countries))
 
     // Version 1: pass select and its options as parameter
     // remove selected values from options_countries
@@ -253,7 +277,7 @@ function new_deDistrict_selected(deDistrictCodes, deDistrict_code_to_add) {
   // }
 
   // start fetching / download of data
-  promises.push(fetchData('DeDistrict', deDistrict_code_to_add, deDistrictDataObject))
+  promises.push(fetchData('DeDistrict', deDistrict_code_to_add, data_object_DE_districts))
 
   // wait for fetching to complete, than update chart
   Promise.all(promises).then(function () {
@@ -357,6 +381,134 @@ function populateCountrySelects() {
 
 
 
+function refreshDeDistrictsChart(
+  chart,
+  codes,
+  dataObject,
+  select_yAxisProperty,
+  select_sorting,
+  update_url
+) {
+  if (update_url) {
+    // update/modify the URL
+    window.history.pushState("object or string", "Title", "https://entorb.net/COVID-19-coronavirus/?yAxis=" + select_yAxisProperty_DeDistricts.value + "&DeDistricts=" + deDistrictCodes.toString() + "&Sort=" + select_sorting.value + "#DeDistrictChart");
+  }
+  option = {
+    title: {
+      // text: "COVID-19: Landkreisvergleich 7-Tages-Neuinfektionen",
+      text: "COVID-19: Landkreisvergleich " + capitalize_words(select_yAxisProperty.value, "_"),
+      left: 'center',
+      subtext: "by Torben https://entorb.net based on RKI data",
+      sublink: "https://entorb.net/COVID-19-coronavirus/",
+    },
+    legend: {
+      type: 'scroll',
+      orient: 'vertical',
+      right: 0,
+      top: 50,
+      //          bottom: 20,
+    },
+    xAxis: {
+      // common settings for both axes
+      type: 'time', // will be overwritten if needed below
+      boundaryGap: false,
+      nameTextStyle: { fontWeight: "bold" },
+      minorTick: { show: true },
+      minorSplitLine: {
+        show: true
+      },
+      axisTick: { inside: true },
+      axisLabel: {
+        show: true,
+        formatter: function (value) {
+          var date = new Date(value);
+          return date.toLocaleDateString("de-DE")
+        }
+      },
+      // for x only
+      name: 'Datum',
+      nameLocation: 'end',
+
+    },
+    yAxis: {
+      // common settings for both axes
+      type: 'value', // will be overwritten if needed below
+      boundaryGap: false,
+      nameTextStyle: { fontWeight: "bold" },
+      minorTick: { show: true },
+      minorSplitLine: {
+        show: true
+      },
+      axisTick: { inside: true },
+      axisLabel: { show: true },
+      // for y only
+      name: capitalize_words(select_yAxisProperty.value, "_"),
+      nameLocation: 'center',
+      nameGap: 60,
+    },
+    series: getSeries(
+      codes,
+      dataObject,
+      mapDeDistrictNames,
+      'Date',
+      select_yAxisProperty.value,
+      select_sorting.value
+    ),
+    tooltip: {
+      trigger: 'axis', // item or axis
+      axisPointer: {
+        type: 'shadow',
+        snap: true
+      }
+    },
+    toolbox: {
+      show: true,
+      showTitle: true,
+      feature: {
+        // restore: {},
+        dataZoom: {},
+        dataView: { readOnly: true },
+        saveAsImage: {},
+        // magicType: {
+        //  type: ['line', 'bar', 'stack', 'tiled']
+        //},
+        //brush: {},
+      },
+    },
+    grid: {
+      containLabel: false,
+      left: 75,
+      bottom: 40,
+      right: 250,
+    },
+  };
+
+  if (select_yAxisProperty.value == "Cases_Last_Week_Per_Million") {
+    option.series[0].markLine = {
+      symbol: 'none',
+      silent: true,
+      animation: false,
+      lineStyle: {
+        color: "#0000ff"
+        //type: 'solid'
+      },
+      data: [
+        {
+          yAxis: 500,
+        },
+      ]
+    }
+  }
+  else if (select_yAxisProperty.value.indexOf("DIVI_") == 0) {
+    option.title.subtext = "by Torben https://entorb.net based on DIVI data";
+
+  }
+
+
+  chart.clear(); // needed as setOption does not reliable remove all old data, see https://github.com/apache/incubator-echarts/issues/6202#issuecomment-460322781
+  chart.setOption(option, true);
+}
+
 // Refreshes the country chart
 // countryCodes: the codes of the countries to display
 // countriesDataObject: the object which contains all data about the countries
@@ -371,11 +523,13 @@ function refreshCountryChart(
   select_xAxisTimeRange,
   select_xAxisScale,
   select_yAxisScale,
-  select_sorting
+  select_sorting,
+  update_url
 ) {
-
-  // update/modify the URL
-  window.history.pushState("object or string", "Title", "https://entorb.net/COVID-19-coronavirus/?yAxis=" + select_yAxisProperty.value + "&countries=" + countryCodes.toString() + "#CountriesCustomChart");
+  if (update_url) {
+    // update/modify the URL
+    window.history.pushState("object or string", "Title", "https://entorb.net/COVID-19-coronavirus/?yAxis=" + select_yAxisProperty.value + "&countries=" + countryCodes.toString() + "&Sort=" + select_sorting.value + "#CountriesCustomChart");
+  }
 
 
   // disable time selection for non-time series 
@@ -572,7 +726,7 @@ function refreshCountryChart(
   } else {
     option.yAxis.type = "log";
     // for logscale we need to set the min value to avoid 0 is not good ;-)
-    if (select_yAxisProperty.value == "Deaths_New_Per_Million") {
+    if (select_yAxisProperty.value == "Deaths_New_Per_Million" || select_yAxisProperty.value == "Deaths_Last_Week_Per_Million") {
       option.yAxis.min = 0.1;
     } else {
       option.yAxis.min = 1;
@@ -783,131 +937,3 @@ function refreshCountryChart(
 
 
 
-
-
-function refreshDeDistrictsChart(
-  chart,
-  codes,
-  dataObject,
-  select_yAxisProperty,
-  select_sorting
-) {
-  // update/modify the URL
-  window.history.pushState("object or string", "Title", "https://entorb.net/COVID-19-coronavirus/?yAxis=" + select_yAxisProperty_DeDistricts.value + "&DeDistricts=" + deDistrictCodes.toString() + "#DeDistrictChart");
-  // console.log("codes");
-  // console.log(codes);
-  option = {
-    title: {
-      // text: "COVID-19: Landkreisvergleich 7-Tages-Neuinfektionen",
-      text: "COVID-19: Landkreisvergleich " + capitalize_words(select_yAxisProperty.value, "_"),
-      left: 'center',
-      subtext: "by Torben https://entorb.net based on RKI data",
-      sublink: "https://entorb.net/COVID-19-coronavirus/",
-    },
-    legend: {
-      type: 'scroll',
-      orient: 'vertical',
-      right: 0,
-      top: 50,
-      //          bottom: 20,
-    },
-    xAxis: {
-      // common settings for both axes
-      type: 'time', // will be overwritten if needed below
-      boundaryGap: false,
-      nameTextStyle: { fontWeight: "bold" },
-      minorTick: { show: true },
-      minorSplitLine: {
-        show: true
-      },
-      axisTick: { inside: true },
-      axisLabel: {
-        show: true,
-        formatter: function (value) {
-          var date = new Date(value);
-          return date.toLocaleDateString("de-DE")
-        }
-      },
-      // for x only
-      name: 'Datum',
-      nameLocation: 'end',
-
-    },
-    yAxis: {
-      // common settings for both axes
-      type: 'value', // will be overwritten if needed below
-      boundaryGap: false,
-      nameTextStyle: { fontWeight: "bold" },
-      minorTick: { show: true },
-      minorSplitLine: {
-        show: true
-      },
-      axisTick: { inside: true },
-      axisLabel: { show: true },
-      // for y only
-      name: capitalize_words(select_yAxisProperty.value, "_"),
-      nameLocation: 'center',
-      nameGap: 60,
-    },
-    series: getSeries(
-      codes,
-      dataObject,
-      mapDeDistrictNames,
-      'Date',
-      select_yAxisProperty.value,
-      select_sorting.value
-    ),
-    tooltip: {
-      trigger: 'axis', // item or axis
-      axisPointer: {
-        type: 'shadow',
-        snap: true
-      }
-    },
-    toolbox: {
-      show: true,
-      showTitle: true,
-      feature: {
-        // restore: {},
-        dataZoom: {},
-        dataView: { readOnly: true },
-        saveAsImage: {},
-        // magicType: {
-        //  type: ['line', 'bar', 'stack', 'tiled']
-        //},
-        //brush: {},
-      },
-    },
-    grid: {
-      containLabel: false,
-      left: 75,
-      bottom: 40,
-      right: 250,
-    },
-  };
-
-  if (select_yAxisProperty.value == "Cases_Last_Week_Per_Million") {
-    option.series[0].markLine = {
-      symbol: 'none',
-      silent: true,
-      animation: false,
-      lineStyle: {
-        color: "#0000ff"
-        //type: 'solid'
-      },
-      data: [
-        {
-          yAxis: 500,
-        },
-      ]
-    }
-  }
-  else if (select_yAxisProperty.value.indexOf("DIVI_") == 0) {
-    option.title.subtext = "by Torben https://entorb.net based on DIVI data";
-
-  }
-
-
-  chart.clear(); // needed as setOption does not reliable remove all old data, see https://github.com/apache/incubator-echarts/issues/6202#issuecomment-460322781
-  chart.setOption(option, true);
-}

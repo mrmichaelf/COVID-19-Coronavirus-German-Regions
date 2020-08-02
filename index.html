@@ -394,15 +394,32 @@
 	<small> generated via <a href="https://echarts.apache.org" target="_blank">eCharts</a>, raw data can be found <a href="https://github.com/entorb/COVID-19-Coronavirus-German-Regions/tree/master/data/de-districts" target="_blank">here</a>
 	</small>
 	<!-- 
-		JS for eCharts DE Districts 
+		Common JS for eCharts
 	-->
 	<script>
 		// array of promises for async fetching, used for eCharts plots
 		const promises = [];
+		// This dirty workaround is needed for Edge and IE :-(
+		var urlParams = [];
+		if ('search' in window.location) {
+			urlParams = URLToParameterArray(window.location.search);
+		}
+		const options_eCharts_sorting = [
+			"Sort_by_name",
+			"Sort_by_max_value",
+			"Sort_by_last_value"
+		]
+
+	</script>
+	<!-- 
+		JS for eCharts DE Districts 
+	-->
+	<script>
+		const eChart_DeDistricts = echarts.init(document.getElementById("eChartsDeDistrictsContainer"));
 
 		var mapDeDistrictNames = {};
 
-		// fetch countries-latest-all.json containing country reference data like code and continent
+		// fetch mapping_landkreis_ID_name.json reference data like code and continent
 		function fetch_mapRefDeDistrictData(mapDeDistrictNames) {
 			const url =
 				"https://entorb.net/COVID-19-coronavirus/data/de-districts/mapping_landkreis_ID_name.json";
@@ -419,56 +436,47 @@
 					console.log("fail: mapDeDistrictNames");
 				});
 		}
-
-		// fetch the ref data
 		promises.push(fetch_mapRefDeDistrictData(mapDeDistrictNames));
 
 		// Initial list of DeDistrict codes
-		// Adding an entry to this array draws a new line
-		// 02000 = Hamburg
-		// 05558 = Coesfeld
-		// 05370 = Heinsberg
-		var deDistrictCodesDefaultValue = "05370";
-
-
-
-		// read districts list from URL parameter if set
-
-		// small polyfile for URLSearchParams function
-		// $.urlParam = function (name) {
-		// 	var results = new RegExp('[\?&]' + name + '=([^&#]*)').exec(window.location.href);
-		// 	if (results == null) {
-		// 		return null;
-		// 	}
-		// 	else {
-		// 		return decodeURI(results[1]) || 0;
-		// 	}
-		// }
-
-		// This dirty workaround is needed for Edge and IE :-(
-		var urlParams = [];
-		if ('search' in window.location) {
-			urlParams = URLToParameterArray(window.location.search);
-		}
+		var deDistrictCodesDefaultValue = "05370"; // do not delete, used in reset function as well
 		if ('DeDistricts' in urlParams) {
 			var deDistrictCodes = urlParams.DeDistricts.split(",");
+			// Adding an entry to this array draws a new line
+			// read districts list from URL parameter if set
 		} else {
+			// Adding an entry to this array draws a new line
+			// read districts list from URL parameter if set
+			// 02000 = Hamburg
+			// 05558 = Coesfeld
+			// 05370 = Heinsberg
 			var deDistrictCodes = [deDistrictCodesDefaultValue];
 		}
 
-		// original solution working in Firefox etc.
-		// if (urlParams.has('DeDistricts')) {
-		// 	// console.log("urlParams: Found Dedistrits in URL");
-		// 	var deDistrictCodes = urlParams.get('DeDistricts').split(",");
-		// 	// console.log(deDistrictCodes);
-		// } else {
-		// }
-		// var deDistrictCodes = [deDistrictCodesDefaultValue];
+		const data_object_DE_districts = {}; // We store all the data in an object
 
-		// https://entorb.net/COVID-19-coronavirus/?yAxis=" + select_yAxisProperty_DeDistricts.value + "&DeDistricts=" + deDistrictCodes.toString() + "#DeDistrictChart"
+		// For each country code we fetch the data
+		for (let i = 0; i < deDistrictCodes.length; i++) {
+			promises.push(fetchData('DeDistrict', deDistrictCodes[i], data_object_DE_districts));
+		}
 
-		const deDistrictDataObject = {}; // We store all the data in an object
+		// Wait for all async promises to be done (all data is fetched)
+		// sets the deDistrictCodes to default value
+		// then refreshes the chart
+		Promise.all(promises).then(function () {
+			console.log("eCharts DeDistricts: all data fetched");
+			refreshDeDistrictsChart(
+				eChart_DeDistricts,
+				deDistrictCodes,
+				data_object_DE_districts,
+				select_yAxisProperty_DeDistricts,
+				select_sorting_DeDistricts,
+				update_url = false
+			)
+		});
 
+		// chart parameter option lists
+		// const options_xAxisProperty
 		const options_yAxisProperty_DeDistricts = [
 			"Cases_Last_Week_Per_Million",
 			"Cases_Per_Million",
@@ -487,47 +495,29 @@
 		];
 		const select_yAxisProperty_DeDistricts = document.getElementById("sel_y_axis_field_DeDistricts");
 		setOptionsToSelect(select_yAxisProperty_DeDistricts, options_yAxisProperty_DeDistricts, "");
-		select_yAxisProperty_DeDistricts.onchange = function () { refreshDeDistrictsChartWrapper() };
-		const options_eCharts_sorting = [
-			"Sort_by_name",
-			"Sort_by_value"
-		]
 		const select_sorting_DeDistricts = document.getElementById("sel_sorting_DeDistricts");
 		setOptionsToSelect(select_sorting_DeDistricts, options_eCharts_sorting, "");
-		select_sorting_DeDistricts.onchange = function () { refreshDeDistrictsChartWrapper() };
 
 		if ('yAxis' in urlParams && options_yAxisProperty_DeDistricts.indexOf(urlParams.yAxis) > -1) {
 			select_yAxisProperty_DeDistricts.value = urlParams.yAxis;
 		}
-
-		// const dom = document.getElementById("eChartsDeDistrictsContainer");
-		const eChartDeDistricts = echarts.init(document.getElementById("eChartsDeDistrictsContainer"));
-
-		// For each country code we fetch the data
-		for (let i = 0; i < deDistrictCodes.length; i++) {
-			promises.push(fetchData('DeDistrict', deDistrictCodes[i], deDistrictDataObject));
+		if ('Sort' in urlParams && options_eCharts_sorting.indexOf(urlParams.Sort) > -1) {
+			select_sorting_DeDistricts.value = urlParams.Sort;
 		}
 
-		// Wait for all async promises to be done (all data is fetched)
-		// sets the deDistrictCodes to default value
-		// then refreshes the chart
-		Promise.all(promises).then(function () {
-			console.log("eCharts DeDistricts: all data fetched");
-			//refreshDeDistrictsChartWrapper();
-			refreshDeDistrictsChartWrapper();
-		});
+		select_yAxisProperty_DeDistricts.onchange = function () { refreshDeDistrictsChartWrapper() };
+		select_sorting_DeDistricts.onchange = function () { refreshDeDistrictsChartWrapper() };
+
+
 		// Wraps the refreshChart function so it is more readable, takes less space
 		function refreshDeDistrictsChartWrapper() {
 			refreshDeDistrictsChart(
-				eChartDeDistricts,
+				eChart_DeDistricts,
 				deDistrictCodes,
-				deDistrictDataObject,
-				// select_xAxisProperty,
+				data_object_DE_districts,
 				select_yAxisProperty_DeDistricts,
-				// select_xAxisTimeRange,
-				// select_xAxisScale,
-				// select_yAxisScale
-				select_sorting_DeDistricts
+				select_sorting_DeDistricts,
+				update_url = true
 			);
 		}
 
@@ -913,9 +903,7 @@
 		JS for eCharts Countries
 	-->
 	<script>
-		// uncommented here, as already created above
-		// array of promises for async fetching, used for eCharts plots
-		// const promises = [];
+		const eChart_countries = echarts.init(document.getElementById("eChartsCountryContainer"));
 
 		// fetch ref list: Country Code -> Country Name
 		var mapCountryNames = {};
@@ -943,10 +931,44 @@
 					console.log("fail: mapCountryNames");
 				});
 		}
-
-		// perform the fetching the ref data
 		promises.push(fetch_mapRefCountryData(mapCountryNames, mapContinentCountries));
 
+		// Initial list of country codes
+		if ('countries' in urlParams) {
+			var countryCodes = urlParams.countries.split(",");
+		} else {
+			// Adding a new country code to this array draws a new line
+			var countryCodes = ["DE"];
+		}
+
+		const data_object_countries = {}; // We store all the data in an object
+
+		// For each country code we fetch the data
+		for (let i = 0; i < countryCodes.length; i++) {
+			promises.push(fetchData('Country', countryCodes[i], data_object_countries));
+		}
+
+		// Wait for all async promises to be done (all data is fetched), 
+		// populates the select dropdowns
+		// refreshes the chart
+		Promise.all(promises).then(function () {
+			console.log("eCharts Countries: all data fetched");
+			populateCountrySelects();
+			refreshCountryChart(
+				eChart_countries,
+				countryCodes,
+				data_object_countries,
+				select_xAxisProperty,
+				select_yAxisProperty,
+				select_xAxisTimeRange,
+				select_xAxisScale,
+				select_yAxisScale,
+				select_sorting_Countries,
+				update_url = false
+			)
+		});
+
+		// chart parameter option lists
 		const options_xAxisProperty = [
 			"Date",
 			"Days_Since_2nd_Death",
@@ -994,16 +1016,12 @@
 		];
 
 		const options_axis_scales = [
-			{ value: "logscale", text: "logarithmic" },
 			{ value: "linscale", text: "linear" },
+			{ value: "logscale", text: "logarithmic" },
 		];
 
 		const select_sorting_Countries = document.getElementById("sel_sorting_Countries");
 		setOptionsToSelect(select_sorting_Countries, options_eCharts_sorting, "");
-		select_sorting_Countries.onchange = function () {
-			//select_sorting_DeDistricts.value = this.value;
-			refreshCountryChartWrapper()
-		};
 
 		// axis selects
 		const select_xAxisProperty = document.getElementById("sel_x_axis_field");
@@ -1019,20 +1037,22 @@
 		setOptionsToSelect(select_xAxisScale, options_axis_scales, "");
 		setOptionsToSelect(select_yAxisScale, options_axis_scales, "");
 
+		if ('yAxis' in urlParams && options_yAxisProperty.indexOf(urlParams.yAxis) > -1) {
+			select_yAxisProperty.value = urlParams.yAxis;
+		}
+		if ('Sort' in urlParams && options_eCharts_sorting.indexOf(urlParams.Sort) > -1) {
+			select_sorting_Countries.value = urlParams.Sort;
+		}
+
 		// If the value of a select changes refresh the chart
 		select_xAxisProperty.onchange = function () { refreshCountryChartWrapper() };
 		select_yAxisProperty.onchange = function () { refreshCountryChartWrapper() };
 		select_xAxisTimeRange.onchange = function () { refreshCountryChartWrapper() };
 		select_xAxisScale.onchange = function () { refreshCountryChartWrapper() };
 		select_yAxisScale.onchange = function () { refreshCountryChartWrapper() };
+		select_sorting_Countries.onchange = function () { refreshCountryChartWrapper() };
 
-		// TODO
-		// if (urlParams.has('yAxis') && options_yAxisProperty.indexOf(urlParams.get('yAxis')) > -1) {
-		// 	select_yAxisProperty.value = urlParams.get('yAxis');
-		// }
-		if ('yAxis' in urlParams && options_yAxisProperty.indexOf(urlParams.yAxis) > -1) {
-			select_yAxisProperty.value = urlParams.yAxis;
-		}
+
 
 		// country arrays
 		var options_countries_africa = [];
@@ -1066,54 +1086,21 @@
 		// select_countries_oceania.onchange = function () { new_country_selected(countryCodes, select_countries_oceania, options_countries_oceania) };
 
 
-		// Initial list of country codes
-		// Adding a new country code to this array draws a new line
 
-		if ('countries' in urlParams) {
-			var countryCodes = urlParams.countries.split(",");
-		} else {
-			var countryCodes = ["DE"];
-		}
-		// if (urlParams.has('countries')) {
-		// 	var countryCodes = urlParams.get('countries').split(",");
-		// 	// console.log(countryCodes);
-		// } else {
-		// 	var countryCodes = ["DE"];
-		// }
-
-
-
-		const countriesDataObject = {}; // We store all the data in an object
-
-		// const dom = document.getElementById("eChartsCountryContainer");
-		const eChartCountries = echarts.init(document.getElementById("eChartsCountryContainer"));
-
-		// For each country code we fetch the data
-		for (let i = 0; i < countryCodes.length; i++) {
-			promises.push(fetchData('Country', countryCodes[i], countriesDataObject));
-		}
-
-		// Wait for all async promises to be done (all data is fetched), 
-		// populates the select dropdowns
-		// refreshes the chart
-		Promise.all(promises).then(function () {
-			console.log("eCharts Countries: all data fetched");
-			populateCountrySelects();
-			refreshCountryChartWrapper();
-		});
 
 		// Wraps the refreshChart function so it is more readable, takes less space
 		function refreshCountryChartWrapper() {
 			refreshCountryChart(
-				eChartCountries,
+				eChart_countries,
 				countryCodes,
-				countriesDataObject,
+				data_object_countries,
 				select_xAxisProperty,
 				select_yAxisProperty,
 				select_xAxisTimeRange,
 				select_xAxisScale,
 				select_yAxisScale,
-				select_sorting_Countries
+				select_sorting_Countries,
+				update_url = true
 			);
 		}
 	</script>
