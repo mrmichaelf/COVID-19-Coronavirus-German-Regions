@@ -152,23 +152,23 @@
   "Slope_Deaths_New_Per_Million": -0.1
  },
  {
-  "Cases": 17269,
-  "Cases_Last_Week": 2866,
-  "Cases_Last_Week_Per_Million": 114,
-  "Cases_New": 0,
-  "Cases_Per_Million": 690,
+  "Cases": 17895,
+  "Cases_Last_Week": 3492,
+  "Cases_Last_Week_Per_Million": 139,
+  "Cases_New": 615,
+  "Cases_Per_Million": 716,
   "Code": "AU",
   "Continent": "Oceania",
   "Country": "Australia",
   "Date_Latest": "2020-08-01",
-  "Deaths": 201,
-  "Deaths_Last_Week": 46,
-  "Deaths_Last_Week_Per_Million": 1.84,
-  "Deaths_New": 0,
+  "Deaths": 208,
+  "Deaths_Last_Week": 53,
+  "Deaths_Last_Week_Per_Million": 2.12,
+  "Deaths_New": 7,
   "Deaths_Per_Million": 8,
   "Population": 24992369,
-  "Slope_Cases_New_Per_Million": 0.05,
-  "Slope_Deaths_New_Per_Million": 0.01
+  "Slope_Cases_New_Per_Million": 0.73,
+  "Slope_Deaths_New_Per_Million": 0.02
  },
  {
   "Cases": 21212,
@@ -2511,7 +2511,7 @@
   "Cases": 98232,
   "Cases_Last_Week": 19820,
   "Cases_Last_Week_Per_Million": 185,
-  "Cases_New": 12746,
+  "Cases_New": 4878,
   "Cases_Per_Million": 921,
   "Code": "PH",
   "Continent": "Asia",
@@ -2520,11 +2520,11 @@
   "Deaths": 2039,
   "Deaths_Last_Week": 142,
   "Deaths_Last_Week_Per_Million": 1.33,
-  "Deaths_New": 77,
+  "Deaths_New": 16,
   "Deaths_Per_Million": 19,
   "Population": 106651922,
-  "Slope_Cases_New_Per_Million": 2.13,
-  "Slope_Deaths_New_Per_Million": 0.0
+  "Slope_Cases_New_Per_Million": 1.63,
+  "Slope_Deaths_New_Per_Million": -0.0
  },
  {
   "Cases": 46346,
