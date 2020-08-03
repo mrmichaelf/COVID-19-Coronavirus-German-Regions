@@ -190,7 +190,7 @@ for row in cur.execute("SELECT email, verified, hash, threshold, regions, freque
         # table footer
         mailBody += f"Datenstand: {dataDate}\n"
         mailBody += "Einheiten: Neu-Infektionen letzte Woche, ¹relativ pro 100.000 Einwohner / ²Absolut\n"
-        mailBody += f"\nZeitverlauf Deiner ausgewählten Landkreise: https://entorb.net/COVID-19-coronavirus/?yAxis=Cases_Last_Week_Per_Million&DeDistricts={s_this_regions}#DeDistrictChart\n"
+        mailBody += f"\nZeitverlauf Deiner ausgewählten Landkreise: https://entorb.net/COVID-19-coronavirus/?yAxis=Cases_Last_Week_Per_Million&DeDistricts={s_this_regions}&Sort=Sort_by_last_value#DeDistrictChart\n"
 
         # create a new hash
         # add management link including new hash
