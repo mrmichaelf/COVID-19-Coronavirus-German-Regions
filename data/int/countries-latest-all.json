@@ -3322,7 +3322,7 @@
   "Deaths_Per_Million": 36,
   "Population": 9630959,
   "Slope_Cases_New_Per_Million": 0.08,
-  "Slope_Deaths_New_Per_Million": 0.0
+  "Slope_Deaths_New_Per_Million": -0.0
  },
  {
   "Cases": 306309,
