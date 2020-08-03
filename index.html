@@ -385,11 +385,19 @@
 
 	<h4><a id="DeDistrictChart"></a>Interaktiver Landkreis Vergleich</h4>
 
-	<p>Landkreise und Städte in obiger <a href="#DeDistrictTable">Tabelle</a> auswählen.</p>
-	<form> y_Achse: <select id="sel_y_axis_field_DeDistricts" name="sel_y_axis_field_DeDistricts" style="width:200px"></select>
-		<select id="sel_sorting_DeDistricts" name="sel_sorting_DeDistricts" style="width:200px"></select>
-		<input type="reset" onclick="resetDeDistrictsChart()">
-	</form>
+	<p>Landkreise und Städte in obiger <a href="#DeDistrictTable">Tabelle</a> auswählen. Mit dem Button über der Legende kann in die Daten hinein gezoomt werden.</p>
+	<table>
+		<tr>
+			<td>y-Achse:</td>
+			<td><select id="sel_y_axis_field_DeDistricts" name="sel_y_axis_field_DeDistricts" style="width:200px"></select></td>
+			<td><select id="sel_sorting_DeDistricts" name="sel_sorting_DeDistricts" style="width:200px"></select></td>
+		</tr>
+		<tr>
+			<td>x-Achse:</td>
+			<td><select id="sel_x_axis_time_range_DeDistricts" name="sel_x_axis_time_range_DeDistricts" style="width:200px"> </select></td>
+			<td><input type="reset" onclick="resetDeDistrictsChart()"></td>
+		</tr>
+	</table>
 	<div id="eChartsDeDistrictsContainer" style="height: 600px; width:1000px; background-color: white;"></div>
 	<small> generated via <a href="https://echarts.apache.org" target="_blank">eCharts</a>, raw data can be found <a href="https://github.com/entorb/COVID-19-Coronavirus-German-Regions/tree/master/data/de-districts" target="_blank">here</a>
 	</small>
@@ -460,20 +468,7 @@
 			promises.push(fetchData('DeDistrict', deDistrictCodes[i], data_object_DE_districts));
 		}
 
-		// Wait for all async promises to be done (all data is fetched)
-		// sets the deDistrictCodes to default value
-		// then refreshes the chart
-		Promise.all(promises).then(function () {
-			console.log("eCharts DeDistricts: all data fetched");
-			refreshDeDistrictsChart(
-				eChart_DeDistricts,
-				deDistrictCodes,
-				data_object_DE_districts,
-				select_yAxisProperty_DeDistricts,
-				select_sorting_DeDistricts,
-				update_url = false
-			)
-		});
+
 
 		// chart parameter option lists
 		// const options_xAxisProperty
@@ -497,6 +492,13 @@
 		setOptionsToSelect(select_yAxisProperty_DeDistricts, options_yAxisProperty_DeDistricts, "");
 		const select_sorting_DeDistricts = document.getElementById("sel_sorting_DeDistricts");
 		setOptionsToSelect(select_sorting_DeDistricts, options_eCharts_sorting, "");
+		const select_xAxisTimeRange_DeDistricts = document.getElementById("sel_x_axis_time_range_DeDistricts");
+		const options_xaxis_time_range_DeDistricts = [
+			{ value: "12weeks", text: "12 Wochen" },
+			{ value: "4weeks", text: "4 Wochen" },
+			{ value: "all", text: "ganzer Zeitraum" },
+		];
+		setOptionsToSelect(select_xAxisTimeRange_DeDistricts, options_xaxis_time_range_DeDistricts, "");
 
 		if ('yAxis' in urlParams && options_yAxisProperty_DeDistricts.indexOf(urlParams.yAxis) > -1) {
 			select_yAxisProperty_DeDistricts.value = urlParams.yAxis;
@@ -507,7 +509,24 @@
 
 		select_yAxisProperty_DeDistricts.onchange = function () { refreshDeDistrictsChartWrapper() };
 		select_sorting_DeDistricts.onchange = function () { refreshDeDistrictsChartWrapper() };
+		select_xAxisTimeRange_DeDistricts.onchange = function () { refreshDeDistrictsChartWrapper() };
 
+
+		// Wait for all async promises to be done (all data is fetched)
+		// sets the deDistrictCodes to default value
+		// then refreshes the chart
+		Promise.all(promises).then(function () {
+			console.log("eCharts DeDistricts: all data fetched");
+			refreshDeDistrictsChart(
+				eChart_DeDistricts,
+				deDistrictCodes,
+				data_object_DE_districts,
+				select_yAxisProperty_DeDistricts,
+				select_xAxisTimeRange_DeDistricts,
+				select_sorting_DeDistricts,
+				update_url = false
+			)
+		});
 
 		// Wraps the refreshChart function so it is more readable, takes less space
 		function refreshDeDistrictsChartWrapper() {
@@ -516,6 +535,7 @@
 				deDistrictCodes,
 				data_object_DE_districts,
 				select_yAxisProperty_DeDistricts,
+				select_xAxisTimeRange_DeDistricts,
 				select_sorting_DeDistricts,
 				update_url = true
 			);

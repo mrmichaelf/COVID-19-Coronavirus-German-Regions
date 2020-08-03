@@ -386,6 +386,7 @@ function refreshDeDistrictsChart(
   codes,
   dataObject,
   select_yAxisProperty,
+  select_xAxisTimeRange,
   select_sorting,
   update_url
 ) {
@@ -503,6 +504,33 @@ function refreshDeDistrictsChart(
     option.title.subtext = "by Torben https://entorb.net based on DIVI data";
 
   }
+
+
+  // Time restriction for X Axis only
+  if (select_xAxisTimeRange.value == "4weeks") {
+    const daysOffset = - 4 * 7;
+    const daysInterval = 7;
+    // fetch latest date of first data series as basis
+    const s_data_last_date = option.series[0].data[option.series[0].data.length - 1][0];
+    const ts_last_date = Date.parse(s_data_last_date);
+    var minDate = new Date(ts_last_date);
+    minDate.setDate(minDate.getDate() + daysOffset);
+    option.xAxis.min = minDate;
+    option.xAxis.interval = 3600 * 1000 * 24 * daysInterval;
+  } else if (select_xAxisTimeRange.value == "12weeks") {
+    const daysOffset = - 12 * 7;
+    const daysInterval = 14;
+    // fetch latest date of first data series as basis
+    const s_data_last_date = option.series[0].data[option.series[0].data.length - 1][0];
+    const ts_last_date = Date.parse(s_data_last_date);
+    var minDate = new Date(ts_last_date);
+    minDate.setDate(minDate.getDate() + daysOffset);
+    option.xAxis.min = minDate;
+    option.xAxis.interval = 3600 * 1000 * 24 * daysInterval;
+  }
+
+
+
 
 
   chart.clear(); // needed as setOption does not reliable remove all old data, see https://github.com/apache/incubator-echarts/issues/6202#issuecomment-460322781
