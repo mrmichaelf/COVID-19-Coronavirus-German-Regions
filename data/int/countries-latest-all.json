@@ -152,23 +152,23 @@
   "Slope_Deaths_New_Per_Million": -0.11
  },
  {
-  "Cases": 17938,
-  "Cases_Last_Week": 3003,
-  "Cases_Last_Week_Per_Million": 120,
-  "Cases_New": 43,
-  "Cases_Per_Million": 717,
+  "Cases": 18318,
+  "Cases_Last_Week": 3383,
+  "Cases_Last_Week_Per_Million": 135,
+  "Cases_New": 423,
+  "Cases_Per_Million": 732,
   "Code": "AU",
   "Continent": "Oceania",
   "Country": "Australia",
   "Date_Latest": "2020-08-02",
-  "Deaths": 208,
-  "Deaths_Last_Week": 47,
-  "Deaths_Last_Week_Per_Million": 1.88,
-  "Deaths_New": 0,
+  "Deaths": 221,
+  "Deaths_Last_Week": 60,
+  "Deaths_Last_Week_Per_Million": 2.4,
+  "Deaths_New": 13,
   "Deaths_Per_Million": 8,
   "Population": 24992369,
-  "Slope_Cases_New_Per_Million": 0.05,
-  "Slope_Deaths_New_Per_Million": 0.0
+  "Slope_Cases_New_Per_Million": 0.47,
+  "Slope_Deaths_New_Per_Million": 0.02
  },
  {
   "Cases": 21304,
@@ -685,8 +685,8 @@
  },
  {
   "Cases": 317651,
-  "Cases_Last_Week": 76856,
-  "Cases_Last_Week_Per_Million": 1547,
+  "Cases_Last_Week": 68675,
+  "Cases_Last_Week_Per_Million": 1383,
   "Cases_New": 11470,
   "Cases_Per_Million": 6397,
   "Code": "CO",
@@ -694,13 +694,13 @@
   "Country": "Colombia",
   "Date_Latest": "2020-08-02",
   "Deaths": 10650,
-  "Deaths_Last_Week": 2381,
-  "Deaths_Last_Week_Per_Million": 47.96,
+  "Deaths_Last_Week": 2125,
+  "Deaths_Last_Week_Per_Million": 42.8,
   "Deaths_New": 320,
   "Deaths_Per_Million": 214,
   "Population": 49648685,
-  "Slope_Cases_New_Per_Million": 7.43,
-  "Slope_Deaths_New_Per_Million": 0.16
+  "Slope_Cases_New_Per_Million": 6.7,
+  "Slope_Deaths_New_Per_Million": 0.14
  },
  {
   "Cases": 386,
